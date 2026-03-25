@@ -1,0 +1,9 @@
+export { default as ServicesLayout } from './ServicesLayout';
+export { default as WebsiteDevelopment } from './WebsiteDevelopment';
+export { default as ShopifyDevelopment } from './ShopifyDevelopment';
+export { default as SEOOptimization } from './SEOOptimization';
+export { default as EcommerceWebsite } from './EcommerceWebsite';
+export { default as PPCServices } from './PPCServices';
+export { default as AppDevelopment } from './AppDevelopment';
+export { default as SoftwareDevelopment } from './SoftwareDevelopment';
+export { default as DigitalMarketing } from './DigitalMarketing';
