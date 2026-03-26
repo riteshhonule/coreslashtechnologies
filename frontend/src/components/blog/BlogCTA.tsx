@@ -30,7 +30,7 @@ const BlogCTA: React.FC = () => {
                     </div>
 
                     <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight max-w-4xl mx-auto drop-shadow-md">
-                        Let's Build Your Business with Infotelia IT Solutions
+                        Let's Build Your Business with Coreslash Technologies
                     </h2>
 
                     <p className="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">

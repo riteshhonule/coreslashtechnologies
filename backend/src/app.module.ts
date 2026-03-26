@@ -1,4 +1,4 @@
-﻿import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -30,7 +30,7 @@ import { ContactsModule } from './contacts/contacts.module';
           port: parseInt(config.get<string>('DB_PORT', '3306')),
           username: config.get<string>('DB_USER', 'root'),
           password: config.get<string>('DB_PASS', ''),
-          database: config.get<string>('DB_NAME', 'InfoteliaITSolutions'),
+          database: config.get<string>('DB_NAME', 'CoreslashTechnologies'),
           autoLoadEntities: true,
           synchronize: true,
         };

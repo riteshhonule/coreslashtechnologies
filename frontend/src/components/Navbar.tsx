@@ -1,11 +1,11 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { FaWhatsapp } from "react-icons/fa";
 
 
-import logo from "../img/InfoteliaITSolutions-solutions-main-logo.png";
+import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,7 +57,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-3 group">
             <img
               src={logo}
-              alt="Infotelia IT Solutions Logo"
+              alt="Coreslash Technologies Logo"
               className="h-10 w-auto object-contain transition-all duration-300"
             />
           </Link>
@@ -176,7 +176,7 @@ export default function Navbar() {
             </span>
 
             <span className="text-sm leading-none">
-              →
+              ?
             </span>
 
           </a>

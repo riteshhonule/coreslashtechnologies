@@ -1,12 +1,12 @@
-﻿import googlePartner from "../img/leads/InfoteliaITSolutions-solutions-Google-Partner.webp";
-import metaPartner from "../img/leads/InfoteliaITSolutions-solutions-Meta-Business-Partner.webp";
+import googlePartner from "../img/leads/CoreslashTechnologies-solutions-Google-Partner.webp";
+import metaPartner from "../img/leads/CoreslashTechnologies-solutions-Meta-Business-Partner.webp";
 
-import person1 from "../img/leads/InfoteliaITSolutions_no_1_company_ (1).png";
-import person2 from "../img/leads/InfoteliaITSolutions_no_1_company_ (2).png";
-import person3 from "../img/leads/InfoteliaITSolutions_no_1_company_ (3).png";
-import person4 from "../img/leads/InfoteliaITSolutions_no_1_company_ (4).png";
+import person1 from "../img/leads/CoreslashTechnologies_no_1_company_ (1).png";
+import person2 from "../img/leads/CoreslashTechnologies_no_1_company_ (2).png";
+import person3 from "../img/leads/CoreslashTechnologies_no_1_company_ (3).png";
+import person4 from "../img/leads/CoreslashTechnologies_no_1_company_ (4).png";
 
-import bgImage from "../img/process/InfoteliaITSolutionstechnologiesstep4.avif"; // your background image
+import bgImage from "../img/process/CoreslashTechnologiestechnologiesstep4.avif"; // your background image
 
 
 export default function LeadSection() {
@@ -130,10 +130,10 @@ export default function LeadSection() {
 
 
                                         {[1, 2, 3, 4].map((i) => (
-                                            <span key={i} className="star">★</span>
+                                            <span key={i} className="star">?</span>
                                         ))}
 
-                                        <span className="star half">★</span>
+                                        <span className="star half">?</span>
 
 
                                     </div>

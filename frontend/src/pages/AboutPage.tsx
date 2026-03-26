@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import ChevronDownIcon from "@heroicons/react/24/outline/ChevronDownIcon";
@@ -8,9 +8,9 @@ import EyeIcon from "@heroicons/react/24/outline/EyeIcon";
 import HeartIcon from "@heroicons/react/24/outline/HeartIcon";
 import RocketLaunchIcon from "@heroicons/react/24/outline/RocketLaunchIcon";
 import Services from "../components/Services";
-import teamCollaborationImg from "../img/process/InfoteliaITSolutionstechnologiesstep4.avif";
-import omPatil from "../img/review/InfoteliaITSolutions-om.png";
-import InfoteliaITSolutionsIcon from "../img/InfoteliaITSolutions_icon.webp";
+import teamCollaborationImg from "../img/process/CoreslashTechnologiestechnologiesstep4.avif";
+import omPatil from "../img/review/CoreslashTechnologies-om.png";
+import CoreslashTechnologiesIcon from "../img/CoreslashTechnologies_icon.webp";
 
 
 
@@ -145,7 +145,7 @@ const AboutPage = () => {
     {
       name: "Om Patil",
       role: "Owner, Om Patil Crane Service",
-      text: "Infotelia IT Solutions created our crane service website and improved our Google presence. Now we receive regular client inquiries. Best IT solutions company in Belagavi.",
+      text: "Coreslash Technologies created our crane service website and improved our Google presence. Now we receive regular client inquiries. Best IT solutions company in Belagavi.",
       img: omPatil
     },
 
@@ -153,14 +153,14 @@ const AboutPage = () => {
       name: "Abhishek Patil",
       role: "Tax Consultant, Abhishek Patil Tax Consultant",
       text: "They built a professional website for my tax consultancy and helped increase my online visibility. I am getting more client calls than ever before.",
-      img: InfoteliaITSolutionsIcon
+      img: CoreslashTechnologiesIcon
     },
 
     {
       name: "Yash Kangralkar",
       role: "Owner, Kangralkar Mess",
-      text: "Infotelia IT Solutions helped promote our mess business online. Our reach increased and more students contact us daily. Highly recommended digital marketing company.",
-      img: InfoteliaITSolutionsIcon
+      text: "Coreslash Technologies helped promote our mess business online. Our reach increased and more students contact us daily. Highly recommended digital marketing company.",
+      img: CoreslashTechnologiesIcon
     },
 
   ];
@@ -208,7 +208,7 @@ const AboutPage = () => {
             transition={{ delay: 0.2 }}
             className="text-base md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Infotelia IT Solutions is a premier digital agency crafting enterprise-grade software and immersive brand experiences for the modern web.
+            Coreslash Technologies is a premier digital agency crafting enterprise-grade software and immersive brand experiences for the modern web.
           </motion.p>
 
           <motion.div
@@ -265,7 +265,7 @@ const AboutPage = () => {
               align="left"
             />
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Founded with a vision to bridge the gap between complex technology and human-centric design, Infotelia has grown from a small studio to a global partner for innovation. We don't just build software; we build relationships and sustainable digital ecosystems.
+              Founded with a vision to bridge the gap between complex technology and human-centric design, Coreslash has grown from a small studio to a global partner for innovation. We don't just build software; we build relationships and sustainable digital ecosystems.
             </p>
           </motion.div>
         </div>

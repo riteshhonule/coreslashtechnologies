@@ -1,8 +1,8 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, CheckCircle } from "lucide-react";
 import { useModal } from "../context/ModalContext";
-import person1 from "../img/review/InfoteliaITSolutions-om.png"
-import InfoteliaITSolutionsIcon from "../img/InfoteliaITSolutions_icon.webp";
+import person1 from "../img/review/CoreslashTechnologies-om.png"
+import CoreslashTechnologiesIcon from "../img/CoreslashTechnologies_icon.webp";
 
 
 interface Review {
@@ -22,7 +22,7 @@ const reviews: Review[] = [
         businessName: "Om Patil Crane Service",
         location: "Belagavi, Karnataka",
         rating: 5,
-        text: "Infotelia IT Solutions built our professional website and improved our online presence. Now we receive regular crane service inquiries from Google. Highly recommended IT solutions company in Belagavi.",
+        text: "Coreslash Technologies built our professional website and improved our online presence. Now we receive regular crane service inquiries from Google. Highly recommended IT solutions company in Belagavi.",
         image: person1
     },
     {
@@ -32,7 +32,7 @@ const reviews: Review[] = [
         location: "Belagavi, Karnataka",
         rating: 5,
         text: "They created a modern website for my tax consultancy and helped my business rank on Google. I am getting more client calls than before. Best website development company in Belagavi.",
-        image: InfoteliaITSolutionsIcon
+        image: CoreslashTechnologiesIcon
     },
     {
         id: 3,
@@ -40,8 +40,8 @@ const reviews: Review[] = [
         businessName: "Kangralkar Mess",
         location: "Belagavi, Karnataka",
         rating: 5,
-        text: "Infotelia IT Solutions helped promote our mess service online and improved our visibility. More students are contacting us daily. Excellent digital marketing service and great support.",
-        image: InfoteliaITSolutionsIcon
+        text: "Coreslash Technologies helped promote our mess service online and improved our visibility. More students are contacting us daily. Excellent digital marketing service and great support.",
+        image: CoreslashTechnologiesIcon
     },
     // {
     //     id: 4,
@@ -58,7 +58,7 @@ const reviews: Review[] = [
     //     businessName: "Coastal Foods",
     //     location: "Mangalore, Karnataka",
     //     rating: 5,
-    //     text: "The website they built is extremely fast and mobile-responsive. Our online orders have doubled since the launch. Great job, InfoteliaITSolutions team!",
+    //     text: "The website they built is extremely fast and mobile-responsive. Our online orders have doubled since the launch. Great job, CoreslashTechnologies team!",
     //     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&auto=format&fit=crop"
     // },
     // {

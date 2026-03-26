@@ -1,4 +1,4 @@
-﻿
+
 
 // import { useState } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +8,7 @@
 //     id: 1,
 //     title: "Exam Portal",
 //     category: "Education Platform",
-//     img: "/img/project/InfoteliaITSolutionstechnologiesoec.png",
+//     img: "/img/project/CoreslashTechnologiestechnologiesoec.png",
 //     description: "A complete online examination and assessment system designed for schools, institutes, and organizations. It allows student registration, exam scheduling, secure test participation, automated evaluation, instant result generation, performance analytics, and administrative control through a centralized dashboard.",
 //     link: "https://olympiadexamination.org/"
 //   },
@@ -16,7 +16,7 @@
 //     id: 2,
 //     title: "Surekha Lawns",
 //     category: "Booking System",
-//     img: "/img/project/InfoteliaITSolutionstechnologiessurekha.png",
+//     img: "/img/project/CoreslashTechnologiestechnologiessurekha.png",
 //     description: "A smart venue booking platform developed for event and wedding lawn management. It enables users to explore venue details, check availability in real time, view gallery and pricing, submit booking requests, and allows administrators to manage bookings, inquiries, and customer communication efficiently.",
 //     link: "#"
 //   },
@@ -24,7 +24,7 @@
 //     id: 3,
 //     title: "CSR Portal",
 //     category: "Management System",
-//     img: "/img/project/InfoteliaITSolutionstechnologiescsr.png",
+//     img: "/img/project/CoreslashTechnologiestechnologiescsr.png",
 //     description: "A centralized Corporate Social Responsibility management system built for organizations to handle CSR initiatives digitally. It supports application submission, project tracking, document management, approval workflows, reporting, and transparency in CSR operations with a structured administrative interface.",
 //     link: "#"
 //   },
@@ -32,7 +32,7 @@
 //     id: 4,
 //     title: "Honorary Doctorate Portal",
 //     category: "Nomination Platform",
-//     img: "/img/project/InfoteliaITSolutionstechnologiesshadi.png",
+//     img: "/img/project/CoreslashTechnologiestechnologiesshadi.png",
 //     description: "A specialized web platform designed to manage honorary doctorate nominations and verification processes. It allows applicants to submit profiles, upload documents, track application status, and enables administrators to review, verify, approve, and manage the entire nomination lifecycle securely.",
 //     link: "#"
 //   },
@@ -90,7 +90,7 @@
 //               href="/portfolio"
 //               className="inline-flex items-center gap-2 text-gray-900 font-bold hover:text-blue-600 transition-colors"
 //             >
-//               View All Projects <span>→</span>
+//               View All Projects <span>?</span>
 //             </a>
 //           </motion.div>
 //         </div>
@@ -164,7 +164,7 @@
 //                   className="absolute top-6 right-6 p-3 rounded-full bg-black/20 backdrop-blur-md text-white hover:bg-black/40 transition-colors"
 //                   onClick={() => setActive(null)}
 //                 >
-//                   ✕
+//                   ?
 //                 </button>
 //               </div>
 //               <div className="p-10">
@@ -184,7 +184,7 @@
 //                     onClick={(e) => active.link === "#" && e.preventDefault()}
 //                   >
 //                     Visit Live Project
-//                     {active.link !== "#" && <span>→</span>}
+//                     {active.link !== "#" && <span>?</span>}
 //                   </a>
 //                 </div>
 //               </div>
@@ -207,7 +207,7 @@ const items = [
     id: 1,
     title: "Exam Portal",
     category: "Education Platform",
-    img: "/img/project/InfoteliaITSolutionstechnologiesoec.png",
+    img: "/img/project/CoreslashTechnologiestechnologiesoec.png",
     description:
       "A complete online examination and assessment system designed for schools, institutes, and organizations.",
     link: "https://olympiadexamination.org/"
@@ -216,7 +216,7 @@ const items = [
     id: 2,
     title: "Surekha Lawns",
     category: "Booking System",
-    img: "/img/project/InfoteliaITSolutionstechnologiessurekha.png",
+    img: "/img/project/CoreslashTechnologiestechnologiessurekha.png",
     description:
       "A smart venue booking platform developed for event and wedding lawn management.",
     link: "#"
@@ -225,7 +225,7 @@ const items = [
     id: 3,
     title: "CSR Portal",
     category: "Management System",
-    img: "/img/project/InfoteliaITSolutionstechnologiescsr.png",
+    img: "/img/project/CoreslashTechnologiestechnologiescsr.png",
     description:
       "A centralized Corporate Social Responsibility management system.",
     link: "#"
@@ -234,7 +234,7 @@ const items = [
     id: 4,
     title: "Honorary Doctorate Portal",
     category: "Nomination Platform",
-    img: "/img/project/InfoteliaITSolutionstechnologiesshadi.png",
+    img: "/img/project/CoreslashTechnologiestechnologiesshadi.png",
     description:
       "A specialized web platform designed to manage honorary doctorate nominations.",
     link: "#"
@@ -363,7 +363,7 @@ export default function Portfolio() {
           View All Projects
 
           <span className="transition-transform duration-300 hover:translate-x-1">
-            →
+            ?
           </span>
 
         </motion.a>
@@ -418,7 +418,7 @@ export default function Portfolio() {
 
                   {/* <span className="opacity-0 group-hover:opacity-100">
 
-                    View Project →
+                    View Project ?
 
                   </span> */}
 
@@ -440,7 +440,7 @@ transition-all duration-500 ease-out
                     View Project
 
                     <span className="transition-transform duration-300 md:group-hover:translate-x-1">
-                      →
+                      ?
                     </span>
 
                   </span>
@@ -546,7 +546,7 @@ transition-all duration-500 ease-out
 
                 >
 
-                  ✕
+                  ?
 
                 </button>
 
@@ -603,7 +603,7 @@ ${active.link === "#"
 
                 >
 
-                  Visit Live Project →
+                  Visit Live Project ?
 
                 </a>
 

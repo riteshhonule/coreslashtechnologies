@@ -125,9 +125,9 @@ const BlogDetailPage: React.FC = () => {
                                 {post.description}
                             </p>
 
-                            <h2 className="text-3xl font-black text-slate-900 mt-12 mb-6">Expert Insights from Infotelia IT Solutions</h2>
+                            <h2 className="text-3xl font-black text-slate-900 mt-12 mb-6">Expert Insights from Coreslash Technologies</h2>
                             <p className="mb-8">
-                                Infotelia IT Solutions, based in Bangalore, Belagavi, and Hubli, has been at the forefront of digital transformation.
+                                Coreslash Technologies, based in Bangalore, Belagavi, and Hubli, has been at the forefront of digital transformation.
                                 As the best digital marketing company in Bangalore, we've seen how businesses in India are evolving to adopt newer technologies like AI and advanced SEO strategies.
                             </p>
 

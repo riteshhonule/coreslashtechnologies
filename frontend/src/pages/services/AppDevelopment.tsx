@@ -1,11 +1,11 @@
-﻿
+
 import React from "react";
 import { motion } from "framer-motion";
 import AppFeaturesSection from "../../components/AppFeaturesSection";
 
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
-import InfoteliaITSolutions_app_development from "../../img/InfoteliaITSolutions-app-development.png";
+import CoreslashTechnologies_app_development from "../../img/CoreslashTechnologies-app-development.png";
 
 
 
@@ -15,7 +15,7 @@ const packages = [
 
     {
         name: "Basic App Package",
-        price: "₹15,000",
+        price: "?15,000",
         features: [
             "Android App Development",
             "Up to 5 Screens",
@@ -30,7 +30,7 @@ const packages = [
 
     {
         name: "Standard App Package",
-        price: "₹30,000",
+        price: "?30,000",
         highlight: true,
         features: [
             "Android App Development",
@@ -47,7 +47,7 @@ const packages = [
 
     {
         name: "Premium App Package",
-        price: "₹60,000",
+        price: "?60,000",
         features: [
             "Android + iOS App",
             "Unlimited Screens",
@@ -94,7 +94,7 @@ const AppDevelopment: React.FC = () => {
                             <div className="relative w-full overflow-hidden rounded-3xl shadow-xl aspect-video">
 
                                 <img
-                                    src={InfoteliaITSolutions_app_development}
+                                    src={CoreslashTechnologies_app_development}
                                     alt="App Development"
                                     className="w-full h-full object-cover"
                                 />
@@ -121,7 +121,7 @@ const AppDevelopment: React.FC = () => {
 
                             <p className="text-slate-600 text-lg mb-8">
 
-                                Infotelia IT Solutions builds high-performance mobile applications
+                                Coreslash Technologies builds high-performance mobile applications
                                 for startups, businesses, and enterprises. We develop scalable,
                                 secure, and user-friendly apps that help you increase customers,
                                 automate processes, and grow revenue.
@@ -200,7 +200,7 @@ const AppDevelopment: React.FC = () => {
 
                                 {pkg.features.map((f, i) => (
                                     <li key={i} className="text-gray-600 text-sm">
-                                        ✓ {f}
+                                        ? {f}
                                     </li>
                                 ))}
 

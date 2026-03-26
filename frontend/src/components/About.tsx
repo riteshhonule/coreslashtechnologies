@@ -1,8 +1,8 @@
-﻿
+
 
 
 import { motion } from "framer-motion";
-import wall from "../img/InfoteliaITSolutions_wall.png";
+import wall from "../img/CoreslashTechnologies_wall.png";
 
 export default function About() {
   return (
@@ -61,7 +61,7 @@ export default function About() {
             {/* Image */}
             <img
               src={wall} // replace with your image
-              alt="About Infotelia IT Solutions"
+              alt="About Coreslash Technologies"
               className="rounded-2xl shadow-xl w-full max-w-lg object-cover"
             />
 

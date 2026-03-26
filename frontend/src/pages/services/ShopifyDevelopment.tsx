@@ -1,4 +1,4 @@
-﻿
+
 import React from "react";
 import { motion } from "framer-motion";
 import CheckCircleIcon from "@heroicons/react/24/outline/CheckCircleIcon";
@@ -7,11 +7,11 @@ import CreditCardIcon from "@heroicons/react/24/outline/CreditCardIcon";
 import RocketLaunchIcon from "@heroicons/react/24/outline/RocketLaunchIcon";
 import DevicePhoneMobileIcon from "@heroicons/react/24/outline/DevicePhoneMobileIcon";
 import ChartBarIcon from "@heroicons/react/24/outline/ChartBarIcon";
-import razorpay from "../../img/e-commerce/InfoteliaITSolutions-razorpay.webp";
-import stripe from "../../img/e-commerce/InfoteliaITSolutions-stripe.webp";
-import paypal from "../../img/e-commerce/InfoteliaITSolutions-paypal.webp";
-import phonepe from "../../img/e-commerce/InfoteliaITSolutions-phonepe.webp";
-import gpay from "../../img/e-commerce/InfoteliaITSolutions-paytm.webp";
+import razorpay from "../../img/e-commerce/CoreslashTechnologies-razorpay.webp";
+import stripe from "../../img/e-commerce/CoreslashTechnologies-stripe.webp";
+import paypal from "../../img/e-commerce/CoreslashTechnologies-paypal.webp";
+import phonepe from "../../img/e-commerce/CoreslashTechnologies-phonepe.webp";
+import gpay from "../../img/e-commerce/CoreslashTechnologies-paytm.webp";
 
 import ServiceLayout from "./ServicesLayout";
 
@@ -60,7 +60,7 @@ const packages = [
 
     {
         name: "Basic Shopify Store",
-        price: "₹15,000",
+        price: "?15,000",
         features: [
             "Shopify Store Setup",
             "Premium Theme Setup",
@@ -74,7 +74,7 @@ const packages = [
 
     {
         name: "Standard Shopify Store",
-        price: "₹30,000",
+        price: "?30,000",
         highlight: true,
         features: [
             "Custom Shopify Design",
@@ -89,7 +89,7 @@ const packages = [
 
     {
         name: "Premium Shopify Store",
-        price: "₹60,000",
+        price: "?60,000",
         features: [
             "Fully Custom Shopify Store",
             "Unlimited Products",
@@ -139,7 +139,7 @@ const ShopifyDevelopment: React.FC = () => {
                             className="mt-10"
 
                         >
-                            <h2 className="text-4xl font-bold mb-6"> Build Shopify Stores <span className="text-green-600 block"> That Sell More Products </span> </h2> <p className="text-gray-600 text-lg"> Infotelia IT Solutions builds high-converting Shopify websites designed to increase your sales, automate your business, and grow faster. </p>
+                            <h2 className="text-4xl font-bold mb-6"> Build Shopify Stores <span className="text-green-600 block"> That Sell More Products </span> </h2> <p className="text-gray-600 text-lg"> Coreslash Technologies builds high-converting Shopify websites designed to increase your sales, automate your business, and grow faster. </p>
 
                             {/* Heading */}
 

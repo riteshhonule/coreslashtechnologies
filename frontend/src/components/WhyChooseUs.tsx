@@ -1,4 +1,4 @@
-﻿// import InfoteliaITSolutions_solutions from "../img/InfoteliaITSolutions_solutions.png";
+// import CoreslashTechnologies_solutions from "../img/CoreslashTechnologies_solutions.png";
 // export default function WhyChooseUs() {
 //     return (
 //         <section className="relative py-24 bg-white overflow-hidden">
@@ -16,7 +16,7 @@
 //                 {/* Image */}
 //                 <div>
 //                     <img
-//                         src={InfoteliaITSolutions_solutions}
+//                         src={CoreslashTechnologies_solutions}
 //                         alt="office"
 //                         className="rounded-2xl shadow-lg"
 //                     />
@@ -62,7 +62,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, Target, Zap, TrendingUp } from "lucide-react";
-import InfoteliaITSolutions_solutions from "../img/InfoteliaITSolutions_solutions.png";
+import CoreslashTechnologies_solutions from "../img/CoreslashTechnologies_solutions.png";
 
 const features = [
     {
@@ -117,8 +117,8 @@ export default function WhyChooseUs() {
                         className="relative z-10"
                     >
                         <img
-                            src={InfoteliaITSolutions_solutions}
-                            alt="Infotelia IT Solutions Office"
+                            src={CoreslashTechnologies_solutions}
+                            alt="Coreslash Technologies Office"
                             className="rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border-4 md:border-8 border-white object-cover w-full"
                         />
 

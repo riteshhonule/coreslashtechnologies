@@ -1,4 +1,4 @@
-﻿
+
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -15,7 +15,7 @@ import RocketLaunchIcon from "@heroicons/react/24/outline/RocketLaunchIcon";
 
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
-import software_hero_splash from "../../img/software/InfoteliaITSolutions-software.webp"; // Ensure this path is correct
+import software_hero_splash from "../../img/software/CoreslashTechnologies-software.webp"; // Ensure this path is correct
 
 /* ================= DATA ================= */
 
@@ -39,7 +39,7 @@ const packages = [
 
     {
         name: "Basic Software",
-        price: "₹15,000",
+        price: "?15,000",
         features: [
             "Admin panel",
             "Basic dashboard",
@@ -51,7 +51,7 @@ const packages = [
 
     {
         name: "Standard Software",
-        price: "₹35,000",
+        price: "?35,000",
         highlight: true,
         features: [
             "Custom software",
@@ -64,7 +64,7 @@ const packages = [
 
     {
         name: "Premium Software",
-        price: "₹75,000",
+        price: "?75,000",
         features: [
             "Fully custom software",
             "Cloud deployment",
@@ -137,7 +137,7 @@ const SoftwareDevelopment: React.FC = () => {
                         </h2>
 
                         <p className="text-slate-600 text-lg mb-8 leading-relaxed max-w-xl">
-                            Infotelia IT Solutions develops secure, scalable software tailored to your specific business logic. We don't just write code; we solve complex operational bottlenecks.
+                            Coreslash Technologies develops secure, scalable software tailored to your specific business logic. We don't just write code; we solve complex operational bottlenecks.
                         </p>
 
                         {/* Classy Tag Grid */}
@@ -225,7 +225,7 @@ const SoftwareDevelopment: React.FC = () => {
 
                                     {/* Mobile Link */}
                                     <div className="md:hidden flex items-center gap-1 text-[10px] text-blue-400 font-bold uppercase tracking-widest mt-2">
-                                        Deploy →
+                                        Deploy ?
                                     </div>
                                 </div>
 

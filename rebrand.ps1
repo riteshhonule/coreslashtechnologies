@@ -1,6 +1,6 @@
-﻿
-$searchPattern = "InfoteliaITSolutions"
-$replacement = "InfoteliaITSolutions"
+
+$searchPattern = "CoreslashTechnologies"
+$replacement = "CoreslashTechnologies"
 $excludeDirs = @("node_modules", "dist", ".git", ".next", "out")
 
 # List of files to process

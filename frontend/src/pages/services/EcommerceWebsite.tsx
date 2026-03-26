@@ -1,13 +1,13 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircleIcon, RocketLaunchIcon, BriefcaseIcon, GlobeAltIcon } from '@heroicons/react/24/solid';
 import ServiceLayout from './ServicesLayout';
 import ecommerceImg from "../../img/ecommerce-development.jpg";
-import razorpay from "../../img/e-commerce/InfoteliaITSolutions-razorpay.webp";
-import stripe from "../../img/e-commerce/InfoteliaITSolutions-stripe.webp";
-import paypal from "../../img/e-commerce/InfoteliaITSolutions-paypal.webp";
-import phonepe from "../../img/e-commerce/InfoteliaITSolutions-phonepe.webp";
-import gpay from "../../img/e-commerce/InfoteliaITSolutions-paytm.webp";
+import razorpay from "../../img/e-commerce/CoreslashTechnologies-razorpay.webp";
+import stripe from "../../img/e-commerce/CoreslashTechnologies-stripe.webp";
+import paypal from "../../img/e-commerce/CoreslashTechnologies-paypal.webp";
+import phonepe from "../../img/e-commerce/CoreslashTechnologies-phonepe.webp";
+import gpay from "../../img/e-commerce/CoreslashTechnologies-paytm.webp";
 
 
 
@@ -27,7 +27,7 @@ const features = [
 const packages = [
     {
         name: "Starter E-commerce",
-        price: "₹14,999",
+        price: "?14,999",
         icon: <RocketLaunchIcon className="w-8 h-8 text-orange-500" />,
         features: [
             "Up to 25 Products",
@@ -40,7 +40,7 @@ const packages = [
     },
     {
         name: "Business E-commerce",
-        price: "₹24,999",
+        price: "?24,999",
         icon: <BriefcaseIcon className="w-8 h-8 text-orange-600" />,
         features: [
             "Up to 100 Products",
@@ -53,7 +53,7 @@ const packages = [
     },
     {
         name: "Enterprise E-commerce",
-        price: "₹39,999",
+        price: "?39,999",
         icon: <GlobeAltIcon className="w-8 h-8 text-orange-700" />,
         features: [
             "Unlimited Products",
@@ -69,8 +69,8 @@ const packages = [
 const EcommerceWebsite: React.FC = () => {
     return (
         <ServiceLayout
-            title="E-commerce Website Development Company in India | Infotelia IT Solutions"
-            subtitle="Infotelia IT Solutions builds SEO-optimized, high-converting e-commerce websites to grow your online business and increase sales."
+            title="E-commerce Website Development Company in India | Coreslash Technologies"
+            subtitle="Coreslash Technologies builds SEO-optimized, high-converting e-commerce websites to grow your online business and increase sales."
             ctaText="Get Free E-commerce Consultation"
             headerGradient="from-slate-900 via-orange-950 to-red-950 mt-3"
         >
@@ -91,7 +91,7 @@ const EcommerceWebsite: React.FC = () => {
                             <div className="absolute -inset-4 bg-gradient-to-tr from-orange-100 to-red-50 rounded-[2rem] -z-10 blur-2xl opacity-50 transition duration-700" />
                             <img
                                 src={ecommerceImg}
-                                alt="Ecommerce Website Development Company Infotelia IT Solutions"
+                                alt="Ecommerce Website Development Company Coreslash Technologies"
                                 className="rounded-[2rem] shadow-2xl w-full object-cover transform transition duration-500 group-hover:scale-[1.01]"
                             />
 
@@ -115,12 +115,12 @@ const EcommerceWebsite: React.FC = () => {
                             className="order-1 lg:order-2"
                         >
                             <h2 className="text-xl md:text-2xl font-extrabold text-slate-900 leading-tight mb-8">
-                                Best E-commerce Website Development Company – <span className="text-orange-600">Infotelia IT Solutions</span>
+                                Best E-commerce Website Development Company � <span className="text-orange-600">Coreslash Technologies</span>
                             </h2>
 
                             <div className="space-y-6 text-[15px] md:text-[18px] text-slate-600 leading-relaxed">
                                 <p>
-                                    Infotelia IT Solutions is a leading e-commerce website development company in India,
+                                    Coreslash Technologies is a leading e-commerce website development company in India,
                                     building high-converting online stores that increase sales and business growth.
                                 </p>
                                 <p>
@@ -199,7 +199,7 @@ px-5 py-2 rounded-full backdrop-blur-md shadow-lg shadow-orange-500/10">
                     {/* PACKAGES SECTION */}
                     <div className="mt-32">
                         <h2 className="text-3xl md:text-5xl font-black text-center text-slate-900 mb-16 tracking-tight">
-                            E-commerce Website Development Packages – <span className="text-orange-600">Infotelia IT Solutions</span>
+                            E-commerce Website Development Packages � <span className="text-orange-600">Coreslash Technologies</span>
                         </h2>
 
                         <div className="grid lg:grid-cols-3 gap-8">
@@ -236,11 +236,11 @@ px-5 py-2 rounded-full backdrop-blur-md shadow-lg shadow-orange-500/10">
                             <div className="bg-white px-4 py-1 rounded-full text-sm font-bold text-orange-600 uppercase tracking-widest">Why Us?</div>
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
-                            Why Choose Infotelia IT Solutions for E-commerce Website Development?
+                            Why Choose Coreslash Technologies for E-commerce Website Development?
                         </h2>
                         <div className="space-y-6 text-[15px] md:text-[15px] text-slate-500 leading-relaxed">
                             <p>
-                                Infotelia IT Solutions is one of the best e-commerce website development companies in India,
+                                Coreslash Technologies is one of the best e-commerce website development companies in India,
                                 providing professional, affordable, and SEO optimized online stores.
                             </p>
                             <p>

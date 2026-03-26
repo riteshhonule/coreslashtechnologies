@@ -1,7 +1,7 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 
-import logo from "../img/InfoteliaITSolutions-solutions-main-logo.png";
+import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
 
 export default function Footer() {
 
@@ -29,7 +29,7 @@ export default function Footer() {
           {/* COMPANY */}
           <div className="space-y-6 lg:col-span-1">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Infotelia IT Solutions Logo" className="h-12 w-auto object-contain" />
+              <img src={logo} alt="Coreslash Technologies Logo" className="h-12 w-auto object-contain" />
             </div>
             <p className="text-slate-400 text-[15px] leading-relaxed">
               Elevating digital experiences through bespoke web development and strategic marketing.
@@ -103,7 +103,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-6">Get in Touch</h3>
             <div className="space-y-5">
               {[
-                { icon: Mail, text: "contact@InfoteliaITSolutions.com" },
+                { icon: Mail, text: "contact@CoreslashTechnologies.com" },
                 { icon: Phone, text: "+91 90000 00000" },
                 { icon: MapPin, text: "Bangalore, Hubli, Belagavi" }
               ].map((item, i) => (
@@ -127,7 +127,7 @@ export default function Footer() {
 
           <p className="text-slate-500 text-xs tracking-widest text-center md:text-left">
 
-            © {new Date().getFullYear()} Infotelia IT Solutions
+            � {new Date().getFullYear()} Coreslash Technologies
 
           </p>
 

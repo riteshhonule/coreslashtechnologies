@@ -1,4 +1,4 @@
-﻿
+
 
 
 import { useState } from "react";
@@ -9,7 +9,7 @@ const items = [
     id: 1,
     title: "Exam Portal",
     category: "Education Platform",
-    img: "/img/project/InfoteliaITSolutionstechnologiesoec.png",
+    img: "/img/project/CoreslashTechnologiestechnologiesoec.png",
     description: "A complete online examination and assessment system...",
     link: "https://olympiadexamination.org/"
   },
@@ -17,7 +17,7 @@ const items = [
     id: 2,
     title: "Surekha Lawns",
     category: "Booking System",
-    img: "/img/project/InfoteliaITSolutionstechnologiessurekha.png",
+    img: "/img/project/CoreslashTechnologiestechnologiessurekha.png",
     description: "A smart venue booking platform...",
     link: "#"
   },
@@ -25,7 +25,7 @@ const items = [
     id: 3,
     title: "CSR Portal",
     category: "Management System",
-    img: "/img/project/InfoteliaITSolutionstechnologiescsr.png",
+    img: "/img/project/CoreslashTechnologiestechnologiescsr.png",
     description: "A centralized CSR management system...",
     link: "#"
   },
@@ -33,7 +33,7 @@ const items = [
     id: 4,
     title: "Shaadi Karoge",
     category: "Matrimony Platform",
-    img: "/img/project/InfoteliaITSolutionstechnologiesshadi.png",
+    img: "/img/project/CoreslashTechnologiestechnologiesshadi.png",
     description: "A specialized web platform...",
     link: "#"
   },
@@ -41,7 +41,7 @@ const items = [
     id: 5,
     title: "Honorary Doctorate Portal",
     category: "Nomination Platform",
-    img: "/img/project/InfoteliaITSolutionstechnologieschon.png",
+    img: "/img/project/CoreslashTechnologiestechnologieschon.png",
     description:
       "A specialized web platform designed to manage honorary doctorate nominations.",
     link: "#"
@@ -117,7 +117,7 @@ const PortfolioPage = () => {
                   </span>
                   <h3 className="text-2xl font-bold">{p.title}</h3>
                   <div className="mt-3 flex items-center gap-2 text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
-                    View Details <span className="text-lg">→</span>
+                    View Details <span className="text-lg">?</span>
                   </div>
                 </div>
               </motion.div>
@@ -149,7 +149,7 @@ const PortfolioPage = () => {
                   onClick={() => setActive(null)}
                   className="absolute top-5 right-5 bg-black/50 text-white w-10 h-10 rounded-full hover:bg-black transition flex items-center justify-center"
                 >
-                  ✕
+                  ?
                 </button>
               </div>
 

@@ -1,4 +1,4 @@
-ï»¿import aiInDigitalMarketingBangalore from "../img/blog/ai-in-digital-marketing-bangalore.jpg";
+import aiInDigitalMarketingBangalore from "../img/blog/ai-in-digital-marketing-bangalore.jpg";
 
 import bestDigitalMarketingAgencyInGadagHubli from "../img/blog/best-digital-marketing-agency-in-gadag-hubli.jpg";
 import bestDigitalMarketingAgencyInMysoreMangalore from "../img/blog/best-digital-marketing-agency-in-mysore-mangalore.jpg";
@@ -29,7 +29,7 @@ import bestWebsiteDevelopmentCompanyInBangaloreTech from "../img/blog/best-websi
 
 import digitalMarketingAgencyInIndiaGrowth from "../img/blog/digital-marketing-agency-in-india-growth.jpg";
 
-import InfoteliaITSolutionsSolutionsBestDigitalMarketingAgencyInBangalore from "../img/blog/InfoteliaITSolutions-solutions-best-digital-marketing-agency-in-bangalore.jpg";
+import CoreslashTechnologiesSolutionsBestDigitalMarketingAgencyInBangalore from "../img/blog/CoreslashTechnologies-solutions-best-digital-marketing-agency-in-bangalore.jpg";
 
 import websiteDevelopmentCompanyInIndiaTrends from "../img/blog/website-development-company-in-india-trends.jpg";
 
@@ -66,32 +66,32 @@ export const blogPosts: BlogPost[] = [
     {
         id: "1",
         slug: "best-digital-marketing-company-in-bangalore",
-        title: "Best Digital Marketing Company in Bangalore â€“ Infotelia IT Solutions",
-        description: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth in Bangalore.",
+        title: "Best Digital Marketing Company in Bangalore – Coreslash Technologies",
+        description: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth in Bangalore.",
         category: "Digital Marketing",
-        image: InfoteliaITSolutionsSolutionsBestDigitalMarketingAgencyInBangalore,
+        image: CoreslashTechnologiesSolutionsBestDigitalMarketingAgencyInBangalore,
         author: "Admin",
         date: "Feb 22, 2026",
         content: {
-            intro: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth. Whether you run a small local business in Bangalore, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Infotelia IT Solutions, the best digital marketing company in Bangalore, helps businesses dominate their market.",
+            intro: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth. Whether you run a small local business in Bangalore, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Coreslash Technologies, the best digital marketing company in Bangalore, helps businesses dominate their market.",
             sections: [
                 {
                     title: "Your Trusted Partner for Digital Growth in Bangalore",
                     content: [
-                        "At Infotelia IT Solutions, we understand that every business has unique goals, challenges, and audiences. Thatâ€™s why we donâ€™t follow generic marketing methods. Instead, we create custom digital marketing strategies tailored to your business, industry, and target customers.",
-                        "Our expert team uses: Advanced SEO optimization techniques, High-converting Google Ads strategies, Modern website development technologies, Conversion-focused content marketing, ROI-driven social media campaigns. We focus on delivering real business results â€” more traffic, more leads, and more sales."
+                        "At Coreslash Technologies, we understand that every business has unique goals, challenges, and audiences. That’s why we don’t follow generic marketing methods. Instead, we create custom digital marketing strategies tailored to your business, industry, and target customers.",
+                        "Our expert team uses: Advanced SEO optimization techniques, High-converting Google Ads strategies, Modern website development technologies, Conversion-focused content marketing, ROI-driven social media campaigns. We focus on delivering real business results — more traffic, more leads, and more sales."
                     ]
                 },
                 {
                     title: "Our Digital Marketing Services in Bangalore",
-                    content: "Infotelia IT Solutions offers complete 360-degree digital marketing services in Bangalore including SEO services, website development, Google Ads, and e-commerce solutions."
+                    content: "Coreslash Technologies offers complete 360-degree digital marketing services in Bangalore including SEO services, website development, Google Ads, and e-commerce solutions."
                 },
                 {
                     title: "Success Stories from Our Happy Clients",
                     isBullet: true,
                     content: [
-                        "Local Retail Business â€“ Bangalore: 300% increase in website traffic and 5X increase in customer inquiries.",
-                        "Healthcare Clinic: Local SEO helped rank on Googleâ€™s first page and increase bookings.",
+                        "Local Retail Business – Bangalore: 300% increase in website traffic and 5X increase in customer inquiries.",
+                        "Healthcare Clinic: Local SEO helped rank on Google’s first page and increase bookings.",
                         "Training Institute: Web development and digital marketing strategy helped attract more students online."
                     ]
                 },
@@ -99,12 +99,12 @@ export const blogPosts: BlogPost[] = [
                     title: "Client Testimonials",
                     isBullet: true,
                     content: [
-                        "\"Infotelia IT Solutions transformed our online presence. Our website now ranks on Google!\" â€” Ravi Patil",
-                        "\"Best SEO company in Bangalore. Their team is professional and delivers real results.\" â€” Sneha Kulkarni"
+                        "\"Coreslash Technologies transformed our online presence. Our website now ranks on Google!\" — Ravi Patil",
+                        "\"Best SEO company in Bangalore. Their team is professional and delivers real results.\" — Sneha Kulkarni"
                     ]
                 },
                 {
-                    title: "Why Choose Infotelia IT Solutions in Bangalore?",
+                    title: "Why Choose Coreslash Technologies in Bangalore?",
                     isBullet: true,
                     content: [
                         "#1 Digital marketing company in Bangalore",
@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
                 }
             ],
             faqs: [
-                { q: "Which is the best digital marketing company in Bangalore?", a: "Infotelia IT Solutions is recognized as the top digital marketing company in Bangalore, offering SEO, website development, and Google Ads." },
+                { q: "Which is the best digital marketing company in Bangalore?", a: "Coreslash Technologies is recognized as the top digital marketing company in Bangalore, offering SEO, website development, and Google Ads." },
                 { q: "Do you provide SEO services in Bangalore?", a: "Yes, we offer complete SEO services to help your website rank on Google." }
             ]
         }
@@ -165,7 +165,7 @@ export const blogPosts: BlogPost[] = [
         id: "6",
         slug: "ai-in-digital-marketing-bangalore",
         title: "The Future of AI in Digital Marketing: Insights from Bangalore's Tech Hub",
-        description: "Belagavi, Hubli, and Bangalore businesses are adopting AI. See how AI is revolutionizing digital marketing with Infotelia IT Solutions.",
+        description: "Belagavi, Hubli, and Bangalore businesses are adopting AI. See how AI is revolutionizing digital marketing with Coreslash Technologies.",
         category: "AI",
         image: aiInDigitalMarketingBangalore,
         author: "Innovation Team",
@@ -184,38 +184,38 @@ export const blogPosts: BlogPost[] = [
     {
         id: "8",
         slug: "best-digital-marketing-company-in-belagavi",
-        title: "Best Digital Marketing Company in Belagavi â€“ Infotelia IT Solutions",
-        description: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth in Belagavi.",
+        title: "Best Digital Marketing Company in Belagavi – Coreslash Technologies",
+        description: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth in Belagavi.",
         category: "Digital Marketing",
         image: bestDigitalMarketingCompanyInBangalore,
         author: "Belagavi Team",
         date: "Feb 05, 2026",
         content: {
-            intro: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth. Whether you run a small local business in Belagavi, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Infotelia IT Solutions, the best digital marketing company in Belagavi, helps businesses dominate their market.",
+            intro: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth. Whether you run a small local business in Belagavi, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Coreslash Technologies, the best digital marketing company in Belagavi, helps businesses dominate their market.",
             sections: [
                 {
                     title: "Your Trusted Partner for Digital Growth in Belagavi",
                     content: [
-                        "At Infotelia IT Solutions, we understand that every business has unique goals, challenges, and audiences. Thatâ€™s why we donâ€™t follow generic marketing methods. Instead, we create custom digital marketing strategies tailored to your business, industry, and target customers.",
-                        "Our expert team uses: Advanced SEO optimization techniques, High-converting Google Ads strategies, Modern website development technologies, ROI-driven social media campaigns. We focus on delivering real business results â€” more traffic, more leads, and more sales."
+                        "At Coreslash Technologies, we understand that every business has unique goals, challenges, and audiences. That’s why we don’t follow generic marketing methods. Instead, we create custom digital marketing strategies tailored to your business, industry, and target customers.",
+                        "Our expert team uses: Advanced SEO optimization techniques, High-converting Google Ads strategies, Modern website development technologies, ROI-driven social media campaigns. We focus on delivering real business results — more traffic, more leads, and more sales."
                     ]
                 },
                 {
                     title: "Our Digital Marketing Services in Belagavi",
-                    content: "Infotelia IT Solutions offers complete 360-degree digital marketing services in Belagavi including SEO services, website development, Google Ads, and e-commerce solutions."
+                    content: "Coreslash Technologies offers complete 360-degree digital marketing services in Belagavi including SEO services, website development, Google Ads, and e-commerce solutions."
                 },
                 {
                     title: "Success Stories from Our Happy Clients in Belagavi",
                     isBullet: true,
                     content: [
-                        "Local Retail Business â€“ Belagavi: 300% increase in traffic and 5X increase in customer inquiries.",
-                        "Healthcare Clinic: Ranked on Googleâ€™s first page and increased bookings.",
+                        "Local Retail Business – Belagavi: 300% increase in traffic and 5X increase in customer inquiries.",
+                        "Healthcare Clinic: Ranked on Google’s first page and increased bookings.",
                         "Training Institute: Strategy helped attract more students online."
                     ]
                 }
             ],
             faqs: [
-                { q: "Which is the best digital marketing company in Belagavi?", a: "Infotelia IT Solutions is the top-rated agency for digital growth in Belagavi." },
+                { q: "Which is the best digital marketing company in Belagavi?", a: "Coreslash Technologies is the top-rated agency for digital growth in Belagavi." },
                 { q: "Do you provide SEO services in Belagavi?", a: "Yes, we help Belagavi businesses rank globally." }
             ]
         }
@@ -223,109 +223,109 @@ export const blogPosts: BlogPost[] = [
     {
         id: "9",
         slug: "best-digital-marketing-agency-in-mysore-mangalore",
-        title: "Best Digital Marketing Company in Mysore & Mangalore â€“ Infotelia IT Solutions",
-        description: "In todayâ€™s competitive digital era, having a powerful online presence is the foundation of business growth in Mysore and Mangalore.",
+        title: "Best Digital Marketing Company in Mysore & Mangalore – Coreslash Technologies",
+        description: "In today’s competitive digital era, having a powerful online presence is the foundation of business growth in Mysore and Mangalore.",
         category: "Digital Marketing",
         image: bestDigitalMarketingAgencyInMysoreMangalore,
         author: "Regional Lead",
         date: "Feb 01, 2026",
         content: {
-            intro: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth. Whether you run a business in Mysore or Mangalore, your ability to rank on Google determines your success. This is where Infotelia IT Solutions, the best digital marketing company in Mysore and Mangalore, helps businesses dominate their market.",
+            intro: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth. Whether you run a business in Mysore or Mangalore, your ability to rank on Google determines your success. This is where Coreslash Technologies, the best digital marketing company in Mysore and Mangalore, helps businesses dominate their market.",
             sections: [
                 {
                     title: "Your Trusted Partner in Mysore & Mangalore",
                     content: [
-                        "At Infotelia IT Solutions, we create custom digital marketing strategies tailored to your business in Mysore and Mangalore. Our expert team uses: Advanced SEO, High-converting Google Ads, and Modern website technologies.",
-                        "We focus on delivering real business results â€” more traffic, more leads, and more sales for Mysore and Mangalore brands."
+                        "At Coreslash Technologies, we create custom digital marketing strategies tailored to your business in Mysore and Mangalore. Our expert team uses: Advanced SEO, High-converting Google Ads, and Modern website technologies.",
+                        "We focus on delivering real business results — more traffic, more leads, and more sales for Mysore and Mangalore brands."
                     ]
                 },
                 {
                     title: "Our Digital Marketing Services",
-                    content: "Infotelia IT Solutions offers complete 360-degree digital marketing services including SEO, website development, Google Ads, and e-commerce solutions for Mysore and Mangalore."
+                    content: "Coreslash Technologies offers complete 360-degree digital marketing services including SEO, website development, Google Ads, and e-commerce solutions for Mysore and Mangalore."
                 }
             ],
             faqs: [
-                { q: "Best digital marketing company in Mysore?", a: "Infotelia IT Solutions is recognized as the top choice in Mysore." },
-                { q: "Best digital marketing company in Mangalore?", a: "Infotelia IT Solutions delivers proven results for businesses in Mangalore." }
+                { q: "Best digital marketing company in Mysore?", a: "Coreslash Technologies is recognized as the top choice in Mysore." },
+                { q: "Best digital marketing company in Mangalore?", a: "Coreslash Technologies delivers proven results for businesses in Mangalore." }
             ]
         }
     },
     {
         id: "10",
         slug: "best-digital-marketing-agency-in-tumkur",
-        title: "Best Digital Marketing Company in Tumkur â€“ Infotelia IT Solutions",
-        description: "In todayâ€™s competitive digital era, having a powerful online presence is the foundation of business growth in Tumkur.",
+        title: "Best Digital Marketing Company in Tumkur – Coreslash Technologies",
+        description: "In today’s competitive digital era, having a powerful online presence is the foundation of business growth in Tumkur.",
         category: "Digital Marketing",
         image: bestDigitalMarketingAgencyInTumkur,
         author: "Tumkur Team",
         date: "Jan 28, 2026",
         content: {
-            intro: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth. Whether you run a small local business in Tumkur, a fast-growing startup, or an established enterprise, your ability to rank on Google determines your success. This is where Infotelia IT Solutions, the best digital marketing company in Tumkur, helps businesses dominate their market.",
+            intro: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth. Whether you run a small local business in Tumkur, a fast-growing startup, or an established enterprise, your ability to rank on Google determines your success. This is where Coreslash Technologies, the best digital marketing company in Tumkur, helps businesses dominate their market.",
             sections: [
                 {
                     title: "Your Trusted Partner for Digital Growth in Tumkur",
-                    content: "At Infotelia IT Solutions, we understand the Tumkur market. We create custom digital marketing strategies tailored to your business, industry, and target customers."
+                    content: "At Coreslash Technologies, we understand the Tumkur market. We create custom digital marketing strategies tailored to your business, industry, and target customers."
                 },
                 {
                     title: "Our Digital Marketing Services in Tumkur",
-                    content: "Infotelia IT Solutions offers complete 360-degree digital marketing services in Tumkur to help your business grow faster."
+                    content: "Coreslash Technologies offers complete 360-degree digital marketing services in Tumkur to help your business grow faster."
                 }
             ],
             faqs: [
-                { q: "Which is the best digital marketing company in Tumkur?", a: "Infotelia IT Solutions is recognized as the top digital marketing company in Tumkur." }
+                { q: "Which is the best digital marketing company in Tumkur?", a: "Coreslash Technologies is recognized as the top digital marketing company in Tumkur." }
             ]
         }
     },
     {
         id: "11",
-        slug: "InfoteliaITSolutions-solutions-best-digital-marketing-agency-in-bangalore",
-        title: "Infotelia IT Solutions â€“ Best Digital Marketing Agency in Bangalore, Karnataka, India",
-        description: "Infotelia IT Solutions is recognized as the best digital marketing agency in Bangalore. Our global standards and local expertise set us apart across Karnataka and India.",
+        slug: "CoreslashTechnologies-solutions-best-digital-marketing-agency-in-bangalore",
+        title: "Coreslash Technologies – Best Digital Marketing Agency in Bangalore, Karnataka, India",
+        description: "Coreslash Technologies is recognized as the best digital marketing agency in Bangalore. Our global standards and local expertise set us apart across Karnataka and India.",
         category: "Digital Marketing",
-        image: InfoteliaITSolutionsSolutionsBestDigitalMarketingAgencyInBangalore,
+        image: CoreslashTechnologiesSolutionsBestDigitalMarketingAgencyInBangalore,
         author: "SEO Strategist",
         date: "Jan 25, 2026",
         content: {
-            intro: "As the best digital marketing agency in Bangalore, Karnataka, India, Infotelia IT Solutions is dedicated to elevating brands through innovation. We bridge the gap between technology and marketing excellence.",
+            intro: "As the best digital marketing agency in Bangalore, Karnataka, India, Coreslash Technologies is dedicated to elevating brands through innovation. We bridge the gap between technology and marketing excellence.",
             sections: [
                 {
                     title: "Strategic Excellence in Bangalore & beyond",
                     content: "Our team in Bangalore provides comprehensive solutions including SEO, Web Dev, and PPC, serving clients from Mysore to Mangalore and across India."
                 }
             ],
-            faqs: [{ q: "What makes InfoteliaITSolutions the best in Karnataka?", a: "Our proven track record, data-centric approach, and deep roots in Bangalore's tech ecosystem." }]
+            faqs: [{ q: "What makes CoreslashTechnologies the best in Karnataka?", a: "Our proven track record, data-centric approach, and deep roots in Bangalore's tech ecosystem." }]
         }
     },
     {
         id: "13",
         slug: "best-digital-marketing-company-in-gadag",
-        title: "Best Digital Marketing Company in Gadag â€“ Infotelia IT Solutions",
-        description: "Infotelia IT Solutions is the best digital marketing company in Gadag offering SEO, website development, Google Ads, and social media marketing to grow your business online.",
+        title: "Best Digital Marketing Company in Gadag – Coreslash Technologies",
+        description: "Coreslash Technologies is the best digital marketing company in Gadag offering SEO, website development, Google Ads, and social media marketing to grow your business online.",
         category: "Digital Marketing",
         image: bestDigitalMarketingCompanyInGadag,
-        author: "InfoteliaITSolutions Gadag Team",
+        author: "CoreslashTechnologies Gadag Team",
         date: "Jan 25, 2026",
 
         content: {
 
-            intro: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth. Whether you run a small local business in Gadag, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Infotelia IT Solutions, the best digital marketing company in Gadag, helps businesses dominate their market.",
+            intro: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth. Whether you run a small local business in Gadag, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Coreslash Technologies, the best digital marketing company in Gadag, helps businesses dominate their market.",
 
 
             sections: [
 
                 {
                     title: "Result-Driven Digital Marketing Services in Gadag",
-                    content: "At Infotelia IT Solutions, we specialize in delivering result-driven digital marketing services including SEO services in Gadag, website development, Google Ads management, social media marketing, and e-commerce solutions. Our goal is to help your business rank on the first page of Google, increase brand visibility, generate high-quality leads, and maximize revenue with proven strategies. As a leading SEO company in Gadag, we combine innovation, technology, and marketing expertise to deliver measurable growth."
+                    content: "At Coreslash Technologies, we specialize in delivering result-driven digital marketing services including SEO services in Gadag, website development, Google Ads management, social media marketing, and e-commerce solutions. Our goal is to help your business rank on the first page of Google, increase brand visibility, generate high-quality leads, and maximize revenue with proven strategies. As a leading SEO company in Gadag, we combine innovation, technology, and marketing expertise to deliver measurable growth."
                 },
 
                 {
                     title: "Your Trusted Partner for Digital Growth in Gadag",
-                    content: "We understand every business is unique. Thatâ€™s why we create custom digital marketing strategies tailored to your goals. Our expert team uses advanced SEO techniques, high-converting Google Ads, modern website development, conversion-focused content, and ROI-driven social media campaigns to generate more traffic, leads, and sales."
+                    content: "We understand every business is unique. That’s why we create custom digital marketing strategies tailored to your goals. Our expert team uses advanced SEO techniques, high-converting Google Ads, modern website development, conversion-focused content, and ROI-driven social media campaigns to generate more traffic, leads, and sales."
                 },
 
                 {
                     title: "Our Digital Marketing Services in Gadag",
-                    content: "Infotelia IT Solutions provides complete 360-degree digital marketing services including SEO, PPC advertising, social media marketing, website development, e-commerce development, and Google Ads management to help businesses grow faster."
+                    content: "Coreslash Technologies provides complete 360-degree digital marketing services including SEO, PPC advertising, social media marketing, website development, e-commerce development, and Google Ads management to help businesses grow faster."
                 },
 
                 {
@@ -359,18 +359,18 @@ export const blogPosts: BlogPost[] = [
                 },
 
                 {
-                    title: "Why Choose Infotelia IT Solutions in Gadag",
-                    content: "Businesses choose Infotelia IT Solutions because of our proven SEO success, expert website development, affordable pricing, transparent reporting, and ROI-focused marketing strategies. We focus on real growth, not just promises."
+                    title: "Why Choose Coreslash Technologies in Gadag",
+                    content: "Businesses choose Coreslash Technologies because of our proven SEO success, expert website development, affordable pricing, transparent reporting, and ROI-focused marketing strategies. We focus on real growth, not just promises."
                 },
 
                 {
-                    title: "Partner with Infotelia IT Solutions",
-                    content: "If you are looking for the best digital marketing company in Gadag, Infotelia IT Solutions is your trusted partner. Contact us today for a free consultation and grow your business online."
+                    title: "Partner with Coreslash Technologies",
+                    content: "If you are looking for the best digital marketing company in Gadag, Coreslash Technologies is your trusted partner. Contact us today for a free consultation and grow your business online."
                 },
 
                 {
                     title: "Other Digital Marketing Companies in Gadag",
-                    content: "Some agencies in Gadag include Promote Abhi, Digics Private Limited, Groveus, EchoPx, and Dixinfotech. However, Infotelia IT Solutions stands out due to proven SEO results and client success."
+                    content: "Some agencies in Gadag include Promote Abhi, Digics Private Limited, Groveus, EchoPx, and Dixinfotech. However, Coreslash Technologies stands out due to proven SEO results and client success."
                 }
 
             ],
@@ -380,12 +380,12 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "Which is the best digital marketing company in Gadag?",
-                    a: "Infotelia IT Solutions is the best digital marketing company in Gadag offering SEO, website development, Google Ads, and social media marketing."
+                    a: "Coreslash Technologies is the best digital marketing company in Gadag offering SEO, website development, Google Ads, and social media marketing."
                 },
 
                 {
                     q: "Do you provide SEO services in Gadag?",
-                    a: "Yes, Infotelia IT Solutions offers professional SEO services in Gadag to help businesses rank higher on Google."
+                    a: "Yes, Coreslash Technologies offers professional SEO services in Gadag to help businesses rank higher on Google."
                 },
 
                 {
@@ -395,7 +395,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "How much does digital marketing cost in Gadag?",
-                    a: "Pricing depends on your business requirements. Contact Infotelia IT Solutions for a free consultation."
+                    a: "Pricing depends on your business requirements. Contact Coreslash Technologies for a free consultation."
                 }
 
             ]
@@ -406,14 +406,14 @@ export const blogPosts: BlogPost[] = [
     {
         id: "13",
         slug: "best-seo-company-in-bangalore-success",
-        title: "Best SEO Company in Bangalore â€“ Infotelia IT Solutions",
+        title: "Best SEO Company in Bangalore – Coreslash Technologies",
         description: "Rank on the first page of Google with the best SEO company in Bangalore. Our technical and local SEO strategies drive real growth.",
         category: "SEO",
         image: bestSeoCompanyInBangaloreSuccess,
         author: "Admin",
         date: "Jan 18, 2026",
         content: {
-            intro: "Search Engine Optimization is the most powerful tool for business growth in Bangalore. Infotelia IT Solutions, the best SEO company in Bangalore, helps you dominate search results and attract high-quality organic leads.",
+            intro: "Search Engine Optimization is the most powerful tool for business growth in Bangalore. Coreslash Technologies, the best SEO company in Bangalore, helps you dominate search results and attract high-quality organic leads.",
             sections: [
                 {
                     title: "Advanced SEO Strategies in Bangalore",
@@ -426,7 +426,7 @@ export const blogPosts: BlogPost[] = [
     {
         id: "14",
         slug: "best-website-development-company-in-bangalore-tech",
-        title: "Best Website Development Company in Bangalore â€“ Infotelia IT Solutions",
+        title: "Best Website Development Company in Bangalore – Coreslash Technologies",
         description: "Experience world-class web solutions with the best website development company in Bangalore. We build responsive, high-speed websites.",
         category: "Web Development",
         image: bestWebDevelopmentCompanyInBangalore,
@@ -440,35 +440,35 @@ export const blogPosts: BlogPost[] = [
                     content: "We use React, Next.js, and other modern technologies to ensure your Bangalore business has a top-tier digital presence."
                 }
             ],
-            faqs: [{ q: "Best web development company in Bangalore?", a: "Infotelia IT Solutions is the preferred partner for modern web tech in Bangalore." }]
+            faqs: [{ q: "Best web development company in Bangalore?", a: "Coreslash Technologies is the preferred partner for modern web tech in Bangalore." }]
         }
     },
     {
         id: "15",
         slug: "best-digital-marketing-company-in-india-2026",
-        title: "Best Digital Marketing Company in India â€“ Infotelia IT Solutions",
+        title: "Best Digital Marketing Company in India – Coreslash Technologies",
         description: "Scale your brand across the nation with the best digital marketing company in India. We deliver world-class SEO and marketing results.",
         category: "Digital Marketing",
         image: digitalMarketingAgencyInIndiaGrowth,
         author: "Marketing Head",
         date: "Jan 12, 2026",
         content: {
-            intro: "India is becoming a global digital powerhouse. To lead in this market, you need the best digital marketing company in India. Infotelia IT Solutions provides high-performance strategies that empower brands to scale from Bangalore to Delhi and beyond.",
+            intro: "India is becoming a global digital powerhouse. To lead in this market, you need the best digital marketing company in India. Coreslash Technologies provides high-performance strategies that empower brands to scale from Bangalore to Delhi and beyond.",
             sections: [
                 {
                     title: "Nationwide Digital Growth Partner",
-                    content: "Our expertise as the best digital marketing agency in India covers every aspect of the digital funnelâ€”from visibility to conversion. We help Indian enterprises achieve global standards in SEO and PPC."
+                    content: "Our expertise as the best digital marketing agency in India covers every aspect of the digital funnel—from visibility to conversion. We help Indian enterprises achieve global standards in SEO and PPC."
                 }
             ],
             faqs: [
-                { q: "Which is the best digital marketing company in India?", a: "Infotelia IT Solutions is recognized for delivering international quality marketing services across India." }
+                { q: "Which is the best digital marketing company in India?", a: "Coreslash Technologies is recognized for delivering international quality marketing services across India." }
             ]
         }
     },
     {
         id: "16",
         slug: "best-web-development-company-in-india-experts",
-        title: "Best Web Development Company in India â€“ Infotelia IT Solutions",
+        title: "Best Web Development Company in India – Coreslash Technologies",
         description: "Looking for top-tier website development? Learn why we are the best web development company in India for modern, high-performance web solutions.",
         category: "Web Development",
         image: websiteDevelopmentCompanyInIndiaTrends,
@@ -483,29 +483,29 @@ export const blogPosts: BlogPost[] = [
                 }
             ],
             faqs: [
-                { q: "Why InfoteliaITSolutions for web development in India?", a: "We combine cost-effective Indian development with global quality standards." }
+                { q: "Why CoreslashTechnologies for web development in India?", a: "We combine cost-effective Indian development with global quality standards." }
             ]
         }
     },
     {
         id: "17",
         slug: "best-it-company-in-hubli",
-        title: "Best IT Company in Hubli â€“ Infotelia IT Solutions",
-        description: "Infotelia IT Solutions is the best IT company in Hubli offering software development, website development, and complete IT services for business growth.",
+        title: "Best IT Company in Hubli – Coreslash Technologies",
+        description: "Coreslash Technologies is the best IT company in Hubli offering software development, website development, and complete IT services for business growth.",
         category: "Web Development",
         image: bestITCompanyInHubli,
-        author: "InfoteliaITSolutions Hubli Team",
+        author: "CoreslashTechnologies Hubli Team",
         date: "Jan 08, 2026",
 
         content: {
 
-            intro: "In todayâ€™s technology-driven world, businesses in Hubli need reliable and scalable IT solutions to stay competitive. Infotelia IT Solutions, the best IT company in Hubli, provides advanced IT services, custom software development, and website development to help businesses grow faster, improve efficiency, and increase profitability.",
+            intro: "In today’s technology-driven world, businesses in Hubli need reliable and scalable IT solutions to stay competitive. Coreslash Technologies, the best IT company in Hubli, provides advanced IT services, custom software development, and website development to help businesses grow faster, improve efficiency, and increase profitability.",
 
             sections: [
 
                 {
                     title: "Leading IT Company in Hubli for Business Growth",
-                    content: "Infotelia IT Solutions provides complete IT solutions including software development, web development, cloud solutions, and IT consulting. Our goal is to help Hubli businesses automate operations and improve productivity."
+                    content: "Coreslash Technologies provides complete IT solutions including software development, web development, cloud solutions, and IT consulting. Our goal is to help Hubli businesses automate operations and improve productivity."
                 },
 
                 {
@@ -519,8 +519,8 @@ export const blogPosts: BlogPost[] = [
                 },
 
                 {
-                    title: "Why Choose Infotelia IT Solutions",
-                    content: "Businesses trust Infotelia IT Solutions because of our expert developers, affordable pricing, and proven success in delivering scalable IT solutions."
+                    title: "Why Choose Coreslash Technologies",
+                    content: "Businesses trust Coreslash Technologies because of our expert developers, affordable pricing, and proven success in delivering scalable IT solutions."
                 }
 
             ],
@@ -529,7 +529,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "Which is the best IT company in Hubli?",
-                    a: "Infotelia IT Solutions is the best IT company in Hubli offering software development, website development, and IT services."
+                    a: "Coreslash Technologies is the best IT company in Hubli offering software development, website development, and IT services."
                 },
 
                 {
@@ -547,23 +547,23 @@ export const blogPosts: BlogPost[] = [
     {
         id: "18",
         slug: "best-software-company-in-belagavi",
-        title: "Best Software Company in Belagavi â€“ Infotelia IT Solutions",
-        description: "Infotelia IT Solutions is the best software company in Belagavi offering custom software development, website development, mobile apps, and IT services to grow your business faster.",
+        title: "Best Software Company in Belagavi – Coreslash Technologies",
+        description: "Coreslash Technologies is the best software company in Belagavi offering custom software development, website development, mobile apps, and IT services to grow your business faster.",
         category: "Web Development",
         image: bestSoftwareCompanyInBelagavi,
-        author: "InfoteliaITSolutions Belagavi Team",
+        author: "CoreslashTechnologies Belagavi Team",
         date: "Jan 05, 2026",
 
         content: {
 
-            intro: "In todayâ€™s fast-growing digital economy, businesses in Belagavi need powerful software and modern IT solutions to stay competitive. Whether you run a manufacturing company, retail business, startup, educational institute, or enterprise, having the right technology can dramatically improve your efficiency and profitability. Infotelia IT Solutions is recognized as the best software company in Belagavi, helping businesses automate operations, improve productivity, and scale faster with custom software development and IT services.",
+            intro: "In today’s fast-growing digital economy, businesses in Belagavi need powerful software and modern IT solutions to stay competitive. Whether you run a manufacturing company, retail business, startup, educational institute, or enterprise, having the right technology can dramatically improve your efficiency and profitability. Coreslash Technologies is recognized as the best software company in Belagavi, helping businesses automate operations, improve productivity, and scale faster with custom software development and IT services.",
 
 
             sections: [
 
                 {
                     title: "Leading Software Company in Belagavi for Business Growth",
-                    content: "Infotelia IT Solutions is a trusted software development company in Belagavi providing innovative, secure, and scalable software solutions. We help businesses streamline operations, reduce manual work, and improve efficiency using modern technologies and automation tools."
+                    content: "Coreslash Technologies is a trusted software development company in Belagavi providing innovative, secure, and scalable software solutions. We help businesses streamline operations, reduce manual work, and improve efficiency using modern technologies and automation tools."
                 },
 
                 {
@@ -573,7 +573,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     title: "Website Development Company in Belagavi",
-                    content: "Infotelia IT Solutions is also a leading website development company in Belagavi. We create modern, mobile-responsive, SEO-optimized, and high-performance websites that attract customers and generate leads. Our websites help businesses build strong online presence and grow faster."
+                    content: "Coreslash Technologies is also a leading website development company in Belagavi. We create modern, mobile-responsive, SEO-optimized, and high-performance websites that attract customers and generate leads. Our websites help businesses build strong online presence and grow faster."
                 },
 
                 {
@@ -593,7 +593,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     title: "IT Services and Technology Consulting",
-                    content: "Infotelia IT Solutions provides complete IT services including software consulting, system integration, cloud solutions, and technical support. We help businesses choose the right technology for long-term growth."
+                    content: "Coreslash Technologies provides complete IT services including software consulting, system integration, cloud solutions, and technical support. We help businesses choose the right technology for long-term growth."
                 },
 
                 {
@@ -602,8 +602,8 @@ export const blogPosts: BlogPost[] = [
                 },
 
                 {
-                    title: "Why Businesses in Belagavi Choose Infotelia IT Solutions",
-                    content: "Businesses trust Infotelia IT Solutions because of our experienced developers, affordable pricing, modern technologies, fast delivery, and reliable support. We focus on delivering high-quality software that generates real business value."
+                    title: "Why Businesses in Belagavi Choose Coreslash Technologies",
+                    content: "Businesses trust Coreslash Technologies because of our experienced developers, affordable pricing, modern technologies, fast delivery, and reliable support. We focus on delivering high-quality software that generates real business value."
                 },
 
                 {
@@ -617,8 +617,8 @@ export const blogPosts: BlogPost[] = [
                 },
 
                 {
-                    title: "Partner with Infotelia IT Solutions",
-                    content: "If you are looking for the best software company in Belagavi, Infotelia IT Solutions is your trusted technology partner. Contact us today to discuss your project and grow your business with modern software solutions."
+                    title: "Partner with Coreslash Technologies",
+                    content: "If you are looking for the best software company in Belagavi, Coreslash Technologies is your trusted technology partner. Contact us today to discuss your project and grow your business with modern software solutions."
                 }
 
             ],
@@ -628,7 +628,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "Which is the best software company in Belagavi?",
-                    a: "Infotelia IT Solutions is the best software company in Belagavi offering custom software, website development, and IT services."
+                    a: "Coreslash Technologies is the best software company in Belagavi offering custom software, website development, and IT services."
                 },
 
                 {
@@ -638,7 +638,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "Do you provide website development services?",
-                    a: "Yes, Infotelia IT Solutions provides professional website development services in Belagavi."
+                    a: "Yes, Coreslash Technologies provides professional website development services in Belagavi."
                 },
 
                 {
@@ -647,7 +647,7 @@ export const blogPosts: BlogPost[] = [
                 },
 
                 {
-                    q: "Why choose Infotelia IT Solutions?",
+                    q: "Why choose Coreslash Technologies?",
                     a: "Because we provide expert developers, affordable pricing, modern technology, and proven results."
                 }
 
@@ -662,16 +662,16 @@ export const blogPosts: BlogPost[] = [
     {
         id: "19",
         slug: "best-digital-marketing-company-in-mysore",
-        title: "Best Digital Marketing Company in Mysore â€“ Infotelia IT Solutions",
-        description: "Infotelia IT Solutions is the best digital marketing company in Mysore offering SEO, website development, and Google Ads services.",
+        title: "Best Digital Marketing Company in Mysore – Coreslash Technologies",
+        description: "Coreslash Technologies is the best digital marketing company in Mysore offering SEO, website development, and Google Ads services.",
         category: "Digital Marketing",
         image: bestDigitalMarketingCompanyInMysore,
-        author: "InfoteliaITSolutions Mysore Team",
+        author: "CoreslashTechnologies Mysore Team",
         date: "Jan 02, 2026",
 
         content: {
 
-            intro: "Infotelia IT Solutions helps Mysore businesses grow online with powerful SEO, Google Ads, and social media marketing services.",
+            intro: "Coreslash Technologies helps Mysore businesses grow online with powerful SEO, Google Ads, and social media marketing services.",
 
             sections: [
 
@@ -696,7 +696,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "Best digital marketing company in Mysore?",
-                    a: "Infotelia IT Solutions is the top digital marketing company in Mysore."
+                    a: "Coreslash Technologies is the top digital marketing company in Mysore."
                 }
 
             ]
@@ -709,16 +709,16 @@ export const blogPosts: BlogPost[] = [
     {
         id: "20",
         slug: "best-digital-marketing-company-in-mangalore",
-        title: "Best Digital Marketing Company in Mangalore â€“ Infotelia IT Solutions",
-        description: "Infotelia IT Solutions provides SEO, Google Ads, and website development services in Mangalore.",
+        title: "Best Digital Marketing Company in Mangalore – Coreslash Technologies",
+        description: "Coreslash Technologies provides SEO, Google Ads, and website development services in Mangalore.",
         category: "Digital Marketing",
         image: bestDigitalMarketingCompanyInMangalore,
-        author: "InfoteliaITSolutions Mangalore Team",
+        author: "CoreslashTechnologies Mangalore Team",
         date: "Dec 30, 2025",
 
         content: {
 
-            intro: "Infotelia IT Solutions helps Mangalore businesses grow online and generate leads.",
+            intro: "Coreslash Technologies helps Mangalore businesses grow online and generate leads.",
 
             sections: [
 
@@ -738,7 +738,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "Best digital marketing company in Mangalore?",
-                    a: "Infotelia IT Solutions is the best choice."
+                    a: "Coreslash Technologies is the best choice."
                 }
 
             ]
@@ -751,16 +751,16 @@ export const blogPosts: BlogPost[] = [
     {
         id: "21",
         slug: "best-digital-marketing-company-in-tumkur",
-        title: "Best Digital Marketing Company in Tumkur â€“ Infotelia IT Solutions",
-        description: "Infotelia IT Solutions is the best digital marketing company in Tumkur helping businesses grow online.",
+        title: "Best Digital Marketing Company in Tumkur – Coreslash Technologies",
+        description: "Coreslash Technologies is the best digital marketing company in Tumkur helping businesses grow online.",
         category: "Digital Marketing",
         image: bestDigitalMarketingAgencyInTumkur,
-        author: "InfoteliaITSolutions Tumkur Team",
+        author: "CoreslashTechnologies Tumkur Team",
         date: "Dec 28, 2025",
 
         content: {
 
-            intro: "Infotelia IT Solutions helps Tumkur businesses rank on Google and grow faster.",
+            intro: "Coreslash Technologies helps Tumkur businesses rank on Google and grow faster.",
 
             sections: [
 
@@ -780,7 +780,7 @@ export const blogPosts: BlogPost[] = [
 
                 {
                     q: "Best digital marketing company in Tumkur?",
-                    a: "Infotelia IT Solutions is the best agency."
+                    a: "Coreslash Technologies is the best agency."
                 }
 
             ]
@@ -790,29 +790,29 @@ export const blogPosts: BlogPost[] = [
     {
         id: "22",
         slug: "best-digital-marketing-company-in-gadag-solutions",
-        title: "Best Digital Marketing Company in Gadag â€“ Infotelia IT Solutions",
-        description: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth.",
+        title: "Best Digital Marketing Company in Gadag – Coreslash Technologies",
+        description: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth.",
         category: "Digital Marketing",
         image: bestDigitalMarketingCompanyInGadagSolutions,
         author: "Admin",
         date: "Feb 23, 2026",
         content: {
-            intro: "In todayâ€™s competitive digital era, having a powerful online presence is no longer optionalâ€”itâ€™s the foundation of business growth. Whether you run a small local business in Gadag, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Infotelia IT Solutions, the best digital marketing company in Gadag, helps businesses dominate their market.",
+            intro: "In today’s competitive digital era, having a powerful online presence is no longer optional—it’s the foundation of business growth. Whether you run a small local business in Gadag, a fast-growing startup, or an established enterprise, your ability to rank on Google, attract qualified leads, and convert customers online determines your success. This is where Coreslash Technologies, the best digital marketing company in Gadag, helps businesses dominate their market.",
             sections: [
                 {
                     title: "Your Trusted Partner for Digital Growth in Gadag",
                     content: [
-                        "At Infotelia IT Solutions, we understand that every business has unique goals, challenges, and audiences. Thatâ€™s why we donâ€™t follow generic marketing methods. Instead, we create custom digital marketing strategies tailored to your business, industry, and target customers.",
-                        "Our expert team uses advanced SEO, high-converting Google Ads, and modern website technologies to scale your business. We focus on delivering real results â€” more traffic, more leads, and more sales."
+                        "At Coreslash Technologies, we understand that every business has unique goals, challenges, and audiences. That’s why we don’t follow generic marketing methods. Instead, we create custom digital marketing strategies tailored to your business, industry, and target customers.",
+                        "Our expert team uses advanced SEO, high-converting Google Ads, and modern website technologies to scale your business. We focus on delivering real results — more traffic, more leads, and more sales."
                     ]
                 },
                 {
                     title: "Our Digital Marketing Services in Gadag",
-                    content: "Infotelia IT Solutions offers complete 360-degree digital marketing services in Gadag to help your business grow faster."
+                    content: "Coreslash Technologies offers complete 360-degree digital marketing services in Gadag to help your business grow faster."
                 },
                 {
                     title: "SEO Services in Gadag",
-                    content: "Improve your websiteâ€™s Google rankings with our professional SEO services in Gadag, designed to drive organic traffic, increase visibility, and generate consistent leads. We target keywords like 'Best SEO company in Gadag' and 'Local SEO services Gadag'."
+                    content: "Improve your website’s Google rankings with our professional SEO services in Gadag, designed to drive organic traffic, increase visibility, and generate consistent leads. We target keywords like 'Best SEO company in Gadag' and 'Local SEO services Gadag'."
                 },
                 {
                     title: "Website Development Services",
@@ -830,7 +830,7 @@ export const blogPosts: BlogPost[] = [
                     isBullet: true,
                     content: [
                         "Local Retail Business: 300% increase in traffic and 5X increase in inquiries.",
-                        "Healthcare Clinic: Ranked on Googleâ€™s first page and increased bookings.",
+                        "Healthcare Clinic: Ranked on Google’s first page and increased bookings.",
                         "Training Institute: Attracted more students through targeted digital strategy."
                     ]
                 },
@@ -838,12 +838,12 @@ export const blogPosts: BlogPost[] = [
                     title: "Client Testimonials",
                     isBullet: true,
                     content: [
-                        "\"Infotelia IT Solutions transformed our online presence. Our website now ranks on Google!\" â€” Ravi Patil",
-                        "\"Best SEO company in Gadag. Their team is professional and results-driven.\" â€” Sneha Kulkarni"
+                        "\"Coreslash Technologies transformed our online presence. Our website now ranks on Google!\" — Ravi Patil",
+                        "\"Best SEO company in Gadag. Their team is professional and results-driven.\" — Sneha Kulkarni"
                     ]
                 },
                 {
-                    title: "Why Choose Infotelia IT Solutions in Gadag?",
+                    title: "Why Choose Coreslash Technologies in Gadag?",
                     isBullet: true,
                     content: [
                         "#1 Digital marketing company in Gadag",
@@ -855,13 +855,13 @@ export const blogPosts: BlogPost[] = [
                 },
                 {
                     title: "Other Digital Marketing Companies in Gadag",
-                    content: "While companies like Promote Abhi, Digics Private Limited, and Groveus operate in the region, Infotelia IT Solutions stands out as the leading digital marketing agency in Gadag due to our proven results."
+                    content: "While companies like Promote Abhi, Digics Private Limited, and Groveus operate in the region, Coreslash Technologies stands out as the leading digital marketing agency in Gadag due to our proven results."
                 }
             ],
             faqs: [
                 {
                     q: "Which is the best digital marketing company in Gadag?",
-                    a: "Infotelia IT Solutions is recognized as the top digital marketing company in Gadag, offering SEO, website development, and Google Ads."
+                    a: "Coreslash Technologies is recognized as the top digital marketing company in Gadag, offering SEO, website development, and Google Ads."
                 },
                 {
                     q: "Do you provide SEO services in Gadag?",
@@ -903,14 +903,14 @@ export const blogPosts: BlogPost[] = [
     {
         id: "26",
         slug: "best-software-development-company-in-india-custom",
-        title: "Best Software Development Company in India â€“ Infotelia IT Solutions",
+        title: "Best Software Development Company in India – Coreslash Technologies",
         description: "Custom software tailored to your business needs. Trust the best software development company in India for scalable and robust code.",
         category: "Web Development",
         image: bestSoftwareDevelopmentCompanyInIndiaCustom,
         author: "Software Head",
         date: "Dec 15, 2025",
         content: {
-            intro: "Software is the engine of modern business. Infotelia IT Solutions, the best software development company in India, builds custom, scalable, and secure software that solves real-world business challenges.",
+            intro: "Software is the engine of modern business. Coreslash Technologies, the best software development company in India, builds custom, scalable, and secure software that solves real-world business challenges.",
             sections: [
                 {
                     title: "Custom Software Excellence in India",
@@ -918,7 +918,7 @@ export const blogPosts: BlogPost[] = [
                 }
             ],
             faqs: [
-                { q: "Is InfoteliaITSolutions the best for custom software in India?", a: "Our focus on reliability and scalability makes us a top choice for custom software development." }
+                { q: "Is CoreslashTechnologies the best for custom software in India?", a: "Our focus on reliability and scalability makes us a top choice for custom software development." }
             ]
         }
     }

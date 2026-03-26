@@ -1,6 +1,6 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import heroVideo from "../assets/InfoteliaITSolutionstechnologies.webm";
+import heroVideo from "../assets/CoreslashTechnologiestechnologies.webm";
 import { useModal } from "../context/ModalContext";
 
 export default function Hero() {
@@ -48,7 +48,7 @@ export default function Hero() {
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight text-white tracking-tight">
 
             <span className="text-white text-6xl md:text-6xl">
-              Infotelia IT Solutions
+              Coreslash Technologies
             </span>{" "}
 
             <span className="relative inline-block  ">
@@ -68,7 +68,7 @@ export default function Hero() {
           {/* SUB HEADING */}
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-gray-200">
 
-            India’s No.1{" "}
+            India�s No.1{" "}
 
             <span className="text-yellow-400">
               AI IT Solutions
@@ -99,7 +99,7 @@ export default function Hero() {
               onClick={openModal}
               className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-2xl font-bold hover:scale-105 transition"
             >
-              Get Started →
+              Get Started ?
             </button>
 
 

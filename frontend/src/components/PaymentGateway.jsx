@@ -1,12 +1,12 @@
-﻿import React from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 // import images
-import razorpay from "../img/e-commerce/InfoteliaITSolutions-razorpay.webp";
-import stripe from "../img/e-commerce/InfoteliaITSolutions-stripe.webp";
-import paypal from "../img/e-commerce/InfoteliaITSolutions-paypal.webp";
-import phonepe from "../img/e-commerce/InfoteliaITSolutions-phonepe.webp";
-import gpay from "../img/e-commerce/InfoteliaITSolutions-paytm.webp";
+import razorpay from "../img/e-commerce/CoreslashTechnologies-razorpay.webp";
+import stripe from "../img/e-commerce/CoreslashTechnologies-stripe.webp";
+import paypal from "../img/e-commerce/CoreslashTechnologies-paypal.webp";
+import phonepe from "../img/e-commerce/CoreslashTechnologies-phonepe.webp";
+import gpay from "../img/e-commerce/CoreslashTechnologies-paytm.webp";
 
 const gateways = [
     {

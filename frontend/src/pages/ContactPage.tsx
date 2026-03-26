@@ -1,4 +1,4 @@
-﻿
+
 
 import { motion } from "framer-motion";
 import Contact from "../components/Contact";
@@ -27,8 +27,8 @@ const ContactPage = () => {
     {
       icon: emailIcon,
       title: "Email Us",
-      detail: "contact@InfoteliaITSolutions.com",
-      link: "mailto:contact@InfoteliaITSolutions.com",
+      detail: "contact@CoreslashTechnologies.com",
+      link: "mailto:contact@CoreslashTechnologies.com",
       glow: "hover:shadow-blue-500/40"
     },
     {
@@ -59,7 +59,7 @@ const ContactPage = () => {
             FREE
           </span>
           session to get a customized strategy and quotation with
-          <span className="text-white font-bold ml-1">InfoteliaITSolutions</span> Marketing Agency.
+          <span className="text-white font-bold ml-1">CoreslashTechnologies</span> Marketing Agency.
           <br className="hidden md:block" />
           Start a conversation with us to build a good relationship and business together.
         </p>

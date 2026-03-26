@@ -1,11 +1,11 @@
-﻿
+
 # File renaming mapping
 $renameMap = @(
-    @("infoteliasolutions", "InfoteliaITSolutionstechnologies"),
-    @("infotelia", "InfoteliaITSolutions"),
-    @("Infotelia Solutions", "InfoteliaITSolutions Technologies"),
-    @("InfoteliaSolutions", "InfoteliaITSolutionsTechnologies"),
-    @("Infotelia", "InfoteliaITSolutions")
+    @("coreslashtechnologies", "CoreslashTechnologiestechnologies"),
+    @("Coreslash", "CoreslashTechnologies"),
+    @("Coreslash Technologies", "CoreslashTechnologies Technologies"),
+    @("coreslashtechnologies", "CoreslashTechnologiesTechnologies"),
+    @("Coreslash", "CoreslashTechnologies")
 )
 
 # Get all files and directories
