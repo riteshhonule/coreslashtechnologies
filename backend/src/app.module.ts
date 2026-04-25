@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 import { LeadsModule } from './leads/leads.module';
 import { ContactsModule } from './contacts/contacts.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -12,30 +12,7 @@ import { ContactsModule } from './contacts/contacts.module';
       isGlobal: true,
       envFilePath: ['.env'],
     }),
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => {
-        const type = config.get<string>('DB_TYPE', 'mysql');
-        if (type === 'sqlite') {
-          return {
-            type: 'sqlite',
-            database: config.get<string>('DB_FILE', 'dev.sqlite'),
-            autoLoadEntities: true,
-            synchronize: true,
-          };
-        }
-        return {
-          type: 'mysql',
-          host: config.get<string>('DB_HOST', 'localhost'),
-          port: parseInt(config.get<string>('DB_PORT', '3306')),
-          username: config.get<string>('DB_USER', 'root'),
-          password: config.get<string>('DB_PASS', ''),
-          database: config.get<string>('DB_NAME', 'CoreslashTechnologies'),
-          autoLoadEntities: true,
-          synchronize: true,
-        };
-      },
-    }),
+    PrismaModule,
     LeadsModule,
     ContactsModule,
   ],
@@ -43,4 +20,3 @@ import { ContactsModule } from './contacts/contacts.module';
   providers: [AppService],
 })
 export class AppModule { }
-

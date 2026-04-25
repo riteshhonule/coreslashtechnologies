@@ -16,34 +16,34 @@ interface Review {
 }
 
 const reviews: Review[] = [
-    {
-        id: 1,
-        name: "Om Patil",
-        businessName: "Om Patil Crane Service",
-        location: "Belagavi, Karnataka",
-        rating: 5,
-        text: "Coreslash Technologies built our professional website and improved our online presence. Now we receive regular crane service inquiries from Google. Highly recommended IT solutions company in Belagavi.",
-        image: person1
-    },
-    {
-        id: 2,
-        name: "Abhishek Patil",
-        businessName: "Abhishek Patil Tax Consultant",
-        location: "Belagavi, Karnataka",
-        rating: 5,
-        text: "They created a modern website for my tax consultancy and helped my business rank on Google. I am getting more client calls than before. Best website development company in Belagavi.",
-        image: CoreslashTechnologiesIcon
-    },
-    {
-        id: 3,
-        name: "Yash Kangralkar",
-        businessName: "Kangralkar Mess",
-        location: "Belagavi, Karnataka",
-        rating: 5,
-        text: "Coreslash Technologies helped promote our mess service online and improved our visibility. More students are contacting us daily. Excellent digital marketing service and great support.",
-        image: CoreslashTechnologiesIcon
-    },
     // {
+    //     id: 1,
+    //     name: "Om Patil",
+    //     businessName: "Om Patil Crane Service",
+    //     location: "Belagavi, Karnataka",
+    //     rating: 5,
+    //     text: "Coreslash Technologies built our professional website and improved our online presence. Now we receive regular crane service inquiries from Google. Highly recommended IT solutions company in Belagavi.",
+    //     image: person1
+    // },
+    // {
+    //     id: 2,
+    //     name: "Abhishek Patil",
+    //     businessName: "Abhishek Patil Tax Consultant",
+    //     location: "Belagavi, Karnataka",
+    //     rating: 5,
+    //     text: "They created a modern website for my tax consultancy and helped my business rank on Google. I am getting more client calls than before. Best website development company in Belagavi.",
+    //     image: CoreslashTechnologiesIcon
+    // },
+    // {
+    //     id: 3,
+    //     name: "Yash Kangralkar",
+    //     businessName: "Kangralkar Mess",
+    //     location: "Belagavi, Karnataka",
+    //     rating: 5,
+    //     text: "Coreslash Technologies helped promote our mess service online and improved our visibility. More students are contacting us daily. Excellent digital marketing service and great support.",
+    //     image: CoreslashTechnologiesIcon
+    // },
+    // // {
     //     id: 4,
     //     name: "Priyanka Sharma",
     //     businessName: "Global Exports",
@@ -76,9 +76,9 @@ export default function ReviewSection() {
     const { openModal } = useModal();
 
     return (
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-6 bg-white overflow-hidden">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                {/* <div className="text-center mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function ReviewSection() {
                     >
                         Real results for real businesses. See how we've helped companies across Karnataka and India scale their digital presence.
                     </motion.p>
-                </div>
+                </div> */}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {reviews.map((review, idx) => (

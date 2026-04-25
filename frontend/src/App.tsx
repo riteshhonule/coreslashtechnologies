@@ -9,6 +9,7 @@ import PortfolioPage from "./pages/PortfolioPage";
 import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import FAQPage from "./pages/FAQPage";
 import { useEffect } from "react";
 import {
   WebsiteDevelopment,
@@ -52,6 +53,7 @@ function AnimatedRoutes() {
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
+        <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </AnimatePresence>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 
@@ -52,9 +53,17 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-4">
-              {["Home", "About", "Services", "Portfolio", "Blog", "Contact"].map(item => (
-                <li key={item} className="hover:text-blue-400 cursor-pointer transition-colors text-sm font-medium">
-                  {item}
+              {[
+                { name: "Home", path: "/" },
+                { name: "About", path: "/about" },
+                { name: "Services", path: "/services" },
+                { name: "Portfolio", path: "/portfolio" },
+                { name: "Blog", path: "/blog" },
+                { name: "FAQ", path: "/faq" },
+                { name: "Contact", path: "/contact" }
+              ].map(item => (
+                <li key={item.name} className="hover:text-blue-400 cursor-pointer transition-colors text-sm font-medium">
+                  <Link to={item.path}>{item.name}</Link>
                 </li>
               ))}
             </ul>
@@ -127,7 +136,7 @@ export default function Footer() {
 
           <p className="text-slate-500 text-xs tracking-widest text-center md:text-left">
 
-            © {new Date().getFullYear()} Coreslash Technologies
+            ï¿½ {new Date().getFullYear()} Coreslash Technologies
 
           </p>
 

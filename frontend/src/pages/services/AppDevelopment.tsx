@@ -15,7 +15,7 @@ const packages = [
 
     {
         name: "Basic App Package",
-        price: "?15,000",
+        price: "15,000",
         features: [
             "Android App Development",
             "Up to 5 Screens",
@@ -30,7 +30,7 @@ const packages = [
 
     {
         name: "Standard App Package",
-        price: "?30,000",
+        price: "30,000",
         highlight: true,
         features: [
             "Android App Development",
@@ -47,7 +47,7 @@ const packages = [
 
     {
         name: "Premium App Package",
-        price: "?60,000",
+        price: "60,000",
         features: [
             "Android + iOS App",
             "Unlimited Screens",

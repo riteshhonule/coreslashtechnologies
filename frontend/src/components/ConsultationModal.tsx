@@ -68,14 +68,16 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                             <XMarkIcon className="w-6 h-6" />
                         </button>
 
-                        <div className="mb-8">
-                            <h2 className="text-3xl font-black text-white mb-2 leading-tight">
-                                Start Your <span className="text-blue-500">Project</span>
-                            </h2>
-                            <p className="text-blue-400 text-sm font-medium">
-                                Book a free session & get a customized strategy
-                            </p>
-                        </div>
+                        {status !== 'success' && (
+                            <div className="mb-8">
+                                <h2 className="text-3xl font-black text-white mb-2 leading-tight">
+                                    Start Your <span className="text-blue-500">Project</span>
+                                </h2>
+                                <p className="text-blue-400 text-sm font-medium">
+                                    Book a free session & get a customized strategy
+                                </p>
+                            </div>
+                        )}
 
                         {status === 'success' ? (
                             <motion.div

@@ -34,7 +34,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-0 px-5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6"
+            className="inline-flex items-center gap-2 px-5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6"
           >
             <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-sm font-semibold text-cyan-300">
@@ -44,31 +44,19 @@ export default function Hero() {
 
 
 
-          {/* MAIN HEADING */}
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight text-white tracking-tight">
-
-            <span className="text-white text-6xl md:text-6xl">
-              Coreslash Technologies
-            </span>{" "}
-
-            <span className="relative inline-block  ">
-
-              {/* <span className="relative z-10 text-4xl md:text-5xl">
-                Solutions
-              </span> */}
-
-              <span className="absolute inset-0 bg-orange-500 -rotate-3 rounded-lg "></span>
-
-            </span>
-
-          </h1>
+          {/* MAIN HEADING
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white tracking-tight">
+  Top IT Solutions & Software Development Company in India <br/> 
+  <span className="text-3xl md:text-4xl text-blue-400">Based in Belgaum</span><br/>
+  <span className="text-white">Coreslash Technologies</span>
+</h1>
 
 
 
           {/* SUB HEADING */}
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-gray-200">
+          {/* <h2 className="mt-4 text-3xl md:text-4xl font-bold text-gray-200">
 
-            India’s No.1{" "}
+            Indiaï¿½s No.1{" "}
 
             <span className="text-yellow-400">
               AI IT Solutions
@@ -76,11 +64,29 @@ export default function Hero() {
 
             Company
 
+          </h2> */}
+
+
+          {/* MAIN HEADING */}
+          <h1 className="text-2xl md:text-4xl font-extrabold text-white leading-tight">
+            AI-Powered IT & Software Development Company
+            <br />
+          </h1>
+          <span className="text-2xl md:text-5xl font-extrabold tracking-wide bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
+            Coreslash Technologies
+          </span>
+          {/* SUB HEADING */}
+          <h2 className="mt-3 text-sm md:text-l text-gray-300">
+            Custom Software, Web & Scalable
+            <span className="text-yellow-400"> AI Solutions</span>
           </h2>
 
+          {/* LOCATION / TRUST LINE
+          <p className="mt-2 text-sm text-gray-400">
+            Based in Belgaum â€¢ Serving Clients Across India
+          </p> */}
 
-
-          {/* SEO DESCRIPTION */}
+          {/* SEO DESCRIPTION
           <p className="mt-6 text-sm text-gray-300 leading-relaxed max-w-xl">
 
             Transform your business with AI-powered IT solutions, website development,
@@ -89,7 +95,7 @@ export default function Hero() {
             We help companies increase traffic, automate operations,
             and scale revenue faster with cutting-edge technology.
 
-          </p>
+          </p> */}
 
 
 

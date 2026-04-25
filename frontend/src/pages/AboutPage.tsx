@@ -142,26 +142,26 @@ const AboutPage = () => {
 
   const testimonials = [
 
-    {
-      name: "Om Patil",
-      role: "Owner, Om Patil Crane Service",
-      text: "Coreslash Technologies created our crane service website and improved our Google presence. Now we receive regular client inquiries. Best IT solutions company in Belagavi.",
-      img: omPatil
-    },
+    // {
+    //   name: "Om Patil",
+    //   role: "Owner, Om Patil Crane Service",
+    //   text: "Coreslash Technologies created our crane service website and improved our Google presence. Now we receive regular client inquiries. Best IT solutions company in Belagavi.",
+    //   img: omPatil
+    // },
 
-    {
-      name: "Abhishek Patil",
-      role: "Tax Consultant, Abhishek Patil Tax Consultant",
-      text: "They built a professional website for my tax consultancy and helped increase my online visibility. I am getting more client calls than ever before.",
-      img: CoreslashTechnologiesIcon
-    },
+    // {
+    //   name: "Abhishek Patil",
+    //   role: "Tax Consultant, Abhishek Patil Tax Consultant",
+    //   text: "They built a professional website for my tax consultancy and helped increase my online visibility. I am getting more client calls than ever before.",
+    //   img: CoreslashTechnologiesIcon
+    // },
 
-    {
-      name: "Yash Kangralkar",
-      role: "Owner, Kangralkar Mess",
-      text: "Coreslash Technologies helped promote our mess business online. Our reach increased and more students contact us daily. Highly recommended digital marketing company.",
-      img: CoreslashTechnologiesIcon
-    },
+    // {
+    //   name: "Yash Kangralkar",
+    //   role: "Owner, Kangralkar Mess",
+    //   text: "Coreslash Technologies helped promote our mess business online. Our reach increased and more students contact us daily. Highly recommended digital marketing company.",
+    //   img: CoreslashTechnologiesIcon
+    // },
 
   ];
 
