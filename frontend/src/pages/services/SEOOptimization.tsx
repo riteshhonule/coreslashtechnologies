@@ -13,7 +13,7 @@ import ArrowUpRightIcon from "@heroicons/react/24/outline/ArrowUpRightIcon";
 
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
-import seoImage from "../../img/seo.webp";
+import seoImage from "../../img/CoreslashTechnologies-seo.png";
 
 const detailedFeatures = [
     { title: "Intent Mapping", desc: "Advanced keyword research targeting high-conversion search intent.", icon: MagnifyingGlassIcon },

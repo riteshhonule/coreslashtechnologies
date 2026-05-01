@@ -7,6 +7,7 @@ import person3 from "../img/leads/CoreslashTechnologies_no_1_company_ (3).png";
 import person4 from "../img/leads/CoreslashTechnologies_no_1_company_ (4).png";
 
 import bgImage from "../img/process/CoreslashTechnologiestechnologiesstep4.avif"; // your background image
+import ContactForm from "./ContactForm";
 
 
 export default function LeadSection() {
@@ -179,49 +180,9 @@ export default function LeadSection() {
                             <span className="text-white"> Session</span>
                         </h3>
 
-
-
-                        <form className="space-y-4">
-
-
-                            <input className="glass-input" placeholder="Full Name" />
-
-                            <input className="glass-input" placeholder="Contact Number" />
-
-                            <input className="glass-input" placeholder="City" />
-
-
-                            <select className="glass-input text-white bg-transparent">
-
-                                <option className="text-black bg-white">Select Service</option>
-
-                                <option className="text-black bg-white">New Website Development</option>
-
-                                <option className="text-black bg-white">Website Re-Designing</option>
-
-                                <option className="text-black bg-white">Social Media Management</option>
-
-                                <option className="text-black bg-white">Facebook (Meta) Ads</option>
-
-                                <option className="text-black bg-white">Google Ads & PPC</option>
-
-                                <option className="text-black bg-white">Content Creation</option>
-
-                                <option className="text-black bg-white">Other Services</option>
-
-                            </select>
-
-
-
-
-                            <button className="glass-btn">
-
-                                Book Session
-
-                            </button>
-
-
-                        </form>
+                        <div className="mt-8">
+                            <ContactForm variant="glass" />
+                        </div>
 
 
                     </div>

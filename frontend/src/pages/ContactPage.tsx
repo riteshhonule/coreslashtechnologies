@@ -1,5 +1,4 @@
 
-
 import { motion } from "framer-motion";
 import Contact from "../components/Contact";
 
@@ -13,22 +12,22 @@ const ContactPage = () => {
     {
       icon: phoneIcon,
       title: "Call Us",
-      detail: "+91 98765 43210",
-      link: "tel:+919876543210",
+      detail: "+91 8861220023",
+      link: "tel:+918861220023",
       glow: "hover:shadow-purple-500/40"
     },
     {
       icon: whatsappIcon,
       title: "WhatsApp",
       detail: "Start Chat",
-      link: "https://wa.me/919876543210",
+      link: "https://wa.me/918861220023",
       glow: "hover:shadow-green-500/40"
     },
     {
       icon: emailIcon,
       title: "Email Us",
-      detail: "contact@CoreslashTechnologies.com",
-      link: "mailto:contact@CoreslashTechnologies.com",
+      detail: "coreslashTechnologies@gmail.com",
+      link: "mailto:coreslashTechnologies@gmail.com",
       glow: "hover:shadow-blue-500/40"
     },
     {
@@ -72,7 +71,7 @@ const ContactPage = () => {
             <motion.a
               key={index}
               href={item.link}
-              target="_blank"
+              target={item.link.startsWith('mailto:') ? undefined : "_blank"}
               initial={{ opacity: 0, y: 80 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -105,7 +104,7 @@ const ContactPage = () => {
                   {item.title}
                 </h3>
 
-                <p className="text-gray-600 text-[10px] md:text-base break-all font-medium leading-tight">
+                <p className="text-gray-600 text-[10px] md:text-sm lg:text-base break-words font-medium leading-tight px-2">
                   {item.detail}
                 </p>
               </div>
