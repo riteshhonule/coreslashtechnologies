@@ -27,7 +27,7 @@ const ContactPage = () => {
       icon: emailIcon,
       title: "Email Us",
       detail: "coreslashTechnologies@gmail.com",
-      link: "mailto:coreslashTechnologies@gmail.com",
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=coreslashTechnologies@gmail.com&su=Inquiry%20from%20Website&body=Hello%20Coreslash%20Team,",
       glow: "hover:shadow-blue-500/40"
     },
     {
@@ -83,6 +83,8 @@ const ContactPage = () => {
               className={`
                 group
                 relative
+                block
+                cursor-pointer
                 p-[1px]
                 rounded-2xl md:rounded-3xl
                 bg-gradient-to-br from-indigo-500 via-purple-500 to-blue-500
