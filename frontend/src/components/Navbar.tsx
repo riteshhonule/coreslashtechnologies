@@ -154,7 +154,7 @@ export default function Navbar() {
             ))}
           </ul>
           <a
-            href="https://wa.me/919000000000"
+            href="https://wa.me/918861220023"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 px-5 py-2

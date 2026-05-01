@@ -49,7 +49,7 @@ export default function Hero() {
   Top IT Solutions & Software Development Company in India <br/> 
   <span className="text-3xl md:text-4xl text-blue-400">Based in Belgaum</span><br/>
   <span className="text-white">Coreslash Technologies</span>
-</h1>
+ </h1>
 
 
 

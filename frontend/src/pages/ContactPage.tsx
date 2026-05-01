@@ -42,8 +42,8 @@ const ContactPage = () => {
 
   return (
     /* REMOVED: pt-[120px] and bg-white from the main wrapper */
-    <main className="min-h-screen overflow-hidden mt-[74px] md:mt-[88px]">
-
+    // <main className="min-h-screen overflow-hidden mt-[74px] md:mt-[88px] bg-[#3B82F6]">
+    <main className="min-h-screen overflow-hidden mt-[74px] md:mt-[88px] bg-[#3B82F6]">
       {/* Premium Header - Gradient now starts at the very top of the viewport */}
       <section className="text-center pt-[40px] md:pt-[70px] lg:pt-[90px] pb-20 px-4 bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900">
         <motion.h1
