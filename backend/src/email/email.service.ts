@@ -56,6 +56,7 @@ export class EmailService {
         <p><strong>Phone:</strong> ${contact.phone}</p>
         <p><strong>Address:</strong> ${contact.address || 'N/A'}</p>
         <p><strong>Industry:</strong> ${contact.businessType || 'N/A'}</p>
+        <p><strong>Service Requested:</strong> ${contact.service || 'N/A'}</p>
         <hr />
         <p><strong>Message:</strong></p>
         <p style="background: #f9f9f9; padding: 15px; border-radius: 5px;">${contact.message}</p>

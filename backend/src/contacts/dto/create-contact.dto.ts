@@ -23,6 +23,11 @@ export class CreateContactDto {
   businessType?: string;
 
   @IsString()
+  @IsOptional()
+  @Length(2, 120)
+  service?: string;
+
+  @IsString()
   @Length(10, 5000)
   message: string;
 }

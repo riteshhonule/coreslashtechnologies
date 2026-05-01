@@ -10,8 +10,12 @@ export const api = axios.create({
   },
 });
 
-export const submitLead = (data: { name: string; email: string; phone: string; address?: string; businessType?: string; source?: string }) =>
-  api.post("/leads", data);
-
-export const submitContact = (data: { name: string; email: string; phone: string; address?: string; businessType?: string; message: string }) =>
-  api.post("/contacts", data);
+export const submitContact = (data: { 
+  name: string; 
+  email: string; 
+  phone: string; 
+  address?: string; 
+  businessType?: string; 
+  service?: string;
+  message: string 
+}) => api.post("/contacts", data);

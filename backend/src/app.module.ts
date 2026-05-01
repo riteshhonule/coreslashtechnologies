@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { LeadsModule } from './leads/leads.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { EmailModule } from './email/email.module';
@@ -15,7 +14,6 @@ import { EmailModule } from './email/email.module';
     }),
     PrismaModule,
     EmailModule,
-    LeadsModule,
     ContactsModule,
   ],
   controllers: [AppController],
