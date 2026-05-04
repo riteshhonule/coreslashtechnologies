@@ -15,6 +15,7 @@ import responsiveImg from "../../img/website/responsive.webp";
 import seoImg from "../../img/website/seo.webp";
 import securityImg from "../../img/website/security.webp";
 import speedImg from "../../img/website/fast_load.webp";
+import coreslashWebsiteDevelopment from "../../img/website/coreslash-website-development.png";
 
 import ServiceLayout from "./ServicesLayout";
 
@@ -133,13 +134,12 @@ const WebsiteDevelopment: React.FC = () => {
                         {/* ================= MAIN CONTENT ================= */}
                         <div className="lg:col-span-2 space-y-12">
 
-                            {/* VIDEO PLAYER */}
+                            {/* HERO IMAGE */}
                             <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-                                <iframe
-                                    className="w-full aspect-video"
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                    title="Agency Overview"
-                                    allowFullScreen
+                                <img
+                                    src={coreslashWebsiteDevelopment}
+                                    alt="CoreSlash Website Development"
+                                    className="w-full aspect-video object-cover"
                                 />
                             </div>
 
