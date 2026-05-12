@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import { FaWhatsapp } from "react-icons/fa";
-
-
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"menu" | "services">("menu");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredService, setHoveredService] = useState(false);
-  const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
-
   const location = useLocation();
 
   useEffect(() => {
@@ -32,327 +27,176 @@ export default function Navbar() {
 
   const servicesLinks = [
     { to: "/services", label: "All Services" },
-    { to: "/services/website-development", label: "Website Development" },
+    { to: "/services/website-development", label: "Web Development" },
     { to: "/services/App-development", label: "App Development" },
-    { to: "/services/shopify-development", label: "Shopify Website Development" },
-    { to: "/services/software-development", label: "Software Development" },
+    { to: "/services/shopify-development", label: "Shopify Development" },
+    { to: "/services/software-development", label: "Software Systems" },
     { to: "/services/digital-marketing", label: "Digital Marketing" },
-    { to: "/services/seo", label: "SEO Optimization" },
-    { to: "/services/ecommerce", label: "E-commerce Website" },
-    { to: "/services/ppc", label: "PPC / Ad Services" },
+    { to: "/services/seo", label: "SEO Solutions" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-4 md:py-4" : "py-3 md:py-6"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-6"
         }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav
-          className={`flex items-center justify-between px-3 md:px-6 py-2 md:py-3 rounded-2xl transition-all duration-500 ${scrolled
-            ? "bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl"
-            : "bg-transparent border border-transparent"
+          className={`flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${scrolled
+              ? "bg-[#0A0118]/80 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+              : "bg-transparent border border-transparent"
             }`}
         >
-          <Link to="/" className="flex items-center gap-3 group">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 group">
             <img
               src={logo}
-              alt="Coreslash Technologies Logo"
-              className="h-10 w-auto object-contain transition-all duration-300"
+              alt="Coreslash Technologies"
+              className="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
-            {links.slice(0, 1).map((l) => (
-              <li key={l.to} className="relative group">
-                <Link
-                  to={l.to}
-                  className={`relative z-10 inline-flex items-center justify-center px-4 py-2 text-sm font-bold transition-colors duration-300 rounded-full ${location.pathname === l.to
-                    ? scrolled || location.pathname !== "/" ? "text-blue-600 group-hover:text-white" : "text-blue-400 group-hover:text-white"
-                    : scrolled || location.pathname !== "/" ? "text-gray-600 group-hover:text-white" : "text-gray-200 group-hover:text-white"
-                    }`}
-                >
-                  {l.label}
-                  {/* Hover background visual */}
-                  <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 bg-blue-900" />
-                </Link>
-              </li>
-            ))}
-
-            <li className="relative group">
-              <Link
-                to="/about"
-                className={`relative z-10 inline-flex items-center justify-center px-4 py-2 text-sm font-bold transition-colors duration-300 rounded-full ${location.pathname === "/about"
-                  ? "text-blue-600 group-hover:text-white"
-                  : scrolled || location.pathname !== "/" ? "text-gray-600 group-hover:text-white" : "text-gray-200 group-hover:text-white"
-                  }`}
-              >
-                About
-                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 bg-blue-900" />
-              </Link>
-            </li>
-
-            <li
-              className="relative group"
-              onMouseEnter={() => setHoveredService(true)}
-              onMouseLeave={() => setHoveredService(false)}
-            >
-              <div
-                className={`inline-flex items-center justify-center gap-1 cursor-pointer px-4 py-2 text-sm font-bold transition-colors duration-300 rounded-full relative z-10 ${location.pathname.includes("/services")
-                  ? "text-blue-600 group-hover:text-white"
-                  : scrolled || location.pathname !== "/" ? "text-gray-600 group-hover:text-white" : "text-gray-200 group-hover:text-white"
-                  }`}
-              >
-                Services
-                <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${hoveredService ? "rotate-180" : ""}`} />
-
-                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 bg-blue-900" />
-              </div>
-
-              <AnimatePresence>
-                {hoveredService && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 15 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-72"
-                  >
-                    <div className="bg-white/95 backdrop-blur-xl border border-gray-100 rounded-2xl shadow-xl overflow-hidden p-2">
-                      {servicesLinks.map((service) => (
-                        <Link
-                          key={service.to}
-                          to={service.to}
-                          className={`block px-4 py-3 text-sm font-bold rounded-xl transition-colors ${location.pathname === service.to
-                            ? "bg-blue-50 text-blue-800"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                            }`}
-                        >
-                          {service.label}
-                        </Link>
-                      ))}
+          <div className="hidden md:flex items-center gap-1">
+            {links.map((link, idx) => {
+              const isActive = location.pathname === link.to || (link.label === "Services" && location.pathname.includes("/services"));
+              if (link.label === "About") {
+                return (
+                  <div key="services-dropdown" className="relative"
+                    onMouseEnter={() => setHoveredService(true)}
+                    onMouseLeave={() => setHoveredService(false)}>
+                    <div className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-full cursor-pointer transition-all duration-300 ${location.pathname.includes("/services") ? "text-accent-cyan" : "text-white/80 hover:text-white"
+                      }`}>
+                      Services
+                      <ChevronDownIcon className={`w-3 h-3 transition-transform duration-300 ${hoveredService ? "rotate-180" : ""}`} />
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </li>
 
-            {links.slice(2).map((l) => (
-              <li key={l.to} className="relative group">
+                    <AnimatePresence>
+                      {hoveredService && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          className="absolute top-full left-0 mt-2 w-64 p-2 bg-[#0A0118]/90 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
+                        >
+                          {servicesLinks.map((service) => (
+                            <Link
+                              key={service.to}
+                              to={service.to}
+                              className="block px-4 py-2.5 text-sm text-white/70 hover:text-accent-cyan hover:bg-white/5 rounded-xl transition-all"
+                            >
+                              {service.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+              return (
                 <Link
-                  to={l.to}
-                  className={`relative z-10 inline-flex items-center justify-center px-4 py-2 text-sm font-bold transition-colors duration-300 rounded-full ${location.pathname === l.to
-                    ? scrolled || location.pathname !== "/" ? "text-blue-600 group-hover:text-white" : "text-blue-400 group-hover:text-white"
-                    : scrolled || location.pathname !== "/" ? "text-gray-600 group-hover:text-white" : "text-gray-200 group-hover:text-white"
+                  key={link.to}
+                  to={link.to}
+                  className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${isActive ? "text-accent-cyan" : "text-white/80 hover:text-white"
                     }`}
                 >
-                  {l.label}
-                  <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 bg-blue-900" />
+                  {link.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-active-glow"
+                      className="absolute inset-0 bg-accent-cyan/10 rounded-full border border-accent-cyan/20 shadow-[0_0_15px_rgba(77,235,255,0.2)]"
+                    />
+                  )}
                 </Link>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="https://wa.me/918861220023"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 px-5 py-2
- rounded-full font-lg text-white
-  bg-gradient-to-r from-orange-500 to-yellow-400
-  hover:scale-105 hover:shadow-md hover:shadow-orange-500/30
-  transition-all duration-300"
-          >
+              );
+            })}
+          </div>
 
-            {/* Full Green WhatsApp Icon */}
-            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#25D366]">
+          {/* CTA & Mobile Toggle */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://wa.me/918861220023"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-500 bg-white/5 backdrop-blur-xl border border-white/10 text-white hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:scale-105 active:scale-95"
+            >
+              <FaWhatsapp className="text-lg text-accent-cyan" />
+              <span>Let's Build</span>
+            </a>
 
-              <FaWhatsapp className="text-white text-[11px]" />
-
-            </span>
-
-            <span className="text-xs font-semibold">
-              Let's Talk
-            </span>
-
-            <span className="text-sm leading-none">
-              ?
-            </span>
-
-          </a>
-
-
-          <button
-            className={`md:hidden p-2 rounded-xl transition-colors mb-0.5 ${scrolled || location.pathname !== "/" ? "hover:bg-gray-100" : "hover:bg-white/10"
-              }`}
-            onClick={() => setOpen(true)}
-          >
-            <div className="w-6 space-y-1.5">
-              <span className={`block h-0.5 w-full transition-colors duration-300 ${scrolled || location.pathname !== "/" ? "bg-gray-800" : "bg-white"}`} />
-              <span className={`block h-0.5 w-full transition-colors duration-300 ${scrolled || location.pathname !== "/" ? "bg-gray-800" : "bg-white"}`} />
-              <span className={`block h-0.5 w-full transition-colors duration-300 ${scrolled || location.pathname !== "/" ? "bg-gray-800" : "bg-white"}`} />
-            </div>
-          </button>
+            <button
+              className="md:hidden p-2 text-white/80 hover:text-white transition-colors"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Bars3Icon className="w-7 h-7" />
+            </button>
+          </div>
         </nav>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {open && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setOpen(false)}
-              className="fixed inset-0 bg-black/50 z-[60] md:hidden"
-            />
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[60] bg-[#0A0118] md:hidden flex flex-col"
+          >
+            <div className="flex justify-between items-center p-6 border-b border-white/5">
+              <img src={logo} alt="Logo" className="h-8 w-auto" />
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 rounded-full bg-white/5 text-white"
+              >
+                <XMarkIcon className="w-6 h-6" />
+              </button>
+            </div>
 
-            {/* Sidebar */}
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-full w-[85%] max-w-sm bg-white z-[70] shadow-2xl md:hidden overflow-y-auto"
-            >
-              {/* Header */}
-              <div className="flex justify-between items-center p-4 border-b border-gray-100">
-                <img src={logo} alt="Logo" className="h-8 w-auto object-contain" />
-                <button
-                  onClick={() => setOpen(false)}
-                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                >
-                  <XMarkIcon className="w-6 h-6 text-gray-800" />
-                </button>
-              </div>
-
-              {/* Tabs */}
-              <div className="flex px-6 border-b border-gray-100">
-                <button
-                  onClick={() => setActiveTab("menu")}
-                  className={`flex-1 pb-4 text-center font-bold text-lg transition-colors relative ${activeTab === "menu" ? "text-blue-600" : "text-gray-400"
-                    }`}
-                >
-                  Menu
-                  {activeTab === "menu" && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"
-                    />
-                  )}
-                </button>
-                <button
-                  onClick={() => setActiveTab("services")}
-                  className={`flex-1 pb-4 text-center font-bold text-lg transition-colors relative ${activeTab === "services" ? "text-blue-600" : "text-gray-400"
-                    }`}
-                >
-                  Services
-                  {activeTab === "services" && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"
-                    />
-                  )}
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="px-6 py-8">
-                <AnimatePresence mode="wait">
-                  {activeTab === "menu" ? (
-                    <motion.ul
-                      key="menu"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      className="space-y-6"
+            <div className="flex-1 overflow-y-auto p-6 space-y-8">
+              <nav className="space-y-4">
+                {links.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block text-2xl font-bold text-white/90 hover:text-accent-cyan transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <div className="pt-4 space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/40">Services</p>
+                  {servicesLinks.map((service) => (
+                    <Link
+                      key={service.to}
+                      to={service.to}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block text-lg text-white/70 hover:text-accent-cyan"
                     >
-                      <li>
-                        <Link to="/" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">Home</Link>
-                      </li>
-                      <li>
-                        <Link to="/about" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">About</Link>
-                      </li>
-                      <li>
-                        <button
-                          onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
-                          className="flex items-center justify-between w-full text-xl font-bold text-gray-800 hover:text-blue-600"
-                        >
-                          Services
-                          <ChevronDownIcon className={`w-5 h-5 transition-transform ${mobileServiceOpen ? "rotate-180" : ""}`} />
-                        </button>
-                        <AnimatePresence>
-                          {mobileServiceOpen && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              className="overflow-hidden pl-4 mt-4 space-y-4 border-l-2 border-gray-100"
-                            >
-                              {servicesLinks.map((service) => (
-                                <Link
-                                  key={service.to}
-                                  to={service.to}
-                                  onClick={() => setOpen(false)}
-                                  className="block text-lg font-medium text-gray-600 hover:text-blue-600"
-                                >
-                                  {service.label}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </li>
-                      <li>
-                        <Link to="/portfolio" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">Portfolio</Link>
-                      </li>
-                      <li>
-                        <Link to="/contact" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">Contact</Link>
-                      </li>
-                      <li className="pt-4">
-                        <a
-                          href="https://wa.me/919000000000"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-orange-500 to-yellow-400 text-white font-bold shadow-lg shadow-orange-500/30"
-                        >
-                          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#25D366]">
-                            <FaWhatsapp className="text-white text-[11px]" />
-                          </span>
-                          Let's Talk
-                        </a>
-                      </li>
-                    </motion.ul>
-                  ) : (
-                    <motion.ul
-                      key="services"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 20 }}
-                      className="space-y-6"
-                    >
-                      <li>
-                        <Link to="/services" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">App Development</Link>
-                      </li>
-                      <li>
-                        <Link to="/services/website-development" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">Website Development</Link>
-                      </li>
-                      <li>
-                        <Link to="/services" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">Software Development</Link>
-                      </li>
-                      <li>
-                        <Link to="/services/ppc" onClick={() => setOpen(false)} className="block text-xl font-bold text-gray-800 hover:text-blue-600">Digital Marketing</Link>
-                      </li>
-                    </motion.ul>
-                  )}
-                </AnimatePresence>
+                      {service.label}
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+
+              <div className="pt-8">
+                <a
+                  href="https://wa.me/918861220023"
+                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-gradient-to-r from-primary-accent to-accent-blue text-white font-bold text-lg shadow-lg"
+                >
+                  <FaWhatsapp className="text-xl" />
+                  Connect Now
+                </a>
               </div>
-            </motion.div>
-          </>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
 }
+
 

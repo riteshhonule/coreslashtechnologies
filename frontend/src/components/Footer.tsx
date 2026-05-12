@@ -1,172 +1,133 @@
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
-
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
 
+const footerLinks = {
+  company: [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Our Work", path: "/portfolio" },
+    { name: "Insights", path: "/blog" },
+    { name: "Contact", path: "/contact" }
+  ],
+  services: [
+    { name: "Web Development", path: "/services/website-development" },
+    { name: "AI Solutions", path: "/services/software-development" },
+    { name: "E-Commerce", path: "/services/ecommerce" },
+    { name: "SEO Mastery", path: "/services/seo" },
+    { name: "Cloud Systems", path: "/services" }
+  ],
+  locations: [
+    "Bangalore HQ",
+    "Belagavi Office",
+    "Hubli Tech Hub",
+    "Mysore Presence",
+    "Global Remote"
+  ]
+};
+
 export default function Footer() {
-
   return (
+    <footer className="relative pt-24 pb-12 overflow-hidden border-t border-white/5 bg-[#020617]">
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-    <footer className="relative mt-8 pt-12 pb-10 overflow-hidden bg-[#020617] text-slate-300 w-full border-t border-white/10 bg-gradient-to-r from-[#020617]/90 to-[#02142b]/90 backdrop-blur-xl">
-
-
-      {/* BACKGROUND GLOWS */}
-
-      <div className="absolute top-0 left-1/3 h-96 w-96 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="absolute bottom-0 right-1/3 h-96 w-96 bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
-
-
-
-      {/* CONTENT CONTAINER */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-
-
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-
-          {/* COMPANY */}
-          <div className="space-y-6 lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="Coreslash Technologies Logo" className="h-12 w-auto object-contain" />
-            </div>
-            <p className="text-slate-400 text-[15px] leading-relaxed">
-              Elevating digital experiences through bespoke web development and strategic marketing.
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-4 space-y-8">
+            <Link to="/" className="inline-block">
+              <img src={logo} alt="CoreSlash" className="h-10 w-auto" />
+            </Link>
+            <p className="text-white/50 text-lg leading-relaxed max-w-sm">
+              Architecting the next generation of digital experiences through intelligent design and engineering excellence.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Linkedin, Instagram].map((Icon, i) => (
+              {[Linkedin, Twitter, Instagram, Facebook].map((Icon, i) => (
                 <motion.a
                   key={i}
-                  whileHover={{ scale: 1.2 }}
-                  className="p-3 rounded-xl border border-white/10 bg-white/5 hover:bg-blue-500/20 transition"
+                  whileHover={{ y: -5, color: "#56E5FF" }}
                   href="#"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 transition-colors"
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon size={20} />
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* LINKS */}
-          <div>
-            <h3 className="text-white font-semibold mb-6">Quick Links</h3>
+          {/* Links Columns */}
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Company</h4>
             <ul className="space-y-4">
-              {[
-                { name: "Home", path: "/" },
-                { name: "About", path: "/about" },
-                { name: "Services", path: "/services" },
-                { name: "Portfolio", path: "/portfolio" },
-                { name: "Blog", path: "/blog" },
-                { name: "FAQ", path: "/faq" },
-                { name: "Contact", path: "/contact" }
-              ].map(item => (
-                <li key={item.name} className="hover:text-blue-400 cursor-pointer transition-colors text-sm font-medium">
-                  <Link to={item.path}>{item.name}</Link>
+              {footerLinks.company.map(link => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-white/40 hover:text-cyan-400 transition-colors text-sm font-medium">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* SERVICES */}
-          <div>
-            <h3 className="text-white font-semibold mb-6">Services</h3>
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Services</h4>
             <ul className="space-y-4">
-              {[
-                "Website Development",
-                "App Development",
-                "Software Development",
-                "Digital Marketing",
-                "SEO Optimization"
-              ].map(item => (
-                <li key={item} className="hover:text-cyan-400 cursor-pointer transition-colors text-sm font-medium">
-                  {item}
+              {footerLinks.services.map(link => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-white/40 hover:text-cyan-400 transition-colors text-sm font-medium">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* LOCATIONS (SEO KEYWORDS) */}
-          <div className="lg:col-span-1">
-            <h3 className="text-white font-semibold mb-6">Areas We Serve</h3>
-            <ul className="space-y-3">
-              {[
-                "Best Digital Marketing Agency in Bangalore",
-                "Best Digital Marketing Agency in Hubli",
-                "Best Digital Marketing Company in Belagavi",
-                "Best Digital Marketing Agency in Mysore",
-                "Best Digital Marketing Agency in Tumkur",
-                "Best Digital Marketing Company in Mangalore",
-                "Best Digital Marketing Agency in Gadag"
-              ].map(item => (
-                <li key={item} className="text-slate-500 hover:text-white cursor-default transition-colors text-[11px] font-medium leading-tight">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div>
-            <h3 className="text-white font-semibold mb-6">Get in Touch</h3>
-            <div className="space-y-5">
-              {[
-                { icon: Mail, text: "contact@CoreslashTechnologies.com" },
-                { icon: Phone, text: "+91 90000 00000" },
-                { icon: MapPin, text: "Bangalore, Hubli, Belagavi" }
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 group cursor-pointer">
-                  <div className="p-3 bg-blue-500/10 text-blue-400 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-                    <item.icon size={16} />
-                  </div>
-                  <span className="group-hover:text-white transition-colors text-sm">{item.text}</span>
+          {/* Contact Column */}
+          <div className="lg:col-span-4 space-y-8">
+            <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Stay Connected</h4>
+            <div className="flex p-2 gap-2 border border-white/10 rounded-xl bg-white/5">
+               <input 
+                 type="email" 
+                 placeholder="Enter your email" 
+                 className="flex-1 bg-transparent border-none focus:ring-0 text-white text-sm px-4"
+               />
+               <button className="bg-cyan-500 text-[#020617] px-6 py-2 rounded-lg font-bold text-sm hover:bg-white transition-colors">
+                 Join
+               </button>
+            </div>
+            
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center gap-4 text-white/40 group cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:text-cyan-400 transition-colors">
+                  <Mail size={18} />
                 </div>
-              ))}
+                <span className="text-sm font-medium">hello@coreslash.com</span>
+              </div>
+              <div className="flex items-center gap-4 text-white/40 group cursor-pointer">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:text-cyan-400 transition-colors">
+                  <Phone size={18} />
+                </div>
+                <span className="text-sm font-medium">+91 90000 00000</span>
+              </div>
             </div>
           </div>
         </div>
 
-
-
-        {/* BOTTOM */}
-
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-
-
-          <p className="text-slate-500 text-xs tracking-widest text-center md:text-left">
-
-            � {new Date().getFullYear()} Coreslash Technologies
-
+        {/* Bottom Bar */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/20 text-xs font-medium tracking-widest">
+            © {new Date().getFullYear()} CORESLASH TECHNOLOGIES. ALL RIGHTS RESERVED.
           </p>
-
-
-          <div className="flex gap-10 text-xs tracking-widest">
-
-            <a href="#" className="hover:text-white transition-colors">
-
-              PRIVACY POLICY
-
-            </a>
-
-            <a href="#" className="hover:text-white transition-colors">
-
-              TERMS OF SERVICE
-
-            </a>
-
+          <div className="flex gap-8">
+            <a href="#" className="text-white/20 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest">Privacy Policy</a>
+            <a href="#" className="text-white/20 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest">Terms of Service</a>
           </div>
-
-
         </div>
-
-
-
       </div>
-
     </footer>
-
   );
-
 }
-

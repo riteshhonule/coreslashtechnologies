@@ -1,141 +1,138 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import heroVideo from "../assets/CoreslashTechnologiestechnologies.webm";
 import { useModal } from "../context/ModalContext";
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import videoSrc from "../img/banner/banner-video.webm";
 
 export default function Hero() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative isolate min-h-screen flex items-center pt-40 overflow-hidden">
-      {/* Background Video Layer */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        src={heroVideo}
-        className="absolute top-0 left-0 w-full h-full object-cover -z-20"
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0118] pt-24 pb-16">
+
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Main Purple Glow */}
+        <div className="absolute top-[-15%] left-[-10%] w-[900px] h-[900px] bg-[#5B21FF]/30 rounded-full blur-[140px]" />
+        {/* Bottom Glow */}
+        <div className="absolute bottom-[-20%] left-[-5%] w-[700px] h-[700px] border border-white/5 rounded-full opacity-20" />
+        {/* Right Ambient */}
+        <div className="absolute top-1/2 right-[-10%] w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-[120px]" />
+        {/* Cinematic Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0A0118_80%)]" />
+      </div>
+
+      {/* Floating Glow Animation */}
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.35, 0.2],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-[100px]"
       />
 
-      {/* Dark Overlay Layer */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/60 to-black/40 -z-10" />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-[1fr_1.1fr] items-center gap-12 lg:gap-0">
 
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 w-full text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center"
-        >
-
-          {/* TOP BADGE */}
+          {/* LEFT CONTENT */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6"
+            transition={{
+              duration: 1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="relative z-20"
           >
-            <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-sm font-semibold text-cyan-300">
-              Your Partner in AI-Driven Digital Growth
-            </span>
+            {/* Heading */}
+            <h1 className="font-black text-white leading-[0.92] tracking-[-3px] mb-8">
+              {/* Small Top Line */}
+              <span className="block text-[30px] md:text-[42px] mb-2">
+                AI-powered solutions
+              </span>
+              {/* Main Heading */}
+              <span className="block text-[48px] md:text-[86px]">
+                <span className="text-[36px] md:text-[58px] align-middle">
+                  to Solve{" "}
+                </span>
+                <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent animate-pulse-glow">
+                  Complex
+                </span>
+              </span>
+              {/* Second Line */}
+              <span className="block text-[48px] md:text-[86px]">
+                Business Problems
+                <span className="text-cyan-400">.</span>
+              </span>
+            </h1>
+
+            {/* Paragraph */}
+            <p className="max-w-xl text-lg md:text-xl leading-relaxed text-white/65 mb-12 font-medium">
+              We design structured software systems and enhance them with
+              intelligent automation to improve how your business operates,
+              scales, and makes decisions.
+            </p>
+
+            {/* CTA Button */}
+            <div className="flex flex-wrap gap-5">
+              <button
+                onClick={openModal}
+                className="group relative flex items-center gap-5 rounded-full bg-white px-8 py-4 text-[#0A0118] font-bold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)] active:scale-95"
+              >
+                <span className="relative z-10">
+                  Explore Our Approach
+                </span>
+                {/* Arrow Circle */}
+                <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-cyan-400 transition-all duration-500 group-hover:rotate-45 group-hover:scale-110">
+                  <ArrowUpRightIcon className="w-6 h-6 stroke-[3]" />
+                </div>
+                {/* Glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-white/10 to-cyan-300/10" />
+              </button>
+            </div>
           </motion.div>
 
+          {/* RIGHT VIDEO */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 1.4,
+              ease: "easeOut",
+            }}
+            className="relative flex justify-center lg:justify-end lg:-mr-24 xl:-mr-48"
+          >
+            {/* Video Wrapper */}
+            <div className="relative z-10 w-full lg:w-[130%] max-w-[850px] lg:max-w-none">
+              <motion.video
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                src={videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-contain mix-blend-screen scale-110 lg:scale-125"
+              />
+            </div>
 
+            {/* Ambient Glows */}
+            <div className="absolute top-1/4 right-0 w-72 h-72 bg-cyan-400/15 rounded-full blur-[120px]" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/15 rounded-full blur-[140px]" />
+          </motion.div>
 
-          {/* MAIN HEADING
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white tracking-tight">
-  Top IT Solutions & Software Development Company in India <br/> 
-  <span className="text-3xl md:text-4xl text-blue-400">Based in Belgaum</span><br/>
-  <span className="text-white">Coreslash Technologies</span>
- </h1>
-
-
-
-          {/* SUB HEADING */}
-          {/* <h2 className="mt-4 text-3xl md:text-4xl font-bold text-gray-200">
-
-            India�s No.1{" "}
-
-            <span className="text-yellow-400">
-              AI IT Solutions
-            </span>{" "}
-
-            Company
-
-          </h2> */}
-
-
-          {/* MAIN HEADING */}
-          <h1 className="text-2xl md:text-4xl font-extrabold text-white leading-tight">
-            AI-Powered IT & Software Development Company
-            <br />
-          </h1>
-          <span className="text-2xl md:text-5xl font-extrabold tracking-wide bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
-            Coreslash Technologies
-          </span>
-          {/* SUB HEADING */}
-          <h2 className="mt-3 text-sm md:text-l text-gray-300">
-            Custom Software, Web & Scalable
-            <span className="text-yellow-400"> AI Solutions</span>
-          </h2>
-
-          {/* LOCATION / TRUST LINE
-          <p className="mt-2 text-sm text-gray-400">
-            Based in Belgaum • Serving Clients Across India
-          </p> */}
-
-          {/* SEO DESCRIPTION
-          <p className="mt-6 text-sm text-gray-300 leading-relaxed max-w-xl">
-
-            Transform your business with AI-powered IT solutions, website development,
-            software development, and digital marketing services.
-
-            We help companies increase traffic, automate operations,
-            and scale revenue faster with cutting-edge technology.
-
-          </p> */}
-
-
-
-          <div className="mt-10 flex flex-wrap justify-center items-center gap-6">
-
-            <button
-              onClick={openModal}
-              className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-2xl font-bold hover:scale-105 transition"
-            >
-              Get Started ?
-            </button>
-
-
-            <Link
-              to="/services"
-              className="px-8 py-4 border border-white/30 text-white rounded-2xl font-bold hover:bg-white/10 transition"
-            >
-              View Services
-            </Link>
-
-          </div>
-
-
-
-          {/* TRUST LOGOS */}
-          <div className="mt-6 mb-12 flex items-center justify-center gap-8 opacity-70">
-
-            <img src="https://img.icons8.com/color/48/google-logo.png" className="h-12 invert" />
-
-            <img src="https://img.icons8.com/color/48/meta.png" className="h-12 invert" />
-
-            <img src="https://img.icons8.com/color/48/microsoft.png" className="h-12 invert" />
-
-          </div>
-
-
-        </motion.div>
-
+        </div>
       </div>
     </section>
   );
-}
-
+}

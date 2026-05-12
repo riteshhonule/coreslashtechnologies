@@ -4,28 +4,30 @@ import { useModal } from "../context/ModalContext";
 export default function CTA() {
   const { openModal } = useModal();
   return (
-    <section className="py-24 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative rounded-[3rem] bg-gray-900 overflow-hidden"
+          className="relative rounded-[3rem] overflow-hidden glass-card border-white/10"
         >
-          {/* Decorative Background */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-600/20 to-transparent" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/20 rounded-full blur-[100px]" />
-
-          <div className="relative z-10 p-12 md:p-20 text-center">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/20 via-transparent to-accent-cyan/10" />
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-light/10 rounded-full blur-[100px]" />
+          
+          <div className="relative z-10 p-12 md:p-24 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
             >
-              Let's Create Something Great
+              <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest">
+                Start Your Journey
+              </span>
             </motion.div>
 
             <motion.h2
@@ -33,10 +35,10 @@ export default function CTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight"
+              className="text-4xl md:text-7xl font-bold text-white mb-8 leading-tight"
             >
-              Ready to accelerate <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">your business growth?</span>
+              Ready to Accelerate <br />
+              <span className="text-gradient-cyan">Your Digital Growth?</span>
             </motion.h2>
 
             <motion.p
@@ -44,9 +46,9 @@ export default function CTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-gray-400 text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+              className="text-white/50 text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
             >
-              Get a custom digital strategy designed specifically for your goals and market conditions.
+              Get a custom-engineered digital strategy designed to dominate your market and scale your operations.
             </motion.p>
 
             <motion.div
@@ -58,16 +60,15 @@ export default function CTA() {
             >
               <button
                 onClick={openModal}
-                className="px-10 py-5 bg-white text-gray-900 rounded-2xl font-bold hover:bg-blue-50 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-white/5"
+                className="btn-primary"
               >
                 Book a Free Consultation
               </button>
-              <a
-                href="/services"
-                className="px-10 py-5 bg-white/10 text-white backdrop-blur-md border border-white/20 rounded-2xl font-bold hover:bg-white/20 transition-all"
+              <button
+                className="btn-outline"
               >
-                Explore Services
-              </a>
+                Explore All Services
+              </button>
             </motion.div>
           </div>
         </motion.div>
@@ -75,3 +76,4 @@ export default function CTA() {
     </section>
   );
 }
+
