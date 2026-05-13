@@ -13,8 +13,24 @@ const ContactPage = () => {
     {
       icon: <PhoneIcon className="w-8 h-8 md:w-12 md:h-12" />,
       title: "Mobile",
-      detail: "+91 8861220023",
-      link: "tel:+918861220023",
+      detail: (
+        <>
+          <a
+            href="tel:+918861220023"
+            className="block hover:text-white transition-colors duration-300"
+          >
+            +91 8861220023
+          </a>
+
+          <a
+            href="tel:+919876543210"
+            className="block mt-2 hover:text-white transition-colors duration-300"
+          >
+            +91 9876543210
+          </a>
+        </>
+      ),
+      link: "#",
       accent: "text-accent-cyan",
       bg: "bg-accent-cyan/10"
     },
@@ -23,6 +39,7 @@ const ContactPage = () => {
       title: "WhatsApp",
       detail: "WhatsApp",
       link: "https://wa.me/918861220023",
+
       accent: "text-green-400",
       bg: "bg-green-400/10"
     },

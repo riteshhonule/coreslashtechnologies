@@ -299,7 +299,7 @@ const WebsiteDevelopment: React.FC = () => {
                                         <h3 className="text-2xl font-bold text-white mb-4">{plan.name}</h3>
                                         <div className="flex items-baseline gap-2 mb-6">
                                             <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tighter">{plan.price}</span>
+                                            <span className="text-6xl font-black text-white tracking-tight">{plan.price}</span>
                                         </div>
                                         <p className="text-white/40 text-sm leading-relaxed">{plan.desc}</p>
                                     </div>

@@ -76,10 +76,11 @@ const DigitalMarketing: React.FC = () => {
 
                         {/* Content Side */}
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
+                            initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
+                            className="flex flex-col items-center text-center"
                         >
                             <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
@@ -104,14 +105,16 @@ const DigitalMarketing: React.FC = () => {
                                     <div key={i} className="glass-card p-4 rounded-2xl border-white/5 flex flex-col items-center text-center">
                                         <stat.icon className="w-6 h-6 text-accent-cyan mb-2" />
                                         <span className="text-xl font-bold text-white">{stat.val}</span>
-                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-tighter">{stat.label}</span>
+                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-tight">{stat.label}</span>
                                     </div>
                                 ))}
                             </div>
 
-                            <button onClick={openModal} className="btn-pill btn-primary-glow text-white text-lg px-10">
-                                Claim Free Audit
-                            </button>
+                            <div className="flex justify-center w-full">
+                                <button onClick={openModal} className="btn-pill btn-primary-glow text-white text-lg px-10">
+                                    Claim Free Audit
+                                </button>
+                            </div>
                         </motion.div>
                     </div>
                 </section>

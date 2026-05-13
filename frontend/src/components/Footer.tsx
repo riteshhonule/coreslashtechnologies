@@ -48,11 +48,16 @@ export default function Footer() {
               intelligent design and engineering excellence.
             </p>
             <div className="flex gap-4">
-              {[Linkedin, Twitter, Instagram, Facebook].map((Icon, i) => (
+              {[
+                { Icon: Linkedin, url: "https://www.linkedin.com/company/coreslash-technologies/" },
+                { Icon: Instagram, url: "https://www.instagram.com/coreslashtechnologies/" }
+              ].map(({ Icon, url }, i) => (
                 <motion.a
                   key={i}
                   whileHover={{ y: -5, scale: 1.1 }}
-                  href="#"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-white/40 hover:text-accent-cyan hover:border-accent-cyan/30 transition-all"
                 >
                   <Icon size={20} />

@@ -5,44 +5,49 @@ import { XMarkIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outlin
 const items = [
   {
     id: 1,
-    title: "Olympiad Exam Portal",
-    category: "Education Platform",
-    img: "/img/project/CoreslashTechnologiestechnologiesoec.png",
-    description: "A comprehensive online assessment engine designed for national level olympiads, featuring real-time monitoring and automated grading.",
-    link: "https://olympiadexamination.org/"
+    title: "AI Logistics Management Platform",
+    category: "Supply Chain & Transport",
+    img: "/img/project/logistics.png",
+    description:
+      "An enterprise logistics ecosystem with route optimization, fleet tracking, live delivery monitoring, and warehouse automation.",
+    link: "#",
   },
   {
     id: 2,
-    title: "Surekha Event Lawns",
-    category: "Booking & Management",
-    img: "/img/project/CoreslashTechnologiestechnologiessurekha.png",
-    description: "An integrated venue management system that streamlines bookings, vendor coordination, and customer relationship management.",
-    link: "#"
+    title: "E-Commerce Multi Vendor Platform",
+    category: "Retail Technology",
+    img: "/img/project/ecommerce.png",
+    description:
+      "A scalable marketplace platform supporting multi-vendor operations, payment gateways, inventory tracking, and analytics.",
+    link: "#",
   },
   {
     id: 3,
-    title: "Enterprise CSR Portal",
-    category: "Management System",
-    img: "/img/project/CoreslashTechnologiestechnologiescsr.png",
-    description: "Digital transformation of CSR activities for major corporations, ensuring transparency and efficient impact tracking.",
-    link: "#"
+    title: "Smart Hospital Management System",
+    category: "Healthcare Technology",
+    img: "/img/project/hospital.png",
+    description:
+      "A complete digital healthcare suite with patient management, appointment scheduling, billing, EHR, and AI-powered diagnostics.",
+    link: "#",
   },
   {
     id: 4,
-    title: "Academic Nomination System",
-    category: "Nomination Platform",
-    img: "/img/project/CoreslashTechnologiestechnologiesshadi.png",
-    description: "A secure, peer-reviewed nomination platform for honorary academic recognitions and credentials verification.",
-    link: "#"
+    title: "AI Learning Management System",
+    category: "EdTech Platform",
+    img: "/img/project/lms.png",
+    description:
+      "A modern LMS platform with adaptive learning, live classes, AI-based assessments, and student performance analytics.",
+    link: "#",
   }
 ];
+
 
 export default function Portfolio() {
   const [active, setActive] = useState<typeof items[0] | null>(null);
 
   return (
     <section id="portfolio" className="relative py-32 overflow-hidden bg-dark-black">
-      
+
       {/* Background Glow */}
       <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[150px] pointer-events-none" />
 
@@ -63,7 +68,7 @@ export default function Portfolio() {
             Case Studies of <span className="text-gradient-cyan text-gradient-cyan">Success</span>
           </h2>
           <p className="text-white/40 text-xl leading-relaxed">
-            Explore how we've helped businesses transform their operations through 
+            Explore how we've helped businesses transform their operations through
             custom software and intelligent automation.
           </p>
         </div>
@@ -85,7 +90,7 @@ export default function Portfolio() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-dark-black/40 to-transparent opacity-90" />
 
@@ -96,7 +101,7 @@ export default function Portfolio() {
                   <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 group-hover:text-accent-cyan transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <div className="flex items-center gap-3 text-white/40 text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
                     View Case Study <ArrowTopRightOnSquareIcon className="w-5 h-5" />
                   </div>
@@ -112,7 +117,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="mt-24 text-center"
         >
-           <button className="btn-pill btn-glass text-white px-12">Browse Full Portfolio</button>
+          <button className="btn-pill btn-glass text-white px-12">Browse Full Portfolio</button>
         </motion.div>
       </div>
 
@@ -135,46 +140,46 @@ export default function Portfolio() {
             >
               <div className="grid lg:grid-cols-2">
                 <div className="relative aspect-square lg:aspect-auto">
-                    <img src={active.img} alt={active.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-dark-black/50 to-transparent lg:hidden" />
+                  <img src={active.img} alt={active.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-dark-black/50 to-transparent lg:hidden" />
                 </div>
-                
-                <div className="p-12 md:p-16 flex flex-col justify-center relative">
-                    <button
-                        onClick={() => setActive(null)}
-                        className="absolute top-8 right-8 p-3 rounded-full bg-white/5 text-white hover:bg-accent-cyan hover:text-dark-black transition-all"
-                    >
-                        <XMarkIcon className="w-6 h-6" />
-                    </button>
 
-                    <p className="text-accent-cyan font-bold uppercase tracking-[0.3em] text-xs mb-6">
-                        {active.category}
-                    </p>
-                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
-                        {active.title}
-                    </h3>
-                    <p className="text-white/50 text-xl leading-relaxed mb-12">
-                        {active.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-6">
+                <div className="p-12 md:p-16 flex flex-col justify-center relative">
+                  <button
+                    onClick={() => setActive(null)}
+                    className="absolute top-8 right-8 p-3 rounded-full bg-white/5 text-white hover:bg-accent-cyan hover:text-dark-black transition-all"
+                  >
+                    <XMarkIcon className="w-6 h-6" />
+                  </button>
+
+                  <p className="text-accent-cyan font-bold uppercase tracking-[0.3em] text-xs mb-6">
+                    {active.category}
+                  </p>
+                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
+                    {active.title}
+                  </h3>
+                  <p className="text-white/50 text-xl leading-relaxed mb-12">
+                    {active.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-6">
                     {active.link !== "#" && (
-                        <a 
-                            href={active.link} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="btn-pill btn-primary-glow text-white px-10 flex items-center gap-3"
-                        >
-                            Live Preview <ArrowTopRightOnSquareIcon className="w-5 h-5" />
-                        </a>
+                      <a
+                        href={active.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-pill btn-primary-glow text-white px-10 flex items-center gap-3"
+                      >
+                        Live Preview <ArrowTopRightOnSquareIcon className="w-5 h-5" />
+                      </a>
                     )}
-                    <button 
-                        onClick={() => setActive(null)}
-                        className="btn-pill btn-glass text-white px-10"
+                    <button
+                      onClick={() => setActive(null)}
+                      className="btn-pill btn-glass text-white px-10"
                     >
-                        Close
+                      Close
                     </button>
-                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

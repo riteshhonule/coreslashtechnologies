@@ -91,7 +91,7 @@ export default function Hero() {
             {/* Responsive Heading using Clamp */}
             {/* <motion.h1 
                 variants={itemVariants}
-                className="font-bold text-white leading-[0.95] tracking-tighter mb-8"
+                className="font-bold text-white leading-[0.95] tracking-tight mb-8"
                 style={{
                     fontSize: 'clamp(42px, 12vw, 58px)', // Mobile default
                 }}
@@ -104,7 +104,7 @@ export default function Hero() {
             {/* Premium Mixed-Scale Hero Heading */}
             <motion.h1
               variants={itemVariants}
-              className="font-black leading-[0.9] tracking-[-0.05em] text-white mb-8"
+              className="font-black leading-[0.9] tracking-[-0.02em] text-white mb-8"
             >
 
               {/* Small Top Text */}

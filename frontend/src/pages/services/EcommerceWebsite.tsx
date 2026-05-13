@@ -90,6 +90,7 @@ const EcommerceWebsite: React.FC = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
+                            className="flex flex-col items-center text-center"
                         >
                             <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
@@ -103,7 +104,7 @@ const EcommerceWebsite: React.FC = () => {
                                 and build trust. From secure payment logic to lightning-fast load times, we ensure
                                 your digital storefront is optimized for maximum revenue velocity.
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-6">
+                            <div className="flex justify-center w-full">
                                 <button className="btn-pill btn-primary-glow text-white px-10 py-5">
                                     Consult Our Experts
                                 </button>
@@ -216,7 +217,7 @@ const EcommerceWebsite: React.FC = () => {
                                         <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
                                         <div className="flex items-baseline gap-2 mb-6">
                                             <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tighter">{pkg.price}</span>
+                                            <span className="text-6xl font-black text-white tracking-tight">{pkg.price}</span>
                                         </div>
                                     </div>
 

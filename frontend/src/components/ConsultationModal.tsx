@@ -25,33 +25,35 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                         initial={{ scale: 0.95, opacity: 0, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                        className="relative w-full max-w-lg bg-[#050816] rounded-3xl p-8 border border-white/10 shadow-2xl overflow-hidden"
+                        className="relative w-full max-w-xl bg-[#050816] rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden"
                     >
-                        <button
-                            onClick={onClose}
-                            className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-colors z-30"
-                        >
-                            <XMarkIcon className="w-6 h-6" />
-                        </button>
+                        <div className="p-6 md:p-10 relative">
+                            <button
+                                onClick={onClose}
+                                className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-all z-30"
+                            >
+                                <XMarkIcon className="w-5 h-5 md:w-6 md:h-6" />
+                            </button>
 
-                        <div className="mb-8 relative z-10">
-                            <h2 className="text-3xl font-black text-white mb-2 leading-tight">
-                                Start Your <span className="text-blue-500">Project</span>
-                            </h2>
-                            <p className="text-blue-400 text-sm font-medium">
-                                Book a free session & get a customized strategy
-                            </p>
+                            <div className="mb-6 relative z-10 pr-8">
+                                <h2 className="text-xl md:text-3xl font-black text-white mb-1 leading-tight tracking-tight">
+                                    Start Your <span className="text-gradient-cyan">Project</span>
+                                </h2>
+                                <p className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                                    Strategic Technical Architecture
+                                </p>
+                            </div>
+
+                            <div className="relative z-10">
+                                <ContactForm variant="glass" onSuccess={() => {
+                                    setTimeout(onClose, 2500);
+                                }} />
+                            </div>
+
+                            {/* Background elements */}
+                            <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/10 rounded-full blur-[60px] pointer-events-none" />
+                            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-indigo-600/10 rounded-full blur-[60px] pointer-events-none" />
                         </div>
-
-                        <div className="relative z-10">
-                            <ContactForm variant="glass" onSuccess={() => {
-                                setTimeout(onClose, 2500);
-                            }} />
-                        </div>
-
-                        {/* Background elements */}
-                        <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-                        <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
                     </motion.div>
                 </div>
             )}

@@ -92,6 +92,7 @@ const SoftwareDevelopment: React.FC = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
+                            className="flex flex-col items-center text-center"
                         >
                             <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
@@ -115,12 +116,14 @@ const SoftwareDevelopment: React.FC = () => {
                                 ))}
                             </div>
 
-                            <button
-                                onClick={openModal}
-                                className="btn-pill btn-primary-glow text-white text-lg px-12"
-                            >
-                                Start Consultation
-                            </button>
+                            <div className="flex justify-center w-full">
+                                <button
+                                    onClick={openModal}
+                                    className="btn-pill btn-primary-glow text-white text-lg px-12"
+                                >
+                                    Start Consultation
+                                </button>
+                            </div>
                         </motion.div>
 
                         <motion.div
@@ -217,7 +220,7 @@ const SoftwareDevelopment: React.FC = () => {
                                         <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
                                         <div className="flex items-baseline gap-2 mb-6">
                                             <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tighter">{pkg.price}</span>
+                                            <span className="text-6xl font-black text-white tracking-tight">{pkg.price}</span>
                                         </div>
                                     </div>
 

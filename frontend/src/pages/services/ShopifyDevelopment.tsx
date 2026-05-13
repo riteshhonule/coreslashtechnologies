@@ -239,7 +239,7 @@ const ShopifyDevelopment: React.FC = () => {
                                         <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
                                         <div className="flex items-baseline gap-2 mb-6">
                                             <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tighter">{pkg.price}</span>
+                                            <span className="text-6xl font-black text-white tracking-tight">{pkg.price}</span>
                                         </div>
                                     </div>
 

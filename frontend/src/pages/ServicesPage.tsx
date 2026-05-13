@@ -77,7 +77,7 @@ export default function ServicesPage() {
               Our Capability Matrix
             </span>
           </motion.div>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,14 +87,14 @@ export default function ServicesPage() {
             Future-Proof <br />
             <span className="text-gradient-purple">Intelligence</span> Modules.
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white/40 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
           >
-            We architect bespoke technology solutions that empower ambitious brands 
+            We architect bespoke technology solutions that empower ambitious brands
             to dominate their digital categories.
           </motion.p>
         </div>
@@ -118,7 +118,7 @@ export default function ServicesPage() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
                     <img src={service.image} alt="" className="w-full h-full object-cover grayscale" />
                   </div>
-                  
+
                   <div className="relative z-10 mb-8">
                     <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors duration-500">
                       <img src={service.image} alt={service.title} className="w-12 h-12 object-cover rounded-lg" />
@@ -153,21 +153,23 @@ export default function ServicesPage() {
             className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-purple/10 to-transparent pointer-events-none" />
-            
+
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-10 tracking-tight">
               Ready for <span className="text-gradient-cyan">Global Scale?</span>
             </h2>
-            
+
             <p className="text-white/40 text-xl mb-12 leading-relaxed">
               Let's architect a custom technology roadmap to achieve your strategic objectives.
             </p>
 
-            <Link
-              to="/contact"
-              className="btn-pill btn-primary-glow text-white text-xl px-16 inline-block"
-            >
-              Get Custom Proposal
-            </Link>
+            <div className="flex justify-center">
+              <Link
+                to="/contact"
+                className="btn-pill btn-primary-glow text-white text-xl px-16 inline-block"
+              >
+                Get Custom Proposal
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -176,4 +178,4 @@ export default function ServicesPage() {
       <WhyChooseUs />
     </div>
   );
-}
+}

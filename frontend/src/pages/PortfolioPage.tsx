@@ -9,45 +9,77 @@ import {
 
 const items = [
   {
-    id: 1,
-    title: "Exam Portal",
-    category: "Education Platform",
-    img: "/img/project/CoreslashTechnologiestechnologiesoec.png",
-    description: "A complete online examination and assessment system engineered for massive concurrent traffic and high-integrity academic evaluations. Featuring real-time proctoring and neural analytics.",
-    link: "https://olympiadexamination.org/"
-  },
-  {
-    id: 2,
-    title: "Surekha Lawns",
-    category: "Booking System",
-    img: "/img/project/CoreslashTechnologiestechnologiessurekha.png",
-    description: "A smart venue booking platform with an integrated inventory management layer. Designed to streamline luxury event operations through automated scheduling and payment ecosystems.",
-    link: "#"
-  },
-  {
-    id: 3,
-    title: "CSR Portal",
-    category: "Management System",
-    img: "/img/project/CoreslashTechnologiestechnologiescsr.png",
-    description: "A centralized CSR management system built for enterprise-scale corporate social responsibility tracking. Real-time impact dashboards and stakeholder reporting modules.",
-    link: "#"
-  },
-  {
-    id: 4,
-    title: "Shaadi Karoge",
-    category: "Matrimony Platform",
-    img: "/img/project/CoreslashTechnologiestechnologiesshadi.png",
-    description: "A specialized matrimonial ecosystem focusing on secure user matching and verification. Features advanced filter algorithms and high-velocity search indexing.",
-    link: "#"
-  },
-  {
     id: 5,
-    title: "Doctorate Portal",
-    category: "Nomination Platform",
-    img: "/img/project/CoreslashTechnologiestechnologieschon.png",
-    description: "A specialized web architecture designed to manage honorary doctorate nominations globally. Featuring complex document verification and committee review workflows.",
-    link: "#"
-  }
+    title: "AI Logistics Management Platform",
+    category: "Supply Chain & Transport",
+    img: "/img/project/logistics.png",
+    description:
+      "An enterprise logistics ecosystem with route optimization, fleet tracking, live delivery monitoring, and warehouse automation.",
+    link: "#",
+  },
+  {
+    id: 6,
+    title: "Smart Hospital Management System",
+    category: "Healthcare Technology",
+    img: "/img/project/hospital.png",
+    description:
+      "A complete digital healthcare suite with patient management, appointment scheduling, billing, EHR, and AI-powered diagnostics.",
+    link: "#",
+  },
+  {
+    id: 7,
+    title: "FinTech Banking Dashboard",
+    category: "Financial Technology",
+    img: "/img/project/fintech.png",
+    description:
+      "A secure banking and analytics platform with real-time transactions, fraud detection, investment insights, and compliance monitoring.",
+    link: "#",
+  },
+  {
+    id: 8,
+    title: "AI CRM & Sales Automation",
+    category: "Business Automation",
+    img: "/img/project/crm.png",
+    description:
+      "An intelligent CRM platform designed for lead management, automated workflows, customer analytics, and sales forecasting.",
+    link: "#",
+  },
+  {
+    id: 9,
+    title: "E-Commerce Multi Vendor Platform",
+    category: "Retail Technology",
+    img: "/img/project/ecommerce.png",
+    description:
+      "A scalable marketplace platform supporting multi-vendor operations, payment gateways, inventory tracking, and analytics.",
+    link: "#",
+  },
+  {
+    id: 10,
+    title: "Real Estate Property Management",
+    category: "Real Estate Solutions",
+    img: "/img/project/realestate.png",
+    description:
+      "A digital property ecosystem enabling virtual tours, property listings, CRM integration, and automated lead management.",
+    link: "#",
+  },
+  {
+    id: 13,
+    title: "AI Learning Management System",
+    category: "EdTech Platform",
+    img: "/img/project/lms.png",
+    description:
+      "A modern LMS platform with adaptive learning, live classes, AI-based assessments, and student performance analytics.",
+    link: "#",
+  },
+  {
+    id: 14,
+    title: "Cloud Based Cybersecurity Suite",
+    category: "Cybersecurity",
+    img: "/img/project/cybersecurity.png",
+    description:
+      "A cloud-native security monitoring platform featuring threat detection, access control, vulnerability scanning, and incident response.",
+    link: "#",
+  },
 ];
 
 const PortfolioPage = () => {

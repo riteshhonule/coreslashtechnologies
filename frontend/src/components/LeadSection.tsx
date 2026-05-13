@@ -92,7 +92,7 @@ export default function LeadSection() {
 
             <div className="relative glass-card p-10 md:p-14 border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
               <h3 className="text-3xl font-bold text-white mb-4">
-                Book a <span className="text-accent-cyan text-gradient-cyan">Discovery</span> Session
+                Book a <span className="text-accent-cyan text-gradient-cyan">Free</span> Session
               </h3>
               <p className="text-white/40 mb-10 text-lg">Get a personalized growth roadmap in 30 minutes.</p>
 

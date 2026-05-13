@@ -70,10 +70,10 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
         )}
       </AnimatePresence>
 
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Full Name</label>
+      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
             <input
               placeholder="Enter Your Name"
               className="glass-input"
@@ -81,8 +81,8 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
             />
           </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Work Email</label>
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Work Email</label>
             <input
               type="email"
               placeholder="Enter Your Email"
@@ -92,9 +92,9 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Phone Number</label>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
             <input
               placeholder="+91 00000 00000"
               className="glass-input"
@@ -102,8 +102,8 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
             />
           </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Location</label>
+          <div className="space-y-1">
+            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Location</label>
             <input
               placeholder="Enter Your Location"
               className="glass-input"
@@ -112,8 +112,8 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           </div>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Select Industry</label>
+        <div className="space-y-1">
+          <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Select Industry</label>
           <div className="relative">
             <select
               className="glass-input appearance-none cursor-pointer"
@@ -133,10 +133,10 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           </div>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Project Details</label>
+        <div className="space-y-1">
+          <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Project Details</label>
           <textarea
-            rows={4}
+            rows={2}
             placeholder="Describe your vision and technical requirements..."
             className="glass-input resize-none"
             {...register("message", { required: true })}
@@ -148,7 +148,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           whileTap={{ scale: 0.99 }}
           type="submit"
           disabled={status === "loading"}
-          className="w-full btn-pill btn-primary-glow text-white text-lg py-5 shadow-2xl"
+          className="w-full btn-pill btn-primary-glow text-white text-lg py-4 shadow-2xl mt-2"
         >
           {status === "loading" ? "Processing..." : "Secure My Consultation"}
         </motion.button>

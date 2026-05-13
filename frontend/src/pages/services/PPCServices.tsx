@@ -110,6 +110,7 @@ const PPCServices = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
+                            className="flex flex-col items-center text-center"
                         >
                             <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
@@ -123,12 +124,14 @@ const PPCServices = () => {
                                 funnels that target customers at the exact moment of intent. By combining algorithmic 
                                 bidding with creative excellence, we engineer profitable growth at scale.
                             </p>
-                            <button
-                                onClick={openModal}
-                                className="btn-pill btn-primary-glow text-white text-lg px-12"
-                            >
-                                Start Profitable Growth
-                            </button>
+                            <div className="flex justify-center w-full">
+                                <button
+                                    onClick={openModal}
+                                    className="btn-pill btn-primary-glow text-white text-lg px-12"
+                                >
+                                    Start Profitable Growth
+                                </button>
+                            </div>
                         </motion.div>
                     </div>
 
@@ -191,7 +194,7 @@ const PPCServices = () => {
                                         <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
                                         <div className="flex items-baseline gap-2 mb-6">
                                             <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tighter">{pkg.price}</span>
+                                            <span className="text-6xl font-black text-white tracking-tight">{pkg.price}</span>
                                             <span className="text-white/40 font-medium">{pkg.duration}</span>
                                         </div>
                                         <p className="text-white/40 text-sm leading-relaxed">{pkg.description}</p>
