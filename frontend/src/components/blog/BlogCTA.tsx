@@ -7,42 +7,41 @@ const BlogCTA: React.FC = () => {
     const { openModal } = useModal();
 
     return (
-        <section className="py-24 px-6 md:px-12">
+        <section className="py-32 px-6 bg-dark-black relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-purple/10 rounded-full blur-[160px] pointer-events-none" />
+            
             <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="max-w-7xl mx-auto relative rounded-[3rem] overflow-hidden bg-gradient-to-br from-purple-700 via-orange-500 to-pink-600 shadow-2xl"
+                className="max-w-7xl mx-auto relative rounded-[4rem] overflow-hidden glass-card border-white/5 p-16 md:p-24 text-center"
             >
-                {/* Decorative Elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mixed-blend-overlay" />
-                    <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-pulse" />
-                    <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-black/10 rounded-full blur-3xl animate-pulse delay-700" />
-                </div>
+                {/* Background Decor */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 via-transparent to-accent-cyan/5 pointer-events-none" />
+                <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent-cyan/10 rounded-full blur-[100px] animate-pulse" />
 
-                <div className="relative z-10 px-8 py-20 text-center text-white">
-                    <div className="flex justify-center mb-6">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-                            <SparklesIcon className="w-5 h-5 text-yellow-300" />
-                            <span className="text-xs font-bold uppercase tracking-[0.2em]">Ready to scale?</span>
+                <div className="relative z-10 text-white">
+                    <div className="flex justify-center mb-8">
+                        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+                            <SparklesIcon className="w-4 h-4 text-accent-cyan" />
+                            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-cyan">Architecture of Growth</span>
                         </div>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight max-w-4xl mx-auto drop-shadow-md">
-                        Let's Build Your Business with Coreslash Technologies
+                    <h2 className="text-4xl md:text-7xl font-bold mb-10 leading-tight tracking-tight max-w-5xl mx-auto">
+                        Ready to Architect your <span className="text-gradient-purple">Digital Dominance?</span>
                     </h2>
 
-                    <p className="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
-                        Empower your brand with modern digital strategies, high-performance websites, and data-driven marketing.
+                    <p className="text-white/40 text-xl md:text-2xl mb-16 max-w-3xl mx-auto font-medium leading-relaxed">
+                        Deploy elite digital strategies and high-velocity engineering with the CoreSlash ecosystem.
                     </p>
 
                     <button
                         onClick={openModal}
-                        className="group relative inline-flex items-center gap-4 px-10 py-5 bg-white text-gray-900 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-black/20"
+                        className="btn-pill btn-primary-glow text-white text-xl px-16 py-6 group"
                     >
-                        Get Free Consultation
-                        <ArrowRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                        Initiate Consultation
+                        <ArrowRightIcon className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" />
                     </button>
                 </div>
             </motion.div>
@@ -51,3 +50,4 @@ const BlogCTA: React.FC = () => {
 };
 
 export default BlogCTA;
+

@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
                             <img
                                 src={CoreslashTechnologies_solutions}
                                 alt="Solutions"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                className="w-full h-full object-cover transition-all duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 to-transparent" />
                         </div>
@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
                         <motion.div
                             animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute -bottom-6 -left-6 glass p-6 border border-accent-cyan/20 hidden md:block"
+                            className="absolute -bottom-6 -left-6 glass p-6 border border-accent-cyan/20 z-20 hidden md:block"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full bg-accent-cyan/10 flex items-center justify-center text-accent-cyan">

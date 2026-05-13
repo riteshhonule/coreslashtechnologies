@@ -19,7 +19,7 @@ import coreslashWebsiteDevelopment from "../../img/website/coreslash-website-dev
 import ServiceLayout from "./ServicesLayout";
 
 const features = [
-    { title: "Bespoke Design", desc: "Tailored layouts that represent your brand’s identity.", icon: customDesignImg },
+    { title: "Bespoke Design", desc: "Tailored layouts that represent your brand’s unique identity.", icon: customDesignImg },
     { title: "Fluid UI", desc: "Seamless performance across all devices, from desktops to smartphones.", icon: responsiveImg },
     { title: "High Velocity", desc: "Optimized code and caching techniques for lightning-fast speed.", icon: speedImg },
     { title: "SEO Ready", desc: "Built-in SEO features to improve your search engine rankings.", icon: seoImg },
@@ -31,36 +31,32 @@ const pricingPlans = [
     {
         name: "Basic Package",
         price: "10,000",
-        desc: "Perfect for businesses starting out, offering foundational website development, SEO, and social media presence.",
+        desc: "Perfect for businesses starting out, offering foundational website development and SEO.",
         features: [
-            "Website Development (Landing Page up to 5 pages)",
+            "Website Development (up to 5 pages)",
             "Basic SEO Setup and Optimization",
             "Social Media Profile Creation",
-            "3 SEO Optimized Blog Post Creation",
-            "1 Year High Speed Hosting & Domain",
+            "3 SEO Optimized Blog Posts",
+            "1 Year Hosting & Domain",
             "Custom Email Creation",
-            "Enhanced Security",
-            "Responsive view on mobile, tablet, desktop",
-            "SSL certificate (Https verified)",
-            "WhatsApp / Live Chat on Website",
+            "Responsive Mobile Design",
+            "SSL Certificate (HTTPS)",
             "6 Months Technical Support"
         ]
     },
     {
         name: "Standard Package",
         price: "15,000",
-        desc: "Designed for growing businesses, this package provides professional development and comprehensive SEO.",
+        desc: "Designed for growing businesses, providing professional development and comprehensive SEO.",
         features: [
-            "Website Development (Responsive up to 10 pages)",
-            "Comprehensive SEO Setup and Optimization",
-            "Social Media Profile Creation",
-            "4 SEO Optimized Blog Post Creation",
-            "1 Year High Speed Hosting & Domain",
+            "Website Development (up to 10 pages)",
+            "Comprehensive SEO Setup",
+            "Social Media Management",
+            "4 SEO Optimized Blog Posts",
+            "1 Year High Speed Hosting",
             "Custom Email Creation",
-            "Enhanced Security",
-            "Desktop, laptop, tablet & mobile friendly",
-            "SSL certificate (Https verified)",
-            "WhatsApp / Live Chat on Website",
+            "Enhanced Security Protocols",
+            "WhatsApp / Live Chat Integration",
             "1 Year Technical Support"
         ],
         isPopular: true
@@ -68,19 +64,17 @@ const pricingPlans = [
     {
         name: "Premium Package",
         price: "20,000",
-        desc: "Ideal for scaling businesses, this package includes advanced solutions and full-scale marketing campaigns.",
+        desc: "Ideal for scaling businesses, including advanced solutions and full-scale marketing.",
         features: [
-            "Website Development (Responsive up to 15 pages)",
-            "Comprehensive SEO Setup and Optimization",
-            "Social Media Profile Creation",
-            "4 SEO Optimized Blog Post Creation",
-            "1 Year High Speed Hosting & Domain",
-            "Custom Email Creation",
-            "Enhanced Security",
-            "Desktop, laptop, tablet & mobile friendly",
-            "SSL certificate (Https verified)",
-            "WhatsApp / Live Chat on Website",
-            "1 Year Technical Support"
+            "Website Development (up to 15 pages)",
+            "Advanced SEO & Analytics",
+            "Full Social Media Strategy",
+            "Content Strategy & Production",
+            "Priority High Speed Hosting",
+            "Enterprise Security",
+            "Custom API Integrations",
+            "Performance Optimization",
+            "Priority 24/7 Support"
         ]
     }
 ];
@@ -122,355 +116,244 @@ const WebsiteDevelopment: React.FC = () => {
     return (
         <ServiceLayout
             title="Website Development"
-            subtitle="Transforming Ideas Into Results"
-            ctaText="Consult Our Experts"
-            headerGradient="from-[#020617] via-[#0f172a] to-[#020617] mt-5"
+            subtitle="Transforming vision into digital excellence."
+            ctaText="Start Your Project"
         >
-            <div className="bg-[#fcfcfd]">
-                <section className="container mx-auto px-6 lg:px-12 py-16">
-                    <div className="grid lg:grid-cols-3 gap-10 items-start">
+            <div className="bg-dark-black">
+                {/* Main Content & Sidebar */}
+                <section className="container mx-auto px-6 lg:px-12 py-20">
+                    <div className="grid lg:grid-cols-3 gap-16 items-start">
 
-                        {/* ================= MAIN CONTENT ================= */}
-                        <div className="lg:col-span-2 space-y-12">
+                        {/* CONTENT AREA */}
+                        <div className="lg:col-span-2 space-y-20">
+                            
+                            {/* Featured Image */}
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="relative group"
+                            >
+                                <div className="absolute -inset-1 bg-gradient-to-r from-primary-purple to-accent-cyan rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000" />
+                                <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video">
+                                    <img
+                                        src={coreslashWebsiteDevelopment}
+                                        alt="CoreSlash Website Development"
+                                        className="w-full h-full object-cover  transition-all duration-1000 scale-105 hover:scale-100"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
+                                </div>
+                            </motion.div>
 
-                            {/* HERO IMAGE */}
-                            <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-                                <img
-                                    src={coreslashWebsiteDevelopment}
-                                    alt="CoreSlash Website Development"
-                                    className="w-full aspect-video object-cover"
-                                />
-                            </div>
-
-                            {/* CONTENT AREA */}
+                            {/* Narrative */}
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="max-w-3xl"
+                                className="max-w-4xl"
                             >
-                                <div className="flex items-center gap-2 mb-4 text-blue-600 font-bold tracking-widest uppercase text-xs">
+                                <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
                                     <SparklesIcon className="w-4 h-4" />
-                                    The Gold Standard
+                                    Engineering Excellence
                                 </div>
-                                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-950 mb-8 leading-tight">
-                                    We don’t just build websites. <br />
-                                    <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                                        We build growth engines.
-                                    </span>
+                                <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                                    We architect <span className="text-gradient-purple">Digital Growth</span> engines.
                                 </h2>
-                                <p className="text-slate-600 text-xl leading-relaxed font-light">
-                                    A premium brand deserves a premium digital home. Our approach combines
-                                    psychological design principles with the latest tech stack to convert
-                                    casual browsers into loyal advocates.
+                                <p className="text-white/50 text-xl leading-relaxed mb-12">
+                                    A premium brand deserves a premium digital home. Our approach combines 
+                                    computational design with the latest technology stacks to convert 
+                                    casual visitors into loyal advocates.
                                 </p>
-                            </motion.div>
 
-                            {/* REDUCED SIZE FEATURE CARDS
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                {features.map((f, i) => (
-                                    <motion.div
-                                        key={i}
-                                        whileHover={{ y: -5 }}
-                                        className="p-5 bg-white rounded-2xl shadow-sm border border-slate-100 hover:border-blue-400 transition-all group"
-                                    >
-                                        <div className="w-10 h-10 mb-3 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
-                                            <img src={f.icon} alt={f.title} className="w-6 h-6 object-contain" />
-                                        </div>
-                                        <h3 className="text-sm font-bold text-slate-900 mb-1">{f.title}</h3>
-                                        <p className="text-slate-400 text-[11px] leading-tight">{f.desc}</p>
-                                    </motion.div>
-                                ))}
-                            </div> */}
-
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                {features.map((f, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: i * 0.05 }}
-                                        whileHover={{ scale: 1.02, y: -4 }}
-                                        className="group relative p-4 bg-slate-950 rounded-xl overflow-hidden cursor-pointer"
-                                    >
-                                        {/* THE ANIMATED BORDER: Rotating Gradient Trace */}
-                                        <div className="absolute inset-0 p-[1px] rounded-xl group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-purple-500 group-hover:to-blue-500 transition-all duration-500">
-                                            <div className="absolute inset-0 bg-slate-950 rounded-[11px]" />
-                                        </div>
-
-                                        {/* INNER CONTENT */}
-                                        <div className="relative z-10">
-                                            <div className="flex items-center gap-3 mb-2">
-                                                <div className="w-8 h-8 shrink-0 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:border-blue-500/50 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all">
-                                                    <img
-                                                        src={f.icon}
-                                                        alt={f.title}
-                                                        className="w-4 h-4 object-contain brightness-90 group-hover:brightness-110"
-                                                    />
-                                                </div>
-                                                <h3 className="text-[13px] font-semibold text-slate-200 group-hover:text-white transition-colors">
-                                                    {f.title}
-                                                </h3>
+                                {/* Bento Features Grid */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {features.map((f, i) => (
+                                        <motion.div
+                                            key={i}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: i * 0.1 }}
+                                            className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group"
+                                        >
+                                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors">
+                                                <img src={f.icon} alt={f.title} className="w-7 h-7 object-contain  transition-all" />
                                             </div>
-
-                                            <p className="text-slate-500 text-[10px] leading-snug group-hover:text-slate-400 transition-colors line-clamp-2">
-                                                {f.desc}
-                                            </p>
-                                        </div>
-
-                                        {/* SUBTLE GLOW HOVER EFFECT */}
-                                        <div className="absolute -inset-px bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500" />
-                                    </motion.div>
-                                ))}
-                            </div>
+                                            <h3 className="text-xl font-bold text-white mb-3">{f.title}</h3>
+                                            <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
                         </div>
 
-                        {/* ================= FLOATING SIDEBAR ================= */}
-                        <aside className="lg:sticky lg:top-32 space-y-6">
-
-                            {/* DARK THEME QUOTATION FORM */}
-                            <div className="bg-[#050816] rounded-[2rem] p-8 shadow-2xl border border-white/5 relative overflow-hidden">
-                                <h3 className="text-xl md:text-3xl font-bold text-white mb-2 leading-tight tracking-tight">
-                                    Book Your 30 Minutes
-                                    <span className="relative inline-block ml-2">
-                                        {/* Soft Glow behind the text */}
-                                        <span className="absolute -inset-1 bg-orange-600/20 blur-xl rounded-full animate-pulse" />
-
-                                        {/* The Text */}
-                                        <span className="relative bg-gradient-to-br from-orange-400 via-orange-500 to-amber-600 bg-clip-text text-transparent font-black italic drop-shadow-sm text-5xl">
-                                            FREE
-                                        </span>
-                                    </span>
-                                    <span className="text-white"> Session</span>
+                        {/* SIDEBAR */}
+                        <aside className="lg:sticky lg:top-32 space-y-8">
+                            {/* Lead Form */}
+                            <div className="glass-card p-10 rounded-[3rem] border-white/5 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-purple/10 rounded-full blur-3xl pointer-events-none" />
+                                
+                                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
+                                    Book Your <br />
+                                    <span className="text-accent-cyan italic">Free</span> Consultation
                                 </h3>
-                                <p className="text-blue-400 text-[11px] mb-6 font-medium">
-                                    Get A Customized Strategy + Quotation
+                                <p className="text-white/40 text-sm mb-8 leading-relaxed">
+                                    Get a customized technology strategy and development roadmap.
                                 </p>
 
-                                <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-                                    <div>
-                                        <input
-                                            {...register('name', { required: true, minLength: 2 })}
-                                            type="text"
-                                            placeholder="Full Name"
-                                            className={`w-full bg-[#0a0f26] rounded-xl px-5 py-3 text-sm text-white outline-none transition-all placeholder:text-slate-500 ${errors.name ? 'ring-2 ring-rose-400' : 'border border-white/10'}`}
-                                        />
-                                        {errors.name && <p className="text-rose-300 text-xs mt-1">Full name is required</p>}
-                                    </div>
+                                <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+                                    <input
+                                        {...register('name', { required: true })}
+                                        type="text"
+                                        placeholder="Full Name"
+                                        className="glass-input"
+                                    />
+                                    <input
+                                        {...register('phone', { required: true })}
+                                        type="tel"
+                                        placeholder="Phone Number"
+                                        className="glass-input"
+                                    />
+                                    <input
+                                        {...register('city', { required: true })}
+                                        type="text"
+                                        placeholder="City"
+                                        className="glass-input"
+                                    />
+                                    <select
+                                        {...register('service', { required: true })}
+                                        className="glass-input appearance-none"
+                                    >
+                                        <option value="" className="bg-dark-black">Select Service</option>
+                                        <option value="New Website" className="bg-dark-black">New Website</option>
+                                        <option value="Redesign" className="bg-dark-black">Redesign</option>
+                                        <option value="Ecommerce" className="bg-dark-black">Ecommerce</option>
+                                    </select>
 
-                                    <div>
-                                        <input
-                                            {...register('phone', { required: true, minLength: 6 })}
-                                            type="tel"
-                                            placeholder="Contact Number"
-                                            className={`w-full bg-[#0a0f26] rounded-xl px-5 py-3 text-sm text-white outline-none transition-all placeholder:text-slate-500 ${errors.phone ? 'ring-2 ring-rose-400' : 'border border-white/10'}`}
-                                        />
-                                        {errors.phone && <p className="text-rose-300 text-xs mt-1">Please provide a valid contact number</p>}
-                                    </div>
-
-                                    <div>
-                                        <input
-                                            {...register('city', { required: true, minLength: 2 })}
-                                            type="text"
-                                            placeholder="City"
-                                            className={`w-full bg-[#0a0f26] rounded-xl px-5 py-3 text-sm text-white outline-none transition-all placeholder:text-slate-500 ${errors.city ? 'ring-2 ring-rose-400' : 'border border-white/10'}`}
-                                        />
-                                        {errors.city && <p className="text-rose-300 text-xs mt-1">City is required</p>}
-                                    </div>
-
-                                    <div>
-                                        <select
-                                            {...register('service', { required: true })}
-                                            className={`w-full bg-[#0a0f26] rounded-xl px-5 py-3 text-sm text-slate-400 outline-none transition-all ${errors.service ? 'ring-2 ring-rose-400' : 'border border-white/10'}`}
-                                        >
-                                            <option value="">Select Service</option>
-                                            <option value="New Website Development">New Website Development</option>
-                                            <option value="Website Re-Designing">Website Re-Designing</option>
-                                            <option value="Social Media Management">Social Media Management</option>
-                                        </select>
-                                        {errors.service && <p className="text-rose-300 text-xs mt-1">Please select a service</p>}
-                                    </div>
-
-                                    <button disabled={status === 'loading'} className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-xl hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all flex items-center justify-center gap-2 text-sm mt-2 disabled:opacity-60">
-                                        {status === 'loading' ? 'Sending...' : 'Book Session'} <ArrowRightIcon className="w-4 h-4" />
+                                    <button 
+                                        disabled={status === 'loading'} 
+                                        className="btn-pill btn-primary-glow w-full text-white font-bold py-5 mt-4"
+                                    >
+                                        {status === 'loading' ? 'Processing...' : 'Send Request'}
+                                        <ArrowRightIcon className="w-5 h-5" />
                                     </button>
                                 </form>
                             </div>
 
-                            {/* EXPERTISE */}
-                            <div className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm">
-                                <h3 className="text-[10px] uppercase tracking-widest font-black text-blue-600 mb-6">Expertise</h3>
-                                <ul className="space-y-4">
-                                    {["E-Commerce", "Digital Ads", "SEO Strategy", "Cloud Hosting"].map((s) => (
-                                        <li key={s} className="group flex items-center justify-between cursor-pointer">
-                                            <span className="text-slate-600 text-xs font-semibold group-hover:text-blue-600 transition-all">{s}</span>
-                                            <ArrowRightIcon className="w-3 h-3 text-slate-300 group-hover:text-blue-600" />
+                            {/* Expertise List */}
+                            <div className="glass-card p-10 rounded-[3rem] border-white/5">
+                                <p className="text-xs font-bold text-white/30 uppercase tracking-[0.3em] mb-8">Expertise</p>
+                                <ul className="space-y-6">
+                                    {["React / Next.js", "Headless CMS", "Cloud Systems", "UX Architecture"].map((s) => (
+                                        <li key={s} className="flex items-center justify-between text-white/60 hover:text-accent-cyan transition-colors cursor-pointer group">
+                                            <span className="font-bold text-sm tracking-wide">{s}</span>
+                                            <ArrowRightIcon className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                                         </li>
                                     ))}
                                 </ul>
                             </div>
-
-                            {/* CONTACT */}
-                            <div className="bg-gradient-to-br from-blue-700 to-slate-950 rounded-[2rem] p-8 text-white shadow-xl group">
-                                <h3 className="text-xl font-black mb-2 italic">Questions?</h3>
-                                <p className="text-blue-100/60 text-[11px] mb-6">Direct access to technical consulting.</p>
-                                <div className="space-y-3">
-                                    <a href="tel:+919148404621" className="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all border border-white/5">
-                                        <PhoneIcon className="w-5 h-5 text-blue-400" />
-                                        <span className="text-xs font-bold">+91 9148404621</span>
-                                    </a>
-                                    <a href="mailto:contact@yourcompany.com" className="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all border border-white/5">
-                                        <EnvelopeIcon className="w-5 h-5 text-blue-400" />
-                                        <span className="text-xs truncate">contact@yourcompany.com</span>
-                                    </a>
-                                </div>
-                            </div>
                         </aside>
                     </div>
                 </section>
-            </div>
-            {/* PRICING PLANS SECTION */}
-            <section className="bg-white py-24 px-6 border-t border-blue-100">
-                <div className="container mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-blue-100 text-blue-700 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-blue-200">
-                            Pricing Plans
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mt-6 mb-4 tracking-tight">
-                            Website Pricing Plans
-                        </h2>
-                        <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed font-light">
-                            Choose a package that fits your business stage.
-                        </p>
-                    </div>
 
-                    <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
-                        {pricingPlans.map((plan, idx) => (
+                {/* PRICING SECTION */}
+                <section className="py-32 bg-dark-black border-t border-white/5">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-24">
                             <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                className={`flex flex-col p-8 md:p-10 rounded-[2.5rem] border transition-all duration-500 ${plan.isPopular
-                                    ? "bg-blue-600 border-blue-600 shadow-[0_30px_60px_-15px_rgba(37,99,235,0.25)] scale-[1.03] z-10"
-                                    : "bg-white border-blue-100 hover:border-blue-300 shadow-lg"
-                                    }`}
+                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
                             >
-                                <div className="mb-8">
-                                    <span
-                                        className={`px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${plan.isPopular
-                                            ? "bg-white/20 text-white border border-white/30"
-                                            : "bg-blue-50 border border-blue-200 text-blue-700"
-                                            }`}
-                                    >
-                                        {plan.name} {plan.isPopular && " — Best Value"}
-                                    </span>
+                                <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+                                    Investment Plans
+                                </span >
+                            </motion.div>
+                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                                Strategic <span className="text-gradient-purple">Pricing</span>
+                            </h2>
+                        </div>
 
-                                    <div className="mt-8 flex items-baseline gap-1">
-                                        <span className={`text-2xl font-bold ${plan.isPopular ? "text-white" : "text-blue-600"}`}>
-                                            ₹
-                                        </span>
-                                        <span
-                                            className={`text-6xl font-black tracking-tighter ${plan.isPopular ? "text-white" : "text-slate-900"
-                                                }`}
-                                        >
-                                            {plan.price}
-                                        </span>
+                        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                            {pricingPlans.map((plan, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className={`relative p-12 rounded-[4rem] border flex flex-col ${
+                                        plan.isPopular 
+                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
+                                        : "bg-white/5 border-white/10 hover:border-white/20 transition-all duration-500"
+                                    }`}
+                                >
+                                    {plan.isPopular && (
+                                        <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-primary-purple text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
+                                            Most Requested
+                                        </div>
+                                    )}
+
+                                    <div className="mb-12">
+                                        <h3 className="text-2xl font-bold text-white mb-4">{plan.name}</h3>
+                                        <div className="flex items-baseline gap-2 mb-6">
+                                            <span className="text-xl font-bold text-accent-cyan">₹</span>
+                                            <span className="text-6xl font-black text-white tracking-tighter">{plan.price}</span>
+                                        </div>
+                                        <p className="text-white/40 text-sm leading-relaxed">{plan.desc}</p>
                                     </div>
 
-                                    <p
-                                        className={`mt-6 text-xs leading-relaxed font-medium ${plan.isPopular ? "text-blue-100" : "text-slate-500"
-                                            }`}
-                                    >
-                                        {plan.desc}
-                                    </p>
-                                </div>
-
-                                <div className="flex-grow space-y-4 mb-12">
-                                    <p
-                                        className={`text-[9px] uppercase font-bold tracking-[0.2em] mb-4 ${plan.isPopular ? "text-blue-200" : "text-blue-400"
-                                            }`}
-                                    >
-                                        Included Features
-                                    </p>
-
-                                    {plan.features.map((feature, fIdx) => (
-                                        <div key={fIdx} className="flex items-start gap-3 group/feat">
-
-                                            <div
-                                                className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.isPopular
-                                                    ? "bg-white/20"
-                                                    : "bg-blue-100"
-                                                    }`}
-                                            >
-                                                <CheckIcon
-                                                    className={`w-3 h-3 font-bold ${plan.isPopular ? "text-white" : "text-blue-600"
-                                                        }`}
-                                                />
+                                    <div className="flex-grow space-y-5 mb-14">
+                                        {plan.features.map((feature, fIdx) => (
+                                            <div key={fIdx} className="flex items-start gap-4">
+                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
+                                                    <CheckIcon className="w-3.5 h-3.5 text-accent-cyan font-bold" />
+                                                </div>
+                                                <span className="text-white/60 text-sm font-medium">{feature}</span>
                                             </div>
+                                        ))}
+                                    </div>
 
-                                            <span
-                                                className={`text-[11px] leading-snug font-medium ${plan.isPopular ? "text-white" : "text-slate-600"
-                                                    }`}
-                                            >
-                                                {feature}
-                                            </span>
-
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <button
-                                    className={`w-full font-bold py-5 rounded-2xl flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1 group shadow-lg ${plan.isPopular
-                                        ? "bg-white text-blue-600 hover:bg-blue-50"
-                                        : "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/20"
-                                        }`}
-                                >
-                                    <span className="text-sm">Get Custom Quote</span>
-                                    <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
-
-                            </motion.div>
-                        ))}
+                                    <button className={`btn-pill w-full text-lg ${
+                                        plan.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                    }`}>
+                                        Get Started
+                                    </button>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
+
             {/* Modal */}
             <AnimatePresence>
                 {modalOpen && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-6">
-                        <motion.div initial={{ y: 20, scale: 0.98 }} animate={{ y: 0, scale: 1 }} exit={{ y: 10, opacity: 0 }} transition={{ duration: 0.2 }} className="max-w-md w-full bg-white rounded-xl shadow-2xl p-6 text-center">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/90 backdrop-blur-xl">
+                        <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }} className="glass-card max-w-md w-full p-12 rounded-[3rem] border-white/10 text-center">
                             {status === 'success' ? (
                                 <>
-                                    <div className="mx-auto w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mb-4">
-                                        <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                        </svg>
+                                    <div className="mx-auto w-20 h-20 rounded-3xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mb-8">
+                                        <CheckIcon className="w-10 h-10 text-accent-cyan" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">Thank You!</h3>
-                                    <p className="text-slate-500 mb-6">Your request has been submitted successfully. Our team will contact you soon.</p>
+                                    <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">Confirmed</h3>
+                                    <p className="text-white/40 mb-10 leading-relaxed text-lg">Our strategic consultants will reach out within 24 hours.</p>
                                 </>
                             ) : (
                                 <>
-                                    <div className="mx-auto w-16 h-16 rounded-full bg-rose-50 flex items-center justify-center mb-4">
-                                        <svg className="w-8 h-8 text-rose-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
+                                    <div className="mx-auto w-20 h-20 rounded-3xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-8">
+                                        <XMarkIcon className="w-10 h-10 text-rose-500" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">Submission Failed</h3>
-                                    <p className="text-slate-500 mb-6">Something went wrong. Please try again.</p>
+                                    <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">Error</h3>
+                                    <p className="text-white/40 mb-10 leading-relaxed text-lg">System failure during submission. Please try again or contact us directly.</p>
                                 </>
                             )}
-
-                            <div className="flex justify-center">
-                                <button onClick={() => { setModalOpen(false); setStatus('idle'); }} className="px-6 py-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-sm font-semibold">OK</button>
-                            </div>
+                            <button onClick={() => setModalOpen(false)} className="btn-pill btn-glass w-full text-white">Return</button>
                         </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
-
         </ServiceLayout>
     );
 };

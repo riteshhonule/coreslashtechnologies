@@ -1,79 +1,71 @@
 import { motion } from "framer-motion";
 import { useModal } from "../context/ModalContext";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function CTA() {
   const { openModal } = useModal();
+
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-32 px-6 overflow-hidden bg-dark-black">
+      
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-radial-glow opacity-30 pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative rounded-[3rem] overflow-hidden glass-card border-white/10"
+          className="relative glass-card p-12 md:p-24 rounded-[3rem] overflow-hidden text-center border-white/10"
         >
-          {/* Background Elements */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/20 via-transparent to-accent-cyan/10" />
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-light/10 rounded-full blur-[100px]" />
+          {/* Animated Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/20 via-transparent to-secondary-indigo/20 pointer-events-none" />
           
-          <div className="relative z-10 p-12 md:p-24 text-center">
+          <div className="relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
+              className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 mb-10"
             >
-              <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest">
-                Start Your Journey
+              <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.3em]">
+                Join the Future
               </span>
             </motion.div>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-7xl font-bold text-white mb-8 leading-tight"
-            >
-              Ready to Accelerate <br />
-              <span className="text-gradient-cyan">Your Digital Growth?</span>
-            </motion.h2>
+            <h2 className="text-4xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+              Ready to <span className="text-gradient-cyan text-gradient-cyan">Modernize</span> <br />
+              Your Business?
+            </h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-white/50 text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
-            >
-              Get a custom-engineered digital strategy designed to dominate your market and scale your operations.
-            </motion.p>
+            <p className="text-white/50 text-xl md:text-2xl max-w-2xl mx-auto mb-16 leading-relaxed">
+              Let's collaborate to build something extraordinary. Our team of 
+              AI experts and engineers are ready to scale your vision.
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap justify-center gap-6"
-            >
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <button
                 onClick={openModal}
-                className="btn-primary"
+                className="btn-pill btn-primary-glow text-white text-xl px-12 group"
               >
-                Book a Free Consultation
+                Get Started Now
+                <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
               </button>
-              <button
-                className="btn-outline"
-              >
-                Explore All Services
+              
+              <button className="btn-pill btn-glass text-white text-xl px-12">
+                Our Services
               </button>
-            </motion.div>
+            </div>
+
+            {/* Floating Particles */}
+            <div className="absolute top-10 left-10 w-2 h-2 bg-accent-cyan rounded-full animate-pulse" />
+            <div className="absolute bottom-20 right-20 w-3 h-3 bg-primary-purple rounded-full animate-pulse delay-700" />
           </div>
         </motion.div>
       </div>
     </section>
   );
 }
+
 

@@ -2,10 +2,8 @@ import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogPosts } from "../data/blogData";
 import { motion } from "framer-motion";
-import { CalendarIcon, ArrowLeftIcon, ShareIcon } from "@heroicons/react/24/outline";
+import { CalendarIcon, ArrowLeftIcon, ShareIcon, UserIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import BlogCTA from "../components/blog/BlogCTA";
-
-import ReviewSection from "../components/ReviewSection";
 
 const BlogDetailPage: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
@@ -17,147 +15,190 @@ const BlogDetailPage: React.FC = () => {
 
     if (!post) {
         return (
-            <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-                <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-                <Link to="/blog" className="text-blue-600 font-bold hover:underline flex items-center gap-2">
-                    <ArrowLeftIcon className="w-5 h-5" /> Back to Blog
+            <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center bg-dark-black text-white">
+                <SparklesIcon className="w-16 h-16 text-accent-cyan mb-6 animate-pulse" />
+                <h1 className="text-4xl font-bold mb-4 tracking-tight">Intelligence Not Found</h1>
+                <Link to="/blog" className="text-accent-cyan font-bold hover:underline flex items-center gap-2">
+                    <ArrowLeftIcon className="w-5 h-5" /> Back to Matrix
                 </Link>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-white">
-            <div className="h-24 md:h-32 bg-white w-full" />
-
-            <article className="max-w-4xl mx-auto px-6 py-12">
-                {/* Back to Blog */}
-                <Link to="/blog" className="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 font-black text-sm uppercase tracking-widest mb-12 transition-colors">
-                    <ArrowLeftIcon className="w-5 h-5" /> Back to Insights
+        <div className="min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+            {/* GLOWS */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
+            
+            <article className="max-w-5xl mx-auto px-6 py-12 relative z-10">
+                {/* Back Link */}
+                <Link to="/blog" className="inline-flex items-center gap-3 text-white/30 hover:text-accent-cyan font-bold text-xs uppercase tracking-[0.3em] mb-16 transition-all group">
+                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent-cyan/50 transition-colors">
+                        <ArrowLeftIcon className="w-4 h-4" />
+                    </div>
+                    Return to Intelligence Feed
                 </Link>
 
                 {/* Header */}
                 <motion.header
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-12"
+                    className="mb-16"
                 >
-                    <span className="text-blue-600 text-xs font-black uppercase tracking-[0.2em] mb-4 block">
-                        {post.category}
-                    </span>
-                    <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight tracking-tight">
+                    <div className="flex items-center gap-2 mb-8">
+                        <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
+                        <span className="text-accent-cyan text-xs font-bold uppercase tracking-[0.4em]">
+                            {post.category}
+                        </span>
+                    </div>
+                    
+                    <h1 className="text-5xl md:text-8xl font-bold text-white mb-12 leading-[1.1] tracking-tight">
                         {post.title}
                     </h1>
 
-                    <div className="flex flex-wrap items-center gap-6 py-8 border-y border-slate-100 mb-12">
-                        <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
+                    <div className="flex flex-wrap items-center gap-10 py-10 border-y border-white/5 mb-16">
+                        <div className="flex items-center gap-4">
+                            <div className="w-14 h-14 rounded-2xl bg-primary-purple/20 border border-primary-purple/30 flex items-center justify-center text-accent-cyan font-bold text-xl">
                                 {post.author[0]}
                             </div>
                             <div>
-                                <p className="text-sm font-black text-slate-900">{post.author}</p>
-                                <p className="text-xs font-medium text-slate-400">Industry Expert</p>
+                                <p className="text-sm font-bold text-white tracking-wide uppercase">{post.author}</p>
+                                <p className="text-[10px] font-bold text-white/20 uppercase tracking-widest mt-1 text-gradient-cyan">System Architect</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-3 text-slate-400">
-                            <CalendarIcon className="w-5 h-5" />
-                            <p className="text-sm font-medium">{post.date}</p>
+                        
+                        <div className="flex items-center gap-3 text-white/40">
+                            <CalendarIcon className="w-5 h-5 text-accent-cyan" />
+                            <p className="text-xs font-bold uppercase tracking-widest">{post.date}</p>
                         </div>
-                        <button className="ml-auto w-12 h-12 rounded-full border border-slate-100 flex items-center justify-center hover:bg-slate-50 transition-colors text-slate-500">
-                            <ShareIcon className="w-5 h-5" />
+
+                        <div className="flex items-center gap-3 text-white/40">
+                            <UserIcon className="w-5 h-5 text-accent-cyan" />
+                            <p className="text-xs font-bold uppercase tracking-widest">Verified Article</p>
+                        </div>
+
+                        <button className="ml-auto w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all group">
+                            <ShareIcon className="w-5 h-5 text-white/40 group-hover:text-accent-cyan" />
                         </button>
                     </div>
                 </motion.header>
 
                 {/* Featured Image */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.98 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="rounded-[3rem] overflow-hidden mb-16 shadow-2xl"
+                    transition={{ duration: 1 }}
+                    className="rounded-[4rem] overflow-hidden mb-24 relative group"
                 >
-                    <img src={post.image} alt={post.title} className="w-full h-auto" />
+                    <div className="absolute inset-0 bg-primary-purple/10 blur-3xl rounded-[4rem] -z-10 group-hover:bg-primary-purple/20 transition-all duration-1000" />
+                    <img src={post.image} alt={post.title} className="w-full h-auto transition-all duration-1000 scale-[1.01]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-black/60 to-transparent" />
                 </motion.div>
 
-                {/* Dynamic Content */}
-                <div className="prose prose-lg max-w-none text-slate-600 leading-relaxed font-medium">
-                    {post.content ? (
-                        <>
-                            <p className="text-xl text-slate-900 font-bold mb-12 italic border-l-4 border-blue-600 pl-6 leading-relaxed">
-                                {post.content.intro}
-                            </p>
+                {/* Content Body */}
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-white/80 leading-relaxed font-medium space-y-12">
+                        {post.content ? (
+                            <>
+                                <div className="text-2xl text-white font-bold mb-20 italic relative pl-12 py-4">
+                                    <div className="absolute left-0 top-0 w-1.5 h-full bg-gradient-to-b from-primary-purple to-accent-cyan rounded-full" />
+                                    "{post.content.intro}"
+                                </div>
 
-                            {post.content.sections.map((section, idx) => (
-                                <div key={idx} className="mb-12">
-                                    <h2 className="text-3xl font-black text-slate-900 mt-12 mb-6">{section.title}</h2>
-                                    {section.isBullet ? (
-                                        <ul className="list-disc pl-6 space-y-3">
-                                            {(Array.isArray(section.content) ? section.content : [section.content]).map((item, i) => (
-                                                <li key={i}>{item}</li>
-                                            ))}
-                                        </ul>
-                                    ) : (
-                                        <div className="space-y-4">
-                                            {(Array.isArray(section.content) ? section.content : [section.content]).map((para, i) => (
-                                                <p key={i}>{para}</p>
+                                {post.content.sections.map((section, idx) => (
+                                    <motion.div 
+                                        key={idx} 
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        className="mb-20"
+                                    >
+                                        <h2 className="text-3xl md:text-5xl font-bold text-white mt-16 mb-10 tracking-tight">{section.title}</h2>
+                                        {section.isBullet ? (
+                                            <ul className="space-y-6">
+                                                {(Array.isArray(section.content) ? section.content : [section.content]).map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-4 text-white/60 text-lg">
+                                                        <div className="w-2 h-2 rounded-full bg-accent-cyan mt-3 shrink-0" />
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <div className="space-y-8 text-lg text-white/60">
+                                                {(Array.isArray(section.content) ? section.content : [section.content]).map((para, i) => (
+                                                    <p key={i} className="leading-relaxed">{para}</p>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </motion.div>
+                                ))}
+
+                                {post.content.faqs && post.content.faqs.length > 0 && (
+                                    <div className="mt-32 p-12 md:p-20 glass-card rounded-[4rem] border-white/5 relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 p-12 text-white/[0.02] text-9xl font-black">FAQ</div>
+                                        <h2 className="text-4xl font-bold text-white mb-16 relative z-10 tracking-tight">Frequently Asked <span className="text-gradient-cyan">Intelligence</span></h2>
+                                        <div className="space-y-10 relative z-10">
+                                            {post.content.faqs.map((faq, idx) => (
+                                                <div key={idx} className="group border-b border-white/5 pb-10 last:border-0">
+                                                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-4 group-hover:text-accent-cyan transition-colors">
+                                                        <span className="text-accent-cyan/20 font-black">0{idx + 1}</span>
+                                                        {faq.q}
+                                                    </h3>
+                                                    <p className="text-white/40 font-medium pl-10 leading-relaxed">{faq.a}</p>
+                                                </div>
                                             ))}
                                         </div>
-                                    )}
-                                </div>
-                            ))}
-
-                            {post.content.faqs && post.content.faqs.length > 0 && (
-                                <div className="mt-20 p-8 md:p-12 bg-slate-50 rounded-[3rem] border border-slate-100">
-                                    <h2 className="text-3xl font-black text-slate-900 mb-10">Frequently Asked Questions</h2>
-                                    <div className="space-y-8">
-                                        {post.content.faqs.map((faq, idx) => (
-                                            <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                                                <h3 className="text-lg font-black text-slate-900 mb-3">{faq.q}</h3>
-                                                <p className="text-slate-600 font-medium">{faq.a}</p>
-                                            </div>
-                                        ))}
                                     </div>
+                                )}
+                            </>
+                        ) : (
+                            <div className="text-lg text-white/60 space-y-12">
+                                <div className="text-2xl text-white font-bold mb-16 italic relative pl-12 py-4">
+                                    <div className="absolute left-0 top-0 w-1.5 h-full bg-gradient-to-b from-primary-purple to-accent-cyan rounded-full" />
+                                    "{post.description}"
                                 </div>
-                            )}
-                        </>
-                    ) : (
-                        <>
-                            <p className="text-xl text-slate-900 font-bold mb-8 italic border-l-4 border-blue-600 pl-6 leading-relaxed">
-                                {post.description}
-                            </p>
 
-                            <h2 className="text-3xl font-black text-slate-900 mt-12 mb-6">Expert Insights from Coreslash Technologies</h2>
-                            <p className="mb-8">
-                                Coreslash Technologies, based in Bangalore, Belagavi, and Hubli, has been at the forefront of digital transformation.
-                                As the best digital marketing company in Bangalore, we've seen how businesses in India are evolving to adopt newer technologies like AI and advanced SEO strategies.
-                            </p>
+                                <h2 className="text-3xl md:text-5xl font-bold text-white mt-16 tracking-tight">Strategic Framework by <span className="text-gradient-purple">CoreSlash</span></h2>
+                                <p>
+                                    CoreSlash Technologies, established at the convergence of engineering excellence and digital strategy, 
+                                    operates as a global catalyst for enterprise transformation. Our laboratories in Bangalore, 
+                                    Belagavi, and Hubli are dedicated to architecting high-velocity digital assets.
+                                </p>
 
-                            <p className="mb-8">
-                                Our approach as a leading web development company in Bangalore is to not just build a website, but to create a high-converting digital asset.
-                                Whether you are looking for an SEO company in Bangalore or a digital marketing agency in India, the key is data-driven decision making.
-                            </p>
+                                <div className="glass-card rounded-[3rem] p-12 border-white/5 relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-primary-purple/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <h3 className="text-xl font-bold text-white mb-8 tracking-widest uppercase">Systemic Protocols:</h3>
+                                    <ul className="space-y-6">
+                                        {[
+                                            "Bespoke Search Architecture Optimization",
+                                            "Regional Market Logic Integration (Gadag, Belagavi, Hubli)",
+                                            "Targeted PPC Velocity Scaling (Mysore, Mangalore, Tumkur)",
+                                            "High-Authority Category Dominance Protocols"
+                                        ].map((item, i) => (
+                                            <li key={i} className="flex items-center gap-4 text-white/40 group-hover:text-white/60 transition-colors">
+                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0">
+                                                    <SparklesIcon className="w-3 h-3 text-accent-cyan" />
+                                                </div>
+                                                <span className="font-bold text-sm tracking-wide">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
 
-                            <div className="bg-slate-50 rounded-3xl p-8 mb-12 border border-slate-100">
-                                <h3 className="text-xl font-black text-slate-900 mb-4">Key Takeaways:</h3>
-                                <ul className="list-disc pl-6 space-y-3 text-sm font-semibold">
-                                    <li>Focus on location-based keywords like "Best Web Development Company in Bangalore".</li>
-                                    <li>Optimize for regional markets including Gadag, Belagavi, and Hubli.</li>
-                                    <li>Scale your reach in Mysore, Mangalore, and Tumkur with targeted PPC.</li>
-                                    <li>Establish authority as the Best Digital Marketing Agency in Bangalore and beyond.</li>
-                                </ul>
+                                <p className="pt-8 border-t border-white/5">
+                                    Our telemetry confirms that consistent innovation across Karnataka's industrial hubs—including 
+                                    Mysore, Tumkur, and Mangalore—is the primary driver of market authority.
+                                </p>
                             </div>
-
-                            <p>
-                                Stay tuned for more updates from our tech team. We continue to innovate and deliver excellence across Karnataka, including Mysore, Tumkur, and Mangalore.
-                            </p>
-                        </>
-                    )}
+                        )}
+                    </div>
                 </div>
             </article>
 
-            <ReviewSection />
             <BlogCTA />
         </div>
     );
 };
 
 export default BlogDetailPage;
+

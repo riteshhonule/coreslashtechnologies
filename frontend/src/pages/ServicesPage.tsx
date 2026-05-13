@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import WhyChooseUs from "../components/WhyChooseUs";
+import { SparklesIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 // Importing images
 import websiteImg from "../img/website.webp";
@@ -13,184 +14,166 @@ import managementImg from "../img/social-media-management.webp";
 
 const services = [
   {
-    title: "Website Development",
-    desc: "Build stunning, responsive websites tailored to your brand.",
+    title: "Website Architectures",
+    desc: "Bespoke, high-performance digital ecosystems tailored for enterprise scale.",
     image: websiteImg,
-    color: "blue",
-    glow: "rgba(59, 130, 246, 0.5)",
     link: "/services/website-development"
   },
   {
-    title: "E-Commerce Websites",
-    desc: "Secure e-commerce solutions with payment integration.",
+    title: "E-Commerce Engines",
+    desc: "Fluid retail experiences with secure, high-velocity transaction layers.",
     image: ecommerceImg,
-    color: "purple",
-    glow: "rgba(168, 85, 247, 0.5)",
     link: "/services/ecommerce"
   },
   {
-    title: "PPC Ads Services",
-    desc: "High ROI pay-per-click campaigns.",
+    title: "PPC Ad Intelligence",
+    desc: "Algorithmic bidding and intent-based targeting for aggressive ROI.",
     image: ppcImg,
-    color: "orange",
-    glow: "rgba(249, 115, 22, 0.5)",
     link: "/services/ppc"
   },
   {
-    title: "Google Ads Services",
-    desc: "Targeted Google Ads for lead generation.",
+    title: "Google Ads Growth",
+    desc: "Precision-engineered search dominance to capture high-intent leads.",
     image: googleAdsImg,
-    color: "cyan",
-    glow: "rgba(6, 182, 212, 0.5)",
     link: "/services/ppc"
   },
   {
-    title: "Facebook / Instagram Ads",
-    desc: "Creative social media ad campaigns.",
+    title: "Paid Social Systems",
+    desc: "Creative social architectures designed for viral engagement and conversion.",
     image: socialImg,
-    color: "teal",
-    glow: "rgba(20, 184, 166, 0.5)",
     link: "/services/ppc"
   },
   {
-    title: "SEO Optimization",
-    desc: "Improve rankings and organic traffic.",
+    title: "SEO Data Dominance",
+    desc: "Neural-driven search optimization to establish industry authority.",
     image: seoImg,
-    color: "green",
-    glow: "rgba(34, 197, 94, 0.5)",
     link: "/services/seo"
   },
   {
-    title: "Social Media Management",
-    desc: "Complete social media handling.",
+    title: "Social Ecosystems",
+    desc: "Strategic community management and brand narrative development.",
     image: managementImg,
-    color: "rose",
-    glow: "rgba(244, 63, 94, 0.5)",
     link: "/services"
   },
 ];
 
-// Mapping colors to Tailwind classes for consistency
-const colorVariants: Record<string, string> = {
-  blue: "border-blue-200 hover:border-blue-500 from-blue-500 to-blue-600 bg-blue-500",
-  purple: "border-purple-200 hover:border-purple-500 from-purple-500 to-purple-600 bg-purple-500",
-  orange: "border-orange-200 hover:border-orange-500 from-orange-500 to-orange-600 bg-orange-500",
-  cyan: "border-cyan-200 hover:border-cyan-500 from-cyan-500 to-cyan-600 bg-cyan-500",
-  teal: "border-teal-200 hover:border-teal-500 from-teal-500 to-teal-600 bg-teal-500",
-  green: "border-green-200 hover:border-green-500 from-green-500 to-green-600 bg-green-500",
-  rose: "border-rose-200 hover:border-rose-500 from-rose-500 to-rose-600 bg-rose-500",
-};
-
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      {/* ================= DARK HEADER ================= */}
-      <section className="relative pt-[120px] mt-[90px] md:pt-[140px] pb-20 md:pb-32 bg-slate-900 overflow-hidden z-10">
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent z-20" />
+    <div className="flex flex-col min-h-screen bg-dark-black">
+      {/* ================= HERO HEADER ================= */}
+      <section className="relative pt-[180px] pb-32 overflow-hidden">
+        {/* Glow Effects */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 text-center relative z-10 md:mt-[20px]">
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-100 mb-6 shadow-sm"
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
           >
-            <span className="text-xs font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent uppercase tracking-[0.2em]">
-              Our Services
+            <SparklesIcon className="w-4 h-4 text-accent-cyan" />
+            <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.3em]">
+              Our Capability Matrix
             </span>
           </motion.div>
+          
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-8xl font-bold text-white mb-10 leading-[1.1] tracking-tight"
           >
-            What We Are Offering For You?
+            Future-Proof <br />
+            <span className="text-gradient-purple">Intelligence</span> Modules.
           </motion.h1>
+          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white/40 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
           >
-            Our services help grow your business online with strategic expertise and custom solutions.
+            We architect bespoke technology solutions that empower ambitious brands 
+            to dominate their digital categories.
           </motion.p>
         </div>
       </section>
 
       {/* ================= SERVICES GRID ================= */}
-      <div className="max-w-7xl mx-auto px-6 mt-16 relative z-30 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {services.map((service, idx) => (
-          <motion.div
-            key={service.title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
-            className="group relative h-full"
-          >
+      <section className="py-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, idx) => (
             <motion.div
-              whileHover={{
-                y: -10,
-                boxShadow: `0 20px 40px -10px ${service.glow}`,
-              }}
-              className={`h-full p-8 rounded-[2.5rem] bg-white backdrop-blur-[16px] border-2 transition-all duration-500 flex flex-col items-start relative overflow-hidden ${colorVariants[service.color].split(' ')[0]} ${colorVariants[service.color].split(' ')[1]}`}
+              key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: idx * 0.05 }}
+              className="group relative"
             >
-              <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${colorVariants[service.color].split(' ').pop()}`} />
+              <Link to={service.link} className="block h-full">
+                <div className="glass-card h-full p-10 rounded-[3rem] border-white/5 group-hover:border-accent-cyan/20 transition-all duration-500 relative overflow-hidden flex flex-col">
+                  {/* Hover Image Reveal */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
+                    <img src={service.image} alt="" className="w-full h-full object-cover grayscale" />
+                  </div>
+                  
+                  <div className="relative z-10 mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors duration-500">
+                      <img src={service.image} alt={service.title} className="w-12 h-12 object-cover rounded-lg" />
+                    </div>
+                  </div>
 
-              <div className={`relative z-10 w-24 h-24 rounded-3xl bg-gradient-to-br ${colorVariants[service.color].split(' ').slice(2, 4).join(' ')} shadow-xl shadow-white/20 mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 flex items-center justify-center overflow-hidden border-4 border-white/40`}>
-                <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              </div>
+                  <h3 className="relative z-10 text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-cyan transition-colors">
+                    {service.title}
+                  </h3>
 
-              <h3 className="relative z-10 text-xl font-bold text-gray-900 mb-4 tracking-tight">
-                {service.title}
-              </h3>
+                  <p className="relative z-10 text-white/40 leading-relaxed font-medium mb-10 flex-grow group-hover:text-white/60 transition-colors">
+                    {service.desc}
+                  </p>
 
-              <p className="relative z-10 text-gray-500 leading-relaxed text-[0.95rem] font-medium">
-                {service.desc}
-              </p>
-
-              <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${colorVariants[service.color].split(' ').slice(2, 4).join(' ')} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+                  <div className="relative z-10 flex items-center gap-2 text-accent-cyan font-bold text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    EXPLORE MODULE <ArrowRightIcon className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
             </motion.div>
-            <Link to={service.link} className="absolute inset-0 z-20" aria-label={`View ${service.title}`} />
-          </motion.div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
 
       {/* ================= CALL TO ACTION ================= */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="mt-20 text-center pb-20"
-      >
-        <div className="inline-block p-1 rounded-[2rem] bg-gray-50/50 backdrop-blur-sm border border-gray-100 shadow-inner">
-          <Link
-            to="/contact"
-            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gray-900 text-white rounded-[1.8rem] font-bold transition-all duration-300 hover:bg-blue-600 hover:shadow-2xl hover:shadow-blue-200 active:scale-95"
+      <section className="py-32">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden"
           >
-            <span className="relative z-10">Get a Custom Proposal</span>
-            <motion.span
-              animate={{ x: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="relative z-10"
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-purple/10 to-transparent pointer-events-none" />
+            
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-10 tracking-tight">
+              Ready for <span className="text-gradient-cyan">Global Scale?</span>
+            </h2>
+            
+            <p className="text-white/40 text-xl mb-12 leading-relaxed">
+              Let's architect a custom technology roadmap to achieve your strategic objectives.
+            </p>
+
+            <Link
+              to="/contact"
+              className="btn-pill btn-primary-glow text-white text-xl px-16 inline-block"
             >
-              →
-            </motion.span>
-          </Link>
+              Get Custom Proposal
+            </Link>
+          </motion.div>
         </div>
-      </motion.div>
+      </section>
 
       {/* ================= WHY CHOOSE US ================= */}
-      <section className="bg-white">
-        <WhyChooseUs />
-      </section>
+      <WhyChooseUs />
     </div>
   );
-}
+}

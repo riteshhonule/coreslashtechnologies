@@ -2,14 +2,6 @@ import { useForm } from "react-hook-form";
 import { submitContact } from "../lib/api";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  UserIcon,
-  EnvelopeIcon,
-  PhoneIcon,
-  BriefcaseIcon,
-  ChatBubbleLeftRightIcon,
-  MapPinIcon,
-} from "@heroicons/react/24/outline";
 
 type ContactFormData = {
   name: string;
@@ -56,15 +48,6 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
     }
   };
 
-  const isDark = variant === "dark" || variant === "glass";
-
-  const inputClasses = isDark
-    ? "w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-accent-cyan/50 focus:ring-1 focus:ring-accent-cyan/50 transition-all duration-300"
-    : "w-full pl-12 pr-4 py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none";
-
-  const iconClasses = isDark ? "hidden" : "w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-indigo-600 transition-colors";
-  const textareaIconClasses = isDark ? "hidden" : "w-5 h-5 text-gray-400 absolute left-4 top-5 group-focus-within:text-indigo-600 transition-colors";
-
   return (
     <div className="relative overflow-hidden">
       {/* Success Animation Overlay */}
@@ -74,98 +57,108 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            className={`absolute inset-0 flex flex-col items-center justify-center backdrop-blur-lg z-20 rounded-3xl ${isDark ? 'bg-bg-dark/80 border border-white/10' : 'bg-white/95 border border-green-100'}`}
+            className="absolute inset-0 flex flex-col items-center justify-center backdrop-blur-xl z-20 rounded-3xl bg-dark-black/90 border border-accent-cyan/20"
           >
-            <div className={`p-4 rounded-full mb-4 ${isDark ? 'bg-accent-cyan/20' : 'bg-green-100'}`}>
-              <svg className={`w-12 h-12 ${isDark ? 'text-accent-cyan' : 'text-green-600'}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <div className="p-4 rounded-full mb-4 bg-accent-cyan/10 border border-accent-cyan/20">
+              <svg className="w-12 h-12 text-accent-cyan" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Message Sent!</h3>
-            <p className={isDark ? 'text-white/60' : 'text-gray-600'}>We'll get back to you shortly.</p>
+            <h3 className="text-2xl font-bold mb-2 text-white">Strategy Secured!</h3>
+            <p className="text-white/60">We'll reach out within 24 hours.</p>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <form className="space-y-4 md:space-y-5" onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid md:grid-cols-2 gap-4 md:gap-5">
-          <div className="relative group">
-            <UserIcon className={iconClasses} />
+      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Full Name</label>
             <input
-              placeholder="Your Name"
-              className={inputClasses}
+              placeholder="Enter Your Name"
+              className="glass-input"
               {...register("name", { required: true })}
             />
           </div>
 
-          <div className="relative group">
-            <EnvelopeIcon className={iconClasses} />
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Work Email</label>
             <input
               type="email"
-              placeholder="Your Email"
-              className={inputClasses}
+              placeholder="Enter Your Email"
+              className="glass-input"
               {...register("email", { required: true })}
             />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:gap-5">
-          <div className="relative group">
-            <PhoneIcon className={iconClasses} />
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Phone Number</label>
             <input
-              placeholder="Phone Number"
-              className={inputClasses}
+              placeholder="+91 00000 00000"
+              className="glass-input"
               {...register("phone", { required: true })}
             />
           </div>
 
-          <div className="relative group">
-            <MapPinIcon className={iconClasses} />
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Location</label>
             <input
-              placeholder="Address"
-              className={inputClasses}
+              placeholder="Enter Your Location"
+              className="glass-input"
               {...register("address", { required: true })}
             />
           </div>
         </div>
 
-        <div className="relative group">
-          <BriefcaseIcon className={iconClasses} />
-          <select
-            className={`${inputClasses} ${isDark ? 'appearance-none' : 'appearance-none cursor-pointer'}`}
-            {...register("businessType", { required: true })}
-            defaultValue=""
-          >
-            <option value="" disabled className={isDark ? 'bg-[#1A004D]' : 'bg-white'}>Select Industry</option>
-            <option value="E-commerce" className={isDark ? 'bg-[#1A004D]' : 'bg-white text-gray-900'}>E-commerce</option>
-            <option value="Real Estate" className={isDark ? 'bg-[#1A004D]' : 'bg-white text-gray-900'}>Real Estate</option>
-            <option value="Education" className={isDark ? 'bg-[#1A004D]' : 'bg-white text-gray-900'}>Education</option>
-            <option value="Healthcare" className={isDark ? 'bg-[#1A004D]' : 'bg-white text-gray-900'}>Healthcare</option>
-            <option value="Other" className={isDark ? 'bg-[#1A004D]' : 'bg-white text-gray-900'}>Other</option>
-          </select>
+        <div className="space-y-2">
+          <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Select Industry</label>
+          <div className="relative">
+            <select
+              className="glass-input appearance-none cursor-pointer"
+              {...register("businessType", { required: true })}
+              defaultValue=""
+            >
+              <option value="" disabled className="bg-dark-black">Choose industry...</option>
+              <option value="E-commerce" className="bg-dark-black">E-commerce</option>
+              <option value="Real Estate" className="bg-dark-black">Real Estate</option>
+              <option value="Education" className="bg-dark-black">Education</option>
+              <option value="Healthcare" className="bg-dark-black">Healthcare</option>
+              <option value="Other" className="bg-dark-black">Other</option>
+            </select>
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/30">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+            </div>
+          </div>
         </div>
 
-        <div className="relative group">
-          <ChatBubbleLeftRightIcon className={textareaIconClasses} />
+        <div className="space-y-2">
+          <label className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Project Details</label>
           <textarea
-            rows={3}
-            placeholder="Tell us about your project"
-            className={`${inputClasses} resize-none ${isDark ? '' : 'pl-12'}`}
+            rows={4}
+            placeholder="Describe your vision and technical requirements..."
+            className="glass-input resize-none"
             {...register("message", { required: true })}
           />
         </div>
 
-        <button
+        <motion.button
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
           type="submit"
           disabled={status === "loading"}
-          className={`w-full py-4 rounded-xl font-bold text-white transition-all duration-300 transform hover:-translate-y-1 ${isDark 
-            ? 'bg-gradient-to-r from-primary-accent to-accent-blue hover:shadow-glow' 
-            : 'bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 hover:shadow-lg hover:shadow-blue-500/30'}`}
+          className="w-full btn-pill btn-primary-glow text-white text-lg py-5 shadow-2xl"
         >
-          {status === "loading" ? "Processing..." : "Send Message"}
-        </button>
+          {status === "loading" ? "Processing..." : "Secure My Consultation"}
+        </motion.button>
+
+        {errorMsg && (
+          <p className="text-red-400 text-sm font-bold text-center animate-pulse">{errorMsg}</p>
+        )}
       </form>
     </div>
   );
 }
+
 

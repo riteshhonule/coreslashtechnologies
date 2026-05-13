@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Mail, Phone, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
 
 const footerLinks = {
@@ -18,40 +18,42 @@ const footerLinks = {
     { name: "SEO Mastery", path: "/services/seo" },
     { name: "Cloud Systems", path: "/services" }
   ],
-  locations: [
-    "Bangalore HQ",
-    "Belagavi Office",
-    "Hubli Tech Hub",
-    "Mysore Presence",
-    "Global Remote"
+  legal: [
+    { name: "Privacy Policy", path: "#" },
+    { name: "Terms of Service", path: "#" },
+    { name: "Cookie Policy", path: "#" }
   ]
 };
 
 export default function Footer() {
   return (
-    <footer className="relative pt-24 pb-12 overflow-hidden border-t border-white/5 bg-[#020617]">
-      {/* Background Glows */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <footer className="relative pt-32 pb-12 overflow-hidden bg-dark-black border-t border-white/5">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
-          
+      {/* Top Border Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-accent-cyan/30 to-transparent" />
+
+      {/* Background Glows */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-purple/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
+
           {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-8">
-            <Link to="/" className="inline-block">
-              <img src={logo} alt="CoreSlash" className="h-10 w-auto" />
+          <div className="lg:col-span-4 space-y-10">
+            <Link to="/" className="inline-block group">
+              <img src={logo} alt="CoreSlash" className="h-10 w-auto transition-transform group-hover:scale-105" />
             </Link>
-            <p className="text-white/50 text-lg leading-relaxed max-w-sm">
-              Architecting the next generation of digital experiences through intelligent design and engineering excellence.
+            <p className="text-white/40 text-lg leading-relaxed max-w-sm">
+              Architecting the next generation of digital experiences through
+              intelligent design and engineering excellence.
             </p>
             <div className="flex gap-4">
               {[Linkedin, Twitter, Instagram, Facebook].map((Icon, i) => (
                 <motion.a
                   key={i}
-                  whileHover={{ y: -5, color: "#56E5FF" }}
+                  whileHover={{ y: -5, scale: 1.1 }}
                   href="#"
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 transition-colors"
+                  className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-white/40 hover:text-accent-cyan hover:border-accent-cyan/30 transition-all"
                 >
                   <Icon size={20} />
                 </motion.a>
@@ -61,11 +63,11 @@ export default function Footer() {
 
           {/* Links Columns */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Company</h4>
+            <h4 className="text-white font-bold mb-10 uppercase tracking-[0.2em] text-xs">Company</h4>
             <ul className="space-y-4">
               {footerLinks.company.map(link => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-white/40 hover:text-cyan-400 transition-colors text-sm font-medium">
+                  <Link to={link.path} className="text-white/40 hover:text-accent-cyan transition-colors text-sm font-medium">
                     {link.name}
                   </Link>
                 </li>
@@ -73,12 +75,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Services</h4>
+          <div className="lg:col-span-3">
+            <h4 className="text-white font-bold mb-10 uppercase tracking-[0.2em] text-xs">Solutions</h4>
             <ul className="space-y-4">
               {footerLinks.services.map(link => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-white/40 hover:text-cyan-400 transition-colors text-sm font-medium">
+                  <Link to={link.path} className="text-white/40 hover:text-accent-cyan transition-colors text-sm font-medium">
                     {link.name}
                   </Link>
                 </li>
@@ -87,47 +89,47 @@ export default function Footer() {
           </div>
 
           {/* Contact Column */}
-          <div className="lg:col-span-4 space-y-8">
-            <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Stay Connected</h4>
-            <div className="flex p-2 gap-2 border border-white/10 rounded-xl bg-white/5">
-               <input 
-                 type="email" 
-                 placeholder="Enter your email" 
-                 className="flex-1 bg-transparent border-none focus:ring-0 text-white text-sm px-4"
-               />
-               <button className="bg-cyan-500 text-[#020617] px-6 py-2 rounded-lg font-bold text-sm hover:bg-white transition-colors">
-                 Join
-               </button>
-            </div>
-            
-            <div className="space-y-4 pt-4">
+          <div className="lg:col-span-3 space-y-10">
+            <h4 className="text-white font-bold mb-2 uppercase tracking-[0.2em] text-xs">Connect</h4>
+            <div className="space-y-6 pt-2">
               <div className="flex items-center gap-4 text-white/40 group cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:text-cyan-400 transition-colors">
+                <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all">
                   <Mail size={18} />
                 </div>
-                <span className="text-sm font-medium">hello@coreslash.com</span>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Email Us</p>
+                  <span className="text-sm font-medium text-white/60">coreslashtechnologies@gmail.com</span>
+                </div>
               </div>
               <div className="flex items-center gap-4 text-white/40 group cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:text-cyan-400 transition-colors">
+                <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all">
                   <Phone size={18} />
                 </div>
-                <span className="text-sm font-medium">+91 90000 00000</span>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Call Us</p>
+                  <span className="text-sm font-medium text-white/60">+91 88612 20023</span><br />
+                  <span className="text-sm font-medium text-white/60">+91 98869 49323</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-white/20 text-xs font-medium tracking-widest">
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-white/20 text-[10px] font-bold tracking-[0.3em] uppercase">
             © {new Date().getFullYear()} CORESLASH TECHNOLOGIES. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex gap-8">
-            <a href="#" className="text-white/20 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest">Privacy Policy</a>
-            <a href="#" className="text-white/20 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest">Terms of Service</a>
+          <div className="flex gap-10">
+            {footerLinks.legal.map(link => (
+              <a key={link.name} href={link.path} className="text-white/20 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest">
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>
     </footer>
   );
 }
+

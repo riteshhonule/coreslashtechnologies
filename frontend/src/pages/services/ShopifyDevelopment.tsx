@@ -1,12 +1,15 @@
-
 import React from "react";
 import { motion } from "framer-motion";
-import CheckCircleIcon from "@heroicons/react/24/outline/CheckCircleIcon";
-import ShoppingBagIcon from "@heroicons/react/24/outline/ShoppingBagIcon";
-import CreditCardIcon from "@heroicons/react/24/outline/CreditCardIcon";
-import RocketLaunchIcon from "@heroicons/react/24/outline/RocketLaunchIcon";
-import DevicePhoneMobileIcon from "@heroicons/react/24/outline/DevicePhoneMobileIcon";
-import ChartBarIcon from "@heroicons/react/24/outline/ChartBarIcon";
+import { 
+    CheckCircleIcon, 
+    ShoppingBagIcon, 
+    CreditCardIcon, 
+    RocketLaunchIcon, 
+    DevicePhoneMobileIcon, 
+    ChartBarIcon,
+    SparklesIcon,
+    ArrowRightIcon
+} from "@heroicons/react/24/outline";
 import razorpay from "../../img/e-commerce/CoreslashTechnologies-razorpay.webp";
 import stripe from "../../img/e-commerce/CoreslashTechnologies-stripe.webp";
 import paypal from "../../img/e-commerce/CoreslashTechnologies-paypal.webp";
@@ -14,152 +17,124 @@ import phonepe from "../../img/e-commerce/CoreslashTechnologies-phonepe.webp";
 import gpay from "../../img/e-commerce/CoreslashTechnologies-paytm.webp";
 
 import ServiceLayout from "./ServicesLayout";
-
-
+import { useModal } from "../../context/ModalContext";
 
 /* ================= FEATURES ================= */
 
 const features = [
     {
-        title: "Custom Shopify Stores",
-        desc: "Fully custom Shopify websites tailored to your brand.",
+        title: "Bespoke Storefronts",
+        desc: "Tailored Shopify architectures that reflect your unique brand identity.",
         icon: ShoppingBagIcon,
-        gradient: "from-green-500 to-emerald-500",
     },
     {
-        title: "Payment Gateway Integration",
-        desc: "Secure Razorpay, Stripe, PayPal integration.",
+        title: "Universal Payments",
+        desc: "Seamless integration with global gateways including Stripe & Razorpay.",
         icon: CreditCardIcon,
-        gradient: "from-blue-500 to-cyan-500",
     },
     {
-        title: "High Conversion Design",
-        desc: "Optimized store design to increase sales.",
+        title: "Conversion Engine",
+        desc: "Psychology-backed design patterns to maximize your revenue velocity.",
         icon: ChartBarIcon,
-        gradient: "from-purple-500 to-pink-500",
     },
     {
-        title: "Mobile Optimized Store",
-        desc: "Fully responsive Shopify websites.",
+        title: "Mobile First Velocity",
+        desc: "Sub-second load times on all mobile viewports for fluid shopping.",
         icon: DevicePhoneMobileIcon,
-        gradient: "from-orange-500 to-red-500",
     },
     {
-        title: "Speed Optimized",
-        desc: "Fast loading stores for better conversion.",
+        title: "Algorithmic Speed",
+        desc: "Optimized liquid code and asset delivery for peak performance.",
         icon: RocketLaunchIcon,
-        gradient: "from-indigo-500 to-blue-500",
     },
 ];
-
-
 
 /* ================= PRICING ================= */
 
 const packages = [
-
     {
-        name: "Basic Shopify Store",
-        price: "?15,000",
+        name: "Starter Store",
+        price: "15,000",
         features: [
             "Shopify Store Setup",
-            "Premium Theme Setup",
-            "Up to 10 Products Upload",
-            "Payment Gateway Setup",
-            "Mobile Responsive",
-            "Basic SEO Setup",
-            "1 Month Support",
+            "Premium Theme Calibration",
+            "Up to 10 Product Architectures",
+            "Core Gateway Integration",
+            "Mobile Fluid Layout",
+            "Standard SEO Mapping",
+            "1 Month Technical Support",
         ],
     },
-
     {
-        name: "Standard Shopify Store",
-        price: "?30,000",
-        highlight: true,
+        name: "Growth Partner",
+        price: "30,000",
+        isPopular: true,
         features: [
-            "Custom Shopify Design",
-            "Up to 50 Products Upload",
-            "Payment Gateway Integration",
-            "Shipping Setup",
-            "Speed Optimization",
-            "SEO Optimization",
-            "3 Months Support",
+            "Custom Liquid Development",
+            "Up to 50 Advanced Products",
+            "Full Payment Ecosystem",
+            "Complex Shipping Logic",
+            "Server-side Speed Optimization",
+            "Semantic SEO Domination",
+            "3 Months Dedicated Support",
         ],
     },
-
     {
-        name: "Premium Shopify Store",
-        price: "?60,000",
+        name: "Enterprise Brand",
+        price: "60,000",
         features: [
-            "Fully Custom Shopify Store",
-            "Unlimited Products",
-            "Custom UI Design",
-            "Conversion Optimization",
-            "Advanced SEO",
-            "Payment Integration",
-            "6 Months Support",
+            "Fully Custom Storefront",
+            "Unlimited Product Catalogs",
+            "Bespoke UI/UX System",
+            "Omni-channel Integration",
+            "Priority Asset Delivery",
+            "Custom App Development",
+            "6 Months Executive Support",
         ],
     },
-
 ];
 
-
-
 const ShopifyDevelopment: React.FC = () => {
-
+    const { openModal } = useModal();
 
     return (
-
         <ServiceLayout
-            title="Shopify Website Development"
-            subtitle="Launch powerful Shopify stores designed to increase conversions and sales."
-            ctaText="Build Your Shopify Store"
-            headerGradient="from-green-900 via-teal-900 to-emerald-900 mt-3"
+            title="Shopify Intelligence"
+            subtitle="Engineering high-velocity commerce engines for the digital era."
+            ctaText="Launch Your Store"
         >
-
-
-
-            {/* ================= HERO ================= */}
-
-            <section className="container mx-auto px-6 py-20">
-
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                    >
-
+            <div className="bg-dark-black">
+                {/* HERO SECTION */}
+                <section className="container mx-auto px-6 py-24">
+                    <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <motion.div
-
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="mt-10"
-
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
                         >
-                            <h2 className="text-4xl font-bold mb-6"> Build Shopify Stores <span className="text-green-600 block"> That Sell More Products </span> </h2> <p className="text-gray-600 text-lg"> Coreslash Technologies builds high-converting Shopify websites designed to increase your sales, automate your business, and grow faster. </p>
+                            <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                                <SparklesIcon className="w-4 h-4" />
+                                Commerce Excellence
+                            </div>
+                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                                Build <span className="text-gradient-purple">Shopify</span> Ecosystems That Scale.
+                            </h2>
+                            <p className="text-white/40 text-xl leading-relaxed mb-12">
+                                At CoreSlash Technologies, we don't just "set up" stores—we engineer profitable commerce 
+                                environments. By combining Shopify's robust infrastructure with our custom design 
+                                intelligence, we ensure your brand captures every conversion opportunity.
+                            </p>
 
-                            {/* Heading */}
-
-
-                            <div className="mt-16 px-4">
-                                {/* Professional Minimal Header */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    className="mb-10 flex items-center gap-4"
-                                >
-                                    <h3 className="text-xs font-black uppercase tracking-[0.4em] text-slate-500 whitespace-nowrap">
-                                        Enterprise Grade Security
+                            {/* Gateway Grid */}
+                            <div className="mt-16">
+                                <div className="flex items-center gap-4 mb-10">
+                                    <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 whitespace-nowrap">
+                                        Secure Transaction Layer
                                     </h3>
-                                    <div className="h-[1px] w-full bg-slate-200" />
-                                </motion.div>
-
-                                {/* Payment Grid */}
-                                <div className="flex flex-wrap gap-6">
+                                    <div className="h-[1px] w-full bg-white/5" />
+                                </div>
+                                <div className="flex flex-wrap gap-4">
                                     {[
                                         { name: "Razorpay", img: razorpay },
                                         { name: "Stripe", img: stripe },
@@ -169,200 +144,133 @@ const ShopifyDevelopment: React.FC = () => {
                                     ].map((payment, index) => (
                                         <motion.div
                                             key={index}
-                                            initial={{ opacity: 0, scale: 0.95 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: index * 0.1 }}
-                                            whileHover={{ y: -5 }}
-                                            className="group relative flex items-center gap-6 px-8 py-5 bg-white rounded-xl transition-all duration-300"
+                                            whileHover={{ y: -3 }}
+                                            className="glass-card px-4 py-2 rounded-xl border-white/5 flex items-center gap-3  group hover:-0 transition-all"
                                         >
-                                            {/* --- CLASSY SOLID ANIMATED BORDER --- */}
-                                            {/* This creates a solid 2px border that feels like it's glowing/moving */}
-                                            <div className="absolute inset-0 rounded-xl border-2 border-slate-100 group-hover:border-slate-900 transition-colors duration-500 z-0" />
-
-                                            {/* Optional: Subtle corner accent that appears on hover */}
-                                            <div className="absolute top-0 right-0 w-0 h-0 border-t-2 border-r-2 border-blue-600 rounded-tr-xl opacity-0 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300" />
-
-                                            {/* Logo - Size increased and centered */}
-                                            <div className="relative z-10 w-12 h-12 flex items-center justify-center">
-                                                <motion.img
-                                                    src={payment.img}
-                                                    alt={payment.name}
-                                                    whileHover={{ scale: 1.15, rotate: 2 }}
-                                                    className="w-full h-full object-contain"
-                                                />
-                                            </div>
-
-                                            {/* Text Content */}
-                                            <div className="relative z-10">
-                                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">
-                                                    Gateway
-                                                </p>
-                                                <span className="text-lg font-black text-slate-800 group-hover:text-black transition-colors">
-                                                    {payment.name}
-                                                </span>
-                                            </div>
-
-                                            {/* Bottom "Progress" Border Animation */}
-                                            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-slate-900 group-hover:w-full transition-all duration-500 rounded-b-xl" />
+                                            <img src={payment.img} alt={payment.name} className="w-6 h-6 object-contain" />
+                                            <span className="text-[10px] font-bold text-white/40 group-hover:text-white transition-colors uppercase tracking-widest">{payment.name}</span>
                                         </motion.div>
                                     ))}
                                 </div>
                             </div>
-
                         </motion.div>
-
-                    </motion.div>
-
-
-
-                    <img
-                        src="https://images.unsplash.com/photo-1557821552-17105176677c"
-                        className="rounded-3xl shadow-xl"
-                    />
-
-
-                </div>
-
-            </section>
-
-
-
-            {/* ================= FEATURES ================= */}
-
-            <section className="py-20 bg-gray-50">
-
-                <div className="text-center mb-16">
-
-                    <h2 className="text-4xl font-bold">
-
-                        Shopify Store Features
-
-                    </h2>
-
-                </div>
-
-
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
-
-                    {features.map((f, i) => (
 
                         <motion.div
-                            key={i}
-                            whileHover={{ y: -10 }}
-                            className="bg-white p-6 rounded-3xl shadow-md"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="relative"
                         >
-
-                            <div className={`w-14 h-14 mb-4 rounded-xl flex items-center justify-center bg-gradient-to-br ${f.gradient}`}>
-
-                                <f.icon className="w-7 h-7 text-white" />
-
+                            <div className="absolute -inset-4 bg-primary-purple/20 rounded-[3rem] blur-3xl opacity-50" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 group aspect-video">
+                                <img
+                                    src="https://images.unsplash.com/photo-1557821552-17105176677c"
+                                    alt="Shopify Development"
+                                    className="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
                             </div>
-
-                            <h3 className="font-bold">{f.title}</h3>
-
-                            <p className="text-sm text-gray-500">{f.desc}</p>
-
                         </motion.div>
+                    </div>
+                </section>
 
-                    ))}
+                {/* FEATURES BENTO GRID */}
+                <section className="py-32 bg-dark-black border-t border-white/5">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-24">
+                            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                                Shopify <span className="text-gradient-cyan">Intelligence</span> Modules
+                            </h2>
+                            <p className="text-white/40 max-w-2xl mx-auto">Advanced store capabilities engineered for maximum conversion velocity.</p>
+                        </div>
 
-                </div>
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-7xl mx-auto">
+                            {features.map((f, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.05 }}
+                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center transition-all"
+                                >
+                                    <div className="w-14 h-14 mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors">
+                                        <f.icon className="w-7 h-7 text-white group-hover:text-accent-cyan transition-colors" />
+                                    </div>
+                                    <h3 className="text-lg font-bold text-white mb-3 leading-tight group-hover:text-accent-cyan transition-colors">{f.title}</h3>
+                                    <p className="text-[11px] text-white/40 leading-relaxed font-medium">{f.desc}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
-            </section>
+                {/* STRATEGIC PACKAGES */}
+                <section className="py-32 bg-dark-black">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-24">
+                            <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                                Strategic <span className="text-gradient-purple">Store</span> Plans
+                            </h2>
+                        </div>
 
+                        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto items-stretch">
+                            {packages.map((pkg, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                                    className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
+                                        pkg.isPopular 
+                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
+                                        : "bg-white/5 border-white/10 hover:border-white/30"
+                                    }`}
+                                >
+                                    {pkg.isPopular && (
+                                        <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2 rounded-full bg-primary-purple text-white text-[10px] font-black uppercase tracking-widest shadow-2xl">
+                                            Most Requested
+                                        </div>
+                                    )}
 
+                                    <div className="mb-12">
+                                        <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
+                                        <div className="flex items-baseline gap-2 mb-6">
+                                            <span className="text-xl font-bold text-accent-cyan">₹</span>
+                                            <span className="text-6xl font-black text-white tracking-tighter">{pkg.price}</span>
+                                        </div>
+                                    </div>
 
+                                    <div className="flex-grow space-y-5 mb-14">
+                                        {pkg.features.map((f, i) => (
+                                            <div key={i} className="flex items-start gap-4">
+                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
+                                                    <CheckCircleIcon className="w-4 h-4 text-accent-cyan font-bold" />
+                                                </div>
+                                                <span className="text-white/60 text-sm font-medium">{f}</span>
+                                            </div>
+                                        ))}
+                                    </div>
 
-            {/* ================= PRICING ================= */}
-
-            <section className="py-20 bg-white">
-
-                <div className="text-center mb-16">
-
-                    <h2 className="text-4xl font-bold">
-
-                        Shopify Pricing Packages
-
-                    </h2>
-
-                </div>
-
-
-
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-
-
-                    {packages.map((pkg, index) => (
-
-                        <motion.div
-                            key={index}
-                            whileHover={{ y: -10 }}
-                            className={`p-8 border rounded-3xl shadow-sm
-${pkg.highlight ? "border-green-600 scale-105" : ""}
-`}
-                        >
-
-
-                            <h3 className="font-bold text-xl mb-3">
-
-                                {pkg.name}
-
-                            </h3>
-
-
-
-                            <div className="text-3xl font-bold text-green-600 mb-6">
-
-                                {pkg.price}
-
-                            </div>
-
-
-
-                            <ul className="space-y-3 mb-8">
-
-                                {pkg.features.map((f, i) => (
-
-                                    <li key={i} className="flex gap-2">
-
-                                        <CheckCircleIcon className="w-5 text-green-600" />
-
-                                        <span>{f}</span>
-
-                                    </li>
-
-                                ))}
-
-                            </ul>
-
-
-
-                            <button className="w-full bg-green-600 text-white py-3 rounded-xl">
-
-                                Get Custom Quote
-
-                            </button>
-
-
-
-                        </motion.div>
-
-                    ))}
-
-
-                </div>
-
-
-            </section>
-
-
-
+                                    <button
+                                        onClick={openModal}
+                                        className={`btn-pill w-full text-lg ${
+                                            pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                        }`}
+                                    >
+                                        Activate Plan
+                                    </button>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            </div>
         </ServiceLayout >
-
     );
-
 };
 
-
 export default ShopifyDevelopment;
+

@@ -1,240 +1,205 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import AppFeaturesSection from "../../components/AppFeaturesSection";
-
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
 import CoreslashTechnologies_app_development from "../../img/CoreslashTechnologies-app-development.png";
-
-
+import { SparklesIcon, CheckIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 /* ================= PRICING PACKAGES ================= */
 
 const packages = [
-
     {
         name: "Basic App Package",
         price: "15,000",
+        desc: "Ideal for startups needing a foundational mobile presence.",
         features: [
             "Android App Development",
-            "Up to 5 Screens",
-            "Basic UI/UX Design",
-            "Firebase Integration",
-            "Push Notifications",
-            "App Icon & Splash Screen",
-            "APK File Delivery",
-            "1 Month Support"
+            "Up to 5 Custom Screens",
+            "Standard UI/UX Design",
+            "Firebase Core Integration",
+            "Push Notification Setup",
+            "App Icon & Branding",
+            "Binary File Delivery",
+            "1 Month Technical Support"
         ]
     },
-
     {
         name: "Standard App Package",
         price: "30,000",
+        desc: "Professional solution for businesses with growing user bases.",
         highlight: true,
         features: [
             "Android App Development",
-            "Up to 10 Screens",
-            "Advanced UI/UX Design",
-            "Firebase Integration",
-            "User Login System",
-            "Admin Panel",
-            "Push Notifications",
-            "Play Store Upload",
-            "3 Months Support"
+            "Up to 10 Advanced Screens",
+            "Premium UI/UX Design",
+            "Cloud Sync & Storage",
+            "Authentication Systems",
+            "Custom Admin Panel",
+            "Analytics Integration",
+            "Store Submission Support",
+            "3 Months Dedicated Support"
         ]
     },
-
     {
         name: "Premium App Package",
         price: "60,000",
+        desc: "Enterprise-grade cross-platform application ecosystem.",
         features: [
-            "Android + iOS App",
-            "Unlimited Screens",
-            "Custom UI/UX Design",
-            "Backend Development",
-            "Admin Dashboard",
-            "Payment Gateway Integration",
-            "Play Store & App Store Upload",
-            "6 Months Support"
+            "Android + iOS Development",
+            "Bespoke High-End UI/UX",
+            "Complex Backend Architecture",
+            "Scalable Cloud Systems",
+            "Payment Infrastructure",
+            "Real-time Data Processing",
+            "Full Store Optimization",
+            "Multi-language Support",
+            "6 Months Priority Support"
         ]
     }
-
 ];
 
-
-
 const AppDevelopment: React.FC = () => {
-
     const { openModal } = useModal();
 
     return (
-
         <ServiceLayout
             title="App Development"
-            subtitle="Innovative Mobile Solutions"
-            ctaText="Start Your App Journey"
-            headerGradient="from-[#0f172a] via-[#1e293b] to-[#0f172a] mt-5"
+            subtitle="Engineering immersive mobile experiences for the next generation."
+            ctaText="Build Your App"
         >
-
-
-            {/* ================= HERO CONTENT ================= */}
-
-            <div className="bg-[#fcfcfd]">
-
-                <section className="container mx-auto px-6 lg:px-12 py-16">
-
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="bg-dark-black">
+                {/* Immersive Hero Content */}
+                <section className="container mx-auto px-6 lg:px-12 py-24">
+                    <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, y: -30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="mb-8"
+                            transition={{ duration: 0.8 }}
                         >
-                            <div className="relative w-full overflow-hidden rounded-3xl shadow-xl aspect-video">
+                            <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                                <SparklesIcon className="w-4 h-4" />
+                                Mobile Intelligence
+                            </div>
+                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                                Architecting <span className="text-gradient-cyan">Powerful</span> Mobile Ecosystems.
+                            </h2>
+                            <p className="text-white/40 text-xl leading-relaxed mb-12 max-w-xl">
+                                At CoreSlash Technologies, we don't just build apps; we engineer digital 
+                                companions. From fluid UI transitions to robust backend scalability, 
+                                we ensure your mobile presence is state-of-the-art.
+                            </p>
+                            <button
+                                onClick={openModal}
+                                className="btn-pill btn-primary-glow text-white text-lg px-10"
+                            >
+                                Get Free Consultation
+                            </button>
+                        </motion.div>
 
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="relative"
+                        >
+                            <div className="absolute -inset-4 bg-primary-purple/20 rounded-[3rem] blur-3xl opacity-50 pointer-events-none" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video lg:aspect-square group">
                                 <img
                                     src={CoreslashTechnologies_app_development}
                                     alt="App Development"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-105"
                                 />
-
+                                <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
                             </div>
                         </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                        >
-
-                            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
-
-                                Build Powerful Mobile Apps
-
-                                <span className="text-blue-600 block">
-                                    That Grow Your Business
-                                </span>
-
-                            </h2>
-
-
-                            <p className="text-slate-600 text-lg mb-8">
-
-                                Coreslash Technologies builds high-performance mobile applications
-                                for startups, businesses, and enterprises. We develop scalable,
-                                secure, and user-friendly apps that help you increase customers,
-                                automate processes, and grow revenue.
-
-                            </p>
-
-
-                            <button
-                                onClick={openModal}
-                                className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-blue-500/40 hover:-translate-y-1 transition-all"
-                            >
-
-                                Get Free Consultation
-
-                            </button>
-
-                        </motion.div>
-
-
-
-
                     </div>
-
                 </section>
 
-            </div>
-
-
-            <AppFeaturesSection />
-
-            {/* ================= PRICING SECTION ================= */}
-
-
-            <section className="py-20 bg-white">
-
-
-                <div className="text-center mb-14">
-
-                    <h2 className="text-4xl font-bold">
-                        App Development Packages
-                    </h2>
-
-                    <p className="text-gray-500 mt-3">
-                        Choose the best plan for your business
-                    </p>
-
+                {/* Features Section Integration - The component itself might need a theme update but let's see its context */}
+                <div className="relative z-10 border-y border-white/5 bg-white/2 overflow-hidden">
+                     <AppFeaturesSection />
                 </div>
 
-
-
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-
-
-                    {packages.map((pkg, index) => (
-
-                        <motion.div
-                            key={index}
-                            whileHover={{ y: -10 }}
-                            className={`p-8 rounded-3xl border shadow-sm 
-                            ${pkg.highlight ? "border-blue-600 shadow-lg scale-105" : ""}
-                            `}
-                        >
-
-                            <h3 className="text-xl font-bold mb-3">
-                                {pkg.name}
-                            </h3>
-
-
-                            <div className="text-3xl font-black text-blue-600 mb-6">
-                                {pkg.price}
-                            </div>
-
-
-
-                            <ul className="space-y-3 mb-8">
-
-                                {pkg.features.map((f, i) => (
-                                    <li key={i} className="text-gray-600 text-sm">
-                                        ? {f}
-                                    </li>
-                                ))}
-
-                            </ul>
-
-
-
-                            <button
-                                onClick={openModal}
-                                className="w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700"
+                {/* PREMIUM PRICING SECTION */}
+                <section className="py-32 bg-dark-black">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-24">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
                             >
+                                <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+                                    App Packages
+                                </span>
+                            </motion.div>
+                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                                Strategic <span className="text-gradient-purple">Development</span> Plans
+                            </h2>
+                        </div>
 
-                                Get Custom Quote
+                        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto items-stretch">
+                            {packages.map((pkg, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                                    className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
+                                        pkg.highlight 
+                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
+                                        : "bg-white/5 border-white/10 hover:border-white/30"
+                                    }`}
+                                >
+                                    {pkg.highlight && (
+                                        <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2 rounded-full bg-primary-purple text-white text-[10px] font-black uppercase tracking-widest shadow-2xl">
+                                            Recommended
+                                        </div>
+                                    )}
 
-                            </button>
+                                    <div className="mb-12">
+                                        <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
+                                        <div className="flex items-baseline gap-2 mb-6">
+                                            <span className="text-xl font-bold text-accent-cyan">₹</span>
+                                            <span className="text-6xl font-black text-white tracking-tighter">{pkg.price}</span>
+                                        </div>
+                                        <p className="text-white/40 text-sm leading-relaxed">{pkg.desc}</p>
+                                    </div>
 
+                                    <div className="flex-grow space-y-5 mb-14">
+                                        {pkg.features.map((f, i) => (
+                                            <div key={i} className="flex items-start gap-4 group/item">
+                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-accent-cyan/20 transition-colors">
+                                                    <CheckIcon className="w-3.5 h-3.5 text-accent-cyan font-bold" />
+                                                </div>
+                                                <span className="text-white/60 text-sm font-medium group-hover/item:text-white transition-colors">{f}</span>
+                                            </div>
+                                        ))}
+                                    </div>
 
-                        </motion.div>
-
-                    ))}
-
-
-                </div>
-
-
-            </section>
-
-
-
+                                    <button
+                                        onClick={openModal}
+                                        className={`btn-pill w-full text-lg ${
+                                            pkg.highlight ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                        }`}
+                                    >
+                                        <span className="relative z-10">Get Custom Quote</span>
+                                        <ArrowRightIcon className="w-5 h-5 relative z-10" />
+                                    </button>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            </div>
         </ServiceLayout>
-
     );
-
 };
 
-
 export default AppDevelopment;
+

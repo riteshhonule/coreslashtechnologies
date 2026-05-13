@@ -3,12 +3,9 @@ import About from "../components/About";
 import Services from "../components/Services";
 import Portfolio from "../components/Portfolio";
 import CTA from "../components/CTA";
-import Contact from "../components/Contact";
 import { motion } from "framer-motion";
 import LeadSection from "../components/LeadSection";
 import PaymentGateway from "../components/PaymentGateway";
-
-import ReviewSection from "../components/ReviewSection";
 
 const Home = () => {
   return (
@@ -24,9 +21,7 @@ const Home = () => {
       <About />
       <Portfolio />
       <LeadSection />
-      <ReviewSection />
       <CTA />
-      {/* <Contact /> */}
     </motion.div>
   );
 };

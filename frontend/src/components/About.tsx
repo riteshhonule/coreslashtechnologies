@@ -14,44 +14,45 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary-light/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="about" className="relative py-32 overflow-hidden bg-dark-black">
+      
+      {/* Decorative Glows */}
+      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-secondary-indigo/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
           
           {/* Visual Left */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
+            <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] lg:aspect-auto">
               <img
                 src={wall}
                 alt="Our Workspace"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-80" />
             </div>
 
-            {/* Floating Stat Card */}
+            {/* Floating Achievement Card */}
             <motion.div 
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="absolute -bottom-8 -right-8 glass p-6 border border-accent-cyan/30 shadow-glow animate-float hidden md:block"
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="absolute -bottom-10 -right-10 glass-card p-8 border-accent-cyan/20 shadow-[0_20px_50px_rgba(34,211,238,0.15)] z-20 hidden md:block"
             >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent-cyan/20 flex items-center justify-center text-accent-cyan">
+              <div className="flex items-center gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-accent-cyan/10 flex items-center justify-center text-accent-cyan border border-accent-cyan/20">
                   <CheckBadgeIcon className="w-8 h-8" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-white">ISO Certified</p>
-                  <p className="text-xs text-white/50 uppercase tracking-widest">Quality Excellence</p>
+                  <p className="text-xs text-white/30 font-bold uppercase tracking-[0.2em]">Quality Excellence</p>
                 </div>
               </div>
             </motion.div>
@@ -62,27 +63,27 @@ export default function About() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
             >
-              <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest">
-                Our Story
+              <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.3em]">
+                Our Legacy
               </span>
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-              Driving the Future of <span className="text-gradient-purple">Intelligent Technology</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1]">
+              Architecting the <span className="text-gradient-purple">Future</span> of Intelligence
             </h2>
 
-            <p className="text-white/60 leading-relaxed mb-10 text-lg">
-              At CoreSlash Technologies, we don't just build software; we engineer progress. Our mission is to bridge the gap between complex business challenges and intuitive, AI-powered solutions that scale.
+            <p className="text-white/50 leading-relaxed mb-12 text-xl max-w-xl">
+              At CoreSlash Technologies, we don't just build software; we engineer progress. 
+              Our mission is to bridge the gap between complex business challenges 
+              and intuitive, AI-powered solutions.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-8 mb-16">
               {stats.map((stat, idx) => (
                 <motion.div
                   key={stat.label}
@@ -90,17 +91,16 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="glass-card p-6 border-white/5"
                 >
-                  <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
-                  <p className="text-sm text-white/40 font-medium">{stat.label}</p>
+                  <p className="text-4xl font-bold text-white mb-2">{stat.value}</p>
+                  <p className="text-xs font-bold text-white/30 uppercase tracking-widest">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-12">
-               <button className="btn-primary">Learn More About Us</button>
-            </div>
+            <button className="btn-pill btn-glass text-white px-10">
+              Discover Our Story
+            </button>
           </motion.div>
 
         </div>
@@ -108,5 +108,6 @@ export default function About() {
     </section>
   );
 }
+
 
 
