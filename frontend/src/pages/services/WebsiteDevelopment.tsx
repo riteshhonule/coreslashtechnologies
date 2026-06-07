@@ -126,9 +126,9 @@ const WebsiteDevelopment: React.FC = () => {
 
                         {/* CONTENT AREA */}
                         <div className="lg:col-span-2 space-y-20">
-                            
+
                             {/* Featured Image */}
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -139,7 +139,7 @@ const WebsiteDevelopment: React.FC = () => {
                                     <img
                                         src={coreslashWebsiteDevelopment}
                                         alt="CoreSlash Website Development"
-                                        className="w-full h-full object-cover  transition-all duration-1000 scale-105 hover:scale-100"
+                                        className="w-full h-full object-contain transition-all duration-1000"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
                                 </div>
@@ -160,8 +160,8 @@ const WebsiteDevelopment: React.FC = () => {
                                     We architect <span className="text-gradient-purple">Digital Growth</span> engines.
                                 </h2>
                                 <p className="text-white/50 text-xl leading-relaxed mb-12">
-                                    A premium brand deserves a premium digital home. Our approach combines 
-                                    computational design with the latest technology stacks to convert 
+                                    A premium brand deserves a premium digital home. Our approach combines
+                                    computational design with the latest technology stacks to convert
                                     casual visitors into loyal advocates.
                                 </p>
 
@@ -192,7 +192,7 @@ const WebsiteDevelopment: React.FC = () => {
                             {/* Lead Form */}
                             <div className="glass-card p-10 rounded-[3rem] border-white/5 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary-purple/10 rounded-full blur-3xl pointer-events-none" />
-                                
+
                                 <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
                                     Book Your <br />
                                     <span className="text-accent-cyan italic">Free</span> Consultation
@@ -230,8 +230,8 @@ const WebsiteDevelopment: React.FC = () => {
                                         <option value="Ecommerce" className="bg-dark-black">Ecommerce</option>
                                     </select>
 
-                                    <button 
-                                        disabled={status === 'loading'} 
+                                    <button
+                                        disabled={status === 'loading'}
                                         className="btn-pill btn-primary-glow w-full text-white font-bold py-5 mt-4"
                                     >
                                         {status === 'loading' ? 'Processing...' : 'Send Request'}
@@ -283,11 +283,10 @@ const WebsiteDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1 }}
-                                    className={`relative p-12 rounded-[4rem] border flex flex-col ${
-                                        plan.isPopular 
-                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
+                                    className={`relative p-12 rounded-[4rem] border flex flex-col ${plan.isPopular
+                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10"
                                         : "bg-white/5 border-white/10 hover:border-white/20 transition-all duration-500"
-                                    }`}
+                                        }`}
                                 >
                                     {plan.isPopular && (
                                         <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-primary-purple text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
@@ -315,9 +314,8 @@ const WebsiteDevelopment: React.FC = () => {
                                         ))}
                                     </div>
 
-                                    <button className={`btn-pill w-full text-lg ${
-                                        plan.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
-                                    }`}>
+                                    <button className={`btn-pill w-full text-lg ${plan.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                        }`}>
                                         Get Started
                                     </button>
                                 </motion.div>

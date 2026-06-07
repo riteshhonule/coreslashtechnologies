@@ -1,46 +1,101 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { XMarkIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+
+import imgLogistics from "../img/project/AI Logistics Management Platform.png";
+import imgHospital from "../img/project/Smart Hospital Management System.png";
+import imgFinTech from "../img/project/FinTech Banking Dashboard.png";
+import imgCRM from "../img/project/AI CRM & Sales Automation.png";
+import imgEcommerce from "../img/project/E-Commerce Multi-Vendor Platform.png";
+import imgRealEstate from "../img/project/Real Estate Property Management.png";
+import imgLMS from "../img/project/AI Learning Management System.png";
+import imgCyberSecurity from "../img/project/cloud.png";
+import imgManufacturing from "../img/project/Smart Manufacturing ERP.png";
+import imgHR from "../img/project/AI Recruitment & HR Platform.png";
 
 const items = [
   {
     id: 1,
     title: "AI Logistics Management Platform",
     category: "Supply Chain & Transport",
-    img: "/img/project/logistics.png",
-    description:
-      "An enterprise logistics ecosystem with route optimization, fleet tracking, live delivery monitoring, and warehouse automation.",
+    img: imgLogistics,
+    description: "An enterprise logistics ecosystem with route optimization, fleet tracking, live delivery monitoring, and warehouse automation.",
     link: "#",
   },
   {
     id: 2,
-    title: "E-Commerce Multi Vendor Platform",
-    category: "Retail Technology",
-    img: "/img/project/ecommerce.png",
-    description:
-      "A scalable marketplace platform supporting multi-vendor operations, payment gateways, inventory tracking, and analytics.",
+    title: "Smart Hospital Management System",
+    category: "Healthcare Technology",
+    img: imgHospital,
+    description: "A complete digital healthcare suite with patient management, appointment scheduling, billing, EHR, and AI-powered diagnostics.",
     link: "#",
   },
   {
     id: 3,
-    title: "Smart Hospital Management System",
-    category: "Healthcare Technology",
-    img: "/img/project/hospital.png",
-    description:
-      "A complete digital healthcare suite with patient management, appointment scheduling, billing, EHR, and AI-powered diagnostics.",
+    title: "FinTech Banking Dashboard",
+    category: "Financial Technology",
+    img: imgFinTech,
+    description: "A secure banking and analytics platform with real-time transactions, fraud detection, investment insights, and compliance monitoring.",
     link: "#",
   },
   {
     id: 4,
+    title: "AI CRM & Sales Automation",
+    category: "Business Automation",
+    img: imgCRM,
+    description: "An intelligent CRM platform designed for lead management, automated workflows, customer analytics, and sales forecasting.",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "E-Commerce Multi-Vendor Platform",
+    category: "Retail Technology",
+    img: imgEcommerce,
+    description: "A scalable marketplace platform supporting multi-vendor operations, payment gateways, inventory tracking, and analytics.",
+    link: "#",
+  },
+  {
+    id: 6,
+    title: "Real Estate Property Management",
+    category: "Real Estate Solutions",
+    img: imgRealEstate,
+    description: "A digital property ecosystem enabling virtual tours, property listings, CRM integration, and automated lead management.",
+    link: "#",
+  },
+  {
+    id: 7,
     title: "AI Learning Management System",
     category: "EdTech Platform",
-    img: "/img/project/lms.png",
-    description:
-      "A modern LMS platform with adaptive learning, live classes, AI-based assessments, and student performance analytics.",
+    img: imgLMS,
+    description: "A modern LMS platform with adaptive learning, live classes, AI-based assessments, and student performance analytics.",
+    link: "#",
+  },
+  {
+    id: 8,
+    title: "Cloud-Based Cybersecurity Suite",
+    category: "Cybersecurity",
+    img: imgCyberSecurity,
+    description: "A cloud-native security monitoring platform featuring threat detection, access control, vulnerability scanning, and incident response.",
+    link: "#",
+  },
+  {
+    id: 9,
+    title: "Smart Manufacturing ERP",
+    category: "Industrial IoT & ERP",
+    img: imgManufacturing,
+    description: "A next-generation ERP system designed for manufacturing, featuring predictive maintenance, resource planning, and IoT integration.",
+    link: "#",
+  },
+  {
+    id: 10,
+    title: "AI Recruitment & HR Platform",
+    category: "Human Resources",
+    img: imgHR,
+    description: "An AI-driven HR suite streamlining talent acquisition, resume parsing, employee onboarding, and performance tracking.",
     link: "#",
   }
 ];
-
 
 export default function Portfolio() {
   const [active, setActive] = useState<typeof items[0] | null>(null);
@@ -74,7 +129,7 @@ export default function Portfolio() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {items.map((project, idx) => (
+          {items.slice(0, 2).map((project, idx) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -117,7 +172,9 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="mt-24 text-center"
         >
-          <button className="btn-pill btn-glass text-white px-12">Browse Full Portfolio</button>
+          <Link to="/portfolio" className="btn-pill btn-glass text-white px-12 inline-block">
+            Browse Full Portfolio
+          </Link>
         </motion.div>
       </div>
 

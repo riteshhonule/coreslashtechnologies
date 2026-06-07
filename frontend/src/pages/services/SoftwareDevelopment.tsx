@@ -1,15 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-    CommandLineIcon, 
-    CloudIcon, 
-    ArrowPathIcon, 
-    KeyIcon, 
-    CircleStackIcon, 
-    BeakerIcon, 
-    CheckBadgeIcon, 
-    CpuChipIcon, 
-    ShieldCheckIcon, 
+import {
+    CommandLineIcon,
+    CloudIcon,
+    ArrowPathIcon,
+    KeyIcon,
+    CircleStackIcon,
+    BeakerIcon,
+    CheckBadgeIcon,
+    CpuChipIcon,
+    ShieldCheckIcon,
     RocketLaunchIcon,
     SparklesIcon,
     ArrowRightIcon
@@ -102,8 +102,8 @@ const SoftwareDevelopment: React.FC = () => {
                                 Enterprise <span className="text-gradient-purple">Intelligence</span> Built for Scale.
                             </h2>
                             <p className="text-white/40 text-xl leading-relaxed mb-12">
-                                At CoreSlash Technologies, we don't just write code—we solve complex operational 
-                                bottlenecks through systematic engineering. Our bespoke software solutions are 
+                                At CoreSlash Technologies, we don't just write code—we solve complex operational
+                                bottlenecks through systematic engineering. Our bespoke software solutions are
                                 designed to be the digital backbone of your organization.
                             </p>
 
@@ -138,7 +138,7 @@ const SoftwareDevelopment: React.FC = () => {
                                 <img
                                     src={software_hero_splash}
                                     alt="Software Development"
-                                    className="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-105"
+                                    className="w-full h-full transition-all duration-1000 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
                             </div>
@@ -204,11 +204,10 @@ const SoftwareDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.8, delay: index * 0.1 }}
-                                    className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
-                                        pkg.isPopular 
-                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
-                                        : "bg-white/5 border-white/10 hover:border-white/30"
-                                    }`}
+                                    className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${pkg.isPopular
+                                            ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10"
+                                            : "bg-white/5 border-white/10 hover:border-white/30"
+                                        }`}
                                 >
                                     {pkg.isPopular && (
                                         <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2 rounded-full bg-primary-purple text-white text-[10px] font-black uppercase tracking-widest shadow-2xl">
@@ -237,9 +236,8 @@ const SoftwareDevelopment: React.FC = () => {
 
                                     <button
                                         onClick={openModal}
-                                        className={`btn-pill w-full text-lg ${
-                                            pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
-                                        }`}
+                                        className={`btn-pill w-full text-lg ${pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                            }`}
                                     >
                                         Initiate Build
                                     </button>

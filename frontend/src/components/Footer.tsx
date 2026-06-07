@@ -113,7 +113,7 @@ export default function Footer() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Call Us</p>
                   <span className="text-sm font-medium text-white/60">+91 88612 20023</span><br />
-                  <span className="text-sm font-medium text-white/60">+91 98869 49323</span>
+                  <span className="text-sm font-medium text-white/60">+91 95130 13247</span>
                 </div>
               </div>
             </div>

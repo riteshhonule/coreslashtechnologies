@@ -23,10 +23,10 @@ const ContactPage = () => {
           </a>
 
           <a
-            href="tel:+919876543210"
+            href="tel:+919513013247"
             className="block mt-2 hover:text-white transition-colors duration-300"
           >
-            +91 9876543210
+            +91 9513013247
           </a>
         </>
       ),
@@ -37,9 +37,27 @@ const ContactPage = () => {
     {
       icon: <ChatBubbleLeftRightIcon className="w-8 h-8 md:w-12 md:h-12" />,
       title: "WhatsApp",
-      detail: "WhatsApp",
-      link: "https://wa.me/918861220023",
-
+      detail: (
+        <>
+          <a
+            href="https://wa.me/918861220023"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block hover:text-white transition-colors duration-300"
+          >
+            +91 8861220023
+          </a>
+          <a
+            href="https://wa.me/919513013247"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mt-2 hover:text-white transition-colors duration-300"
+          >
+            +91 9513013247
+          </a>
+        </>
+      ),
+      link: "#",
       accent: "text-green-400",
       bg: "bg-green-400/10"
     },
