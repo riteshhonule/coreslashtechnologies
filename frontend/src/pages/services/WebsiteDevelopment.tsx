@@ -6,6 +6,7 @@ import EnvelopeIcon from "@heroicons/react/24/outline/EnvelopeIcon";
 import ArrowRightIcon from "@heroicons/react/24/outline/ArrowRightIcon";
 import SparklesIcon from "@heroicons/react/24/outline/SparklesIcon";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
+import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 
 // Image Imports
 import cmsImg from "../../img/website/cms.webp";

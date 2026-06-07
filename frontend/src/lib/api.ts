@@ -19,3 +19,12 @@ export const submitContact = (data: {
   service?: string;
   message: string 
 }) => api.post("/contacts", data);
+
+export const loginSuperadmin = (data: any) => api.post("/contacts/login", data);
+
+export const getContacts = (token: string) =>
+  api.get("/contacts", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });

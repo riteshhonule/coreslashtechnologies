@@ -10,6 +10,8 @@ import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import FAQPage from "./pages/FAQPage";
+import LoginPage from "./pages/superadmin/LoginPage";
+import DashboardPage from "./pages/superadmin/DashboardPage";
 import { useEffect } from "react";
 import {
   WebsiteDevelopment,
@@ -55,6 +57,11 @@ function AnimatedRoutes() {
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        
+        {/* Superadmin routes */}
+        <Route path="/superadmin" element={<LoginPage />} />
+        <Route path="/superadmin/login" element={<LoginPage />} />
+        <Route path="/superadmin/dashboard" element={<DashboardPage />} />
       </Routes>
     </AnimatePresence>
   );

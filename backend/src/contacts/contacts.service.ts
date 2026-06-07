@@ -17,4 +17,12 @@ export class ContactsService {
     await this.emailService.sendContactNotification(contact);
     return contact;
   }
+
+  async findAll() {
+    return this.prisma.contact.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+  }
 }
