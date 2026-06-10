@@ -8,7 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService);
-  const corsOriginsStr = configService.get<string>('CORS_ORIGINS') || 'http://localhost:5173,https://core-slash.vercel.app';
+  const corsOriginsStr = configService.get<string>('CORS_ORIGINS') || 'https://coreslashtechnologies.com,https://www.coreslashtechnologies.com';
   const origins = corsOriginsStr.split(',').map(o => o.trim());
 
   app.enableCors({
