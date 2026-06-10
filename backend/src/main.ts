@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
@@ -6,12 +7,12 @@ import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const configService = app.get(ConfigService);
+  const corsOriginsStr = configService.get<string>('CORS_ORIGINS') || 'http://localhost:5173,https://core-slash.vercel.app';
+  const origins = corsOriginsStr.split(',').map(o => o.trim());
+
   app.enableCors({
-    origin: [
-      'https://core-slash.vercel.app',
-      'http://localhost:5173',
-      'http://localhost:3000',
-    ],
+    origin: origins,
     credentials: true,
   });
 

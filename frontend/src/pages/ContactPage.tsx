@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { envConfig } from "../config/env.config";
 import Contact from "../components/Contact";
 import {
   PhoneIcon,
@@ -16,10 +17,10 @@ const ContactPage = () => {
       detail: (
         <>
           <a
-            href="tel:+918861220023"
+            href={`tel:+${envConfig.social.whatsappPhone}`}
             className="block hover:text-white transition-colors duration-300"
           >
-            +91 8861220023
+            +{envConfig.social.whatsappPhone}
           </a>
 
           <a
@@ -40,20 +41,20 @@ const ContactPage = () => {
       detail: (
         <>
           <a
-            href="https://wa.me/918861220023"
+            href={envConfig.social.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
             className="block hover:text-white transition-colors duration-300"
           >
-            +91 8861220023
+            WhatsApp 1
           </a>
           <a
-            href="https://wa.me/919513013247"
+            href={envConfig.social.whatsappLinkSecondary}
             target="_blank"
             rel="noopener noreferrer"
             className="block mt-2 hover:text-white transition-colors duration-300"
           >
-            +91 9513013247
+            WhatsApp 2
           </a>
         </>
       ),
@@ -64,8 +65,8 @@ const ContactPage = () => {
     {
       icon: <EnvelopeIcon className="w-8 h-8 md:w-12 md:h-12" />,
       title: "Mailbox",
-      detail: "coreslashtechnologies@gmail.com",
-      link: "https://mail.google.com/mail/?view=cm&fs=1&to=coreslashtechnologies@gmail.com&su=Inquiry%20from%20Website&body=Hello%20Coreslash%20Team,",
+      detail: envConfig.contact.email,
+      link: envConfig.contact.emailLink,
       accent: "text-primary-purple",
       bg: "bg-primary-purple/10"
     },
@@ -73,7 +74,7 @@ const ContactPage = () => {
       icon: <MapPinIcon className="w-8 h-8 md:w-12 md:h-12" />,
       title: "Location",
       detail: "Belgaum, India",
-      link: "https://maps.google.com",
+      link: envConfig.contact.mapsLink,
       accent: "text-blue-400",
       bg: "bg-blue-400/10"
     }

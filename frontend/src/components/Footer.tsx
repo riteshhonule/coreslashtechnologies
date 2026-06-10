@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { envConfig } from '../config/env.config';
 import { motion } from "framer-motion";
 import { Mail, Phone, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
@@ -49,8 +50,8 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { Icon: Linkedin, url: "https://www.linkedin.com/company/coreslash-technologies/" },
-                { Icon: Instagram, url: "https://www.instagram.com/coreslashtechnologies/" }
+                { Icon: Linkedin, url: envConfig.social.linkedin },
+                { Icon: Instagram, url: envConfig.social.instagram }
               ].map(({ Icon, url }, i) => (
                 <motion.a
                   key={i}
@@ -103,7 +104,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Email Us</p>
-                  <span className="text-sm font-medium text-white/60">coreslashtechnologies@gmail.com</span>
+                  <span className="text-sm font-medium text-white/60">{envConfig.contact.email}</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 text-white/40 group cursor-pointer">
@@ -112,8 +113,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Call Us</p>
-                  <span className="text-sm font-medium text-white/60">+91 88612 20023</span><br />
-                  <span className="text-sm font-medium text-white/60">+91 95130 13247</span>
+                  <span className="text-sm font-medium text-white/60">+{envConfig.social.whatsappPhone}</span><br />
                 </div>
               </div>
             </div>

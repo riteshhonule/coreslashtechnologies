@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { envConfig } from "../../config/env.config";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import PhoneIcon from "@heroicons/react/24/outline/PhoneIcon";
@@ -92,7 +93,7 @@ const WebsiteDevelopment: React.FC = () => {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [modalOpen, setModalOpen] = useState(false);
 
-    const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:3000/api';
+    const API_BASE = envConfig.apiUrl;
 
     const onSubmit = async (data: FormValues) => {
         try {

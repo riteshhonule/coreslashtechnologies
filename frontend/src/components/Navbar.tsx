@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { envConfig } from "../config/env.config";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
@@ -118,7 +119,7 @@ export default function Navbar() {
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-6">
             <a
-              href="https://wa.me/918861220023"
+              href={envConfig.social.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-3 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all duration-500 bg-white text-dark-black hover:bg-accent-cyan hover:scale-105 active:scale-95 shadow-glow-cyan"
@@ -186,7 +187,7 @@ export default function Navbar() {
 
               <div className="pt-12">
                 <a
-                  href="https://wa.me/918861220023"
+                  href={envConfig.social.whatsappLink}
                   className="flex items-center justify-center gap-4 w-full py-6 rounded-3xl bg-white text-dark-black font-bold text-xl shadow-2xl"
                 >
                   <FaWhatsapp className="text-2xl" />

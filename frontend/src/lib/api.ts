@@ -1,10 +1,9 @@
 import axios from "axios";
 
-const rawBase = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
-const baseURL = rawBase.endsWith("/api") ? rawBase : `${rawBase}/api`;
+import { envConfig } from "../config/env.config";
 
 export const api = axios.create({
-  baseURL,
+  baseURL: envConfig.apiUrl,
   headers: {
     "Content-Type": "application/json",
   },
