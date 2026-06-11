@@ -97,9 +97,9 @@ export default function Services() {
           
           <div className="text-center max-w-3xl mx-auto mb-24">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
             >
               <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
@@ -128,10 +128,10 @@ export default function Services() {
             {services.map((service, idx) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.05 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.3, delay: idx * 0.03 }}
                 className={`group service-card-interactive ${
                   service.size === "lg" ? "md:col-span-2 md:row-span-2" : 
                   service.size === "md" ? "md:col-span-2" : "md:col-span-1"

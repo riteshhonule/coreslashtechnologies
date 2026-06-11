@@ -109,9 +109,9 @@ export default function Portfolio() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
             className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
           >
             <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
@@ -135,7 +135,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
               className="group cursor-pointer relative"
               onClick={() => setActive(project)}
             >
@@ -143,7 +143,7 @@ export default function Portfolio() {
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-110"
                 />
 
                 {/* Overlay */}

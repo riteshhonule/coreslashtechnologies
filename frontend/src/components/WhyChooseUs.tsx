@@ -31,7 +31,7 @@ const features = [
 
 export default function WhyChooseUs() {
     return (
-        <section className="relative py-24 overflow-hidden">
+        <section className="relative py-24 overflow-hidden bg-dark-black">
             {/* Background Orbs */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -40,9 +40,9 @@ export default function WhyChooseUs() {
                     
                     {/* Visuals */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.97 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-50px" }}
                         className="relative"
                     >
                         <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-glow">
@@ -93,10 +93,10 @@ export default function WhyChooseUs() {
                             {features.map((item, idx) => (
                                 <motion.div
                                     key={idx}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1 }}
+                                    viewport={{ once: true, margin: "-30px" }}
+                                    transition={{ delay: idx * 0.04, duration: 0.3 }}
                                     className="glass-card p-6 border-white/5 group hover:border-white/10 transition-all"
                                 >
                                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 border border-white/5 ${item.iconColor}`}>

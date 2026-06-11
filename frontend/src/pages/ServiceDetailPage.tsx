@@ -58,7 +58,7 @@ const ServiceDetailPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-dark-black pt-[100px]">
+        <div className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
             {/* Hero Section */}
             <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
@@ -67,7 +67,7 @@ const ServiceDetailPage = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
                             <SparklesIcon className="w-4 h-4 text-accent-cyan" />
@@ -95,9 +95,9 @@ const ServiceDetailPage = () => {
             <section className="py-32 container mx-auto px-6 lg:px-12">
                 <div className="grid md:grid-cols-2 gap-20 items-center">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: -15 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-50px" }}
                     >
                         <h2 className="text-3xl font-bold text-white mb-8 tracking-tight">System Architecture</h2>
                         <p className="text-xl text-white/40 leading-relaxed mb-10 font-medium">
@@ -110,9 +110,9 @@ const ServiceDetailPage = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.97 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-50px" }}
                         className="glass-card p-12 rounded-[3rem] border-white/5 relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 p-8 text-white/[0.02] text-8xl font-black">
@@ -137,9 +137,9 @@ const ServiceDetailPage = () => {
             <section className="py-32 bg-dark-black">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <motion.div 
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "-50px" }}
                         className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 text-center relative overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 to-transparent" />

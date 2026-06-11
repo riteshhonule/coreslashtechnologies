@@ -11,23 +11,23 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
+        staggerChildren: 0.06,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.23, 1, 0.32, 1] as const }
+      transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] as const }
     },
   };
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-dark-black pt-24 md:pt-32 pb-12 lg:pb-0 w-full">
+    <section className="relative min-h-[100svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-dark-black pt-24 md:pt-32 pb-12 lg:pb-0 w-full" style={{ zIndex: 1 }}>
 
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -202,9 +202,9 @@ export default function Hero() {
 
           {/* RIGHT SIDE ANIMATION - 42% Width on Desktop, Moved Behind on Mobile */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="absolute lg:relative inset-0 lg:inset-auto flex items-center justify-center lg:w-[42%] pointer-events-none lg:pointer-events-auto opacity-20 lg:opacity-100 z-10"
           >
             {/* Animation Container */}

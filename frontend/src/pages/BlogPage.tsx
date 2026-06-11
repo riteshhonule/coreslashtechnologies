@@ -24,7 +24,7 @@ const BlogPage: React.FC = () => {
     const visiblePosts = filteredPosts.slice(0, displayCount);
 
     return (
-        <div className="min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+        <div className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
             {/* GLOWS */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />

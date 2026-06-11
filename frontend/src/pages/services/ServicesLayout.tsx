@@ -19,7 +19,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
 }) => {
     const { openModal } = useModal();
     return (
-        <div className="min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+        <div className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
             {/* Premium Header Section */}
             <section className="relative py-24 md:py-32 w-full text-white overflow-hidden">
 
@@ -31,7 +31,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
                     >
                         <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
@@ -43,7 +43,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        transition={{ duration: 0.4, ease: "easeOut", delay: 0.06 }}
                         className="text-5xl md:text-8xl font-bold mb-10 leading-[1.1] tracking-tight"
                     >
                         {title}
@@ -52,7 +52,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                        transition={{ duration: 0.4, delay: 0.12, ease: "easeOut" }}
                         className="text-xl md:text-2xl text-white/40 max-w-3xl mx-auto mb-12 leading-relaxed"
                     >
                         {subtitle}
@@ -61,7 +61,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
+                        transition={{ duration: 0.3, delay: 0.18 }}
                         className="flex justify-center w-full"
                     >
                         <button
@@ -88,7 +88,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.4 }}
                         className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden group"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />

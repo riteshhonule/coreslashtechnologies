@@ -59,7 +59,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-dark-black">
+    <div className="relative flex flex-col min-h-screen bg-dark-black overflow-hidden">
       {/* ================= HERO HEADER ================= */}
       <section className="relative pt-[180px] pb-32 overflow-hidden">
         {/* Glow Effects */}
@@ -68,7 +68,7 @@ export default function ServicesPage() {
 
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
           >
@@ -81,7 +81,7 @@ export default function ServicesPage() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             className="text-5xl md:text-8xl font-bold text-white mb-10 leading-[1.1] tracking-tight"
           >
             Future-Proof <br />
@@ -91,7 +91,7 @@ export default function ServicesPage() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
             className="text-white/40 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
           >
             We architect bespoke technology solutions that empower ambitious brands
@@ -109,7 +109,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: idx * 0.05 }}
+              transition={{ duration: 0.35, delay: idx * 0.03 }}
               className="group relative"
             >
               <Link to={service.link} className="block h-full">

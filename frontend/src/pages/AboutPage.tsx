@@ -98,7 +98,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-dark-black overflow-x-hidden font-sans text-white pt-[80px] md:pt-[88px]">
+    <div className="relative min-h-screen bg-dark-black overflow-hidden font-sans text-white pt-[80px] md:pt-[88px]">
 
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />

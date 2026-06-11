@@ -14,7 +14,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden bg-dark-black">
+    <section id="about" className="relative py-32 overflow-hidden bg-dark-black" style={{ position: 'relative', zIndex: 10, minHeight: '100vh' }}>
       
       {/* Decorative Glows */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-secondary-indigo/5 rounded-full blur-[140px] pointer-events-none" />
@@ -24,9 +24,9 @@ export default function About() {
           
           {/* Visual Left */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             className="relative"
           >
             <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] lg:aspect-auto">
@@ -40,10 +40,10 @@ export default function About() {
 
             {/* Floating Achievement Card */}
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.8 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
               className="absolute -bottom-10 -right-10 glass-card p-8 border-accent-cyan/20 shadow-[0_20px_50px_rgba(34,211,238,0.15)] z-20 hidden md:block"
             >
               <div className="flex items-center gap-5">
@@ -60,10 +60,10 @@ export default function About() {
 
           {/* Content Right */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4 }}
           >
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
@@ -87,10 +87,10 @@ export default function About() {
               {stats.map((stat, idx) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
+                  transition={{ delay: idx * 0.04, duration: 0.3 }}
                 >
                   <p className="text-4xl font-bold text-white mb-2">{stat.value}</p>
                   <p className="text-xs font-bold text-white/30 uppercase tracking-widest">{stat.label}</p>

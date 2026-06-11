@@ -105,7 +105,7 @@ const PortfolioPage = () => {
   const [active, setActive] = useState<typeof items[0] | null>(null);
 
   return (
-    <div className="bg-dark-black min-h-screen pt-[100px] overflow-hidden">
+    <div className="bg-dark-black min-h-screen pt-[100px] overflow-hidden relative">
       {/* GLOWS */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
@@ -114,7 +114,7 @@ const PortfolioPage = () => {
       <section className="relative py-24 md:py-32 w-full">
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
           >
@@ -127,7 +127,7 @@ const PortfolioPage = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             className="text-5xl md:text-8xl font-bold text-white mb-10 leading-[1.1] tracking-tight"
           >
             Digital <span className="text-gradient-purple">Proof</span> of Concept.
@@ -136,7 +136,7 @@ const PortfolioPage = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
             className="text-white/40 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
           >
             Showcasing a lineage of high-impact engineering and disruptive design.
@@ -155,7 +155,7 @@ const PortfolioPage = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: idx * 0.1 }}
+                transition={{ duration: 0.35, delay: idx * 0.04 }}
                 className="group relative"
                 onClick={() => setActive(p)}
               >
@@ -164,7 +164,7 @@ const PortfolioPage = () => {
                     <img
                       src={p.img}
                       alt={p.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[600ms]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-dark-black/40 to-transparent opacity-80" />
                   </div>
