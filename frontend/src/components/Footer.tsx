@@ -114,8 +114,10 @@ export default function Footer() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Call Us</p>
                   <span className="text-sm font-medium text-white/60">+{envConfig.social.whatsappPhone}</span><br />
+                  <span className="text-sm font-medium text-white/60">+91 9513013247</span><br />
                 </div>
               </div>
+
             </div>
           </div>
         </div>

@@ -198,9 +198,9 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-[1600px] px-4 md:px-6">
           <nav
-            className={`flex items-center justify-between px-4 md:px-8 py-3 md:py-4 rounded-full transition-all duration-500 ${scrolled
-                ? "bg-dark-black/40 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-                : "bg-transparent border border-transparent"
+            className={`flex items-center justify-between px-4 md:px-8 py-3 md:py-4 rounded-full transition-all duration-500 glass ${scrolled
+                ? "bg-dark-black/60 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                : "bg-white/5"
               }`}
           >
             {/* Logo */}
