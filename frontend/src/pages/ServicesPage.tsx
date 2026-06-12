@@ -68,7 +68,7 @@ export default function ServicesPage() {
 
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
+            initial={{ opacity: 1, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
           >
@@ -79,7 +79,7 @@ export default function ServicesPage() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="text-5xl md:text-8xl font-bold text-white mb-10 leading-[1.1] tracking-tight"
@@ -89,7 +89,7 @@ export default function ServicesPage() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.08 }}
             className="text-white/40 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
@@ -106,9 +106,9 @@ export default function ServicesPage() {
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 1, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
               transition={{ duration: 0.35, delay: idx * 0.03 }}
               className="group relative"
             >
@@ -147,9 +147,9 @@ export default function ServicesPage() {
       <section className="py-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
             className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-purple/10 to-transparent pointer-events-none" />

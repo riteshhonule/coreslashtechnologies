@@ -34,7 +34,7 @@ const FAQPage: React.FC = () => {
         <div className="min-h-screen bg-slate-50 pt-24">
             <div className="max-w-4xl mx-auto px-6 py-20">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 1, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-16"
                 >
@@ -54,9 +54,9 @@ const FAQPage: React.FC = () => {
                     {faqs.map((faq, index) => (
                         <motion.details
                             key={index}
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 1, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.05 }}
                             className="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
                         >
                             <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
@@ -71,7 +71,7 @@ const FAQPage: React.FC = () => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0 }}
+                    initial={{ opacity: 1 }}
                     whileInView={{ opacity: 1 }}
                     className="mt-20 p-10 bg-blue-600 rounded-[2.5rem] text-center text-white relative overflow-hidden"
                 >

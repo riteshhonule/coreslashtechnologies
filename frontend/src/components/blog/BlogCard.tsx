@@ -12,10 +12,10 @@ interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
+            transition={{ delay: index * 0.05 }}
             className="group block glass-card rounded-[3rem] overflow-hidden border-white/5 hover:border-accent-cyan/20 transition-all duration-700 relative"
         >
             <Link to={`/blog/${post.slug}`} className="block">

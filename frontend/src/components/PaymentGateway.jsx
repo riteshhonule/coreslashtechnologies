@@ -52,9 +52,9 @@ const PaymentGateway = () => {
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-24">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 1, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0, margin: "200px" }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
                     >
                         <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">Global Integrations</span>
@@ -97,10 +97,10 @@ const PaymentGateway = () => {
                         {gateways.map((payment, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 1, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.04, duration: 0.3 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0, margin: "200px" }}
                                 className="glass-card p-10 flex flex-col items-center justify-center text-center group hover:border-accent-cyan/30"
                             >
                                 <div className="relative w-full aspect-square flex items-center justify-center mb-8">
@@ -120,7 +120,7 @@ const PaymentGateway = () => {
                                     <motion.div 
                                         initial={{ x: "-100%" }}
                                         whileInView={{ x: "100%" }}
-                                        transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: index * 0.2 }}
+                                        transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: index * 0.05 }}
                                         className={`h-full w-1/2 bg-gradient-to-r from-transparent via-accent-cyan to-transparent`}
                                     />
                                 </div>
@@ -130,9 +130,9 @@ const PaymentGateway = () => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0 }}
+                    initial={{ opacity: 1 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0, margin: "200px" }}
                     className="mt-24 flex flex-col items-center"
                 >
                     <div className="h-px w-32 bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />

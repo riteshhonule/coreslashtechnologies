@@ -131,9 +131,9 @@ const WebsiteDevelopment: React.FC = () => {
 
                             {/* Featured Image */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 1, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0, margin: "200px" }}
                                 className="relative group"
                             >
                                 <div className="absolute -inset-1 bg-gradient-to-r from-primary-purple to-accent-cyan rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000" />
@@ -141,6 +141,8 @@ const WebsiteDevelopment: React.FC = () => {
                                     <img
                                         src={coreslashWebsiteDevelopment}
                                         alt="CoreSlash Website Development"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-full h-full object-contain transition-all duration-1000"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
@@ -149,9 +151,9 @@ const WebsiteDevelopment: React.FC = () => {
 
                             {/* Narrative */}
                             <motion.div
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 1, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0, margin: "200px" }}
                                 className="max-w-4xl"
                             >
                                 <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
@@ -172,14 +174,14 @@ const WebsiteDevelopment: React.FC = () => {
                                     {features.map((f, i) => (
                                         <motion.div
                                             key={i}
-                                            initial={{ opacity: 0, y: 20 }}
+                                            initial={{ opacity: 1, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: i * 0.1 }}
+                                            viewport={{ once: true, amount: 0, margin: "200px" }}
+                                            transition={{ duration: 0.3, delay: i * 0.05 }}
                                             className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group"
                                         >
                                             <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors">
-                                                <img src={f.icon} alt={f.title} className="w-7 h-7 object-contain  transition-all" />
+                                                <img src={f.icon} alt={f.title} loading="lazy" decoding="async" className="w-7 h-7 object-contain  transition-all" />
                                             </div>
                                             <h3 className="text-xl font-bold text-white mb-3">{f.title}</h3>
                                             <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
@@ -193,7 +195,7 @@ const WebsiteDevelopment: React.FC = () => {
                         <aside className="lg:sticky lg:top-32 space-y-8">
                             {/* Lead Form */}
                             <div className="glass-card p-10 rounded-[3rem] border-white/5 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-purple/10 rounded-full blur-3xl pointer-events-none" />
+                                <div className="hidden md:block absolute top-0 right-0 w-32 h-32 bg-primary-purple/10 rounded-full blur-3xl pointer-events-none" />
 
                                 <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
                                     Book Your <br />
@@ -263,9 +265,9 @@ const WebsiteDevelopment: React.FC = () => {
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 1, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0, margin: "200px" }}
                                 className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
                             >
                                 <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
@@ -281,10 +283,10 @@ const WebsiteDevelopment: React.FC = () => {
                             {pricingPlans.map((plan, idx) => (
                                 <motion.div
                                     key={idx}
-                                    initial={{ opacity: 0, y: 40 }}
+                                    initial={{ opacity: 1, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1 }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
+                                    transition={{ duration: 0.3, delay: idx * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col ${plan.isPopular
                                         ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10"
                                         : "bg-white/5 border-white/10 hover:border-white/20 transition-all duration-500"
@@ -330,8 +332,8 @@ const WebsiteDevelopment: React.FC = () => {
             {/* Modal */}
             <AnimatePresence>
                 {modalOpen && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/90 backdrop-blur-xl">
-                        <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }} className="glass-card max-w-md w-full p-12 rounded-[3rem] border-white/10 text-center">
+                    <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/90 backdrop-blur-xl">
+                        <motion.div initial={{ y: 40, opacity: 1 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }} className="glass-card max-w-md w-full p-12 rounded-[3rem] border-white/10 text-center">
                             {status === 'success' ? (
                                 <>
                                     <div className="mx-auto w-20 h-20 rounded-3xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mb-8">

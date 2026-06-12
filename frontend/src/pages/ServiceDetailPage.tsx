@@ -65,7 +65,7 @@ const ServiceDetailPage = () => {
                 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 1, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4 }}
                     >
@@ -95,9 +95,9 @@ const ServiceDetailPage = () => {
             <section className="py-32 container mx-auto px-6 lg:px-12">
                 <div className="grid md:grid-cols-2 gap-20 items-center">
                     <motion.div
-                        initial={{ opacity: 0, x: -15 }}
+                        initial={{ opacity: 1, x: -15 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
+                        viewport={{ once: true, amount: 0, margin: "200px" }}
                     >
                         <h2 className="text-3xl font-bold text-white mb-8 tracking-tight">System Architecture</h2>
                         <p className="text-xl text-white/40 leading-relaxed mb-10 font-medium">
@@ -110,9 +110,9 @@ const ServiceDetailPage = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.97 }}
+                        initial={{ opacity: 1, scale: 0.97 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, margin: "-50px" }}
+                        viewport={{ once: true, amount: 0, margin: "200px" }}
                         className="glass-card p-12 rounded-[3rem] border-white/5 relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 p-8 text-white/[0.02] text-8xl font-black">
@@ -137,9 +137,9 @@ const ServiceDetailPage = () => {
             <section className="py-32 bg-dark-black">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <motion.div 
-                        initial={{ opacity: 0, y: 15 }}
+                        initial={{ opacity: 1, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
+                        viewport={{ once: true, amount: 0, margin: "200px" }}
                         className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 text-center relative overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 to-transparent" />

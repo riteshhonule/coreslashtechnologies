@@ -114,7 +114,7 @@ const PortfolioPage = () => {
       <section className="relative py-24 md:py-32 w-full">
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
+            initial={{ opacity: 1, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
           >
@@ -125,7 +125,7 @@ const PortfolioPage = () => {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="text-5xl md:text-8xl font-bold text-white mb-10 leading-[1.1] tracking-tight"
@@ -134,7 +134,7 @@ const PortfolioPage = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.08 }}
             className="text-white/40 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
@@ -152,9 +152,9 @@ const PortfolioPage = () => {
             {items.map((p, idx) => (
               <motion.div
                 key={p.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 1, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0, margin: "200px" }}
                 transition={{ duration: 0.35, delay: idx * 0.04 }}
                 className="group relative"
                 onClick={() => setActive(p)}
@@ -193,14 +193,14 @@ const PortfolioPage = () => {
       <AnimatePresence>
         {active && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/95 backdrop-blur-xl"
             onClick={() => setActive(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 40 }}
+              initial={{ scale: 0.9, opacity: 1, y: 40 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 40 }}
               onClick={(e) => e.stopPropagation()}

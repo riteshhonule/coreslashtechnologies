@@ -33,22 +33,24 @@ export default function WhyChooseUs() {
     return (
         <section className="relative py-24 overflow-hidden bg-dark-black">
             {/* Background Orbs */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary-accent/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     
                     {/* Visuals */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.97 }}
+                        initial={{ opacity: 1, scale: 0.97 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, margin: "-50px" }}
+                        viewport={{ once: true, amount: 0, margin: "200px" }}
                         className="relative"
                     >
                         <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-glow">
                             <img
                                 src={CoreslashTechnologies_solutions}
                                 alt="Solutions"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover transition-all duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 to-transparent" />
@@ -75,9 +77,9 @@ export default function WhyChooseUs() {
                     {/* Content */}
                     <div>
                         <motion.div
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={{ opacity: 1, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                         >
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
                                 <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest">Efficiency Redefined</span>
@@ -93,10 +95,10 @@ export default function WhyChooseUs() {
                             {features.map((item, idx) => (
                                 <motion.div
                                     key={idx}
-                                    initial={{ opacity: 0, y: 10 }}
+                                    initial={{ opacity: 1, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-30px" }}
-                                    transition={{ delay: idx * 0.04, duration: 0.3 }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
+                                    transition={{ delay: idx * 0.02, duration: 0.3 }}
                                     className="glass-card p-6 border-white/5 group hover:border-white/10 transition-all"
                                 >
                                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 border border-white/5 ${item.iconColor}`}>
@@ -113,10 +115,10 @@ export default function WhyChooseUs() {
                         </div>
 
                         <motion.div
-                            initial={{ opacity: 0 }}
+                            initial={{ opacity: 1 }}
                             whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.5 }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
+                            transition={{ delay: 0.1 }}
                             className="mt-10 p-6 rounded-2xl bg-white/5 border-l-4 border-accent-cyan italic"
                         >
                             <p className="text-white/60 text-lg">

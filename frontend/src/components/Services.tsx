@@ -90,16 +90,16 @@ export default function Services() {
       <section id="services" className="relative py-32 overflow-hidden bg-dark-black" onMouseMove={handleMouseMove}>
         
         {/* Decorative Glows */}
-        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="mx-auto max-w-[1600px] px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-24">
             <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
+              initial={{ opacity: 1, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
               className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
             >
               <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
@@ -108,9 +108,9 @@ export default function Services() {
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
               className="text-4xl md:text-6xl font-bold text-white mb-8"
             >
               Transforming Ideas into <br />
@@ -128,10 +128,10 @@ export default function Services() {
             {services.map((service, idx) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 1, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.3, delay: idx * 0.03 }}
+                viewport={{ once: true, amount: 0, margin: "200px" }}
+                transition={{ duration: 0.3, delay: idx * 0.02 }}
                 className={`group service-card-interactive ${
                   service.size === "lg" ? "md:col-span-2 md:row-span-2" : 
                   service.size === "md" ? "md:col-span-2" : "md:col-span-1"
@@ -168,9 +168,9 @@ export default function Services() {
 
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
             className="mt-24 text-center"
           >
             <Link

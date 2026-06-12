@@ -6,9 +6,9 @@ export default function Contact() {
     <section className="relative py-4 bg-transparent">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0, margin: "200px" }}
           className="relative z-10"
         >
           <ContactForm variant="dark" />

@@ -13,10 +13,10 @@ export default function CTA() {
 
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 1, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.4 }}
+          viewport={{ once: true, amount: 0, margin: "200px" }}
+          transition={{ duration: 0.3 }}
           className="relative glass-card p-12 md:p-24 rounded-[3rem] overflow-hidden text-center border-white/10"
         >
           {/* Animated Gradient Background */}
@@ -24,9 +24,9 @@ export default function CTA() {
           
           <div className="relative z-10">
             <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
+              initial={{ opacity: 1, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
               className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 mb-10"
             >
               <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.3em]">
@@ -59,8 +59,8 @@ export default function CTA() {
             </div>
 
             {/* Floating Particles */}
-            <div className="absolute top-10 left-10 w-2 h-2 bg-accent-cyan rounded-full animate-pulse" />
-            <div className="absolute bottom-20 right-20 w-3 h-3 bg-primary-purple rounded-full animate-pulse delay-700" />
+            <div className="hidden md:block absolute top-10 left-10 w-2 h-2 bg-accent-cyan rounded-full animate-pulse" />
+            <div className="hidden md:block absolute bottom-20 right-20 w-3 h-3 bg-primary-purple rounded-full animate-pulse delay-700" />
           </div>
         </motion.div>
       </div>

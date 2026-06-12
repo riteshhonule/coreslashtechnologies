@@ -89,7 +89,7 @@ const ContactPage = () => {
       {/* HERO SECTION */}
       <section className="relative py-24 md:py-32 w-full text-center px-6">
         <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
+          initial={{ opacity: 1, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
         >
@@ -100,7 +100,7 @@ const ContactPage = () => {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="text-5xl md:text-8xl font-bold text-white mb-10 tracking-tight leading-[1.1]"
@@ -124,9 +124,9 @@ const ContactPage = () => {
                 key={index}
                 href={item.link}
                 target="_blank"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 1, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0, margin: "200px" }}
                 transition={{ delay: index * 0.04, duration: 0.3 }}
                 className="glass-card group p-8 md:p-12 rounded-[3rem] text-center border-white/5 hover:border-white/20 transition-all duration-700 block relative overflow-hidden"
               >
@@ -155,9 +155,9 @@ const ContactPage = () => {
       <section className="py-32 relative z-10 px-6">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 1, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
             className="glass-card p-12 md:p-20 rounded-[4rem] border-white/5"
           >
             <div className="text-center mb-16">

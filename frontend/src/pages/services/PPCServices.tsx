@@ -88,9 +88,9 @@ const PPCServices = () => {
                     {/* HERO SECTION */}
                     <div className="grid lg:grid-cols-2 gap-20 items-center mb-40">
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                             className="relative"
                         >
@@ -106,9 +106,9 @@ const PPCServices = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
+                            initial={{ opacity: 1, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center"
                         >
@@ -146,9 +146,9 @@ const PPCServices = () => {
                             {features.map((item, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 1, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
                                     className="glass-card p-6 rounded-3xl border-white/5 flex flex-col items-center text-center group hover:border-accent-cyan/20"
                                 >
@@ -173,10 +173,10 @@ const PPCServices = () => {
                             {packages.map((pkg, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 40 }}
+                                    initial={{ opacity: 1, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
+                                    transition={{ duration: 0.8, delay: index * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
                                         pkg.isPopular 
                                         ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 

@@ -40,9 +40,9 @@ const DigitalMarketing: React.FC = () => {
                         
                         {/* Visual Side */}
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                             className="relative"
                         >
@@ -76,9 +76,9 @@ const DigitalMarketing: React.FC = () => {
 
                         {/* Content Side */}
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center"
                         >
@@ -133,9 +133,9 @@ const DigitalMarketing: React.FC = () => {
                             {features.map((feature, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 1, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
                                     className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all"
                                 >

@@ -69,7 +69,7 @@ export default function Navbar() {
           {/* Backdrop - click to close */}
           <motion.div
             key="mobile-backdrop"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
@@ -128,7 +128,7 @@ export default function Navbar() {
                 {links.map((link, idx) => (
                   <motion.div
                     key={link.to}
-                    initial={{ opacity: 0, x: 40 }}
+                    initial={{ opacity: 1, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + idx * 0.05, duration: 0.4 }}
                   >
@@ -150,7 +150,7 @@ export default function Navbar() {
                   {servicesLinks.map((service, idx) => (
                     <motion.div
                       key={service.to}
-                      initial={{ opacity: 0, x: 30 }}
+                      initial={{ opacity: 1, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + idx * 0.04, duration: 0.3 }}
                     >
@@ -247,7 +247,7 @@ export default function Navbar() {
                 <AnimatePresence>
                   {hoveredService && (
                     <motion.div
-                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                      initial={{ opacity: 1, y: 15, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 15, scale: 0.95 }}
                       className="absolute top-full left-0 mt-4 w-72 p-3 bg-dark-black/90 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden"

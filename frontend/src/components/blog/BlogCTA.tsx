@@ -11,9 +11,9 @@ const BlogCTA: React.FC = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-purple/10 rounded-full blur-[160px] pointer-events-none" />
             
             <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 1, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0, margin: "200px" }}
                 className="max-w-7xl mx-auto relative rounded-[4rem] overflow-hidden glass-card border-white/5 p-16 md:p-24 text-center"
             >
                 {/* Background Decor */}

@@ -73,9 +73,9 @@ const AppDevelopment: React.FC = () => {
                 <section className="container mx-auto px-6 lg:px-12 py-24">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center lg:items-center lg:text-center"
                         >
@@ -102,9 +102,9 @@ const AppDevelopment: React.FC = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 1, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 1 }}
                             className="relative"
                         >
@@ -131,9 +131,9 @@ const AppDevelopment: React.FC = () => {
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 1, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: true, amount: 0, margin: "200px" }}
                                 className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
                             >
                                 <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
@@ -149,10 +149,10 @@ const AppDevelopment: React.FC = () => {
                             {packages.map((pkg, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 40 }}
+                                    initial={{ opacity: 1, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
+                                    transition={{ duration: 0.8, delay: index * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
                                         pkg.highlight 
                                         ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 

@@ -88,9 +88,9 @@ const SoftwareDevelopment: React.FC = () => {
                 <section className="container mx-auto px-6 py-24">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center"
                         >
@@ -127,9 +127,9 @@ const SoftwareDevelopment: React.FC = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 1, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 1 }}
                             className="relative"
                         >
@@ -160,9 +160,9 @@ const SoftwareDevelopment: React.FC = () => {
                             {solutions.map((item, i) => (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 1, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
                                     className="glass-card p-12 rounded-[3rem] border-white/5 group hover:border-accent-cyan/20 transition-all relative overflow-hidden"
                                 >
@@ -200,10 +200,10 @@ const SoftwareDevelopment: React.FC = () => {
                             {packages.map((pkg, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 40 }}
+                                    initial={{ opacity: 1, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
+                                    transition={{ duration: 0.8, delay: index * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${pkg.isPopular
                                             ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10"
                                             : "bg-white/5 border-white/10 hover:border-white/30"

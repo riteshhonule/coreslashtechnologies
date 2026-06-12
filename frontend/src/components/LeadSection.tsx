@@ -13,17 +13,17 @@ export default function LeadSection() {
     <section id="contact" className="relative py-32 overflow-hidden bg-dark-black">
 
       {/* Background Animated Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -15 }}
+            initial={{ opacity: 1, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4 }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
+            transition={{ duration: 0.3 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
               <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
@@ -57,15 +57,15 @@ export default function LeadSection() {
 
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center gap-5 opacity-80 hover:opacity-100 transition-opacity duration-500">
-              <img src={googlePartner} alt="Google Partner" className="h-10 w-auto object-contain" />
-              <img src={metaPartner} alt="Meta Partner" className="h-10 w-auto object-contain" />
+              <img src={googlePartner} alt="Google Partner" loading="lazy" decoding="async" className="h-10 w-auto object-contain" />
+              <img src={metaPartner} alt="Meta Partner" loading="lazy" decoding="async" className="h-10 w-auto object-contain" />
             </div>
 
             {/* Ratings */}
             <div className="flex items-center gap-6 mt-12">
               <div className="flex -space-x-3">
                 {[person1, person2, person3, person4].map((p, i) => (
-                  <img key={i} src={p} alt="Client" className="w-12 h-12 rounded-full border-2 border-dark-black object-cover transition-all duration-300" />
+                  <img key={i} src={p} alt="Client" loading="lazy" decoding="async" className="w-12 h-12 rounded-full border-2 border-dark-black object-cover transition-all duration-300" />
                 ))}
               </div>
               <div>
@@ -81,14 +81,14 @@ export default function LeadSection() {
 
           {/* Right Form */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
+            initial={{ opacity: 1, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4 }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
+            transition={{ duration: 0.3 }}
             className="relative"
           >
             {/* Form Glow */}
-            <div className="absolute -inset-10 bg-primary-purple/20 blur-[100px] rounded-full pointer-events-none animate-pulse" />
+            <div className="hidden md:block absolute -inset-10 bg-primary-purple/20 blur-[100px] rounded-full pointer-events-none animate-pulse" />
 
             <div className="relative glass-card p-10 md:p-14 border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
               <h3 className="text-3xl font-bold text-white mb-4">

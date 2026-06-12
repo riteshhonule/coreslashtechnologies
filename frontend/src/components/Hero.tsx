@@ -11,8 +11,8 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.06,
-        delayChildren: 0.1,
+        staggerChildren: 0.04,
+        delayChildren: 0.05,
       },
     },
   };
@@ -32,8 +32,8 @@ export default function Hero() {
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Animated Radial Glows */}
-        <div className="absolute top-[-5%] left-[-5%] w-[800px] h-[800px] bg-primary-purple/15 rounded-full blur-[140px] animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[700px] h-[700px] bg-secondary-indigo/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="hidden md:block absolute top-[-5%] left-[-5%] w-[800px] h-[800px] bg-primary-purple/15 rounded-full blur-[140px] animate-pulse" />
+        <div className="hidden md:block absolute bottom-[-10%] right-[-5%] w-[700px] h-[700px] bg-secondary-indigo/10 rounded-full blur-[120px] animate-pulse" />
 
         {/* Subtle Grid Background */}
         <div
@@ -58,7 +58,7 @@ export default function Hero() {
               repeat: Infinity,
               delay: i * 2,
             }}
-            className="absolute w-1 h-1 bg-accent-cyan rounded-full"
+            className="hidden md:block absolute w-1 h-1 bg-accent-cyan rounded-full"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -202,17 +202,17 @@ export default function Hero() {
 
           {/* RIGHT SIDE ANIMATION - 42% Width on Desktop, Moved Behind on Mobile */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 1, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="absolute lg:relative inset-0 lg:inset-auto flex items-center justify-center lg:w-[42%] pointer-events-none lg:pointer-events-auto opacity-20 lg:opacity-100 z-10"
           >
             {/* Animation Container */}
             <div className="relative w-full max-w-[400px] md:max-w-[500px] aspect-square flex items-center justify-center">
 
               {/* Soft Radial Blur Glow */}
-              <div className="absolute inset-0 bg-accent-cyan/15 rounded-full blur-[120px] animate-pulse" />
-              <div className="absolute inset-20 bg-primary-purple/20 rounded-full blur-[100px] animate-pulse delay-1000" />
+              <div className="hidden md:block absolute inset-0 bg-accent-cyan/15 rounded-full blur-[120px] animate-pulse" />
+              <div className="hidden md:block absolute inset-20 bg-primary-purple/20 rounded-full blur-[100px] animate-pulse delay-1000" />
 
               {/* Abstract Floating Matrix */}
               <motion.div
@@ -248,7 +248,7 @@ export default function Hero() {
                 />
 
                 {/* Neural Core */}
-                <div className="absolute w-32 h-32 bg-gradient-to-br from-accent-cyan via-primary-purple to-secondary-indigo rounded-full blur-3xl opacity-40 animate-pulse" />
+                <div className="hidden md:block absolute w-32 h-32 bg-gradient-to-br from-accent-cyan via-primary-purple to-secondary-indigo rounded-full blur-3xl opacity-40 animate-pulse" />
                 <div className="w-24 h-24 rounded-full border border-white/20 flex items-center justify-center relative overflow-hidden group">
                   <div className="absolute inset-0 bg-white/5 backdrop-blur-xl" />
                   <div className="relative z-10 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)]">

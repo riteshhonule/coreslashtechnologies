@@ -33,7 +33,7 @@ const BlogPage: React.FC = () => {
             <section className="relative py-24 md:py-32 overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 1, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center max-w-5xl mx-auto"
                     >
@@ -109,9 +109,9 @@ const BlogPage: React.FC = () => {
 
                 {/* Newsletter Box */}
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 1, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0, margin: "200px" }}
                     className="mt-32 p-16 md:p-24 rounded-[4rem] glass-card border-white/5 relative overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary-purple/10 to-transparent pointer-events-none" />

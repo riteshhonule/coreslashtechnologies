@@ -41,7 +41,7 @@ const BlogDetailPage: React.FC = () => {
 
                 {/* Header */}
                 <motion.header
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 1, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-16"
                 >
@@ -85,7 +85,7 @@ const BlogDetailPage: React.FC = () => {
 
                 {/* Featured Image */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 1, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
                     className="rounded-[4rem] overflow-hidden mb-24 relative group"
@@ -108,9 +108,9 @@ const BlogDetailPage: React.FC = () => {
                                 {post.content.sections.map((section, idx) => (
                                     <motion.div 
                                         key={idx} 
-                                        initial={{ opacity: 0, y: 20 }}
+                                        initial={{ opacity: 1, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
+                                        viewport={{ once: true, amount: 0, margin: "200px" }}
                                         className="mb-20"
                                     >
                                         <h2 className="text-3xl md:text-5xl font-bold text-white mt-16 mb-10 tracking-tight">{section.title}</h2>

@@ -54,7 +54,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
       <AnimatePresence>
         {status === "success" && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 1, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             className="absolute inset-0 flex flex-col items-center justify-center backdrop-blur-xl z-20 rounded-3xl bg-dark-black/90 border border-accent-cyan/20"

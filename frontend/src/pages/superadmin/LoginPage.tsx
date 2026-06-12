@@ -48,7 +48,7 @@ export default function LoginPage() {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="w-full max-w-md p-8 rounded-3xl glass-card relative z-10"
@@ -108,7 +108,7 @@ export default function LoginPage() {
 
           {error && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 1, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               className="text-red-400 text-xs font-semibold bg-red-500/10 border border-red-500/25 px-4 py-2.5 rounded-xl text-center"
             >

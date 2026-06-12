@@ -17,22 +17,24 @@ export default function About() {
     <section id="about" className="relative py-32 overflow-hidden bg-dark-black" style={{ position: 'relative', zIndex: 10, minHeight: '100vh' }}>
       
       {/* Decorative Glows */}
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-secondary-indigo/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/2 right-0 w-[600px] h-[600px] bg-secondary-indigo/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           
           {/* Visual Left */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
+            initial={{ opacity: 1, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
             className="relative"
           >
             <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] lg:aspect-auto">
               <img
                 src={wall}
                 alt="Our Workspace"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-80" />
@@ -40,10 +42,10 @@ export default function About() {
 
             {/* Floating Achievement Card */}
             <motion.div 
-              initial={{ opacity: 0, x: 15 }}
+              initial={{ opacity: 1, x: 15 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.4 }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
+              transition={{ delay: 0.1, duration: 0.3 }}
               className="absolute -bottom-10 -right-10 glass-card p-8 border-accent-cyan/20 shadow-[0_20px_50px_rgba(34,211,238,0.15)] z-20 hidden md:block"
             >
               <div className="flex items-center gap-5">
@@ -60,9 +62,9 @@ export default function About() {
 
           {/* Content Right */}
           <motion.div
-            initial={{ opacity: 0, x: 15 }}
+            initial={{ opacity: 1, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
             transition={{ duration: 0.4 }}
           >
             <motion.div
@@ -87,10 +89,10 @@ export default function About() {
               {stats.map((stat, idx) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 1, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.04, duration: 0.3 }}
+                  viewport={{ once: true, amount: 0, margin: "200px" }}
+                  transition={{ delay: idx * 0.02, duration: 0.3 }}
                 >
                   <p className="text-4xl font-bold text-white mb-2">{stat.value}</p>
                   <p className="text-xs font-bold text-white/30 uppercase tracking-widest">{stat.label}</p>

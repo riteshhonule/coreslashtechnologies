@@ -76,9 +76,9 @@ const SEOOptimization: React.FC = () => {
 
                         {/* RIGHT CONTENT */}
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center"
                         >
@@ -133,9 +133,9 @@ const SEOOptimization: React.FC = () => {
                             {detailedFeatures.map((f, i) => (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 1, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
                                     className="glass-card p-10 rounded-[2.5rem] border-white/5 group hover:border-accent-cyan/20 transition-all"
                                 >

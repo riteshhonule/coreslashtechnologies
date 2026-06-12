@@ -25,18 +25,18 @@ const SectionHeading = ({ badge, title, subtitle, align = "center" }: { badge?: 
   <div className={`text-${align} mb-12`}>
     {badge && (
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 1, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0, margin: "200px" }}
         className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
       >
         <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">{badge}</span>
       </motion.div>
     )}
     <motion.h2
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 1, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0, margin: "200px" }}
       transition={{ delay: 0.1 }}
       className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight"
     >
@@ -44,9 +44,9 @@ const SectionHeading = ({ badge, title, subtitle, align = "center" }: { badge?: 
     </motion.h2>
     {subtitle && (
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0, margin: "200px" }}
         transition={{ delay: 0.2 }}
         className="text-lg text-white/40 max-w-2xl mx-auto leading-relaxed"
       >
@@ -70,7 +70,7 @@ const AccordionItem = ({ title, children, isOpen, onClick }: { title: string, ch
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ height: 0, opacity: 0 }}
+          initial={{ height: 0, opacity: 1 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
@@ -111,7 +111,7 @@ const AboutPage = () => {
           className="text-center max-w-4xl mx-auto z-10"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
           >
@@ -120,7 +120,7 @@ const AboutPage = () => {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-white md:text-white"
@@ -132,7 +132,7 @@ const AboutPage = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-base md:text-xl text-white/40 mb-10 max-w-2xl mx-auto leading-relaxed"
@@ -141,7 +141,7 @@ const AboutPage = () => {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="flex flex-wrap justify-center gap-4"
@@ -161,9 +161,9 @@ const AboutPage = () => {
       <section className="relative z-10 py-16 px-4 container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 1, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
             transition={{ duration: 0.8 }}
             className="relative order-2 lg:order-1"
           >
@@ -182,9 +182,9 @@ const AboutPage = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 1, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0, margin: "200px" }}
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2"
           >
@@ -231,10 +231,10 @@ const AboutPage = () => {
           ].map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
+              transition={{ delay: idx * 0.05 }}
               whileHover={{ scale: 1.02, translateX: 5 }}
               className={`relative overflow-hidden p-6 rounded-[2rem] border ${item.border} ${item.gradient} glass-card group transition-all duration-300 hover:border-white/20 h-full`}
             >
@@ -384,9 +384,9 @@ const AboutPage = () => {
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 1, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
             >
               <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white tracking-tight">Ready To Transform Your <span className="text-gradient-cyan">Digital</span> Presence?</h2>
               <p className="text-xl text-white/50 mb-12">Let's build something extraordinary together. Contact us today for a free consultation.</p>

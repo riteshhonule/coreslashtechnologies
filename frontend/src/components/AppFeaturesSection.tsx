@@ -57,8 +57,9 @@ export default function AppFeaturesSection() {
             <div className="text-center mb-16 px-4">
 
                 <motion.h2
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 1, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0, margin: "200px" }}
                     className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
                 >
                     Powerful App Features
@@ -79,9 +80,10 @@ export default function AppFeaturesSection() {
 
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 1, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
+                        viewport={{ once: true, amount: 0, margin: "200px" }}
+                        transition={{ duration: 0.3, delay: i * 0.05 }}
                         whileHover={{ y: -10 }}
                         className="group relative p-[1px] rounded-3xl bg-gradient-to-br from-gray-200 to-gray-100 hover:from-blue-500 hover:to-purple-500 transition-all duration-500"
                     >

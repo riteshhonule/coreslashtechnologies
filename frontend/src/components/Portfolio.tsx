@@ -104,14 +104,14 @@ export default function Portfolio() {
     <section id="portfolio" className="relative py-32 overflow-hidden bg-dark-black">
 
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
+              initial={{ opacity: 1, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
             className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
           >
             <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
@@ -132,10 +132,10 @@ export default function Portfolio() {
           {items.slice(0, 2).map((project, idx) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 1, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              viewport={{ once: true, amount: 0, margin: "200px" }}
+              transition={{ duration: 0.3, delay: idx * 0.02 }}
               className="group cursor-pointer relative"
               onClick={() => setActive(project)}
             >
@@ -143,6 +143,8 @@ export default function Portfolio() {
                 <img
                   src={project.img}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-110"
                 />
 
@@ -167,9 +169,9 @@ export default function Portfolio() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0, margin: "200px" }}
           className="mt-24 text-center"
         >
           <Link to="/portfolio" className="btn-pill btn-glass text-white px-12 inline-block">
@@ -182,14 +184,14 @@ export default function Portfolio() {
       <AnimatePresence>
         {active && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/95 backdrop-blur-xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/95 backdrop-blur-sm md:backdrop-blur-xl"
             onClick={() => setActive(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, y: 40, opacity: 0 }}
+              initial={{ scale: 0.9, y: 40, opacity: 1 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 40, opacity: 0 }}
               className="bg-dark-black/90 border border-white/10 rounded-[4rem] max-w-5xl w-full overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)]"
