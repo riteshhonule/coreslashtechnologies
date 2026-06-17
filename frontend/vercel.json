@@ -30,7 +30,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|.*\\.(?:js|css|png|jpg|jpeg|gif|svg|ico|xml|txt|json|webmanifest|woff|woff2)$).*$)",
+      "source": "/((?!assets/|[^/]+\\.[a-zA-Z0-9]+$).*)",
       "destination": "/index.html"
     }
   ]
