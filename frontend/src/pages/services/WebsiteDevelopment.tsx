@@ -19,6 +19,9 @@ import speedImg from "../../img/website/fast_load.webp";
 import coreslashWebsiteDevelopment from "../../img/website/coreslash-website-development.png";
 
 import ServiceLayout from "./ServicesLayout";
+import SEO from "../../components/SEO";
+
+// ... features and pricingPlans omitted for brevity in replacement instruction ...
 
 const features = [
     { title: "Bespoke Design", desc: "Tailored layouts that represent your brand’s unique identity.", icon: customDesignImg },
@@ -115,12 +118,29 @@ const WebsiteDevelopment: React.FC = () => {
         }
     };
 
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Website Development",
+        "description": "Premium website development services tailored for scale and growth.",
+        "provider": {
+            "@type": "Organization",
+            "name": "CoreSlash Technologies",
+            "url": "https://coreslashtechnologies.com"
+        }
+    };
+
     return (
         <ServiceLayout
             title="Website Development"
             subtitle="Transforming vision into digital excellence."
             ctaText="Start Your Project"
         >
+            <SEO 
+                title="Website Development Services"
+                description="Custom, high-performance website development services. We build digital growth engines engineered for speed, SEO, and conversions."
+                structuredData={structuredData}
+            />
             <div className="bg-dark-black">
                 {/* Main Content & Sidebar */}
                 <section className="container mx-auto px-6 lg:px-12 py-20">

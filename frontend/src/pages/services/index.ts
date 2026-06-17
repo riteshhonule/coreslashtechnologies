@@ -7,3 +7,4 @@ export { default as PPCServices } from './PPCServices';
 export { default as AppDevelopment } from './AppDevelopment';
 export { default as SoftwareDevelopment } from './SoftwareDevelopment';
 export { default as DigitalMarketing } from './DigitalMarketing';
+export * from './NewServices';

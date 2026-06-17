@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { envConfig } from "../config/env.config";
 import Contact from "../components/Contact";
+import SEO from "../components/SEO";
 import {
   PhoneIcon,
   EnvelopeIcon,
@@ -80,8 +81,29 @@ const ContactPage = () => {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CoreSlash Technologies",
+    "image": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png",
+    "@id": "https://coreslashtechnologies.com",
+    "url": "https://coreslashtechnologies.com/contact",
+    "telephone": "+918861220023",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Belgaum",
+      "addressRegion": "Karnataka",
+      "addressCountry": "IN"
+    }
+  };
+
   return (
     <main className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with CoreSlash Technologies for expert IT solutions, custom software development, and AI systems."
+        structuredData={structuredData}
+      />
       {/* BACKGROUND GLOWS */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />

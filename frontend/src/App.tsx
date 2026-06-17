@@ -21,7 +21,15 @@ import {
   PPCServices,
   AppDevelopment,
   SoftwareDevelopment,
-  DigitalMarketing
+  DigitalMarketing,
+  AISolutions,
+  CustomSoftwareDevelopment,
+  EnterpriseITSolutions,
+  CloudSolutions,
+  SCADAIndustrialAutomation,
+  IoTSolutions,
+  BusinessAutomation,
+  DataAnalytics
 } from "./pages/services";
 
 function ScrollToTop() {
@@ -50,6 +58,16 @@ function AnimatedRoutes() {
         <Route path="/services/App-development" element={<AppDevelopment />} />
         <Route path="/services/software-development" element={<SoftwareDevelopment />} />
         <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
+
+        {/* New Service Routes */}
+        <Route path="/services/ai-solutions" element={<AISolutions />} />
+        <Route path="/services/custom-software-development" element={<CustomSoftwareDevelopment />} />
+        <Route path="/services/enterprise-it-solutions" element={<EnterpriseITSolutions />} />
+        <Route path="/services/cloud-solutions" element={<CloudSolutions />} />
+        <Route path="/services/scada-industrial-automation" element={<SCADAIndustrialAutomation />} />
+        <Route path="/services/iot-solutions" element={<IoTSolutions />} />
+        <Route path="/services/business-automation" element={<BusinessAutomation />} />
+        <Route path="/services/data-analytics" element={<DataAnalytics />} />
 
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />

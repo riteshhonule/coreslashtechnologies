@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SparklesIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
 
 const faqs = [
     {
@@ -30,8 +31,26 @@ const faqs = [
 ];
 
 const FAQPage: React.FC = () => {
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+            }
+        }))
+    };
+
     return (
         <div className="min-h-screen bg-slate-50 pt-24">
+            <SEO 
+                title="FAQ | Frequently Asked Questions"
+                description="Find answers to common questions about CoreSlash Technologies' web development, AI solutions, SEO services, and enterprise IT solutions."
+                structuredData={faqSchema}
+            />
             <div className="max-w-4xl mx-auto px-6 py-20">
                 <motion.div
                     initial={{ opacity: 1, y: 20 }}

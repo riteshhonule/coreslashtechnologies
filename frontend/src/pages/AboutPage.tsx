@@ -87,6 +87,8 @@ const AccordionItem = ({ title, children, isOpen, onClick }: { title: string, ch
 
 // --- Page Component ---
 
+import SEO from "../components/SEO";
+
 const AboutPage = () => {
   const [activeFAQ, setActiveFAQ] = useState(-1);
   const { scrollYProgress } = useScroll();
@@ -99,6 +101,10 @@ const AboutPage = () => {
 
   return (
     <div className="relative min-h-screen bg-dark-black overflow-hidden font-sans text-white pt-[80px] md:pt-[88px]">
+      <SEO 
+        title="About Us"
+        description="Learn more about CoreSlash Technologies, our mission to build digital futures, our vision, and the core values that drive our software and AI solutions."
+      />
 
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />

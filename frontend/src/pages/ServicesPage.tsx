@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import WhyChooseUs from "../components/WhyChooseUs";
+import SEO from "../components/SEO";
 import { SparklesIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 // Importing images
@@ -60,6 +61,10 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="relative flex flex-col min-h-screen bg-dark-black overflow-hidden">
+      <SEO 
+        title="Our IT & AI Services"
+        description="Explore CoreSlash Technologies' comprehensive digital services including AI Solutions, Enterprise IT, Custom Software Development, Cloud Infrastructure, and IoT."
+      />
       {/* ================= HERO HEADER ================= */}
       <section className="relative pt-[180px] pb-32 overflow-hidden">
         {/* Glow Effects */}
@@ -116,7 +121,7 @@ export default function ServicesPage() {
                 <div className="glass-card h-full p-10 rounded-[3rem] border-white/5 group-hover:border-accent-cyan/20 transition-all duration-500 relative overflow-hidden flex flex-col">
                   {/* Hover Image Reveal */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
-                    <img src={service.image} alt="" className="w-full h-full object-cover grayscale" />
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover grayscale" />
                   </div>
 
                   <div className="relative z-10 mb-8">
