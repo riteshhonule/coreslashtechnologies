@@ -1,5 +1,4 @@
 {
-  "cleanUrls": true,
   "headers": [
     {
       "source": "/sitemap.xml",
@@ -7,10 +6,6 @@
         {
           "key": "Content-Type",
           "value": "application/xml; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
@@ -20,18 +15,14 @@
         {
           "key": "Content-Type",
           "value": "text/plain; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|\\.well-known/|sitemap\\.xml|robots\\.txt|favicon\\.ico|manifest\\.json|favicon-16x16\\.png|favicon-32x32\\.png|logo\\.png|coreslash_technologies_url_image\\.png|CoreslashTechnologies-solutions-main-logo).*)",
-      "destination": "/index.html"
+      "source": "/:path*",
+      "destination": "/"
     }
   ]
 }
