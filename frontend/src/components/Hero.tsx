@@ -27,7 +27,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-dark-black pt-24 md:pt-32 pb-12 lg:pb-0 w-full" style={{ zIndex: 1 }}>
+    <section className="relative min-h-[100svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-dark-black pt-28 sm:pt-24 md:pt-32 pb-12 lg:pb-0 w-full" style={{ zIndex: 1 }}>
 
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -80,10 +80,10 @@ export default function Hero() {
             {/* Tagline */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md max-w-[92%] sm:max-w-max mx-auto lg:mx-0"
             >
-              <SparklesIcon className="w-4 h-4 text-accent-cyan" />
-              <span className="text-[10px] font-bold text-accent-cyan uppercase tracking-[0.3em]">
+              <SparklesIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent-cyan shrink-0" />
+              <span className="text-[8.5px] min-[360px]:text-[9px] sm:text-[10px] font-bold text-accent-cyan uppercase tracking-[0.2em] sm:tracking-[0.3em] whitespace-normal text-center leading-normal">
                 Strategic Intelligence Protocol
               </span>
             </motion.div>
@@ -172,13 +172,22 @@ export default function Hero() {
               </div>
 
             </motion.h1>
+            {/* Desktop and Tablet Description */}
             <motion.p
               variants={itemVariants}
-              className="max-w-[620px] text-lg md:text-xl text-white/40 leading-relaxed mb-12 mx-auto lg:mx-0 font-medium px-4 md:px-0"
+              className="hidden md:block max-w-[620px] text-lg md:text-xl text-white/40 leading-relaxed mb-12 mx-auto lg:mx-0 font-medium px-4 md:px-0"
             >
               We architect high-performance digital ecosystems and enhance them with
               autonomous intelligence to scale your business operations
               with surgical precision.
+            </motion.p>
+
+            {/* Mobile Description */}
+            <motion.p
+              variants={itemVariants}
+              className="block md:hidden text-xl text-white/70 font-bold tracking-wider mb-12 text-center"
+            >
+              Software • Cloud • AI
             </motion.p>
 
             {/* CTA Buttons */}
@@ -188,10 +197,10 @@ export default function Hero() {
             >
               <button
                 onClick={openModal}
-                className="w-full sm:w-auto btn-pill btn-primary-glow text-white text-lg px-10 py-5 group shadow-[0_0_30px_rgba(69,3,185,0.3)] hover:shadow-[0_0_50px_rgba(69,3,185,0.5)] transition-all"
+                className="w-fit sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3.5 sm:px-10 sm:py-5 group shadow-[0_0_30px_rgba(69,3,185,0.3)] hover:shadow-[0_0_50px_rgba(69,3,185,0.5)] transition-all"
               >
                 Schedule a Call
-                <ArrowUpRightIcon className="w-5 h-5 transition-transform group-hover:rotate-45" />
+                <ArrowUpRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:rotate-45" />
               </button>
 
               {/* <button className="w-full sm:w-auto btn-pill btn-glass text-white/60 hover:text-white px-10 py-5 border-white/5 hover:border-accent-cyan/30 transition-all backdrop-blur-xl">
