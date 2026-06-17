@@ -30,7 +30,7 @@
   ],
   "rewrites": [
     {
-      "source": "/([^.]*)",
+      "source": "/((?!assets/|\\.well-known/|sitemap\\.xml|robots\\.txt|favicon\\.ico|manifest\\.json|favicon-16x16\\.png|favicon-32x32\\.png|logo\\.png|coreslash_technologies_url_image\\.png|CoreslashTechnologies-solutions-main-logo).*)",
       "destination": "/index.html"
     }
   ]
