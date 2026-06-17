@@ -174,17 +174,17 @@ const ContactPage = () => {
       </section>
 
       {/* FORM SECTION */}
-      <section className="py-32 relative z-10 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section id="consultation" className="py-24 relative z-10 px-6 scroll-mt-28">
+        <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 1, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0, margin: "200px" }}
-            className="glass-card p-12 md:p-20 rounded-[4rem] border-white/5"
+            className="glass-card p-8 md:p-12 rounded-[2.5rem] border-white/5"
           >
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Schedule a Call</h2>
-              <p className="text-white/40 text-xl font-medium">Describe your vision and our architects will reach out.</p>
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Schedule a Call</h2>
+              <p className="text-white/40 text-lg font-medium">Describe your vision and our architects will reach out.</p>
             </div>
             <Contact />
           </motion.div>

@@ -70,9 +70,9 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
         )}
       </AnimatePresence>
 
-      <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="space-y-1">
+      <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
+        <div className="grid md:grid-cols-2 gap-3">
+          <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
             <input
               placeholder="Enter Your Name"
@@ -81,7 +81,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
             />
           </div>
 
-          <div className="space-y-1">
+          <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Work Email</label>
             <input
               type="email"
@@ -92,8 +92,8 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="space-y-1">
+        <div className="grid md:grid-cols-2 gap-3">
+          <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
             <input
               placeholder="+91 00000 00000"
@@ -102,7 +102,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
             />
           </div>
 
-          <div className="space-y-1">
+          <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Location</label>
             <input
               placeholder="Enter Your Location"
@@ -112,7 +112,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           </div>
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Select Industry</label>
           <div className="relative">
             <select
@@ -133,7 +133,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           </div>
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Project Details</label>
           <textarea
             rows={2}
@@ -148,7 +148,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           whileTap={{ scale: 0.99 }}
           type="submit"
           disabled={status === "loading"}
-          className="w-full btn-pill btn-primary-glow text-white text-lg py-4 shadow-2xl mt-2"
+          className="w-full btn-pill btn-primary-glow text-white text-base py-3 shadow-2xl mt-1"
         >
           {status === "loading" ? "Processing..." : "Secure My Consultation"}
         </motion.button>

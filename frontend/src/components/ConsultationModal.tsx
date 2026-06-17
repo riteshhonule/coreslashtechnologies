@@ -12,7 +12,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4">
                     <motion.div
                         initial={{ opacity: 1 }}
                         animate={{ opacity: 1 }}
@@ -25,9 +25,9 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                         initial={{ scale: 0.95, opacity: 1, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                        className="relative w-full max-w-xl bg-[#050816] rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden"
+                        className="relative w-full max-w-lg bg-[#050816] rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden"
                     >
-                        <div className="p-6 md:p-10 relative">
+                        <div className="p-5 md:p-8 relative">
                             <button
                                 onClick={onClose}
                                 className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-all z-30"
