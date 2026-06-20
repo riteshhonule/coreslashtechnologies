@@ -35,8 +35,8 @@ const DigitalMarketing: React.FC = () => {
         >
             <div className="bg-dark-black">
                 {/* Hero Content */}
-                <section className="container mx-auto px-6 lg:px-12 py-24">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
+                <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
+                    <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                         
                         {/* Visual Side */}
                         <motion.div
@@ -120,7 +120,7 @@ const DigitalMarketing: React.FC = () => {
                 </section>
 
                 {/* Features Ecosystem */}
-                <section className="py-32 bg-dark-black border-t border-white/5">
+                <section className="py-16 md:py-32 bg-dark-black border-t border-white/5">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <h3 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">

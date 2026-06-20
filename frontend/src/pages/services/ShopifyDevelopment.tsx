@@ -105,8 +105,8 @@ const ShopifyDevelopment: React.FC = () => {
         >
             <div className="bg-dark-black">
                 {/* HERO SECTION */}
-                <section className="container mx-auto px-6 py-24">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
+                <section className="container mx-auto px-6 py-12 md:py-24">
+                    <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                         <motion.div
                             initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -176,7 +176,7 @@ const ShopifyDevelopment: React.FC = () => {
                 </section>
 
                 {/* FEATURES BENTO GRID */}
-                <section className="py-32 bg-dark-black border-t border-white/5">
+                <section className="py-16 md:py-32 bg-dark-black border-t border-white/5">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
@@ -207,7 +207,7 @@ const ShopifyDevelopment: React.FC = () => {
                 </section>
 
                 {/* STRATEGIC PACKAGES */}
-                <section className="py-32 bg-dark-black">
+                <section className="py-16 md:py-32 bg-dark-black">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">

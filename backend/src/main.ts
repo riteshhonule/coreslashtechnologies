@@ -9,10 +9,20 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
   const corsOriginsStr = configService.get<string>('CORS_ORIGINS') || 'https://coreslashtechnologies.com,https://www.coreslashtechnologies.com';
-  const origins = corsOriginsStr.split(',').map(o => o.trim());
+  const origins = corsOriginsStr.split(',').map(o => o.trim().replace(/^['"]|['"]$/g, ''));
 
   app.enableCors({
-    origin: origins,
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (
+        origins.indexOf(origin) !== -1 ||
+        /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   });
 

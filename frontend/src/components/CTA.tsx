@@ -6,7 +6,7 @@ export default function CTA() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-dark-black">
+    <section className="relative py-16 md:py-32 px-6 overflow-hidden bg-dark-black">
       
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-radial-glow opacity-30 pointer-events-none" />

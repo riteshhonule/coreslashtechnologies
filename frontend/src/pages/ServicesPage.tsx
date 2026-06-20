@@ -66,7 +66,7 @@ export default function ServicesPage() {
         description="Explore CoreSlash Technologies' comprehensive digital services including AI Solutions, Enterprise IT, Custom Software Development, Cloud Infrastructure, and IoT."
       />
       {/* ================= HERO HEADER ================= */}
-      <section className="relative pt-[180px] pb-32 overflow-hidden">
+      <section className="relative pt-10 md:pt-16 pb-16 md:pb-32 overflow-hidden">
         {/* Glow Effects */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
@@ -106,7 +106,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ================= SERVICES GRID ================= */}
-      <section className="py-24 relative z-10">
+      <section className="py-12 md:py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <motion.div
@@ -149,13 +149,13 @@ export default function ServicesPage() {
       </section>
 
       {/* ================= CALL TO ACTION ================= */}
-      <section className="py-32">
+      <section className="py-16 md:py-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0, margin: "200px" }}
-            className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden"
+            className="glass-card p-8 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-purple/10 to-transparent pointer-events-none" />
 

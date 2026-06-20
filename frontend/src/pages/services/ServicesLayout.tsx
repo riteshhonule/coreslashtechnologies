@@ -19,9 +19,9 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
 }) => {
     const { openModal } = useModal();
     return (
-        <div className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+        <div className="relative min-h-screen bg-dark-black pt-0 overflow-hidden">
             {/* Premium Header Section */}
-            <section className="relative py-24 md:py-32 w-full text-white overflow-hidden">
+            <section className="relative py-12 md:py-32 w-full text-white overflow-hidden">
 
                 {/* Massive Animated Glows */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
@@ -80,7 +80,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
             </main>
 
             {/* Global Bottom CTA Section */}
-            <section className="py-32 bg-dark-black text-white text-center relative overflow-hidden">
+            <section className="py-16 md:py-32 bg-dark-black text-white text-center relative overflow-hidden">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-secondary-indigo/5 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10">
@@ -89,7 +89,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0, margin: "200px" }}
                         transition={{ duration: 0.4 }}
-                        className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden group"
+                        className="glass-card p-8 md:p-24 rounded-[4rem] border-white/5 relative overflow-hidden group"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 

@@ -143,8 +143,8 @@ const WebsiteDevelopment: React.FC = () => {
             />
             <div className="bg-dark-black">
                 {/* Main Content & Sidebar */}
-                <section className="container mx-auto px-6 lg:px-12 py-20">
-                    <div className="grid lg:grid-cols-3 gap-16 items-start">
+                <section className="container mx-auto px-6 lg:px-12 py-10 md:py-20">
+                    <div className="grid lg:grid-cols-3 gap-8 lg:gap-16 items-start">
 
                         {/* CONTENT AREA */}
                         <div className="lg:col-span-2 space-y-20">
@@ -281,7 +281,7 @@ const WebsiteDevelopment: React.FC = () => {
                 </section>
 
                 {/* PRICING SECTION */}
-                <section className="py-32 bg-dark-black border-t border-white/5">
+                <section className="py-16 md:py-32 bg-dark-black border-t border-white/5">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div

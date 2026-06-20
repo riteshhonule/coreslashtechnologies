@@ -70,8 +70,8 @@ const AppDevelopment: React.FC = () => {
         >
             <div className="bg-dark-black">
                 {/* Immersive Hero Content */}
-                <section className="container mx-auto px-6 lg:px-12 py-24">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
+                <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
+                    <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                         <motion.div
                             initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -127,7 +127,7 @@ const AppDevelopment: React.FC = () => {
                 </div>
 
                 {/* PREMIUM PRICING SECTION */}
-                <section className="py-32 bg-dark-black">
+                <section className="py-16 md:py-32 bg-dark-black">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div

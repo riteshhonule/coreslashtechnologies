@@ -14,13 +14,13 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden bg-dark-black" style={{ position: 'relative', zIndex: 10, minHeight: '100vh' }}>
+    <section id="about" className="relative py-16 md:py-32 overflow-hidden bg-dark-black" style={{ position: 'relative', zIndex: 10 }}>
       
       {/* Decorative Glows */}
       <div className="hidden md:block absolute top-1/2 right-0 w-[600px] h-[600px] bg-secondary-indigo/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-24 items-center">
           
           {/* Visual Left */}
           <motion.div
@@ -79,13 +79,13 @@ export default function About() {
               Architecting the <span className="text-gradient-purple">Future</span> of Intelligence
             </h2>
 
-            <p className="text-white/50 leading-relaxed mb-12 text-xl max-w-xl">
+            <p className="text-white/50 leading-relaxed mb-8 md:mb-12 text-xl max-w-xl">
               At CoreSlash Technologies, we don't just build software; we engineer progress. 
               Our mission is to bridge the gap between complex business challenges 
               and intuitive, AI-powered solutions.
             </p>
 
-            <div className="grid grid-cols-2 gap-8 mb-16">
+            <div className="grid grid-cols-2 gap-8 mb-10 md:mb-16">
               {stats.map((stat, idx) => (
                 <motion.div
                   key={stat.label}

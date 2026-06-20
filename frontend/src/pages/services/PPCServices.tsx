@@ -83,10 +83,10 @@ const PPCServices = () => {
             ctaText="Scale My Business"
         >
             <div className="bg-dark-black">
-                <div className="container mx-auto px-6 lg:px-12 py-24">
+                <div className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
 
                     {/* HERO SECTION */}
-                    <div className="grid lg:grid-cols-2 gap-20 items-center mb-40">
+                    <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16 md:mb-40">
                         <motion.div
                             initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -136,7 +136,7 @@ const PPCServices = () => {
                     </div>
 
                     {/* STRATEGY BENTO GRID */}
-                    <div className="mb-40">
+                    <div className="mb-16 md:mb-40">
                         <div className="text-center mb-24">
                             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Strategic Framework</h2>
                             <p className="text-white/40 max-w-2xl mx-auto">Our methodology integrates behavioral psychology with neural data analytics.</p>

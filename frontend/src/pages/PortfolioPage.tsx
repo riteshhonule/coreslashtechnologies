@@ -105,13 +105,13 @@ const PortfolioPage = () => {
   const [active, setActive] = useState<typeof items[0] | null>(null);
 
   return (
-    <div className="bg-dark-black min-h-screen pt-[100px] overflow-hidden relative">
+    <div className="bg-dark-black min-h-screen pt-0 overflow-hidden relative">
       {/* GLOWS */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* HERO SECTION */}
-      <section className="relative py-24 md:py-32 w-full">
+      <section className="relative py-12 md:py-32 w-full">
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 1, scale: 0.97 }}
@@ -146,7 +146,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* PORTFOLIO GRID */}
-      <section className="py-24 relative z-10">
+      <section className="py-12 md:py-24 relative z-10">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
             {items.map((p, idx) => (
@@ -196,7 +196,8 @@ const PortfolioPage = () => {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/95 backdrop-blur-xl"
+            className="fixed inset-0 flex items-center justify-center p-4 md:p-6 bg-dark-black/95 backdrop-blur-xl"
+            style={{ zIndex: 1100 }}
             onClick={() => setActive(null)}
           >
             <motion.div
@@ -204,51 +205,57 @@ const PortfolioPage = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 40 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-card max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-[4rem] border-white/10 flex flex-col md:flex-row relative"
+              className="glass-card max-w-4xl w-[85vw] md:w-full h-[75vh] md:h-auto overflow-hidden rounded-3xl md:rounded-[4rem] border-white/10 flex flex-col md:flex-row relative"
             >
+              {/* Close Button - positioned cleanly to avoid rounded corner clipping */}
               <button
                 onClick={() => setActive(null)}
-                className="absolute top-8 right-8 z-[110] bg-white/5 hover:bg-white/10 text-white w-12 h-12 rounded-full backdrop-blur-md transition flex items-center justify-center border border-white/10"
+                className="absolute top-5 right-5 md:top-8 md:right-8 z-[1110] bg-dark-black/60 hover:bg-dark-black/80 text-white w-10 h-10 rounded-full backdrop-blur-md transition flex items-center justify-center border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                aria-label="Close details"
               >
-                <XMarkIcon className="w-6 h-6" />
+                <XMarkIcon className="w-5 h-5" />
               </button>
 
-              <div className="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
+              {/* Image Column - occupies 35% height on mobile */}
+              <div className="w-full md:w-1/2 relative h-[35%] md:h-auto overflow-hidden shrink-0">
                 <img src={active.img} className="w-full h-full object-cover" alt={active.title} />
                 <div className="absolute inset-0 bg-gradient-to-r from-dark-black/60 to-transparent md:block hidden" />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-black/60 to-transparent md:hidden block" />
               </div>
 
-              <div className="md:w-1/2 p-12 md:p-20 overflow-y-auto flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 mb-8">
-                  <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
-                  <span className="text-accent-cyan font-bold text-xs tracking-[0.3em] uppercase">{active.category}</span>
+              {/* Content Column - occupies 65% height on mobile and spreads top-to-bottom */}
+              <div className="w-full md:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-between h-[65%] md:h-auto overflow-y-auto">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
+                    <span className="text-accent-cyan font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase">{active.category}</span>
+                  </div>
+
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">{active.title}</h2>
+
+                  <p className="text-white/50 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium italic">
+                    "{active.description}"
+                  </p>
                 </div>
 
-                <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white tracking-tight">{active.title}</h2>
-
-                <p className="text-white/40 text-xl leading-relaxed mb-12 font-medium italic">
-                  "{active.description}"
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-6 mt-auto">
+                <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:items-center">
                   <a
                     href={active.link}
                     target="_blank"
                     rel="noreferrer"
-                    className={`btn-pill text-lg px-10 ${active.link === "#"
+                    className={`btn-pill text-xs md:text-sm lg:text-base px-5 py-3 flex items-center justify-center gap-2 ${active.link === "#"
                       ? "bg-white/5 text-white/20 cursor-not-allowed border-white/5"
                       : "btn-primary-glow text-white"
                       }`}
                     onClick={(e) => active.link === "#" && e.preventDefault()}
                   >
                     {active.link === "#" ? "Project Offline" : "View Project"}
-                    {active.link !== "#" && <ArrowTopRightOnSquareIcon className="w-5 h-5" />}
+                    {active.link !== "#" && <ArrowTopRightOnSquareIcon className="w-4 h-4" />}
                   </a>
 
                   <button
                     onClick={() => setActive(null)}
-                    className="btn-pill btn-glass text-white px-10"
+                    className="btn-pill btn-glass text-white text-xs md:text-sm lg:text-base px-5 py-3"
                   >
                     Back to Matrix
                   </button>

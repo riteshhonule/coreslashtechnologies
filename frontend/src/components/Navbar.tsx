@@ -102,40 +102,41 @@ export default function Navbar() {
               top: 0,
               right: 0,
               width: "100%",
-              height: "100vh",
+              height: "100dvh",
               zIndex: 9999,
               backgroundColor: "rgba(5, 1, 15, 0.98)",
               overflowY: "auto",
               display: "flex",
               flexDirection: "column",
             }}
-          >
-            {/* Header with logo and close button */}
-            <div className="flex justify-between items-center p-8 border-b border-white/5 shrink-0">
-              <img src={logo} alt="Logo" className="h-8 w-auto" />
-              <button
-                onClick={closeMobileMenu}
-                className="p-3 rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors"
-                aria-label="Close menu"
-              >
-                <XMarkIcon className="w-6 h-6" />
-              </button>
-            </div>
+           >
+            {/* Close button - small, absolute corner, no layout impact */}
+            <button
+              onClick={closeMobileMenu}
+              className="absolute top-4 right-4 p-1.5 rounded-full bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-colors z-10"
+              aria-label="Close menu"
+            >
+              <XMarkIcon className="w-4 h-4" />
+            </button>
 
-            {/* Menu content */}
-            <div className="flex-1 overflow-y-auto p-8 space-y-10">
-              <nav className="space-y-6">
+            {/* Content area — fills full screen, centered vertically */}
+            <div className="flex-1 flex flex-col items-center justify-center px-10 text-center">
+              {/* Logo */}
+              <img src={logo} alt="Logo" className="h-7 w-auto mb-7" />
+
+              {/* Nav links */}
+              <nav className="space-y-3 w-full">
                 {links.map((link, idx) => (
                   <motion.div
                     key={link.to}
-                    initial={{ opacity: 1, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + idx * 0.05, duration: 0.4 }}
                   >
                     <Link
                       to={link.to}
                       onClick={closeMobileMenu}
-                      className={`block text-4xl font-bold transition-colors ${
+                      className={`block text-2xl font-bold tracking-wide transition-colors ${
                         location.pathname === link.to
                           ? "text-accent-cyan"
                           : "text-white hover:text-accent-cyan"
@@ -145,39 +146,45 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
-                <div className="pt-10 space-y-4">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/20">Services</p>
-                  {servicesLinks.map((service, idx) => (
-                    <motion.div
-                      key={service.to}
-                      initial={{ opacity: 1, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + idx * 0.04, duration: 0.3 }}
-                    >
-                      <Link
-                        to={service.to}
-                        onClick={closeMobileMenu}
-                        className={`block text-xl font-bold transition-colors ${
-                          location.pathname === service.to
-                            ? "text-accent-cyan"
-                            : "text-white/50 hover:text-accent-cyan"
-                        }`}
-                      >
-                        {service.label}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
               </nav>
 
-              <div className="pt-12">
+              {/* Divider */}
+              <div className="w-16 h-px bg-white/10 my-5" />
+
+              {/* Services */}
+              <div className="space-y-2 w-full">
+                <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-white/25 mb-2">Services</p>
+                {servicesLinks.map((service, idx) => (
+                  <motion.div
+                    key={service.to}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + idx * 0.04, duration: 0.3 }}
+                  >
+                    <Link
+                      to={service.to}
+                      onClick={closeMobileMenu}
+                      className={`block text-base font-medium transition-colors ${
+                        location.pathname === service.to
+                          ? "text-accent-cyan"
+                          : "text-white/50 hover:text-accent-cyan"
+                      }`}
+                    >
+                      {service.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Connect Now button */}
+              <div className="mt-6 w-full max-w-xs">
                 <a
                   href={envConfig.social.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-4 w-full py-6 rounded-3xl bg-white text-dark-black font-bold text-xl shadow-2xl hover:bg-accent-cyan transition-colors"
+                  className="flex items-center justify-center gap-2.5 w-full py-4 rounded-2xl bg-white text-dark-black font-bold text-base shadow-2xl hover:bg-accent-cyan transition-colors"
                 >
-                  <FaWhatsapp className="text-2xl" />
+                  <FaWhatsapp className="text-xl" />
                   Connect Now
                 </a>
               </div>

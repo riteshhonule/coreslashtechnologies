@@ -11,11 +11,8 @@ export class ContactsService {
   ) { }
 
   async create(data: CreateContactDto) {
-    const contact = await this.prisma.contact.create({
-      data,
-    });
-    await this.emailService.sendContactNotification(contact);
-    return contact;
+    await this.emailService.sendContactNotification(data);
+    return data;
   }
 
   async findAll() {

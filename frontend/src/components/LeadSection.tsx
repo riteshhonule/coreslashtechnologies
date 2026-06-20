@@ -1,22 +1,15 @@
-import googlePartner from "../img/leads/CoreslashTechnologies-solutions-Google-Partner.webp";
-import metaPartner from "../img/leads/CoreslashTechnologies-solutions-Meta-Business-Partner.webp";
-import person1 from "../img/leads/CoreslashTechnologies_no_1_company_ (1).png";
-import person2 from "../img/leads/CoreslashTechnologies_no_1_company_ (2).png";
-import person3 from "../img/leads/CoreslashTechnologies_no_1_company_ (3).png";
-import person4 from "../img/leads/CoreslashTechnologies_no_1_company_ (4).png";
 import ContactForm from "./ContactForm";
 import { motion } from "framer-motion";
-import { StarIcon } from "@heroicons/react/24/solid";
 
 export default function LeadSection() {
   return (
-    <section id="contact" className="relative py-32 overflow-hidden bg-dark-black scroll-mt-28">
+    <section id="contact" className="relative py-16 md:py-32 overflow-hidden bg-dark-black scroll-mt-28">
 
       {/* Background Animated Glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
           {/* Left Content */}
           <motion.div
@@ -55,28 +48,7 @@ export default function LeadSection() {
               ))}
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-5 opacity-80 hover:opacity-100 transition-opacity duration-500">
-              <img src={googlePartner} alt="Google Partner" loading="lazy" decoding="async" className="h-10 w-auto object-contain" />
-              <img src={metaPartner} alt="Meta Partner" loading="lazy" decoding="async" className="h-10 w-auto object-contain" />
-            </div>
 
-            {/* Ratings */}
-            <div className="flex items-center gap-6 mt-12">
-              <div className="flex -space-x-3">
-                {[person1, person2, person3, person4].map((p, i) => (
-                  <img key={i} src={p} alt="Client" loading="lazy" decoding="async" className="w-12 h-12 rounded-full border-2 border-dark-black object-cover transition-all duration-300" />
-                ))}
-              </div>
-              <div>
-                <div className="flex gap-1 mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5 text-accent-cyan" />
-                  ))}
-                </div>
-                <p className="text-white/40 text-sm font-medium">Trusted by 500+ professionals</p>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Form */}

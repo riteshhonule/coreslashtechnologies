@@ -38,7 +38,7 @@ const SEOOptimization: React.FC = () => {
         >
             <div className="bg-dark-black overflow-hidden">
                 {/* --- HERO SECTION --- */}
-                <section className="container mx-auto px-6 lg:px-12 py-24 md:py-32">
+                <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24 md:py-32">
                     <div className="flex flex-col lg:flex-row items-center gap-20">
 
                         {/* LEFT VISUAL: IMAGE WITH PARALLAX */}
@@ -120,7 +120,7 @@ const SEOOptimization: React.FC = () => {
                 </section>
 
                 {/* --- FEATURES ECOSYSTEM --- */}
-                <section className="bg-dark-black border-t border-white/5 py-32">
+                <section className="bg-dark-black border-t border-white/5 py-16 md:py-32">
                     <div className="container mx-auto px-6 lg:px-12">
                         <div className="text-center mb-24">
                             <h3 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">

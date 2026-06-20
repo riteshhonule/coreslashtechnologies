@@ -28,7 +28,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="relative pt-32 pb-12 overflow-hidden bg-dark-black border-t border-white/5">
+    <footer className="relative pt-16 md:pt-32 pb-12 overflow-hidden bg-dark-black border-t border-white/5">
 
       {/* Top Border Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-accent-cyan/30 to-transparent" />
@@ -37,7 +37,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-purple/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 md:gap-16 mb-12 md:mb-24">
 
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-10">

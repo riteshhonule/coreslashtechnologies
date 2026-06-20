@@ -43,7 +43,7 @@ const gateways = [
 
 const PaymentGateway = () => {
     return (
-        <section className="relative py-32 overflow-hidden bg-dark-black">
+        <section className="relative py-16 md:py-32 overflow-hidden bg-dark-black">
             
             {/* Background Glows */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[140px] pointer-events-none" />

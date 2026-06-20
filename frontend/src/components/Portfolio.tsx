@@ -101,13 +101,13 @@ export default function Portfolio() {
   const [active, setActive] = useState<typeof items[0] | null>(null);
 
   return (
-    <section id="portfolio" className="relative py-32 overflow-hidden bg-dark-black">
+    <section id="portfolio" className="relative py-16 md:py-32 overflow-hidden bg-dark-black">
 
       {/* Background Glow */}
       <div className="hidden md:block absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
           <motion.div
               initial={{ opacity: 1, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -172,7 +172,7 @@ export default function Portfolio() {
           initial={{ opacity: 1, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0, margin: "200px" }}
-          className="mt-24 text-center"
+          className="mt-12 md:mt-24 text-center"
         >
           <Link to="/portfolio" className="btn-pill btn-glass text-white px-12 inline-block">
             Browse Full Portfolio

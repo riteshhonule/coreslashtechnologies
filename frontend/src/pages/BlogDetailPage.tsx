@@ -26,7 +26,7 @@ const BlogDetailPage: React.FC = () => {
     }
 
     return (
-        <div className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+        <div className="relative min-h-screen bg-dark-black pt-0 overflow-hidden">
             {/* GLOWS */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
             
@@ -134,7 +134,7 @@ const BlogDetailPage: React.FC = () => {
                                 ))}
 
                                 {post.content.faqs && post.content.faqs.length > 0 && (
-                                    <div className="mt-32 p-12 md:p-20 glass-card rounded-[4rem] border-white/5 relative overflow-hidden">
+                                    <div className="mt-16 md:mt-32 p-6 md:p-20 glass-card rounded-[4rem] border-white/5 relative overflow-hidden">
                                         <div className="absolute top-0 right-0 p-12 text-white/[0.02] text-9xl font-black">FAQ</div>
                                         <h2 className="text-4xl font-bold text-white mb-16 relative z-10 tracking-tight">Frequently Asked <span className="text-gradient-cyan">Intelligence</span></h2>
                                         <div className="space-y-10 relative z-10">
@@ -165,7 +165,7 @@ const BlogDetailPage: React.FC = () => {
                                     Belagavi, and Hubli are dedicated to architecting high-velocity digital assets.
                                 </p>
 
-                                <div className="glass-card rounded-[3rem] p-12 border-white/5 relative overflow-hidden group">
+                                <div className="glass-card rounded-[3rem] p-6 md:p-12 border-white/5 relative overflow-hidden group">
                                     <div className="absolute inset-0 bg-primary-purple/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                     <h3 className="text-xl font-bold text-white mb-8 tracking-widest uppercase">Systemic Protocols:</h3>
                                     <ul className="space-y-6">

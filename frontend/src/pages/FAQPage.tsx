@@ -45,13 +45,13 @@ const FAQPage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-24">
+        <div className="min-h-screen bg-slate-50 pt-4">
             <SEO 
                 title="FAQ | Frequently Asked Questions"
                 description="Find answers to common questions about CoreSlash Technologies' web development, AI solutions, SEO services, and enterprise IT solutions."
                 structuredData={faqSchema}
             />
-            <div className="max-w-4xl mx-auto px-6 py-20">
+            <div className="max-w-4xl mx-auto px-6 py-10 md:py-20">
                 <motion.div
                     initial={{ opacity: 1, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

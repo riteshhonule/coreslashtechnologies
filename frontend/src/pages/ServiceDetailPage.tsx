@@ -58,9 +58,9 @@ const ServiceDetailPage = () => {
     }
 
     return (
-        <div className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+        <div className="relative min-h-screen bg-dark-black pt-0 overflow-hidden">
             {/* Hero Section */}
-            <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5">
+            <section className="relative py-12 md:py-32 overflow-hidden border-b border-white/5">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
                 
                 <div className="container mx-auto px-6 relative z-10 text-center">
@@ -92,7 +92,7 @@ const ServiceDetailPage = () => {
             </section>
 
             {/* Content Section */}
-            <section className="py-32 container mx-auto px-6 lg:px-12">
+            <section className="py-16 md:py-32 container mx-auto px-6 lg:px-12">
                 <div className="grid md:grid-cols-2 gap-20 items-center">
                     <motion.div
                         initial={{ opacity: 1, x: -15 }}
@@ -134,13 +134,13 @@ const ServiceDetailPage = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-32 bg-dark-black">
+            <section className="py-16 md:py-32 bg-dark-black">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <motion.div 
                         initial={{ opacity: 1, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0, margin: "200px" }}
-                        className="glass-card p-16 md:p-24 rounded-[4rem] border-white/5 text-center relative overflow-hidden"
+                        className="glass-card p-8 md:p-24 rounded-[4rem] border-white/5 text-center relative overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 to-transparent" />
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight relative z-10">Ready for Growth?</h2>

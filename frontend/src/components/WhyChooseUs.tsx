@@ -31,12 +31,12 @@ const features = [
 
 export default function WhyChooseUs() {
     return (
-        <section className="relative py-24 overflow-hidden bg-dark-black">
+        <section className="relative py-16 md:py-24 overflow-hidden bg-dark-black">
             {/* Background Orbs */}
             <div className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     
                     {/* Visuals */}
                     <motion.div

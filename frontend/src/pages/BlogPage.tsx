@@ -24,13 +24,13 @@ const BlogPage: React.FC = () => {
     const visiblePosts = filteredPosts.slice(0, displayCount);
 
     return (
-        <div className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+        <div className="relative min-h-screen bg-dark-black pt-0 overflow-hidden">
             {/* GLOWS */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
             {/* Hero Section */}
-            <section className="relative py-24 md:py-32 overflow-hidden">
+            <section className="relative py-12 md:py-32 overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <motion.div
                         initial={{ opacity: 1, y: 30 }}
@@ -69,7 +69,7 @@ const BlogPage: React.FC = () => {
             </section>
 
             {/* Blog Grid Section */}
-            <section className="py-24 container mx-auto px-6 relative z-10">
+            <section className="py-12 md:py-24 container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
                     {loading ? (
                         Array.from({ length: 6 }).map((_, idx) => <BlogSkeleton key={idx} />)
@@ -112,7 +112,7 @@ const BlogPage: React.FC = () => {
                     initial={{ opacity: 1, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0, margin: "200px" }}
-                    className="mt-32 p-16 md:p-24 rounded-[4rem] glass-card border-white/5 relative overflow-hidden"
+                    className="mt-16 md:mt-32 p-8 md:p-24 rounded-[4rem] glass-card border-white/5 relative overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary-purple/10 to-transparent pointer-events-none" />
                     

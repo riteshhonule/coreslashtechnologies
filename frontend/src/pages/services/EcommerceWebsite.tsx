@@ -83,8 +83,8 @@ const EcommerceWebsite: React.FC = () => {
         >
             <div className="bg-dark-black">
                 {/* Hero & Context */}
-                <div className="container mx-auto px-6 py-24">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+                <div className="container mx-auto px-6 py-12 md:py-24">
+                    <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-12 md:mb-32">
                         <motion.div
                             initial={{ opacity: 1, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -131,7 +131,7 @@ const EcommerceWebsite: React.FC = () => {
                     </div>
 
                     {/* GATEWAY SECTION */}
-                    <div className="mb-32">
+                    <div className="mb-12 md:mb-32">
                         <div className="flex items-center gap-6 mb-16">
                             <h3 className="text-xs font-bold uppercase tracking-[0.4em] text-accent-cyan whitespace-nowrap">
                                 Secure Ecosystem Integrations
@@ -160,7 +160,7 @@ const EcommerceWebsite: React.FC = () => {
                     </div>
 
                     {/* FEATURES BENTO GRID */}
-                    <div className="mb-32">
+                    <div className="mb-12 md:mb-32">
                         <div className="text-center mb-24">
                             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Store Features</h2>
                             <p className="text-white/40 max-w-2xl mx-auto">Advanced functional modules designed for the modern digital merchant.</p>
@@ -186,7 +186,7 @@ const EcommerceWebsite: React.FC = () => {
                     </div>
 
                     {/* STRATEGIC PACKAGES */}
-                    <div className="mb-32">
+                    <div className="mb-12 md:mb-32">
                         <div className="text-center mb-24">
                             <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">
                                 Strategic <span className="text-gradient-purple">Store</span> Plans

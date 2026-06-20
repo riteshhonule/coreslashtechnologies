@@ -87,7 +87,7 @@ export default function Services() {
 
   return (
     <>
-      <section id="services" className="relative py-32 overflow-hidden bg-dark-black" onMouseMove={handleMouseMove}>
+      <section id="services" className="relative py-16 md:py-32 overflow-hidden bg-dark-black" onMouseMove={handleMouseMove}>
         
         {/* Decorative Glows */}
         <div className="hidden md:block absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none" />
@@ -95,7 +95,7 @@ export default function Services() {
         
         <div className="mx-auto max-w-[1600px] px-6 lg:px-8 relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-24">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
             <motion.div
               initial={{ opacity: 1, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -171,7 +171,7 @@ export default function Services() {
             initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0, margin: "200px" }}
-            className="mt-24 text-center"
+            className="mt-12 md:mt-24 text-center"
           >
             <Link
               to="/services"

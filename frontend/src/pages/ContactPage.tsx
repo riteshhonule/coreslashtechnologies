@@ -98,7 +98,7 @@ const ContactPage = () => {
   };
 
   return (
-    <main className="relative min-h-screen bg-dark-black pt-[100px] overflow-hidden">
+    <main className="relative min-h-screen bg-dark-black pt-0 overflow-hidden">
       <SEO
         title="Contact Us"
         description="Get in touch with CoreSlash Technologies for expert IT solutions, custom software development, and AI systems."
@@ -109,7 +109,7 @@ const ContactPage = () => {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* HERO SECTION */}
-      <section className="relative py-24 md:py-32 w-full text-center px-6">
+      <section className="relative py-12 md:py-32 w-full text-center px-6">
         <motion.div
           initial={{ opacity: 1, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -138,7 +138,7 @@ const ContactPage = () => {
       </section>
 
       {/* CONTACT METHOD CARDS */}
-      <section className="py-20 relative z-10">
+      <section className="py-10 md:py-20 relative z-10">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {contactItems.map((item, index) => (
@@ -174,7 +174,7 @@ const ContactPage = () => {
       </section>
 
       {/* FORM SECTION */}
-      <section id="consultation" className="py-24 relative z-10 px-6 scroll-mt-28">
+      <section id="consultation" className="py-12 md:py-24 relative z-10 px-6 scroll-mt-28">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 1, y: 15 }}

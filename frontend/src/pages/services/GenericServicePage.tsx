@@ -82,8 +82,8 @@ const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle
                 structuredData={structuredData}
             />
             <div className="bg-dark-black">
-                <section className="container mx-auto px-6 lg:px-12 py-20">
-                    <div className="grid lg:grid-cols-3 gap-16 items-start">
+                <section className="container mx-auto px-6 lg:px-12 py-10 md:py-20">
+                    <div className="grid lg:grid-cols-3 gap-8 lg:gap-16 items-start">
                         <div className="lg:col-span-2 space-y-20">
                             <motion.div
                                 initial={{ opacity: 1, y: 30 }}

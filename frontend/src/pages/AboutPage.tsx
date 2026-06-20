@@ -100,7 +100,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-dark-black overflow-hidden font-sans text-white pt-[80px] md:pt-[88px]">
+    <div className="relative min-h-screen bg-dark-black overflow-hidden font-sans text-white pt-0">
       <SEO 
         title="About Us"
         description="Learn more about CoreSlash Technologies, our mission to build digital futures, our vision, and the core values that drive our software and AI solutions."
@@ -111,7 +111,7 @@ const AboutPage = () => {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center px-4 pt-10 bg-transparent z-20">
+      <section className="relative min-h-[40vh] md:min-h-[70vh] flex items-center justify-center px-4 pt-2 md:pt-10 bg-transparent z-20">
         <motion.div
           style={{ opacity, scale }}
           className="text-center max-w-4xl mx-auto z-10"
@@ -328,7 +328,7 @@ const AboutPage = () => {
 
       {/* Testimonials (New Section) */}
       {testimonials.length > 0 && (
-        <section className="relative z-10 py-24 px-4 bg-transparent">
+        <section className="relative z-10 py-12 md:py-24 px-4 bg-transparent">
           <div className="container mx-auto relative z-10">
             <SectionHeading
               badge="Testimonials"
@@ -383,7 +383,7 @@ const AboutPage = () => {
 
       {/* CTA Section */}
       <section className="relative z-10 py-16 container mx-auto px-4 mb-8">
-        <div className="relative rounded-[3rem] overflow-hidden glass-card border border-white/10 p-12 md:p-24 text-center">
+        <div className="relative rounded-[3rem] overflow-hidden glass-card border border-white/10 p-6 md:p-24 text-center">
           <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/10 to-accent-cyan/10 pointer-events-none" />
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent-cyan/20 rounded-full blur-3xl animate-pulse pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-purple/20 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />

@@ -27,7 +27,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-dark-black pt-28 sm:pt-24 md:pt-32 pb-12 lg:pb-0 w-full" style={{ zIndex: 1 }}>
+    <section className="relative min-h-[85svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-dark-black pt-28 sm:pt-24 md:pt-32 pb-8 lg:pb-0 w-full" style={{ zIndex: 1 }}>
 
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -67,7 +67,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-12 w-full overflow-x-hidden">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-12 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
           {/* LEFT CONTENT AREA - 58% Width on Desktop */}
@@ -185,7 +185,7 @@ export default function Hero() {
             {/* Mobile Description */}
             <motion.p
               variants={itemVariants}
-              className="block md:hidden text-xl text-white/70 font-bold tracking-wider mb-12 text-center"
+              className="block md:hidden text-xl text-white/70 font-bold tracking-wider mb-6 text-center"
             >
               Software • Cloud • AI
             </motion.p>
