@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { ContactsModule } from './contacts/contacts.module';
-import { PrismaModule } from './prisma/prisma.module';
 import { EmailModule } from './email/email.module';
 
 @Module({
@@ -12,7 +11,6 @@ import { EmailModule } from './email/email.module';
       isGlobal: true,
       envFilePath: ['.env'],
     }),
-    PrismaModule,
     EmailModule,
     ContactsModule,
   ],
