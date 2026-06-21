@@ -1,45 +1,94 @@
 import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Resend } from 'resend';
+import * as nodemailer from 'nodemailer';
 
 @Injectable()
 export class EmailService {
-  private readonly resend: Resend;
+  private readonly resend: Resend | null = null;
+  private readonly transporter: nodemailer.Transporter | null = null;
   private readonly logger = new Logger(EmailService.name);
-  private readonly fromEmail: string = 'onboarding@resend.dev';
+  private readonly fromEmail: string;
+  private readonly useSmtp: boolean = false;
 
   constructor(private readonly configService: ConfigService) {
-    const apiKey = this.configService.get<string>('RESEND_API_KEY');
-    if (!apiKey) {
-      this.logger.error('RESEND_API_KEY is not defined in environment variables');
+    const smtpHost = this.configService.get<string>('SMTP_HOST');
+    this.fromEmail = this.configService.get<string>('SMTP_FROM') || this.configService.get<string>('MAIL_FROM') || 'onboarding@resend.dev';
+
+    if (smtpHost) {
+      const port = this.configService.get<number>('SMTP_PORT') || 587;
+      let secureSetting = this.configService.get<any>('SMTP_SECURE');
+      if (typeof secureSetting === 'string') {
+        secureSetting = secureSetting.toLowerCase() === 'true';
+      }
+      const secure = secureSetting ?? (Number(port) === 465);
+      const user = this.configService.get<string>('SMTP_USER');
+      const pass = this.configService.get<string>('SMTP_PASS');
+
+      this.logger.log(`SMTP configured: host=${smtpHost}, port=${port}, secure=${secure}, user=${user}`);
+      this.transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: Number(port),
+        secure: secure,
+        auth: {
+          user,
+          pass,
+        },
+      });
+      this.useSmtp = true;
+    } else {
+      const apiKey = this.configService.get<string>('RESEND_API_KEY');
+      if (apiKey) {
+        this.resend = new Resend(apiKey);
+        this.logger.log('Resend email service configured.');
+      } else {
+        this.logger.warn('Neither SMTP nor Resend has been configured. Email sending will fail.');
+      }
     }
-    this.resend = new Resend(apiKey);
   }
 
   /**
-   * Sends a basic email using Resend
+   * Sends a basic email using Resend or SMTP
    * @param to Recipient email
    * @param subject Email subject
    * @param html HTML content of the email
    */
   async sendEmail(to: string, subject: string, html: string): Promise<void> {
-    try {
-      const { data, error } = await this.resend.emails.send({
-        from: this.fromEmail,
-        to,
-        subject,
-        html,
-      });
-
-      if (error) {
-        this.logger.error(`Resend API Error: ${JSON.stringify(error)}`);
-        throw new InternalServerErrorException('Failed to send email');
+    if (this.useSmtp && this.transporter) {
+      try {
+        const info = await this.transporter.sendMail({
+          from: this.fromEmail,
+          to,
+          subject,
+          html,
+        });
+        this.logger.log(`Email sent successfully via SMTP to ${to}. MessageId: ${info.messageId}`);
+      } catch (err) {
+        this.logger.error(`SMTP Error sending email: ${err.message}`, err.stack);
+        throw new InternalServerErrorException('SMTP Email service unavailable');
       }
+    } else if (this.resend) {
+      try {
+        const { data, error } = await this.resend.emails.send({
+          from: this.fromEmail,
+          to,
+          subject,
+          html,
+        });
 
-      this.logger.log(`Email sent successfully to ${to}. ID: ${data?.id}`);
-    } catch (err) {
-      this.logger.error(`Unhandled Error sending email: ${err.message}`);
-      throw new InternalServerErrorException('Email service unavailable');
+        if (error) {
+          this.logger.error(`Resend API Error: ${JSON.stringify(error)}`);
+          throw new InternalServerErrorException('Failed to send email');
+        }
+
+        this.logger.log(`Email sent successfully to ${to}. ID: ${data?.id}`);
+      } catch (err) {
+        this.logger.error(`Unhandled Error sending email: ${err.message}`);
+        throw new InternalServerErrorException('Email service unavailable');
+      }
+    } else {
+      this.logger.error('No email service is configured. Please set RESEND_API_KEY or SMTP variables in .env');
+      throw new InternalServerErrorException('Email service not configured');
     }
   }
 
