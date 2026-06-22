@@ -18,10 +18,13 @@ async function bootstrap() {
   app.enableCors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
-      if (
-        origins.indexOf(origin) !== -1 ||
-        /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
-      ) {
+      const cleanOrigin = origin.toLowerCase().trim().replace(/\/+$/, '');
+      const isAllowed =
+        cleanOrigin.includes('coreslashtechnologies.com') ||
+        /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(cleanOrigin) ||
+        origins.some(o => o.toLowerCase().trim().replace(/\/+$/, '') === cleanOrigin);
+
+      if (isAllowed) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
