@@ -1,4 +1,8 @@
-import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  Logger,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Resend } from 'resend';
 import * as nodemailer from 'nodemailer';
@@ -13,7 +17,10 @@ export class EmailService {
 
   constructor(private readonly configService: ConfigService) {
     const smtpHost = this.configService.get<string>('SMTP_HOST');
-    this.fromEmail = this.configService.get<string>('SMTP_FROM') || this.configService.get<string>('MAIL_FROM') || 'onboarding@resend.dev';
+    this.fromEmail =
+      this.configService.get<string>('SMTP_FROM') ||
+      this.configService.get<string>('MAIL_FROM') ||
+      'onboarding@resend.dev';
 
     if (smtpHost) {
       const port = this.configService.get<number>('SMTP_PORT') || 587;
@@ -21,11 +28,13 @@ export class EmailService {
       if (typeof secureSetting === 'string') {
         secureSetting = secureSetting.toLowerCase() === 'true';
       }
-      const secure = secureSetting ?? (Number(port) === 465);
+      const secure = secureSetting ?? Number(port) === 465;
       const user = this.configService.get<string>('SMTP_USER');
       const pass = this.configService.get<string>('SMTP_PASS');
 
-      this.logger.log(`SMTP configured: host=${smtpHost}, port=${port}, secure=${secure}, user=${user}`);
+      this.logger.log(
+        `SMTP configured: host=${smtpHost}, port=${port}, secure=${secure}, user=${user}`,
+      );
       this.transporter = nodemailer.createTransport({
         host: smtpHost,
         port: Number(port),
@@ -42,7 +51,9 @@ export class EmailService {
         this.resend = new Resend(apiKey);
         this.logger.log('Resend email service configured.');
       } else {
-        this.logger.warn('Neither SMTP nor Resend has been configured. Email sending will fail.');
+        this.logger.warn(
+          'Neither SMTP nor Resend has been configured. Email sending will fail.',
+        );
       }
     }
   }
@@ -62,10 +73,17 @@ export class EmailService {
           subject,
           html,
         });
-        this.logger.log(`Email sent successfully via SMTP to ${to}. MessageId: ${info.messageId}`);
+        this.logger.log(
+          `Email sent successfully via SMTP to ${to}. MessageId: ${info.messageId}`,
+        );
       } catch (err) {
-        this.logger.error(`SMTP Error sending email: ${err.message}`, err.stack);
-        throw new InternalServerErrorException('SMTP Email service unavailable');
+        this.logger.error(
+          `SMTP Error sending email: ${err.message}`,
+          err.stack,
+        );
+        throw new InternalServerErrorException(
+          'SMTP Email service unavailable',
+        );
       }
     } else if (this.resend) {
       try {
@@ -87,7 +105,9 @@ export class EmailService {
         throw new InternalServerErrorException('Email service unavailable');
       }
     } else {
-      this.logger.error('No email service is configured. Please set RESEND_API_KEY or SMTP variables in .env');
+      this.logger.error(
+        'No email service is configured. Please set RESEND_API_KEY or SMTP variables in .env',
+      );
       throw new InternalServerErrorException('Email service not configured');
     }
   }
@@ -96,7 +116,9 @@ export class EmailService {
    * Sends a structured contact notification
    */
   async sendContactNotification(contact: any): Promise<void> {
-    const adminEmail = this.configService.get<string>('MAIL_TO') || 'coreslashtechnologies@gmail.com';
+    const adminEmail =
+      this.configService.get<string>('MAIL_TO') ||
+      'coreslashtechnologies@gmail.com';
     const html = `
       <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
         <h2 style="color: #333;">New Contact Inquiry</h2>
@@ -119,7 +141,9 @@ export class EmailService {
    * Sends a structured lead notification
    */
   async sendLeadNotification(lead: any): Promise<void> {
-    const adminEmail = this.configService.get<string>('MAIL_TO') || 'coreslashtechnologies@gmail.com';
+    const adminEmail =
+      this.configService.get<string>('MAIL_TO') ||
+      'coreslashtechnologies@gmail.com';
     const html = `
       <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
         <h2 style="color: #007bff;">New Lead Captured</h2>

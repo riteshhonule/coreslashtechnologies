@@ -20,6 +20,7 @@ import coreslashWebsiteDevelopment from "../../img/website/coreslash-website-dev
 
 import ServiceLayout from "./ServicesLayout";
 import SEO from "../../components/SEO";
+import { submitLead } from "../../lib/api";
 
 // ... features and pricingPlans omitted for brevity in replacement instruction ...
 
@@ -96,17 +97,10 @@ const WebsiteDevelopment: React.FC = () => {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [modalOpen, setModalOpen] = useState(false);
 
-    const API_BASE = envConfig.apiUrl;
-
     const onSubmit = async (data: FormValues) => {
         try {
             setStatus('loading');
-            const res = await fetch(`${API_BASE}/leads`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            if (!res.ok) throw new Error('Network error');
+            await submitLead(data);
             setStatus('success');
             reset();
         } catch (e) {

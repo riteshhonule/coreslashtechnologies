@@ -10,12 +10,12 @@ export class EmailController {
   @HttpCode(HttpStatus.OK)
   async sendEmail(@Body() sendEmailDto: SendEmailDto) {
     const { to, subject, message } = sendEmailDto;
-    
+
     // Convert plain text message to simple HTML for the service
-    const html = `<div style="font-family: sans-serif; line-height: 1.5; color: #333;">${message.replace(/\n/g, '<br>') }</div>`;
-    
+    const html = `<div style="font-family: sans-serif; line-height: 1.5; color: #333;">${message.replace(/\n/g, '<br>')}</div>`;
+
     await this.emailService.sendEmail(to, subject, html);
-    
+
     return {
       success: true,
       message: 'Email has been dispatched successfully',

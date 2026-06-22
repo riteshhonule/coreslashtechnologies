@@ -8,8 +8,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService);
-  const corsOriginsStr = configService.get<string>('CORS_ORIGINS') || 'https://coreslashtechnologies.com,https://www.coreslashtechnologies.com';
-  const origins = corsOriginsStr.split(',').map(o => o.trim().replace(/^['"]|['"]$/g, ''));
+  const corsOriginsStr =
+    configService.get<string>('CORS_ORIGINS') ||
+    'https://coreslashtechnologies.com,https://www.coreslashtechnologies.com';
+  const origins = corsOriginsStr
+    .split(',')
+    .map((o) => o.trim().replace(/^['"]|['"]$/g, ''));
 
   app.enableCors({
     origin: (origin, callback) => {

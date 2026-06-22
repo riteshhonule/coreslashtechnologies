@@ -1,5 +1,14 @@
+const getApiUrl = () => {
+  const url = import.meta.env.VITE_API_URL || 'https://coreslashtechnologies.onrender.com/api';
+  let cleanUrl = url.replace(/\/+$/, '');
+  if (!cleanUrl.endsWith('/api')) {
+    cleanUrl = `${cleanUrl}/api`;
+  }
+  return cleanUrl;
+};
+
 export const envConfig = {
-  apiUrl: import.meta.env.VITE_API_URL || 'https://coreslashtechnologies.onrender.com/api',
+  apiUrl: getApiUrl(),
   appUrl: import.meta.env.VITE_APP_URL || 'https://coreslashtechnologies.com',
   social: {
     whatsappPhone: import.meta.env.VITE_WHATSAPP_PHONE || '+918861220023',

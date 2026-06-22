@@ -28,6 +28,6 @@ export class CreateContactDto {
   service?: string;
 
   @IsString()
-  @Length(10, 5000)
+  @Length(3, 5000)
   message: string;
 }

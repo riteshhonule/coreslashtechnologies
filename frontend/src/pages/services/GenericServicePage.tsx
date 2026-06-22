@@ -9,6 +9,7 @@ import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 
 import ServiceLayout from "./ServicesLayout";
 import SEO from "../../components/SEO";
+import { submitLead } from "../../lib/api";
 
 type FormValues = {
     name: string;
@@ -36,17 +37,10 @@ const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [modalOpen, setModalOpen] = useState(false);
 
-    const API_BASE = envConfig.apiUrl;
-
     const onSubmit = async (data: FormValues) => {
         try {
             setStatus('loading');
-            const res = await fetch(`${API_BASE}/leads`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-            });
-            if (!res.ok) throw new Error('Network error');
+            await submitLead(data);
             setStatus('success');
             reset();
         } catch (e) {

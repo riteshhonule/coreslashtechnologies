@@ -19,6 +19,13 @@ export const submitContact = (data: {
   message: string 
 }) => api.post("/contacts", data);
 
+export const submitLead = (data: {
+  name: string;
+  phone: string;
+  city: string;
+  service?: string;
+}) => api.post("/leads", data);
+
 export const loginSuperadmin = (data: any) => api.post("/contacts/login", data);
 
 export const getContacts = (token: string) =>

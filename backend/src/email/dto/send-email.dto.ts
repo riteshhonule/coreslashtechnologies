@@ -12,6 +12,6 @@ export class SendEmailDto {
 
   @IsString()
   @IsNotEmpty({ message: 'Message content is required' })
-  @MinLength(10, { message: 'Message must be at least 10 characters long' })
+  @MinLength(3, { message: 'Message must be at least 3 characters long' })
   message: string;
 }

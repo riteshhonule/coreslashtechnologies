@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { ContactsModule } from './contacts/contacts.module';
 import { EmailModule } from './email/email.module';
+import { LeadsModule } from './leads/leads.module';
 
 @Module({
   imports: [
@@ -13,8 +14,9 @@ import { EmailModule } from './email/email.module';
     }),
     EmailModule,
     ContactsModule,
+    LeadsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
