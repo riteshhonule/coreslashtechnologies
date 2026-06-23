@@ -1,22 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { envConfig } from "../../config/env.config";
-import { motion, AnimatePresence } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 import ArrowRightIcon from "@heroicons/react/24/outline/ArrowRightIcon";
 import SparklesIcon from "@heroicons/react/24/outline/SparklesIcon";
-import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
-import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 
 import ServiceLayout from "./ServicesLayout";
 import SEO from "../../components/SEO";
-import { submitLead } from "../../lib/api";
-
-type FormValues = {
-    name: string;
-    phone: string;
-    city: string;
-    service: string;
-};
+import ContactForm from "../../components/ContactForm";
 
 interface Feature {
     title: string;
@@ -33,24 +23,6 @@ interface GenericServicePageProps {
 }
 
 const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle, description, features, slug }) => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormValues>();
-    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-    const [modalOpen, setModalOpen] = useState(false);
-
-    const onSubmit = async (data: FormValues) => {
-        try {
-            setStatus('loading');
-            await submitLead(data);
-            setStatus('success');
-            reset();
-        } catch (e) {
-            console.error(e);
-            setStatus('error');
-        } finally {
-            setModalOpen(true);
-            setTimeout(() => setStatus('idle'), 2000);
-        }
-    };
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -120,69 +92,12 @@ const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle
                                     Book Your <br />
                                     <span className="text-accent-cyan italic">Free</span> Consultation
                                 </h3>
-                                <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-                                    <input
-                                        {...register('name', { required: true })}
-                                        type="text"
-                                        placeholder="Full Name"
-                                        className="glass-input"
-                                    />
-                                    <input
-                                        {...register('phone', { required: true })}
-                                        type="tel"
-                                        placeholder="Phone Number"
-                                        className="glass-input"
-                                    />
-                                    <input
-                                        {...register('city', { required: true })}
-                                        type="text"
-                                        placeholder="City"
-                                        className="glass-input"
-                                    />
-                                    <input
-                                        {...register('service')}
-                                        type="hidden"
-                                        value={title}
-                                    />
-
-                                    <button
-                                        disabled={status === 'loading'}
-                                        className="btn-pill btn-primary-glow w-full text-white font-bold py-5 mt-4"
-                                    >
-                                        {status === 'loading' ? 'Processing...' : 'Send Request'}
-                                        <ArrowRightIcon className="w-5 h-5" />
-                                    </button>
-                                </form>
+                                <ContactForm variant="glass" service={title} isSidebar={true} />
                             </div>
                         </aside>
                     </div>
                 </section>
             </div>
-            {/* Modal code */}
-            <AnimatePresence>
-                {modalOpen && (
-                    <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/90 backdrop-blur-xl">
-                        <motion.div initial={{ y: 40, opacity: 1 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }} className="glass-card max-w-md w-full p-12 rounded-[3rem] border-white/10 text-center">
-                            {status === 'success' ? (
-                                <>
-                                    <div className="mx-auto w-20 h-20 rounded-3xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center mb-8">
-                                        <CheckIcon className="w-10 h-10 text-accent-cyan" />
-                                    </div>
-                                    <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">Confirmed</h3>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="mx-auto w-20 h-20 rounded-3xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-8">
-                                        <XMarkIcon className="w-10 h-10 text-rose-500" />
-                                    </div>
-                                    <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">Error</h3>
-                                </>
-                            )}
-                            <button onClick={() => setModalOpen(false)} className="btn-pill btn-glass w-full text-white">Return</button>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </ServiceLayout>
     );
 };

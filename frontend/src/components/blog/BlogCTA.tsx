@@ -7,7 +7,7 @@ const BlogCTA: React.FC = () => {
     const { openModal } = useModal();
 
     return (
-        <section className="py-16 md:py-32 px-6 bg-dark-black relative overflow-hidden">
+        <section className="py-16 md:py-24 px-6 bg-dark-black relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-purple/10 rounded-full blur-[160px] pointer-events-none" />
             
             <motion.div

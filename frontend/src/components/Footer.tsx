@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { envConfig } from '../config/env.config';
 import { motion } from "framer-motion";
-import { Mail, Phone, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Mail, Phone, Linkedin, Instagram, ExternalLink } from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
 
 const footerLinks = {
@@ -20,118 +20,169 @@ const footerLinks = {
     { name: "Cloud Systems", path: "/services" }
   ],
   legal: [
-    { name: "Privacy Policy", path: "#" },
-    { name: "Terms of Service", path: "#" },
-    { name: "Cookie Policy", path: "#" }
+    { name: "Privacy Policy", path: "/privacy-policy" },
+    { name: "Terms of Service", path: "/terms-of-service" },
+    { name: "Cookie Policy", path: "/cookie-policy" }
   ]
 };
 
 export default function Footer() {
   return (
-    <footer className="relative pt-16 md:pt-32 pb-12 overflow-hidden bg-dark-black border-t border-white/5">
+    <footer className="relative pt-20 pb-12 overflow-hidden bg-[#05010F] border-t border-white/5">
+      
+      {/* Top Border Gradient Glow Line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-accent-cyan/40 to-transparent" />
 
-      {/* Top Border Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-accent-cyan/30 to-transparent" />
+      {/* Decorative Background Glows */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary-purple/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Background Glows */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-purple/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Subtle Grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 md:gap-16 mb-12 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-10 lg:grid-cols-10 border border-white/5 rounded-[2.5rem] bg-white/[0.01] backdrop-blur-xl overflow-hidden mb-16">
 
-          {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-10">
-            <Link to="/" className="inline-block group">
-              <img src={logo} alt="CoreSlash" className="h-10 w-auto transition-transform group-hover:scale-105" />
-            </Link>
-            <p className="text-white/40 text-lg leading-relaxed max-w-sm">
-              Architecting the next generation of digital experiences through
-              intelligent design and engineering excellence.
-            </p>
+          {/* Brand/Logo Column */}
+          <div className="p-8 lg:p-10 flex flex-col justify-between border-b lg:border-b-0 md:border-r border-white/5 space-y-8 md:col-span-5 lg:col-span-3">
+            <div className="space-y-6">
+              <Link to="/" className="inline-block group">
+                <img 
+                  src={logo} 
+                  alt="CoreSlash" 
+                  className="h-10 w-auto transition-all duration-500 group-hover:brightness-110 group-hover:scale-[1.02]" 
+                />
+              </Link>
+              <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+                Architecting the next generation of digital experiences through
+                intelligent design, custom AI models, and engineering excellence.
+              </p>
+            </div>
+            
+            {/* Social Badges with Custom Glows */}
             <div className="flex gap-4">
-              {[
-                { Icon: Linkedin, url: envConfig.social.linkedin },
-                { Icon: Instagram, url: envConfig.social.instagram }
-              ].map(({ Icon, url }, i) => (
-                <motion.a
-                  key={i}
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-white/40 hover:text-accent-cyan hover:border-accent-cyan/30 transition-all"
-                >
-                  <Icon size={20} />
-                </motion.a>
-              ))}
+              <motion.a
+                whileHover={{ y: -4, scale: 1.05 }}
+                href={envConfig.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 hover:text-[#0A66C2] hover:border-[#0A66C2]/30 hover:bg-[#0A66C2]/5 hover:shadow-[0_0_15px_rgba(10,102,194,0.25)] transition-all duration-300"
+              >
+                <Linkedin size={18} />
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -4, scale: 1.05 }}
+                href={envConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 hover:text-[#E1306C] hover:border-[#E1306C]/30 hover:bg-[#E1306C]/5 hover:shadow-[0_0_15px_rgba(225,48,108,0.25)] transition-all duration-300"
+              >
+                <Instagram size={18} />
+              </motion.a>
             </div>
           </div>
 
-          {/* Links Columns */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-10 uppercase tracking-[0.2em] text-xs">Company</h4>
+          {/* Links Column: Company */}
+          <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/5 space-y-6 md:col-span-5 lg:col-span-2">
+            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full animate-pulse shrink-0" />
+              Company
+            </h4>
             <ul className="space-y-4">
               {footerLinks.company.map(link => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-white/40 hover:text-accent-cyan transition-colors text-sm font-medium">
-                    {link.name}
+                  <Link 
+                    to={link.path} 
+                    className="group/link flex items-center gap-2 text-white/40 hover:text-accent-cyan transition-all duration-300 text-sm font-medium hover:translate-x-1.5"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
+                    <span>{link.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h4 className="text-white font-bold mb-10 uppercase tracking-[0.2em] text-xs">Solutions</h4>
+          {/* Links Column: Solutions */}
+          <div className="p-8 lg:p-10 border-b md:border-b-0 md:border-r border-white/5 space-y-6 md:col-span-5 lg:col-span-2">
+            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full animate-pulse shrink-0" />
+              Solutions
+            </h4>
             <ul className="space-y-4">
               {footerLinks.services.map(link => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-white/40 hover:text-accent-cyan transition-colors text-sm font-medium">
-                    {link.name}
+                  <Link 
+                    to={link.path} 
+                    className="group/link flex items-center gap-2 text-white/40 hover:text-accent-cyan transition-all duration-300 text-sm font-medium hover:translate-x-1.5"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
+                    <span>{link.name}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Column */}
-          <div className="lg:col-span-3 space-y-10">
-            <h4 className="text-white font-bold mb-2 uppercase tracking-[0.2em] text-xs">Connect</h4>
-            <div className="space-y-6 pt-2">
-              <div className="flex items-center gap-4 text-white/40 group cursor-pointer">
-                <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all">
-                  <Mail size={18} />
+          {/* Connect Column */}
+          <div className="p-8 lg:p-10 space-y-6 md:col-span-5 lg:col-span-3">
+            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full animate-pulse shrink-0" />
+              Connect
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3.5 group/link">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
+                <Mail size={15} className="text-white/40 group-hover/link:text-accent-cyan transition-colors duration-300 shrink-0" />
+                <a 
+                  href={`mailto:${envConfig.contact.email}`} 
+                  className="text-sm text-white/40 group-hover/link:text-accent-cyan transition-all duration-300 font-medium break-all"
+                >
+                  {envConfig.contact.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-3.5 group/link">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0 mt-2" />
+                <Phone size={15} className="text-white/40 group-hover/link:text-accent-cyan transition-colors duration-300 mt-1 shrink-0" />
+                <div className="flex flex-col gap-2">
+                  <a 
+                    href={`tel:${envConfig.social.whatsappPhone}`} 
+                    className="text-sm text-white/40 group-hover/link:text-accent-cyan transition-all duration-300 font-medium"
+                  >
+                    +{envConfig.social.whatsappPhone}
+                  </a>
+                  <a 
+                    href="tel:+919513013247" 
+                    className="text-sm text-white/40 group-hover/link:text-accent-cyan transition-all duration-300 font-medium"
+                  >
+                    +91 9513013247
+                  </a>
                 </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Email Us</p>
-                  <span className="text-sm font-medium text-white/60">{envConfig.contact.email}</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 text-white/40 group cursor-pointer">
-                <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all">
-                  <Phone size={18} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-white/20 mb-0.5">Call Us</p>
-                  <span className="text-sm font-medium text-white/60">+{envConfig.social.whatsappPhone}</span><br />
-                  <span className="text-sm font-medium text-white/60">+91 9513013247</span><br />
-                </div>
-              </div>
-
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-white/20 text-[10px] font-bold tracking-[0.3em] uppercase">
+        {/* Bottom copyright & legal row */}
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/20 text-[10px] font-bold tracking-[0.25em] uppercase">
             © {new Date().getFullYear()} CORESLASH TECHNOLOGIES. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex gap-10">
+          <div className="flex gap-8">
             {footerLinks.legal.map(link => (
-              <a key={link.name} href={link.path} className="text-white/20 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-widest">
+              <Link 
+                key={link.name} 
+                to={link.path} 
+                className="text-white/20 hover:text-accent-cyan hover:underline hover:underline-offset-4 transition-all text-[10px] font-bold uppercase tracking-widest"
+              >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -139,4 +190,3 @@ export default function Footer() {
     </footer>
   );
 }
-

@@ -13,44 +13,44 @@ const gateways = [
         name: "Razorpay",
         img: razorpay,
         desc: "Regional Payments",
-        accent: "text-blue-400"
+        glow: "rgba(9, 114, 231, 0.15)"
     },
     {
         name: "Stripe",
         img: stripe,
         desc: "Global Operations",
-        accent: "text-indigo-400"
+        glow: "rgba(99, 91, 255, 0.15)"
     },
     {
         name: "PayPal",
         img: paypal,
         desc: "International Trade",
-        accent: "text-cyan-400"
+        glow: "rgba(0, 48, 135, 0.2)"
     },
     {
         name: "PhonePe",
         img: phonepe,
         desc: "Secure UPI",
-        accent: "text-purple-500"
+        glow: "rgba(95, 37, 159, 0.2)"
     },
     {
         name: "Paytm",
         img: gpay,
         desc: "Mobile Commerce",
-        accent: "text-cyan-500"
+        glow: "rgba(0, 186, 242, 0.15)"
     },
 ];
 
 const PaymentGateway = () => {
     return (
-        <section className="relative py-16 md:py-32 overflow-hidden bg-dark-black">
+        <section className="relative py-12 md:py-16 overflow-hidden bg-dark-black">
             
             {/* Background Glows */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[140px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary-indigo/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-24">
+                <div className="text-center mb-16">
                     <motion.div
                         initial={{ opacity: 1, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -71,29 +71,9 @@ const PaymentGateway = () => {
                     </p>
                 </div>
 
-                {/* Integration Web Visualization */}
+                {/* Integration Visualization Grid */}
                 <div className="relative">
-                    {/* Connection Lines (SVG) */}
-                    <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none hidden md:block" viewBox="0 0 1200 400">
-                        <motion.path
-                            d="M 100 200 Q 300 50 600 200 T 1100 200"
-                            fill="none"
-                            stroke="url(#gradient-line)"
-                            strokeWidth="2"
-                            initial={{ pathLength: 0 }}
-                            whileInView={{ pathLength: 1 }}
-                            transition={{ duration: 2, ease: "easeInOut" }}
-                        />
-                        <defs>
-                            <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#4503B9" />
-                                <stop offset="50%" stopColor="#22D3EE" />
-                                <stop offset="100%" stopColor="#737CFD" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
                         {gateways.map((payment, index) => (
                             <motion.div
                                 key={index}
@@ -101,29 +81,30 @@ const PaymentGateway = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.04, duration: 0.3 }}
                                 viewport={{ once: true, amount: 0, margin: "200px" }}
-                                className="glass-card p-10 flex flex-col items-center justify-center text-center group hover:border-accent-cyan/30"
+                                whileHover={{ y: -8 }}
+                                className="relative flex-1 min-w-[180px] max-w-[220px] h-48 rounded-[2rem] border border-white/5 bg-white/[0.02] backdrop-blur-xl p-6 flex flex-col items-center justify-center text-center group cursor-pointer transition-all duration-500 hover:border-accent-cyan/30 hover:bg-white/[0.04] hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                             >
-                                <div className="relative w-full aspect-square flex items-center justify-center mb-8">
-                                    <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 blur-xl" />
+                                {/* Brand Glow Backdrop */}
+                                <div 
+                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem] pointer-events-none blur-2xl -z-10"
+                                    style={{ background: `radial-gradient(circle, ${payment.glow} 0%, transparent 70%)` }}
+                                />
+
+                                <div className="relative w-16 h-16 flex items-center justify-center mb-6">
+                                    <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 blur-xl pointer-events-none" />
                                     <img
                                         src={payment.img}
                                         alt={payment.name}
-                                        className="w-20 h-auto object-contain brightness-0 invert opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10"
+                                        className="max-w-full max-h-full object-contain filter grayscale opacity-45 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10"
                                     />
                                 </div>
 
-                                <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.3em] mb-2">
+                                <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-2 group-hover:text-white/60 transition-colors">
+                                    {payment.name}
+                                </p>
+                                <p className="text-[9px] font-medium text-white/20 uppercase tracking-wider group-hover:text-accent-cyan transition-colors">
                                     {payment.desc}
                                 </p>
-                                
-                                <div className={`h-1 w-12 rounded-full bg-white/10 overflow-hidden`}>
-                                    <motion.div 
-                                        initial={{ x: "-100%" }}
-                                        whileInView={{ x: "100%" }}
-                                        transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: index * 0.05 }}
-                                        className={`h-full w-1/2 bg-gradient-to-r from-transparent via-accent-cyan to-transparent`}
-                                    />
-                                </div>
                             </motion.div>
                         ))}
                     </div>
@@ -133,7 +114,7 @@ const PaymentGateway = () => {
                     initial={{ opacity: 1 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, amount: 0, margin: "200px" }}
-                    className="mt-24 flex flex-col items-center"
+                    className="mt-16 flex flex-col items-center"
                 >
                     <div className="h-px w-32 bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
                     <p className="text-white/20 text-xs font-bold uppercase tracking-[0.4em] text-center">
@@ -146,4 +127,3 @@ const PaymentGateway = () => {
 };
 
 export default PaymentGateway;
-

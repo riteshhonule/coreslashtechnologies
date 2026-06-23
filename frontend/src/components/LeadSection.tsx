@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function LeadSection() {
   return (
-    <section id="contact" className="relative py-16 md:py-32 overflow-hidden bg-dark-black scroll-mt-28">
+    <section id="contact" className="relative py-12 md:py-16 overflow-hidden bg-dark-black scroll-mt-28">
 
       {/* Background Animated Glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />

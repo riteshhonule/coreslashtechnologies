@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { useModal } from "../context/ModalContext";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 export default function CTA() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative py-16 md:py-32 px-6 overflow-hidden bg-dark-black">
+    <section className="relative py-12 md:py-16 px-6 overflow-hidden bg-dark-black">
       
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-radial-glow opacity-30 pointer-events-none" />
@@ -53,9 +54,9 @@ export default function CTA() {
                 <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
               </button>
               
-              <button className="btn-pill btn-glass text-white text-xl px-12">
+              <Link to="/services" className="btn-pill btn-glass text-white text-xl px-12 inline-flex items-center justify-center">
                 Our Services
-              </button>
+              </Link>
             </div>
 
             {/* Floating Particles */}

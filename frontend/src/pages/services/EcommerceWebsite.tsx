@@ -11,6 +11,7 @@ import {
 
 import ServiceLayout from "./ServicesLayout";
 import ecommerceImg from "../../img/CoreslashTechnologies-ecommerce.png";
+import { useModal } from "../../context/ModalContext";
 import razorpay from "../../img/e-commerce/CoreslashTechnologies-razorpay.webp";
 import stripe from "../../img/e-commerce/CoreslashTechnologies-stripe.webp";
 import paypal from "../../img/e-commerce/CoreslashTechnologies-paypal.webp";
@@ -75,6 +76,8 @@ const packages = [
 ];
 
 const EcommerceWebsite: React.FC = () => {
+    const { openModal } = useModal();
+
     return (
         <ServiceLayout
             title="E-commerce Solutions"
@@ -105,7 +108,7 @@ const EcommerceWebsite: React.FC = () => {
                                 your digital storefront is optimized for maximum revenue velocity.
                             </p>
                             <div className="flex justify-center w-full">
-                                <button className="btn-pill btn-primary-glow text-white px-10 py-5">
+                                <button onClick={openModal} className="btn-pill btn-primary-glow text-white px-10 py-5">
                                     Consult Our Experts
                                 </button>
                             </div>
@@ -232,7 +235,7 @@ const EcommerceWebsite: React.FC = () => {
                                         ))}
                                     </div>
 
-                                    <button className={`btn-pill w-full text-lg ${pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                    <button onClick={openModal} className={`btn-pill w-full text-lg ${pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
                                         }`}>
                                         Launch My Store
                                     </button>

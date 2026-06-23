@@ -15,9 +15,11 @@ type ContactFormData = {
 interface ContactFormProps {
   variant?: "default" | "glass" | "dark";
   onSuccess?: () => void;
+  service?: string;
+  isSidebar?: boolean;
 }
 
-export default function ContactForm({ variant = "default", onSuccess }: ContactFormProps) {
+export default function ContactForm({ variant = "default", onSuccess, service, isSidebar }: ContactFormProps) {
   const {
     register,
     handleSubmit,
@@ -31,7 +33,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
   const onSubmit = async (data: ContactFormData) => {
     try {
       setStatus("loading");
-      await submitContact(data);
+      await submitContact({ ...data, service });
       setStatus("success");
       reset();
       if (onSuccess) onSuccess();
@@ -71,7 +73,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
       </AnimatePresence>
 
       <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
             <input
@@ -92,7 +94,7 @@ export default function ContactForm({ variant = "default", onSuccess }: ContactF
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
             <input

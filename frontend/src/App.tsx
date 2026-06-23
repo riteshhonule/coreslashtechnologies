@@ -12,6 +12,9 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import FAQPage from "./pages/FAQPage";
 import LoginPage from "./pages/superadmin/LoginPage";
 import DashboardPage from "./pages/superadmin/DashboardPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
 import { useEffect } from "react";
 import {
   WebsiteDevelopment,
@@ -75,6 +78,9 @@ function AnimatedRoutes() {
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
         
         {/* Superadmin routes */}
         <Route path="/superadmin" element={<LoginPage />} />

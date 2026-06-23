@@ -148,7 +148,7 @@ const PortfolioPage = () => {
       {/* PORTFOLIO GRID */}
       <section className="py-12 md:py-24 relative z-10">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-12 max-w-7xl mx-auto">
             {items.map((p, idx) => (
               <motion.div
                 key={p.id}
@@ -160,13 +160,12 @@ const PortfolioPage = () => {
                 onClick={() => setActive(p)}
               >
                 <div className="glass-card h-full rounded-[3rem] overflow-hidden border-white/5 cursor-pointer hover:border-accent-cyan/20 transition-all duration-700">
-                  <div className="aspect-[16/10] overflow-hidden transition-all duration-1000 relative">
+                  <div className="aspect-[16/10] overflow-hidden transition-all duration-1000 relative bg-[#0d0720] flex items-center justify-center p-4">
                     <img
                       src={p.img}
                       alt={p.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[600ms]"
+                      className="max-w-full max-h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-[600ms]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-dark-black/40 to-transparent opacity-80" />
                   </div>
 
                   <div className="p-10 relative">
@@ -205,7 +204,7 @@ const PortfolioPage = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 40 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-card max-w-4xl w-[85vw] md:w-full h-[75vh] md:h-auto overflow-hidden rounded-3xl md:rounded-[4rem] border-white/10 flex flex-col md:flex-row relative"
+              className="glass-card max-w-6xl w-[90vw] md:w-full h-[80vh] md:h-auto overflow-hidden rounded-3xl md:rounded-[4rem] border-white/10 flex flex-col md:flex-row relative"
             >
               {/* Close Button - positioned cleanly to avoid rounded corner clipping */}
               <button
@@ -215,14 +214,12 @@ const PortfolioPage = () => {
               >
                 <XMarkIcon className="w-5 h-5" />
               </button>
-
+ 
               {/* Image Column - occupies 35% height on mobile */}
-              <div className="w-full md:w-1/2 relative h-[35%] md:h-auto overflow-hidden shrink-0">
-                <img src={active.img} className="w-full h-full object-cover" alt={active.title} />
-                <div className="absolute inset-0 bg-gradient-to-r from-dark-black/60 to-transparent md:block hidden" />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-black/60 to-transparent md:hidden block" />
+              <div className="w-full md:w-1/2 relative h-[35%] md:h-auto overflow-hidden shrink-0 bg-[#0d0720] flex items-center justify-center p-6 md:p-8 min-h-[250px] md:min-h-[450px]">
+                <img src={active.img} className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" alt={active.title} />
               </div>
-
+ 
               {/* Content Column - occupies 65% height on mobile and spreads top-to-bottom */}
               <div className="w-full md:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-between h-[65%] md:h-auto overflow-y-auto">
                 <div className="space-y-4">
