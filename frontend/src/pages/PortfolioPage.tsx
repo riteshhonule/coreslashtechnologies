@@ -196,7 +196,7 @@ const PortfolioPage = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 flex items-center justify-center p-4 md:p-6 bg-dark-black/95 backdrop-blur-xl"
-            style={{ zIndex: 1100 }}
+            style={{ zIndex: 2000 }}
             onClick={() => setActive(null)}
           >
             <motion.div
@@ -204,58 +204,54 @@ const PortfolioPage = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 40 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-card max-w-6xl w-[90vw] md:w-full h-[80vh] md:h-auto overflow-hidden rounded-3xl md:rounded-[4rem] border-white/10 flex flex-col md:flex-row relative"
+              className="glass-card max-w-6xl w-[90vw] md:w-full max-h-[85vh] md:max-h-none overflow-hidden rounded-3xl md:rounded-[4rem] border-white/10 flex flex-col relative shadow-[0_0_100px_rgba(0,0,0,0.8)]"
             >
               {/* Close Button - positioned cleanly to avoid rounded corner clipping */}
               <button
                 onClick={() => setActive(null)}
-                className="absolute top-5 right-5 md:top-8 md:right-8 z-[1110] bg-dark-black/60 hover:bg-dark-black/80 text-white w-10 h-10 rounded-full backdrop-blur-md transition flex items-center justify-center border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                className="absolute top-5 right-5 md:top-8 md:right-8 z-[2010] bg-dark-black/60 hover:bg-dark-black/80 text-white w-10 h-10 rounded-full backdrop-blur-md transition flex items-center justify-center border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
                 aria-label="Close details"
               >
                 <XMarkIcon className="w-5 h-5" />
               </button>
  
-              {/* Image Column - occupies 35% height on mobile */}
-              <div className="w-full md:w-1/2 relative h-[35%] md:h-auto overflow-hidden shrink-0 bg-[#0d0720] flex items-center justify-center p-6 md:p-8 min-h-[250px] md:min-h-[450px]">
-                <img src={active.img} className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" alt={active.title} />
-              </div>
- 
-              {/* Content Column - occupies 65% height on mobile and spreads top-to-bottom */}
-              <div className="w-full md:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-between h-[65%] md:h-auto overflow-y-auto">
-                <div className="space-y-4">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
-                    <span className="text-accent-cyan font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase">{active.category}</span>
-                  </div>
-
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">{active.title}</h2>
-
-                  <p className="text-white/50 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium italic">
-                    "{active.description}"
-                  </p>
+              {/* Inner columns wrapper: scrollable on mobile, regular on desktop */}
+              <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-hidden h-full">
+                {/* Image Column */}
+                <div className="w-full md:w-1/2 relative bg-[#0d0720] flex items-center justify-center p-6 md:p-8 min-h-[250px] md:min-h-[450px] shrink-0">
+                  <img src={active.img} className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" alt={active.title} />
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:items-center">
-                  <a
-                    href={active.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`btn-pill text-xs md:text-sm lg:text-base px-5 py-3 flex items-center justify-center gap-2 ${active.link === "#"
-                      ? "bg-white/5 text-white/20 cursor-not-allowed border-white/5"
-                      : "btn-primary-glow text-white"
-                      }`}
-                    onClick={(e) => active.link === "#" && e.preventDefault()}
-                  >
-                    {active.link === "#" ? "Project Offline" : "View Project"}
-                    {active.link !== "#" && <ArrowTopRightOnSquareIcon className="w-4 h-4" />}
-                  </a>
-
-                  <button
-                    onClick={() => setActive(null)}
-                    className="btn-pill btn-glass text-white text-xs md:text-sm lg:text-base px-5 py-3"
-                  >
-                    Back to Matrix
-                  </button>
+ 
+                {/* Content Column */}
+                <div className="w-full md:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-between md:h-auto">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
+                      <span className="text-accent-cyan font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase">{active.category}</span>
+                    </div>
+ 
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">{active.title}</h2>
+ 
+                    <p className="text-white/50 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium italic">
+                      "{active.description}"
+                    </p>
+                  </div>
+ 
+                  <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:items-center">
+                    <a
+                      href={active.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`btn-pill text-xs md:text-sm lg:text-base px-5 py-3 flex items-center justify-center gap-2 ${active.link === "#"
+                        ? "bg-white/5 text-white/20 cursor-not-allowed border-white/5"
+                        : "btn-primary-glow text-white"
+                        }`}
+                      onClick={(e) => active.link === "#" && e.preventDefault()}
+                    >
+                      {active.link === "#" ? "Project Offline" : "View Project"}
+                      {active.link !== "#" && <ArrowTopRightOnSquareIcon className="w-4 h-4" />}
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

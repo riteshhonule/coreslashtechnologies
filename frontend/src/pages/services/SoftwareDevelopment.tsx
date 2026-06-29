@@ -134,13 +134,12 @@ const SoftwareDevelopment: React.FC = () => {
                             className="relative"
                         >
                             <div className="absolute -inset-4 bg-primary-purple/20 rounded-[3rem] blur-3xl opacity-50" />
-                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 group aspect-video">
+                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 group">
                                 <img
                                     src={software_hero_splash}
                                     alt="Software Development"
-                                    className="w-full h-full transition-all duration-1000 group-hover:scale-105"
+                                    className="w-full h-auto transition-all duration-1000 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
                             </div>
                         </motion.div>
                     </div>
@@ -164,7 +163,7 @@ const SoftwareDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-12 rounded-[3rem] border-white/5 group hover:border-accent-cyan/20 transition-all relative overflow-hidden"
+                                    className="glass-card p-12 rounded-[3rem] border-white/5 group hover:border-accent-cyan/20 transition-all relative overflow-hidden h-full flex flex-col"
                                 >
                                     <div className="absolute top-0 right-0 p-8 text-white/[0.02] text-8xl font-black group-hover:text-accent-cyan/[0.05] transition-colors">
                                         0{i + 1}
@@ -188,7 +187,7 @@ const SoftwareDevelopment: React.FC = () => {
                 </section>
 
                 {/* PRICING PACKAGES */}
-                <section className="py-16 md:py-32 bg-dark-black">
+                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-dark-black">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">

@@ -62,7 +62,7 @@ const services = [
     desc: "Secure, scalable cloud architecture and DevOps solutions.",
     icon: <CircleStackIcon className="w-7 h-7" />,
     link: "/services",
-    size: "md"
+    size: "lg"
   },
   {
     title: "App Development",
@@ -87,7 +87,7 @@ export default function Services() {
 
   return (
     <>
-      <section id="services" className="relative py-16 md:py-32 overflow-hidden bg-dark-black" onMouseMove={handleMouseMove}>
+      <section id="services" className="relative pt-16 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-dark-black" onMouseMove={handleMouseMove}>
         
         {/* Decorative Glows */}
         <div className="hidden md:block absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none" />

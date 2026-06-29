@@ -65,50 +65,63 @@ export class EmailService {
    * @param html HTML content of the email
    */
   async sendEmail(to: string, subject: string, html: string): Promise<void> {
-    if (this.useSmtp && this.transporter) {
-      try {
-        const info = await this.transporter.sendMail({
-          from: this.fromEmail,
-          to,
-          subject,
-          html,
-        });
-        this.logger.log(
-          `Email sent successfully via SMTP to ${to}. MessageId: ${info.messageId}`,
-        );
-      } catch (err) {
-        this.logger.error(
-          `SMTP Error sending email: ${err.message}`,
-          err.stack,
-        );
-        throw new InternalServerErrorException(
-          'SMTP Email service unavailable',
-        );
-      }
-    } else if (this.resend) {
-      try {
-        const { data, error } = await this.resend.emails.send({
-          from: this.fromEmail,
-          to,
-          subject,
-          html,
-        });
-
-        if (error) {
-          this.logger.error(`Resend API Error: ${JSON.stringify(error)}`);
-          throw new InternalServerErrorException('Failed to send email');
+    const sendPromise = async () => {
+      if (this.useSmtp && this.transporter) {
+        try {
+          const info = await this.transporter.sendMail({
+            from: this.fromEmail,
+            to,
+            subject,
+            html,
+          });
+          this.logger.log(
+            `Email sent successfully via SMTP to ${to}. MessageId: ${info.messageId}`,
+          );
+        } catch (err) {
+          this.logger.error(
+            `SMTP Error sending email: ${err.message}`,
+            err.stack,
+          );
+          throw new InternalServerErrorException(
+            'SMTP Email service unavailable',
+          );
         }
+      } else if (this.resend) {
+        try {
+          const { data, error } = await this.resend.emails.send({
+            from: this.fromEmail,
+            to,
+            subject,
+            html,
+          });
 
-        this.logger.log(`Email sent successfully to ${to}. ID: ${data?.id}`);
-      } catch (err) {
-        this.logger.error(`Unhandled Error sending email: ${err.message}`);
-        throw new InternalServerErrorException('Email service unavailable');
+          if (error) {
+            this.logger.error(`Resend API Error: ${JSON.stringify(error)}`);
+            throw new InternalServerErrorException('Failed to send email');
+          }
+
+          this.logger.log(`Email sent successfully to ${to}. ID: ${data?.id}`);
+        } catch (err) {
+          this.logger.error(`Unhandled Error sending email: ${err.message}`);
+          throw new InternalServerErrorException('Email service unavailable');
+        }
+      } else {
+        this.logger.error(
+          'No email service is configured. Please set RESEND_API_KEY or SMTP variables in .env',
+        );
+        throw new InternalServerErrorException('Email service not configured');
       }
-    } else {
-      this.logger.error(
-        'No email service is configured. Please set RESEND_API_KEY or SMTP variables in .env',
-      );
-      throw new InternalServerErrorException('Email service not configured');
+    };
+
+    const timeoutPromise = new Promise<void>((_, reject) =>
+      setTimeout(() => reject(new Error('Email sending timed out (15s limit)')), 15000)
+    );
+
+    try {
+      await Promise.race([sendPromise(), timeoutPromise]);
+    } catch (err: any) {
+      this.logger.error(`Failed to send email to ${to}: ${err.message}`);
+      throw err;
     }
   }
 

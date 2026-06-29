@@ -188,56 +188,59 @@ export default function Portfolio() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-dark-black/95 backdrop-blur-sm md:backdrop-blur-xl"
+            className="fixed inset-0 flex items-center justify-center p-4 md:p-6 bg-dark-black/95 backdrop-blur-xl"
+            style={{ zIndex: 2000 }}
             onClick={() => setActive(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, y: 40, opacity: 1 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 40, opacity: 0 }}
-              className="bg-dark-black/90 border border-white/10 rounded-[3rem] md:rounded-[4rem] max-w-6xl w-[90vw] md:w-full overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)]"
+              initial={{ scale: 0.9, opacity: 1, y: 40 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 40 }}
               onClick={(e) => e.stopPropagation()}
+              className="glass-card max-w-6xl w-[90vw] md:w-full max-h-[85vh] md:max-h-none overflow-hidden rounded-3xl md:rounded-[4rem] border-white/10 flex flex-col relative shadow-[0_0_100px_rgba(0,0,0,0.8)]"
             >
-              <div className="grid lg:grid-cols-2">
-                <div className="relative bg-[#0d0720] flex items-center justify-center p-6 md:p-8 aspect-square lg:aspect-auto min-h-[300px] md:min-h-[450px]">
-                  <img src={active.img} alt={active.title} className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" />
+              {/* Close Button - positioned cleanly to avoid rounded corner clipping */}
+              <button
+                onClick={() => setActive(null)}
+                className="absolute top-5 right-5 md:top-8 md:right-8 z-[2010] bg-dark-black/60 hover:bg-dark-black/80 text-white w-10 h-10 rounded-full backdrop-blur-md transition flex items-center justify-center border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                aria-label="Close details"
+              >
+                <XMarkIcon className="w-5 h-5" />
+              </button>
+
+              {/* Inner columns wrapper: scrollable on mobile, regular on desktop */}
+              <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-hidden h-full">
+                {/* Image Column */}
+                <div className="w-full md:w-1/2 relative bg-[#0d0720] flex items-center justify-center p-6 md:p-8 min-h-[250px] md:min-h-[450px] shrink-0">
+                  <img src={active.img} className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" alt={active.title} />
                 </div>
 
-                <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
-                  <button
-                    onClick={() => setActive(null)}
-                    className="absolute top-6 right-6 md:top-8 md:right-8 p-3 rounded-full bg-white/5 text-white hover:bg-accent-cyan hover:text-dark-black transition-all"
-                  >
-                    <XMarkIcon className="w-6 h-6" />
-                  </button>
+                {/* Content Column */}
+                <div className="w-full md:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-between md:h-auto">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
+                      <span className="text-accent-cyan font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase">{active.category}</span>
+                    </div>
 
-                  <p className="text-accent-cyan font-bold uppercase tracking-[0.3em] text-xs mb-4 md:mb-6">
-                    {active.category}
-                  </p>
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 tracking-tight">
-                    {active.title}
-                  </h3>
-                  <p className="text-white/50 text-base md:text-xl leading-relaxed mb-8 md:mb-12">
-                    {active.description}
-                  </p>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">{active.title}</h2>
 
-                  <div className="flex flex-wrap gap-4 md:gap-6">
+                    <p className="text-white/50 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium italic">
+                      "{active.description}"
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:items-center">
                     {active.link !== "#" && (
                       <a
                         href={active.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-pill btn-primary-glow text-white px-8 flex items-center gap-3"
+                        className="btn-pill text-xs md:text-sm lg:text-base px-5 py-3 btn-primary-glow text-white flex items-center justify-center gap-2"
                       >
-                        Live Preview <ArrowTopRightOnSquareIcon className="w-5 h-5" />
+                        Live Preview <ArrowTopRightOnSquareIcon className="w-4 h-4" />
                       </a>
                     )}
-                    <button
-                      onClick={() => setActive(null)}
-                      className="btn-pill btn-glass text-white px-8"
-                    >
-                      Close
-                    </button>
                   </div>
                 </div>
               </div>

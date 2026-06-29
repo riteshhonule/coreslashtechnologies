@@ -193,7 +193,7 @@ const ShopifyDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center transition-all"
+                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center transition-all h-full"
                                 >
                                     <div className="w-14 h-14 mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors">
                                         <f.icon className="w-7 h-7 text-white group-hover:text-accent-cyan transition-colors" />
@@ -207,7 +207,7 @@ const ShopifyDevelopment: React.FC = () => {
                 </section>
 
                 {/* STRATEGIC PACKAGES */}
-                <section className="py-16 md:py-32 bg-dark-black">
+                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-dark-black">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">

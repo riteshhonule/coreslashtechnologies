@@ -124,15 +124,14 @@ const WebsiteDevelopment: React.FC = () => {
                                 className="relative group"
                             >
                                 <div className="absolute -inset-1 bg-gradient-to-r from-primary-purple to-accent-cyan rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000" />
-                                <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video">
+                                <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video bg-white flex items-center justify-center">
                                     <img
                                         src={coreslashWebsiteDevelopment}
                                         alt="CoreSlash Website Development"
                                         loading="lazy"
                                         decoding="async"
-                                        className="w-full h-full object-contain transition-all duration-1000"
+                                        className="w-full h-full object-contain transition-all duration-1000 group-hover:scale-[1.02]"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
                                 </div>
                             </motion.div>
 
@@ -150,14 +149,10 @@ const WebsiteDevelopment: React.FC = () => {
                                 <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
                                     We architect <span className="text-gradient-purple">Digital Growth</span> engines.
                                 </h2>
-                                <p className="text-white/50 text-xl leading-relaxed mb-12">
-                                    A premium brand deserves a premium digital home. Our approach combines
-                                    computational design with the latest technology stacks to convert
-                                    casual visitors into loyal advocates.
-                                </p>
 
-                                {/* Bento Features Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                                {/* Premium Vertical Features Stack */}
+                                <div className="flex flex-col gap-6">
                                     {features.map((f, i) => (
                                         <motion.div
                                             key={i}
@@ -165,13 +160,23 @@ const WebsiteDevelopment: React.FC = () => {
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true, amount: 0, margin: "200px" }}
                                             transition={{ duration: 0.3, delay: i * 0.05 }}
-                                            className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group"
+                                            className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 transition-all relative overflow-hidden"
                                         >
-                                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors">
-                                                <img src={f.icon} alt={f.title} loading="lazy" decoding="async" className="w-7 h-7 object-contain  transition-all" />
+                                            {/* Spotlight Effect */}
+                                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(34,211,238,0.08),transparent_50%)] pointer-events-none" />
+
+                                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent-cyan/10">
+                                                <img src={f.icon} alt={f.title} loading="lazy" decoding="async" className="w-7 h-7 object-contain transition-all" />
                                             </div>
-                                            <h3 className="text-xl font-bold text-white mb-3">{f.title}</h3>
-                                            <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
+                                            
+                                            <div className="space-y-2 relative z-10 flex-1">
+                                                <h3 className="text-xl font-bold text-white transition-colors group-hover:text-accent-cyan">
+                                                    {f.title}
+                                                </h3>
+                                                <p className="text-white/40 text-sm leading-relaxed font-medium">
+                                                    {f.desc}
+                                                </p>
+                                            </div>
                                         </motion.div>
                                     ))}
                                 </div>
@@ -212,7 +217,7 @@ const WebsiteDevelopment: React.FC = () => {
                 </section>
 
                 {/* PRICING SECTION */}
-                <section className="py-16 md:py-32 bg-dark-black border-t border-white/5">
+                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-dark-black border-t border-white/5">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div

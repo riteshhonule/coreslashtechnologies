@@ -30,9 +30,9 @@ const BlogDetailPage: React.FC = () => {
             {/* GLOWS */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
             
-            <article className="max-w-5xl mx-auto px-6 py-12 relative z-10">
+            <article className="max-w-5xl mx-auto px-6 pt-2 pb-12 relative z-10">
                 {/* Back Link */}
-                <Link to="/blog" className="inline-flex items-center gap-3 text-white/30 hover:text-accent-cyan font-bold text-xs uppercase tracking-[0.3em] mb-16 transition-all group">
+                <Link to="/blog" className="inline-flex items-center gap-3 text-white/30 hover:text-accent-cyan font-bold text-xs uppercase tracking-[0.3em] mb-6 transition-all group">
                     <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent-cyan/50 transition-colors">
                         <ArrowLeftIcon className="w-4 h-4" />
                     </div>
@@ -43,16 +43,16 @@ const BlogDetailPage: React.FC = () => {
                 <motion.header
                     initial={{ opacity: 1, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-16"
+                    className="mb-10"
                 >
-                    <div className="flex items-center gap-2 mb-8">
+                    <div className="flex items-center gap-2 mb-4">
                         <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
                         <span className="text-accent-cyan text-xs font-bold uppercase tracking-[0.4em]">
                             {post.category}
                         </span>
                     </div>
                     
-                    <h1 className="text-5xl md:text-8xl font-bold text-white mb-12 leading-[1.1] tracking-tight">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
                         {post.title}
                     </h1>
 

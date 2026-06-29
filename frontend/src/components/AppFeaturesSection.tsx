@@ -50,7 +50,7 @@ const features = [
 
 export default function AppFeaturesSection() {
     return (
-        <section className="py-10 md:py-20 bg-gradient-to-b from-white to-slate-50">
+        <section className="py-10 md:py-20 bg-transparent">
 
             {/* Heading */}
 
@@ -60,12 +60,12 @@ export default function AppFeaturesSection() {
                     initial={{ opacity: 1, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0, margin: "200px" }}
-                    className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
+                    className="text-3xl md:text-5xl font-bold text-white mb-4"
                 >
                     Powerful App Features
                 </motion.h2>
 
-                <p className="text-gray-500 max-w-2xl mx-auto">
+                <p className="text-white/40 max-w-2xl mx-auto">
                     We build modern mobile apps packed with powerful features to grow your business faster.
                 </p>
 
@@ -85,12 +85,12 @@ export default function AppFeaturesSection() {
                         viewport={{ once: true, amount: 0, margin: "200px" }}
                         transition={{ duration: 0.3, delay: i * 0.05 }}
                         whileHover={{ y: -10 }}
-                        className="group relative p-[1px] rounded-3xl bg-gradient-to-br from-gray-200 to-gray-100 hover:from-blue-500 hover:to-purple-500 transition-all duration-500"
+                        className="group relative p-[1px] rounded-3xl bg-gradient-to-br from-white/10 to-white/5 hover:from-accent-cyan/50 hover:to-primary-purple/50 transition-all duration-500"
                     >
 
                         {/* Card */}
 
-                        <div className="bg-white rounded-3xl p-6 h-full shadow-sm hover:shadow-xl transition">
+                        <div className="bg-[#05010F]/90 rounded-3xl p-6 h-full shadow-sm hover:shadow-xl transition">
 
                             {/* Icon */}
 
@@ -105,14 +105,14 @@ export default function AppFeaturesSection() {
 
                             {/* Title */}
 
-                            <h3 className="font-bold text-gray-900 mb-2">
+                            <h3 className="font-bold text-white mb-2">
                                 {feature.title}
                             </h3>
 
 
                             {/* Description */}
 
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-white/40 group-hover:text-white/60 transition-colors">
                                 {feature.desc}
                             </p>
 

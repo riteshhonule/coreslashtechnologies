@@ -80,7 +80,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
             </main>
 
             {/* Global Bottom CTA Section */}
-            <section className="py-16 md:py-32 bg-dark-black text-white text-center relative overflow-hidden">
+            <section className="pt-4 pb-16 md:pt-8 md:pb-32 bg-dark-black text-white text-center relative overflow-hidden">
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-secondary-indigo/5 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10">

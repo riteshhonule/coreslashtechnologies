@@ -21,7 +21,7 @@ async function bootstrap() {
       const cleanOrigin = origin.toLowerCase().trim().replace(/\/+$/, '');
       const isAllowed =
         cleanOrigin.includes('coreslashtechnologies.com') ||
-        /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(cleanOrigin) ||
+        /^https?:\/\/(localhost|127\.0\.0\.1|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+)(:\d+)?$/.test(cleanOrigin) ||
         origins.some(o => o.toLowerCase().trim().replace(/\/+$/, '') === cleanOrigin);
 
       if (isAllowed) {

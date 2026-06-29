@@ -42,9 +42,9 @@ export const Breadcrumbs = () => {
       </Helmet>
       
       <nav aria-label="breadcrumb" className="py-4">
-        <ol className="flex items-center space-x-2 text-sm text-gray-500">
+        <ol className="flex items-center space-x-2 text-sm text-white/40">
           <li>
-            <Link to="/" className="hover:text-[#4169E1] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-accent-cyan transition-colors">Home</Link>
           </li>
           {pathnames.map((name, index) => {
             const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
@@ -53,11 +53,11 @@ export const Breadcrumbs = () => {
 
             return (
               <li key={name} className="flex items-center space-x-2">
-                <ChevronRight className="w-4 h-4 text-gray-400" />
+                <ChevronRight className="w-4 h-4 text-white/20" />
                 {isLast ? (
-                  <span className="text-gray-900 font-medium" aria-current="page">{formattedName}</span>
+                  <span className="text-white/80 font-bold" aria-current="page">{formattedName}</span>
                 ) : (
-                  <Link to={routeTo} className="hover:text-[#4169E1] transition-colors">{formattedName}</Link>
+                  <Link to={routeTo} className="hover:text-accent-cyan transition-colors">{formattedName}</Link>
                 )}
               </li>
             );

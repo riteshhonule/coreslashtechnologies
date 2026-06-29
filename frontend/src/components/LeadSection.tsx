@@ -34,21 +34,6 @@ export default function LeadSection() {
               Join 150+ global brands that have transformed their digital presence
               with our AI-driven strategies and engineering excellence.
             </p>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6 mb-16">
-              {[
-                { label: "Projects Delivered", value: "250+" },
-                { label: "Client Satisfaction", value: "99%" },
-              ].map((stat, i) => (
-                <div key={i} className="glass-card p-6 border-white/5">
-                  <p className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</p>
-                  <p className="text-xs font-bold text-white/30 uppercase tracking-widest">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-
-
           </motion.div>
 
           {/* Right Form */}

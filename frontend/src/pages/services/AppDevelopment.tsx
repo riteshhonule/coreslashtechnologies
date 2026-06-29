@@ -127,7 +127,7 @@ const AppDevelopment: React.FC = () => {
                 </div>
 
                 {/* PREMIUM PRICING SECTION */}
-                <section className="py-16 md:py-32 bg-dark-black">
+                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-dark-black">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div

@@ -1,9 +1,11 @@
-import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, HttpStatus, Logger } from '@nestjs/common';
 import { EmailService } from '../email/email.service';
 import { CreateLeadDto } from './dto/create-lead.dto';
 
 @Controller('leads')
 export class LeadsController {
+  private readonly logger = new Logger(LeadsController.name);
+
   constructor(private readonly emailService: EmailService) {}
 
   @Post()
@@ -16,7 +18,13 @@ export class LeadsController {
       service: createLeadDto.service,
     };
 
-    await this.emailService.sendLeadNotification(leadData);
+    // Run the email notification in the background without blocking the HTTP request
+    this.emailService.sendLeadNotification(leadData).catch((err) => {
+      this.logger.error(
+        `Background email notification failed for lead from ${createLeadDto.phone}: ${err.message}`,
+        err.stack,
+      );
+    });
 
     return {
       success: true,

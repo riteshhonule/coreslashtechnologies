@@ -6,12 +6,6 @@ import wall from "../img/CoreslashTechnologies_wall.png";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 
 export default function About() {
-  const stats = [
-    { label: "Years Experience", value: "8+" },
-    { label: "Projects Delivered", value: "150+" },
-    { label: "AI Implementations", value: "40+" },
-    { label: "Client Retention", value: "95%" },
-  ];
 
   return (
     <section id="about" className="relative py-16 md:py-32 overflow-hidden bg-dark-black" style={{ position: 'relative', zIndex: 10 }}>
@@ -84,21 +78,6 @@ export default function About() {
               Our mission is to bridge the gap between complex business challenges 
               and intuitive, AI-powered solutions.
             </p>
-
-            <div className="grid grid-cols-2 gap-8 mb-10 md:mb-16">
-              {stats.map((stat, idx) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 1, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0, margin: "200px" }}
-                  transition={{ delay: idx * 0.02, duration: 0.3 }}
-                >
-                  <p className="text-4xl font-bold text-white mb-2">{stat.value}</p>
-                  <p className="text-xs font-bold text-white/30 uppercase tracking-widest">{stat.label}</p>
-                </motion.div>
-              ))}
-            </div>
 
             <button className="btn-pill btn-glass text-white px-10">
               Discover Our Story

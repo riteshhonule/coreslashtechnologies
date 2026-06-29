@@ -1,5 +1,14 @@
 const getApiUrl = () => {
-  const url = import.meta.env.VITE_API_URL || 'https://coreslashtechnologies.onrender.com/api';
+  let url = import.meta.env.VITE_API_URL || 'https://coreslashtechnologies.onrender.com/api';
+  
+  // Resolve localhost to current host for local network debugging (e.g. mobile testing)
+  if (typeof window !== 'undefined' && window.location) {
+    const hostname = window.location.hostname;
+    if (hostname && hostname !== 'localhost' && url.includes('localhost')) {
+      url = url.replace('localhost', hostname);
+    }
+  }
+
   let cleanUrl = url.replace(/\/+$/, '');
   if (!cleanUrl.endsWith('/api')) {
     cleanUrl = `${cleanUrl}/api`;

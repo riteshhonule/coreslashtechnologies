@@ -122,7 +122,7 @@ const AboutPage = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
-            <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">Established 2020</span>
+            <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">Established 2026</span>
           </motion.div>
 
           <motion.h1

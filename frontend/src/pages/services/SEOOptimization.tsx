@@ -120,7 +120,7 @@ const SEOOptimization: React.FC = () => {
                 </section>
 
                 {/* --- FEATURES ECOSYSTEM --- */}
-                <section className="bg-dark-black border-t border-white/5 py-16 md:py-32">
+                <section className="bg-dark-black border-t border-white/5 pt-16 pb-12 md:pt-32 md:pb-16">
                     <div className="container mx-auto px-6 lg:px-12">
                         <div className="text-center mb-24">
                             <h3 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
@@ -137,7 +137,7 @@ const SEOOptimization: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 group hover:border-accent-cyan/20 transition-all"
+                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 group hover:border-accent-cyan/20 transition-all h-full flex flex-col"
                                 >
                                     <div className="w-16 h-16 mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors">
                                         <f.icon className="w-8 h-8 text-white group-hover:text-accent-cyan transition-colors" />

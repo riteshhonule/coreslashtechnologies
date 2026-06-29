@@ -30,23 +30,23 @@ const BlogPage: React.FC = () => {
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
             {/* Hero Section */}
-            <section className="relative py-12 md:py-32 overflow-hidden">
+            <section className="relative pt-4 pb-12 md:pt-8 md:pb-20 overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <motion.div
                         initial={{ opacity: 1, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center max-w-5xl mx-auto"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4">
                             <SparklesIcon className="w-4 h-4 text-accent-cyan" />
                             <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.3em]">Neural Insights</span>
                         </div>
                         
-                        <h1 className="text-5xl md:text-8xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
                             Intelligence, <span className="text-gradient-purple">Strategy</span> & Growth Logic.
                         </h1>
                         
-                        <p className="text-white/40 text-xl md:text-2xl max-w-3xl mx-auto mb-16 leading-relaxed">
+                        <p className="text-white/40 text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
                             Stay synchronized with the latest architectural shifts in digital marketing, 
                             SEO ecosystems, and high-velocity software development.
                         </p>

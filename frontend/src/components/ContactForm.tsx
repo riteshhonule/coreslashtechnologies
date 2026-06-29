@@ -78,9 +78,15 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
             <input
               placeholder="Enter Your Name"
-              className="glass-input"
-              {...register("name", { required: true })}
+              className={`glass-input ${errors.name ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
+              {...register("name", {
+                required: "Full name is required",
+                minLength: { value: 2, message: "Name must be at least 2 characters" }
+              })}
             />
+            {errors.name && (
+              <span className="text-red-400 text-[10px] font-bold ml-1 block mt-0.5">{errors.name.message}</span>
+            )}
           </div>
 
           <div className="space-y-0.5">
@@ -88,9 +94,18 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
             <input
               type="email"
               placeholder="Enter Your Email"
-              className="glass-input"
-              {...register("email", { required: true })}
+              className={`glass-input ${errors.email ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
+              {...register("email", {
+                required: "Work email is required",
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Please enter a valid email address"
+                }
+              })}
             />
+            {errors.email && (
+              <span className="text-red-400 text-[10px] font-bold ml-1 block mt-0.5">{errors.email.message}</span>
+            )}
           </div>
         </div>
 
@@ -99,18 +114,31 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
             <input
               placeholder="+91 00000 00000"
-              className="glass-input"
-              {...register("phone", { required: true })}
+              className={`glass-input ${errors.phone ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
+              {...register("phone", {
+                required: "Phone number is required",
+                minLength: { value: 6, message: "Phone number must be at least 6 characters" },
+                maxLength: { value: 30, message: "Phone number cannot exceed 30 characters" }
+              })}
             />
+            {errors.phone && (
+              <span className="text-red-400 text-[10px] font-bold ml-1 block mt-0.5">{errors.phone.message}</span>
+            )}
           </div>
 
           <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Location</label>
             <input
               placeholder="Enter Your Location"
-              className="glass-input"
-              {...register("address", { required: true })}
+              className={`glass-input ${errors.address ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
+              {...register("address", {
+                required: "Location is required",
+                minLength: { value: 2, message: "Location must be at least 2 characters" }
+              })}
             />
+            {errors.address && (
+              <span className="text-red-400 text-[10px] font-bold ml-1 block mt-0.5">{errors.address.message}</span>
+            )}
           </div>
         </div>
 
@@ -118,8 +146,8 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Select Industry</label>
           <div className="relative">
             <select
-              className="glass-input appearance-none cursor-pointer"
-              {...register("businessType", { required: true })}
+              className={`glass-input appearance-none cursor-pointer ${errors.businessType ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
+              {...register("businessType", { required: "Please select your industry" })}
               defaultValue=""
             >
               <option value="" disabled className="bg-dark-black">Choose industry...</option>
@@ -133,6 +161,9 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
             </div>
           </div>
+          {errors.businessType && (
+            <span className="text-red-400 text-[10px] font-bold ml-1 block mt-0.5">{errors.businessType.message}</span>
+          )}
         </div>
 
         <div className="space-y-0.5">
@@ -140,9 +171,15 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           <textarea
             rows={2}
             placeholder="Describe your vision and technical requirements..."
-            className="glass-input resize-none"
-            {...register("message", { required: true })}
+            className={`glass-input resize-none ${errors.message ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
+            {...register("message", {
+              required: "Project details are required",
+              minLength: { value: 3, message: "Message must be at least 3 characters" }
+            })}
           />
+          {errors.message && (
+            <span className="text-red-400 text-[10px] font-bold ml-1 block mt-0.5">{errors.message.message}</span>
+          )}
         </div>
 
         <motion.button

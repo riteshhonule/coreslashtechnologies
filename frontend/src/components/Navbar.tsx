@@ -197,18 +197,21 @@ export default function Navbar() {
   );
 
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 transition-all duration-500 ${scrolled ? "py-4" : "py-8"
-          }`}
+    <>      <header
+        className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 ${
+          scrolled 
+            ? "py-3 bg-dark-black/80 backdrop-blur-lg" 
+            : "py-6 bg-transparent"
+        }`}
         style={{ zIndex: 1000 }}
       >
-        <div className="mx-auto max-w-[1600px] px-4 md:px-6">
+        <div className="mx-auto max-w-[1600px] w-full px-4 md:px-6">
           <nav
-            className={`flex items-center justify-between px-4 md:px-8 py-3 md:py-4 rounded-full transition-all duration-500 glass ${scrolled
-                ? "bg-dark-black/60 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-                : "bg-white/5"
-              }`}
+            className={`w-full flex flex-row items-center justify-between px-4 md:px-8 py-2.5 transition-all duration-500 ${
+              scrolled
+                ? "bg-transparent"
+                : "rounded-full bg-white/5 border border-white/10 glass"
+            }`}
           >
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group shrink-0">
@@ -220,7 +223,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex flex-row flex-nowrap items-center gap-1 lg:gap-2">
               {/* Render first link (Home) */}
               {links.filter(l => l.label === "Home").map((link) => {
                 const isActive = location.pathname === link.to;
@@ -228,7 +231,7 @@ export default function Navbar() {
                   <Link
                     key={link.to}
                     to={link.to}
-                    className={`relative px-5 py-2 text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                    className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
                   >
                     <span className="relative z-10">{link.label}</span>
                     {isActive && (
@@ -245,7 +248,7 @@ export default function Navbar() {
               <div className="relative"
                 onMouseEnter={() => setHoveredService(true)}
                 onMouseLeave={() => setHoveredService(false)}>
-                <div className={`flex items-center gap-1.5 px-5 py-2 text-sm font-bold uppercase tracking-widest rounded-full cursor-pointer transition-all duration-300 ${location.pathname.includes("/services") ? "text-accent-cyan" : "text-white/60 hover:text-white"
+                <div className={`flex items-center gap-1.5 px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full cursor-pointer transition-all duration-300 ${location.pathname.includes("/services") ? "text-accent-cyan" : "text-white/60 hover:text-white"
                   }`}>
                   Services
                   <ChevronDownIcon className={`w-3 h-3 transition-transform duration-500 ${hoveredService ? "rotate-180" : ""}`} />
@@ -254,7 +257,7 @@ export default function Navbar() {
                 <AnimatePresence>
                   {hoveredService && (
                     <motion.div
-                      initial={{ opacity: 1, y: 15, scale: 0.95 }}
+                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 15, scale: 0.95 }}
                       className="absolute top-full left-0 mt-4 w-72 p-3 bg-dark-black/90 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden"
@@ -264,6 +267,7 @@ export default function Navbar() {
                         <Link
                           key={service.to}
                           to={service.to}
+                          onClick={() => setHoveredService(false)}
                           className="block px-5 py-3 text-xs font-bold uppercase tracking-widest text-white/40 hover:text-accent-cyan hover:bg-white/5 rounded-2xl transition-all"
                         >
                           {service.label}
@@ -281,7 +285,7 @@ export default function Navbar() {
                   <Link
                     key={link.to}
                     to={link.to}
-                    className={`relative px-5 py-2 text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                    className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
                   >
                     <span className="relative z-10">{link.label}</span>
                     {isActive && (

@@ -120,7 +120,7 @@ const DigitalMarketing: React.FC = () => {
                 </section>
 
                 {/* Features Ecosystem */}
-                <section className="py-16 md:py-32 bg-dark-black border-t border-white/5">
+                <section className="pt-16 pb-12 md:pt-32 md:pb-16 bg-dark-black border-t border-white/5">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <h3 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
@@ -137,7 +137,7 @@ const DigitalMarketing: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all"
+                                    className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all h-full flex flex-col"
                                 >
                                     <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors">
                                         <CheckCircleIcon className="w-6 h-6 text-accent-cyan" />

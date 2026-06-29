@@ -31,7 +31,7 @@ const features = [
 
 export default function WhyChooseUs() {
     return (
-        <section className="relative py-16 md:py-24 overflow-hidden bg-dark-black">
+        <section className="relative pt-10 pb-16 md:pt-12 md:pb-24 overflow-hidden bg-dark-black">
             {/* Background Orbs */}
             <div className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
