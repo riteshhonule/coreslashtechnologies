@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import LeadSection from "../components/LeadSection";
 import PaymentGateway from "../components/PaymentGateway";
 import SEO from "../components/SEO";
+import { envConfig } from "../config/env.config";
 
 const Home = () => {
   const structuredData = [
@@ -14,26 +15,25 @@ const Home = () => {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "CoreSlash Technologies",
-      "url": "https://coreslashtechnologies.com/",
-      "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png",
+      "url": envConfig.appUrl,
+      "logo": `${envConfig.appUrl}/CoreslashTechnologies-solutions-main-logo.png`,
       "description": "IT solutions, software development and AI systems company in India.",
       "sameAs": [
-        "https://www.linkedin.com/company/coreslash",
-        "https://www.facebook.com/coreslash",
-        "https://twitter.com/coreslash"
+        envConfig.social.linkedin,
+        envConfig.social.instagram,
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+918861220023",
+        "telephone": envConfig.social.whatsappPhone,
         "contactType": "customer service",
-        "email": "coreslashtechnologies@gmail.com"
+        "email": envConfig.contact.email
       }
     },
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "CoreSlash Technologies",
-      "url": "https://coreslashtechnologies.com/"
+      "url": envConfig.appUrl
     }
   ];
 

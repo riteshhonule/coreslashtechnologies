@@ -113,6 +113,8 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           <div className="space-y-0.5">
             <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
             <input
+              type="tel"
+              inputMode="tel"
               placeholder="+91 00000 00000"
               className={`glass-input ${errors.phone ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
               {...register("phone", {

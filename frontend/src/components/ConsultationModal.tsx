@@ -9,6 +9,17 @@ interface ConsultationModalProps {
 }
 
 const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }) => {
+    React.useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -25,7 +36,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                         initial={{ scale: 0.95, opacity: 1, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                        className="relative w-full max-w-lg bg-[#050816] rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden"
+                        className="relative w-full max-w-lg bg-[#050816] rounded-[2rem] border border-white/10 shadow-2xl overflow-y-auto max-h-[calc(100vh-2rem)] scrollbar-hide"
                     >
                         <div className="p-5 md:p-8 relative">
                             <button
