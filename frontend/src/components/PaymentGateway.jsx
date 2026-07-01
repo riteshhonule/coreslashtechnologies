@@ -13,35 +13,35 @@ const gateways = [
         name: "Razorpay",
         img: razorpay,
         desc: "Regional Payments",
-        classes: "bg-[#0c80e3]/10 border-[#0c80e3]/30 text-white/70 hover:bg-[#0c80e3] hover:border-[#0c80e3] hover:text-white shadow-[0_0_15px_rgba(12,128,227,0.1)] hover:shadow-[0_0_25px_rgba(12,128,227,0.4)]",
+        classes: "bg-[#0c80e3]/10 border-[#0c80e3]/30 text-white/70 hover:bg-[#0c80e3]/25 hover:border-[#0c80e3]/60 hover:text-white shadow-[0_0_15px_rgba(12,128,227,0.1)] hover:shadow-[0_0_25px_rgba(12,128,227,0.4)]",
         glow: "rgba(12, 128, 227, 0.25)"
     },
     {
         name: "Stripe",
         img: stripe,
         desc: "Global Operations",
-        classes: "bg-[#635bff]/10 border-[#635bff]/30 text-white/70 hover:bg-[#635bff] hover:border-[#635bff] hover:text-white shadow-[0_0_15px_rgba(99,91,255,0.1)] hover:shadow-[0_0_25px_rgba(99,91,255,0.4)]",
+        classes: "bg-[#635bff]/10 border-[#635bff]/30 text-white/70 hover:bg-[#635bff]/25 hover:border-[#635bff]/60 hover:text-white shadow-[0_0_15px_rgba(99,91,255,0.1)] hover:shadow-[0_0_25px_rgba(99,91,255,0.4)]",
         glow: "rgba(99, 91, 255, 0.25)"
     },
     {
         name: "PayPal",
         img: paypal,
         desc: "International Trade",
-        classes: "bg-[#00457c]/15 border-[#00457c]/35 text-white/70 hover:bg-[#00457c] hover:border-[#00457c] hover:text-white shadow-[0_0_15px_rgba(0,69,124,0.1)] hover:shadow-[0_0_25px_rgba(0,69,124,0.4)]",
+        classes: "bg-[#00457c]/15 border-[#00457c]/35 text-white/70 hover:bg-[#00457c]/30 hover:border-[#00457c]/65 hover:text-white shadow-[0_0_15px_rgba(0,69,124,0.1)] hover:shadow-[0_0_25px_rgba(0,69,124,0.4)]",
         glow: "rgba(0, 69, 124, 0.25)"
     },
     {
         name: "PhonePe",
         img: phonepe,
         desc: "Secure UPI",
-        classes: "bg-[#5f259f]/15 border-[#5f259f]/35 text-white/70 hover:bg-[#5f259f] hover:border-[#5f259f] hover:text-white shadow-[0_0_15px_rgba(95,37,159,0.1)] hover:shadow-[0_0_25px_rgba(95,37,159,0.4)]",
+        classes: "bg-[#5f259f]/15 border-[#5f259f]/35 text-white/70 hover:bg-[#5f259f]/30 hover:border-[#5f259f]/65 hover:text-white shadow-[0_0_15px_rgba(95,37,159,0.1)] hover:shadow-[0_0_25px_rgba(95,37,159,0.4)]",
         glow: "rgba(95, 37, 159, 0.25)"
     },
     {
         name: "Paytm",
         img: gpay,
         desc: "Mobile Commerce",
-        classes: "bg-[#00baf2]/10 border-[#00baf2]/30 text-white/70 hover:bg-[#00baf2] hover:border-[#00baf2] hover:text-white shadow-[0_0_15px_rgba(0,186,242,0.1)] hover:shadow-[0_0_25px_rgba(0,186,242,0.4)]",
+        classes: "bg-[#00baf2]/10 border-[#00baf2]/30 text-white/70 hover:bg-[#00baf2]/25 hover:border-[#00baf2]/60 hover:text-white shadow-[0_0_15px_rgba(0,186,242,0.1)] hover:shadow-[0_0_25px_rgba(0,186,242,0.4)]",
         glow: "rgba(0, 186, 242, 0.25)"
     },
 ];
@@ -99,16 +99,16 @@ const PaymentGateway = () => {
                                     style={{ background: `radial-gradient(circle, ${payment.glow} 0%, transparent 70%)` }}
                                 />
 
-                                <div className="relative w-10 h-10 md:w-16 md:h-16 flex items-center justify-center mb-4 md:mb-6">
+                                <div className="relative w-24 h-10 md:w-36 md:h-16 flex items-center justify-center mb-4 md:mb-6">
                                     <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 blur-xl pointer-events-none" />
                                     <img
                                         src={payment.img}
                                         alt={payment.name}
-                                        className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10"
+                                        className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 relative z-10"
                                     />
                                 </div>
 
-                                <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] mb-1 md:mb-2 transition-colors">
+                                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] mb-1 md:mb-2 transition-colors">
                                     {payment.name}
                                 </p>
                                 <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-wider transition-colors">

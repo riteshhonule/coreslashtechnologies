@@ -137,16 +137,16 @@ const SEOOptimization: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 group hover:border-accent-cyan/20 transition-all h-full flex flex-col items-center text-center md:items-start md:text-left"
+                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 group hover:border-accent-cyan/20 transition-all h-full flex flex-col items-center text-center"
                                 >
-                                    <div className="w-16 h-16 mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors mx-auto md:mx-0">
+                                    <div className="w-16 h-16 mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors mx-auto">
                                         <f.icon className="w-8 h-8 text-white group-hover:text-accent-cyan transition-colors" />
                                     </div>
                                     <h4 className="text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-cyan transition-colors">{f.title}</h4>
                                     <p className="text-white/40 leading-relaxed mb-8 font-medium">
                                         {f.desc}
                                     </p>
-                                    <div className="flex items-center gap-2 text-accent-cyan font-bold text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0 justify-center md:justify-start w-full">
+                                    <div className="flex items-center gap-2 text-accent-cyan font-bold text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0 justify-center w-full">
                                         STRATEGY <ArrowUpRightIcon className="w-4 h-4" />
                                     </div>
                                 </motion.div>

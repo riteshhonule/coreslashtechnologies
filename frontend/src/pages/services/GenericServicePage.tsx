@@ -87,9 +87,9 @@ const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ duration: 0.3, delay: i * 0.05 }}
-                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col justify-between transition-all h-full"
+                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col justify-between items-center text-center transition-all h-full"
                                 >
-                                    <div className="space-y-4">
+                                    <div className="space-y-4 flex flex-col items-center">
                                         <h4 className="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors">{f.title}</h4>
                                         <p className="text-white/40 text-sm leading-relaxed font-medium">{f.desc}</p>
                                     </div>

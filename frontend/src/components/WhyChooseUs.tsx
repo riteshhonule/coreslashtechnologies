@@ -99,9 +99,9 @@ export default function WhyChooseUs() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: idx * 0.02, duration: 0.3 }}
-                                    className="glass-card p-6 border-white/5 group hover:border-white/10 transition-all"
+                                    className="glass-card p-6 border-white/5 group hover:border-white/10 transition-all flex flex-col items-center text-center"
                                 >
-                                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 border border-white/5 ${item.iconColor}`}>
+                                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 border border-white/5 mx-auto ${item.iconColor}`}>
                                         {item.icon}
                                     </div>
                                     <h4 className="text-lg font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">

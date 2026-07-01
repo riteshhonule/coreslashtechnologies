@@ -201,9 +201,9 @@ const EcommerceWebsite: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center md:items-start md:text-left"
+                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 mx-auto md:mx-0">
+                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 mx-auto">
                                         <CheckCircleIcon className="w-6 h-6 text-accent-cyan" />
                                     </div>
                                     <p className="text-white font-bold leading-snug group-hover:text-accent-cyan transition-colors">{feature}</p>

@@ -137,13 +137,13 @@ const DigitalMarketing: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all h-full flex flex-col items-center text-center md:items-start md:text-left"
+                                    className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all h-full flex flex-col items-center text-center"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors mx-auto md:mx-0">
+                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors mx-auto">
                                         <CheckCircleIcon className="w-6 h-6 text-accent-cyan" />
                                     </div>
                                     <h4 className="text-lg font-bold text-white leading-tight mb-2 group-hover:text-accent-cyan transition-colors">{feature}</h4>
-                                    <div className="w-8 h-1 bg-white/10 rounded-full group-hover:w-16 group-hover:bg-accent-cyan transition-all mx-auto md:mx-0" />
+                                    <div className="w-8 h-1 bg-white/10 rounded-full group-hover:w-16 group-hover:bg-accent-cyan transition-all mx-auto" />
                                 </motion.div>
                             ))}
                         </div>

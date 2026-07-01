@@ -118,27 +118,27 @@ export default function ServicesPage() {
               className="group relative"
             >
               <Link to={service.link} className="block h-full">
-                <div className="glass-card h-full p-10 rounded-[3rem] border-white/5 group-hover:border-accent-cyan/20 transition-all duration-500 relative overflow-hidden flex flex-col">
+                <div className="glass-card h-full p-10 rounded-[3rem] border-white/5 group-hover:border-accent-cyan/20 transition-all duration-500 relative overflow-hidden flex flex-col items-center text-center">
                   {/* Hover Image Reveal */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
                     <img src={service.image} alt={service.title} className="w-full h-full object-cover grayscale" />
                   </div>
 
                   <div className="relative z-10 mb-8">
-                    <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors duration-500">
+                    <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors duration-500 mx-auto">
                       <img src={service.image} alt={service.title} className="w-12 h-12 object-cover rounded-lg" />
                     </div>
                   </div>
 
-                  <h3 className="relative z-10 text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-cyan transition-colors">
+                  <h3 className="relative z-10 text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-cyan transition-colors text-center">
                     {service.title}
                   </h3>
 
-                  <p className="relative z-10 text-white/40 leading-relaxed font-medium mb-10 flex-grow group-hover:text-white/60 transition-colors">
+                  <p className="relative z-10 text-white/40 leading-relaxed font-medium mb-10 flex-grow group-hover:text-white/60 transition-colors text-center">
                     {service.desc}
                   </p>
 
-                  <div className="relative z-10 flex items-center gap-2 text-accent-cyan font-bold text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                  <div className="relative z-10 flex items-center justify-center gap-2 text-accent-cyan font-bold text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
                     EXPLORE MODULE <ArrowRightIcon className="w-4 h-4" />
                   </div>
                 </div>

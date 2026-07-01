@@ -195,19 +195,19 @@ const WebsiteDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ duration: 0.3, delay: i * 0.05 }}
-                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col items-start gap-6 transition-all relative overflow-hidden"
+                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col items-center text-center gap-6 transition-all relative overflow-hidden"
                                 >
                                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(34,211,238,0.08),transparent_50%)] pointer-events-none" />
 
-                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent-cyan/10">
+                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent-cyan/10 mx-auto">
                                         <img src={f.icon} alt={f.title} loading="lazy" decoding="async" className="w-8 h-8 object-contain transition-all" />
                                     </div>
                                     
-                                    <div className="space-y-3 relative z-10">
-                                        <h4 className="text-2xl font-bold text-white transition-colors group-hover:text-accent-cyan">
+                                    <div className="space-y-3 relative z-10 flex flex-col items-center">
+                                        <h4 className="text-2xl font-bold text-white transition-colors group-hover:text-accent-cyan text-center">
                                             {f.title}
                                         </h4>
-                                        <p className="text-white/40 text-sm leading-relaxed font-medium">
+                                        <p className="text-white/40 text-sm leading-relaxed font-medium text-center">
                                             {f.desc}
                                         </p>
                                     </div>
