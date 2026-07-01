@@ -50,23 +50,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-10 lg:grid-cols-10 border border-white/5 rounded-[2.5rem] bg-white/[0.01] backdrop-blur-xl overflow-hidden mb-16">
 
           {/* Brand/Logo Column */}
-          <div className="p-8 lg:p-10 flex flex-col justify-between border-b lg:border-b-0 md:border-r border-white/5 space-y-8 md:col-span-5 lg:col-span-3">
-            <div className="space-y-6">
+          <div className="p-8 lg:p-10 flex flex-col justify-between border-b lg:border-b-0 md:border-r border-white/5 space-y-8 md:col-span-5 lg:col-span-3 items-center md:items-start text-center md:text-left">
+            <div className="space-y-6 flex flex-col items-center md:items-start">
               <Link to="/" className="inline-block group">
                 <img 
                   src={logo} 
                   alt="CoreSlash" 
-                  className="h-10 w-auto transition-all duration-500 group-hover:brightness-110 group-hover:scale-[1.02]" 
+                  className="h-10 w-auto transition-all duration-500 group-hover:brightness-110 group-hover:scale-[1.02] mx-auto md:mx-0" 
                 />
               </Link>
-              <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+              <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
                 Architecting the next generation of digital experiences through
                 intelligent design, custom AI models, and engineering excellence.
               </p>
             </div>
             
             {/* Social Badges with Custom Glows */}
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center md:justify-start">
               <motion.a
                 whileHover={{ y: -4, scale: 1.05 }}
                 href={envConfig.social.linkedin}
@@ -90,7 +90,7 @@ export default function Footer() {
 
           {/* Links Column: Company */}
           <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/5 space-y-6 md:col-span-5 lg:col-span-2">
-            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center gap-2">
+            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2">
               <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full animate-pulse shrink-0" />
               Company
             </h4>
@@ -99,9 +99,9 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link 
                     to={link.path} 
-                    className="group/link flex items-center gap-2 text-white/40 hover:text-accent-cyan transition-all duration-300 text-sm font-medium hover:translate-x-1.5"
+                    className="group/link flex items-center justify-center md:justify-start gap-2 text-white/40 hover:text-accent-cyan transition-all duration-300 text-sm font-medium hover:translate-x-1.5"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
+                    <span className="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
                     <span>{link.name}</span>
                   </Link>
                 </li>
@@ -111,7 +111,7 @@ export default function Footer() {
 
           {/* Links Column: Solutions */}
           <div className="p-8 lg:p-10 border-b md:border-b-0 md:border-r border-white/5 space-y-6 md:col-span-5 lg:col-span-2">
-            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center gap-2">
+            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2">
               <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full animate-pulse shrink-0" />
               Solutions
             </h4>
@@ -120,9 +120,9 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link 
                     to={link.path} 
-                    className="group/link flex items-center gap-2 text-white/40 hover:text-accent-cyan transition-all duration-300 text-sm font-medium hover:translate-x-1.5"
+                    className="group/link flex items-center justify-center md:justify-start gap-2 text-white/40 hover:text-accent-cyan transition-all duration-300 text-sm font-medium hover:translate-x-1.5"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
+                    <span className="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
                     <span>{link.name}</span>
                   </Link>
                 </li>
@@ -132,25 +132,25 @@ export default function Footer() {
 
           {/* Connect Column */}
           <div className="p-8 lg:p-10 space-y-6 md:col-span-5 lg:col-span-3">
-            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center gap-2">
+            <h4 className="text-white font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2">
               <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full animate-pulse shrink-0" />
               Connect
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3.5 group/link">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
+              <li className="flex items-center justify-center md:justify-start gap-3.5 group/link">
+                <span className="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0" />
                 <Mail size={15} className="text-white/40 group-hover/link:text-accent-cyan transition-colors duration-300 shrink-0" />
                 <a 
                   href={`mailto:${envConfig.contact.email}`} 
-                  className="text-sm text-white/40 group-hover/link:text-accent-cyan transition-all duration-300 font-medium break-all"
+                  className="text-xs sm:text-sm text-white/40 group-hover/link:text-accent-cyan transition-all duration-300 font-medium text-center md:text-left"
                 >
                   {envConfig.contact.email}
                 </a>
               </li>
-              <li className="flex items-start gap-3.5 group/link">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0 mt-2" />
+              <li className="flex items-start justify-center md:justify-start gap-3.5 group/link">
+                <span className="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-accent-cyan opacity-0 group-hover/link:opacity-100 transition-all duration-300 shrink-0 mt-2" />
                 <Phone size={15} className="text-white/40 group-hover/link:text-accent-cyan transition-colors duration-300 mt-1 shrink-0" />
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col items-center md:items-start gap-2">
                   <a 
                     href={`tel:${envConfig.social.whatsappPhone}`} 
                     className="text-sm text-white/40 group-hover/link:text-accent-cyan transition-all duration-300 font-medium"

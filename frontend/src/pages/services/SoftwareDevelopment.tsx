@@ -155,7 +155,7 @@ const SoftwareDevelopment: React.FC = () => {
                             <p className="text-white/40 max-w-2xl mx-auto">Enterprise-grade infrastructure designed for maximum uptime and security.</p>
                         </div>
 
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
                             {solutions.map((item, i) => (
                                 <motion.div
                                     key={i}
@@ -163,20 +163,20 @@ const SoftwareDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-12 rounded-[3rem] border-white/5 group hover:border-accent-cyan/20 transition-all relative overflow-hidden h-full flex flex-col"
+                                    className="glass-card p-6 sm:p-8 lg:p-12 rounded-[2rem] lg:rounded-[3rem] border-white/5 group hover:border-accent-cyan/20 transition-all relative overflow-hidden h-full flex flex-col"
                                 >
-                                    <div className="absolute top-0 right-0 p-8 text-white/[0.02] text-8xl font-black group-hover:text-accent-cyan/[0.05] transition-colors">
+                                    <div className="absolute top-0 right-0 p-4 sm:p-8 text-white/[0.02] text-7xl sm:text-8xl font-black group-hover:text-accent-cyan/[0.05] transition-colors">
                                         0{i + 1}
                                     </div>
-                                    <div className="relative z-10">
-                                        <div className="w-16 h-16 mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-accent-cyan/10 group-hover:text-accent-cyan transition-all">
-                                            {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-8 h-8" })}
+                                    <div className="relative z-10 flex flex-col items-center text-center md:items-start md:text-left">
+                                        <div className="w-12 h-12 sm:w-16 sm:h-16 mb-6 sm:mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-accent-cyan/10 group-hover:text-accent-cyan transition-all mx-auto md:mx-0">
+                                            {React.cloneElement(item.icon as React.ReactElement<any>, { className: "w-6 h-6 sm:w-8 sm:h-8" })}
                                         </div>
-                                        <h3 className="text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-cyan transition-colors">{item.name}</h3>
-                                        <p className="text-white/40 text-sm leading-relaxed mb-6 group-hover:text-white/60 transition-colors">
+                                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 tracking-tight group-hover:text-accent-cyan transition-colors">{item.name}</h3>
+                                        <p className="text-white/40 text-xs sm:text-sm leading-relaxed mb-6 group-hover:text-white/60 transition-colors">
                                             High-availability {item.name.toLowerCase()} architecture optimized for complex operational workflows.
                                         </p>
-                                        <div className="flex items-center gap-2 text-accent-cyan font-bold text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all transform -translate-x-4 group-hover:translate-x-0">
+                                        <div className="flex items-center gap-2 text-accent-cyan font-bold text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all transform -translate-x-4 group-hover:translate-x-0 justify-center md:justify-start w-full">
                                             DEPLOY SYSTEM <ArrowRightIcon className="w-3 h-3" />
                                         </div>
                                     </div>

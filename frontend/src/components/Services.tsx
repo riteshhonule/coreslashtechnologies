@@ -62,14 +62,14 @@ const services = [
     desc: "Secure, scalable cloud architecture and DevOps solutions.",
     icon: <CircleStackIcon className="w-7 h-7" />,
     link: "/services",
-    size: "lg"
+    size: "md"
   },
   {
     title: "App Development",
     desc: "Immersive mobile and desktop applications built for performance across all devices.",
     icon: <DevicePhoneMobileIcon className="w-7 h-7" />,
     link: "/services/App-development",
-    size: "lg"
+    size: "md"
   },
 ];
 

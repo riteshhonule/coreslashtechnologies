@@ -1,11 +1,28 @@
 const getApiUrl = () => {
   let url = import.meta.env.VITE_API_URL || 'https://coreslashtechnologies.onrender.com/api';
   
-  // Resolve localhost to current host for local network debugging (e.g. mobile testing)
   if (typeof window !== 'undefined' && window.location) {
     const hostname = window.location.hostname;
-    if (hostname && hostname !== 'localhost' && url.includes('localhost')) {
-      url = url.replace('localhost', hostname);
+    
+    // Check if the current hostname is a local address
+    const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
+    const isLocalIP = /^192\.168\.\d+\.\d+$/.test(hostname) || 
+                      /^10\.\d+\.\d+\.\d+$/.test(hostname) || 
+                      /^172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+$/.test(hostname);
+    
+    const isLocal = isLocalhost || isLocalIP;
+
+    if (!isLocal) {
+      // If we are on a production/deployed hostname (e.g. coreslashtechnologies.com or *.vercel.app),
+      // we must use the deployed production backend instead of localhost.
+      if (url.includes('localhost') || url.includes('127.0.0.1')) {
+        url = 'https://coreslashtechnologies.onrender.com/api';
+      }
+    } else {
+      // Resolve localhost to current host for local network debugging (e.g. mobile testing)
+      if (hostname && hostname !== 'localhost' && url.includes('localhost')) {
+        url = url.replace('localhost', hostname);
+      }
     }
   }
 
@@ -27,8 +44,8 @@ export const envConfig = {
     instagram: import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/coreslashtechnologies/',
   },
   contact: {
-    email: import.meta.env.VITE_SUPPORT_EMAIL || 'coreslashtechnologies@gmail.com',
-    emailLink: import.meta.env.VITE_SUPPORT_EMAIL_LINK || 'https://mail.google.com/mail/?view=cm&fs=1&to=coreslashtechnologies@gmail.com',
+    email: import.meta.env.VITE_SUPPORT_EMAIL || 'contact@coreslashtechnologies.com',
+    emailLink: import.meta.env.VITE_SUPPORT_EMAIL_LINK || 'https://mail.google.com/mail/?view=cm&fs=1&to=contact@coreslashtechnologies.com',
     mapsLink: import.meta.env.VITE_GOOGLE_MAPS_LINK || 'https://maps.google.com',
   }
 };

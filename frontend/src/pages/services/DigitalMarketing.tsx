@@ -59,15 +59,15 @@ const DigitalMarketing: React.FC = () => {
                                 <motion.div
                                     animate={{ y: [0, -15, 0] }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute bottom-8 right-8 glass-card p-6 rounded-2xl border-white/10 z-20"
+                                    className="absolute bottom-2 right-2 md:bottom-6 md:right-6 glass-card p-2 md:p-3 rounded-lg md:rounded-xl border-white/10 z-20"
                                 >
-                                    <div className="flex gap-4 items-center">
-                                        <div className="p-3 bg-accent-cyan/10 rounded-xl">
-                                            <ArrowTrendingUpIcon className="w-8 h-8 text-accent-cyan" />
+                                    <div className="flex gap-1.5 md:gap-2.5 items-center">
+                                        <div className="p-1 md:p-2 bg-accent-cyan/10 rounded-md md:rounded-lg">
+                                            <ArrowTrendingUpIcon className="w-4 h-4 md:w-6 md:h-6 text-accent-cyan" />
                                         </div>
                                         <div>
-                                            <p className="font-bold text-2xl text-white">+312%</p>
-                                            <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Growth Velocity</p>
+                                            <p className="font-bold text-sm md:text-lg text-white leading-tight">+312%</p>
+                                            <p className="text-[6px] md:text-[8px] font-bold text-white/40 uppercase tracking-wider mt-0.5">Growth Velocity</p>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -137,13 +137,13 @@ const DigitalMarketing: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all h-full flex flex-col"
+                                    className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all h-full flex flex-col items-center text-center md:items-start md:text-left"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors">
+                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors mx-auto md:mx-0">
                                         <CheckCircleIcon className="w-6 h-6 text-accent-cyan" />
                                     </div>
                                     <h4 className="text-lg font-bold text-white leading-tight mb-2 group-hover:text-accent-cyan transition-colors">{feature}</h4>
-                                    <div className="w-8 h-1 bg-white/10 rounded-full group-hover:w-16 group-hover:bg-accent-cyan transition-all" />
+                                    <div className="w-8 h-1 bg-white/10 rounded-full group-hover:w-16 group-hover:bg-accent-cyan transition-all mx-auto md:mx-0" />
                                 </motion.div>
                             ))}
                         </div>

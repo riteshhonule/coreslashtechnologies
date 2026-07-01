@@ -134,21 +134,45 @@ const ShopifyDevelopment: React.FC = () => {
                                     </h3>
                                     <div className="h-[1px] w-full bg-white/5" />
                                 </div>
-                                <div className="flex flex-wrap gap-4">
+                                <div className="grid grid-cols-2 md:flex md:flex-wrap gap-3 md:gap-4">
                                     {[
-                                        { name: "Razorpay", img: razorpay },
-                                        { name: "Stripe", img: stripe },
-                                        { name: "PayPal", img: paypal },
-                                        { name: "PhonePe", img: phonepe },
-                                        { name: "Google Pay", img: gpay },
+                                        { 
+                                            name: "Razorpay", 
+                                            img: razorpay, 
+                                            classes: "bg-[#0c80e3]/10 border-[#0c80e3]/30 text-white/70 hover:bg-[#0c80e3] hover:border-[#0c80e3] hover:text-white shadow-[0_0_15px_rgba(12,128,227,0.1)] hover:shadow-[0_0_25px_rgba(12,128,227,0.4)]"
+                                        },
+                                        { 
+                                            name: "Stripe", 
+                                            img: stripe, 
+                                            classes: "bg-[#635bff]/10 border-[#635bff]/30 text-white/70 hover:bg-[#635bff] hover:border-[#635bff] hover:text-white shadow-[0_0_15px_rgba(99,91,255,0.1)] hover:shadow-[0_0_25px_rgba(99,91,255,0.4)]"
+                                        },
+                                        { 
+                                            name: "PayPal", 
+                                            img: paypal, 
+                                            classes: "bg-[#00457c]/15 border-[#00457c]/35 text-white/70 hover:bg-[#00457c] hover:border-[#00457c] hover:text-white shadow-[0_0_15px_rgba(0,69,124,0.1)] hover:shadow-[0_0_25px_rgba(0,69,124,0.4)]"
+                                        },
+                                        { 
+                                            name: "PhonePe", 
+                                            img: phonepe, 
+                                            classes: "bg-[#5f259f]/15 border-[#5f259f]/35 text-white/70 hover:bg-[#5f259f] hover:border-[#5f259f] hover:text-white shadow-[0_0_15px_rgba(95,37,159,0.1)] hover:shadow-[0_0_25px_rgba(95,37,159,0.4)]"
+                                        },
+                                        { 
+                                            name: "Paytm", 
+                                            img: gpay, 
+                                            classes: "bg-[#00baf2]/10 border-[#00baf2]/30 text-white/70 hover:bg-[#00baf2] hover:border-[#00baf2] hover:text-white shadow-[0_0_15px_rgba(0,186,242,0.1)] hover:shadow-[0_0_25px_rgba(0,186,242,0.4)]"
+                                        },
                                     ].map((payment, index) => (
                                         <motion.div
                                             key={index}
                                             whileHover={{ y: -3 }}
-                                            className="glass-card px-4 py-2 rounded-xl border-white/5 flex items-center gap-3  group hover:-0 transition-all"
+                                            className={`px-4 py-3 rounded-xl border flex items-center gap-3 transition-all cursor-pointer ${
+                                                payment.classes
+                                            } ${
+                                                index === 4 ? "col-span-2 md:col-span-auto justify-center" : ""
+                                            }`}
                                         >
                                             <img src={payment.img} alt={payment.name} className="w-6 h-6 object-contain" />
-                                            <span className="text-[10px] font-bold text-white/40 group-hover:text-white transition-colors uppercase tracking-widest">{payment.name}</span>
+                                            <span className="text-[10px] font-bold uppercase tracking-widest">{payment.name}</span>
                                         </motion.div>
                                     ))}
                                 </div>
@@ -185,7 +209,7 @@ const ShopifyDevelopment: React.FC = () => {
                             <p className="text-white/40 max-w-2xl mx-auto">Advanced store capabilities engineered for maximum conversion velocity.</p>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
                             {features.map((f, i) => (
                                 <motion.div
                                     key={i}
@@ -193,7 +217,7 @@ const ShopifyDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center transition-all h-full"
+                                    className="glass-card p-6 sm:p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center transition-all h-full"
                                 >
                                     <div className="w-14 h-14 mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors">
                                         <f.icon className="w-7 h-7 text-white group-hover:text-accent-cyan transition-colors" />

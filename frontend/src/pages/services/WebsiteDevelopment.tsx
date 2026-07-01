@@ -107,112 +107,134 @@ const WebsiteDevelopment: React.FC = () => {
                 title="Website Development Services"
                 description="Custom, high-performance website development services. We build digital growth engines engineered for speed, SEO, and conversions."
                 structuredData={structuredData}
-            />
-            <div className="bg-dark-black">
-                {/* Main Content & Sidebar */}
-                <section className="container mx-auto px-6 lg:px-12 py-10 md:py-20">
-                    <div className="grid lg:grid-cols-3 gap-8 lg:gap-16 items-start">
-
-                        {/* CONTENT AREA */}
-                        <div className="lg:col-span-2 space-y-20">
-
-                            {/* Featured Image */}
-                            <motion.div
-                                initial={{ opacity: 1, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0, margin: "200px" }}
-                                className="relative group"
-                            >
-                                <div className="absolute -inset-1 bg-gradient-to-r from-primary-purple to-accent-cyan rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000" />
-                                <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video bg-white flex items-center justify-center">
-                                    <img
-                                        src={coreslashWebsiteDevelopment}
-                                        alt="CoreSlash Website Development"
-                                        loading="lazy"
-                                        decoding="async"
-                                        className="w-full h-full object-contain transition-all duration-1000 group-hover:scale-[1.02]"
-                                    />
-                                </div>
-                            </motion.div>
-
-                            {/* Narrative */}
-                            <motion.div
-                                initial={{ opacity: 1, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0, margin: "200px" }}
-                                className="max-w-4xl"
-                            >
-                                <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
-                                    <SparklesIcon className="w-4 h-4" />
-                                    Engineering Excellence
-                                </div>
-                                <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
-                                    We architect <span className="text-gradient-purple">Digital Growth</span> engines.
-                                </h2>
-
-
-                                {/* Premium Vertical Features Stack */}
-                                <div className="flex flex-col gap-6">
-                                    {features.map((f, i) => (
-                                        <motion.div
-                                            key={i}
-                                            initial={{ opacity: 1, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true, amount: 0, margin: "200px" }}
-                                            transition={{ duration: 0.3, delay: i * 0.05 }}
-                                            className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 transition-all relative overflow-hidden"
+            />            <div className="bg-dark-black">
+                {/* Intro & Visuals */}
+                <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        {/* Narrative & Tags */}
+                        <motion.div
+                            initial={{ opacity: 1, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
+                            className="space-y-8"
+                        >
+                            <div className="flex items-center gap-2 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                                <SparklesIcon className="w-4 h-4" />
+                                Engineering Excellence
+                            </div>
+                            <h2 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+                                We architect <span className="text-gradient-purple">Digital Growth</span> engines.
+                            </h2>
+                            <p className="text-white/60 text-lg leading-relaxed font-medium">
+                                We leverage the latest web technologies to build lightning-fast, high-converting digital storefronts and enterprise architectures. Our design system prioritizes mobile responsiveness, sub-second load times, and clean modular codebases.
+                            </p>
+                            
+                            {/* Expertise Tags */}
+                            <div className="pt-4">
+                                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-4 text-center md:text-left">Core Technology Stack</p>
+                                <div className="grid grid-cols-2 md:flex md:flex-wrap gap-3">
+                                    {["React / Next.js", "Headless CMS", "Cloud Infrastructure", "UX Architecture", "SEO Engineering"].map((tech, index) => (
+                                        <div 
+                                            key={tech} 
+                                            className={`glass-card px-4 py-2.5 rounded-xl border-white/5 text-[10px] sm:text-xs text-white/60 font-bold uppercase tracking-wider text-center flex items-center justify-center ${
+                                                index === 2 ? "col-span-2 justify-self-center w-full max-w-[240px] md:w-auto" : "w-full"
+                                            }`}
                                         >
-                                            {/* Spotlight Effect */}
-                                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(34,211,238,0.08),transparent_50%)] pointer-events-none" />
-
-                                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent-cyan/10">
-                                                <img src={f.icon} alt={f.title} loading="lazy" decoding="async" className="w-7 h-7 object-contain transition-all" />
-                                            </div>
-                                            
-                                            <div className="space-y-2 relative z-10 flex-1">
-                                                <h3 className="text-xl font-bold text-white transition-colors group-hover:text-accent-cyan">
-                                                    {f.title}
-                                                </h3>
-                                                <p className="text-white/40 text-sm leading-relaxed font-medium">
-                                                    {f.desc}
-                                                </p>
-                                            </div>
-                                        </motion.div>
+                                            {tech}
+                                        </div>
                                     ))}
                                 </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Featured Mockup Image */}
+                        <motion.div
+                            initial={{ opacity: 1, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
+                            className="relative group"
+                        >
+                            <div className="absolute -inset-2 bg-gradient-to-r from-primary-purple to-accent-cyan rounded-[3rem] blur opacity-25 group-hover:opacity-45 transition duration-1000" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video bg-white flex items-center justify-center p-4">
+                                <img
+                                    src={coreslashWebsiteDevelopment}
+                                    alt="CoreSlash Website Development"
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-full object-contain transition-all duration-1000 group-hover:scale-[1.02]"
+                                />
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* Premium Capabilities Grid */}
+                <section className="py-12 md:py-24 bg-dark-black/40 border-y border-white/5">
+                    <div className="container mx-auto px-6 lg:px-12">
+                        <div className="text-center mb-20">
+                            <motion.div
+                                initial={{ opacity: 1, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0, margin: "200px" }}
+                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
+                            >
+                                <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+                                    Capabilities
+                                </span>
                             </motion.div>
+                            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+                                Complete <span className="text-gradient-cyan">Website</span> Ecosystem
+                            </h3>
                         </div>
 
-                        {/* SIDEBAR */}
-                        <aside className="lg:sticky lg:top-32 space-y-8">
-                            {/* Lead Form */}
-                            <div className="glass-card p-10 rounded-[3rem] border-white/5 relative overflow-hidden">
-                                <div className="hidden md:block absolute top-0 right-0 w-32 h-32 bg-primary-purple/10 rounded-full blur-3xl pointer-events-none" />
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {features.map((f, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 1, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0, margin: "200px" }}
+                                    transition={{ duration: 0.3, delay: i * 0.05 }}
+                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col items-start gap-6 transition-all relative overflow-hidden"
+                                >
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(34,211,238,0.08),transparent_50%)] pointer-events-none" />
 
-                                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
-                                    Book Your <br />
-                                    <span className="text-accent-cyan italic">Free</span> Consultation
+                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent-cyan/10">
+                                        <img src={f.icon} alt={f.title} loading="lazy" decoding="async" className="w-8 h-8 object-contain transition-all" />
+                                    </div>
+                                    
+                                    <div className="space-y-3 relative z-10">
+                                        <h4 className="text-2xl font-bold text-white transition-colors group-hover:text-accent-cyan">
+                                            {f.title}
+                                        </h4>
+                                        <p className="text-white/40 text-sm leading-relaxed font-medium">
+                                            {f.desc}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Dedicated Consultation Section */}
+                <section className="py-12 md:py-24 bg-dark-black">
+                    <div className="container mx-auto px-6 max-w-4xl">
+                        <div className="glass-card p-10 md:p-16 rounded-[4rem] border-white/5 relative overflow-hidden">
+                            <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-primary-purple/10 rounded-full blur-3xl pointer-events-none" />
+                            <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-accent-cyan/5 rounded-full blur-3xl pointer-events-none" />
+
+                            <div className="text-center mb-12">
+                                <h3 className="text-4xl font-bold text-white mb-4 tracking-tight">
+                                    Book Your <span className="text-accent-cyan italic">Free</span> Consultation
                                 </h3>
-                                <p className="text-white/40 text-sm mb-8 leading-relaxed">
-                                    Get a customized technology strategy and development roadmap.
+                                <p className="text-white/40 text-base max-w-lg mx-auto leading-relaxed">
+                                    Get a customized technology strategy and development roadmap from our engineering specialists.
                                 </p>
-
-                                <ContactForm variant="glass" service="Website Development" isSidebar={true} />
                             </div>
 
-                            {/* Expertise List */}
-                            <div className="glass-card p-10 rounded-[3rem] border-white/5">
-                                <p className="text-xs font-bold text-white/30 uppercase tracking-[0.3em] mb-8">Expertise</p>
-                                <ul className="space-y-6">
-                                    {["React / Next.js", "Headless CMS", "Cloud Systems", "UX Architecture"].map((s) => (
-                                        <li key={s} className="flex items-center justify-between text-white/60 hover:text-accent-cyan transition-colors cursor-pointer group">
-                                            <span className="font-bold text-sm tracking-wide">{s}</span>
-                                            <ArrowRightIcon className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </aside>
+                            <ContactForm variant="glass" service="Website Development" isSidebar={false} />
+                        </div>
                     </div>
                 </section>
 

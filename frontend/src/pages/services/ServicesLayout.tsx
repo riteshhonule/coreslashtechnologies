@@ -19,7 +19,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
 }) => {
     const { openModal } = useModal();
     return (
-        <div className="relative min-h-screen bg-dark-black pt-0 overflow-hidden">
+        <div className="relative min-h-screen bg-dark-black pt-0 overflow-x-clip">
             {/* Premium Header Section */}
             <section className="relative py-12 md:py-32 w-full text-white overflow-hidden">
 

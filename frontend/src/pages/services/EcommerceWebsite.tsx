@@ -144,19 +144,43 @@ const EcommerceWebsite: React.FC = () => {
 
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
                             {[
-                                { name: "Razorpay", img: razorpay },
-                                { name: "Stripe", img: stripe },
-                                { name: "PayPal", img: paypal },
-                                { name: "PhonePe", img: phonepe },
-                                { name: "Google Pay", img: gpay },
+                                { 
+                                    name: "Razorpay", 
+                                    img: razorpay, 
+                                    classes: "bg-[#0c80e3]/10 border-[#0c80e3]/30 text-white/70 hover:bg-[#0c80e3] hover:border-[#0c80e3] hover:text-white shadow-[0_0_15px_rgba(12,128,227,0.1)] hover:shadow-[0_0_25px_rgba(12,128,227,0.4)]"
+                                },
+                                { 
+                                    name: "Stripe", 
+                                    img: stripe, 
+                                    classes: "bg-[#635bff]/10 border-[#635bff]/30 text-white/70 hover:bg-[#635bff] hover:border-[#635bff] hover:text-white shadow-[0_0_15px_rgba(99,91,255,0.1)] hover:shadow-[0_0_25px_rgba(99,91,255,0.4)]"
+                                },
+                                { 
+                                    name: "PayPal", 
+                                    img: paypal, 
+                                    classes: "bg-[#00457c]/15 border-[#00457c]/35 text-white/70 hover:bg-[#00457c] hover:border-[#00457c] hover:text-white shadow-[0_0_15px_rgba(0,69,124,0.1)] hover:shadow-[0_0_25px_rgba(0,69,124,0.4)]"
+                                },
+                                { 
+                                    name: "PhonePe", 
+                                    img: phonepe, 
+                                    classes: "bg-[#5f259f]/15 border-[#5f259f]/35 text-white/70 hover:bg-[#5f259f] hover:border-[#5f259f] hover:text-white shadow-[0_0_15px_rgba(95,37,159,0.1)] hover:shadow-[0_0_25px_rgba(95,37,159,0.4)]"
+                                },
+                                { 
+                                    name: "Paytm", 
+                                    img: gpay, 
+                                    classes: "bg-[#00baf2]/10 border-[#00baf2]/30 text-white/70 hover:bg-[#00baf2] hover:border-[#00baf2] hover:text-white shadow-[0_0_15px_rgba(0,186,242,0.1)] hover:shadow-[0_0_25px_rgba(0,186,242,0.4)]"
+                                },
                             ].map((payment, index) => (
                                 <motion.div
                                     key={index}
                                     whileHover={{ y: -5 }}
-                                    className="glass-card p-8 rounded-3xl border-white/5 flex flex-col items-center justify-center gap-4 group"
+                                    className={`p-8 rounded-3xl border flex flex-col items-center justify-center gap-4 transition-all cursor-pointer ${
+                                        payment.classes
+                                    } ${
+                                        index === 4 ? "col-span-2 md:col-span-1" : ""
+                                    }`}
                                 >
-                                    <img src={payment.img} alt={payment.name} className="h-8 object-contain  transition-all" />
-                                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest">{payment.name}</span>
+                                    <img src={payment.img} alt={payment.name} className="h-8 object-contain" />
+                                    <span className="text-[10px] font-bold uppercase tracking-widest">{payment.name}</span>
                                 </motion.div>
                             ))}
                         </div>
@@ -177,9 +201,9 @@ const EcommerceWebsite: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20"
+                                    className="glass-card p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center md:items-start md:text-left"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10">
+                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 mx-auto md:mx-0">
                                         <CheckCircleIcon className="w-6 h-6 text-accent-cyan" />
                                     </div>
                                     <p className="text-white font-bold leading-snug group-hover:text-accent-cyan transition-colors">{feature}</p>

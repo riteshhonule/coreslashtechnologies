@@ -54,13 +54,13 @@ export default function PrivacyPolicy() {
             
             {/* Introduction */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Shield className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">1. Introduction</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">1. Introduction</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Welcome to Coreslash Technologies. We operate the website located at{" "}
                   <a
@@ -86,13 +86,13 @@ export default function PrivacyPolicy() {
 
             {/* Information We Collect */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Eye className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">2. Information We Collect</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">2. Information We Collect</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   We collect personal and technical information to optimize your experience, process contract applications, and respond to your digital project requests.
                 </p>
@@ -114,13 +114,13 @@ export default function PrivacyPolicy() {
 
             {/* How We Use Information */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Database className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">3. How We Use Information</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">3. How We Use Information</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>We process your data for several standard legal and business purposes:</p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>To evaluate project scope, calculate custom quotations, and contact you regarding initial project consultations.</li>
@@ -136,13 +136,13 @@ export default function PrivacyPolicy() {
 
             {/* Data Protection & Security */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Lock className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">4. Data Protection & Security</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">4. Data Protection & Security</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   We prioritize data security. All information sent through our digital pipelines is protected using Transport Layer Security (TLS/SSL) encryption during transit.
                 </p>
@@ -156,13 +156,13 @@ export default function PrivacyPolicy() {
 
             {/* Sharing & Disclosure */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Users className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">5. Sharing & Disclosure</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">5. Sharing & Disclosure</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>We do not sell, rent, or trade your personal information to third parties.</p>
                 <p>We may share your data under the following limited conditions:</p>
                 <ul className="list-disc pl-6 space-y-2">
@@ -177,13 +177,13 @@ export default function PrivacyPolicy() {
 
             {/* Cookies & Tracking */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Globe className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">6. Cookies & Analytics</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">6. Cookies & Analytics</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   We deploy cookies (small text files saved on your terminal) and web beacons to remember preferences, assess page engagement speed, and compile statistical audience reports.
                 </p>
@@ -200,13 +200,13 @@ export default function PrivacyPolicy() {
 
             {/* Your Rights & Controls */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <UserCheck className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">7. Your Rights & Controls</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">7. Your Rights & Controls</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Regardless of your geographic location, we respect your rights to manage your personal details. Depending on your local jurisdiction (such as GDPR, CCPA, or regional IT regulations), you have:
                 </p>
@@ -223,33 +223,33 @@ export default function PrivacyPolicy() {
 
             {/* Contact Information */}
             <section className="space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">8. Contact Information</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">8. Contact Information</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   If you have any questions about this Privacy Policy, wish to exercise your data protection rights, or have queries about how your data is handled, feel free to contact our data officer:
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-4 hover:border-accent-cyan/20 transition-all">
+                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 hover:border-accent-cyan/20 transition-all">
                     <Mail className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1">Email Us</p>
-                      <a href={`mailto:${envConfig.contact.email}`} className="text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
+                      <a href={`mailto:${envConfig.contact.email}`} className="text-xs sm:text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
                         {envConfig.contact.email}
                       </a>
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-4 hover:border-accent-cyan/20 transition-all">
+                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 hover:border-accent-cyan/20 transition-all">
                     <Phone className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1">Call / WhatsApp</p>
-                      <a href={`tel:${envConfig.social.whatsappPhone}`} className="text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
+                      <a href={`tel:${envConfig.social.whatsappPhone}`} className="text-xs sm:text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
                         {envConfig.social.whatsappPhone}
                       </a>
                     </div>

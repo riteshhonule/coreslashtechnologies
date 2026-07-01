@@ -13,31 +13,36 @@ const gateways = [
         name: "Razorpay",
         img: razorpay,
         desc: "Regional Payments",
-        glow: "rgba(9, 114, 231, 0.15)"
+        classes: "bg-[#0c80e3]/10 border-[#0c80e3]/30 text-white/70 hover:bg-[#0c80e3] hover:border-[#0c80e3] hover:text-white shadow-[0_0_15px_rgba(12,128,227,0.1)] hover:shadow-[0_0_25px_rgba(12,128,227,0.4)]",
+        glow: "rgba(12, 128, 227, 0.25)"
     },
     {
         name: "Stripe",
         img: stripe,
         desc: "Global Operations",
-        glow: "rgba(99, 91, 255, 0.15)"
+        classes: "bg-[#635bff]/10 border-[#635bff]/30 text-white/70 hover:bg-[#635bff] hover:border-[#635bff] hover:text-white shadow-[0_0_15px_rgba(99,91,255,0.1)] hover:shadow-[0_0_25px_rgba(99,91,255,0.4)]",
+        glow: "rgba(99, 91, 255, 0.25)"
     },
     {
         name: "PayPal",
         img: paypal,
         desc: "International Trade",
-        glow: "rgba(0, 48, 135, 0.2)"
+        classes: "bg-[#00457c]/15 border-[#00457c]/35 text-white/70 hover:bg-[#00457c] hover:border-[#00457c] hover:text-white shadow-[0_0_15px_rgba(0,69,124,0.1)] hover:shadow-[0_0_25px_rgba(0,69,124,0.4)]",
+        glow: "rgba(0, 69, 124, 0.25)"
     },
     {
         name: "PhonePe",
         img: phonepe,
         desc: "Secure UPI",
-        glow: "rgba(95, 37, 159, 0.2)"
+        classes: "bg-[#5f259f]/15 border-[#5f259f]/35 text-white/70 hover:bg-[#5f259f] hover:border-[#5f259f] hover:text-white shadow-[0_0_15px_rgba(95,37,159,0.1)] hover:shadow-[0_0_25px_rgba(95,37,159,0.4)]",
+        glow: "rgba(95, 37, 159, 0.25)"
     },
     {
         name: "Paytm",
         img: gpay,
         desc: "Mobile Commerce",
-        glow: "rgba(0, 186, 242, 0.15)"
+        classes: "bg-[#00baf2]/10 border-[#00baf2]/30 text-white/70 hover:bg-[#00baf2] hover:border-[#00baf2] hover:text-white shadow-[0_0_15px_rgba(0,186,242,0.1)] hover:shadow-[0_0_25px_rgba(0,186,242,0.4)]",
+        glow: "rgba(0, 186, 242, 0.25)"
     },
 ];
 
@@ -73,7 +78,7 @@ const PaymentGateway = () => {
 
                 {/* Integration Visualization Grid */}
                 <div className="relative">
-                    <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-4 md:gap-6 max-w-6xl mx-auto">
                         {gateways.map((payment, index) => (
                             <motion.div
                                 key={index}
@@ -82,27 +87,31 @@ const PaymentGateway = () => {
                                 transition={{ delay: index * 0.04, duration: 0.3 }}
                                 viewport={{ once: true, amount: 0, margin: "200px" }}
                                 whileHover={{ y: -8 }}
-                                className="relative flex-1 min-w-[180px] max-w-[220px] h-48 rounded-[2rem] border border-white/5 bg-white/[0.02] backdrop-blur-xl p-6 flex flex-col items-center justify-center text-center group cursor-pointer transition-all duration-500 hover:border-accent-cyan/30 hover:bg-white/[0.04] hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                                className={`relative flex-1 min-w-[130px] max-w-[220px] h-36 md:h-48 rounded-2xl md:rounded-[2rem] border p-4 md:p-6 flex flex-col items-center justify-center text-center group cursor-pointer transition-all duration-500 ${
+                                    payment.classes
+                                } ${
+                                    index === 2 ? "col-span-2 justify-self-center w-full md:w-auto md:col-span-auto" : ""
+                                }`}
                             >
                                 {/* Brand Glow Backdrop */}
                                 <div 
-                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem] pointer-events-none blur-2xl -z-10"
+                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-[2rem] pointer-events-none blur-2xl -z-10"
                                     style={{ background: `radial-gradient(circle, ${payment.glow} 0%, transparent 70%)` }}
                                 />
 
-                                <div className="relative w-16 h-16 flex items-center justify-center mb-6">
+                                <div className="relative w-10 h-10 md:w-16 md:h-16 flex items-center justify-center mb-4 md:mb-6">
                                     <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 blur-xl pointer-events-none" />
                                     <img
                                         src={payment.img}
                                         alt={payment.name}
-                                        className="max-w-full max-h-full object-contain filter grayscale opacity-45 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10"
+                                        className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 relative z-10"
                                     />
                                 </div>
 
-                                <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-2 group-hover:text-white/60 transition-colors">
+                                <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] mb-1 md:mb-2 transition-colors">
                                     {payment.name}
                                 </p>
-                                <p className="text-[9px] font-medium text-white/20 uppercase tracking-wider group-hover:text-accent-cyan transition-colors">
+                                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-wider transition-colors">
                                     {payment.desc}
                                 </p>
                             </motion.div>

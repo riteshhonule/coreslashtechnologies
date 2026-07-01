@@ -131,7 +131,7 @@ export class EmailService {
   async sendContactNotification(contact: any): Promise<void> {
     const adminEmail =
       this.configService.get<string>('MAIL_TO') ||
-      'coreslashtechnologies@gmail.com';
+      'contact@coreslashtechnologies.com';
     const html = `
       <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
         <h2 style="color: #333;">New Contact Inquiry</h2>
@@ -156,7 +156,7 @@ export class EmailService {
   async sendLeadNotification(lead: any): Promise<void> {
     const adminEmail =
       this.configService.get<string>('MAIL_TO') ||
-      'coreslashtechnologies@gmail.com';
+      'contact@coreslashtechnologies.com';
     const html = `
       <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
         <h2 style="color: #007bff;">New Lead Captured</h2>

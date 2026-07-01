@@ -54,13 +54,13 @@ export default function CookiePolicy() {
             
             {/* What Are Cookies? */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Info className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">1. What Are Cookies?</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">1. What Are Cookies?</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Cookies are small text files containing details of your browser settings that are stored on your computer or mobile terminal when you visit a webpage.
                 </p>
@@ -74,13 +74,13 @@ export default function CookiePolicy() {
 
             {/* How We Use Cookies */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Cookie className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">2. How We Use Cookies</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">2. How We Use Cookies</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   We deploy cookies to improve your navigation experience, monitor site usage speed, and customize promotional campaigns.
                 </p>
@@ -94,13 +94,13 @@ export default function CookiePolicy() {
 
             {/* Cookie Categories */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <BarChart2 className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">3. Cookie Categories We Collect</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">3. Cookie Categories We Collect</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>We classify the cookies we run into the following categories:</p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li><strong>Essential Cookies:</strong> These cookies are critical to run fundamental features of our website, such as validating user sessions, executing payment transaction pipelines, and keeping spam filters active on our lead forms. They cannot be deactivated manually.</li>
@@ -115,13 +115,13 @@ export default function CookiePolicy() {
 
             {/* Third-Party Cookies */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">4. Third-Party Tracker Disclosures</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">4. Third-Party Tracker Disclosures</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   We deploy specialized third-party software systems to handle analytics and transactional records. These vendors write cookies to your terminal:
                 </p>
@@ -137,13 +137,13 @@ export default function CookiePolicy() {
 
             {/* Managing Preferences */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Settings className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">5. Managing Cookie Preferences</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">5. Managing Cookie Preferences</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   You have complete control over how cookies are managed on your device. Most web browsers allow you to modify settings to block new cookies, delete existing cookies, or alert you when cookies are sent.
                 </p>
@@ -176,13 +176,13 @@ export default function CookiePolicy() {
 
             {/* Policy Inquiries */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <HelpCircle className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">6. Updates & Inquiries</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">6. Updates & Inquiries</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   We may update this Cookie Policy from time to time to reflect changes in our technology systems or legal obligations. We recommend reviewing this page periodically to stay informed about how we use tracking cookies.
                 </p>

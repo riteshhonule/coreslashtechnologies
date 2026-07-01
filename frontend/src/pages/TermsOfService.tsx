@@ -54,13 +54,13 @@ export default function TermsOfService() {
             
             {/* Acceptance & Services */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Cpu className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">1. Acceptance of Terms & Services Scope</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">1. Acceptance of Terms & Services Scope</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   By engaging with Coreslash Technologies (the "Company", "we", "us", or "our"), signing a client contract, submitting inquiries through{" "}
                   <a
@@ -83,13 +83,13 @@ export default function TermsOfService() {
 
             {/* Project Execution */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <FileText className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">2. Project Execution & Client Cooperation</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">2. Project Execution & Client Cooperation</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Successful project delivery requires active collaboration. To ensure projects stay on schedule, the Client agrees to provide prompt feedback, text copy, graphic assets, brand guidelines, credentials, or API tokens as outlined in our project onboarding checklists.
                 </p>
@@ -103,13 +103,13 @@ export default function TermsOfService() {
 
             {/* Intellectual Property */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Key className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">3. Intellectual Property Rights & Code Ownership</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">3. Intellectual Property Rights & Code Ownership</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Unless otherwise agreed in a signed written contract, the assignment of Intellectual Property (IP) is structured as follows:
                 </p>
@@ -125,13 +125,13 @@ export default function TermsOfService() {
 
             {/* Payments & Invoicing */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Receipt className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">4. Payments, Milestones & Invoicing</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">4. Payments, Milestones & Invoicing</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Our professional billing system is organized around clearly defined payment milestones. These terms ensure transparency:
                 </p>
@@ -147,13 +147,13 @@ export default function TermsOfService() {
 
             {/* Limitation of Liability */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <AlertTriangle className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">5. Limitation of Liability</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">5. Limitation of Liability</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL CORESLASH TECHNOLOGIES BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, EXEMPLARY, PUNATIVE, OR CONSEQUENTIAL DAMAGES WHATSOEVER.
                 </p>
@@ -167,13 +167,13 @@ export default function TermsOfService() {
 
             {/* Acceptable Use Policy */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <ShieldAlert className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">6. Acceptable Use Policy</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">6. Acceptable Use Policy</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Our services, servers, and digital environments must only be utilized for lawful purposes. You agree not to use our codebases or websites to:
                 </p>
@@ -189,13 +189,13 @@ export default function TermsOfService() {
 
             {/* Termination */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Ban className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">7. Termination of Engagements</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">7. Termination of Engagements</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Either party may terminate a project contract if the other party commits a material breach of terms and fails to cure such breach within thirty (30) days of receiving written notice.
                 </p>
@@ -209,13 +209,13 @@ export default function TermsOfService() {
 
             {/* Governing Law */}
             <section className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
                   <Award className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">8. Governing Law & Jurisdiction</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">8. Governing Law & Jurisdiction</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base">
+              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   These Terms of Service, along with any separate project contracts, shall be governed by, construed, and enforced in accordance with the laws of the State of Karnataka, India, without regard to its principles of conflicts of law.
                 </p>
@@ -226,21 +226,21 @@ export default function TermsOfService() {
                   For questions regarding these terms, please contact us:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-4">
+                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4">
                     <Mail className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1">Email Us</p>
-                      <a href={`mailto:${envConfig.contact.email}`} className="text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
+                      <a href={`mailto:${envConfig.contact.email}`} className="text-xs sm:text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
                         {envConfig.contact.email}
                       </a>
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-4">
+                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4">
                     <Phone className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1">WhatsApp Us</p>
-                      <a href={`tel:${envConfig.social.whatsappPhone}`} className="text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
+                      <a href={`tel:${envConfig.social.whatsappPhone}`} className="text-xs sm:text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
                         {envConfig.social.whatsappPhone}
                       </a>
                     </div>

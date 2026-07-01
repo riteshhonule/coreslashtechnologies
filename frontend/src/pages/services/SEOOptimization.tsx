@@ -60,15 +60,15 @@ const SEOOptimization: React.FC = () => {
                             <motion.div
                                 animate={{ y: [0, -15, 0] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-10 -right-4 glass-card p-6 rounded-2xl border-white/10 z-20"
+                                className="absolute -bottom-4 right-2 md:-bottom-8 md:-right-4 glass-card p-2 md:p-3 rounded-lg md:rounded-xl border-white/10 z-20"
                             >
-                                <div className="flex gap-4 items-center">
-                                    <div className="p-3 bg-accent-cyan/10 rounded-xl">
-                                        <ArrowTrendingUpIcon className="w-8 h-8 text-accent-cyan" />
+                                <div className="flex gap-1.5 md:gap-2.5 items-center">
+                                    <div className="p-1 md:p-2 bg-accent-cyan/10 rounded-md md:rounded-lg">
+                                        <ArrowTrendingUpIcon className="w-4 h-4 md:w-6 md:h-6 text-accent-cyan" />
                                     </div>
                                     <div>
-                                        <p className="font-bold text-2xl text-white">+312%</p>
-                                        <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Growth Velocity</p>
+                                        <p className="font-bold text-sm md:text-lg text-white leading-tight">+312%</p>
+                                        <p className="text-[6px] md:text-[8px] font-bold text-white/40 uppercase tracking-wider mt-0.5">Growth Velocity</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -137,16 +137,16 @@ const SEOOptimization: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 group hover:border-accent-cyan/20 transition-all h-full flex flex-col"
+                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 group hover:border-accent-cyan/20 transition-all h-full flex flex-col items-center text-center md:items-start md:text-left"
                                 >
-                                    <div className="w-16 h-16 mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors">
+                                    <div className="w-16 h-16 mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors mx-auto md:mx-0">
                                         <f.icon className="w-8 h-8 text-white group-hover:text-accent-cyan transition-colors" />
                                     </div>
                                     <h4 className="text-2xl font-bold text-white mb-4 tracking-tight group-hover:text-accent-cyan transition-colors">{f.title}</h4>
                                     <p className="text-white/40 leading-relaxed mb-8 font-medium">
                                         {f.desc}
                                     </p>
-                                    <div className="flex items-center gap-2 text-accent-cyan font-bold text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                                    <div className="flex items-center gap-2 text-accent-cyan font-bold text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0 justify-center md:justify-start w-full">
                                         STRATEGY <ArrowUpRightIcon className="w-4 h-4" />
                                     </div>
                                 </motion.div>
