@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getContacts } from "../../lib/api";
+import { getContacts, getInquiries } from "../../lib/api";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Contact {
@@ -15,9 +15,25 @@ interface Contact {
   createdAt: string;
 }
 
+interface Inquiry {
+  id: string;
+  fullName: string;
+  mobile: string;
+  email: string;
+  organization?: string;
+  services: string[];
+  createdAt: string;
+}
+
 export default function DashboardPage() {
+  const [activeTab, setActiveTab] = useState<"Contacts" | "Inquiries">("Contacts");
+  
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [filteredContacts, setFilteredContacts] = useState<Contact[]>([]);
+  
+  const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+  const [filteredInquiries, setFilteredInquiries] = useState<Inquiry[]>([]);
+  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
@@ -27,6 +43,7 @@ export default function DashboardPage() {
 
   // Details Modal
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+  const [selectedInquiry, setSelectedInquiry] = useState<Inquiry | null>(null);
   
   // Clipboard copying feedback state
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -38,7 +55,7 @@ export default function DashboardPage() {
     navigate("/superadmin/login");
   };
 
-  const fetchContactsData = async () => {
+  const fetchData = async () => {
     const token = localStorage.getItem("superadmin_token");
     if (!token) {
       navigate("/superadmin/login");
@@ -48,16 +65,24 @@ export default function DashboardPage() {
     try {
       setLoading(true);
       setError(null);
-      const response = await getContacts(token);
-      setContacts(response.data);
-      setFilteredContacts(response.data);
+      if (activeTab === "Contacts") {
+        const response = await getContacts(token);
+        // Backend now returns { data, total, page, totalPages } for contacts
+        const contactData = Array.isArray(response.data) ? response.data : response.data.data;
+        setContacts(contactData);
+        setFilteredContacts(contactData);
+      } else {
+        const response = await getInquiries(token);
+        setInquiries(response.data);
+        setFilteredInquiries(response.data);
+      }
     } catch (err: any) {
       console.error(err);
       if (err.response?.status === 401 || err.response?.status === 403) {
         localStorage.removeItem("superadmin_token");
         navigate("/superadmin/login");
       } else {
-        setError("Failed to fetch contact submissions. Please refresh the page.");
+        setError("Failed to fetch data. Please refresh the page.");
       }
     } finally {
       setLoading(false);
@@ -65,31 +90,44 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    fetchContactsData();
-  }, [navigate]);
+    fetchData();
+  }, [navigate, activeTab]);
 
   // Handle Search and Filters
   useEffect(() => {
-    let result = contacts;
-
-    if (search.trim() !== "") {
-      const q = search.toLowerCase();
-      result = result.filter(
-        (c) =>
-          c.name.toLowerCase().includes(q) ||
-          c.email.toLowerCase().includes(q) ||
-          c.phone.includes(q) ||
-          (c.address && c.address.toLowerCase().includes(q)) ||
-          c.message.toLowerCase().includes(q)
-      );
+    if (activeTab === "Contacts") {
+      let result = contacts;
+      if (search.trim() !== "") {
+        const q = search.toLowerCase();
+        result = result.filter(
+          (c) =>
+            c.name.toLowerCase().includes(q) ||
+            c.email.toLowerCase().includes(q) ||
+            c.phone.includes(q) ||
+            (c.address && c.address.toLowerCase().includes(q)) ||
+            c.message.toLowerCase().includes(q)
+        );
+      }
+      if (industryFilter !== "All") {
+        result = result.filter((c) => c.businessType === industryFilter);
+      }
+      setFilteredContacts(result);
+    } else {
+      let result = inquiries;
+      if (search.trim() !== "") {
+        const q = search.toLowerCase();
+        result = result.filter(
+          (i) =>
+            i.fullName.toLowerCase().includes(q) ||
+            i.email.toLowerCase().includes(q) ||
+            i.mobile.includes(q) ||
+            (i.organization && i.organization.toLowerCase().includes(q)) ||
+            i.services.some(s => s.toLowerCase().includes(q))
+        );
+      }
+      setFilteredInquiries(result);
     }
-
-    if (industryFilter !== "All") {
-      result = result.filter((c) => c.businessType === industryFilter);
-    }
-
-    setFilteredContacts(result);
-  }, [search, industryFilter, contacts]);
+  }, [search, industryFilter, contacts, inquiries, activeTab]);
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -97,7 +135,7 @@ export default function DashboardPage() {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  // Get unique industries for the dropdown filter
+  // Get unique industries for the dropdown filter (only relevant for Contacts)
   const industries = ["All", ...Array.from(new Set(contacts.map((c) => c.businessType).filter(Boolean)))];
 
   const formatDate = (dateStr: string) => {
@@ -120,7 +158,7 @@ export default function DashboardPage() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 pb-6 border-b border-white/10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-white/10">
           <div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-white flex items-center gap-3">
               <span className="text-gradient-cyan">Superadmin</span> Portal
@@ -151,6 +189,30 @@ export default function DashboardPage() {
               />
             </svg>
             Logout
+          </button>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="flex gap-4 mb-8">
+          <button
+            onClick={() => setActiveTab("Contacts")}
+            className={`px-6 py-2 rounded-full font-bold transition-all ${
+              activeTab === "Contacts"
+                ? "bg-accent-cyan text-dark-black shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+                : "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white"
+            }`}
+          >
+            Contact Leads
+          </button>
+          <button
+            onClick={() => setActiveTab("Inquiries")}
+            className={`px-6 py-2 rounded-full font-bold transition-all ${
+              activeTab === "Inquiries"
+                ? "bg-primary-purple text-white shadow-[0_0_15px_rgba(69,3,185,0.4)]"
+                : "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white"
+            }`}
+          >
+            Form Inquiries
           </button>
         </div>
 
@@ -224,8 +286,8 @@ export default function DashboardPage() {
             </svg>
             <h3 className="text-xl font-bold mb-1">No Submissions Found</h3>
             <p className="text-white/40 text-sm max-w-md mx-auto">
-              {contacts.length === 0
-                ? "No clients have submitted the contact form yet."
+              {(activeTab === "Contacts" ? contacts.length : inquiries.length) === 0
+                ? `No clients have submitted the ${activeTab === "Contacts" ? "contact" : "inquiry"} form yet.`
                 : "No items match your active search filters."}
             </p>
           </div>
@@ -238,13 +300,13 @@ export default function DashboardPage() {
                     <th className="py-4 px-6">Name</th>
                     <th className="py-4 px-6">Email</th>
                     <th className="py-4 px-6">Phone</th>
-                    <th className="py-4 px-6">Industry</th>
+                    <th className="py-4 px-6">{activeTab === "Contacts" ? "Industry" : "Services"}</th>
                     <th className="py-4 px-6">Date</th>
                     <th className="py-4 px-6 text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
-                  {filteredContacts.map((contact) => (
+                  {activeTab === "Contacts" ? filteredContacts.map((contact) => (
                     <tr
                       key={contact.id}
                       className="hover:bg-white/5 transition-colors cursor-pointer group"
@@ -272,13 +334,39 @@ export default function DashboardPage() {
                         </button>
                       </td>
                     </tr>
+                  )) : filteredInquiries.map((inquiry) => (
+                    <tr
+                      key={inquiry.id}
+                      className="hover:bg-white/5 transition-colors cursor-pointer group"
+                      onClick={() => setSelectedInquiry(inquiry)}
+                    >
+                      <td className="py-4 px-6 font-semibold text-white group-hover:text-accent-cyan transition-colors">
+                        {inquiry.fullName}
+                      </td>
+                      <td className="py-4 px-6 text-white/70">{inquiry.email}</td>
+                      <td className="py-4 px-6 text-white/70">{inquiry.mobile}</td>
+                      <td className="py-4 px-6 max-w-[200px] truncate text-white/70">
+                        {inquiry.services.join(", ")}
+                      </td>
+                      <td className="py-4 px-6 text-white/50 text-sm">
+                        {formatDate(inquiry.createdAt)}
+                      </td>
+                      <td className="py-4 px-6 text-right" onClick={(e) => e.stopPropagation()}>
+                        <button
+                          onClick={() => setSelectedInquiry(inquiry)}
+                          className="text-xs text-accent-cyan hover:underline mr-4 cursor-pointer font-bold"
+                        >
+                          View Details
+                        </button>
+                      </td>
+                    </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             
             <div className="bg-white/5 px-6 py-4 border-t border-white/10 flex justify-between items-center text-xs text-white/40 font-semibold">
-              <span>Showing {filteredContacts.length} of {contacts.length} entries</span>
+              <span>Showing {activeTab === "Contacts" ? filteredContacts.length : filteredInquiries.length} of {activeTab === "Contacts" ? contacts.length : inquiries.length} entries</span>
               <span>Secure Admin Session</span>
             </div>
           </div>
@@ -287,13 +375,21 @@ export default function DashboardPage() {
 
       {/* Details View Modal */}
       <AnimatePresence>
-        {selectedContact && (
+        {(selectedContact || selectedInquiry) && (() => {
+          const isContact = !!selectedContact;
+          const data = selectedContact || (selectedInquiry as unknown as Contact); // we'll access dynamically
+          const name = isContact ? selectedContact?.name : selectedInquiry?.fullName;
+          const email = isContact ? selectedContact?.email : selectedInquiry?.email;
+          const phone = isContact ? selectedContact?.phone : selectedInquiry?.mobile;
+          const date = isContact ? selectedContact?.createdAt : selectedInquiry?.createdAt;
+
+          return (
           <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4"
-            onClick={() => setSelectedContact(null)}
+            onClick={() => { setSelectedContact(null); setSelectedInquiry(null); }}
           >
             <motion.div
               initial={{ scale: 0.95, y: 20 }}
@@ -305,7 +401,7 @@ export default function DashboardPage() {
             >
               {/* Close Button */}
               <button
-                onClick={() => setSelectedContact(null)}
+                onClick={() => { setSelectedContact(null); setSelectedInquiry(null); }}
                 className="absolute right-6 top-6 text-white/40 hover:text-white transition-colors cursor-pointer"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -317,13 +413,13 @@ export default function DashboardPage() {
               <div className="p-8">
                 <div className="mb-6">
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-cyan">
-                    Lead Details
+                    {isContact ? "Lead Details" : "Inquiry Details"}
                   </span>
                   <h3 className="text-2xl font-bold mt-1 text-white">
-                    {selectedContact.name}
+                    {name}
                   </h3>
                   <p className="text-white/40 text-xs mt-1">
-                    Received on {formatDate(selectedContact.createdAt)}
+                    Received on {formatDate(date as string)}
                   </p>
                 </div>
 
@@ -333,9 +429,9 @@ export default function DashboardPage() {
                       Email Address
                     </span>
                     <div className="flex items-center gap-2 group">
-                      <span className="text-sm text-white/80">{selectedContact.email}</span>
+                      <span className="text-sm text-white/80">{email}</span>
                       <button
-                        onClick={() => copyToClipboard(selectedContact.email, "email")}
+                        onClick={() => copyToClipboard(email as string, "email")}
                         className="text-white/30 hover:text-white transition-colors cursor-pointer"
                         title="Copy to clipboard"
                       >
@@ -355,9 +451,9 @@ export default function DashboardPage() {
                       Phone Number
                     </span>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-white/80">{selectedContact.phone}</span>
+                      <span className="text-sm text-white/80">{phone}</span>
                       <button
-                        onClick={() => copyToClipboard(selectedContact.phone, "phone")}
+                        onClick={() => copyToClipboard(phone as string, "phone")}
                         className="text-white/30 hover:text-white transition-colors cursor-pointer"
                         title="Copy to clipboard"
                       >
@@ -374,39 +470,45 @@ export default function DashboardPage() {
 
                   <div className="space-y-1">
                     <span className="text-[10px] font-bold text-white/30 uppercase tracking-wider block">
-                      Location / Address
+                      {isContact ? "Location / Address" : "Organization / College"}
                     </span>
-                    <span className="text-sm text-white/80">{selectedContact.address || "Not provided"}</span>
+                    <span className="text-sm text-white/80">
+                      {isContact ? (selectedContact?.address || "Not provided") : (selectedInquiry?.organization || "Not provided")}
+                    </span>
                   </div>
 
                   <div className="space-y-1">
                     <span className="text-[10px] font-bold text-white/30 uppercase tracking-wider block">
-                      Industry Sector
+                      {isContact ? "Industry Sector" : "Services Requested"}
                     </span>
-                    <span className="text-sm text-white/80">{selectedContact.businessType || "Not provided"}</span>
+                    <span className="text-sm text-white/80">
+                      {isContact ? (selectedContact?.businessType || "Not provided") : selectedInquiry?.services.join(", ")}
+                    </span>
                   </div>
                 </div>
 
-                <div className="space-y-2 border-t border-white/10 pt-6">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-wider">
-                      Client Message / Vision
-                    </span>
-                    <button
-                      onClick={() => copyToClipboard(selectedContact.message, "msg")}
-                      className="text-xs text-accent-cyan hover:underline flex items-center gap-1 cursor-pointer font-bold"
-                    >
-                      {copiedId === "msg" ? "Copied Message!" : "Copy Full Message"}
-                    </button>
+                {isContact && selectedContact?.message && (
+                  <div className="space-y-2 border-t border-white/10 pt-6">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[10px] font-bold text-white/30 uppercase tracking-wider">
+                        Client Message / Vision
+                      </span>
+                      <button
+                        onClick={() => copyToClipboard(selectedContact.message, "msg")}
+                        className="text-xs text-accent-cyan hover:underline flex items-center gap-1 cursor-pointer font-bold"
+                      >
+                        {copiedId === "msg" ? "Copied Message!" : "Copy Full Message"}
+                      </button>
+                    </div>
+                    <div className="bg-white/5 rounded-2xl p-5 border border-white/5 text-white/90 text-sm whitespace-pre-wrap max-h-[200px] overflow-y-auto leading-relaxed">
+                      {selectedContact.message}
+                    </div>
                   </div>
-                  <div className="bg-white/5 rounded-2xl p-5 border border-white/5 text-white/90 text-sm whitespace-pre-wrap max-h-[200px] overflow-y-auto leading-relaxed">
-                    {selectedContact.message}
-                  </div>
-                </div>
+                )}
 
                 <div className="mt-8 flex justify-end">
                   <button
-                    onClick={() => setSelectedContact(null)}
+                    onClick={() => { setSelectedContact(null); setSelectedInquiry(null); }}
                     className="btn-pill btn-primary-glow text-sm py-2 px-8 cursor-pointer"
                   >
                     Close View
@@ -415,7 +517,8 @@ export default function DashboardPage() {
               </div>
             </motion.div>
           </motion.div>
-        )}
+          );
+        })()}
       </AnimatePresence>
     </div>
   );

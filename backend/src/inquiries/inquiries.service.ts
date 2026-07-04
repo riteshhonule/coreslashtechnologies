@@ -47,6 +47,12 @@ export class InquiriesService {
     return { success: true, message: 'Inquiry received', id: inquiry.id };
   }
 
+  async findAll() {
+    return this.prisma.inquiry.findMany({
+      orderBy: { createdAt: 'desc' },
+    });
+  }
+
   private async sendEmailsAsync(inquiry: any) {
     try {
       // 1. Send notification to coreslashtechnologies@gmail.com

@@ -18,3 +18,15 @@ model Inquiry {
   userAgent    String?
   createdAt    DateTime @default(now())
 }
+
+model Contact {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String
+  address      String?
+  businessType String?
+  service      String?
+  message      String
+  createdAt    DateTime @default(now())
+}

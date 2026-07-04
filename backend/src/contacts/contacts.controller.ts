@@ -5,6 +5,7 @@ import {
   Post,
   UseGuards,
   UnauthorizedException,
+  Query,
 } from '@nestjs/common';
 import { ContactsService } from './contacts.service';
 import { CreateContactDto } from './dto/create-contact.dto';
@@ -41,7 +42,14 @@ export class ContactsController {
 
   @Get()
   @UseGuards(AdminAuthGuard)
-  findAll() {
-    return this.service.findAll();
+  findAll(
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+    @Query('search') search?: string,
+    @Query('sortBy') sortBy?: string,
+  ) {
+    const pageNumber = page ? parseInt(page, 10) : 1;
+    const limitNumber = limit ? parseInt(limit, 10) : 10;
+    return this.service.findAll(pageNumber, limitNumber, search, sortBy);
   }
 }

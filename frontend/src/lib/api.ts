@@ -35,3 +35,10 @@ export const getContacts = (token: string) =>
       Authorization: `Bearer ${token}`,
     },
   });
+
+export const getInquiries = (token: string) =>
+  api.get("/inquiries", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
