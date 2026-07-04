@@ -98,7 +98,7 @@ const ContactPage = () => {
   };
 
   return (
-    <main className="relative min-h-screen bg-dark-black pt-0 overflow-hidden">
+    <main className="relative min-h-screen bg-dark-black pt-0 overflow-x-hidden pb-12">
       <SEO
         title="Contact Us"
         description="Get in touch with CoreSlash Technologies for expert IT solutions, custom software development, and AI systems."

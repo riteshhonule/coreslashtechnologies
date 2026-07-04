@@ -42,16 +42,16 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden bg-dark-black">
+    <div className="min-h-screen flex flex-col py-12 px-4 relative bg-dark-black">
       {/* Background Glow Elements */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="fixed top-1/4 left-1/4 w-[400px] h-[400px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="fixed bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 1, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-full max-w-md p-8 rounded-3xl glass-card relative z-10"
+        className="w-full max-w-md p-8 rounded-3xl glass-card relative z-10 mx-auto my-auto"
       >
         <div className="text-center mb-8">
           <div className="inline-block p-3 rounded-2xl bg-primary-purple/15 border border-primary-purple/20 mb-4">
