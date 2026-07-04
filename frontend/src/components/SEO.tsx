@@ -11,9 +11,9 @@ interface SEOProps {
 }
 
 const defaultSEO = {
-  title: 'CoreSlash Technologies | IT Solutions, Software Development & AI Systems Company in India',
-  description: 'CoreSlash Technologies provides enterprise-grade IT solutions, custom software development, AI systems, web applications, and scalable digital solutions for businesses across India.',
-  keywords: 'IT solutions, software development, AI systems, web development, custom software, SaaS development, AI automation, CoreSlash Technologies, Belgaum IT company, India software company',
+  title: 'CoreSlash Technologies | IT Solutions, AI Systems & Software Development Company in India',
+  description: 'CoreSlash Technologies provides enterprise-grade IT solutions, AI systems, , custom software development, web applications, and scalable digital solutions for businesses across India.',
+  keywords: 'IT solutions, AI systems, , software development,web development, custom software, SaaS development, AI automation, CoreSlash Technologies, Belgaum IT company, India software company',
   type: 'website',
   image: '/coreslash_technologies_url_image.png',
 };

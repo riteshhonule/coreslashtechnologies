@@ -15,6 +15,7 @@ import DashboardPage from "./pages/superadmin/DashboardPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
+import EnquiryFormPage from "./pages/EnquiryFormPage";
 import { useEffect } from "react";
 import {
   WebsiteDevelopment,
@@ -81,6 +82,7 @@ function AnimatedRoutes() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/enquiry-form" element={<EnquiryFormPage />} />
         
         {/* Superadmin routes */}
         <Route path="/superadmin" element={<LoginPage />} />
