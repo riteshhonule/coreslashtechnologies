@@ -157,14 +157,14 @@ export default function EnquiryFormPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-4xl mx-auto my-auto">
+    <div className="min-h-screen bg-gray-50 flex flex-col pt-4 pb-8 sm:py-6 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-4xl mx-auto mt-2 sm:mt-6 lg:mt-10">
         {/* Header Section */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-4">
+        <div className="text-center mb-4 sm:mb-6">
+          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-2 sm:mb-3">
             CoreSlash <span className="text-primary-purple">Technologies</span>
           </h1>
-          <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
+          <p className="text-sm text-gray-600 font-medium max-w-2xl mx-auto">
             Building Digital Solutions That Drive Innovation & Growth.
           </p>
         </div>
