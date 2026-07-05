@@ -263,7 +263,7 @@ export default function DashboardPage() {
           <div className="glass p-8 rounded-2xl border-red-500/20 text-center py-12">
             <p className="text-red-400 font-semibold mb-4">{error}</p>
             <button
-              onClick={fetchContactsData}
+              onClick={fetchData}
               className="btn-pill btn-primary-glow mx-auto text-sm"
             >
               Retry Connection
