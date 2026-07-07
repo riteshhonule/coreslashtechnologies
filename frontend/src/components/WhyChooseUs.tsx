@@ -6,71 +6,86 @@ const features = [
     {
         title: "Tailored Solutions",
         icon: <Target className="w-5 h-5" />,
-        color: "from-blue-600/20 to-blue-600/5",
-        iconColor: "text-blue-400"
+        color: "from-blue-50 to-blue-100/30",
+        iconColor: "text-blue-600"
     },
     {
         title: "Proven Expertise",
         icon: <CheckCircle2 className="w-5 h-5" />,
-        color: "from-purple-600/20 to-purple-600/5",
-        iconColor: "text-purple-400"
+        color: "from-purple-50 to-purple-100/30",
+        iconColor: "text-purple-600"
     },
     {
         title: "Data-Driven Results",
         icon: <TrendingUp className="w-5 h-5" />,
-        color: "from-cyan-600/20 to-cyan-600/5",
-        iconColor: "text-cyan-400"
+        color: "from-cyan-50 to-cyan-100/30",
+        iconColor: "text-cyan-600"
     },
     {
         title: "Innovative Strategies",
         icon: <Zap className="w-5 h-5" />,
-        color: "from-rose-600/20 to-rose-600/5",
-        iconColor: "text-rose-400"
+        color: "from-rose-50 to-rose-100/30",
+        iconColor: "text-rose-600"
     },
 ];
 
 export default function WhyChooseUs() {
     return (
-        <section className="relative pt-10 pb-16 md:pt-12 md:pb-24 overflow-hidden bg-dark-black">
+        <section className="relative pt-10 pb-16 md:pt-12 md:pb-24 overflow-hidden bg-white">
             {/* Background Orbs */}
-            <div className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary-accent/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-secondary-indigo/3 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
                     
                     {/* Visuals */}
                     <motion.div
                         initial={{ opacity: 1, scale: 0.97 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, amount: 0, margin: "200px" }}
-                        className="relative"
+                        className="relative group flex flex-col gap-8"
                     >
-                        <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-glow">
-                            <img
-                                src={CoreslashTechnologies_solutions}
-                                alt="Solutions"
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full h-full object-cover transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 to-transparent" />
+                        <div className="relative">
+                            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-gray-200/60 shadow-md transition-all duration-500 group-hover:shadow-lg">
+                                <img
+                                    src={CoreslashTechnologies_solutions}
+                                    alt="Solutions"
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-50/50 to-transparent" />
+                            </div>
+
+                            {/* Floating Metric */}
+                            <motion.div
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 4, repeat: Infinity }}
+                                className="absolute -bottom-6 -left-6 bg-white p-6 border border-gray-200 rounded-3xl shadow-xl shadow-gray-200/50 z-20 hidden md:block transition-all duration-500 group-hover:scale-[1.03]"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-secondary-indigo/10 flex items-center justify-center text-secondary-indigo">
+                                        <TrendingUp className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <p className="text-2xl font-bold text-gray-900">150%+</p>
+                                        <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Growth ROI</p>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </div>
 
-                        {/* Floating Metric */}
+                        {/* Quote Block (Moved to left side for balance) */}
                         <motion.div
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute -bottom-6 -left-6 glass p-6 border border-accent-cyan/20 z-20 hidden md:block"
+                            initial={{ opacity: 1 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true, amount: 0, margin: "200px" }}
+                            transition={{ delay: 0.1 }}
+                            className="p-6 rounded-[2rem] bg-secondary-indigo/5 border-l-4 border-secondary-indigo italic relative overflow-hidden transition-all duration-500 group-hover:bg-secondary-indigo/10"
                         >
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-accent-cyan/10 flex items-center justify-center text-accent-cyan">
-                                    <TrendingUp className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <p className="text-2xl font-bold text-white">150%+</p>
-                                    <p className="text-xs text-white/40 uppercase tracking-widest font-bold">Growth ROI</p>
-                                </div>
-                            </div>
+                            <p className="text-gray-650 text-base md:text-lg leading-relaxed relative z-10 font-medium">
+                                "We build the digital infrastructure your business needs to dominate the market."
+                            </p>
                         </motion.div>
                     </motion.div>
 
@@ -81,11 +96,11 @@ export default function WhyChooseUs() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, amount: 0, margin: "200px" }}
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
-                                <span className="text-xs font-bold text-accent-cyan uppercase tracking-widest">Efficiency Redefined</span>
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-6">
+                                <span className="text-xs font-bold text-secondary-indigo uppercase tracking-widest">Efficiency Redefined</span>
                             </div>
 
-                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
+                            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-8">
                                 Engineering Experiences,<br />
                                 <span className="text-gradient-cyan">Fueling Global Success</span>
                             </h2>
@@ -99,32 +114,20 @@ export default function WhyChooseUs() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: idx * 0.02, duration: 0.3 }}
-                                    className="glass-card p-6 border-white/5 group hover:border-white/10 transition-all flex flex-col items-center text-center"
+                                    className="glass-card p-6 border-gray-200/40 group hover:border-secondary-indigo/25 transition-all flex flex-col items-center text-center"
                                 >
-                                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 border border-white/5 mx-auto ${item.iconColor}`}>
+                                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 border border-gray-200/40 mx-auto ${item.iconColor}`}>
                                         {item.icon}
                                     </div>
-                                    <h4 className="text-lg font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">
+                                    <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-secondary-indigo transition-colors">
                                         {item.title}
                                     </h4>
-                                    <p className="text-white/40 text-sm leading-relaxed">
+                                    <p className="text-gray-500 text-sm leading-relaxed">
                                         Optimized methodologies for maximum performance and impact.
                                     </p>
                                 </motion.div>
                             ))}
                         </div>
-
-                        <motion.div
-                            initial={{ opacity: 1 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true, amount: 0, margin: "200px" }}
-                            transition={{ delay: 0.1 }}
-                            className="mt-10 p-6 rounded-2xl bg-white/5 border-l-4 border-accent-cyan italic"
-                        >
-                            <p className="text-white/60 text-lg">
-                                "We build the digital infrastructure your business needs to dominate the market."
-                            </p>
-                        </motion.div>
                     </div>
 
                 </div>

@@ -16,6 +16,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import EnquiryFormPage from "./pages/EnquiryFormPage";
+import MarketingEnquiryPage from "./pages/MarketingEnquiryPage";
+import CareersPage from "./pages/CareersPage";
 import { useEffect } from "react";
 import {
   WebsiteDevelopment,
@@ -83,6 +85,8 @@ function AnimatedRoutes() {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/enquiry-form" element={<EnquiryFormPage />} />
+        <Route path="/enquiry-form1" element={<MarketingEnquiryPage />} />
+        <Route path="/careers" element={<CareersPage />} />
         
         {/* Superadmin routes */}
         <Route path="/superadmin" element={<LoginPage />} />

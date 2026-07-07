@@ -95,11 +95,11 @@ export default function Services() {
 
   return (
     <>
-      <section id="services" className="relative pt-16 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-dark-black" onMouseMove={handleMouseMove}>
+      <section id="services" className="relative pt-16 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-white" onMouseMove={handleMouseMove}>
         
         {/* Decorative Glows */}
-        <div className="hidden md:block absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="hidden md:block absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-purple/2 rounded-full blur-[120px] pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-secondary-indigo/3 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="mx-auto max-w-[1600px] px-6 lg:px-8 relative z-10">
           
@@ -108,9 +108,9 @@ export default function Services() {
               initial={{ opacity: 1, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0, margin: "200px" }}
-              className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
+              className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-8"
             >
-              <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+              <span className="text-xs font-bold text-secondary-indigo uppercase tracking-[0.2em]">
                 Our Expertise
               </span>
             </motion.div>
@@ -119,13 +119,13 @@ export default function Services() {
               initial={{ opacity: 1, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0, margin: "200px" }}
-              className="text-4xl md:text-6xl font-bold text-white mb-8"
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-8"
             >
               Transforming Ideas into <br />
               <span className="text-gradient-cyan">Digital Reality</span>
             </motion.h2>
 
-            <p className="text-lg text-white/70 leading-relaxed font-medium">
+            <p className="text-lg text-gray-600 leading-relaxed font-medium">
               We leverage the latest technologies and AI-driven methodologies to build 
               products that solve complex business problems.
             </p>
@@ -146,32 +146,32 @@ export default function Services() {
                 }`}
               >
                 <Link to={service.link} className="block h-full">
-                  <div className="glass-card h-full p-6 md:p-8 relative overflow-hidden flex flex-col items-center text-center justify-between group-hover:border-accent-cyan/50">
+                  <div className="glass-card h-full p-6 md:p-8 relative overflow-hidden flex flex-col items-center text-center justify-between group-hover:border-secondary-indigo/40">
                     
                     {/* Spotlight Effect */}
-                    <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(400px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(34,211,238,0.15),transparent_40%)]" />
+                    <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(400px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(115,124,253,0.08),transparent_40%)]" />
 
                     {/* Background Image Overlay */}
                     <div 
-                      className="absolute inset-0 bg-cover bg-center opacity-[0.05] group-hover:opacity-15 transition-all duration-700 pointer-events-none scale-100 group-hover:scale-105 grayscale brightness-[0.25]"
+                      className="absolute inset-0 bg-cover bg-center opacity-[0.015] group-hover:opacity-[0.04] transition-all duration-700 pointer-events-none scale-100 group-hover:scale-105 grayscale brightness-95"
                       style={{ backgroundImage: `url(${service.bgImage})` }}
                     />
 
                     <div className="relative z-10 w-full">
-                      <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-cyan mx-auto mb-5 md:mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent-cyan/10">
+                      <div className="w-14 h-14 rounded-2xl bg-secondary-indigo/5 border border-secondary-indigo/15 flex items-center justify-center text-secondary-indigo mx-auto mb-5 md:mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary-indigo/10">
                         {service.icon}
                       </div>
 
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 transition-colors group-hover:text-accent-cyan">
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4 transition-colors group-hover:text-secondary-indigo">
                         {service.title}
                       </h3>
 
-                      <p className="text-white/60 text-sm md:text-base leading-relaxed line-clamp-3 font-medium">
+                      <p className="text-gray-500 text-sm md:text-base leading-relaxed line-clamp-3 font-medium">
                         {service.desc}
                       </p>
                     </div>
 
-                    <div className="relative z-10 w-full flex items-center justify-center gap-2 text-accent-cyan text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div className="relative z-10 w-full flex items-center justify-center gap-2 text-secondary-indigo text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
                       Learn More <span>→</span>
                     </div>
                   </div>
@@ -189,7 +189,7 @@ export default function Services() {
           >
             <Link
               to="/services"
-              className="btn-pill btn-glass inline-flex items-center gap-3 text-white"
+              className="btn-pill btn-glass inline-flex items-center gap-2.5 text-secondary-indigo hover:text-white px-6 py-2.5 text-sm"
             >
               Explore All Services
               <span className="transition-transform group-hover:translate-x-1">→</span>

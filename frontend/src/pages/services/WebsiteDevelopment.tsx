@@ -107,7 +107,7 @@ const WebsiteDevelopment: React.FC = () => {
                 title="Website Development Services"
                 description="Custom, high-performance website development services. We build digital growth engines engineered for speed, SEO, and conversions."
                 structuredData={structuredData}
-            />            <div className="bg-dark-black">
+            />            <div className="bg-[#F9FAFB] text-gray-900">
                 {/* Intro & Visuals */}
                 <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -118,27 +118,25 @@ const WebsiteDevelopment: React.FC = () => {
                             viewport={{ once: true, amount: 0, margin: "200px" }}
                             className="space-y-8"
                         >
-                            <div className="flex items-center gap-2 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                            <div className="flex items-center gap-2 text-secondary-indigo font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
                                 Engineering Excellence
                             </div>
-                            <h2 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+                            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight">
                                 We architect <span className="text-gradient-purple">Digital Growth</span> engines.
                             </h2>
-                            <p className="text-white/60 text-lg leading-relaxed font-medium">
+                            <p className="text-gray-500 text-lg leading-relaxed font-medium">
                                 We leverage the latest web technologies to build lightning-fast, high-converting digital storefronts and enterprise architectures. Our design system prioritizes mobile responsiveness, sub-second load times, and clean modular codebases.
                             </p>
                             
                             {/* Expertise Tags */}
                             <div className="pt-4">
-                                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-4 text-center md:text-left">Core Technology Stack</p>
-                                <div className="grid grid-cols-2 md:flex md:flex-wrap gap-3">
-                                    {["React / Next.js", "Headless CMS", "Cloud Infrastructure", "UX Architecture", "SEO Engineering"].map((tech, index) => (
+                                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-4 text-center md:text-left">Core Technology Stack</p>
+                                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                                    {["React / Next.js", "Headless CMS", "Cloud Infrastructure", "UX Architecture", "SEO Engineering"].map((tech) => (
                                         <div 
                                             key={tech} 
-                                            className={`glass-card px-4 py-2.5 rounded-xl border-white/5 text-[10px] sm:text-xs text-white/60 font-bold uppercase tracking-wider text-center flex items-center justify-center ${
-                                                index === 2 ? "col-span-2 justify-self-center w-full max-w-[240px] md:w-auto" : "w-full"
-                                            }`}
+                                            className="bg-white px-5 py-2.5 rounded-xl border border-gray-200/60 text-[10px] sm:text-xs text-gray-700 font-bold uppercase tracking-wider text-center flex items-center justify-center shadow-sm hover:border-secondary-indigo/35 hover:shadow-md transition-all duration-300"
                                         >
                                             {tech}
                                         </div>
@@ -154,8 +152,8 @@ const WebsiteDevelopment: React.FC = () => {
                             viewport={{ once: true, amount: 0, margin: "200px" }}
                             className="relative group"
                         >
-                            <div className="absolute -inset-2 bg-gradient-to-r from-primary-purple to-accent-cyan rounded-[3rem] blur opacity-25 group-hover:opacity-45 transition duration-1000" />
-                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video bg-white flex items-center justify-center p-4">
+                            <div className="absolute -inset-2 bg-gradient-to-r from-primary-purple to-secondary-indigo rounded-[3rem] blur opacity-25 group-hover:opacity-45 transition duration-1000" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-gray-200 aspect-video bg-white flex items-center justify-center p-4 shadow-xl">
                                 <img
                                     src={coreslashWebsiteDevelopment}
                                     alt="CoreSlash Website Development"
@@ -169,20 +167,20 @@ const WebsiteDevelopment: React.FC = () => {
                 </section>
 
                 {/* Premium Capabilities Grid */}
-                <section className="py-12 md:py-24 bg-dark-black/40 border-y border-white/5">
+                <section className="py-12 md:py-24 bg-white border-y border-gray-200/60 shadow-sm">
                     <div className="container mx-auto px-6 lg:px-12">
                         <div className="text-center mb-20">
                             <motion.div
                                 initial={{ opacity: 1, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0, margin: "200px" }}
-                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
+                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-6"
                             >
-                                <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+                                <span className="text-xs font-bold text-secondary-indigo uppercase tracking-[0.2em]">
                                     Capabilities
                                 </span>
                             </motion.div>
-                            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+                            <h3 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight">
                                 Complete <span className="text-gradient-cyan">Website</span> Ecosystem
                             </h3>
                         </div>
@@ -195,19 +193,19 @@ const WebsiteDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ duration: 0.3, delay: i * 0.05 }}
-                                    className="glass-card p-10 rounded-[2.5rem] border-white/5 hover:border-accent-cyan/20 group flex flex-col items-center text-center gap-6 transition-all relative overflow-hidden"
+                                    className="bg-white p-10 rounded-[2.5rem] border border-gray-200/60 hover:border-secondary-indigo/30 hover:shadow-lg shadow-md shadow-gray-200/10 group flex flex-col items-center text-center gap-6 transition-all relative overflow-hidden"
                                 >
-                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(34,211,238,0.08),transparent_50%)] pointer-events-none" />
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(99,102,241,0.08),transparent_50%)] pointer-events-none" />
 
-                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-cyan shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-accent-cyan/10 mx-auto">
+                                    <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-center text-secondary-indigo shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary-indigo/10 mx-auto">
                                         <img src={f.icon} alt={f.title} loading="lazy" decoding="async" className="w-8 h-8 object-contain transition-all" />
                                     </div>
                                     
                                     <div className="space-y-3 relative z-10 flex flex-col items-center">
-                                        <h4 className="text-2xl font-bold text-white transition-colors group-hover:text-accent-cyan text-center">
+                                        <h4 className="text-2xl font-bold text-gray-900 transition-colors group-hover:text-secondary-indigo text-center">
                                             {f.title}
                                         </h4>
-                                        <p className="text-white/40 text-sm leading-relaxed font-medium text-center">
+                                        <p className="text-gray-500 text-sm leading-relaxed font-medium text-center">
                                             {f.desc}
                                         </p>
                                     </div>
@@ -218,17 +216,17 @@ const WebsiteDevelopment: React.FC = () => {
                 </section>
 
                 {/* Dedicated Consultation Section */}
-                <section className="py-12 md:py-24 bg-dark-black">
+                <section className="py-12 md:py-24 bg-[#F9FAFB]">
                     <div className="container mx-auto px-6 max-w-4xl">
-                        <div className="glass-card p-10 md:p-16 rounded-[4rem] border-white/5 relative overflow-hidden">
-                            <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-primary-purple/10 rounded-full blur-3xl pointer-events-none" />
-                            <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-accent-cyan/5 rounded-full blur-3xl pointer-events-none" />
+                        <div className="bg-white border border-gray-200/60 shadow-xl shadow-gray-200/30 p-10 md:p-16 rounded-[4rem] relative overflow-hidden">
+                            <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-primary-purple/3 rounded-full blur-3xl pointer-events-none" />
+                            <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-secondary-indigo/2 rounded-full blur-3xl pointer-events-none" />
 
                             <div className="text-center mb-12">
-                                <h3 className="text-4xl font-bold text-white mb-4 tracking-tight">
-                                    Book Your <span className="text-accent-cyan italic">Free</span> Consultation
+                                <h3 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+                                    Book Your <span className="text-gradient-purple font-bold">Free</span> Consultation
                                 </h3>
-                                <p className="text-white/40 text-base max-w-lg mx-auto leading-relaxed">
+                                <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">
                                     Get a customized technology strategy and development roadmap from our engineering specialists.
                                 </p>
                             </div>
@@ -239,20 +237,20 @@ const WebsiteDevelopment: React.FC = () => {
                 </section>
 
                 {/* PRICING SECTION */}
-                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-dark-black border-t border-white/5">
+                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-[#F9FAFB] border-t border-gray-200/60">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div
                                 initial={{ opacity: 1, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0, margin: "200px" }}
-                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
+                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-8"
                             >
-                                <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+                                <span className="text-xs font-bold text-secondary-indigo uppercase tracking-[0.2em]">
                                     Investment Plans
                                 </span >
                             </motion.div>
-                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
                                 Strategic <span className="text-gradient-purple">Pricing</span>
                             </h2>
                         </div>
@@ -266,8 +264,8 @@ const WebsiteDevelopment: React.FC = () => {
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ duration: 0.3, delay: idx * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col ${plan.isPopular
-                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10"
-                                        : "bg-white/5 border-white/10 hover:border-white/20 transition-all duration-500"
+                                        ? "bg-white border-2 border-primary-purple/30 shadow-2xl scale-105 z-10"
+                                        : "bg-white border-gray-200/80 hover:border-secondary-indigo/30 shadow-md shadow-gray-200/10 transition-all duration-500"
                                         }`}
                                 >
                                     {plan.isPopular && (
@@ -277,28 +275,24 @@ const WebsiteDevelopment: React.FC = () => {
                                     )}
 
                                     <div className="mb-12">
-                                        <h3 className="text-2xl font-bold text-white mb-4">{plan.name}</h3>
-                                        <div className="flex items-baseline gap-2 mb-6">
-                                            <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tight">{plan.price}</span>
-                                        </div>
-                                        <p className="text-white/40 text-sm leading-relaxed">{plan.desc}</p>
+                                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{plan.name}</h3>
+                                        <p className="text-gray-500 text-sm leading-relaxed mb-6">{plan.desc}</p>
                                     </div>
 
                                     <div className="flex-grow space-y-5 mb-14">
                                         {plan.features.map((feature, fIdx) => (
                                             <div key={fIdx} className="flex items-start gap-4">
-                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                                                    <CheckIcon className="w-3.5 h-3.5 text-accent-cyan font-bold" />
+                                                <div className="w-6 h-6 rounded-full bg-secondary-indigo/10 flex items-center justify-center shrink-0 mt-0.5">
+                                                    <CheckIcon className="w-3.5 h-3.5 text-secondary-indigo font-bold" />
                                                 </div>
-                                                <span className="text-white/60 text-sm font-medium">{feature}</span>
+                                                <span className="text-gray-600 text-sm font-medium">{feature}</span>
                                             </div>
                                         ))}
                                     </div>
 
                                     <button
                                         onClick={openModal}
-                                        className={`btn-pill w-full text-lg ${plan.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"}`}
+                                        className={`btn-pill w-full text-lg ${plan.isPopular ? "btn-primary-glow text-white" : "btn-glass text-secondary-indigo hover:text-white"}`}
                                     >
                                         Get Started
                                     </button>

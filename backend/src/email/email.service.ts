@@ -173,4 +173,99 @@ export class EmailService {
 
     return this.sendEmail(adminEmail, `New Lead: ${lead.name}`, html);
   }
+
+  /**
+   * Sends a career candidate notification to HR
+   */
+  async sendCandidateNotification(candidate: any): Promise<void> {
+    const adminEmail =
+      this.configService.get<string>('MAIL_TO') ||
+      'contact@coreslashtechnologies.com';
+    
+    const resumeDownloadUrl = candidate.resumeUrl.startsWith('http')
+      ? candidate.resumeUrl
+      : `${this.configService.get<string>('APP_URL') || 'http://localhost:3000'}${candidate.resumeUrl}`;
+
+    const html = `
+      <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px; max-width: 600px; margin: 0 auto; color: #333;">
+        <h2 style="color: #4f46e5; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; margin-bottom: 20px;">New Careers Application</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; width: 180px;">Full Name:</td>
+            <td style="padding: 8px 0;">${candidate.fullName}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Email:</td>
+            <td style="padding: 8px 0;">${candidate.email}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Mobile:</td>
+            <td style="padding: 8px 0;">${candidate.mobile}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Current City:</td>
+            <td style="padding: 8px 0;">${candidate.currentCity}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Position Applied:</td>
+            <td style="padding: 8px 0; font-weight: #4f46e5; color: #4f46e5;">${candidate.position}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Experience:</td>
+            <td style="padding: 8px 0;">${candidate.experience}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Highest Qualification:</td>
+            <td style="padding: 8px 0;">${candidate.qualification}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Key Skills:</td>
+            <td style="padding: 8px 0;">${candidate.skills}</td>
+          </tr>
+          ${candidate.portfolioUrl ? `
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold;">Portfolio/LinkedIn:</td>
+            <td style="padding: 8px 0;"><a href="${candidate.portfolioUrl}" target="_blank">${candidate.portfolioUrl}</a></td>
+          </tr>` : ''}
+        </table>
+        
+        ${candidate.introduction ? `
+        <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+          <h4 style="margin: 0 0 10px 0; color: #4f46e5;">Candidate Introduction</h4>
+          <p style="margin: 0; font-style: italic; line-height: 1.5;">"${candidate.introduction}"</p>
+        </div>` : ''}
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="${resumeDownloadUrl}" style="background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;" target="_blank">Download Resume</a>
+        </div>
+      </div>
+    `;
+
+    return this.sendEmail(adminEmail, `Job Application: ${candidate.fullName} - ${candidate.position}`, html);
+  }
+
+  /**
+   * Sends a structured confirmation email to the candidate
+   */
+  async sendCandidateConfirmation(candidate: any): Promise<void> {
+    const html = `
+      <div style="font-family: Arial, sans-serif; padding: 25px; border: 1px solid #eee; border-radius: 12px; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
+        <h2 style="color: #4f46e5; margin-bottom: 20px;">Thank you for your interest in CoreSlash Technologies!</h2>
+        <p>Dear ${candidate.fullName},</p>
+        <p>We've received your application and will contact you if your profile matches future opportunities.</p>
+        <div style="background: #f9fafb; border-left: 4px solid #4f46e5; padding: 15px; margin: 20px 0; border-radius: 0 8px 8px 0;">
+          <p style="margin: 0;"><strong>Position Applied:</strong> ${candidate.position}</p>
+          <p style="margin: 5px 0 0 0;"><strong>Submission Date:</strong> ${new Date().toLocaleDateString()}</p>
+        </div>
+        <p>Our recruitment team will review your application details. If your skills and experience match our criteria, we will reach out to you to discuss potential next steps.</p>
+        <p>We wish you the very best in your career pursuits.</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;" />
+        <p style="font-size: 13px; color: #6b7280; margin: 0;">Best Regards,</p>
+        <p style="font-size: 14px; font-weight: bold; color: #4f46e5; margin: 5px 0 0 0;">Recruitment Operations</p>
+        <p style="font-size: 13px; color: #6b7280; margin: 0;">CoreSlash Technologies</p>
+      </div>
+    `;
+
+    return this.sendEmail(candidate.email, 'Application Received - CoreSlash Technologies', html);
+  }
 }

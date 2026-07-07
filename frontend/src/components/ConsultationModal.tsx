@@ -36,21 +36,21 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                         initial={{ scale: 0.95, opacity: 1, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                        className="relative w-full max-w-lg bg-[#050816] rounded-[2rem] border border-white/10 shadow-2xl overflow-y-auto max-h-[calc(100vh-2rem)] scrollbar-hide"
+                        className="relative w-full max-w-lg bg-white rounded-[2rem] border border-gray-200/80 shadow-2xl overflow-y-auto max-h-[calc(100vh-2rem)] scrollbar-hide"
                     >
                         <div className="p-5 md:p-8 relative">
                             <button
                                 onClick={onClose}
-                                className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-all z-30"
+                                className="absolute top-5 right-5 p-2 rounded-full bg-gray-50 border border-gray-200 text-gray-400 hover:text-gray-650 hover:bg-gray-100 transition-all z-30"
                             >
                                 <XMarkIcon className="w-5 h-5 md:w-6 md:h-6" />
                             </button>
 
                             <div className="mb-6 relative z-10 pr-8">
-                                <h2 className="text-xl md:text-3xl font-black text-white mb-1 leading-tight tracking-tight">
+                                <h2 className="text-xl md:text-3xl font-black !text-gray-900 mb-1 leading-tight tracking-tight">
                                     Start Your <span className="text-gradient-cyan">Project</span>
                                 </h2>
-                                <p className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                                <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
                                     Strategic Technical Architecture
                                 </p>
                             </div>

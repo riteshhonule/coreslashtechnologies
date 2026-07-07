@@ -42,3 +42,25 @@ export const getInquiries = (token: string) =>
       Authorization: `Bearer ${token}`,
     },
   });
+
+export const getCandidates = (token: string, filters: any = {}) =>
+  api.get("/candidates", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    params: filters,
+  });
+
+export const updateCandidateStatus = (token: string, id: string, status: string) =>
+  api.patch(`/candidates/${id}/status`, { status }, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const getMarketingInquiries = (token: string) =>
+  api.get("/marketing-inquiries", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });

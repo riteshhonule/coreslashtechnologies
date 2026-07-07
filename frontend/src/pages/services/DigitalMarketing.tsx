@@ -33,7 +33,7 @@ const DigitalMarketing: React.FC = () => {
             subtitle="Engineered for visibility. Optimized for conversion."
             ctaText="Free Marketing Audit"
         >
-            <div className="bg-dark-black">
+            <div className="bg-[#F9FAFB] text-gray-900">
                 {/* Hero Content */}
                 <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
                     <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
@@ -46,28 +46,28 @@ const DigitalMarketing: React.FC = () => {
                             transition={{ duration: 0.8 }}
                             className="relative"
                         >
-                            <div className="absolute -inset-4 bg-primary-purple/20 rounded-[3rem] blur-3xl opacity-50" />
-                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 group aspect-video">
+                            <div className="absolute -inset-4 bg-primary-purple/5 rounded-[3rem] blur-3xl opacity-50" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-gray-200 shadow-xl group aspect-video">
                                 <img
                                     src={digitalMarketingImage}
                                     alt="Digital Marketing Services"
-                                    className="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-transparent to-transparent opacity-60" />
                                 
                                 {/* Animated Floating Badge */}
                                 <motion.div
                                     animate={{ y: [0, -15, 0] }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute bottom-2 right-2 md:bottom-6 md:right-6 glass-card p-2 md:p-3 rounded-lg md:rounded-xl border-white/10 z-20"
+                                    className="absolute bottom-2 right-2 md:bottom-6 md:right-6 bg-white p-2 md:p-3 rounded-lg md:rounded-xl border border-gray-200 shadow-md z-20"
                                 >
                                     <div className="flex gap-1.5 md:gap-2.5 items-center">
-                                        <div className="p-1 md:p-2 bg-accent-cyan/10 rounded-md md:rounded-lg">
-                                            <ArrowTrendingUpIcon className="w-4 h-4 md:w-6 md:h-6 text-accent-cyan" />
+                                        <div className="p-1 md:p-2 bg-secondary-indigo/10 rounded-md md:rounded-lg">
+                                            <ArrowTrendingUpIcon className="w-4 h-4 md:w-6 md:h-6 text-secondary-indigo" />
                                         </div>
                                         <div>
-                                            <p className="font-bold text-sm md:text-lg text-white leading-tight">+312%</p>
-                                            <p className="text-[6px] md:text-[8px] font-bold text-white/40 uppercase tracking-wider mt-0.5">Growth Velocity</p>
+                                            <p className="font-bold text-sm md:text-lg text-gray-900 leading-tight">+312%</p>
+                                            <p className="text-[6px] md:text-[8px] font-bold text-gray-500 uppercase tracking-wider mt-0.5">Growth Velocity</p>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -82,14 +82,14 @@ const DigitalMarketing: React.FC = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center"
                         >
-                            <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                            <div className="flex items-center gap-2 mb-6 text-secondary-indigo font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
                                 Performance Marketing
                             </div>
-                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-10 leading-[1.1] tracking-tight">
                                 Data-Driven <span className="text-gradient-purple">Growth</span> Excellence.
                             </h2>
-                            <p className="text-white/40 text-xl leading-relaxed mb-12">
+                            <p className="text-gray-500 text-xl leading-relaxed mb-12">
                                 At CoreSlash Technologies, we don't just "market"—we architect complete organic ecosystems. 
                                 By combining semantic search intelligence with high-authority technical optimization, 
                                 we ensure your brand dominates its industry landscape.
@@ -102,10 +102,10 @@ const DigitalMarketing: React.FC = () => {
                                     { val: "Top 10", label: "Rankings", icon: GlobeAltIcon },
                                     { val: "250%", label: "ROI", icon: ArrowTrendingUpIcon },
                                 ].map((stat, i) => (
-                                    <div key={i} className="glass-card p-4 rounded-2xl border-white/5 flex flex-col items-center text-center">
-                                        <stat.icon className="w-6 h-6 text-accent-cyan mb-2" />
-                                        <span className="text-xl font-bold text-white">{stat.val}</span>
-                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-tight">{stat.label}</span>
+                                    <div key={i} className="bg-white p-4 rounded-2xl border border-gray-200/60 shadow-md shadow-gray-200/10 flex flex-col items-center text-center">
+                                        <stat.icon className="w-6 h-6 text-secondary-indigo mb-2" />
+                                        <span className="text-xl font-bold text-gray-900">{stat.val}</span>
+                                        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-tight">{stat.label}</span>
                                     </div>
                                 ))}
                             </div>
@@ -120,13 +120,13 @@ const DigitalMarketing: React.FC = () => {
                 </section>
 
                 {/* Features Ecosystem */}
-                <section className="pt-16 pb-12 md:pt-32 md:pb-16 bg-dark-black border-t border-white/5">
+                <section className="pt-16 pb-12 md:pt-32 md:pb-16 bg-white border-t border-gray-200/60 shadow-sm">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
-                            <h3 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                            <h3 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
                                 Complete <span className="text-gradient-cyan">Marketing</span> Solution
                             </h3>
-                            <p className="text-white/40 max-w-2xl mx-auto">Full-funnel optimization strategies designed for modern AI-driven search algorithms.</p>
+                            <p className="text-gray-500 max-w-2xl mx-auto">Full-funnel optimization strategies designed for modern AI-driven search algorithms.</p>
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -137,13 +137,13 @@ const DigitalMarketing: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="glass-card p-8 rounded-[2rem] border-white/5 hover:border-accent-cyan/20 group transition-all h-full flex flex-col items-center text-center"
+                                    className="bg-white p-8 rounded-[2rem] border border-gray-200/60 hover:border-secondary-indigo/30 hover:shadow-lg shadow-md shadow-gray-200/10 group transition-all h-full flex flex-col items-center text-center"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-cyan/10 transition-colors mx-auto">
-                                        <CheckCircleIcon className="w-6 h-6 text-accent-cyan" />
+                                    <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 group-hover:bg-secondary-indigo/10 transition-colors mx-auto">
+                                        <CheckCircleIcon className="w-6 h-6 text-secondary-indigo" />
                                     </div>
-                                    <h4 className="text-lg font-bold text-white leading-tight mb-2 group-hover:text-accent-cyan transition-colors">{feature}</h4>
-                                    <div className="w-8 h-1 bg-white/10 rounded-full group-hover:w-16 group-hover:bg-accent-cyan transition-all mx-auto" />
+                                    <h4 className="text-lg font-bold text-gray-900 leading-tight mb-2 group-hover:text-secondary-indigo transition-colors">{feature}</h4>
+                                    <div className="w-8 h-1 bg-gray-200 rounded-full group-hover:w-16 group-hover:bg-secondary-indigo transition-all mx-auto" />
                                 </motion.div>
                             ))}
                         </div>

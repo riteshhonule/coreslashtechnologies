@@ -103,7 +103,7 @@ const ShopifyDevelopment: React.FC = () => {
             subtitle="Engineering high-velocity commerce engines for the digital era."
             ctaText="Launch Your Store"
         >
-            <div className="bg-dark-black">
+            <div className="bg-[#F9FAFB] text-gray-900">
                 {/* HERO SECTION */}
                 <section className="container mx-auto px-6 py-12 md:py-24">
                     <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
@@ -113,14 +113,14 @@ const ShopifyDevelopment: React.FC = () => {
                             viewport={{ once: true, amount: 0, margin: "200px" }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                            <div className="flex items-center gap-2 mb-6 text-secondary-indigo font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
                                 Commerce Excellence
                             </div>
-                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-10 leading-[1.1] tracking-tight">
                                 Build <span className="text-gradient-purple">Shopify</span> Ecosystems That Scale.
                             </h2>
-                            <p className="text-white/40 text-xl leading-relaxed mb-12">
+                            <p className="text-gray-500 text-xl leading-relaxed mb-12">
                                 At CoreSlash Technologies, we don't just "set up" stores—we engineer profitable commerce 
                                 environments. By combining Shopify's robust infrastructure with our custom design 
                                 intelligence, we ensure your brand captures every conversion opportunity.
@@ -129,37 +129,37 @@ const ShopifyDevelopment: React.FC = () => {
                             {/* Gateway Grid */}
                             <div className="mt-16">
                                 <div className="flex items-center gap-4 mb-10">
-                                    <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 whitespace-nowrap">
+                                    <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 whitespace-nowrap">
                                         Secure Transaction Layer
                                     </h3>
-                                    <div className="h-[1px] w-full bg-white/5" />
+                                    <div className="h-[1px] w-full bg-gray-200" />
                                 </div>
                                 <div className="grid grid-cols-2 md:flex md:flex-wrap gap-3 md:gap-4">
                                     {[
                                         { 
                                             name: "Razorpay", 
                                             img: razorpay, 
-                                            classes: "bg-[#0c80e3]/10 border-[#0c80e3]/30 text-white/70 hover:bg-[#0c80e3] hover:border-[#0c80e3] hover:text-white shadow-[0_0_15px_rgba(12,128,227,0.1)] hover:shadow-[0_0_25px_rgba(12,128,227,0.4)]"
+                                            classes: "bg-[#0c80e3]/5 border-[#0c80e3]/20 text-gray-700 hover:bg-white hover:border-[#0c80e3] hover:text-[#0c80e3] hover:shadow-xl hover:shadow-[#0c80e3]/10"
                                         },
                                         { 
                                             name: "Stripe", 
                                             img: stripe, 
-                                            classes: "bg-[#635bff]/10 border-[#635bff]/30 text-white/70 hover:bg-[#635bff] hover:border-[#635bff] hover:text-white shadow-[0_0_15px_rgba(99,91,255,0.1)] hover:shadow-[0_0_25px_rgba(99,91,255,0.4)]"
+                                            classes: "bg-[#635bff]/5 border-[#635bff]/20 text-gray-700 hover:bg-white hover:border-[#635bff] hover:text-[#635bff] hover:shadow-xl hover:shadow-[#635bff]/10"
                                         },
                                         { 
                                             name: "PayPal", 
                                             img: paypal, 
-                                            classes: "bg-[#00457c]/15 border-[#00457c]/35 text-white/70 hover:bg-[#00457c] hover:border-[#00457c] hover:text-white shadow-[0_0_15px_rgba(0,69,124,0.1)] hover:shadow-[0_0_25px_rgba(0,69,124,0.4)]"
+                                            classes: "bg-[#00457c]/5 border-[#00457c]/20 text-gray-700 hover:bg-white hover:border-[#00457c] hover:text-[#00457c] hover:shadow-xl hover:shadow-[#00457c]/10"
                                         },
                                         { 
                                             name: "PhonePe", 
                                             img: phonepe, 
-                                            classes: "bg-[#5f259f]/15 border-[#5f259f]/35 text-white/70 hover:bg-[#5f259f] hover:border-[#5f259f] hover:text-white shadow-[0_0_15px_rgba(95,37,159,0.1)] hover:shadow-[0_0_25px_rgba(95,37,159,0.4)]"
+                                            classes: "bg-[#5f259f]/5 border-[#5f259f]/20 text-gray-700 hover:bg-white hover:border-[#5f259f] hover:text-[#5f259f] hover:shadow-xl hover:shadow-[#5f259f]/10"
                                         },
                                         { 
                                             name: "Paytm", 
                                             img: gpay, 
-                                            classes: "bg-[#00baf2]/10 border-[#00baf2]/30 text-white/70 hover:bg-[#00baf2] hover:border-[#00baf2] hover:text-white shadow-[0_0_15px_rgba(0,186,242,0.1)] hover:shadow-[0_0_25px_rgba(0,186,242,0.4)]"
+                                            classes: "bg-[#00baf2]/5 border-[#00baf2]/20 text-gray-700 hover:bg-white hover:border-[#00baf2] hover:text-[#00baf2] hover:shadow-xl hover:shadow-[#00baf2]/10"
                                         },
                                     ].map((payment, index) => (
                                         <motion.div
@@ -186,27 +186,27 @@ const ShopifyDevelopment: React.FC = () => {
                             transition={{ duration: 1 }}
                             className="relative"
                         >
-                            <div className="absolute -inset-4 bg-primary-purple/20 rounded-[3rem] blur-3xl opacity-50" />
-                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 group aspect-video">
+                            <div className="absolute -inset-4 bg-primary-purple/5 rounded-[3rem] blur-3xl opacity-50" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-gray-200 shadow-xl group aspect-video">
                                 <img
                                     src="https://images.unsplash.com/photo-1557821552-17105176677c"
                                     alt="Shopify Development"
-                                    className="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-transparent to-transparent opacity-60" />
                             </div>
                         </motion.div>
                     </div>
                 </section>
 
                 {/* FEATURES BENTO GRID */}
-                <section className="py-16 md:py-32 bg-dark-black border-t border-white/5">
+                <section className="py-16 md:py-32 bg-white border-t border-gray-200/60 shadow-sm">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
-                            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
                                 Shopify <span className="text-gradient-cyan">Intelligence</span> Modules
                             </h2>
-                            <p className="text-white/40 max-w-2xl mx-auto">Advanced store capabilities engineered for maximum conversion velocity.</p>
+                            <p className="text-gray-500 max-w-2xl mx-auto">Advanced store capabilities engineered for maximum conversion velocity.</p>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
@@ -217,13 +217,13 @@ const ShopifyDevelopment: React.FC = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="glass-card p-6 sm:p-8 rounded-[2rem] border-white/5 group hover:border-accent-cyan/20 flex flex-col items-center text-center transition-all h-full"
+                                    className="bg-white p-6 sm:p-8 rounded-[2rem] border border-gray-200/60 hover:border-secondary-indigo/30 hover:shadow-lg shadow-md shadow-gray-200/10 group flex flex-col items-center text-center transition-all h-full"
                                 >
-                                    <div className="w-14 h-14 mb-6 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent-cyan/10 transition-colors">
-                                        <f.icon className="w-7 h-7 text-white group-hover:text-accent-cyan transition-colors" />
+                                    <div className="w-14 h-14 mb-6 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-center group-hover:bg-secondary-indigo/10 transition-colors">
+                                        <f.icon className="w-7 h-7 text-gray-900 group-hover:text-secondary-indigo transition-colors" />
                                     </div>
-                                    <h3 className="text-lg font-bold text-white mb-3 leading-tight group-hover:text-accent-cyan transition-colors">{f.title}</h3>
-                                    <p className="text-[11px] text-white/40 leading-relaxed font-medium">{f.desc}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight group-hover:text-secondary-indigo transition-colors">{f.title}</h3>
+                                    <p className="text-[11px] text-gray-500 leading-relaxed font-medium">{f.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -231,10 +231,10 @@ const ShopifyDevelopment: React.FC = () => {
                 </section>
 
                 {/* STRATEGIC PACKAGES */}
-                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-dark-black">
+                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-[#F9FAFB]">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
-                            <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                            <h2 className="text-4xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
                                 Strategic <span className="text-gradient-purple">Store</span> Plans
                             </h2>
                         </div>
@@ -249,8 +249,8 @@ const ShopifyDevelopment: React.FC = () => {
                                     transition={{ duration: 0.8, delay: index * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
                                         pkg.isPopular 
-                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
-                                        : "bg-white/5 border-white/10 hover:border-white/30"
+                                        ? "bg-white border-2 border-primary-purple/30 shadow-2xl scale-105 z-10" 
+                                        : "bg-white border-gray-200/80 hover:border-secondary-indigo/30 shadow-md shadow-gray-200/10"
                                     }`}
                                 >
                                     {pkg.isPopular && (
@@ -260,20 +260,16 @@ const ShopifyDevelopment: React.FC = () => {
                                     )}
 
                                     <div className="mb-12">
-                                        <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
-                                        <div className="flex items-baseline gap-2 mb-6">
-                                            <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tight">{pkg.price}</span>
-                                        </div>
+                                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{pkg.name}</h3>
                                     </div>
 
                                     <div className="flex-grow space-y-5 mb-14">
                                         {pkg.features.map((f, i) => (
                                             <div key={i} className="flex items-start gap-4">
-                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                                                    <CheckCircleIcon className="w-4 h-4 text-accent-cyan font-bold" />
+                                                <div className="w-6 h-6 rounded-full bg-secondary-indigo/10 flex items-center justify-center shrink-0 mt-0.5">
+                                                    <CheckCircleIcon className="w-4 h-4 text-secondary-indigo font-bold" />
                                                 </div>
-                                                <span className="text-white/60 text-sm font-medium">{f}</span>
+                                                <span className="text-gray-600 text-sm font-medium">{f}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -281,7 +277,7 @@ const ShopifyDevelopment: React.FC = () => {
                                     <button
                                         onClick={openModal}
                                         className={`btn-pill w-full text-lg ${
-                                            pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                            pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-secondary-indigo hover:text-white"
                                         }`}
                                     >
                                         Activate Plan

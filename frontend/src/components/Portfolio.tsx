@@ -101,10 +101,10 @@ export default function Portfolio() {
   const [active, setActive] = useState<typeof items[0] | null>(null);
 
   return (
-    <section id="portfolio" className="relative py-12 md:py-16 overflow-hidden bg-dark-black">
+    <section id="portfolio" className="relative py-12 md:py-16 overflow-hidden bg-[#F9FAFB]">
 
       {/* Background Glow */}
-      <div className="hidden md:block absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary-purple/2 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
@@ -112,17 +112,17 @@ export default function Portfolio() {
               initial={{ opacity: 1, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0, margin: "200px" }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
+            className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-8"
           >
-            <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+            <span className="text-xs font-bold text-secondary-indigo uppercase tracking-[0.2em]">
               Selected Works
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">
-            Case Studies of <span className="text-gradient-cyan text-gradient-cyan">Success</span>
+          <h2 className="text-4xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
+            Case Studies of <span className="text-gradient-cyan">Success</span>
           </h2>
-          <p className="text-white/40 text-xl leading-relaxed">
+          <p className="text-gray-500 text-xl leading-relaxed">
             Explore how we've helped businesses transform their operations through
             custom software and intelligent automation.
           </p>
@@ -139,8 +139,8 @@ export default function Portfolio() {
               className="group cursor-pointer relative"
               onClick={() => setActive(project)}
             >
-              <div className="glass-card h-full rounded-[3rem] overflow-hidden border border-white/10 hover:border-accent-cyan/20 transition-all duration-700 flex flex-col">
-                <div className="aspect-[16/10] overflow-hidden relative bg-[#0d0720] flex items-center justify-center p-4 shrink-0">
+              <div className="glass-card h-full rounded-[3rem] overflow-hidden border border-gray-200/50 hover:border-secondary-indigo/20 transition-all duration-700 flex flex-col">
+                <div className="aspect-[16/10] overflow-hidden relative bg-gray-50 flex items-center justify-center p-4 shrink-0">
                   <img
                     src={project.img}
                     alt={project.title}
@@ -152,16 +152,16 @@ export default function Portfolio() {
 
                 <div className="p-8 md:p-10 relative flex-grow flex flex-col justify-between">
                   <div>
-                    <p className="text-accent-cyan text-xs font-bold uppercase tracking-[0.3em] mb-4">
+                    <p className="text-secondary-indigo text-xs font-bold uppercase tracking-[0.3em] mb-4">
                       {project.category}
                     </p>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-accent-cyan transition-colors duration-500">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 group-hover:text-secondary-indigo transition-colors duration-500">
                       {project.title}
                     </h3>
                   </div>
 
-                  <div className="flex items-center gap-3 text-white/40 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
-                    View Case Study <ArrowTopRightOnSquareIcon className="w-5 h-5 text-accent-cyan" />
+                  <div className="flex items-center gap-3 text-gray-500 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
+                    View Case Study <ArrowTopRightOnSquareIcon className="w-5 h-5 text-secondary-indigo" />
                   </div>
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function Portfolio() {
           viewport={{ once: true, amount: 0, margin: "200px" }}
           className="mt-12 md:mt-24 text-center"
         >
-          <Link to="/portfolio" className="btn-pill btn-glass text-white px-12 inline-block">
+          <Link to="/portfolio" className="btn-pill btn-glass text-secondary-indigo hover:text-white px-12 inline-block">
             Browse Full Portfolio
           </Link>
         </motion.div>
@@ -185,24 +185,24 @@ export default function Portfolio() {
       <AnimatePresence>
         {active && (
           <motion.div
-            initial={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 flex items-center justify-center p-4 md:p-6 bg-dark-black/95 backdrop-blur-xl"
+            className="fixed inset-0 flex items-center justify-center p-4 md:p-6 bg-gray-900/40 backdrop-blur-xl"
             style={{ zIndex: 2000 }}
             onClick={() => setActive(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 1, y: 40 }}
+              initial={{ scale: 0.9, opacity: 0, y: 40 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 40 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-card max-w-6xl w-[90vw] md:w-full max-h-[85vh] md:max-h-none overflow-hidden rounded-3xl md:rounded-[4rem] border-white/10 flex flex-col relative shadow-[0_0_100px_rgba(0,0,0,0.8)]"
+              className="bg-white max-w-6xl w-[90vw] md:w-full max-h-[85vh] md:max-h-none overflow-hidden rounded-3xl md:rounded-[4rem] border border-gray-200 flex flex-col relative shadow-2xl"
             >
               {/* Close Button - positioned cleanly to avoid rounded corner clipping */}
               <button
                 onClick={() => setActive(null)}
-                className="absolute top-5 right-5 md:top-8 md:right-8 z-[2010] bg-dark-black/60 hover:bg-dark-black/80 text-white w-10 h-10 rounded-full backdrop-blur-md transition flex items-center justify-center border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                className="absolute top-5 right-5 md:top-8 md:right-8 z-[2010] bg-gray-100 hover:bg-gray-200 text-gray-700 w-10 h-10 rounded-full backdrop-blur-md transition flex items-center justify-center border border-gray-200 shadow-sm"
                 aria-label="Close details"
               >
                 <XMarkIcon className="w-5 h-5" />
@@ -211,21 +211,21 @@ export default function Portfolio() {
               {/* Inner columns wrapper: scrollable on mobile, regular on desktop */}
               <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-hidden h-full">
                 {/* Image Column */}
-                <div className="w-full md:w-1/2 relative bg-[#0d0720] flex items-center justify-center p-6 md:p-8 min-h-[250px] md:min-h-[450px] shrink-0">
-                  <img src={active.img} className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" alt={active.title} />
+                <div className="w-full md:w-1/2 relative bg-gray-50 flex items-center justify-center p-6 md:p-8 min-h-[250px] md:min-h-[450px] shrink-0">
+                  <img src={active.img} className="max-w-full max-h-full object-contain rounded-2xl shadow-xl" alt={active.title} />
                 </div>
 
                 {/* Content Column */}
                 <div className="w-full md:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-between md:h-auto">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
-                      <span className="text-accent-cyan font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase">{active.category}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-secondary-indigo animate-pulse" />
+                      <span className="text-secondary-indigo font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase">{active.category}</span>
                     </div>
 
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">{active.title}</h2>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">{active.title}</h2>
 
-                    <p className="text-white/50 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium italic">
+                    <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium italic">
                       "{active.description}"
                     </p>
                   </div>

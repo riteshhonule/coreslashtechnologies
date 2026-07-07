@@ -12,7 +12,7 @@ const packages = [
         description: "Ideal for local businesses starting their digital journey.",
         price: "7,999",
         duration: "/mo",
-        icon: <RocketLaunchIcon className="w-10 h-10 text-accent-cyan" />,
+        icon: <RocketLaunchIcon className="w-10 h-10 text-secondary-indigo" />,
         features: [
             "1 Strategic Ad Platform",
             "Full Campaign Audit",
@@ -29,7 +29,7 @@ const packages = [
         price: "14,999",
         duration: "/mo",
         isPopular: true,
-        icon: <ChartBarIcon className="w-10 h-10 text-accent-cyan" />,
+        icon: <ChartBarIcon className="w-10 h-10 text-secondary-indigo" />,
         features: [
             "2 Dominant Ad Platforms",
             "Advanced Behavioral Targeting",
@@ -46,7 +46,7 @@ const packages = [
         description: "Full-funnel dominance for industry heavyweights.",
         price: "24,999",
         duration: "/mo",
-        icon: <BriefcaseIcon className="w-10 h-10 text-accent-cyan" />,
+        icon: <BriefcaseIcon className="w-10 h-10 text-secondary-indigo" />,
         features: [
             "Omni-channel Ad Strategy",
             "Full-funnel Lead Architecture",
@@ -82,7 +82,7 @@ const PPCServices = () => {
             subtitle="Data-driven precision. Performance-led results. Dominate the digital landscape with elite ad strategies."
             ctaText="Scale My Business"
         >
-            <div className="bg-dark-black">
+            <div className="bg-[#F9FAFB] text-gray-900">
                 <div className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
 
                     {/* HERO SECTION */}
@@ -94,14 +94,14 @@ const PPCServices = () => {
                             transition={{ duration: 0.8 }}
                             className="relative"
                         >
-                            <div className="absolute -inset-4 bg-primary-purple/20 rounded-[3rem] blur-3xl opacity-50" />
-                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video group">
+                            <div className="absolute -inset-4 bg-primary-purple/5 rounded-[3rem] blur-3xl opacity-50" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-gray-200 shadow-xl aspect-video group">
                                 <img
                                     src={ppcImage}
                                     alt="PPC Specialist"
-                                    className="w-full h-full object-cover  transition-all duration-1000"
+                                    className="w-full h-full object-cover transition-all duration-1000"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-transparent to-transparent opacity-60" />
                             </div>
                         </motion.div>
 
@@ -112,14 +112,14 @@ const PPCServices = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center"
                         >
-                            <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                            <div className="flex items-center gap-2 mb-6 text-secondary-indigo font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
                                 Performance Engineering
                             </div>
-                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-10 leading-[1.1] tracking-tight">
                                 ROI-Driven <span className="text-gradient-purple">Precision</span> Ad Ecosystems.
                             </h2>
-                            <p className="text-white/40 text-xl leading-relaxed mb-12">
+                            <p className="text-gray-500 text-xl leading-relaxed mb-12">
                                 Stop burning your marketing capital. We architect high-performance lead generation 
                                 funnels that target customers at the exact moment of intent. By combining algorithmic 
                                 bidding with creative excellence, we engineer profitable growth at scale.
@@ -138,8 +138,8 @@ const PPCServices = () => {
                     {/* STRATEGY BENTO GRID */}
                     <div className="mb-16 md:mb-40">
                         <div className="text-center mb-24">
-                            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Strategic Framework</h2>
-                            <p className="text-white/40 max-w-2xl mx-auto">Our methodology integrates behavioral psychology with neural data analytics.</p>
+                            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">Strategic Framework</h2>
+                            <p className="text-gray-500 max-w-2xl mx-auto">Our methodology integrates behavioral psychology with neural data analytics.</p>
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -150,12 +150,12 @@ const PPCServices = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="glass-card p-6 rounded-3xl border-white/5 flex flex-col items-center text-center group hover:border-accent-cyan/20"
+                                    className="bg-white p-6 rounded-3xl border border-gray-200/60 flex flex-col items-center text-center group hover:border-secondary-indigo/30 hover:shadow-lg shadow-md shadow-gray-200/10"
                                 >
-                                    <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-4 group-hover:bg-accent-cyan/10 transition-colors">
-                                        <CheckCircleIcon className="w-5 h-5 text-accent-cyan" />
+                                    <div className="w-10 h-10 rounded-lg bg-gray-50 border border-gray-200 flex items-center justify-center mb-4 group-hover:bg-secondary-indigo/10 transition-colors">
+                                        <CheckCircleIcon className="w-5 h-5 text-secondary-indigo" />
                                     </div>
-                                    <span className="text-white font-bold text-xs leading-tight group-hover:text-accent-cyan transition-colors">{item}</span>
+                                    <span className="text-gray-900 font-bold text-xs leading-tight group-hover:text-secondary-indigo transition-colors">{item}</span>
                                 </motion.div>
                             ))}
                         </div>
@@ -164,7 +164,7 @@ const PPCServices = () => {
                     {/* INVESTMENT TIERS */}
                     <section className="pb-32">
                         <div className="text-center mb-24">
-                            <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                            <h2 className="text-4xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
                                 Investment <span className="text-gradient-cyan">Tiers</span>
                             </h2>
                         </div>
@@ -179,8 +179,8 @@ const PPCServices = () => {
                                     transition={{ duration: 0.8, delay: index * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
                                         pkg.isPopular 
-                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
-                                        : "bg-white/5 border-white/10 hover:border-white/30"
+                                        ? "bg-white border-2 border-primary-purple/30 shadow-2xl scale-105 z-10" 
+                                        : "bg-white border-gray-200/80 hover:border-secondary-indigo/30 shadow-md shadow-gray-200/10"
                                     }`}
                                 >
                                     {pkg.isPopular && (
@@ -191,22 +191,17 @@ const PPCServices = () => {
 
                                     <div className="mb-12">
                                         <div className="mb-8">{pkg.icon}</div>
-                                        <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
-                                        <div className="flex items-baseline gap-2 mb-6">
-                                            <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tight">{pkg.price}</span>
-                                            <span className="text-white/40 font-medium">{pkg.duration}</span>
-                                        </div>
-                                        <p className="text-white/40 text-sm leading-relaxed">{pkg.description}</p>
+                                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{pkg.name}</h3>
+                                        <p className="text-gray-500 text-sm leading-relaxed mb-6">{pkg.description}</p>
                                     </div>
 
                                     <div className="flex-grow space-y-5 mb-14">
                                         {pkg.features.map((f, i) => (
                                             <div key={i} className="flex items-start gap-4">
-                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                                                    <CheckCircleIcon className="w-4 h-4 text-accent-cyan" />
+                                                <div className="w-6 h-6 rounded-full bg-secondary-indigo/10 flex items-center justify-center shrink-0 mt-0.5">
+                                                    <CheckCircleIcon className="w-4 h-4 text-secondary-indigo" />
                                                 </div>
-                                                <span className="text-white/60 text-sm font-medium">{f}</span>
+                                                <span className="text-gray-600 text-sm font-medium">{f}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -214,7 +209,7 @@ const PPCServices = () => {
                                     <button
                                         onClick={openModal}
                                         className={`btn-pill w-full text-lg ${
-                                            pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                            pkg.isPopular ? "btn-primary-glow text-white" : "btn-glass text-secondary-indigo hover:text-white"
                                         }`}
                                     >
                                         Activate Plan

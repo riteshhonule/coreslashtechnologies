@@ -11,7 +11,7 @@ export default function Contact() {
           viewport={{ once: true, amount: 0, margin: "200px" }}
           className="relative z-10"
         >
-          <ContactForm variant="dark" />
+          <ContactForm variant="default" />
         </motion.div>
       </div>
     </section>

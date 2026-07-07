@@ -68,7 +68,7 @@ const AppDevelopment: React.FC = () => {
             subtitle="Engineering immersive mobile experiences for the next generation."
             ctaText="Build Your App"
         >
-            <div className="bg-dark-black">
+            <div className="bg-[#F9FAFB] text-gray-900">
                 {/* Immersive Hero Content */}
                 <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
                     <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
@@ -79,14 +79,14 @@ const AppDevelopment: React.FC = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-center text-center lg:items-center lg:text-center"
                         >
-                            <div className="flex items-center gap-2 mb-6 text-accent-cyan font-bold tracking-[0.3em] uppercase text-xs">
+                            <div className="flex items-center gap-2 mb-6 text-secondary-indigo font-bold tracking-[0.3em] uppercase text-xs">
                                 <SparklesIcon className="w-4 h-4" />
                                 Mobile Intelligence
                             </div>
-                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+                            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-10 leading-[1.1] tracking-tight">
                                 Architecting <span className="text-gradient-cyan">Powerful</span> Mobile Ecosystems.
                             </h2>
-                            <p className="text-white/40 text-xl leading-relaxed mb-12 max-w-xl">
+                            <p className="text-gray-500 text-xl leading-relaxed mb-12 max-w-xl">
                                 At CoreSlash Technologies, we don't just build apps; we engineer digital 
                                 companions. From fluid UI transitions to robust backend scalability, 
                                 we ensure your mobile presence is state-of-the-art.
@@ -108,39 +108,39 @@ const AppDevelopment: React.FC = () => {
                             transition={{ duration: 1 }}
                             className="relative"
                         >
-                            <div className="absolute -inset-4 bg-primary-purple/20 rounded-[3rem] blur-3xl opacity-50 pointer-events-none" />
-                            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-video lg:aspect-square group">
+                            <div className="absolute -inset-4 bg-primary-purple/5 rounded-[3rem] blur-3xl opacity-50 pointer-events-none" />
+                            <div className="relative rounded-[3rem] overflow-hidden border border-gray-200 shadow-xl aspect-video lg:aspect-square group">
                                 <img
                                     src={CoreslashTechnologies_app_development}
                                     alt="App Development"
-                                    className="w-full h-full object-cover  transition-all duration-1000 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-transparent to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-transparent to-transparent opacity-60" />
                             </div>
                         </motion.div>
                     </div>
                 </section>
 
-                {/* Features Section Integration - The component itself might need a theme update but let's see its context */}
-                <div className="relative z-10 border-y border-white/5 bg-white/2 overflow-hidden">
+                {/* Features Section Integration */}
+                <div className="relative z-10 border-y border-gray-200/60 bg-white/5 shadow-sm overflow-hidden">
                      <AppFeaturesSection />
                 </div>
 
                 {/* PREMIUM PRICING SECTION */}
-                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-dark-black">
+                <section className="pt-10 pb-12 md:pt-12 md:pb-16 bg-[#F9FAFB]">
                     <div className="container mx-auto px-6">
                         <div className="text-center mb-24">
                             <motion.div
                                 initial={{ opacity: 1, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0, margin: "200px" }}
-                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
+                                className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-8"
                             >
-                                <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">
+                                <span className="text-xs font-bold text-secondary-indigo uppercase tracking-[0.2em]">
                                     App Packages
                                 </span>
                             </motion.div>
-                            <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">
+                            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
                                 Strategic <span className="text-gradient-purple">Development</span> Plans
                             </h2>
                         </div>
@@ -155,8 +155,8 @@ const AppDevelopment: React.FC = () => {
                                     transition={{ duration: 0.8, delay: index * 0.05 }}
                                     className={`relative p-12 rounded-[4rem] border flex flex-col transition-all duration-700 ${
                                         pkg.highlight 
-                                        ? "bg-primary-purple/10 border-primary-purple/30 shadow-[0_30px_100px_rgba(69,3,185,0.2)] scale-105 z-10" 
-                                        : "bg-white/5 border-white/10 hover:border-white/30"
+                                        ? "bg-white border-2 border-primary-purple/30 shadow-2xl scale-105 z-10" 
+                                        : "bg-white border-gray-200/80 hover:border-secondary-indigo/30 shadow-md shadow-gray-200/10"
                                     }`}
                                 >
                                     {pkg.highlight && (
@@ -166,29 +166,25 @@ const AppDevelopment: React.FC = () => {
                                     )}
 
                                     <div className="mb-12">
-                                        <h3 className="text-2xl font-bold text-white mb-4">{pkg.name}</h3>
-                                        <div className="flex items-baseline gap-2 mb-6">
-                                            <span className="text-xl font-bold text-accent-cyan">₹</span>
-                                            <span className="text-6xl font-black text-white tracking-tight">{pkg.price}</span>
-                                        </div>
-                                        <p className="text-white/40 text-sm leading-relaxed">{pkg.desc}</p>
+                                        <h3 className="text-2xl font-bold text-gray-900 mb-4">{pkg.name}</h3>
+                                        <p className="text-gray-500 text-sm leading-relaxed mb-6">{pkg.desc}</p>
                                     </div>
 
                                     <div className="flex-grow space-y-5 mb-14">
                                         {pkg.features.map((f, i) => (
                                             <div key={i} className="flex items-start gap-4 group/item">
-                                                <div className="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-accent-cyan/20 transition-colors">
-                                                    <CheckIcon className="w-3.5 h-3.5 text-accent-cyan font-bold" />
+                                                <div className="w-6 h-6 rounded-full bg-secondary-indigo/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-secondary-indigo/20 transition-colors">
+                                                    <CheckIcon className="w-3.5 h-3.5 text-secondary-indigo font-bold" />
                                                 </div>
-                                                <span className="text-white/60 text-sm font-medium group-hover/item:text-white transition-colors">{f}</span>
+                                                <span className="text-gray-600 text-sm font-medium group-hover/item:text-gray-950 transition-colors">{f}</span>
                                             </div>
                                         ))}
                                     </div>
 
                                     <button
                                         onClick={openModal}
-                                        className={`btn-pill w-full text-lg ${
-                                            pkg.highlight ? "btn-primary-glow text-white" : "btn-glass text-white"
+                                        className={`btn-pill w-full text-lg flex items-center justify-center gap-2 ${
+                                            pkg.highlight ? "btn-primary-glow text-white" : "btn-glass text-secondary-indigo hover:text-white"
                                         }`}
                                     >
                                         <span className="relative z-10">Get Custom Quote</span>

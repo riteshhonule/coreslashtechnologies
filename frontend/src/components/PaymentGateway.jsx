@@ -13,46 +13,46 @@ const gateways = [
         name: "Razorpay",
         img: razorpay,
         desc: "Regional Payments",
-        classes: "bg-[#0c80e3]/10 border-[#0c80e3]/30 text-white/70 hover:bg-[#0c80e3]/25 hover:border-[#0c80e3]/60 hover:text-white shadow-[0_0_15px_rgba(12,128,227,0.1)] hover:shadow-[0_0_25px_rgba(12,128,227,0.4)]",
-        glow: "rgba(12, 128, 227, 0.25)"
+        classes: "bg-white border-gray-200 text-gray-800 hover:border-[#0c80e3]/50 hover:text-[#0c80e3] shadow-md shadow-gray-200/40",
+        glow: "rgba(12, 128, 227, 0.15)"
     },
     {
         name: "Stripe",
         img: stripe,
         desc: "Global Operations",
-        classes: "bg-[#635bff]/10 border-[#635bff]/30 text-white/70 hover:bg-[#635bff]/25 hover:border-[#635bff]/60 hover:text-white shadow-[0_0_15px_rgba(99,91,255,0.1)] hover:shadow-[0_0_25px_rgba(99,91,255,0.4)]",
-        glow: "rgba(99, 91, 255, 0.25)"
+        classes: "bg-white border-gray-200 text-gray-800 hover:border-[#635bff]/50 hover:text-[#635bff] shadow-md shadow-gray-200/40",
+        glow: "rgba(99, 91, 255, 0.15)"
     },
     {
         name: "PayPal",
         img: paypal,
         desc: "International Trade",
-        classes: "bg-[#00457c]/15 border-[#00457c]/35 text-white/70 hover:bg-[#00457c]/30 hover:border-[#00457c]/65 hover:text-white shadow-[0_0_15px_rgba(0,69,124,0.1)] hover:shadow-[0_0_25px_rgba(0,69,124,0.4)]",
-        glow: "rgba(0, 69, 124, 0.25)"
+        classes: "bg-white border-gray-200 text-gray-800 hover:border-[#00457c]/50 hover:text-[#00457c] shadow-md shadow-gray-200/40",
+        glow: "rgba(0, 69, 124, 0.15)"
     },
     {
         name: "PhonePe",
         img: phonepe,
         desc: "Secure UPI",
-        classes: "bg-[#5f259f]/15 border-[#5f259f]/35 text-white/70 hover:bg-[#5f259f]/30 hover:border-[#5f259f]/65 hover:text-white shadow-[0_0_15px_rgba(95,37,159,0.1)] hover:shadow-[0_0_25px_rgba(95,37,159,0.4)]",
-        glow: "rgba(95, 37, 159, 0.25)"
+        classes: "bg-white border-gray-200 text-gray-800 hover:border-[#5f259f]/50 hover:text-[#5f259f] shadow-md shadow-gray-200/40",
+        glow: "rgba(95, 37, 159, 0.15)"
     },
     {
         name: "Paytm",
         img: gpay,
         desc: "Mobile Commerce",
-        classes: "bg-[#00baf2]/10 border-[#00baf2]/30 text-white/70 hover:bg-[#00baf2]/25 hover:border-[#00baf2]/60 hover:text-white shadow-[0_0_15px_rgba(0,186,242,0.1)] hover:shadow-[0_0_25px_rgba(0,186,242,0.4)]",
-        glow: "rgba(0, 186, 242, 0.25)"
+        classes: "bg-white border-gray-200 text-gray-800 hover:border-[#00baf2]/50 hover:text-[#00baf2] shadow-md shadow-gray-200/40",
+        glow: "rgba(0, 186, 242, 0.15)"
     },
 ];
 
 const PaymentGateway = () => {
     return (
-        <section className="relative py-12 md:py-16 overflow-hidden bg-dark-black">
+        <section className="relative py-12 md:py-16 overflow-hidden bg-[#F9FAFB]">
             
             {/* Background Glows */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-purple/5 rounded-full blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary-indigo/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-purple/2 rounded-full blur-[140px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary-indigo/2 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-16">
@@ -60,17 +60,17 @@ const PaymentGateway = () => {
                         initial={{ opacity: 1, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0, margin: "200px" }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-8"
                     >
-                        <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">Global Integrations</span>
+                        <span className="text-xs font-bold text-secondary-indigo uppercase tracking-[0.2em]">Global Integrations</span>
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+                    <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
                         Seamlessly Integrated <br />
                         <span className="text-gradient-cyan">Financial Infrastructure</span>
                     </h2>
 
-                    <p className="text-white/40 text-lg max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
                         We engineer secure, high-performance financial integrations that bridge 
                         the gap between your platform and global capital.
                     </p>
@@ -95,12 +95,12 @@ const PaymentGateway = () => {
                             >
                                 {/* Brand Glow Backdrop */}
                                 <div 
-                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-[2rem] pointer-events-none blur-2xl -z-10"
+                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-[2rem] pointer-events-none blur-xl -z-10"
                                     style={{ background: `radial-gradient(circle, ${payment.glow} 0%, transparent 70%)` }}
                                 />
 
                                 <div className="relative w-24 h-10 md:w-36 md:h-16 flex items-center justify-center mb-4 md:mb-6">
-                                    <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 blur-xl pointer-events-none" />
+                                    <div className="absolute inset-0 bg-gray-50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 blur-xl pointer-events-none" />
                                     <img
                                         src={payment.img}
                                         alt={payment.name}
@@ -111,7 +111,7 @@ const PaymentGateway = () => {
                                 <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] mb-1 md:mb-2 transition-colors">
                                     {payment.name}
                                 </p>
-                                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-wider transition-colors">
+                                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-wider transition-colors text-gray-400 group-hover:text-inherit">
                                     {payment.desc}
                                 </p>
                             </motion.div>
@@ -125,8 +125,8 @@ const PaymentGateway = () => {
                     viewport={{ once: true, amount: 0, margin: "200px" }}
                     className="mt-16 flex flex-col items-center"
                 >
-                    <div className="h-px w-32 bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
-                    <p className="text-white/20 text-xs font-bold uppercase tracking-[0.4em] text-center">
+                    <div className="h-px w-32 bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-8" />
+                    <p className="text-gray-400 text-xs font-bold uppercase tracking-[0.4em] text-center">
                         Enterprise Grade Security & PCI DSS Compliance
                     </p>
                 </motion.div>

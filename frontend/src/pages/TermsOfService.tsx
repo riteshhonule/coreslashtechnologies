@@ -6,15 +6,15 @@ import { envConfig } from "../config/env.config";
 
 export default function TermsOfService() {
   return (
-    <div className="relative min-h-screen bg-dark-black overflow-hidden font-sans text-white pb-24">
+    <div className="relative min-h-screen bg-[#F9FAFB] overflow-hidden font-sans text-gray-900 pb-24">
       <SEO
         title="Terms of Service"
         description="Terms of Service for Coreslash Technologies. Learn about our service scope, payment terms, code ownership, and usage guidelines."
       />
 
       {/* Decorative Blur Backgrounds */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary-purple/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-20 left-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary-purple/3 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-[500px] h-[500px] bg-secondary-indigo/2 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Hero Header */}
       <section className="relative pt-12 pb-16 text-center max-w-4xl mx-auto px-6">
@@ -22,17 +22,17 @@ export default function TermsOfService() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-6"
         >
-          <FileText className="w-4 h-4 text-accent-cyan" />
-          <span className="text-xs font-bold text-accent-cyan uppercase tracking-[0.2em]">Service Agreement</span>
+          <FileText className="w-4 h-4 text-secondary-indigo" />
+          <span className="text-xs font-bold text-secondary-indigo uppercase tracking-[0.2em]">Service Agreement</span>
         </motion.div>
         
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-white"
+          className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-gray-900"
         >
           Terms of <span className="text-gradient-cyan">Service</span>
         </motion.h1>
@@ -41,7 +41,7 @@ export default function TermsOfService() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-sm md:text-base text-white/40 font-medium"
+          className="text-sm md:text-base text-gray-500 font-medium"
         >
           Last Updated: June 23, 2026 • Effective Date: June 23, 2026
         </motion.p>
@@ -50,24 +50,24 @@ export default function TermsOfService() {
       {/* Main Content Layout - Centered Full-Width Card */}
       <div className="max-w-4xl mx-auto px-6">
         <main className="space-y-10">
-          <div className="glass-card border border-white/10 rounded-[2.5rem] p-8 md:p-12 space-y-12 bg-white/[0.01]">
+          <div className="bg-white border border-gray-200 shadow-xl shadow-gray-200/30 rounded-[2.5rem] p-8 md:p-12 space-y-12">
             
             {/* Acceptance & Services */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <Cpu className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">1. Acceptance of Terms & Services Scope</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">1. Acceptance of Terms & Services Scope</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   By engaging with Coreslash Technologies (the "Company", "we", "us", or "our"), signing a client contract, submitting inquiries through{" "}
                   <a
                     href={envConfig.appUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent-cyan hover:underline inline-flex items-center gap-1 font-semibold"
+                    className="text-secondary-indigo hover:underline inline-flex items-center gap-1 font-semibold"
                   >
                     coreslashtechnologies.com <ExternalLink className="w-3 h-3" />
                   </a>,
@@ -79,17 +79,17 @@ export default function TermsOfService() {
               </div>
             </section>
 
-            <hr className="border-white/5" />
+            <hr className="border-gray-100" />
 
             {/* Project Execution */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <FileText className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">2. Project Execution & Client Cooperation</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">2. Project Execution & Client Cooperation</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Successful project delivery requires active collaboration. To ensure projects stay on schedule, the Client agrees to provide prompt feedback, text copy, graphic assets, brand guidelines, credentials, or API tokens as outlined in our project onboarding checklists.
                 </p>
@@ -99,17 +99,17 @@ export default function TermsOfService() {
               </div>
             </section>
 
-            <hr className="border-white/5" />
+            <hr className="border-gray-100" />
 
             {/* Intellectual Property */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <Key className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">3. Intellectual Property Rights & Code Ownership</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">3. Intellectual Property Rights & Code Ownership</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Unless otherwise agreed in a signed written contract, the assignment of Intellectual Property (IP) is structured as follows:
                 </p>
@@ -121,17 +121,17 @@ export default function TermsOfService() {
               </div>
             </section>
 
-            <hr className="border-white/5" />
+            <hr className="border-gray-100" />
 
             {/* Payments & Invoicing */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <Receipt className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">4. Payments, Milestones & Invoicing</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">4. Payments, Milestones & Invoicing</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Our professional billing system is organized around clearly defined payment milestones. These terms ensure transparency:
                 </p>
@@ -143,17 +143,17 @@ export default function TermsOfService() {
               </div>
             </section>
 
-            <hr className="border-white/5" />
+            <hr className="border-gray-100" />
 
             {/* Limitation of Liability */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <AlertTriangle className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">5. Limitation of Liability</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">5. Limitation of Liability</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL CORESLASH TECHNOLOGIES BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, EXEMPLARY, PUNATIVE, OR CONSEQUENTIAL DAMAGES WHATSOEVER.
                 </p>
@@ -163,17 +163,17 @@ export default function TermsOfService() {
               </div>
             </section>
 
-            <hr className="border-white/5" />
+            <hr className="border-gray-100" />
 
             {/* Acceptable Use Policy */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <ShieldAlert className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">6. Acceptable Use Policy</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">6. Acceptable Use Policy</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Our services, servers, and digital environments must only be utilized for lawful purposes. You agree not to use our codebases or websites to:
                 </p>
@@ -185,17 +185,17 @@ export default function TermsOfService() {
               </div>
             </section>
 
-            <hr className="border-white/5" />
+            <hr className="border-gray-100" />
 
             {/* Termination */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <Ban className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">7. Termination of Engagements</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">7. Termination of Engagements</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   Either party may terminate a project contract if the other party commits a material breach of terms and fails to cure such breach within thirty (30) days of receiving written notice.
                 </p>
@@ -205,17 +205,17 @@ export default function TermsOfService() {
               </div>
             </section>
 
-            <hr className="border-white/5" />
+            <hr className="border-gray-100" />
 
             {/* Governing Law */}
             <section className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan shrink-0">
+                <div className="p-2 rounded-xl bg-secondary-indigo/10 border border-secondary-indigo/15 text-secondary-indigo shrink-0">
                   <Award className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">8. Governing Law & Jurisdiction</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">8. Governing Law & Jurisdiction</h2>
               </div>
-              <div className="text-white/70 leading-relaxed space-y-4 text-sm md:text-base text-justify">
+              <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base text-justify">
                 <p>
                   These Terms of Service, along with any separate project contracts, shall be governed by, construed, and enforced in accordance with the laws of the State of Karnataka, India, without regard to its principles of conflicts of law.
                 </p>
@@ -226,21 +226,21 @@ export default function TermsOfService() {
                   For questions regarding these terms, please contact us:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4">
-                    <Mail className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
+                  <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 hover:border-secondary-indigo/25 transition-all">
+                    <Mail className="w-5 h-5 text-secondary-indigo shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1">Email Us</p>
-                      <a href={`mailto:${envConfig.contact.email}`} className="text-xs sm:text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
+                      <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Email Us</p>
+                      <a href={`mailto:${envConfig.contact.email}`} className="text-xs sm:text-sm font-semibold text-gray-900 hover:text-secondary-indigo transition-colors">
                         {envConfig.contact.email}
                       </a>
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4">
-                    <Phone className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
+                  <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 hover:border-secondary-indigo/25 transition-all">
+                    <Phone className="w-5 h-5 text-secondary-indigo shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-1">WhatsApp Us</p>
-                      <a href={`tel:${envConfig.social.whatsappPhone}`} className="text-xs sm:text-sm font-semibold text-white hover:text-accent-cyan transition-colors">
+                      <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">WhatsApp Us</p>
+                      <a href={`tel:${envConfig.social.whatsappPhone}`} className="text-xs sm:text-sm font-semibold text-gray-900 hover:text-secondary-indigo transition-colors">
                         {envConfig.social.whatsappPhone}
                       </a>
                     </div>

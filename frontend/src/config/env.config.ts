@@ -42,6 +42,9 @@ export const envConfig = {
     whatsappLinkSecondary: import.meta.env.VITE_WHATSAPP_LINK_SECONDARY || 'https://wa.me/919513013247',
     linkedin: import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/company/coreslash-technologies/',
     instagram: import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/coreslashtechnologies/',
+    discord: import.meta.env.VITE_DISCORD_URL || 'https://discord.com/users/coreslash_technologies',
+    facebook: import.meta.env.VITE_FACEBOOK_URL || 'https://www.facebook.com/coreslashtechnologies',
+    telegram: import.meta.env.VITE_TELEGRAM_URL || 'https://t.me/coreslashtechnologies',
   },
   contact: {
     email: import.meta.env.VITE_SUPPORT_EMAIL || 'contact@coreslashtechnologies.com',

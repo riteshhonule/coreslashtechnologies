@@ -30,19 +30,29 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
+  const isDark = variant === "dark";
+  const labelColor = isDark ? "text-white/30" : "text-gray-500";
+  const optionClass = isDark ? "bg-dark-black text-white" : "bg-white text-gray-900";
+  const arrowColor = isDark ? "text-white/30" : "text-gray-400";
+
   const onSubmit = async (data: ContactFormData) => {
     try {
       setStatus("loading");
-      await submitContact({ ...data, service });
-      setStatus("success");
-      reset();
-      if (onSuccess) onSuccess();
-      setTimeout(() => setStatus("idle"), 3000);
+      
+      // Submit to backend in the background without blocking the UI
+      submitContact({ ...data, service }).catch((error) => {
+        console.error("Background form submission error:", error);
+      });
+
+      // transition immediately to success overlay for instant response feel
+      setTimeout(() => {
+        setStatus("success");
+        reset();
+        if (onSuccess) onSuccess();
+      }, 150);
     } catch (error: any) {
       setStatus("error");
-      const apiMessage = error.response?.data?.message;
-      const displayMessage = Array.isArray(apiMessage) ? apiMessage[0] : apiMessage || "An error occurred. Please try again.";
-      setErrorMsg(displayMessage);
+      setErrorMsg("An error occurred. Please try again.");
       setTimeout(() => {
         setStatus("idle");
         setErrorMsg(null);
@@ -75,7 +85,7 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
       <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
         <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
-            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
+            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Full Name</label>
             <input
               placeholder="Enter Your Name"
               className={`glass-input ${errors.name ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
@@ -90,7 +100,7 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           </div>
 
           <div className="space-y-0.5">
-            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Work Email</label>
+            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Work Email</label>
             <input
               type="email"
               placeholder="Enter Your Email"
@@ -111,7 +121,7 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
 
         <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
-            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
+            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Phone Number</label>
             <input
               type="tel"
               inputMode="tel"
@@ -129,7 +139,7 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           </div>
 
           <div className="space-y-0.5">
-            <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Location</label>
+            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Location</label>
             <input
               placeholder="Enter Your Location"
               className={`glass-input ${errors.address ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
@@ -145,21 +155,21 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
         </div>
 
         <div className="space-y-0.5">
-          <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Select Industry</label>
+          <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Select Industry</label>
           <div className="relative">
             <select
               className={`glass-input appearance-none cursor-pointer ${errors.businessType ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
               {...register("businessType", { required: "Please select your industry" })}
               defaultValue=""
             >
-              <option value="" disabled className="bg-dark-black">Choose industry...</option>
-              <option value="E-commerce" className="bg-dark-black">E-commerce</option>
-              <option value="Real Estate" className="bg-dark-black">Real Estate</option>
-              <option value="Education" className="bg-dark-black">Education</option>
-              <option value="Healthcare" className="bg-dark-black">Healthcare</option>
-              <option value="Other" className="bg-dark-black">Other</option>
+              <option value="" disabled className={optionClass}>Choose industry...</option>
+              <option value="E-commerce" className={optionClass}>E-commerce</option>
+              <option value="Real Estate" className={optionClass}>Real Estate</option>
+              <option value="Education" className={optionClass}>Education</option>
+              <option value="Healthcare" className={optionClass}>Healthcare</option>
+              <option value="Other" className={optionClass}>Other</option>
             </select>
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/30">
+            <div className={`absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none ${arrowColor}`}>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
             </div>
           </div>
@@ -169,7 +179,7 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
         </div>
 
         <div className="space-y-0.5">
-          <label className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] ml-1">Project Details</label>
+          <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Project Details</label>
           <textarea
             rows={2}
             placeholder="Describe your vision and technical requirements..."
@@ -184,15 +194,17 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           )}
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.01 }}
-          whileTap={{ scale: 0.99 }}
-          type="submit"
-          disabled={status === "loading"}
-          className="w-full btn-pill btn-primary-glow text-white text-base py-3 shadow-2xl mt-1"
-        >
-          {status === "loading" ? "Processing..." : "Secure My Consultation"}
-        </motion.button>
+        <div className="flex justify-center w-full mt-2">
+          <motion.button
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
+            type="submit"
+            disabled={status === "loading"}
+            className="btn-pill btn-primary-glow text-white text-sm py-2.5 px-10 shadow-2xl"
+          >
+            {status === "loading" ? "Processing..." : "Submit"}
+          </motion.button>
+        </div>
 
         {errorMsg && (
           <p className="text-red-400 text-sm font-bold text-center animate-pulse">{errorMsg}</p>
