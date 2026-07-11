@@ -1,4 +1,5 @@
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&f[]=general-sans@400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Satisfy&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -10,6 +11,8 @@
   
   --font-sans: "Satoshi", "General Sans", "Inter", system-ui, sans-serif;
   --font-display: "Clash Display", "Satoshi", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-satisfy: "Satisfy", cursive;
 
   --shadow-glow-cyan: 0 0 20px rgba(34, 211, 238, 0.15);
   --shadow-glow-purple: 0 0 30px rgba(115, 124, 253, 0.15);

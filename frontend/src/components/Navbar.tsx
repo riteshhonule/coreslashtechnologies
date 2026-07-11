@@ -84,7 +84,7 @@ export default function Navbar() {
               width: "100%",
               height: "100vh",
               zIndex: 9998,
-              backgroundColor: "rgba(5, 1, 15, 0.85)",
+              backgroundColor: "rgba(21, 166, 103, 0.85)",
               backdropFilter: "blur(8px)",
               WebkitBackdropFilter: "blur(8px)",
             }}
@@ -110,7 +110,7 @@ export default function Navbar() {
               display: "flex",
               flexDirection: "column",
             }}
-           >
+          >
             {/* Close button - small, absolute corner, no layout impact */}
             <button
               onClick={closeMobileMenu}
@@ -137,11 +137,10 @@ export default function Navbar() {
                     <Link
                       to={link.to}
                       onClick={closeMobileMenu}
-                      className={`block text-2xl font-bold tracking-wide transition-colors ${
-                        location.pathname === link.to
-                          ? "text-secondary-indigo"
-                          : "text-gray-900 hover:text-secondary-indigo"
-                      }`}
+                      className={`block text-2xl font-bold tracking-wide transition-colors ${location.pathname === link.to
+                        ? "text-secondary-indigo"
+                        : "text-gray-900 hover:text-secondary-indigo"
+                        }`}
                     >
                       {link.label}
                     </Link>
@@ -165,11 +164,10 @@ export default function Navbar() {
                     <Link
                       to={service.to}
                       onClick={closeMobileMenu}
-                      className={`block text-base font-medium transition-colors ${
-                        location.pathname === service.to
-                          ? "text-secondary-indigo"
-                          : "text-gray-500 hover:text-secondary-indigo"
-                      }`}
+                      className={`block text-base font-medium transition-colors ${location.pathname === service.to
+                        ? "text-secondary-indigo"
+                        : "text-gray-500 hover:text-secondary-indigo"
+                        }`}
                     >
                       {service.label}
                     </Link>
@@ -199,141 +197,139 @@ export default function Navbar() {
 
   return (
     <>      <header
-        className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 bg-[#0c081d]/90 backdrop-blur-lg border-b border-white/5 shadow-md ${
-          scrolled ? "py-3" : "py-4.5"
+      className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 bg-[#0c081d]/90 backdrop-blur-lg border-b border-white/5 shadow-md ${scrolled ? "py-3" : "py-4.5"
         }`}
-        style={{ zIndex: 1000 }}
-      >
-        <div className="mx-auto max-w-[1600px] w-full px-4 md:px-6">
-          <nav className="w-full flex flex-row items-center justify-between px-4 md:px-8 py-1.5"
-          >
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group shrink-0">
-              <img
-                src={logo}
-                alt="Coreslash Technologies"
-                className="h-6 md:h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-              />
-            </Link>
+      style={{ zIndex: 1000 }}
+    >
+      <div className="mx-auto max-w-[1600px] w-full px-4 md:px-6">
+        <nav className="w-full flex flex-row items-center justify-between px-4 md:px-8 py-1.5"
+        >
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 group shrink-0">
+            <img
+              src={logo}
+              alt="Coreslash Technologies"
+              className="h-6 md:h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex flex-row flex-nowrap items-center gap-1 lg:gap-2">
-              {/* Render first link (Home) */}
-              {links.filter(l => l.label === "Home").map((link) => {
-                const isActive = location.pathname === link.to;
-                return (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
-                  >
-                    <span className="relative z-10">{link.label}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="nav-active-glow"
-                        className="absolute inset-0 bg-white/5 rounded-full border border-white/10"
-                      />
-                    )}
-                  </Link>
-                );
-              })}
-
-              {/* Services Dropdown — standalone, not tied to any link */}
-              <div className="relative"
-                onMouseEnter={() => setHoveredService(true)}
-                onMouseLeave={() => setHoveredService(false)}>
-                <div 
-                  onClick={() => setHoveredService(prev => !prev)}
-                  className={`flex items-center gap-1.5 px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full cursor-pointer transition-all duration-300 ${location.pathname.includes("/services") ? "text-accent-cyan" : "text-white/60 hover:text-white"
-                  }`}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex flex-row flex-nowrap items-center gap-1 lg:gap-2">
+            {/* Render first link (Home) */}
+            {links.filter(l => l.label === "Home").map((link) => {
+              const isActive = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
                 >
-                  Services
-                  <ChevronDownIcon className={`w-3 h-3 transition-transform duration-500 ${hoveredService ? "rotate-180" : ""}`} />
-                </div>
-
-                <AnimatePresence>
-                  {hoveredService && (
+                  <span className="relative z-10">{link.label}</span>
+                  {isActive && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-0 w-72 pt-3"
-                      style={{ zIndex: 1001 }}
-                    >
-                      <div className="p-3 bg-white/95 backdrop-blur-3xl border border-gray-200/80 rounded-3xl shadow-2xl overflow-hidden">
-                        {servicesLinks.map((service) => {
-                          const isActive = location.pathname === service.to;
-                          return (
-                            <Link
-                              key={service.to}
-                              to={service.to}
-                              onClick={() => setHoveredService(false)}
-                              className={`relative flex items-center justify-between px-5 py-3 text-xs font-bold uppercase tracking-widest rounded-2xl transition-all ${
-                                isActive
-                                  ? "text-secondary-indigo bg-secondary-indigo/5"
-                                  : "text-gray-500 hover:text-secondary-indigo hover:bg-gray-50"
-                              }`}
-                            >
-                              <span>{service.label}</span>
-                              {isActive && (
-                                <motion.span
-                                  layoutId="active-dropdown-indicator"
-                                  className="w-1.5 h-1.5 rounded-full bg-secondary-indigo"
-                                />
-                              )}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </motion.div>
+                      layoutId="nav-active-glow"
+                      className="absolute inset-0 bg-white/5 rounded-full border border-white/10"
+                    />
                   )}
-                </AnimatePresence>
+                </Link>
+              );
+            })}
+
+            {/* Services Dropdown — standalone, not tied to any link */}
+            <div className="relative"
+              onMouseEnter={() => setHoveredService(true)}
+              onMouseLeave={() => setHoveredService(false)}>
+              <div
+                onClick={() => setHoveredService(prev => !prev)}
+                className={`flex items-center gap-1.5 px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full cursor-pointer transition-all duration-300 ${location.pathname.includes("/services") ? "text-accent-cyan" : "text-white/60 hover:text-white"
+                  }`}
+              >
+                Services
+                <ChevronDownIcon className={`w-3 h-3 transition-transform duration-500 ${hoveredService ? "rotate-180" : ""}`} />
               </div>
 
-              {/* Remaining links: About, Portfolio, Blog, Contact */}
-              {links.filter(l => l.label !== "Home").map((link) => {
-                const isActive = location.pathname === link.to;
-                return (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+              <AnimatePresence>
+                {hoveredService && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full left-0 w-72 pt-3"
+                    style={{ zIndex: 1001 }}
                   >
-                    <span className="relative z-10">{link.label}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="nav-active-glow"
-                        className="absolute inset-0 bg-white/5 rounded-full border border-white/10"
-                      />
-                    )}
-                  </Link>
-                );
-              })}
+                    <div className="p-3 bg-white/95 backdrop-blur-3xl border border-gray-200/80 rounded-3xl shadow-2xl overflow-hidden">
+                      {servicesLinks.map((service) => {
+                        const isActive = location.pathname === service.to;
+                        return (
+                          <Link
+                            key={service.to}
+                            to={service.to}
+                            onClick={() => setHoveredService(false)}
+                            className={`relative flex items-center justify-between px-5 py-3 text-xs font-bold uppercase tracking-widest rounded-2xl transition-all ${isActive
+                              ? "text-secondary-indigo bg-secondary-indigo/5"
+                              : "text-gray-500 hover:text-secondary-indigo hover:bg-gray-50"
+                              }`}
+                          >
+                            <span>{service.label}</span>
+                            {isActive && (
+                              <motion.span
+                                layoutId="active-dropdown-indicator"
+                                className="w-1.5 h-1.5 rounded-full bg-secondary-indigo"
+                              />
+                            )}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* CTA & Mobile Toggle */}
-            <div className="flex items-center gap-6">
-              <a
-                href={envConfig.social.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:flex items-center gap-3 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all duration-500 bg-white text-dark-black hover:bg-accent-cyan hover:scale-105 active:scale-95 shadow-glow-cyan"
-              >
-                <FaWhatsapp className="text-lg" />
-                <span>Connect</span>
-              </a>
+            {/* Remaining links: About, Portfolio, Blog, Contact */}
+            {links.filter(l => l.label !== "Home").map((link) => {
+              const isActive = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                >
+                  <span className="relative z-10">{link.label}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-active-glow"
+                      className="absolute inset-0 bg-white/5 rounded-full border border-white/10"
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
 
-              <button
-                className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
-                onClick={() => setMobileMenuOpen(true)}
-                aria-label="Open menu"
-              >
-                <Bars3Icon className="w-8 h-8" />
-              </button>
-            </div>
-          </nav>
-        </div>
-      </header>
+          {/* CTA & Mobile Toggle */}
+          <div className="flex items-center gap-6">
+            <a
+              href={envConfig.social.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-3 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all duration-500 bg-white text-dark-black hover:bg-accent-cyan hover:scale-105 active:scale-95 shadow-glow-cyan"
+            >
+              <FaWhatsapp className="text-lg" />
+              <span>Connect</span>
+            </a>
+
+            <button
+              className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open menu"
+            >
+              <Bars3Icon className="w-8 h-8" />
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
 
       {/* Mobile menu portal - renders outside header stacking context */}
       {mobileMenuPortal}

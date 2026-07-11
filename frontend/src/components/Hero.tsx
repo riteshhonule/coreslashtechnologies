@@ -77,110 +77,167 @@ export default function Hero() {
             animate="visible"
             className="w-full min-h-[calc(100svh-184px)] md:min-h-0 flex flex-col justify-center items-center md:block lg:w-[58%] text-center lg:text-left relative z-20"
           >
-            {/* Tagline */}
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-1.5 rounded-full bg-primary-purple/5 border border-primary-purple/15 mb-8 backdrop-blur-md max-w-[92%] sm:max-w-max mx-auto lg:mx-0"
-            >
-              <SparklesIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-purple shrink-0" />
-              <span className="text-[8.5px] min-[360px]:text-[9px] sm:text-[10px] font-bold text-primary-purple uppercase tracking-[0.2em] sm:tracking-[0.3em] whitespace-normal text-center leading-normal">
-                Strategic Intelligence Protocol
-              </span>
-            </motion.div>
-
-            {/* Premium Mixed-Scale Hero Heading */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-black leading-[0.9] tracking-[-0.02em] text-gray-900 mb-8"
-            >
-
-              {/* Small Top Text */}
-              <span
-                className="block font-bold text-primary-purple mb-2"
-                style={{
-                  fontSize: "clamp(24px, 3vw, 52px)",
-                  lineHeight: "1",
-                }}
+            {/* MOBILE ONLY LAYOUT */}
+            <div className="flex flex-col items-center justify-center md:hidden w-full font-dm-sans">
+              {/* Tagline / Badge */}
+              <motion.div
+                variants={itemVariants}
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-full bg-[#5B21F4]/5 border border-[#5B21F4]/15 mb-8 backdrop-blur-md max-w-[92%]"
               >
-                AI-powered solutions
-              </span>
+                <SparklesIcon className="w-3.5 h-3.5 text-[#5B21F4] shrink-0" />
+                <span className="text-[8.5px] min-[360px]:text-[9px] font-bold text-[#5B21F4] uppercase tracking-[0.2em] whitespace-normal text-center leading-normal font-dm-sans">
+                  Strategic Intelligence Protocol
+                </span>
+              </motion.div>
 
-              {/* To Solve + Complex */}
-              <div
-                className="flex flex-wrap items-end justify-center lg:justify-start gap-x-3 gap-y-1"
-                style={{
-                  lineHeight: "0.9",
-                }}
+              {/* Mobile Hero Heading */}
+              <motion.h1
+                variants={itemVariants}
+                className="flex flex-col items-center text-center w-full mb-8 font-dm-sans"
               >
-                <span
-                  className="text-gray-900 whitespace-nowrap"
-                  style={{
-                    fontSize: "clamp(32px, 4vw, 68px)",
-                  }}
-                >
+                {/* AI-powered solutions */}
+                <span className="block font-bold text-[#5B21F4] text-[26px] min-[375px]:text-[30px] min-[410px]:text-[32px] tracking-[-0.02em] leading-normal mb-2 font-dm-sans">
+                  AI-powered solutions
+                </span>
+
+                {/* to Solve */}
+                <span className="block font-semibold text-[#111827] text-[32px] min-[375px]:text-[34px] min-[410px]:text-[36px] tracking-tight leading-none mb-0 font-dm-sans">
                   to Solve
                 </span>
 
+                {/* Complex */}
                 <span
-                  className="bg-gradient-to-r from-primary-purple via-primary-purple to-[#2d007c] bg-clip-text text-transparent whitespace-nowrap"
+                  className="block font-satisfy font-normal text-[72px] min-[375px]:text-[78px] min-[410px]:text-[84px] text-[#5B21F4] relative z-30 -mt-2 -mb-2 inline-block"
                   style={{
-                    fontSize: "clamp(42px, 5.5vw, 88px)",
+                    textShadow: "0 10px 30px rgba(109,40,217,0.18)",
+                    transform: "rotate(-2deg)",
                   }}
                 >
                   Complex
                 </span>
-              </div>
 
-              {/* Business Problems in One Line */}
-              <div
-                className="flex flex-wrap items-end justify-center lg:justify-start gap-x-3 gap-y-1"
-                style={{
-                  lineHeight: "0.9",
-                }}
+                <span className="block font-medium text-[#111827] text-[42px] min-[375px]:text-[48px] min-[410px]:text-[54px] tracking-[-0.03em] leading-[0.92] flex flex-col items-center font-dm-sans">
+                  <span>Business</span>
+                  <span>Problems.</span>
+                </span>
+              </motion.h1>
+
+              {/* Mobile Description / Subtitle */}
+              <motion.p
+                variants={itemVariants}
+                className="block text-base font-semibold text-[#6B7280] mb-8 text-center font-dm-sans"
               >
+                Software • Cloud • AI
+              </motion.p>
+            </div>
+
+            {/* DESKTOP / TABLET ONLY LAYOUT */}
+            <div className="hidden md:block w-full">
+              {/* Tagline */}
+              <motion.div
+                variants={itemVariants}
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-1.5 rounded-full bg-primary-purple/5 border border-primary-purple/15 mb-8 backdrop-blur-md max-w-[92%] sm:max-w-max mx-auto lg:mx-0"
+              >
+                <SparklesIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-purple shrink-0" />
+                <span className="text-[8.5px] min-[360px]:text-[9px] sm:text-[10px] font-bold text-primary-purple uppercase tracking-[0.2em] sm:tracking-[0.3em] whitespace-normal text-center leading-normal">
+                  Strategic Intelligence Protocol
+                </span>
+              </motion.div>
+
+              {/* Premium Mixed-Scale Hero Heading */}
+              <motion.h1
+                variants={itemVariants}
+                className="font-black leading-[0.9] tracking-[-0.02em] text-gray-900 mb-8"
+              >
+
+                {/* Small Top Text */}
                 <span
-                  className="text-gray-900 whitespace-nowrap"
+                  className="block font-bold text-primary-purple mb-2"
                   style={{
-                    fontSize: "clamp(38px, 4.5vw, 76px)",
+                    fontSize: "clamp(24px, 3vw, 52px)",
+                    lineHeight: "1",
                   }}
                 >
-                  Business
+                  AI-powered solutions
                 </span>
 
-                <span
-                  className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent whitespace-nowrap"
+                {/* To Solve + Complex */}
+                <div
+                  className="flex flex-wrap items-end justify-center lg:justify-start gap-x-3 gap-y-1"
                   style={{
-                    fontSize: "clamp(38px, 4.5vw, 76px)",
+                    lineHeight: "0.9",
                   }}
                 >
-                  Problems
-                  <span className="text-primary-purple">.</span>
-                </span>
-              </div>
+                  <span
+                    className="text-gray-900 whitespace-nowrap"
+                    style={{
+                      fontSize: "clamp(32px, 4vw, 68px)",
+                    }}
+                  >
+                    to Solve
+                  </span>
 
-            </motion.h1>
-            {/* Desktop and Tablet Description */}
-            <motion.p
-              variants={itemVariants}
-              className="hidden md:block max-w-[620px] text-lg md:text-xl text-gray-500 leading-relaxed mb-12 mx-auto lg:mx-0 font-medium px-4 md:px-0"
-            >
-              We architect high-performance digital ecosystems and enhance them with
-              autonomous intelligence to scale your business operations
-              with surgical precision.
-            </motion.p>
+                  <span
+                    className="bg-gradient-to-r from-primary-purple via-primary-purple to-[#2d007c] bg-clip-text text-transparent whitespace-nowrap"
+                    style={{
+                      fontSize: "clamp(42px, 5.5vw, 88px)",
+                    }}
+                  >
+                    Complex
+                  </span>
+                </div>
 
-            {/* Mobile Description */}
-            <motion.p
-              variants={itemVariants}
-              className="block md:hidden text-xl text-gray-600 font-bold tracking-wider mb-6 text-center"
-            >
-              Software • Cloud • AI
-            </motion.p>
+                {/* Business Problems in One Line */}
+                <div
+                  className="flex flex-wrap items-end justify-center lg:justify-start gap-x-3 gap-y-1"
+                  style={{
+                    lineHeight: "0.9",
+                  }}
+                >
+                  <span
+                    className="text-gray-900 whitespace-nowrap"
+                    style={{
+                      fontSize: "clamp(38px, 4.5vw, 76px)",
+                    }}
+                  >
+                    Business
+                  </span>
+
+                  <span
+                    className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent whitespace-nowrap"
+                    style={{
+                      fontSize: "clamp(38px, 4.5vw, 76px)",
+                    }}
+                  >
+                    Problems
+                    <span className="text-primary-purple">.</span>
+                  </span>
+                </div>
+
+              </motion.h1>
+              {/* Desktop and Tablet Description */}
+              <motion.p
+                variants={itemVariants}
+                className="hidden md:block max-w-[620px] text-lg md:text-xl text-gray-500 leading-relaxed mb-12 mx-auto lg:mx-0 font-medium px-4 md:px-0"
+              >
+                We architect high-performance digital ecosystems and enhance them with
+                autonomous intelligence to scale your business operations
+                with surgical precision.
+              </motion.p>
+
+              {/* Mobile Description */}
+              <motion.p
+                variants={itemVariants}
+                className="block md:hidden text-xl text-gray-600 font-bold tracking-wider mb-6 text-center"
+              >
+                Software • Cloud • AI
+              </motion.p>
+            </div>
 
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-8 md:mt-0"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-4 md:mt-0"
             >
               <button
                 onClick={openModal}
@@ -197,10 +254,10 @@ export default function Hero() {
             initial={{ opacity: 1, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative mt-20 w-[90%] max-w-[420px] mx-auto z-10 opacity-100 pointer-events-auto md:absolute md:inset-0 md:translate-x-0 md:w-auto md:max-w-none md:aspect-auto md:z-10 md:opacity-20 md:pointer-events-none md:mt-0 md:mx-0 lg:relative lg:inset-auto lg:w-[42%] lg:pointer-events-auto lg:opacity-100 lg:z-10 flex items-center justify-center"
+            className="relative mt-20 -mx-5 w-[calc(100%+2.5rem)] z-10 opacity-100 pointer-events-auto md:absolute md:inset-0 md:translate-x-0 md:w-auto md:max-w-none md:aspect-auto md:z-10 md:opacity-20 md:pointer-events-none md:mt-0 md:mx-0 lg:relative lg:inset-auto lg:w-[42%] lg:pointer-events-auto lg:opacity-100 lg:z-10 flex items-center justify-center"
           >
             {/* Animation Container */}
-            <div className="relative w-full max-w-[400px] md:max-w-[500px] aspect-square flex items-center justify-center">
+            <div className="relative w-full md:max-w-[500px] aspect-square flex items-center justify-center">
 
               {/* Soft Radial Blur Glow */}
               <div className="hidden md:block absolute inset-0 bg-secondary-indigo/8 rounded-full blur-[120px] animate-pulse" />
