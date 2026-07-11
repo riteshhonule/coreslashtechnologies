@@ -139,7 +139,7 @@ export default function Portfolio() {
               className="group cursor-pointer relative"
               onClick={() => setActive(project)}
             >
-              <div className="glass-card h-full rounded-[3rem] overflow-hidden border border-gray-200/50 hover:border-secondary-indigo/20 transition-all duration-700 flex flex-col">
+              <div className="glass-card h-full rounded-[3rem] overflow-hidden border border-gray-300 hover:border-secondary-indigo/20 transition-all duration-700 flex flex-col">
                 <div className="aspect-[16/10] overflow-hidden relative bg-gray-50 flex items-center justify-center p-4 shrink-0">
                   <img
                     src={project.img}

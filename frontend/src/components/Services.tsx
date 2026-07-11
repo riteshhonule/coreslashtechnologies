@@ -146,7 +146,7 @@ export default function Services() {
                 }`}
               >
                 <Link to={service.link} className="block h-full">
-                  <div className="glass-card h-full p-6 md:p-8 relative overflow-hidden flex flex-col items-center text-center justify-between group-hover:border-secondary-indigo/40">
+                  <div className="glass-card h-full p-6 md:p-8 relative overflow-hidden flex flex-col items-center text-center justify-between border border-gray-300 group-hover:border-secondary-indigo/40 shadow-sm transition-all duration-500">
                     
                     {/* Spotlight Effect */}
                     <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(400px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(115,124,253,0.08),transparent_40%)]" />

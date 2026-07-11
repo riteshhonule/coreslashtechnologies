@@ -159,7 +159,7 @@ const PortfolioPage = () => {
                 className="group relative"
                 onClick={() => setActive(p)}
               >
-                <div className="glass-card h-full rounded-[3rem] overflow-hidden border border-gray-200/50 bg-white cursor-pointer hover:border-secondary-indigo/20 transition-all duration-700 shadow-md shadow-gray-200/30">
+                <div className="glass-card h-full rounded-[3rem] overflow-hidden border border-gray-300 bg-white cursor-pointer hover:border-secondary-indigo/20 transition-all duration-700 shadow-md shadow-gray-200/30">
                   <div className="aspect-[16/10] overflow-hidden transition-all duration-1000 relative bg-gray-50 flex items-center justify-center p-4">
                     <img
                       src={p.img}

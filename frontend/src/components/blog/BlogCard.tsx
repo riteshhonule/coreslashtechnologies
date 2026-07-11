@@ -16,7 +16,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0, margin: "200px" }}
             transition={{ delay: index * 0.05 }}
-            className="group block bg-white rounded-[3rem] overflow-hidden border border-gray-200/60 hover:border-secondary-indigo/30 shadow-md shadow-gray-200/10 hover:shadow-lg transition-all duration-700 relative"
+            className="group block bg-white rounded-[3rem] overflow-hidden border border-gray-300 hover:border-secondary-indigo/30 shadow-md shadow-gray-200/10 hover:shadow-lg transition-all duration-700 relative"
         >
             <Link to={`/blog/${post.slug}`} className="block">
                 {/* Image Section */}

@@ -90,7 +90,7 @@ export default function AppFeaturesSection() {
 
                         {/* Card */}
 
-                        <div className="bg-white rounded-3xl p-6 h-full shadow-md shadow-gray-200/10 hover:shadow-xl transition flex flex-col items-center text-center">
+                        <div className="bg-white rounded-3xl p-6 h-full border border-gray-300 shadow-md shadow-gray-200/10 hover:shadow-xl transition flex flex-col items-center text-center">
 
                             {/* Icon */}
 

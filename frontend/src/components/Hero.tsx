@@ -80,10 +80,10 @@ export default function Hero() {
             {/* Tagline */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-1.5 rounded-full bg-secondary-indigo/5 border border-secondary-indigo/15 mb-8 backdrop-blur-md max-w-[92%] sm:max-w-max mx-auto lg:mx-0"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-1.5 rounded-full bg-primary-purple/5 border border-primary-purple/15 mb-8 backdrop-blur-md max-w-[92%] sm:max-w-max mx-auto lg:mx-0"
             >
-              <SparklesIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-secondary-indigo shrink-0" />
-              <span className="text-[8.5px] min-[360px]:text-[9px] sm:text-[10px] font-bold text-secondary-indigo uppercase tracking-[0.2em] sm:tracking-[0.3em] whitespace-normal text-center leading-normal">
+              <SparklesIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-purple shrink-0" />
+              <span className="text-[8.5px] min-[360px]:text-[9px] sm:text-[10px] font-bold text-primary-purple uppercase tracking-[0.2em] sm:tracking-[0.3em] whitespace-normal text-center leading-normal">
                 Strategic Intelligence Protocol
               </span>
             </motion.div>
@@ -96,7 +96,7 @@ export default function Hero() {
 
               {/* Small Top Text */}
               <span
-                className="block font-bold text-secondary-indigo mb-2"
+                className="block font-bold text-primary-purple mb-2"
                 style={{
                   fontSize: "clamp(24px, 3vw, 52px)",
                   lineHeight: "1",
@@ -122,7 +122,7 @@ export default function Hero() {
                 </span>
 
                 <span
-                  className="bg-gradient-to-r from-secondary-indigo via-secondary-indigo to-[#4503B9] bg-clip-text text-transparent whitespace-nowrap"
+                  className="bg-gradient-to-r from-primary-purple via-primary-purple to-[#2d007c] bg-clip-text text-transparent whitespace-nowrap"
                   style={{
                     fontSize: "clamp(42px, 5.5vw, 88px)",
                   }}
@@ -154,7 +154,7 @@ export default function Hero() {
                   }}
                 >
                   Problems
-                  <span className="text-secondary-indigo">.</span>
+                  <span className="text-primary-purple">.</span>
                 </span>
               </div>
 
@@ -206,48 +206,20 @@ export default function Hero() {
               <div className="hidden md:block absolute inset-0 bg-secondary-indigo/8 rounded-full blur-[120px] animate-pulse" />
               <div className="hidden md:block absolute inset-20 bg-primary-purple/5 rounded-full blur-[100px] animate-pulse delay-1000" />
 
-              {/* Abstract Floating Matrix */}
-              <motion.div
+              {/* Image Illustration */}
+              <motion.img
+                src="/CoreSlash_Home_Image.webp"
+                alt="CoreSlash Home Platform"
+                className="w-full h-full object-contain relative z-10 rounded-[3rem]"
                 animate={{
-                  y: [0, -30, 0],
-                  rotateX: [0, 10, 0],
-                  rotateY: [0, 15, 0],
+                  y: [0, -12, 0],
                 }}
                 transition={{
-                  duration: 12,
+                  duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="relative w-full h-full flex items-center justify-center"
-              >
-                {/* Layered Glass Panels */}
-                <div className="absolute w-[80%] h-[80%] border border-gray-200/60 rounded-[40%] backdrop-blur-[10px] rotate-45 animate-slow-spin" />
-                <div className="absolute w-[70%] h-[70%] border border-secondary-indigo/20 rounded-[30%] backdrop-blur-[8px] -rotate-12 animate-reverse-slow-spin" />
-
-                {/* Floating Elements */}
-                <motion.div
-                  animate={{ y: [0, 50, 0], rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-10 right-10 w-16 h-16 glass rounded-2xl border-gray-200/40 rotate-12 flex items-center justify-center"
-                >
-                  <div className="w-2 h-2 bg-secondary-indigo rounded-full animate-ping" />
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, -40, 0], x: [10, -20, 10] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-12 left-8 w-24 h-24 glass rounded-[3rem] border-primary-purple/10 -rotate-12"
-                />
-
-                {/* Neural Core */}
-                <div className="hidden md:block absolute w-32 h-32 bg-gradient-to-br from-secondary-indigo via-primary-purple to-secondary-indigo rounded-full blur-3xl opacity-40 animate-pulse" />
-                <div className="w-24 h-24 rounded-full border border-gray-200/40 flex items-center justify-center relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-white/60 backdrop-blur-xl" />
-                  <div className="relative z-10 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200/40 shadow-sm">
-                    <div className="w-4 h-4 bg-secondary-indigo rounded-full animate-pulse" />
-                  </div>
-                </div>
-              </motion.div>
+              />
             </div>
           </motion.div>
 

@@ -57,22 +57,7 @@ export default function WhyChooseUs() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-50/50 to-transparent" />
                             </div>
 
-                            {/* Floating Metric */}
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity }}
-                                className="absolute -bottom-6 -left-6 bg-white p-6 border border-gray-200 rounded-3xl shadow-xl shadow-gray-200/50 z-20 hidden md:block transition-all duration-500 group-hover:scale-[1.03]"
-                            >
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-secondary-indigo/10 flex items-center justify-center text-secondary-indigo">
-                                        <TrendingUp className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <p className="text-2xl font-bold text-gray-900">150%+</p>
-                                        <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">Growth ROI</p>
-                                    </div>
-                                </div>
-                            </motion.div>
+
                         </div>
 
                         {/* Quote Block (Moved to left side for balance) */}
@@ -114,7 +99,7 @@ export default function WhyChooseUs() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0, margin: "200px" }}
                                     transition={{ delay: idx * 0.02, duration: 0.3 }}
-                                    className="glass-card p-6 border-gray-200/40 group hover:border-secondary-indigo/25 transition-all flex flex-col items-center text-center"
+                                    className="glass-card p-6 border border-gray-300 group hover:border-secondary-indigo/25 transition-all flex flex-col items-center text-center"
                                 >
                                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 border border-gray-200/40 mx-auto ${item.iconColor}`}>
                                         {item.icon}

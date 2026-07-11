@@ -34,24 +34,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-80" />
             </div>
 
-            {/* Floating Achievement Card */}
-            <motion.div 
-              initial={{ opacity: 1, x: 15 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0, margin: "200px" }}
-              transition={{ delay: 0.1, duration: 0.3 }}
-              className="absolute -bottom-10 -right-10 bg-white p-8 border border-gray-200 rounded-3xl shadow-xl shadow-gray-200/50 z-20 hidden md:block"
-            >
-              <div className="flex items-center gap-5">
-                <div className="w-14 h-14 rounded-2xl bg-secondary-indigo/10 flex items-center justify-center text-secondary-indigo border border-secondary-indigo/15">
-                  <CheckBadgeIcon className="w-8 h-8" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-900">ISO Certified</p>
-                  <p className="text-xs text-gray-400 font-bold uppercase tracking-[0.2em]">Quality Excellence</p>
-                </div>
-              </div>
-            </motion.div>
+            
           </motion.div>
 
           {/* Content Right */}

@@ -120,7 +120,7 @@ export default function ServicesPage() {
                 className={`group relative w-full ${isWide ? "md:col-span-2" : "md:col-span-1"}`}
               >
                 <Link to={service.link} className="block h-full">
-                  <div className={`glass-card h-full p-8 md:p-10 rounded-[3rem] border border-gray-200/50 bg-white hover:border-secondary-indigo/20 transition-all duration-500 relative overflow-hidden flex flex-col items-center text-center shadow-md shadow-gray-200/30 ${
+                  <div className={`glass-card h-full p-8 md:p-10 rounded-[3rem] border border-gray-300 bg-white hover:border-secondary-indigo/20 transition-all duration-500 relative overflow-hidden flex flex-col items-center text-center shadow-md shadow-gray-200/30 ${
                     isWide ? "md:flex-row md:text-left md:items-center md:justify-between" : ""
                   }`}>
                     {/* Hover Image Reveal */}
