@@ -27,7 +27,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[85svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#F9FAFB] pt-28 sm:pt-24 md:pt-32 pb-8 lg:pb-0 w-full" style={{ zIndex: 1 }}>
+    <section className="relative min-h-[85svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#F9FAFB] pt-28 pb-72 sm:pt-24 sm:pb-64 md:pt-32 md:pb-8 lg:pb-0 w-full" style={{ zIndex: 1 }}>
 
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -67,7 +67,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-12 w-full">
+      <div className="z-10 md:relative mx-auto max-w-[1600px] px-5 md:px-12 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
           {/* LEFT CONTENT AREA - 58% Width on Desktop */}
@@ -197,7 +197,7 @@ export default function Hero() {
             initial={{ opacity: 1, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="absolute lg:relative inset-0 lg:inset-auto flex items-center justify-center lg:w-[42%] pointer-events-none lg:pointer-events-auto opacity-20 lg:opacity-100 z-10"
+            className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[50%] sm:w-[48%] aspect-square z-0 opacity-20 pointer-events-none md:absolute md:inset-0 md:translate-x-0 md:w-auto md:aspect-auto md:z-10 lg:relative lg:inset-auto lg:w-[42%] lg:pointer-events-auto lg:opacity-100 lg:z-10 flex items-center justify-center"
           >
             {/* Animation Container */}
             <div className="relative w-full max-w-[400px] md:max-w-[500px] aspect-square flex items-center justify-center">
