@@ -27,7 +27,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[85svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#F9FAFB] pt-28 pb-72 sm:pt-24 sm:pb-64 md:pt-32 md:pb-8 lg:pb-0 w-full" style={{ zIndex: 1 }}>
+    <section className="relative min-h-[100svh] md:min-h-[85svh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#F9FAFB] pt-36 pb-10 md:pt-32 md:pb-8 lg:pb-0 w-full" style={{ zIndex: 1 }}>
 
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -67,7 +67,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="z-10 md:relative mx-auto max-w-[1600px] px-5 md:px-12 w-full">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-12 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
           {/* LEFT CONTENT AREA - 58% Width on Desktop */}
@@ -75,7 +75,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full lg:w-[58%] text-center lg:text-left relative z-20"
+            className="w-full min-h-[calc(100svh-184px)] md:min-h-0 flex flex-col justify-center items-center md:block lg:w-[58%] text-center lg:text-left relative z-20"
           >
             {/* Tagline */}
             <motion.div
@@ -180,7 +180,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-8 md:mt-0"
             >
               <button
                 onClick={openModal}
@@ -197,7 +197,7 @@ export default function Hero() {
             initial={{ opacity: 1, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[50%] sm:w-[48%] aspect-square z-0 opacity-20 pointer-events-none md:absolute md:inset-0 md:translate-x-0 md:w-auto md:aspect-auto md:z-10 lg:relative lg:inset-auto lg:w-[42%] lg:pointer-events-auto lg:opacity-100 lg:z-10 flex items-center justify-center"
+            className="relative mt-20 w-[90%] max-w-[420px] mx-auto z-10 opacity-100 pointer-events-auto md:absolute md:inset-0 md:translate-x-0 md:w-auto md:max-w-none md:aspect-auto md:z-10 md:opacity-20 md:pointer-events-none md:mt-0 md:mx-0 lg:relative lg:inset-auto lg:w-[42%] lg:pointer-events-auto lg:opacity-100 lg:z-10 flex items-center justify-center"
           >
             {/* Animation Container */}
             <div className="relative w-full max-w-[400px] md:max-w-[500px] aspect-square flex items-center justify-center">
