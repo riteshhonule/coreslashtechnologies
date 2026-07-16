@@ -78,6 +78,7 @@ export default function Footer() {
                 href={envConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit CoreSlash Technologies on LinkedIn"
                 className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#0A66C2] hover:border-[#0A66C2]/30 hover:bg-[#0A66C2]/5 hover:shadow-[0_0_15px_rgba(10,102,194,0.15)] transition-all duration-300"
               >
                 <Linkedin size={18} />
@@ -87,6 +88,7 @@ export default function Footer() {
                 href={envConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit CoreSlash Technologies on Instagram"
                 className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#E1306C] hover:border-[#E1306C]/30 hover:bg-[#E1306C]/5 hover:shadow-[0_0_15px_rgba(225,48,108,0.15)] transition-all duration-300"
               >
                 <Instagram size={18} />
@@ -96,6 +98,7 @@ export default function Footer() {
                 href={envConfig.social.discord}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Join our Discord community"
                 className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#5865F2] hover:border-[#5865F2]/30 hover:bg-[#5865F2]/5 hover:shadow-[0_0_15px_rgba(88,101,242,0.15)] transition-all duration-300"
               >
                 <FaDiscord size={18} />
@@ -105,6 +108,7 @@ export default function Footer() {
                 href={envConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit CoreSlash Technologies on Facebook"
                 className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#1877F2] hover:border-[#1877F2]/30 hover:bg-[#1877F2]/5 hover:shadow-[0_0_15px_rgba(24,119,242,0.15)] transition-all duration-300"
               >
                 <FaFacebook size={18} />
@@ -114,6 +118,7 @@ export default function Footer() {
                 href={envConfig.social.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Join our Telegram channel"
                 className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#24A1DE] hover:border-[#24A1DE]/30 hover:bg-[#24A1DE]/5 hover:shadow-[0_0_15px_rgba(36,161,222,0.15)] transition-all duration-300"
               >
                 <FaTelegram size={18} />
