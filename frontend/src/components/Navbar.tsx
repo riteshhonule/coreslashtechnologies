@@ -5,6 +5,27 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import { FaWhatsapp } from "react-icons/fa";
+import {
+  Home,
+  User,
+  Briefcase,
+  FileText,
+  Users,
+  Mail,
+  ChevronRight,
+  Grid,
+  Code,
+  Smartphone,
+  ShoppingBag,
+  Server,
+  BarChart3,
+  Target,
+  X,
+  Linkedin,
+  Instagram,
+  Twitter,
+  Github
+} from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
 
 export default function Navbar() {
@@ -44,22 +65,22 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/portfolio", label: "Portfolio" },
-    { to: "/blog", label: "Blog" },
-    { to: "/careers", label: "Careers" },
-    { to: "/contact", label: "Contact" },
+    { to: "/", label: "Home", icon: Home },
+    { to: "/about", label: "About", icon: User },
+    { to: "/portfolio", label: "Portfolio", icon: Briefcase },
+    { to: "/blog", label: "Blog", icon: FileText },
+    { to: "/careers", label: "Careers", icon: Users },
+    { to: "/contact", label: "Contact", icon: Mail },
   ];
 
   const servicesLinks = [
-    { to: "/services", label: "All Services" },
-    { to: "/services/website-development", label: "Web Development" },
-    { to: "/services/App-development", label: "App Development" },
-    { to: "/services/shopify-development", label: "Shopify Development" },
-    { to: "/services/software-development", label: "Software Systems" },
-    { to: "/services/digital-marketing", label: "Digital Marketing" },
-    { to: "/services/seo", label: "SEO Solutions" },
+    { to: "/services", label: "All Services", icon: Grid },
+    { to: "/services/website-development", label: "Web Development", icon: Code },
+    { to: "/services/App-development", label: "App Development", icon: Smartphone },
+    { to: "/services/shopify-development", label: "Shopify Development", icon: ShoppingBag },
+    { to: "/services/software-development", label: "Software Systems", icon: Server },
+    { to: "/services/digital-marketing", label: "Digital Marketing", icon: BarChart3 },
+    { to: "/services/seo", label: "SEO Solutions", icon: Target },
   ];
 
   // Mobile menu rendered via portal to escape header stacking context
@@ -70,7 +91,7 @@ export default function Navbar() {
           {/* Backdrop - click to close */}
           <motion.div
             key="mobile-backdrop"
-            initial={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
@@ -84,14 +105,14 @@ export default function Navbar() {
               width: "100%",
               height: "100vh",
               zIndex: 9998,
-              backgroundColor: "rgba(21, 166, 103, 0.85)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
+              backgroundColor: "rgba(15, 23, 42, 0.4)",
+              backdropFilter: "blur(4px)",
+              WebkitBackdropFilter: "blur(4px)",
             }}
             aria-hidden="true"
           />
 
-          {/* Full-screen Mobile Menu Panel */}
+          {/* Sliding Sidebar Menu Panel */}
           <motion.div
             key="mobile-menu"
             initial={{ x: "100%" }}
@@ -103,88 +124,147 @@ export default function Navbar() {
               top: 0,
               right: 0,
               width: "100%",
+              maxWidth: "340px",
               height: "100dvh",
               zIndex: 9999,
-              backgroundColor: "rgba(255, 255, 255, 0.98)",
+              backgroundColor: "#F8FAFC",
               overflowY: "auto",
               display: "flex",
               flexDirection: "column",
+              boxShadow: "-10px 0 30px rgba(0, 0, 0, 0.05)",
             }}
           >
-            {/* Close button - small, absolute corner, no layout impact */}
-            <button
-              onClick={closeMobileMenu}
-              className="absolute top-4 right-4 p-1.5 rounded-full bg-black/5 text-gray-500 hover:text-gray-900 hover:bg-black/10 transition-colors z-10"
-              aria-label="Close menu"
-            >
-              <XMarkIcon className="w-4 h-4" />
-            </button>
+            {/* Header: Logo & Close Button */}
+            <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100 shrink-0">
+              <img src={logo} alt="Logo" className="h-7 w-auto invert" />
+              <button
+                onClick={closeMobileMenu}
+                className="p-2 rounded-full bg-[#f0f4ff]/80 text-[#737CFD] hover:bg-[#737CFD]/15 hover:text-secondary-indigo transition-all"
+                aria-label="Close menu"
+              >
+                <X className="w-4.5 h-4.5" />
+              </button>
+            </div>
 
-            {/* Content area — fills full screen, centered vertically */}
-            <div className="flex-1 flex flex-col items-center justify-center px-10 text-center">
-              {/* Logo */}
-              <img src={logo} alt="Logo" className="h-7 w-auto mb-7 invert" />
+            {/* Skyscraper Banner with Angled Diagonal Slashes */}
+            <div className="relative w-full h-32 overflow-hidden bg-gray-100 shrink-0 z-0">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
+                alt="City Architecture"
+                className="absolute inset-0 w-full h-full object-cover z-0"
+              />
+              <div
+                className="absolute inset-y-0 left-0 w-[45%] bg-[#0c081d] z-10"
+                style={{ clipPath: "polygon(0 0, 100% 0, 60% 100%, 0 100%)" }}
+              />
+              <div
+                className="absolute inset-y-0 left-[35%] w-[12%] bg-[#737cfd] z-10"
+                style={{ clipPath: "polygon(0 0, 100% 0, 60% 100%, 0 100%)" }}
+              />
+            </div>
 
-              {/* Nav links */}
-              <nav className="space-y-3 w-full">
-                {links.map((link, idx) => (
-                  <motion.div
-                    key={link.to}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 + idx * 0.05, duration: 0.4 }}
-                  >
-                    <Link
-                      to={link.to}
-                      onClick={closeMobileMenu}
-                      className={`block text-2xl font-bold tracking-wide transition-colors ${location.pathname === link.to
-                        ? "text-secondary-indigo"
-                        : "text-gray-900 hover:text-secondary-indigo"
-                        }`}
+            {/* Scrollable Navigation Area */}
+            <div className="flex-1 overflow-y-auto">
+              {/* Main Links */}
+              <div className="px-5 py-4 space-y-1">
+                {links.map((link, idx) => {
+                  const Icon = link.icon;
+                  const isActive = location.pathname === link.to;
+                  return (
+                    <motion.div
+                      key={link.to}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 + idx * 0.03, duration: 0.3 }}
                     >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </nav>
-
-              {/* Divider */}
-              <div className="w-16 h-px bg-gray-200 my-5" />
-
-              {/* Services */}
-              <div className="space-y-2 w-full">
-                <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-gray-400 mb-2">Services</p>
-                {servicesLinks.map((service, idx) => (
-                  <motion.div
-                    key={service.to}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + idx * 0.04, duration: 0.3 }}
-                  >
-                    <Link
-                      to={service.to}
-                      onClick={closeMobileMenu}
-                      className={`block text-base font-medium transition-colors ${location.pathname === service.to
-                        ? "text-secondary-indigo"
-                        : "text-gray-500 hover:text-secondary-indigo"
-                        }`}
-                    >
-                      {service.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        to={link.to}
+                        onClick={closeMobileMenu}
+                        className={`flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 ${isActive
+                          ? "bg-[#f0f4ff] text-secondary-indigo font-bold shadow-sm"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-secondary-indigo font-semibold"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3.5">
+                          <Icon className={`w-5 h-5 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-500"}`} />
+                          <span className="text-base tracking-wide">{link.label}</span>
+                        </div>
+                        <ChevronRight className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </div>
 
-              {/* Connect Now button */}
-              <div className="mt-6 w-full max-w-xs">
+              {/* Services Section */}
+              <div className="px-5 py-4 border-t border-gray-100/50">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#737CFD] mb-4 pl-1">SERVICES</p>
+                <div className="space-y-3">
+                  {servicesLinks.map((service, idx) => {
+                    const Icon = service.icon;
+                    const isActive = location.pathname === service.to;
+                    return (
+                      <motion.div
+                        key={service.to}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 + idx * 0.03, duration: 0.3 }}
+                      >
+                        <Link
+                          to={service.to}
+                          onClick={closeMobileMenu}
+                          className={`flex items-center justify-between p-3 rounded-2xl bg-white border transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.015)] ${isActive
+                            ? "border-secondary-indigo/40 bg-indigo-50/10 shadow-sm"
+                            : "border-gray-100 hover:border-secondary-indigo/20 hover:shadow-md"
+                            }`}
+                        >
+                          <div className="flex items-center gap-3.5">
+                            <div className="w-9 h-9 rounded-xl bg-secondary-indigo/5 flex items-center justify-center text-secondary-indigo shrink-0">
+                              <Icon className="w-5 h-5" />
+                            </div>
+                            <span className={`text-sm font-semibold transition-colors ${isActive ? "text-secondary-indigo font-bold" : "text-gray-800"}`}>
+                              {service.label}
+                            </span>
+                          </div>
+                          <ChevronRight className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Connect & Footer */}
+            <div className="px-5 py-6 flex flex-col items-center bg-[#F8FAFC] border-t border-gray-100/50 shrink-0">
+              <div className="w-full max-w-[280px]">
                 <a
                   href={envConfig.social.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 w-full py-4 rounded-2xl bg-[#25D366] text-white font-bold text-base shadow-lg shadow-green-500/10 hover:bg-[#20ba5a] transition-colors"
+                  className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl bg-[#5C5CFF] text-white font-bold text-base shadow-lg shadow-indigo-500/20 hover:bg-[#4b4be6] hover:scale-[1.02] active:scale-95 transition-all"
                 >
                   <FaWhatsapp className="text-xl" />
                   Connect Now
+                </a>
+                <p className="text-xs text-gray-400 text-center mt-3 font-medium">
+                  We're just a message away!
+                </p>
+              </div>
+
+              {/* Social Icons */}
+              <div className="flex items-center justify-center gap-6 mt-6 pb-2">
+                <a href={envConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href={envConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href={envConfig.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                  <Github className="w-5 h-5" />
                 </a>
               </div>
             </div>

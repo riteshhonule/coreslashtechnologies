@@ -266,6 +266,12 @@ export default function Hero() {
               {/* Image Illustration */}
               <motion.img
                 src="/CoreSlash_Home_Image.webp"
+                srcSet="/CoreSlash_Home_Image-mobile.webp 480w, /CoreSlash_Home_Image-tablet.webp 768w, /CoreSlash_Home_Image-desktop.webp 928w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 500px, 42vw"
+                width={928}
+                height={1152}
+                loading="eager"
+                fetchPriority="high"
                 alt="CoreSlash Home Platform"
                 className="w-full h-full object-contain relative z-10 rounded-[3rem]"
                 animate={{

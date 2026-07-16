@@ -18,6 +18,7 @@ import CookiePolicy from "./pages/CookiePolicy";
 import EnquiryFormPage from "./pages/EnquiryFormPage";
 import MarketingEnquiryPage from "./pages/MarketingEnquiryPage";
 import CareersPage from "./pages/CareersPage";
+import CertificateVerifyPage from "./pages/CertificateVerifyPage";
 import { useEffect } from "react";
 import {
   WebsiteDevelopment,
@@ -87,6 +88,10 @@ function AnimatedRoutes() {
         <Route path="/enquiry-form" element={<EnquiryFormPage />} />
         <Route path="/enquiry-form1" element={<MarketingEnquiryPage />} />
         <Route path="/careers" element={<CareersPage />} />
+        
+        {/* Certificate Verification Routes */}
+        <Route path="/certificate/verify/:certificateId" element={<CertificateVerifyPage />} />
+        <Route path="/verify/:certificateId" element={<CertificateVerifyPage />} />
         
         {/* Superadmin routes */}
         <Route path="/superadmin" element={<LoginPage />} />

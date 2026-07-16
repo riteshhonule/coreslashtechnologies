@@ -45,6 +45,7 @@ export const envConfig = {
     discord: import.meta.env.VITE_DISCORD_URL || 'https://discord.com/users/coreslash_technologies',
     facebook: import.meta.env.VITE_FACEBOOK_URL || 'https://www.facebook.com/coreslashtechnologies',
     telegram: import.meta.env.VITE_TELEGRAM_URL || 'https://t.me/coreslashtechnologies',
+    twitter: import.meta.env.VITE_TWITTER_URL || 'https://x.com/CoreSlashTech',
   },
   contact: {
     email: import.meta.env.VITE_SUPPORT_EMAIL || 'contact@coreslashtechnologies.com',

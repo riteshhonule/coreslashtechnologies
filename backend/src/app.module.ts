@@ -9,6 +9,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { InquiriesModule } from './inquiries/inquiries.module';
 import { MarketingInquiriesModule } from './marketing-inquiries/marketing-inquiries.module';
 import { CandidatesModule } from './candidates/candidates.module';
+import { CertificateModule } from './certificate/certificate.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { CandidatesModule } from './candidates/candidates.module';
     InquiriesModule,
     MarketingInquiriesModule,
     CandidatesModule,
+    CertificateModule,
   ],
   controllers: [AppController],
   providers: [AppService],

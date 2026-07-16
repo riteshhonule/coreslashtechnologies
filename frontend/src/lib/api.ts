@@ -64,3 +64,7 @@ export const getMarketingInquiries = (token: string) =>
       Authorization: `Bearer ${token}`,
     },
   });
+
+export const getCertificate = (certificateId: string) =>
+  api.get(`/certificate/${certificateId}`);
+

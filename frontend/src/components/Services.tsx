@@ -21,7 +21,14 @@ const services = [
     icon: <CodeBracketIcon className="w-7 h-7" />,
     link: "/services/website-development",
     size: "lg",
-    bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+    bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    theme: {
+      cardBg: "bg-sky-50/40 hover:bg-sky-50/80",
+      cardBorder: "border-sky-200/50 hover:border-sky-300",
+      iconContainer: "bg-sky-100/50 text-sky-600 border-sky-200/50 group-hover:bg-sky-100 group-hover:text-sky-700",
+      textAccent: "group-hover:text-sky-600",
+      spotlightColor: "rgba(14, 165, 233, 0.12)"
+    }
   },
   {
     title: "AI & Software Systems",
@@ -29,7 +36,14 @@ const services = [
     icon: <CpuChipIcon className="w-7 h-7" />,
     link: "/services/software-development",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+    bgImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
+    theme: {
+      cardBg: "bg-purple-50/40 hover:bg-purple-50/80",
+      cardBorder: "border-purple-200/50 hover:border-purple-300",
+      iconContainer: "bg-purple-100/50 text-purple-600 border-purple-200/50 group-hover:bg-purple-100 group-hover:text-purple-700",
+      textAccent: "group-hover:text-purple-600",
+      spotlightColor: "rgba(168, 85, 247, 0.12)"
+    }
   },
   {
     title: "E-Commerce Solutions",
@@ -37,7 +51,14 @@ const services = [
     icon: <ShoppingCartIcon className="w-7 h-7" />,
     link: "/services/ecommerce",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80"
+    bgImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
+    theme: {
+      cardBg: "bg-emerald-50/40 hover:bg-emerald-50/80",
+      cardBorder: "border-emerald-200/50 hover:border-emerald-300",
+      iconContainer: "bg-emerald-100/50 text-emerald-600 border-emerald-200/50 group-hover:bg-emerald-100 group-hover:text-emerald-700",
+      textAccent: "group-hover:text-emerald-600",
+      spotlightColor: "rgba(16, 185, 129, 0.12)"
+    }
   },
   {
     title: "SEO Optimization",
@@ -45,7 +66,14 @@ const services = [
     icon: <MagnifyingGlassIcon className="w-7 h-7" />,
     link: "/services/seo",
     size: "sm",
-    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80"
+    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80",
+    theme: {
+      cardBg: "bg-amber-50/40 hover:bg-amber-50/80",
+      cardBorder: "border-amber-200/50 hover:border-amber-300",
+      iconContainer: "bg-amber-100/50 text-amber-600 border-amber-200/50 group-hover:bg-amber-100 group-hover:text-amber-700",
+      textAccent: "group-hover:text-amber-600",
+      spotlightColor: "rgba(245, 158, 11, 0.12)"
+    }
   },
   {
     title: "Digital Growth",
@@ -53,7 +81,14 @@ const services = [
     icon: <RocketLaunchIcon className="w-7 h-7" />,
     link: "/services/digital-marketing",
     size: "sm",
-    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
+    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+    theme: {
+      cardBg: "bg-rose-50/40 hover:bg-rose-50/80",
+      cardBorder: "border-rose-200/50 hover:border-rose-300",
+      iconContainer: "bg-rose-100/50 text-rose-600 border-rose-200/50 group-hover:bg-rose-100 group-hover:text-rose-700",
+      textAccent: "group-hover:text-rose-600",
+      spotlightColor: "rgba(244, 63, 94, 0.12)"
+    }
   },
   {
     title: "Data Analytics",
@@ -61,7 +96,14 @@ const services = [
     icon: <PresentationChartLineIcon className="w-7 h-7" />,
     link: "/services",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    theme: {
+      cardBg: "bg-indigo-50/40 hover:bg-indigo-50/80",
+      cardBorder: "border-indigo-200/50 hover:border-indigo-300",
+      iconContainer: "bg-indigo-100/50 text-indigo-600 border-indigo-200/50 group-hover:bg-indigo-100 group-hover:text-indigo-700",
+      textAccent: "group-hover:text-indigo-600",
+      spotlightColor: "rgba(99, 102, 241, 0.12)"
+    }
   },
   {
     title: "Cloud Infrastructure",
@@ -69,7 +111,14 @@ const services = [
     icon: <CircleStackIcon className="w-7 h-7" />,
     link: "/services",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80"
+    bgImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
+    theme: {
+      cardBg: "bg-teal-50/40 hover:bg-teal-50/80",
+      cardBorder: "border-teal-200/50 hover:border-teal-300",
+      iconContainer: "bg-teal-100/50 text-teal-600 border-teal-200/50 group-hover:bg-teal-100 group-hover:text-teal-700",
+      textAccent: "group-hover:text-teal-600",
+      spotlightColor: "rgba(20, 184, 166, 0.12)"
+    }
   },
   {
     title: "App Development",
@@ -77,7 +126,14 @@ const services = [
     icon: <DevicePhoneMobileIcon className="w-7 h-7" />,
     link: "/services/App-development",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80"
+    bgImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80",
+    theme: {
+      cardBg: "bg-orange-50/40 hover:bg-orange-50/80",
+      cardBorder: "border-orange-200/50 hover:border-orange-300",
+      iconContainer: "bg-orange-100/50 text-orange-600 border-orange-200/50 group-hover:bg-orange-100 group-hover:text-orange-700",
+      textAccent: "group-hover:text-orange-600",
+      spotlightColor: "rgba(249, 115, 22, 0.12)"
+    }
   },
 ];
 
@@ -95,11 +151,14 @@ export default function Services() {
 
   return (
     <>
-      <section id="services" className="relative pt-16 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-white" onMouseMove={handleMouseMove}>
+      <section id="services" className="relative pt-16 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-[#fafbfc]/80" onMouseMove={handleMouseMove}>
         
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+
         {/* Decorative Glows */}
-        <div className="hidden md:block absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-purple/2 rounded-full blur-[120px] pointer-events-none" />
-        <div className="hidden md:block absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-secondary-indigo/3 rounded-full blur-[120px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/4 left-[-100px] w-[600px] h-[600px] bg-primary-purple/[0.03] rounded-full blur-[130px] pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/4 right-[-100px] w-[600px] h-[600px] bg-secondary-indigo/[0.04] rounded-full blur-[130px] pointer-events-none" />
         
         <div className="mx-auto max-w-[1600px] px-6 lg:px-8 relative z-10">
           
@@ -133,51 +192,66 @@ export default function Services() {
 
           {/* Bento Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[280px]">
-            {services.map((service, idx) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 1, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0, margin: "200px" }}
-                transition={{ duration: 0.3, delay: idx * 0.02 }}
-                className={`group service-card-interactive ${
-                  service.size === "lg" ? "md:col-span-2 md:row-span-2" : 
-                  service.size === "md" ? "md:col-span-2" : "md:col-span-1"
-                }`}
-              >
-                <Link to={service.link} className="block h-full">
-                  <div className="glass-card h-full p-6 md:p-8 relative overflow-hidden flex flex-col items-center text-center justify-between border border-gray-300 group-hover:border-secondary-indigo/40 shadow-sm transition-all duration-500">
-                    
-                    {/* Spotlight Effect */}
-                    <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(400px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(115,124,253,0.08),transparent_40%)]" />
+            {services.map((service, idx) => {
+              const theme = service.theme || {
+                cardBg: "bg-white hover:bg-white",
+                cardBorder: "border-gray-300 hover:border-secondary-indigo/40",
+                iconContainer: "bg-secondary-indigo/5 text-secondary-indigo border-secondary-indigo/15 group-hover:bg-secondary-indigo/10",
+                textAccent: "group-hover:text-secondary-indigo",
+                spotlightColor: "rgba(115, 124, 253, 0.08)"
+              };
 
-                    {/* Background Image Overlay */}
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center opacity-[0.015] group-hover:opacity-[0.04] transition-all duration-700 pointer-events-none scale-100 group-hover:scale-105 grayscale brightness-95"
-                      style={{ backgroundImage: `url(${service.bgImage})` }}
-                    />
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 1, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0, margin: "200px" }}
+                  transition={{ duration: 0.3, delay: idx * 0.02 }}
+                  className={`group service-card-interactive ${
+                    service.size === "lg" ? "md:col-span-2 md:row-span-2" : 
+                    service.size === "md" ? "md:col-span-2" : "md:col-span-1"
+                  }`}
+                >
+                  <Link to={service.link} className="block h-full">
+                    <div className={`glass-card h-full p-6 md:p-8 relative overflow-hidden flex flex-col items-center text-center justify-between border shadow-sm transition-all duration-500 ${theme.cardBg} ${theme.cardBorder}`}>
+                      
+                      {/* Spotlight Effect */}
+                      <div 
+                        className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: `radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), ${theme.spotlightColor}, transparent 40%)`
+                        }}
+                      />
 
-                    <div className="relative z-10 w-full">
-                      <div className="w-14 h-14 rounded-2xl bg-secondary-indigo/5 border border-secondary-indigo/15 flex items-center justify-center text-secondary-indigo mx-auto mb-5 md:mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary-indigo/10">
-                        {service.icon}
+                      {/* Background Image Overlay */}
+                      <div 
+                        className="absolute inset-0 bg-cover bg-center opacity-[0.015] group-hover:opacity-[0.04] transition-all duration-700 pointer-events-none scale-100 group-hover:scale-105 grayscale brightness-95"
+                        style={{ backgroundImage: `url(${service.bgImage})` }}
+                      />
+
+                      <div className="relative z-10 w-full">
+                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 md:mb-6 border transition-all duration-500 group-hover:scale-110 ${theme.iconContainer}`}>
+                          {service.icon}
+                        </div>
+
+                        <h3 className={`text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4 transition-colors ${theme.textAccent}`}>
+                          {service.title}
+                        </h3>
+
+                        <p className="text-gray-500 text-sm md:text-base leading-relaxed line-clamp-3 font-medium">
+                          {service.desc}
+                        </p>
                       </div>
 
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4 transition-colors group-hover:text-secondary-indigo">
-                        {service.title}
-                      </h3>
-
-                      <p className="text-gray-500 text-sm md:text-base leading-relaxed line-clamp-3 font-medium">
-                        {service.desc}
-                      </p>
+                      <div className={`relative z-10 w-full flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0 ${theme.textAccent}`}>
+                        Learn More <span>→</span>
+                      </div>
                     </div>
-
-                    <div className="relative z-10 w-full flex items-center justify-center gap-2 text-secondary-indigo text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
-                      Learn More <span>→</span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
 
 
