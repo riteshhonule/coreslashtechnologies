@@ -254,16 +254,16 @@ export default function Navbar() {
 
               {/* Social Icons */}
               <div className="flex items-center justify-center gap-6 mt-6 pb-2">
-                <a href={envConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                <a href={envConfig.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit CoreSlash Technologies on LinkedIn" className="text-gray-400 hover:text-secondary-indigo transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href={envConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                <a href={envConfig.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit CoreSlash Technologies on Instagram" className="text-gray-400 hover:text-secondary-indigo transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href={envConfig.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                <a href={envConfig.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Visit CoreSlash Technologies on Twitter/X" className="text-gray-400 hover:text-secondary-indigo transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our GitHub organization" className="text-gray-400 hover:text-secondary-indigo transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
               </div>

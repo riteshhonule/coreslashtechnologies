@@ -91,7 +91,7 @@ export default function Hero() {
               </motion.div>
 
               {/* Mobile Hero Heading */}
-              <motion.h1
+              <motion.div
                 variants={itemVariants}
                 className="flex flex-col items-center text-center w-full mb-8 font-dm-sans"
               >
@@ -120,7 +120,7 @@ export default function Hero() {
                   <span>Business</span>
                   <span>Problems.</span>
                 </span>
-              </motion.h1>
+              </motion.div>
 
               {/* Mobile Description / Subtitle */}
               <motion.p
