@@ -2,42 +2,47 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { AnimatePresence } from "framer-motion";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import AboutPage from "./pages/AboutPage";
-import ServicesPage from "./pages/ServicesPage";
-import ServiceDetailPage from "./pages/ServiceDetailPage";
-import PortfolioPage from "./pages/PortfolioPage";
-import ContactPage from "./pages/ContactPage";
-import BlogPage from "./pages/BlogPage";
-import BlogDetailPage from "./pages/BlogDetailPage";
-import FAQPage from "./pages/FAQPage";
-import LoginPage from "./pages/superadmin/LoginPage";
-import DashboardPage from "./pages/superadmin/DashboardPage";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import CookiePolicy from "./pages/CookiePolicy";
-import EnquiryFormPage from "./pages/EnquiryFormPage";
-import MarketingEnquiryPage from "./pages/MarketingEnquiryPage";
-import CareersPage from "./pages/CareersPage";
-import CertificateVerifyPage from "./pages/CertificateVerifyPage";
-import { useEffect } from "react";
-import {
-  WebsiteDevelopment,
-  ShopifyDevelopment,
-  SEOOptimization,
-  EcommerceWebsite,
-  PPCServices,
-  AppDevelopment,
-  SoftwareDevelopment,
-  DigitalMarketing,
-  AISolutions,
-  CustomSoftwareDevelopment,
-  EnterpriseITSolutions,
-  CloudSolutions,
-  SCADAIndustrialAutomation,
-  IoTSolutions,
-  BusinessAutomation,
-  DataAnalytics
-} from "./pages/services";
+import { useEffect, lazy, Suspense } from "react";
+import { ModalProvider } from "./context/ModalContext";
+
+// Lazy-loaded subpages
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
+const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
+const FAQPage = lazy(() => import("./pages/FAQPage"));
+const LoginPage = lazy(() => import("./pages/superadmin/LoginPage"));
+const DashboardPage = lazy(() => import("./pages/superadmin/DashboardPage"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const EnquiryFormPage = lazy(() => import("./pages/EnquiryFormPage"));
+const MarketingEnquiryPage = lazy(() => import("./pages/MarketingEnquiryPage"));
+const CareersPage = lazy(() => import("./pages/CareersPage"));
+const CertificateVerifyPage = lazy(() => import("./pages/CertificateVerifyPage"));
+
+// Lazy-loaded services
+const WebsiteDevelopment = lazy(() => import("./pages/services/WebsiteDevelopment"));
+const ShopifyDevelopment = lazy(() => import("./pages/services/ShopifyDevelopment"));
+const SEOOptimization = lazy(() => import("./pages/services/SEOOptimization"));
+const EcommerceWebsite = lazy(() => import("./pages/services/EcommerceWebsite"));
+const PPCServices = lazy(() => import("./pages/services/PPCServices"));
+const AppDevelopment = lazy(() => import("./pages/services/AppDevelopment"));
+const SoftwareDevelopment = lazy(() => import("./pages/services/SoftwareDevelopment"));
+const DigitalMarketing = lazy(() => import("./pages/services/DigitalMarketing"));
+
+// Lazy-loaded new services (named exports from NewServices)
+const AISolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.AISolutions })));
+const CustomSoftwareDevelopment = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.CustomSoftwareDevelopment })));
+const EnterpriseITSolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.EnterpriseITSolutions })));
+const CloudSolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.CloudSolutions })));
+const SCADAIndustrialAutomation = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.SCADAIndustrialAutomation })));
+const IoTSolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.IoTSolutions })));
+const BusinessAutomation = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.BusinessAutomation })));
+const DataAnalytics = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.DataAnalytics })));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -102,7 +107,11 @@ function AnimatedRoutes() {
   );
 }
 
-import { ModalProvider } from "./context/ModalContext";
+const LoadingFallback = () => (
+  <div className="min-h-[60vh] flex items-center justify-center bg-transparent">
+    <div className="w-10 h-10 border-4 border-[#737CFD] border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 function App() {
   return (
@@ -110,7 +119,9 @@ function App() {
       <ScrollToTop />
       <ModalProvider>
         <Layout>
-          <AnimatedRoutes />
+          <Suspense fallback={<LoadingFallback />}>
+            <AnimatedRoutes />
+          </Suspense>
         </Layout>
       </ModalProvider>
     </Router>

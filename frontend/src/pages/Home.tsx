@@ -1,13 +1,15 @@
 import Hero from "../components/Hero";
-import About from "../components/About";
-import Services from "../components/Services";
-import Portfolio from "../components/Portfolio";
-import CTA from "../components/CTA";
 import { motion } from "framer-motion";
-import LeadSection from "../components/LeadSection";
-import PaymentGateway from "../components/PaymentGateway";
 import SEO from "../components/SEO";
 import { envConfig } from "../config/env.config";
+import React, { lazy, Suspense } from "react";
+
+const Services = lazy(() => import("../components/Services"));
+const PaymentGateway = lazy(() => import("../components/PaymentGateway"));
+const About = lazy(() => import("../components/About"));
+const Portfolio = lazy(() => import("../components/Portfolio"));
+const LeadSection = lazy(() => import("../components/LeadSection"));
+const CTA = lazy(() => import("../components/CTA"));
 
 const Home = () => {
   const structuredData = [
@@ -50,12 +52,14 @@ const Home = () => {
         structuredData={structuredData}
       />
       <Hero />
-      <Services />
-      <PaymentGateway />
-      <About />
-      <Portfolio />
-      <LeadSection />
-      <CTA />
+      <Suspense fallback={null}>
+        <Services />
+        <PaymentGateway />
+        <About />
+        <Portfolio />
+        <LeadSection />
+        <CTA />
+      </Suspense>
     </motion.div>
   );
 };
