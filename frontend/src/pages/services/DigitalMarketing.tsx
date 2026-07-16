@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import ServiceLayout from "./ServicesLayout";
-import digitalMarketingImage from "../../img/CoreslashTechnologies-DigitalMarketing.png";
+import digitalMarketingImage from "../../img/CoreslashTechnologies-DigitalMarketing.webp";
 import { useModal } from "../../context/ModalContext";
 
 const features = [

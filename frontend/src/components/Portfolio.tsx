@@ -3,16 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { XMarkIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-import imgLogistics from "../img/project/AI Logistics Management Platform.png";
-import imgHospital from "../img/project/Smart Hospital Management System.png";
-import imgFinTech from "../img/project/FinTech Banking Dashboard.png";
-import imgCRM from "../img/project/AI CRM & Sales Automation.png";
-import imgEcommerce from "../img/project/E-Commerce Multi-Vendor Platform.png";
-import imgRealEstate from "../img/project/Real Estate Property Management.png";
-import imgLMS from "../img/project/AI Learning Management System.png";
-import imgCyberSecurity from "../img/project/cloud.png";
-import imgManufacturing from "../img/project/Smart Manufacturing ERP.png";
-import imgHR from "../img/project/AI Recruitment & HR Platform.png";
+import imgLogistics from "../img/project/AI Logistics Management Platform.webp";
+import imgHospital from "../img/project/Smart Hospital Management System.webp";
+import imgFinTech from "../img/project/FinTech Banking Dashboard.webp";
+import imgCRM from "../img/project/AI CRM & Sales Automation.webp";
+import imgEcommerce from "../img/project/E-Commerce Multi-Vendor Platform.webp";
+import imgRealEstate from "../img/project/Real Estate Property Management.webp";
+import imgLMS from "../img/project/AI Learning Management System.webp";
+import imgCyberSecurity from "../img/project/cloud.webp";
+import imgManufacturing from "../img/project/Smart Manufacturing ERP.webp";
+import imgHR from "../img/project/AI Recruitment & HR Platform.webp";
 
 const items = [
   {
@@ -146,6 +146,8 @@ export default function Portfolio() {
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
+                    width={1200}
+                    height={750}
                     className="max-w-full max-h-full object-contain rounded-2xl transition-transform duration-600 group-hover:scale-105"
                   />
                 </div>

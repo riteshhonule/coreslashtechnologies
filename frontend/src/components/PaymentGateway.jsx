@@ -104,6 +104,10 @@ const PaymentGateway = () => {
                                     <img
                                         src={payment.img}
                                         alt={payment.name}
+                                        loading="lazy"
+                                        decoding="async"
+                                        width={400}
+                                        height={150}
                                         className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 relative z-10"
                                     />
                                 </div>

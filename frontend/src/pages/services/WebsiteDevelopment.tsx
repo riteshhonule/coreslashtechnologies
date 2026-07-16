@@ -12,7 +12,7 @@ import responsiveImg from "../../img/website/responsive.webp";
 import seoImg from "../../img/website/seo.webp";
 import securityImg from "../../img/website/security.webp";
 import speedImg from "../../img/website/fast_load.webp";
-import coreslashWebsiteDevelopment from "../../img/website/coreslash-website-development.png";
+import coreslashWebsiteDevelopment from "../../img/website/coreslash-website-development.webp";
 
 import ServiceLayout from "./ServicesLayout";
 import SEO from "../../components/SEO";

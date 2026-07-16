@@ -2,7 +2,7 @@
 
 
 import { motion } from "framer-motion";
-import wall from "../img/CoreslashTechnologies_wall.png";
+import wall from "../img/CoreslashTechnologies_wall.webp";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 
 export default function About() {
@@ -29,6 +29,8 @@ export default function About() {
                 alt="Our Workspace"
                 loading="lazy"
                 decoding="async"
+                width={471}
+                height={471}
                 className="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-80" />

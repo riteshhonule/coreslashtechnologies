@@ -3,7 +3,7 @@ import { envConfig } from '../config/env.config';
 import { motion } from "framer-motion";
 import { Mail, Phone, Linkedin, Instagram, ExternalLink } from "lucide-react";
 import { FaDiscord, FaFacebook, FaTelegram } from 'react-icons/fa';
-import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
+import logo from "../img/CoreslashTechnologies-solutions-main-logo.webp";
 
 const footerLinks = {
   company: [
@@ -58,6 +58,10 @@ export default function Footer() {
                 <img 
                   src={logo} 
                   alt="CoreSlash" 
+                  loading="lazy"
+                  decoding="async"
+                  width={423}
+                  height={54}
                   className="h-10 w-auto invert mx-auto" 
                 />
               </Link>

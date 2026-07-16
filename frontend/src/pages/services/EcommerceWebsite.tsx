@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import ServiceLayout from "./ServicesLayout";
-import ecommerceImg from "../../img/CoreslashTechnologies-ecommerce.png";
+import ecommerceImg from "../../img/CoreslashTechnologies-ecommerce.webp";
 import { useModal } from "../../context/ModalContext";
 import razorpay from "../../img/e-commerce/CoreslashTechnologies-razorpay.webp";
 import stripe from "../../img/e-commerce/CoreslashTechnologies-stripe.webp";

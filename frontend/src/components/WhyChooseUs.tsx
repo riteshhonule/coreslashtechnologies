@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Target, Zap, TrendingUp } from "lucide-react";
-import CoreslashTechnologies_solutions from "../img/CoreslashTechnologies_solutions.png";
+import CoreslashTechnologies_solutions from "../img/CoreslashTechnologies_solutions.webp";
 
 const features = [
     {

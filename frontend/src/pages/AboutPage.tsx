@@ -178,6 +178,10 @@ const AboutPage = () => {
               <img
                 src={teamCollaborationImg}
                 alt="Team Collaboration"
+                loading="lazy"
+                decoding="async"
+                width={1200}
+                height={800}
                 className="w-full h-96 object-cover transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-gray-900/80 to-transparent text-white backdrop-blur-[2px]">
@@ -343,7 +347,15 @@ const AboutPage = () => {
                   </div>
                   <p className="text-gray-600 mb-6 italic text-sm">"{testim.text}"</p>
                   <div className="flex items-center gap-4">
-                    <img src={testim.img} alt={testim.name} className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100" />
+                    <img 
+                      src={testim.img} 
+                      alt={testim.name} 
+                      loading="lazy"
+                      decoding="async"
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100" 
+                    />
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm">{testim.name}</h4>
                       <p className="text-xs text-gray-400">{testim.role}</p>

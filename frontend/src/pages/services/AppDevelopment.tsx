@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import AppFeaturesSection from "../../components/AppFeaturesSection";
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
-import CoreslashTechnologies_app_development from "../../img/CoreslashTechnologies-app-development.png";
+import CoreslashTechnologies_app_development from "../../img/CoreslashTechnologies-app-development.webp";
 import { SparklesIcon, CheckIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 /* ================= PRICING PACKAGES ================= */

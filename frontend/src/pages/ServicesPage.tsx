@@ -125,7 +125,15 @@ export default function ServicesPage() {
                   }`}>
                     {/* Hover Image Reveal */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover grayscale" />
+                      <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        loading="lazy"
+                        decoding="async"
+                        width={450}
+                        height={450}
+                        className="w-full h-full object-cover grayscale" 
+                      />
                     </div>
 
                     <div className={`relative z-10 flex flex-col items-center text-center ${
@@ -133,7 +141,15 @@ export default function ServicesPage() {
                     }`}>
                       <div className={`mb-6 shrink-0 ${isWide ? "md:mb-0 md:mr-8" : "mx-auto"}`}>
                         <div className="w-20 h-20 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-center group-hover:bg-secondary-indigo/10 transition-colors duration-500 mx-auto">
-                          <img src={service.image} alt={service.title} className="w-12 h-12 object-cover rounded-lg" />
+                          <img 
+                            src={service.image} 
+                            alt={service.title} 
+                            loading="lazy"
+                            decoding="async"
+                            width={450}
+                            height={450}
+                            className="w-12 h-12 object-cover rounded-lg" 
+                          />
                         </div>
                       </div>
 

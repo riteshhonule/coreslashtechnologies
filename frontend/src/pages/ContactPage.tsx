@@ -66,7 +66,7 @@ const ContactPage = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "CoreSlash Technologies",
-    "image": `${envConfig.appUrl}/CoreslashTechnologies-solutions-main-logo.png`,
+    "image": `${envConfig.appUrl}/CoreslashTechnologies-solutions-main-logo.webp`,
     "@id": envConfig.appUrl,
     "url": `${envConfig.appUrl}/contact`,
     "telephone": envConfig.social.whatsappPhone,

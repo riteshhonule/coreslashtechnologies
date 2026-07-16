@@ -1,37 +1,37 @@
-import aiInDigitalMarketingBangalore from "../img/blog/ai-in-digital-marketing-bangalore.jpg";
+import aiInDigitalMarketingBangalore from "../img/blog/ai-in-digital-marketing-bangalore.webp";
 
-import bestDigitalMarketingAgencyInGadagHubli from "../img/blog/best-digital-marketing-agency-in-gadag-hubli.jpg";
-import bestDigitalMarketingAgencyInMysoreMangalore from "../img/blog/best-digital-marketing-agency-in-mysore-mangalore.jpg";
-import bestDigitalMarketingAgencyInTumkur from "../img/blog/best-digital-marketing-agency-in-tumkur.jpg";
+import bestDigitalMarketingAgencyInGadagHubli from "../img/blog/best-digital-marketing-agency-in-gadag-hubli.webp";
+import bestDigitalMarketingAgencyInMysoreMangalore from "../img/blog/best-digital-marketing-agency-in-mysore-mangalore.webp";
+import bestDigitalMarketingAgencyInTumkur from "../img/blog/best-digital-marketing-agency-in-tumkur.webp";
 
-import bestDigitalMarketingCompanyInBangalore from "../img/blog/best-digital-marketing-company-in-bangalore.jpg";
-import bestDigitalMarketingCompanyInBelagavi from "../img/blog/best-digital-marketing-company-in-belagavi.jpg";
-import bestDigitalMarketingCompanyInGadag from "../img/blog/best-digital-marketing-company-in-gadag.jpg";
-import bestDigitalMarketingCompanyInGadagSolutions from "../img/blog/best-digital-marketing-company-in-gadag-solutions.jpg";
-import bestDigitalMarketingCompanyInMangalore from "../img/blog/best-digital-marketing-company-in-mangalore.jpg";
-import bestDigitalMarketingCompanyInMysore from "../img/blog/best-digital-marketing-company-in-mysore.png";
-import bestDigitalMarketingCompanyInTumkur from "../img/blog/best-digital-marketing-company-in-tumkur.jpg";
+import bestDigitalMarketingCompanyInBangalore from "../img/blog/best-digital-marketing-company-in-bangalore.webp";
+import bestDigitalMarketingCompanyInBelagavi from "../img/blog/best-digital-marketing-company-in-belagavi.webp";
+import bestDigitalMarketingCompanyInGadag from "../img/blog/best-digital-marketing-company-in-gadag.webp";
+import bestDigitalMarketingCompanyInGadagSolutions from "../img/blog/best-digital-marketing-company-in-gadag-solutions.webp";
+import bestDigitalMarketingCompanyInMangalore from "../img/blog/best-digital-marketing-company-in-mangalore.webp";
+import bestDigitalMarketingCompanyInMysore from "../img/blog/best-digital-marketing-company-in-mysore.webp";
+import bestDigitalMarketingCompanyInTumkur from "../img/blog/best-digital-marketing-company-in-tumkur.webp";
 
-import bestITCompanyInHubli from "../img/blog/best-it-company-in-hubli.jpg";
-import bestPpcAgencyInBangaloreAds from "../img/blog/best-ppc-agency-in-bangalore-ads.jpg";
+import bestITCompanyInHubli from "../img/blog/best-it-company-in-hubli.webp";
+import bestPpcAgencyInBangaloreAds from "../img/blog/best-ppc-agency-in-bangalore-ads.webp";
 
-import bestReactJsDevelopmentCompanyInBangaloreUi from "../img/blog/best-reactjs-development-company-in-bangalore-ui.jpg";
-import bestSeoCompanyInBangaloreSuccess from "../img/blog/best-seo-company-in-bangalore-success.jpg";
+import bestReactJsDevelopmentCompanyInBangaloreUi from "../img/blog/best-reactjs-development-company-in-bangalore-ui.webp";
+import bestSeoCompanyInBangaloreSuccess from "../img/blog/best-seo-company-in-bangalore-success.webp";
 
-import bestSocialMediaMarketingCompanyInBangaloreViral from "../img/blog/best-social-media-marketing-company-in-bangalore-viral.jpg";
+import bestSocialMediaMarketingCompanyInBangaloreViral from "../img/blog/best-social-media-marketing-company-in-bangalore-viral.webp";
 
-import bestSoftwareCompanyInBelagavi from "../img/blog/best-software-company-in-belagavi.jpg";
-import bestSoftwareDevelopmentCompanyInIndiaCustom from "../img/blog/best-software-development-company-in-india-custom.jpg";
+import bestSoftwareCompanyInBelagavi from "../img/blog/best-software-company-in-belagavi.webp";
+import bestSoftwareDevelopmentCompanyInIndiaCustom from "../img/blog/best-software-development-company-in-india-custom.webp";
 
-import bestWebDevelopmentCompanyInBangalore from "../img/blog/best-web-development-company-in-bangalore.jpg";
-import bestWebDevelopmentCompanyInIndiaExperts from "../img/blog/best-web-development-company-in-india-experts.jpg";
-import bestWebsiteDevelopmentCompanyInBangaloreTech from "../img/blog/best-website-development-company-in-bangalore-tech.jpg";
+import bestWebDevelopmentCompanyInBangalore from "../img/blog/best-web-development-company-in-bangalore.webp";
+import bestWebDevelopmentCompanyInIndiaExperts from "../img/blog/best-web-development-company-in-india-experts.webp";
+import bestWebsiteDevelopmentCompanyInBangaloreTech from "../img/blog/best-website-development-company-in-bangalore-tech.webp";
 
-import digitalMarketingAgencyInIndiaGrowth from "../img/blog/digital-marketing-agency-in-india-growth.jpg";
+import digitalMarketingAgencyInIndiaGrowth from "../img/blog/digital-marketing-agency-in-india-growth.webp";
 
-import CoreslashTechnologiesSolutionsBestDigitalMarketingAgencyInBangalore from "../img/blog/CoreslashTechnologies-solutions-best-digital-marketing-agency-in-bangalore.jpg";
+import CoreslashTechnologiesSolutionsBestDigitalMarketingAgencyInBangalore from "../img/blog/CoreslashTechnologies-solutions-best-digital-marketing-agency-in-bangalore.webp";
 
-import websiteDevelopmentCompanyInIndiaTrends from "../img/blog/website-development-company-in-india-trends.jpg";
+import websiteDevelopmentCompanyInIndiaTrends from "../img/blog/website-development-company-in-india-trends.webp";
 
 
 
@@ -931,7 +931,8 @@ export const blogPosts: BlogPost[] = [
                 { q: "Is CoreslashTechnologies the best for custom software in India?", a: "Our focus on reliability and scalability makes us a top choice for custom software development." }
             ]
         }
-    },
+    }
+,
     {
         id: "25",
         slug: "why-belgaum-businesses-moving-to-custom-cloud-software-2026",

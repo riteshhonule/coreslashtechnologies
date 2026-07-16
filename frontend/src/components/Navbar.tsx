@@ -26,7 +26,7 @@ import {
   Twitter,
   Github
 } from "lucide-react";
-import logo from "../img/CoreslashTechnologies-solutions-main-logo.png";
+import logo from "../img/CoreslashTechnologies-solutions-main-logo.webp";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -136,7 +136,7 @@ export default function Navbar() {
           >
             {/* Header: Logo & Close Button */}
             <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100 shrink-0">
-              <img src={logo} alt="Logo" className="h-7 w-auto invert" />
+              <img src={logo} alt="Logo" decoding="async" width={423} height={54} className="h-7 w-auto invert" />
               <button
                 onClick={closeMobileMenu}
                 className="p-2 rounded-full bg-[#f0f4ff]/80 text-[#737CFD] hover:bg-[#737CFD]/15 hover:text-secondary-indigo transition-all"
@@ -289,6 +289,9 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Coreslash Technologies"
+              decoding="async"
+              width={423}
+              height={54}
               className="h-6 md:h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </Link>

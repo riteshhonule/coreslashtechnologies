@@ -18,7 +18,7 @@ const Home = () => {
       "@type": "Organization",
       "name": "CoreSlash Technologies",
       "url": envConfig.appUrl,
-      "logo": `${envConfig.appUrl}/CoreslashTechnologies-solutions-main-logo.png`,
+      "logo": `${envConfig.appUrl}/CoreslashTechnologies-solutions-main-logo.webp`,
       "description": "IT solutions, software development and AI systems company in India.",
       "sameAs": [
         envConfig.social.linkedin,

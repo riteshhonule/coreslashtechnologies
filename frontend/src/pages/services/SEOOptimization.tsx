@@ -14,7 +14,7 @@ import SparklesIcon from "@heroicons/react/24/outline/SparklesIcon";
 
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
-import seoImage from "../../img/CoreslashTechnologies-seo.png";
+import seoImage from "../../img/CoreslashTechnologies-seo.webp";
 
 const detailedFeatures = [
     { title: "Intent Mapping", desc: "Advanced keyword research targeting high-conversion search intent.", icon: MagnifyingGlassIcon },
