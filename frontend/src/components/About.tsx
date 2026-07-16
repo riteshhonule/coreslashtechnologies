@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import wall from "../img/CoreslashTechnologies_wall.webp";
+import wallAvif from "../img/CoreslashTechnologies_wall.avif";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 
 export default function About() {
@@ -24,15 +25,18 @@ export default function About() {
             className="relative"
           >
             <div className="relative z-10 rounded-[3rem] overflow-hidden border border-gray-200/60 shadow-xl aspect-[4/5] lg:aspect-auto">
-              <img
-                src={wall}
-                alt="Our Workspace"
-                loading="lazy"
-                decoding="async"
-                width={471}
-                height={471}
-                className="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100"
-              />
+              <picture className="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100 flex items-center justify-center">
+                <source srcSet={wallAvif} type="image/avif" />
+                <img
+                  src={wall}
+                  alt="Our Workspace"
+                  loading="lazy"
+                  decoding="async"
+                  width={471}
+                  height={471}
+                  className="w-full h-full object-cover"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-80" />
             </div>
 

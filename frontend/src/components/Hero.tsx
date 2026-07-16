@@ -264,25 +264,35 @@ export default function Hero() {
               <div className="hidden md:block absolute inset-20 bg-primary-purple/5 rounded-full blur-[100px] animate-pulse delay-1000" />
 
               {/* Image Illustration */}
-              <motion.img
-                src="/CoreSlash_Home_Image.webp"
-                srcSet="/CoreSlash_Home_Image-mobile.webp 480w, /CoreSlash_Home_Image-tablet.webp 768w, /CoreSlash_Home_Image-desktop.webp 928w"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 500px, 42vw"
-                width={928}
-                height={1152}
-                loading="eager"
-                fetchPriority="high"
-                alt="CoreSlash Home Platform"
-                className="w-full h-full object-contain relative z-10 rounded-[3rem]"
-                animate={{
-                  y: [0, -12, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              <picture className="w-full h-full object-contain relative z-10 rounded-[3rem] flex items-center justify-center">
+                <source
+                  type="image/avif"
+                  srcSet="/CoreSlash_Home_Image-mobile.avif 480w, /CoreSlash_Home_Image-tablet.avif 768w, /CoreSlash_Home_Image-desktop.avif 928w"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 500px, 42vw"
+                />
+                <source
+                  type="image/webp"
+                  srcSet="/CoreSlash_Home_Image-mobile.webp 480w, /CoreSlash_Home_Image-tablet.webp 768w, /CoreSlash_Home_Image-desktop.webp 928w"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 500px, 42vw"
+                />
+                <motion.img
+                  src="/CoreSlash_Home_Image.webp"
+                  width={928}
+                  height={1152}
+                  loading="eager"
+                  fetchPriority="high"
+                  alt="CoreSlash Home Platform"
+                  className="w-full h-full object-contain rounded-[3rem]"
+                  animate={{
+                    y: [0, -12, 0],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </picture>
             </div>
           </motion.div>
 

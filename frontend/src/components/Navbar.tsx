@@ -149,8 +149,10 @@ export default function Navbar() {
             {/* Skyscraper Banner with Angled Diagonal Slashes */}
             <div className="relative w-full h-32 overflow-hidden bg-gray-100 shrink-0 z-0">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=350&q=70"
                 alt="City Architecture"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover z-0"
               />
               <div

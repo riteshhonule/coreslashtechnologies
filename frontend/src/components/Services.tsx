@@ -21,7 +21,7 @@ const services = [
     icon: <CodeBracketIcon className="w-7 h-7" />,
     link: "/services/website-development",
     size: "lg",
-    bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-sky-50/40 hover:bg-sky-50/80",
       cardBorder: "border-sky-200/50 hover:border-sky-300",
@@ -36,7 +36,7 @@ const services = [
     icon: <CpuChipIcon className="w-7 h-7" />,
     link: "/services/software-development",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
+    bgImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-purple-50/40 hover:bg-purple-50/80",
       cardBorder: "border-purple-200/50 hover:border-purple-300",
@@ -51,7 +51,7 @@ const services = [
     icon: <ShoppingCartIcon className="w-7 h-7" />,
     link: "/services/ecommerce",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
+    bgImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-emerald-50/40 hover:bg-emerald-50/80",
       cardBorder: "border-emerald-200/50 hover:border-emerald-300",
@@ -66,7 +66,7 @@ const services = [
     icon: <MagnifyingGlassIcon className="w-7 h-7" />,
     link: "/services/seo",
     size: "sm",
-    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80",
+    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-amber-50/40 hover:bg-amber-50/80",
       cardBorder: "border-amber-200/50 hover:border-amber-300",
@@ -81,7 +81,7 @@ const services = [
     icon: <RocketLaunchIcon className="w-7 h-7" />,
     link: "/services/digital-marketing",
     size: "sm",
-    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-rose-50/40 hover:bg-rose-50/80",
       cardBorder: "border-rose-200/50 hover:border-rose-300",
@@ -96,7 +96,7 @@ const services = [
     icon: <PresentationChartLineIcon className="w-7 h-7" />,
     link: "/services",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-indigo-50/40 hover:bg-indigo-50/80",
       cardBorder: "border-indigo-200/50 hover:border-indigo-300",
@@ -111,7 +111,7 @@ const services = [
     icon: <CircleStackIcon className="w-7 h-7" />,
     link: "/services",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
+    bgImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-teal-50/40 hover:bg-teal-50/80",
       cardBorder: "border-teal-200/50 hover:border-teal-300",
@@ -126,7 +126,7 @@ const services = [
     icon: <DevicePhoneMobileIcon className="w-7 h-7" />,
     link: "/services/App-development",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80",
+    bgImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-orange-50/40 hover:bg-orange-50/80",
       cardBorder: "border-orange-200/50 hover:border-orange-300",
