@@ -18,6 +18,7 @@ import {
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
 import software_hero_splash from "../../img/software/CoreslashTechnologies-software.webp";
+import software_hero_splashAvif from "../../img/software/CoreslashTechnologies-software.avif";
 
 /* ================= DATA ================= */
 
@@ -166,11 +167,16 @@ const SoftwareDevelopment: React.FC = () => {
                                     style={{ translateZ: 30 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
                                 >
-                                    <img
-                                        src={software_hero_splash}
-                                        alt="Software Development"
-                                        className="w-full h-auto object-cover"
-                                    />
+                                    <picture className="w-full h-auto object-cover flex items-center justify-center">
+                                        <source srcSet={software_hero_splashAvif} type="image/avif" />
+                                        <img
+                                            src={software_hero_splash}
+                                            alt="Software Development"
+                                            loading="eager"
+                                            decoding="async"
+                                            className="w-full h-auto object-cover"
+                                        />
+                                    </picture>
                                 </motion.div>
 
                                 {/* Interactive glass shimmer sweep */}

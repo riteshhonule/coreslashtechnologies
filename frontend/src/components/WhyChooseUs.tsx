@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Target, Zap, TrendingUp } from "lucide-react";
 import CoreslashTechnologies_solutions from "../img/CoreslashTechnologies_solutions.webp";
+import CoreslashTechnologies_solutionsAvif from "../img/CoreslashTechnologies_solutions.avif";
 
 const features = [
     {
@@ -32,7 +33,7 @@ const features = [
             cardBg: "bg-cyan-50/40 hover:bg-cyan-50/80",
             cardBorder: "border-cyan-200/50 hover:border-cyan-300",
             iconContainer: "bg-cyan-100/50 text-cyan-600 border-cyan-200/50 group-hover:bg-cyan-100 group-hover:text-cyan-700",
-            textAccent: "group-hover:text-cyan-600",
+            textAccent: "group-hover:text-cyan-650",
             spotlightColor: "rgba(8, 145, 178, 0.12)"
         }
     },
@@ -82,13 +83,16 @@ export default function WhyChooseUs() {
                     >
                         <div className="relative">
                             <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-gray-200/60 shadow-md transition-all duration-500 group-hover:shadow-lg">
-                                <img
-                                    src={CoreslashTechnologies_solutions}
-                                    alt="Solutions"
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
-                                />
+                                <picture className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103 flex items-center justify-center">
+                                    <source srcSet={CoreslashTechnologies_solutionsAvif} type="image/avif" />
+                                    <img
+                                        src={CoreslashTechnologies_solutions}
+                                        alt="Solutions"
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </picture>
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-50/50 to-transparent" />
                             </div>
 
