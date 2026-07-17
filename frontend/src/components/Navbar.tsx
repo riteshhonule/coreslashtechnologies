@@ -148,13 +148,18 @@ export default function Navbar() {
 
             {/* Skyscraper Banner with Angled Diagonal Slashes */}
             <div className="relative w-full h-32 overflow-hidden bg-gray-100 shrink-0 z-0">
-              <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=350&q=70"
-                alt="City Architecture"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover z-0"
-              />
+              <picture className="absolute inset-0 w-full h-full object-cover z-0">
+                <source srcSet="/city-architecture.avif" type="image/avif" />
+                <img
+                  src="/city-architecture.webp"
+                  alt="City Architecture"
+                  loading="lazy"
+                  decoding="async"
+                  width={350}
+                  height={233}
+                  className="w-full h-full object-cover"
+                />
+              </picture>
               <div
                 className="absolute inset-y-0 left-0 w-[45%] bg-[#0c081d] z-10"
                 style={{ clipPath: "polygon(0 0, 100% 0, 60% 100%, 0 100%)" }}

@@ -286,8 +286,10 @@ export default function MarketingEnquiryPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Internship Mode</label>
+                      <label htmlFor="mode" className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Internship Mode</label>
                       <select
+                        id="mode"
+                        aria-label="Internship Mode"
                         {...registerMain("mode")}
                         className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3.5 px-4 text-gray-900 font-bold focus:outline-none focus:border-primary-purple focus:ring-4 focus:ring-primary-purple/10 transition-all"
                       >
@@ -302,8 +304,10 @@ export default function MarketingEnquiryPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Internship Duration</label>
+                      <label htmlFor="duration" className="text-xs font-bold text-gray-500 uppercase tracking-widest pl-1">Internship Duration</label>
                       <select
+                        id="duration"
+                        aria-label="Internship Duration"
                         {...registerMain("duration")}
                         className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3.5 px-4 text-gray-900 font-bold focus:outline-none focus:border-primary-purple focus:ring-4 focus:ring-primary-purple/10 transition-all"
                       >

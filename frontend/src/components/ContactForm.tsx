@@ -85,8 +85,9 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
       <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
         <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
-            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Full Name</label>
+            <label htmlFor="name" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Full Name</label>
             <input
+              id="name"
               placeholder="Enter Your Name"
               className={`glass-input ${errors.name ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
               {...register("name", {
@@ -100,8 +101,9 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           </div>
 
           <div className="space-y-0.5">
-            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Work Email</label>
+            <label htmlFor="email" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Work Email</label>
             <input
+              id="email"
               type="email"
               placeholder="Enter Your Email"
               className={`glass-input ${errors.email ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
@@ -121,8 +123,9 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
 
         <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
-            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Phone Number</label>
+            <label htmlFor="phone" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Phone Number</label>
             <input
+              id="phone"
               type="tel"
               inputMode="tel"
               placeholder="+91 00000 00000"
@@ -139,8 +142,9 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           </div>
 
           <div className="space-y-0.5">
-            <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Location</label>
+            <label htmlFor="address" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Location</label>
             <input
+              id="address"
               placeholder="Enter Your Location"
               className={`glass-input ${errors.address ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
               {...register("address", {
@@ -155,9 +159,11 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
         </div>
 
         <div className="space-y-0.5">
-          <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Select Industry</label>
+          <label htmlFor="businessType" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Select Industry</label>
           <div className="relative">
             <select
+              id="businessType"
+              aria-label="Select Industry"
               className={`glass-input appearance-none cursor-pointer ${errors.businessType ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}
               {...register("businessType", { required: "Please select your industry" })}
               defaultValue=""
@@ -179,8 +185,9 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
         </div>
 
         <div className="space-y-0.5">
-          <label className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Project Details</label>
+          <label htmlFor="message" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Project Details</label>
           <textarea
+            id="message"
             rows={2}
             placeholder="Describe your vision and technical requirements..."
             className={`glass-input resize-none ${errors.message ? "border-red-500/50 focus:border-red-500 bg-red-500/5" : ""}`}

@@ -298,8 +298,10 @@ export default function CareersPage() {
                   {/* Field Row 3: Position, Experience & Qualification */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="space-y-2">
-                      <label className="text-xs font-extrabold text-gray-500 uppercase tracking-widest pl-1">Position Applying For *</label>
+                      <label htmlFor="position" className="text-xs font-extrabold text-gray-500 uppercase tracking-widest pl-1">Position Applying For *</label>
                       <select
+                        id="position"
+                        aria-label="Position Applying For"
                         {...register("position")}
                         className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-5 text-gray-900 font-bold focus:outline-none focus:border-primary-purple focus:ring-4 focus:ring-primary-purple/10 transition-all"
                       >
@@ -314,8 +316,10 @@ export default function CareersPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-extrabold text-gray-500 uppercase tracking-widest pl-1">Experience *</label>
+                      <label htmlFor="experience" className="text-xs font-extrabold text-gray-500 uppercase tracking-widest pl-1">Experience *</label>
                       <select
+                        id="experience"
+                        aria-label="Experience"
                         {...register("experience")}
                         className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-5 text-gray-900 font-bold focus:outline-none focus:border-primary-purple focus:ring-4 focus:ring-primary-purple/10 transition-all"
                       >
@@ -330,8 +334,10 @@ export default function CareersPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-extrabold text-gray-500 uppercase tracking-widest pl-1">Highest Qualification *</label>
+                      <label htmlFor="qualification" className="text-xs font-extrabold text-gray-500 uppercase tracking-widest pl-1">Highest Qualification *</label>
                       <select
+                        id="qualification"
+                        aria-label="Highest Qualification"
                         {...register("qualification")}
                         className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-5 text-gray-900 font-bold focus:outline-none focus:border-primary-purple focus:ring-4 focus:ring-primary-purple/10 transition-all"
                       >

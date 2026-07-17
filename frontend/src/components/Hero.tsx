@@ -267,13 +267,13 @@ export default function Hero() {
               <picture className="w-full h-full object-contain relative z-10 rounded-[3rem] flex items-center justify-center">
                 <source
                   type="image/avif"
-                  srcSet="/CoreSlash_Home_Image-mobile.avif 480w, /CoreSlash_Home_Image-tablet.avif 768w, /CoreSlash_Home_Image-desktop.avif 928w"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 500px, 42vw"
+                  srcSet="/CoreSlash_Home_Image-mobile.avif 480w, /CoreSlash_Home_Image-tablet.avif 581w, /CoreSlash_Home_Image-desktop.avif 928w"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 581px, 42vw"
                 />
                 <source
                   type="image/webp"
-                  srcSet="/CoreSlash_Home_Image-mobile.webp 480w, /CoreSlash_Home_Image-tablet.webp 768w, /CoreSlash_Home_Image-desktop.webp 928w"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 500px, 42vw"
+                  srcSet="/CoreSlash_Home_Image-mobile.webp 480w, /CoreSlash_Home_Image-tablet.webp 581w, /CoreSlash_Home_Image-desktop.webp 928w"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 581px, 42vw"
                 />
                 <motion.img
                   src="/CoreSlash_Home_Image.webp"
