@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import wall from "../img/CoreslashTechnologies_wall.webp";
 import wallAvif from "../img/CoreslashTechnologies_wall.avif";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 export default function About() {
 
@@ -68,9 +69,9 @@ export default function About() {
               and intuitive, AI-powered solutions.
             </p>
 
-            <button className="btn-pill btn-glass text-secondary-indigo hover:text-white px-10">
+            <Link to="/about" className="btn-pill btn-glass text-secondary-indigo hover:text-white px-10 inline-flex items-center justify-center">
               Discover Our Story
-            </button>
+            </Link>
           </motion.div>
 
         </div>

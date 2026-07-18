@@ -83,7 +83,7 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
       </AnimatePresence>
 
       <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-        <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
+        <div className={isSidebar ? "space-y-3" : "grid grid-cols-1 md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
             <label htmlFor="name" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Full Name</label>
             <input
@@ -121,7 +121,7 @@ export default function ContactForm({ variant = "default", onSuccess, service, i
           </div>
         </div>
 
-        <div className={isSidebar ? "space-y-3" : "grid md:grid-cols-2 gap-3"}>
+        <div className={isSidebar ? "space-y-3" : "grid grid-cols-1 md:grid-cols-2 gap-3"}>
           <div className="space-y-0.5">
             <label htmlFor="phone" className={`text-[10px] font-bold ${labelColor} uppercase tracking-[0.2em] ml-1`}>Phone Number</label>
             <input

@@ -37,8 +37,8 @@ export const envConfig = {
   apiUrl: getApiUrl(),
   appUrl: import.meta.env.VITE_APP_URL || 'https://coreslashtechnologies.com',
   social: {
-    whatsappPhone: import.meta.env.VITE_WHATSAPP_PHONE || '+918861220023',
-    whatsappLink: import.meta.env.VITE_WHATSAPP_LINK || 'https://wa.me/918861220023',
+    whatsappPhone: import.meta.env.VITE_WHATSAPP_PHONE || '918310711652',
+    whatsappLink: import.meta.env.VITE_WHATSAPP_LINK || 'https://wa.me/918310711652',
     whatsappLinkSecondary: import.meta.env.VITE_WHATSAPP_LINK_SECONDARY || 'https://wa.me/919513013247',
     linkedin: import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/company/coreslash-technologies/',
     instagram: import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/coreslashtechnologies/',

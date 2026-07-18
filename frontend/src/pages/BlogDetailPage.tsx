@@ -93,92 +93,95 @@ const BlogDetailPage: React.FC = () => {
                         {post.title}
                     </h1>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-8 border-y border-gray-200/60 mb-16 relative">
-                        <div className="flex flex-wrap items-center gap-6 sm:gap-10">
-                            <div className="flex items-center gap-4">
-                                <div className="w-14 h-14 rounded-2xl bg-primary-purple/10 border border-primary-purple/20 flex items-center justify-center text-secondary-indigo font-bold text-xl">
-                                    {post.author[0]}
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold text-gray-900 tracking-wide uppercase">{post.author}</p>
-                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 text-gradient-cyan">System Architect</p>
-                                </div>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-6 border-y border-gray-200/60 mb-16 relative">
+                        {/* Left Side: Author */}
+                        <div className="flex items-center gap-4">
+                            <div className="w-14 h-14 rounded-2xl bg-primary-purple/10 border border-primary-purple/20 flex items-center justify-center text-secondary-indigo font-bold text-xl shrink-0">
+                                {post.author[0]}
                             </div>
-                            
-                            <div className="flex items-center gap-3 text-gray-500">
-                                <CalendarIcon className="w-5 h-5 text-secondary-indigo" />
+                            <div>
+                                <p className="text-sm font-bold text-gray-900 tracking-wide uppercase">{post.author}</p>
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1 text-gradient-cyan">System Architect</p>
+                            </div>
+                        </div>
+                        
+                        {/* Right Side: Date, Verified & Share button grouped together */}
+                        <div className="flex flex-wrap items-center gap-6 md:gap-8 text-gray-500">
+                            <div className="flex items-center gap-2.5">
+                                <CalendarIcon className="w-4.5 h-4.5 text-secondary-indigo" />
                                 <p className="text-xs font-bold uppercase tracking-widest">{post.date}</p>
                             </div>
 
-                            <div className="flex items-center gap-3 text-gray-500">
-                                <UserIcon className="w-5 h-5 text-secondary-indigo" />
+                            <div className="flex items-center gap-2.5">
+                                <UserIcon className="w-4.5 h-4.5 text-secondary-indigo" />
                                 <p className="text-xs font-bold uppercase tracking-widest">Verified Article</p>
                             </div>
-                        </div>
 
-                        <div className="relative" ref={shareDropdownRef}>
-                            <button
-                                onClick={() => setIsShareOpen(!isShareOpen)}
-                                className={`w-14 h-14 rounded-2xl bg-white border flex items-center justify-center transition-all group shadow-sm ${
-                                    isShareOpen 
-                                        ? "border-secondary-indigo bg-secondary-indigo/5 text-secondary-indigo scale-95" 
-                                        : "border-gray-200 text-gray-400 hover:bg-gray-50 hover:text-secondary-indigo"
-                                }`}
-                                aria-expanded={isShareOpen}
-                                aria-label="Share this article"
-                            >
-                                <ShareIcon className="w-5 h-5 transition-transform group-hover:scale-110" />
-                            </button>
-                            
-                            <AnimatePresence>
-                                {isShareOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                                        transition={{ duration: 0.15 }}
-                                        className="absolute right-0 mt-3 w-56 bg-white border border-gray-200/80 rounded-2xl shadow-xl z-50 overflow-hidden py-1.5 focus:outline-none"
-                                    >
-                                        <button
-                                            onClick={copyToClipboard}
-                                            className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium border-b border-gray-100 cursor-pointer"
+                            {/* Share button inline */}
+                            <div className="relative shrink-0" ref={shareDropdownRef}>
+                                <button
+                                    onClick={() => setIsShareOpen(!isShareOpen)}
+                                    className={`w-10 h-10 md:w-11 md:h-11 rounded-xl bg-white border flex items-center justify-center transition-all group shadow-sm ${
+                                        isShareOpen 
+                                            ? "border-secondary-indigo bg-secondary-indigo/5 text-secondary-indigo scale-95" 
+                                            : "border-gray-200 text-gray-400 hover:bg-gray-50 hover:text-secondary-indigo"
+                                    }`}
+                                    aria-expanded={isShareOpen}
+                                    aria-label="Share this article"
+                                >
+                                    <ShareIcon className="w-4.5 h-4.5 transition-transform group-hover:scale-110" />
+                                </button>
+                                
+                                <AnimatePresence>
+                                    {isShareOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                                            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="absolute right-0 mt-2 w-56 bg-white border border-gray-200/80 rounded-2xl shadow-xl z-50 overflow-hidden py-1.5 focus:outline-none"
                                         >
-                                            {isCopied ? (
-                                                <>
-                                                    <Check className="w-4 h-4 text-emerald-500 shrink-0" />
-                                                    <span className="text-emerald-600 font-semibold">Link Copied!</span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <Copy className="w-4 h-4 text-gray-400 shrink-0" />
-                                                    <span>Copy Link</span>
-                                                </>
-                                            )}
-                                        </button>
-                                        <button
-                                            onClick={shareLinkedIn}
-                                            className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium cursor-pointer"
-                                        >
-                                            <Linkedin className="w-4 h-4 text-[#0A66C2] shrink-0" />
-                                            <span>Share on LinkedIn</span>
-                                        </button>
-                                        <button
-                                            onClick={shareTwitter}
-                                            className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium cursor-pointer"
-                                        >
-                                            <Twitter className="w-4 h-4 text-[#1DA1F2] shrink-0" />
-                                            <span>Share on Twitter / X</span>
-                                        </button>
-                                        <button
-                                            onClick={shareFacebook}
-                                            className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium cursor-pointer"
-                                        >
-                                            <Facebook className="w-4 h-4 text-[#1877F2] shrink-0" />
-                                            <span>Share on Facebook</span>
-                                        </button>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                                            <button
+                                                onClick={copyToClipboard}
+                                                className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium border-b border-gray-100 cursor-pointer"
+                                            >
+                                                {isCopied ? (
+                                                    <>
+                                                        <Check className="w-4 h-4 text-emerald-500 shrink-0" />
+                                                        <span className="text-emerald-600 font-semibold">Link Copied!</span>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Copy className="w-4 h-4 text-gray-400 shrink-0" />
+                                                        <span>Copy Link</span>
+                                                    </>
+                                                )}
+                                            </button>
+                                            <button
+                                                onClick={shareLinkedIn}
+                                                className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium cursor-pointer"
+                                            >
+                                                <Linkedin className="w-4 h-4 text-[#0A66C2] shrink-0" />
+                                                <span>Share on LinkedIn</span>
+                                            </button>
+                                            <button
+                                                onClick={shareTwitter}
+                                                className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium cursor-pointer"
+                                            >
+                                                <Twitter className="w-4 h-4 text-[#1DA1F2] shrink-0" />
+                                                <span>Share on Twitter / X</span>
+                                            </button>
+                                            <button
+                                                onClick={shareFacebook}
+                                                className="w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3 transition-colors font-medium cursor-pointer"
+                                            >
+                                                <Facebook className="w-4 h-4 text-[#1877F2] shrink-0" />
+                                                <span>Share on Facebook</span>
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
                         </div>
                     </div>
                 </motion.header>

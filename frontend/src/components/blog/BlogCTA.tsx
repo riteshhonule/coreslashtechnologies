@@ -38,10 +38,10 @@ const BlogCTA: React.FC = () => {
 
                     <button
                         onClick={openModal}
-                        className="btn-pill btn-primary-glow text-white text-xl px-16 py-6 group mx-auto"
+                        className="w-full sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3 sm:px-12 sm:py-4 group mx-auto whitespace-nowrap"
                     >
                         Initiate Consultation
-                        <ArrowRightIcon className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" />
+                        <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-500" />
                     </button>
                 </div>
             </motion.div>

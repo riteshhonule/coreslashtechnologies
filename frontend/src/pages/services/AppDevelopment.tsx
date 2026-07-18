@@ -94,7 +94,7 @@ const AppDevelopment: React.FC = () => {
                             <div className="flex justify-center w-full">
                                 <button
                                     onClick={openModal}
-                                    className="btn-pill btn-primary-glow text-white text-lg px-10"
+                                    className="w-full sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3 sm:px-10 sm:py-4 whitespace-nowrap"
                                 >
                                     Get Free Consultation
                                 </button>

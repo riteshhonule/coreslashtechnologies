@@ -240,8 +240,8 @@ export default function TermsOfService() {
                     <Phone className="w-5 h-5 text-secondary-indigo shrink-0 mt-0.5" />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">WhatsApp Us</p>
-                      <a href={`tel:${envConfig.social.whatsappPhone}`} className="text-xs sm:text-sm font-semibold text-gray-900 hover:text-secondary-indigo transition-colors">
-                        {envConfig.social.whatsappPhone}
+                      <a href={envConfig.social.whatsappLink} target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold text-gray-900 hover:text-secondary-indigo transition-colors">
+                        +{envConfig.social.whatsappPhone.replace(/^\+/, '')}
                       </a>
                     </div>
                   </div>

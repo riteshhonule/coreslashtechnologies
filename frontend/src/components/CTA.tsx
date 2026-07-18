@@ -45,16 +45,16 @@ export default function CTA() {
               AI experts and engineers are ready to scale your vision.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <button
                 onClick={openModal}
-                className="btn-pill btn-primary-glow text-white text-xl px-12 group"
+                className="w-full sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3 sm:px-10 sm:py-4 group whitespace-nowrap"
               >
                 Get Started Now
-                <ArrowRightIcon className="w-6 h-6 transition-transform group-hover:translate-x-2" />
+                <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-2" />
               </button>
               
-              <Link to="/services" className="btn-pill btn-glass text-secondary-indigo hover:text-white text-xl px-12 inline-flex items-center justify-center">
+              <Link to="/services" className="w-full sm:w-auto btn-pill btn-glass text-secondary-indigo hover:text-white text-base sm:text-lg px-6 py-3 sm:px-10 sm:py-4 inline-flex items-center justify-center whitespace-nowrap">
                 Our Services
               </Link>
             </div>

@@ -15,32 +15,18 @@ const ContactPage = () => {
     {
       icon: <PhoneIcon className="w-8 h-8 md:w-12 md:h-12" />,
       title: "Mobile",
-      detail: (
-        <a
-          href={`tel:+${envConfig.social.whatsappPhone}`}
-          className="block hover:text-secondary-indigo transition-colors duration-300"
-        >
-          +91 83107 11652
-        </a>
-      ),
-      link: "#",
+      detail: "+91 83107 11652",
+      link: `tel:+${envConfig.social.whatsappPhone}`,
+      target: "_self",
       accent: "text-blue-600",
       bg: "bg-blue-50"
     },
     {
       icon: <ChatBubbleLeftRightIcon className="w-8 h-8 md:w-12 md:h-12" />,
       title: "WhatsApp",
-      detail: (
-        <a
-          href={envConfig.social.whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block hover:text-secondary-indigo transition-colors duration-300"
-        >
-          WhatsApp Business
-        </a>
-      ),
-      link: "#",
+      detail: "WhatsApp Business",
+      link: envConfig.social.whatsappLink,
+      target: "_blank",
       accent: "text-green-600",
       bg: "bg-green-50"
     },
@@ -49,6 +35,7 @@ const ContactPage = () => {
       title: "Mailbox",
       detail: envConfig.contact.email,
       link: envConfig.contact.emailLink,
+      target: "_blank",
       accent: "text-primary-purple",
       bg: "bg-purple-50"
     },
@@ -57,6 +44,7 @@ const ContactPage = () => {
       title: "Location",
       detail: "Belgaum, India",
       link: envConfig.contact.mapsLink,
+      target: "_blank",
       accent: "text-cyan-600",
       bg: "bg-cyan-50"
     }
@@ -126,24 +114,25 @@ const ContactPage = () => {
               <motion.a
                 key={index}
                 href={item.link}
-                target="_blank"
+                target={item.target}
+                rel="noopener noreferrer"
                 initial={{ opacity: 1, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0, margin: "200px" }}
                 transition={{ delay: index * 0.04, duration: 0.3 }}
-                className="glass-card group p-8 md:p-12 rounded-[3rem] text-center border border-gray-200/50 bg-white hover:border-secondary-indigo/20 transition-all duration-700 block relative overflow-hidden shadow-md shadow-gray-200/30"
+                className="glass-card group p-5 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center border border-gray-200/50 bg-white hover:border-secondary-indigo/20 transition-all duration-700 block relative overflow-hidden shadow-md shadow-gray-200/30"
               >
-                <div className={`w-16 h-16 md:w-20 md:h-20 mx-auto mb-8 rounded-3xl ${item.bg} flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(99,91,255,0.15)]`}>
+                <div className={`w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 md:mb-8 rounded-3xl ${item.bg} flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(99,91,255,0.15)]`}>
                   <div className={`${item.accent} transition-transform duration-500 group-hover:rotate-12`}>
                     {item.icon}
                   </div>
                 </div>
 
-                <h3 className="text-gray-900 text-lg md:text-xl font-bold mb-3 tracking-tight">
+                <h3 className="text-gray-900 text-lg md:text-xl font-bold mb-2 md:mb-3 tracking-tight">
                   {item.title}
                 </h3>
 
-                <div className="text-gray-500 text-xs md:text-sm font-medium leading-tight break-words px-2 group-hover:text-gray-800 transition-colors duration-500">
+                <div className="text-gray-500 text-[11px] sm:text-xs md:text-sm font-medium leading-tight break-all sm:break-normal px-1 group-hover:text-gray-800 transition-colors duration-500">
                   {item.detail}
                 </div>
 

@@ -33,12 +33,19 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                     />
 
                     <motion.div
-                        initial={{ scale: 0.95, opacity: 1, y: 20 }}
+                        initial={{ scale: 0.95, opacity: 0, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                        className="relative w-full max-w-lg bg-white rounded-[2rem] border border-gray-200/80 shadow-2xl overflow-y-auto max-h-[calc(100vh-2rem)] scrollbar-hide"
+                        className="relative w-[calc(100vw-2rem)] sm:w-full max-w-lg bg-white rounded-[2rem] border border-gray-200/80 shadow-2xl overflow-hidden max-h-[calc(100vh-2rem)] flex flex-col"
                     >
-                        <div className="p-5 md:p-8 relative">
+                        {/* Background glow elements clipped to the modal borders to prevent scroll overflows */}
+                        <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none z-0">
+                            <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/10 rounded-full blur-[60px]" />
+                            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-indigo-600/10 rounded-full blur-[60px]" />
+                        </div>
+
+                        {/* Scrollable content container */}
+                        <div className="overflow-y-auto scrollbar-hide p-5 md:p-8 relative z-10 flex-1">
                             <button
                                 onClick={onClose}
                                 className="absolute top-5 right-5 p-2 rounded-full bg-gray-50 border border-gray-200 text-gray-400 hover:text-gray-650 hover:bg-gray-100 transition-all z-30"
@@ -60,10 +67,6 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                                     setTimeout(onClose, 2500);
                                 }} />
                             </div>
-
-                            {/* Background elements */}
-                            <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-600/10 rounded-full blur-[60px] pointer-events-none" />
-                            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-indigo-600/10 rounded-full blur-[60px] pointer-events-none" />
                         </div>
                     </motion.div>
                 </div>

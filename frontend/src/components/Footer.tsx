@@ -186,7 +186,7 @@ export default function Footer() {
                 <Phone size={15} className="text-gray-400 group-hover/link:text-secondary-indigo transition-colors duration-300 shrink-0" />
                 <div className="flex flex-col items-center gap-1">
                   <a 
-                    href={`tel:+${envConfig.social.whatsappPhone}`} 
+                    href={`tel:+${envConfig.social.whatsappPhone.replace(/^\+/, '')}`} 
                     className="text-sm text-gray-500 group-hover/link:text-secondary-indigo transition-all duration-300 font-medium text-center"
                   >
                     +91 83107 11652

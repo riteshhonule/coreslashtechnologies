@@ -66,7 +66,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                     >
                         <button
                             onClick={openModal}
-                            className="btn-pill btn-primary-glow text-white text-lg px-12"
+                            className="w-full sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3 sm:px-10 sm:py-4 whitespace-nowrap"
                         >
                             {ctaText}
                         </button>
@@ -105,7 +105,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                         <div className="flex justify-center">
                             <button
                                 onClick={openModal}
-                                className="btn-pill btn-primary-glow text-white text-xl px-16 relative z-10"
+                                className="w-full sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3 sm:px-12 sm:py-4 relative z-10 whitespace-nowrap"
                             >
                                 Contact us today
                             </button>

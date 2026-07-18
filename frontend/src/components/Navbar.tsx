@@ -4,7 +4,7 @@ import { envConfig } from "../config/env.config";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaDiscord } from "react-icons/fa";
 import {
   Home,
   User,
@@ -23,8 +23,7 @@ import {
   X,
   Linkedin,
   Instagram,
-  Twitter,
-  Github
+  Twitter
 } from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.webp";
 
@@ -45,13 +44,16 @@ export default function Navbar() {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
       document.body.classList.add("menu-open");
+      document.documentElement.classList.add("menu-open");
     } else {
       document.body.style.overflow = "";
       document.body.classList.remove("menu-open");
+      document.documentElement.classList.remove("menu-open");
     }
     return () => {
       document.body.style.overflow = "";
       document.body.classList.remove("menu-open");
+      document.documentElement.classList.remove("menu-open");
     };
   }, [mobileMenuOpen]);
 
@@ -128,52 +130,28 @@ export default function Navbar() {
               height: "100dvh",
               zIndex: 9999,
               backgroundColor: "#F8FAFC",
-              overflowY: "auto",
+              overflowY: "hidden",
               display: "flex",
               flexDirection: "column",
               boxShadow: "-10px 0 30px rgba(0, 0, 0, 0.05)",
             }}
           >
             {/* Header: Logo & Close Button */}
-            <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100 shrink-0">
-              <img src={logo} alt="Logo" decoding="async" width={423} height={54} className="h-7 w-auto invert" />
+            <div className="flex items-center justify-between px-4 pt-8 pb-2 bg-white border-b border-gray-100 shrink-0">
+              <img src={logo} alt="Logo" decoding="async" width={423} height={54} className="h-6 w-auto invert" />
               <button
                 onClick={closeMobileMenu}
-                className="p-2 rounded-full bg-[#f0f4ff]/80 text-[#737CFD] hover:bg-[#737CFD]/15 hover:text-secondary-indigo transition-all"
+                className="p-1 rounded-full bg-[#f0f4ff]/80 text-[#737CFD] hover:bg-[#737CFD]/15 hover:text-secondary-indigo transition-all"
                 aria-label="Close menu"
               >
-                <X className="w-4.5 h-4.5" />
+                <X className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            {/* Skyscraper Banner with Angled Diagonal Slashes */}
-            <div className="relative w-full h-32 overflow-hidden bg-gray-100 shrink-0 z-0">
-              <picture className="absolute inset-0 w-full h-full object-cover z-0">
-                <source srcSet="/city-architecture.avif" type="image/avif" />
-                <img
-                  src="/city-architecture.webp"
-                  alt="City Architecture"
-                  loading="lazy"
-                  decoding="async"
-                  width={350}
-                  height={233}
-                  className="w-full h-full object-cover"
-                />
-              </picture>
-              <div
-                className="absolute inset-y-0 left-0 w-[45%] bg-[#0c081d] z-10"
-                style={{ clipPath: "polygon(0 0, 100% 0, 60% 100%, 0 100%)" }}
-              />
-              <div
-                className="absolute inset-y-0 left-[35%] w-[12%] bg-[#737cfd] z-10"
-                style={{ clipPath: "polygon(0 0, 100% 0, 60% 100%, 0 100%)" }}
-              />
-            </div>
-
-            {/* Scrollable Navigation Area */}
-            <div className="flex-1 overflow-y-auto">
+            {/* Navigation Area */}
+            <div className="flex-1 flex flex-col justify-between px-3.5 pt-3 pb-0 overflow-y-hidden">
               {/* Main Links */}
-              <div className="px-5 py-4 space-y-1">
+              <div className="space-y-1">
                 {links.map((link, idx) => {
                   const Icon = link.icon;
                   const isActive = location.pathname === link.to;
@@ -187,16 +165,16 @@ export default function Navbar() {
                       <Link
                         to={link.to}
                         onClick={closeMobileMenu}
-                        className={`flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 ${isActive
+                        className={`flex items-center justify-between px-3 py-1.5 rounded-xl transition-all duration-300 ${isActive
                           ? "bg-[#f0f4ff] text-secondary-indigo font-bold shadow-sm"
                           : "text-gray-700 hover:bg-gray-100 hover:text-secondary-indigo font-semibold"
                           }`}
                       >
-                        <div className="flex items-center gap-3.5">
-                          <Icon className={`w-5 h-5 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-500"}`} />
-                          <span className="text-base tracking-wide">{link.label}</span>
+                        <div className="flex items-center gap-2.5">
+                          <Icon className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-500"}`} />
+                          <span className="text-sm tracking-wide">{link.label}</span>
                         </div>
-                        <ChevronRight className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
+                        <ChevronRight className={`w-3.5 h-3.5 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
                       </Link>
                     </motion.div>
                   );
@@ -204,74 +182,68 @@ export default function Navbar() {
               </div>
 
               {/* Services Section */}
-              <div className="px-5 py-4 border-t border-gray-100/50">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#737CFD] mb-4 pl-1">SERVICES</p>
-                <div className="space-y-3">
-                  {servicesLinks.map((service, idx) => {
-                    const Icon = service.icon;
-                    const isActive = location.pathname === service.to;
-                    return (
-                      <motion.div
-                        key={service.to}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 + idx * 0.03, duration: 0.3 }}
+              <div className="border-t border-gray-100/50 pt-2.5 space-y-1">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#737CFD] mb-1.5 pl-1">SERVICES</p>
+                {servicesLinks.map((service, idx) => {
+                  const Icon = service.icon;
+                  const isActive = location.pathname === service.to;
+                  return (
+                    <motion.div
+                      key={service.to}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.15 + idx * 0.03, duration: 0.3 }}
+                    >
+                      <Link
+                        to={service.to}
+                        onClick={closeMobileMenu}
+                        className={`flex items-center justify-between px-3 py-1.5 rounded-xl transition-all duration-300 ${isActive
+                          ? "bg-[#f0f4ff] text-secondary-indigo font-bold shadow-sm"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-secondary-indigo font-semibold"
+                          }`}
                       >
-                        <Link
-                          to={service.to}
-                          onClick={closeMobileMenu}
-                          className={`flex items-center justify-between p-3 rounded-2xl bg-white border transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.015)] ${isActive
-                            ? "border-secondary-indigo/40 bg-indigo-50/10 shadow-sm"
-                            : "border-gray-100 hover:border-secondary-indigo/20 hover:shadow-md"
-                            }`}
-                        >
-                          <div className="flex items-center gap-3.5">
-                            <div className="w-9 h-9 rounded-xl bg-secondary-indigo/5 flex items-center justify-center text-secondary-indigo shrink-0">
-                              <Icon className="w-5 h-5" />
-                            </div>
-                            <span className={`text-sm font-semibold transition-colors ${isActive ? "text-secondary-indigo font-bold" : "text-gray-800"}`}>
-                              {service.label}
-                            </span>
-                          </div>
-                          <ChevronRight className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
-                        </Link>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                        <div className="flex items-center gap-2.5">
+                          <Icon className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-500"}`} />
+                          <span className="text-sm tracking-wide">{service.label}</span>
+                        </div>
+                        <ChevronRight className={`w-3.5 h-3.5 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
             {/* Connect & Footer */}
-            <div className="px-5 py-6 flex flex-col items-center bg-[#F8FAFC] border-t border-gray-100/50 shrink-0">
+            <div className="px-4 pt-3.5 pb-2 flex flex-col items-center bg-[#F8FAFC] border-t border-gray-100/50 shrink-0">
               <div className="w-full max-w-[280px]">
                 <a
                   href={envConfig.social.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl bg-[#5C5CFF] text-white font-bold text-base shadow-lg shadow-indigo-500/20 hover:bg-[#4b4be6] hover:scale-[1.02] active:scale-95 transition-all"
+                  className="flex items-center justify-center gap-2 w-full py-1.5 rounded-xl bg-[#5C5CFF] text-white font-bold text-xs shadow-lg shadow-indigo-500/20 hover:bg-[#4b4be6] hover:scale-[1.02] active:scale-95 transition-all"
                 >
-                  <FaWhatsapp className="text-xl" />
+                  <FaWhatsapp className="text-base" />
                   Connect Now
                 </a>
-                <p className="text-xs text-gray-400 text-center mt-3 font-medium">
+                <p className="text-[9px] text-gray-400 text-center mt-1 font-medium">
                   We're just a message away!
                 </p>
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center justify-center gap-6 mt-6 pb-2">
+              <div className="flex items-center justify-center gap-5 mt-2 pb-0.5">
                 <a href={envConfig.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit CoreSlash Technologies on LinkedIn" className="text-gray-400 hover:text-secondary-indigo transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href={envConfig.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit CoreSlash Technologies on Instagram" className="text-gray-400 hover:text-secondary-indigo transition-colors">
-                  <Instagram className="w-5 h-5" />
+                  <Linkedin className="w-4 h-4" />
                 </a>
                 <a href={envConfig.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Visit CoreSlash Technologies on Twitter/X" className="text-gray-400 hover:text-secondary-indigo transition-colors">
-                  <Twitter className="w-5 h-5" />
+                  <Twitter className="w-4 h-4" />
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Visit our GitHub organization" className="text-gray-400 hover:text-secondary-indigo transition-colors">
-                  <Github className="w-5 h-5" />
+                <a href={envConfig.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit CoreSlash Technologies on Instagram" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a href={envConfig.social.discord} target="_blank" rel="noopener noreferrer" aria-label="Join our Discord community" className="text-gray-400 hover:text-secondary-indigo transition-colors">
+                  <FaDiscord className="w-4.5 h-4.5" />
                 </a>
               </div>
             </div>

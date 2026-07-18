@@ -202,7 +202,7 @@ export default function ServicesPage() {
             <div className="flex justify-center">
               <Link
                 to="/contact"
-                className="btn-pill btn-primary-glow text-white text-xl px-16 inline-block"
+                className="w-full sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3 sm:px-12 sm:py-4 inline-block text-center whitespace-nowrap"
               >
                 Get Custom Proposal
               </Link>

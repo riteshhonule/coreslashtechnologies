@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-pill {
-  @apply px-8 py-3.5 rounded-full font-bold transition-all duration-500 inline-flex items-center justify-center gap-2;
+  @apply px-6 py-3 md:px-8 md:py-3.5 rounded-full font-bold transition-all duration-500 inline-flex items-center justify-center gap-2 whitespace-nowrap;
 }
 
 .btn-primary-glow {
@@ -339,5 +339,20 @@ h1, h2, h3, h4, h5, h6 {
   .text-justify p, .text-justify li {
     text-align: center !important;
   }
+}
+
+/* Prevent main page scrolling and hide scrollbar when mobile menu is open */
+html.menu-open,
+body.menu-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+
+html.menu-open ::-webkit-scrollbar,
+body.menu-open ::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
 }
 
