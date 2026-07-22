@@ -19,7 +19,7 @@
 - [SEO Services](https://coreslashtechnologies.com/services/seo): Search engine optimization to grow organic search visibility.
 - [Ecommerce Websites](https://coreslashtechnologies.com/services/ecommerce): Tailor-made e-commerce platforms engineered for high conversions.
 - [PPC & Digital Marketing](https://coreslashtechnologies.com/services/ppc): Strategic paid search, social media advertising, and performance marketing.
-- [App Development](https://coreslashtechnologies.com/services/App-development): Native and cross-platform iOS and Android mobile apps.
+- [App Development](https://coreslashtechnologies.com/services/app-development): Native and cross-platform iOS and Android mobile apps.
 - [Software Development](https://coreslashtechnologies.com/services/software-development): Custom software engineering for web and desktop systems.
 - [Digital Marketing](https://coreslashtechnologies.com/services/digital-marketing): Digital growth marketing, social media management, and branding.
 - [AI Solutions](https://coreslashtechnologies.com/services/ai-solutions): Machine learning, deep learning, NLP, and intelligent agent integrations.

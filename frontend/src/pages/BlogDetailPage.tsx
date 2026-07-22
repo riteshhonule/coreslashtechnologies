@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CalendarIcon, ArrowLeftIcon, ShareIcon, UserIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Copy, Linkedin, Twitter, Facebook, Check } from "lucide-react";
 import BlogCTA from "../components/blog/BlogCTA";
+import SEO from "../components/SEO";
 
 const BlogDetailPage: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
@@ -70,8 +71,70 @@ const BlogDetailPage: React.FC = () => {
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, "_blank", "noopener,noreferrer");
     };
 
+    // Format the date properly for the JSON-LD schema (e.g. "Feb 22, 2026" to "2026-02-22")
+    let publishedDateIso = "";
+    try {
+        const parsedDate = new Date(post.date);
+        if (!isNaN(parsedDate.getTime())) {
+            publishedDateIso = parsedDate.toISOString().split('T')[0];
+        }
+    } catch (e) {
+        console.error("Invalid date format", post.date, e);
+    }
+
+    const blogPostingSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.description,
+        "image": post.image.startsWith("http") ? post.image : `https://coreslashtechnologies.com${post.image}`,
+        "author": {
+            "@type": "Organization",
+            "name": "CoreSlash Technologies",
+            "url": "https://coreslashtechnologies.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "CoreSlash Technologies",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
+            }
+        },
+        "datePublished": publishedDateIso || undefined,
+        "dateModified": publishedDateIso || undefined,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://coreslashtechnologies.com/blog/${post.slug}`
+        }
+    };
+
+    const faqSchema = post.content?.faqs && post.content.faqs.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": post.content.faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+            }
+        }))
+    } : null;
+
+    const schemas: any[] = [blogPostingSchema];
+    if (faqSchema) {
+        schemas.push(faqSchema);
+    }
+
     return (
         <div className="relative min-h-screen bg-[#F9FAFB] pt-0 overflow-hidden text-gray-900">
+            <SEO
+                title={`${post.title} | Blog | CoreSlash Technologies`}
+                description={post.description}
+                image={post.image}
+                structuredData={schemas}
+            />
             {/* GLOWS */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/3 rounded-full blur-[140px] pointer-events-none" />
             

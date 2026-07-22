@@ -18,6 +18,7 @@ import gpay from "../../img/e-commerce/CoreslashTechnologies-paytm.webp";
 
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
+import SEO from "../../components/SEO";
 
 /* ================= FEATURES ================= */
 
@@ -103,6 +104,10 @@ const ShopifyDevelopment: React.FC = () => {
             subtitle="Engineering high-velocity commerce engines for the digital era."
             ctaText="Launch Your Store"
         >
+            <SEO
+                title="Shopify & E-commerce Development | CoreSlash Technologies"
+                description="Custom Shopify theme design, application integration, liquid coding, and optimized online store setups for digital brands."
+            />
             <div className="bg-[#F9FAFB] text-gray-900">
                 {/* HERO SECTION */}
                 <section className="container mx-auto px-6 py-12 md:py-24">

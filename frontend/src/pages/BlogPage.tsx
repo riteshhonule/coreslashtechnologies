@@ -6,6 +6,7 @@ import BlogSkeleton from "../components/blog/BlogSkeleton";
 import BlogCTA from "../components/blog/BlogCTA";
 import { useModal } from "../context/ModalContext";
 import { MagnifyingGlassIcon, EnvelopeIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
 
 const BlogPage: React.FC = () => {
     const [loading, setLoading] = useState(true);
@@ -27,6 +28,10 @@ const BlogPage: React.FC = () => {
 
     return (
         <div className="relative min-h-screen bg-[#F9FAFB] pt-0 overflow-hidden text-gray-900">
+            <SEO
+                title="Tech Blog & Insights | CoreSlash Technologies"
+                description="Stay informed with expert insights, industry trends, and deep dives into software engineering, artificial intelligence, and digital growth."
+            />
             {/* GLOWS */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/3 rounded-full blur-[140px] pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary-indigo/2 rounded-full blur-[120px] pointer-events-none" />

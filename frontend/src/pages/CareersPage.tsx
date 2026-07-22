@@ -174,8 +174,8 @@ export default function CareersPage() {
   return (
     <main className="relative min-h-screen bg-[#F9FAFB] pt-0 overflow-hidden pb-16 text-gray-900">
       <SEO
-        title="Careers | Join Our Team"
-        description="Join CoreSlash Technologies. Submit your profile and jumpstart your career in software, design, or marketing."
+        title="Careers at CoreSlash Technologies"
+        description="Join CoreSlash Technologies and build innovative software, AI applications, and enterprise digital solutions with our growing team."
       />
       {/* GLOW DECORATIONS */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/3 rounded-full blur-[140px] pointer-events-none" />

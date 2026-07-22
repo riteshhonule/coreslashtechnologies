@@ -104,8 +104,8 @@ const WebsiteDevelopment: React.FC = () => {
             ctaText="Start Your Project"
         >
             <SEO 
-                title="Website Development Services"
-                description="Custom, high-performance website development services. We build digital growth engines engineered for speed, SEO, and conversions."
+                title="Custom Web Development Services | CoreSlash Technologies"
+                description="High-performance, secure, and SEO-friendly website development, web applications, and headless CMS architectures."
                 structuredData={structuredData}
             />            <div className="bg-[#F9FAFB] text-gray-900">
                 {/* Intro & Visuals */}

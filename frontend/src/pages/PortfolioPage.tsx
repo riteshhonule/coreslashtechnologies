@@ -6,6 +6,7 @@ import {
   SparklesIcon,
   ArrowRightIcon
 } from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
 
 import imgLogistics from "../img/project/AI Logistics Management Platform.webp";
 import imgHospital from "../img/project/Smart Hospital Management System.webp";
@@ -106,6 +107,10 @@ const PortfolioPage = () => {
 
   return (
     <div className="bg-[#F9FAFB] min-h-screen pt-0 overflow-hidden relative">
+      <SEO
+        title="Our Work Portfolio | CoreSlash Technologies"
+        description="Discover our successful software engineering projects, mobile app implementations, AI applications, and digital business solutions."
+      />
       {/* GLOWS */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/3 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary-indigo/2 rounded-full blur-[120px] pointer-events-none" />

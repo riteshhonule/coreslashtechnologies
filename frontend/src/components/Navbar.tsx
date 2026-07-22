@@ -78,7 +78,7 @@ export default function Navbar() {
   const servicesLinks = [
     { to: "/services", label: "All Services", icon: Grid },
     { to: "/services/website-development", label: "Web Development", icon: Code },
-    { to: "/services/App-development", label: "App Development", icon: Smartphone },
+    { to: "/services/app-development", label: "App Development", icon: Smartphone },
     { to: "/services/shopify-development", label: "Shopify Development", icon: ShoppingBag },
     { to: "/services/software-development", label: "Software Systems", icon: Server },
     { to: "/services/digital-marketing", label: "Digital Marketing", icon: BarChart3 },

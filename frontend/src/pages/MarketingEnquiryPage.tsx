@@ -6,6 +6,7 @@ import * as z from "zod";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 import { CheckCircleIcon, SparklesIcon, CalendarIcon, BriefcaseIcon, AcademicCapIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
 
 // --- VALIDATION SCHEMAS ---
 const mobileSchema = z.object({
@@ -162,6 +163,10 @@ export default function MarketingEnquiryPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col pt-4 pb-8 sm:py-6 px-4 sm:px-6 lg:px-8">
+      <SEO
+        title="Digital Marketing Solutions Inquiry | CoreSlash Technologies"
+        description="Inquire about our performance marketing, SEO services, social media management, and custom digital marketing campaigns."
+      />
       <div className="w-full max-w-2xl mx-auto mt-2 sm:mt-6 lg:mt-10">
         {/* Form Column */}
         <div className="w-full">

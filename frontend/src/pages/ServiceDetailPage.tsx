@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeftIcon, CheckCircleIcon, SparklesIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
 
 const servicesData: Record<string, { title: string; subtitle: string; description: string; features: string[]; cta: string }> = {
     "website-development": {
@@ -59,6 +60,10 @@ const ServiceDetailPage = () => {
 
     return (
         <div className="relative min-h-screen bg-[#F9FAFB] pt-0 overflow-hidden text-gray-900">
+            <SEO
+                title={`${service.title} | CoreSlash Technologies`}
+                description={service.subtitle}
+            />
             {/* Hero Section */}
             <section className="relative py-12 md:py-32 overflow-hidden border-b border-gray-200/60">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/3 rounded-full blur-[140px] pointer-events-none" />

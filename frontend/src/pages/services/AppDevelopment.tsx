@@ -5,6 +5,7 @@ import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
 import CoreslashTechnologies_app_development from "../../img/CoreslashTechnologies-app-development.webp";
 import { SparklesIcon, CheckIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import SEO from "../../components/SEO";
 
 /* ================= PRICING PACKAGES ================= */
 
@@ -68,6 +69,10 @@ const AppDevelopment: React.FC = () => {
             subtitle="Engineering immersive mobile experiences for the next generation."
             ctaText="Build Your App"
         >
+            <SEO
+                title="Mobile App Development (Android & iOS) | CoreSlash Technologies"
+                description="Custom Android, iOS, and cross-platform mobile apps built with React Native, Flutter, and secure cloud backends."
+            />
             <div className="bg-[#F9FAFB] text-gray-900">
                 {/* Immersive Hero Content */}
                 <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">

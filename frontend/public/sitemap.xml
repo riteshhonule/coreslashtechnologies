@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core Pages -->
   <url>
     <loc>https://coreslashtechnologies.com/</loc>
     <changefreq>weekly</changefreq>
@@ -36,8 +35,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Existing Service Pages -->
+  <url>
+    <loc>https://coreslashtechnologies.com/privacy-policy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/terms-of-service</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/cookie-policy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/careers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://coreslashtechnologies.com/services/website-development</loc>
     <changefreq>monthly</changefreq>
@@ -64,7 +81,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coreslashtechnologies.com/services/App-development</loc>
+    <loc>https://coreslashtechnologies.com/services/app-development</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -78,8 +95,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- New Service Pages -->
   <url>
     <loc>https://coreslashtechnologies.com/services/ai-solutions</loc>
     <changefreq>monthly</changefreq>
@@ -117,6 +132,191 @@
   </url>
   <url>
     <loc>https://coreslashtechnologies.com/services/data-analytics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/digital-marketing-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-web-development-company-in-bangalore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/seo-company-in-bangalore-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/website-development-company-in-india-trends</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/digital-marketing-agency-in-india-growth</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/ai-in-digital-marketing-bangalore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-agency-in-gadag-hubli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-company-in-belagavi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-agency-in-mysore-mangalore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-agency-in-tumkur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/CoreslashTechnologies-solutions-best-digital-marketing-agency-in-bangalore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-company-in-gadag</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-seo-company-in-bangalore-success</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-website-development-company-in-bangalore-tech</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-company-in-india-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-web-development-company-in-india-experts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-it-company-in-hubli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-software-company-in-belagavi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-company-in-mysore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-company-in-mangalore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-company-in-tumkur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-digital-marketing-company-in-gadag-solutions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-ppc-agency-in-bangalore-ads</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-social-media-marketing-company-in-bangalore-viral</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-reactjs-development-company-in-bangalore-ui</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/best-software-development-company-in-india-custom</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/why-belgaum-businesses-moving-to-custom-cloud-software-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/how-to-choose-best-web-design-company-in-belgaum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/digital-transformation-success-stories-karnataka</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/roi-of-digital-marketing-for-clinics-maharashtra</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/ecommerce-setup-checklist-retailers-belgaum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/custom-software-vs-saas-karnataka-manufacturers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/coreslash-technologies-modernizing-it-belgaum-enterprises</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/mobile-app-development-booming-tier-2-cities</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/what-to-look-for-hiring-it-consultants-maharashtra</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/local-seo-vs-national-seo-guide-indian-businesses</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/blog/why-every-business-needs-a-website-in-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

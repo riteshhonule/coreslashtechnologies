@@ -67,7 +67,7 @@ function AnimatedRoutes() {
         <Route path="/services/seo" element={<SEOOptimization />} />
         <Route path="/services/ecommerce" element={<EcommerceWebsite />} />
         <Route path="/services/ppc" element={<PPCServices />} />
-        <Route path="/services/App-development" element={<AppDevelopment />} />
+        <Route path="/services/app-development" element={<AppDevelopment />} />
         <Route path="/services/software-development" element={<SoftwareDevelopment />} />
         <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
 
@@ -95,7 +95,9 @@ function AnimatedRoutes() {
         <Route path="/careers" element={<CareersPage />} />
         
         {/* Certificate Verification Routes */}
+        <Route path="/certificate/verify" element={<CertificateVerifyPage />} />
         <Route path="/certificate/verify/:certificateId" element={<CertificateVerifyPage />} />
+        <Route path="/verify" element={<CertificateVerifyPage />} />
         <Route path="/verify/:certificateId" element={<CertificateVerifyPage />} />
         
         {/* Superadmin routes */}

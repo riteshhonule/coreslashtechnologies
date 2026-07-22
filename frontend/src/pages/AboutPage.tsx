@@ -102,8 +102,8 @@ const AboutPage = () => {
   return (
     <div className="relative min-h-screen bg-[#F9FAFB] overflow-hidden font-sans text-gray-900 pt-0">
       <SEO 
-        title="About Us"
-        description="Learn more about CoreSlash Technologies, our mission to build digital futures, our vision, and the core values that drive our software and AI solutions."
+        title="About CoreSlash Technologies"
+        description="Learn about CoreSlash Technologies, our mission, experienced software engineers, and our commitment to delivering innovative digital solutions."
       />
 
       {/* Background Elements */}

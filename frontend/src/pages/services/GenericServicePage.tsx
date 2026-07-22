@@ -43,7 +43,7 @@ const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle
             ctaText="Start Your Project"
         >
             <SEO 
-                title={title}
+                title={`${title} Services | CoreSlash Technologies`}
                 description={description}
                 structuredData={structuredData}
             />

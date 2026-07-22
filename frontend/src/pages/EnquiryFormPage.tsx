@@ -6,6 +6,7 @@ import * as z from "zod";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
 
 // --- VALIDATION SCHEMAS ---
 const mobileSchema = z.object({
@@ -158,6 +159,10 @@ export default function EnquiryFormPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col pt-4 pb-8 sm:py-6 px-4 sm:px-6 lg:px-8">
+      <SEO
+        title="Get a Quote | CoreSlash Technologies"
+        description="Request a custom software development, web application, mobile app, or AI solution quote from CoreSlash Technologies."
+      />
       <div className="w-full max-w-4xl mx-auto mt-2 sm:mt-6 lg:mt-10">
         {/* Header Section */}
         <div className="text-center mb-4 sm:mb-6">

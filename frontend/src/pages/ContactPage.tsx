@@ -50,28 +50,11 @@ const ContactPage = () => {
     }
   ];
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "CoreSlash Technologies",
-    "image": `${envConfig.appUrl}/CoreslashTechnologies-solutions-main-logo.webp`,
-    "@id": envConfig.appUrl,
-    "url": `${envConfig.appUrl}/contact`,
-    "telephone": envConfig.social.whatsappPhone,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Belgaum",
-      "addressRegion": "Karnataka",
-      "addressCountry": "IN"
-    }
-  };
-
   return (
     <main className="relative min-h-screen bg-[#F9FAFB] pt-0 overflow-x-hidden pb-12 text-gray-900">
       <SEO
-        title="Contact Us"
-        description="Get in touch with CoreSlash Technologies for expert IT solutions, custom software development, and AI systems."
-        structuredData={structuredData}
+        title="Contact CoreSlash Technologies"
+        description="Get in touch with CoreSlash Technologies for software development, AI consulting, digital transformation, and enterprise solutions."
       />
       {/* BACKGROUND GLOWS */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-purple/3 rounded-full blur-[140px] pointer-events-none" />

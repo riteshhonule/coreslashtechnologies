@@ -62,8 +62,8 @@ export default function ServicesPage() {
   return (
     <div className="relative flex flex-col min-h-screen bg-[#F9FAFB] overflow-hidden">
       <SEO 
-        title="Our IT & AI Services"
-        description="Explore CoreSlash Technologies' comprehensive digital services including AI Solutions, Enterprise IT, Custom Software Development, Cloud Infrastructure, and IoT."
+        title="Software Development Services | CoreSlash Technologies"
+        description="Explore our custom software development, web development, mobile applications, AI, cloud, DevOps, UI/UX, and enterprise solutions."
       />
       {/* ================= HERO HEADER ================= */}
       <section className="relative pt-10 md:pt-16 pb-16 md:pb-32 overflow-hidden">

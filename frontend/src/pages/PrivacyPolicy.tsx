@@ -8,8 +8,8 @@ export default function PrivacyPolicy() {
   return (
     <div className="relative min-h-screen bg-[#F9FAFB] overflow-hidden font-sans text-gray-900 pb-24">
       <SEO
-        title="Privacy Policy"
-        description="Privacy Policy for Coreslash Technologies. Understand how we collect, use, process, and protect your personal information."
+        title="Privacy Policy | CoreSlash Technologies"
+        description="Read our privacy policy to understand how CoreSlash Technologies collects, uses, and secures your personal information."
       />
 
       {/* Decorative Blur Backgrounds */}

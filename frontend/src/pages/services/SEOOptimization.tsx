@@ -15,6 +15,7 @@ import SparklesIcon from "@heroicons/react/24/outline/SparklesIcon";
 import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
 import seoImage from "../../img/CoreslashTechnologies-seo.webp";
+import SEO from "../../components/SEO";
 
 const detailedFeatures = [
     { title: "Intent Mapping", desc: "Advanced keyword research targeting high-conversion search intent.", icon: MagnifyingGlassIcon },
@@ -36,6 +37,10 @@ const SEOOptimization: React.FC = () => {
             subtitle="Engineered for visibility. Optimized for authority."
             ctaText="Claim Free SEO Audit"
         >
+            <SEO
+                title="Search Engine Optimization (SEO) Solutions | CoreSlash Technologies"
+                description="Rank higher and drive qualified search traffic with semantic on-page SEO, technical optimization, audits, and authority link building."
+            />
             <div className="bg-[#F9FAFB] text-gray-900 overflow-hidden">
                 {/* --- HERO SECTION --- */}
                 <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24 md:py-32">

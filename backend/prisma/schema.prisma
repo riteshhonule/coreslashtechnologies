@@ -63,20 +63,24 @@ model MarketingInquiry {
 }
 
 enum CertificateStatus {
-  VALID
-  REVOKED
-  EXPIRED
+  Verified
+  Revoked
+  Expired
 }
 
 model Certificate {
-  id            String            @id @default(cuid())
-  certificateId String            @unique // e.g. "CST2026-0001"
-  studentName   String
-  courseName    String            // e.g. "Full Stack Development"
-  issueDate     DateTime          // Date of issuance
-  status        CertificateStatus @default(VALID)
-  createdAt     DateTime          @default(now())
+  id                String            @id @default(cuid())
+  certificateNumber String            @unique // e.g. "CST2026-0001"
+  candidateName     String
+  courseName        String            // e.g. "Full Stack Development"
+  issueDate         DateTime          // Date of issuance
+  completionDate    DateTime?         // Optional completion date
+  grade             String?           // Optional grade
+  status            CertificateStatus @default(Verified)
+  certificateUrl    String?           // Optional certificate URL
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
 
-  @@index([certificateId]) // Optimizes lookups by Certificate ID
+  @@index([certificateNumber]) // Optimizes lookups by Certificate Number
 }
 

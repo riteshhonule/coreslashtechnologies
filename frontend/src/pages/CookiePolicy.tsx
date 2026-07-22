@@ -8,8 +8,8 @@ export default function CookiePolicy() {
   return (
     <div className="relative min-h-screen bg-[#F9FAFB] overflow-hidden font-sans text-gray-900 pb-24">
       <SEO
-        title="Cookie Policy"
-        description="Cookie Policy for Coreslash Technologies. Understand what cookies are, how we use them, and how to manage your cookie preferences."
+        title="Cookie Policy | CoreSlash Technologies"
+        description="Learn about how we use cookies and tracking technologies to improve your experience on our website."
       />
 
       {/* Decorative Blur Backgrounds */}

@@ -4,6 +4,7 @@ import { CheckCircleIcon, RocketLaunchIcon, ChartBarIcon, BriefcaseIcon, Sparkle
 import ServiceLayout from "./ServicesLayout";
 import ppcImage from "../../img/ppc-expert.webp";
 import { useModal } from "../../context/ModalContext";
+import SEO from "../../components/SEO";
 
 /* ================= PACKAGES JSON ================= */
 const packages = [
@@ -82,6 +83,10 @@ const PPCServices = () => {
             subtitle="Data-driven precision. Performance-led results. Dominate the digital landscape with elite ad strategies."
             ctaText="Scale My Business"
         >
+            <SEO
+                title="Pay-Per-Click (PPC) Advertising Services | CoreSlash Technologies"
+                description="Targeted Google Ads, paid social media campaigns, behavior targeting, and conversion rate optimization for higher ROI."
+            />
             <div className="bg-[#F9FAFB] text-gray-900">
                 <div className="container mx-auto px-6 lg:px-12 py-12 md:py-24">
 

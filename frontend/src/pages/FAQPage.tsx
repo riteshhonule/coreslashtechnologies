@@ -47,8 +47,8 @@ const FAQPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-[#F9FAFB] pt-4 text-gray-900">
             <SEO 
-                title="FAQ | Frequently Asked Questions"
-                description="Find answers to common questions about CoreSlash Technologies' web development, AI solutions, SEO services, and enterprise IT solutions."
+                title="Frequently Asked Questions | CoreSlash Technologies"
+                description="Find answers to common questions about our software development process, pricing, timelines, technologies, support, and maintenance."
                 structuredData={faqSchema}
             />
             <div className="max-w-4xl mx-auto px-6 py-10 md:py-20">

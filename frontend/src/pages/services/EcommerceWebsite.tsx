@@ -12,6 +12,7 @@ import {
 import ServiceLayout from "./ServicesLayout";
 import ecommerceImg from "../../img/CoreslashTechnologies-ecommerce.webp";
 import { useModal } from "../../context/ModalContext";
+import SEO from "../../components/SEO";
 import razorpay from "../../img/e-commerce/CoreslashTechnologies-razorpay.webp";
 import stripe from "../../img/e-commerce/CoreslashTechnologies-stripe.webp";
 import paypal from "../../img/e-commerce/CoreslashTechnologies-paypal.webp";
@@ -84,6 +85,10 @@ const EcommerceWebsite: React.FC = () => {
             subtitle="Engineering high-conversion digital storefronts for global scale."
             ctaText="Build Your Store"
         >
+            <SEO
+                title="E-commerce Application Development | CoreSlash Technologies"
+                description="Custom e-commerce platforms, payment gateway integrations, headless commerce architectures, and smooth checkouts."
+            />
             <div className="bg-[#F9FAFB] text-gray-900">
                 {/* Hero & Context */}
                 <div className="container mx-auto px-6 py-12 md:py-24">

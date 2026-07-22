@@ -16,6 +16,11 @@ async function bootstrap() {
     fs.mkdirSync(uploadResumesDir, { recursive: true });
   }
 
+  const uploadCertsDir = join(__dirname, '..', 'uploads', 'certificates');
+  if (!fs.existsSync(uploadCertsDir)) {
+    fs.mkdirSync(uploadCertsDir, { recursive: true });
+  }
+
   app.useStaticAssets(join(__dirname, '..', 'uploads'), {
     prefix: '/uploads/',
   });

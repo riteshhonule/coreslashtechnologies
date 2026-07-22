@@ -12,6 +12,7 @@ import {
 import ServiceLayout from "./ServicesLayout";
 import digitalMarketingImage from "../../img/CoreslashTechnologies-DigitalMarketing.webp";
 import { useModal } from "../../context/ModalContext";
+import SEO from "../../components/SEO";
 
 const features = [
     "Advanced Keyword Research & Intent Mapping",
@@ -33,6 +34,10 @@ const DigitalMarketing: React.FC = () => {
             subtitle="Engineered for visibility. Optimized for conversion."
             ctaText="Free Marketing Audit"
         >
+            <SEO
+                title="Digital Marketing Agency Services | CoreSlash Technologies"
+                description="Comprehensive performance marketing, content strategy, social media campaigns, and brand development services."
+            />
             <div className="bg-[#F9FAFB] text-gray-900">
                 {/* Hero Content */}
                 <section className="container mx-auto px-6 lg:px-12 py-12 md:py-24">

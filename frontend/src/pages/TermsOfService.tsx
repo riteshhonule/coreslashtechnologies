@@ -8,8 +8,8 @@ export default function TermsOfService() {
   return (
     <div className="relative min-h-screen bg-[#F9FAFB] overflow-hidden font-sans text-gray-900 pb-24">
       <SEO
-        title="Terms of Service"
-        description="Terms of Service for Coreslash Technologies. Learn about our service scope, payment terms, code ownership, and usage guidelines."
+        title="Terms of Service | CoreSlash Technologies"
+        description="Review the terms and conditions governing the use of CoreSlash Technologies' software development and consulting services."
       />
 
       {/* Decorative Blur Backgrounds */}

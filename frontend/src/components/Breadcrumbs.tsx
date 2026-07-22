@@ -27,7 +27,7 @@ export const Breadcrumbs = () => {
           "@type": "ListItem",
           "position": index + 2,
           "name": formattedName,
-          "item": isLast ? undefined : `${import.meta.env.VITE_APP_URL || 'https://coreslashtechnologies.com'}${routeTo}`
+          "item": `${import.meta.env.VITE_APP_URL || 'https://coreslashtechnologies.com'}${routeTo}`
         };
       })
     ]

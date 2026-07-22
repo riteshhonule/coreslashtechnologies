@@ -12,33 +12,6 @@ const LeadSection = lazy(() => import("../components/LeadSection"));
 const CTA = lazy(() => import("../components/CTA"));
 
 const Home = () => {
-  const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CoreSlash Technologies",
-      "url": envConfig.appUrl,
-      "logo": `${envConfig.appUrl}/CoreslashTechnologies-solutions-main-logo.webp`,
-      "description": "IT solutions, software development and AI systems company in India.",
-      "sameAs": [
-        envConfig.social.linkedin,
-        envConfig.social.instagram,
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": envConfig.social.whatsappPhone,
-        "contactType": "customer service",
-        "email": envConfig.contact.email
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "CoreSlash Technologies",
-      "url": envConfig.appUrl
-    }
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 1 }}
@@ -47,9 +20,8 @@ const Home = () => {
       transition={{ duration: 0.25 }}
     >
       <SEO
-        title="Home"
-        description="CoreSlash Technologies offers cutting-edge AI Solutions, Custom Software Development, and Enterprise IT Solutions to scale your business."
-        structuredData={structuredData}
+        title="CoreSlash Technologies | Software Development & AI Solutions"
+        description="Enterprise-grade software development, AI solutions, web applications, mobile apps, cloud solutions, and digital transformation services."
       />
       <Hero />
       <Suspense fallback={null}>

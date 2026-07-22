@@ -19,6 +19,7 @@ import ServiceLayout from "./ServicesLayout";
 import { useModal } from "../../context/ModalContext";
 import software_hero_splash from "../../img/software/CoreslashTechnologies-software.webp";
 import software_hero_splashAvif from "../../img/software/CoreslashTechnologies-software.avif";
+import SEO from "../../components/SEO";
 
 /* ================= DATA ================= */
 
@@ -84,6 +85,10 @@ const SoftwareDevelopment: React.FC = () => {
             subtitle="Engineering robust enterprise ecosystems for high-velocity growth."
             ctaText="Request Engineering Demo"
         >
+            <SEO
+                title="Enterprise Software Development | CoreSlash Technologies"
+                description="Tailored enterprise software development, system integrations, APIs, and scalable backend architectures for businesses."
+            />
             <div className="bg-[#F9FAFB] text-gray-900">
                 {/* HERO SECTION */}
                 <section className="container mx-auto px-6 py-12 md:py-24">
