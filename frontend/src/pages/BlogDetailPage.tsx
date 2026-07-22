@@ -266,7 +266,7 @@ const BlogDetailPage: React.FC = () => {
                     <div className="text-gray-700 leading-relaxed font-medium space-y-12">
                         {post.content ? (
                             <>
-                                <div className="text-2xl text-gray-900 font-bold mb-20 italic relative pl-12 py-4">
+                                <div className="text-2xl text-gray-900 font-bold mb-20 italic relative pl-12 py-4 text-justify">
                                     <div className="absolute left-0 top-0 w-1.5 h-full bg-gradient-to-b from-primary-purple to-secondary-indigo rounded-full" />
                                     "{post.content.intro}"
                                 </div>
@@ -283,14 +283,14 @@ const BlogDetailPage: React.FC = () => {
                                         {section.isBullet ? (
                                             <ul className="space-y-6">
                                                 {(Array.isArray(section.content) ? section.content : [section.content]).map((item, i) => (
-                                                    <li key={i} className="flex items-start gap-4 text-gray-600 text-lg">
+                                                    <li key={i} className="flex items-start gap-4 text-gray-600 text-lg text-justify">
                                                         <div className="w-2 h-2 rounded-full bg-secondary-indigo mt-3 shrink-0" />
                                                         {item}
                                                     </li>
                                                 ))}
                                             </ul>
                                         ) : (
-                                            <div className="space-y-8 text-lg text-gray-600">
+                                            <div className="space-y-8 text-lg text-gray-600 text-justify">
                                                 {(Array.isArray(section.content) ? section.content : [section.content]).map((para, i) => (
                                                     <p key={i} className="leading-relaxed">{para}</p>
                                                 ))}
@@ -307,10 +307,10 @@ const BlogDetailPage: React.FC = () => {
                                             {post.content.faqs.map((faq, idx) => (
                                                 <div key={idx} className="group border-b border-gray-100 pb-10 last:border-0">
                                                     <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-4 group-hover:text-secondary-indigo transition-colors">
-                                                        <span className="text-secondary-indigo/20 font-black">0{idx + 1}</span>
+                                                        <span className="text-secondary-indigo/20 font-black">{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
                                                         {faq.q}
                                                     </h3>
-                                                    <p className="text-gray-500 font-medium pl-10 leading-relaxed">{faq.a}</p>
+                                                    <p className="text-gray-500 font-medium pl-10 leading-relaxed text-justify">{faq.a}</p>
                                                 </div>
                                             ))}
                                         </div>
