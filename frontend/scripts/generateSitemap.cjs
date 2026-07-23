@@ -17,7 +17,8 @@ const corePages = [
     { loc: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
     { loc: '/terms-of-service', changefreq: 'yearly', priority: '0.3' },
     { loc: '/cookie-policy', changefreq: 'yearly', priority: '0.3' },
-    { loc: '/careers', changefreq: 'monthly', priority: '0.8' }
+    { loc: '/careers', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/top-it-companies-in-belagavi', changefreq: 'weekly', priority: '0.9' }
 ];
 
 // Define services (both static and new lazy routes)

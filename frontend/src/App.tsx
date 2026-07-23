@@ -23,6 +23,7 @@ const EnquiryFormPage = lazy(() => import("./pages/EnquiryFormPage"));
 const MarketingEnquiryPage = lazy(() => import("./pages/MarketingEnquiryPage"));
 const CareersPage = lazy(() => import("./pages/CareersPage"));
 const CertificateVerifyPage = lazy(() => import("./pages/CertificateVerifyPage"));
+const TopITCompaniesBelagavi = lazy(() => import("./pages/TopITCompaniesBelagavi"));
 
 // Lazy-loaded services
 const WebsiteDevelopment = lazy(() => import("./pages/services/WebsiteDevelopment"));
@@ -93,6 +94,7 @@ function AnimatedRoutes() {
         <Route path="/enquiry-form" element={<EnquiryFormPage />} />
         <Route path="/enquiry-form1" element={<MarketingEnquiryPage />} />
         <Route path="/careers" element={<CareersPage />} />
+        <Route path="/top-it-companies-in-belagavi" element={<TopITCompaniesBelagavi />} />
         
         {/* Certificate Verification Routes */}
         <Route path="/certificate/verify" element={<CertificateVerifyPage />} />

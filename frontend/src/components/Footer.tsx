@@ -12,6 +12,7 @@ const footerLinks = {
     { name: "Our Work", path: "/portfolio" },
     { name: "Insights", path: "/blog" },
     { name: "Careers", path: "/careers" },
+    { name: "IT Companies in Belagavi", path: "/top-it-companies-in-belagavi" },
     { name: "Contact", path: "/contact" }
   ],
   services: [
