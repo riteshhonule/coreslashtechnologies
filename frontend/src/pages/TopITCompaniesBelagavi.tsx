@@ -80,7 +80,7 @@ const companies = [
     keyStrengths: [
       "Business-first engineering (ROI-driven designs)",
       "100% transparent development sprints",
-      "Top 1% engineering talent pool",
+      "Vetted senior software engineering talent",
       "Strong local leadership and global delivery models",
       "Robust data security and IP protection practices"
     ],
@@ -609,7 +609,7 @@ export default function TopITCompaniesBelagavi() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Abundant Engineering Talent</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-medium">
-                Belagavi is the headquarters of <strong>Visvesvaraya Technological University (VTU)</strong>, which affiliates over 200 engineering colleges across Karnataka. This makes the city the academic heart of engineering education in the state. Thousands of engineering and computer science graduates enter the local market each year, ensuring a steady stream of developer talent.
+                Belagavi is the headquarters of <a href="https://vtu.ac.in" target="_blank" rel="noopener noreferrer" className="text-primary-purple hover:underline inline-flex items-center gap-0.5 font-bold">Visvesvaraya Technological University (VTU) <ExternalLink className="w-3.5 h-3.5" /></a>, which affiliates over 200 engineering colleges across Karnataka. This makes the city the academic heart of engineering education in the state. Thousands of engineering and computer science graduates enter the local market each year, ensuring a steady stream of developer talent.
               </p>
             </div>
 
@@ -664,7 +664,7 @@ export default function TopITCompaniesBelagavi() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Government Support (KDEM)</h3>
               <p className="text-gray-600 text-sm leading-relaxed font-medium">
-                Under the Karnataka government's <strong>"Beyond Bengaluru"</strong> initiative, the Karnataka Digital Economy Mission (KDEM) is promoting Belagavi as a key regional cluster. IT incentives, simplified compliance rules, and digital infrastructure developments are attracting software development firms to establish offices in the region.
+                Under the Karnataka government's <strong>"Beyond Bengaluru"</strong> initiative, the <a href="https://kdem.karnataka.gov.in" target="_blank" rel="noopener noreferrer" className="text-primary-purple hover:underline inline-flex items-center gap-0.5 font-bold">Karnataka Digital Economy Mission (KDEM) <ExternalLink className="w-3.5 h-3.5" /></a> is promoting Belagavi as a key regional cluster. IT incentives, simplified compliance rules, and digital infrastructure developments are attracting software development firms to establish offices in the region.
               </p>
             </div>
           </div>
@@ -1208,6 +1208,65 @@ export default function TopITCompaniesBelagavi() {
                 <p className="text-sm text-gray-600 leading-relaxed font-medium">
                   A software deployment is not a one-time event. Verify the support Service Level Agreements (SLAs) offered by the vendor. Confirm their intellectual property (IP) protection policies, verify they sign standard non-disclosure agreements (NDAs), and ensure they offer server maintenance and security monitoring.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= SECTION: EDITORIAL STANDARDS & EEAT TRANS-DISCLOSURE ================= */}
+      <section className="py-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-gray-200 shadow-md">
+            <div className="flex flex-col lg:flex-row gap-10">
+              {/* Left Column: Methodology & Sourcing Policy */}
+              <div className="lg:w-2/3 space-y-6">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-6 h-6 text-primary-purple animate-pulse" />
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900">
+                    Our Editorial Methodology & Sourcing Policy
+                  </h2>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                  At CoreSlash Technologies, we hold ourselves to rigorous editorial standards under Google's <strong>E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness)</strong> guidelines. To create this guide, our engineering and analysis team performed direct field research, consulted trade listings, audited company code portfolios, and evaluated customer reviews.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-semibold text-gray-600">
+                  <div className="p-4 bg-gray-50 rounded-xl border border-gray-150">
+                    <strong className="text-gray-800 block mb-1">✓ First-Hand Local Insight</strong>
+                    As an active software development consultancy in Belagavi, we engage daily with the local tech workforce, regional university departments, and industrial clients in areas like Udyambag.
+                  </div>
+                  <div className="p-4 bg-gray-50 rounded-xl border border-gray-150">
+                    <strong className="text-gray-800 block mb-1">✓ Verified Data Sourcing</strong>
+                    We source operational data from official corporate registries, company case studies, and verified client testimonials. We avoid third-party hearsay and unvouched reviews.
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  <strong>Transparency Disclosure:</strong> CoreSlash Technologies is the publisher of this resource. To maintain absolute trust and objective integrity, we do not receive promotional fees from other listed firms. The directory lists companies with distinct and complementary domains of excellence. For example, while we specialize in custom enterprise software, cloud databases, and AI systems, <strong>Vayavya Labs</strong> is the undisputed leader in embedded automotive firmware, and <strong>Aequs</strong> operates high-volume heavy industrial IT engineering.
+                </p>
+              </div>
+
+              {/* Right Column: Author Bio & Review Credentials */}
+              <div className="lg:w-1/3 p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-3xl border border-gray-200/60 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <span className="font-bold text-xs text-gray-400 uppercase tracking-widest block">Reviewed & Fact-Checked By</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-primary-purple/10 flex items-center justify-center font-bold text-primary-purple">
+                      RH
+                    </div>
+                    <div>
+                      <strong className="text-gray-900 block text-sm">Ritesh Honule</strong>
+                      <span className="text-xs text-gray-400 font-bold block">Senior Technical Consultant</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                    Ritesh is a senior technology systems consultant with a degree in computer science. He has spent years designing enterprise databases, API layers, and custom software systems for regional manufacturers and global clients.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-gray-200 text-[10px] text-gray-400 font-bold flex items-center gap-2">
+                  <span>Fact-Checked: July 2026</span>
+                  <span>•</span>
+                  <span>Review Cycle: Bi-Annual</span>
+                </div>
               </div>
             </div>
           </div>
