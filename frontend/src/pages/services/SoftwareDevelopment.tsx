@@ -138,7 +138,7 @@ export default function SoftwareDevelopment() {
     },
     {
       q: "Where is CoreSlash Technologies located, and do you work with international clients?",
-      a: "Our headquarters are based in Belagavi, Karnataka, India. We collaborate with regional enterprises in Karnataka, Maharashtra, and Goa, and operate a secure remote delivery model serving international clients across North America, Europe, and the Middle East."
+      a: "Our headquarters are based in Belagavi, Karnataka, India. We collaborate with regional enterprises in Karnataka, Maharashtra, and Goa, and operate a secure remote delivery model serving international clients across North America, Middle East, and Europe."
     }
   ];
 
@@ -170,7 +170,7 @@ export default function SoftwareDevelopment() {
 
       <div className="bg-[#F9FAFB] text-gray-900 font-sans leading-relaxed pb-20">
         
-        {{/* ================= HERO SECTION ================= */}}
+        {/* ================= HERO SECTION ================= */}
         <section className="relative pt-12 md:pt-20 pb-16 overflow-hidden bg-gradient-to-b from-[#0c081d]/5 to-transparent">
           <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <div className="flex justify-center items-center gap-2 mb-6 text-primary-purple font-bold tracking-[0.2em] uppercase text-xs">
@@ -199,7 +199,7 @@ export default function SoftwareDevelopment() {
               </a>
             </div>
 
-            {{/* Visual Callout Container */}}
+            {/* Visual Callout Container */}
             <div className="relative max-w-5xl mx-auto rounded-[2.5rem] overflow-hidden border border-gray-200 shadow-2xl bg-white">
               <picture className="w-full h-auto object-cover flex items-center justify-center">
                 <source srcSet={software_hero_splashAvif} type="image/avif" />
@@ -215,7 +215,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= OVERVIEW SECTION ================= */}}
+        {/* ================= OVERVIEW SECTION ================= */}
         <section id="overview" className="py-16 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-gray-200 shadow-md">
@@ -244,7 +244,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= COMPARISON TABLE ================= */}}
+        {/* ================= COMPARISON TABLE ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-10 text-center">
@@ -288,7 +288,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= BUSINESS PROBLEMS SOLVED ================= */}}
+        {/* ================= BUSINESS PROBLEMS SOLVED ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 tracking-tight">
@@ -313,7 +313,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= INDUSTRIES SERVED ================= */}}
+        {/* ================= INDUSTRIES SERVED ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 tracking-tight">
@@ -335,7 +335,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= FEATURES SECTION ================= */}}
+        {/* ================= FEATURES SECTION ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 tracking-tight">
@@ -359,7 +359,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= DEVELOPMENT PROCESS ================= */}}
+        {/* ================= DEVELOPMENT PROCESS ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center text-gray-900 tracking-tight">
@@ -384,7 +384,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= TECHNOLOGIES USED ================= */}}
+        {/* ================= TECHNOLOGIES USED ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 tracking-tight">
@@ -410,11 +410,11 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= ARCHITECTURE, SECURITY, COMPLIANCE ================= */}}
+        {/* ================= ARCHITECTURE, SECURITY, COMPLIANCE ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {{/* Systems Architecture */}}
+              {/* Systems Architecture */}
               <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
                 <div className="w-10 h-10 rounded-xl bg-purple-500/5 flex items-center justify-center text-purple-600 mb-6">
                   <Layers className="w-5 h-5" />
@@ -425,7 +425,7 @@ export default function SoftwareDevelopment() {
                 </p>
               </div>
 
-              {{/* Data Security */}}
+              {/* Data Security */}
               <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
                 <div className="w-10 h-10 rounded-xl bg-red-500/5 flex items-center justify-center text-red-600 mb-6">
                   <Lock className="w-5 h-5" />
@@ -436,7 +436,7 @@ export default function SoftwareDevelopment() {
                 </p>
               </div>
 
-              {{/* B2B Compliance */}}
+              {/* B2B Compliance */}
               <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
                 <div className="w-10 h-10 rounded-xl bg-green-500/5 flex items-center justify-center text-green-600 mb-6">
                   <ShieldCheck className="w-5 h-5" />
@@ -450,7 +450,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= why choose us ================= */}}
+        {/* ================= why choose us ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <div className="bg-[#737CFD]/5 p-8 md:p-12 rounded-[2.5rem] border border-[#737CFD]/15 text-center">
@@ -469,7 +469,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= FAQ SECTION ================= */}}
+        {/* ================= FAQ SECTION ================= */}
         <section id="faqs" className="py-12 relative z-10">
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900 tracking-tight">
@@ -494,10 +494,10 @@ export default function SoftwareDevelopment() {
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
-                          initial={{{ height: 0, opacity: 0 }}}
-                          animate={{{ height: "auto", opacity: 1 }}}
-                          exit={{{ height: 0, opacity: 0 }}}
-                          transition={{{ duration: 0.2 }}}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
                         >
                           <div className="px-6 pb-6 text-xs text-gray-500 leading-relaxed font-medium border-t border-gray-50 pt-4">
                             {faq.a}
@@ -512,7 +512,7 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* ================= CALL TO ACTION ================= */}}
+        {/* ================= CALL TO ACTION ================= */}
         <section className="py-12 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
             <div className="bg-gradient-to-br from-[#0c081d] to-[#1a1438] p-10 md:p-16 rounded-[3rem] text-white text-center relative overflow-hidden shadow-xl">
@@ -535,12 +535,12 @@ export default function SoftwareDevelopment() {
           </div>
         </section>
 
-        {{/* SEO Alt Guidelines references */}}
+        {/* SEO Alt Guidelines references */}
         <div className="sr-only">
           <h4>Metadata Alt and Internal Linking References:</h4>
           <ul>
             <li><strong>Hero Image Alt:</strong> Custom software development database architecture mapping and dashboard coding.</li>
-            <li><strong>Sitemap Position:</strong> Child of `/services` directory.</li>
+            <li><strong>Sitemap Position:</strong> Child of /services directory.</li>
             <li><strong>Related Services:</strong> <a href="/services/website-development">Web Application Development</a>, <a href="/services/app-development">Mobile Application Development</a>, <a href="/services/ai-solutions">AI Development Services</a>.</li>
             <li><strong>Suggested Blog Link:</strong> <a href="/blog/software-development-cost-belagavi">Software Development Cost Scoping Guide</a>.</li>
           </ul>
