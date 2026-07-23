@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div>
       <Navbar />
       {!isHome && (
-        <div className="container mx-auto px-6 relative z-50 pt-[90px] md:pt-[100px] pb-2 md:pb-4">
+        <div className="max-w-7xl mx-auto px-6 relative z-50 pt-[90px] md:pt-[100px] pb-2 md:pb-4">
           <Breadcrumbs />
         </div>
       )}
