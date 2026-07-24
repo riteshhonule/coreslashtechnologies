@@ -20,7 +20,8 @@ export class AdminAuthGuard implements CanActivate {
     const expectedToken =
       this.configService.get<string>('SUPERADMIN_TOKEN') ||
       'superadmin-session-token';
-    if (token !== expectedToken) {
+    const cleanExpectedToken = expectedToken.replace(/^['"]|['"]$/g, '');
+    if (token !== cleanExpectedToken) {
       throw new UnauthorizedException('Invalid token');
     }
     return true;
