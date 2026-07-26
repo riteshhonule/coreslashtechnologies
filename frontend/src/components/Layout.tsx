@@ -13,11 +13,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div>
+    <div className="bg-[#F9FAFB] min-h-screen">
       <Navbar />
       {!isHome && (
-        <div className="max-w-7xl mx-auto px-6 relative z-50 pt-[90px] md:pt-[100px] pb-2 md:pb-4">
-          <Breadcrumbs />
+        <div className="w-full bg-[#F9FAFB] border-b border-gray-200/50">
+          <div className="max-w-[1600px] mx-auto px-8 md:px-14 relative z-50 pt-[88px] md:pt-[100px] pb-2 md:pb-2">
+            <Breadcrumbs />
+          </div>
         </div>
       )}
       <main>{children}</main>

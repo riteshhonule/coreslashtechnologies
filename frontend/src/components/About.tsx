@@ -25,7 +25,7 @@ export default function About() {
             viewport={{ once: true, amount: 0, margin: "200px" }}
             className="relative"
           >
-            <div className="relative z-10 rounded-[3rem] overflow-hidden border border-gray-200/60 shadow-xl aspect-[4/5] lg:aspect-auto">
+            <div className="relative z-10 rounded-[3rem] overflow-hidden border border-gray-200/60 shadow-xl aspect-[4/5] lg:aspect-auto max-w-xl mx-auto lg:max-w-none">
               <picture className="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100 flex items-center justify-center">
                 <source srcSet={wallAvif} type="image/avif" />
                 <img

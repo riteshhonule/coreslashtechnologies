@@ -23,7 +23,9 @@ import {
   X,
   Linkedin,
   Instagram,
-  Twitter
+  Twitter,
+  Cpu,
+  Settings
 } from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.webp";
 
@@ -76,13 +78,14 @@ export default function Navbar() {
   ];
 
   const servicesLinks = [
+    { to: "/services/ai-solutions", label: "AI Solutions", icon: Cpu },
+    { to: "/services/custom-software-development", label: "Custom Software", icon: Code },
+    { to: "/services/website-development", label: "Web Development", icon: Grid },
+    { to: "/services/website-maintenance", label: "Web Maintenance", icon: Settings },
+    { to: "/services/technical-seo", label: "Technical SEO", icon: Target },
+    { to: "/services/app-development", label: "Mobile Apps", icon: Smartphone },
+    { to: "/agency-partnership", label: "Agency Partnership", icon: Users },
     { to: "/services", label: "All Services", icon: Grid },
-    { to: "/services/website-development", label: "Web Development", icon: Code },
-    { to: "/services/app-development", label: "App Development", icon: Smartphone },
-    { to: "/services/shopify-development", label: "Shopify Development", icon: ShoppingBag },
-    { to: "/services/software-development", label: "Software Systems", icon: Server },
-    { to: "/services/digital-marketing", label: "Digital Marketing", icon: BarChart3 },
-    { to: "/services/seo", label: "SEO Solutions", icon: Target },
   ];
 
   // Mobile menu rendered via portal to escape header stacking context
@@ -224,7 +227,7 @@ export default function Navbar() {
                   className="flex items-center justify-center gap-2 w-full py-1.5 rounded-xl bg-[#5C5CFF] text-white font-bold text-xs shadow-lg shadow-indigo-500/20 hover:bg-[#4b4be6] hover:scale-[1.02] active:scale-95 transition-all"
                 >
                   <FaWhatsapp className="text-base" />
-                  Connect Now
+                  Book a Discovery Call
                 </a>
                 <p className="text-[9px] text-gray-400 text-center mt-1 font-medium">
                   We're just a message away!
@@ -256,12 +259,12 @@ export default function Navbar() {
 
   return (
     <>      <header
-      className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 bg-[#0c081d]/90 backdrop-blur-lg border-b border-white/5 shadow-md ${scrolled ? "py-3" : "py-4.5"
+      className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 bg-[#0c081d]/90 backdrop-blur-lg border-b border-white/5 shadow-md ${scrolled ? "py-1.5 md:py-3" : "py-2.5 md:py-4.5"
         }`}
       style={{ zIndex: 1000 }}
     >
-      <div className="mx-auto max-w-[1600px] w-full px-4 md:px-6">
-        <nav className="w-full flex flex-row items-center justify-between px-4 md:px-8 py-1.5"
+      <div className="mx-auto max-w-[1600px] w-full px-4 md:px-4 lg:px-6">
+        <nav className="w-full flex flex-row items-center justify-between px-4 md:px-4 lg:px-8 py-1.5"
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group shrink-0">
@@ -271,12 +274,12 @@ export default function Navbar() {
               decoding="async"
               width={423}
               height={54}
-              className="h-6 md:h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+              className="h-6 md:h-7 lg:h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex flex-row flex-nowrap items-center gap-1 lg:gap-2">
+          <div className="hidden md:flex flex-row flex-nowrap items-center gap-1 lg:gap-2 shrink-0">
             {/* Render first link (Home) */}
             {links.filter(l => l.label === "Home").map((link) => {
               const isActive = location.pathname === link.to;
@@ -284,7 +287,7 @@ export default function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                  className={`relative px-2.5 lg:px-5 py-2 text-[10.5px] lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
                 >
                   <span className="relative z-10">{link.label}</span>
                   {isActive && (
@@ -303,7 +306,7 @@ export default function Navbar() {
               onMouseLeave={() => setHoveredService(false)}>
               <div
                 onClick={() => setHoveredService(prev => !prev)}
-                className={`flex items-center gap-1.5 px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full cursor-pointer transition-all duration-300 ${location.pathname.includes("/services") ? "text-accent-cyan" : "text-white/60 hover:text-white"
+                className={`flex items-center gap-1.5 px-2.5 lg:px-5 py-2 text-[10.5px] lg:text-sm font-bold uppercase tracking-widest rounded-full cursor-pointer transition-all duration-300 ${location.pathname.includes("/services") ? "text-accent-cyan" : "text-white/60 hover:text-white"
                   }`}
               >
                 Services
@@ -355,7 +358,7 @@ export default function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`relative px-3 lg:px-5 py-2 text-xs lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                  className={`relative px-2.5 lg:px-5 py-2 text-[10.5px] lg:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
                 >
                   <span className="relative z-10">{link.label}</span>
                   {isActive && (
@@ -375,7 +378,7 @@ export default function Navbar() {
               href={envConfig.social.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-3 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all duration-500 bg-white text-dark-black hover:bg-accent-cyan hover:scale-105 active:scale-95 shadow-glow-cyan"
+              className="hidden sm:flex items-center gap-2 md:gap-3 px-4 md:px-4 lg:px-6 py-2 md:py-2 lg:py-2.5 rounded-full font-bold uppercase tracking-widest text-[10.5px] lg:text-xs transition-all duration-500 bg-white text-dark-black hover:bg-accent-cyan hover:scale-105 active:scale-95 shadow-glow-cyan shrink-0"
             >
               <FaWhatsapp className="text-lg" />
               <span>Connect</span>

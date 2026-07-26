@@ -16,26 +16,11 @@ import {
 
 const services = [
   {
-    title: "Website Development",
-    desc: "Next-gen, lightning-fast websites built with modern frameworks and a focus on conversion and scalability.",
-    icon: <CodeBracketIcon className="w-7 h-7" />,
-    link: "/services/website-development",
-    size: "lg",
-    bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=300&q=70",
-    theme: {
-      cardBg: "bg-sky-50/40 hover:bg-sky-50/80",
-      cardBorder: "border-sky-200/50 hover:border-sky-300",
-      iconContainer: "bg-sky-100/50 text-sky-600 border-sky-200/50 group-hover:bg-sky-100 group-hover:text-sky-700",
-      textAccent: "group-hover:text-sky-600",
-      spotlightColor: "rgba(14, 165, 233, 0.12)"
-    }
-  },
-  {
-    title: "AI & Software Systems",
-    desc: "Custom enterprise software and intelligent automation systems powered by cutting-edge AI technologies.",
+    title: "AI Solutions",
+    desc: "Predictive modeling, natural language processing, computer vision, and autonomous agent systems designed to optimize business operations.",
     icon: <CpuChipIcon className="w-7 h-7" />,
-    link: "/services/software-development",
-    size: "md",
+    link: "/services/ai-solutions",
+    size: "lg",
     bgImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-purple-50/40 hover:bg-purple-50/80",
@@ -46,55 +31,25 @@ const services = [
     }
   },
   {
-    title: "E-Commerce Solutions",
-    desc: "Robust, secure, and highly scalable online storefronts designed to maximize sales.",
-    icon: <ShoppingCartIcon className="w-7 h-7" />,
-    link: "/services/ecommerce",
+    title: "Custom Software Development",
+    desc: "Tailor-made B2B systems, legacy modernization, microservices architecture, and secure database engines engineered for scale.",
+    icon: <CodeBracketIcon className="w-7 h-7" />,
+    link: "/services/custom-software-development",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=300&q=70",
+    bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=300&q=70",
     theme: {
-      cardBg: "bg-emerald-50/40 hover:bg-emerald-50/80",
-      cardBorder: "border-emerald-200/50 hover:border-emerald-300",
-      iconContainer: "bg-emerald-100/50 text-emerald-600 border-emerald-200/50 group-hover:bg-emerald-100 group-hover:text-emerald-700",
-      textAccent: "group-hover:text-emerald-600",
-      spotlightColor: "rgba(16, 185, 129, 0.12)"
+      cardBg: "bg-sky-50/40 hover:bg-sky-50/80",
+      cardBorder: "border-sky-200/50 hover:border-sky-300",
+      iconContainer: "bg-sky-100/50 text-sky-600 border-sky-200/50 group-hover:bg-sky-100 group-hover:text-sky-700",
+      textAccent: "group-hover:text-sky-600",
+      spotlightColor: "rgba(14, 165, 233, 0.12)"
     }
   },
   {
-    title: "SEO Optimization",
-    desc: "Strategic search engine optimization to dominate rankings and drive high-quality organic traffic.",
-    icon: <MagnifyingGlassIcon className="w-7 h-7" />,
-    link: "/services/seo",
-    size: "sm",
-    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=300&q=70",
-    theme: {
-      cardBg: "bg-amber-50/40 hover:bg-amber-50/80",
-      cardBorder: "border-amber-200/50 hover:border-amber-300",
-      iconContainer: "bg-amber-100/50 text-amber-600 border-amber-200/50 group-hover:bg-amber-100 group-hover:text-amber-700",
-      textAccent: "group-hover:text-amber-600",
-      spotlightColor: "rgba(245, 158, 11, 0.12)"
-    }
-  },
-  {
-    title: "Digital Growth",
-    desc: "Comprehensive digital marketing strategies encompassing PPC and social media.",
-    icon: <RocketLaunchIcon className="w-7 h-7" />,
-    link: "/services/digital-marketing",
-    size: "sm",
-    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=70",
-    theme: {
-      cardBg: "bg-rose-50/40 hover:bg-rose-50/80",
-      cardBorder: "border-rose-200/50 hover:border-rose-300",
-      iconContainer: "bg-rose-100/50 text-rose-600 border-rose-200/50 group-hover:bg-rose-100 group-hover:text-rose-700",
-      textAccent: "group-hover:text-rose-600",
-      spotlightColor: "rgba(244, 63, 94, 0.12)"
-    }
-  },
-  {
-    title: "Data Analytics",
-    desc: "Transforming raw data into actionable insights with advanced visualization.",
-    icon: <PresentationChartLineIcon className="w-7 h-7" />,
-    link: "/services",
+    title: "Website Development",
+    desc: "Enterprise web platforms, React/Next.js architectures, headless CMS implementations, and sub-second rendering performance.",
+    icon: <CircleStackIcon className="w-7 h-7" />,
+    link: "/services/website-development",
     size: "md",
     bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=70",
     theme: {
@@ -106,11 +61,26 @@ const services = [
     }
   },
   {
-    title: "Cloud Infrastructure",
-    desc: "Secure, scalable cloud architecture and DevOps solutions.",
-    icon: <CircleStackIcon className="w-7 h-7" />,
-    link: "/services",
-    size: "md",
+    title: "Technical SEO",
+    desc: "Core Web Vitals optimization, semantic page schema, crawlability audits, and database-level page speed engineering.",
+    icon: <MagnifyingGlassIcon className="w-7 h-7" />,
+    link: "/services/technical-seo",
+    size: "sm",
+    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=300&q=70",
+    theme: {
+      cardBg: "bg-amber-50/40 hover:bg-amber-50/80",
+      cardBorder: "border-amber-200/50 hover:border-amber-300",
+      iconContainer: "bg-amber-100/50 text-amber-600 border-amber-200/50 group-hover:bg-amber-100 group-hover:text-amber-700",
+      textAccent: "group-hover:text-amber-600",
+      spotlightColor: "rgba(245, 158, 11, 0.12)"
+    }
+  },
+  {
+    title: "Website Maintenance",
+    desc: "24/7 technical support, automated vulnerability patching, secure backups, database optimization, and SLA engineering support.",
+    icon: <RocketLaunchIcon className="w-7 h-7" />,
+    link: "/services/website-maintenance",
+    size: "sm",
     bgImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-teal-50/40 hover:bg-teal-50/80",
@@ -121,18 +91,48 @@ const services = [
     }
   },
   {
-    title: "App Development",
-    desc: "Immersive mobile and desktop applications built for performance across all devices.",
-    icon: <DevicePhoneMobileIcon className="w-7 h-7" />,
-    link: "/services/app-development",
+    title: "ERP & CRM Systems",
+    desc: "Bespoke operations planning software, automated billing dashboards, CRM sales pipelines, and customer portals.",
+    icon: <PresentationChartLineIcon className="w-7 h-7" />,
+    link: "/services/erp-crm-development",
     size: "md",
-    bgImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=300&q=70",
+    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=70",
     theme: {
       cardBg: "bg-orange-50/40 hover:bg-orange-50/80",
       cardBorder: "border-orange-200/50 hover:border-orange-300",
       iconContainer: "bg-orange-100/50 text-orange-600 border-orange-200/50 group-hover:bg-orange-100 group-hover:text-orange-700",
       textAccent: "group-hover:text-orange-600",
       spotlightColor: "rgba(249, 115, 22, 0.12)"
+    }
+  },
+  {
+    title: "Mobile App Development",
+    desc: "High-performance native iOS/Android applications and fluid cross-platform mobile architectures.",
+    icon: <DevicePhoneMobileIcon className="w-7 h-7" />,
+    link: "/services/app-development",
+    size: "md",
+    bgImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=300&q=70",
+    theme: {
+      cardBg: "bg-rose-50/40 hover:bg-rose-50/80",
+      cardBorder: "border-rose-200/50 hover:border-rose-300",
+      iconContainer: "bg-rose-100/50 text-rose-600 border-rose-200/50 group-hover:bg-rose-100 group-hover:text-rose-700",
+      textAccent: "group-hover:text-rose-600",
+      spotlightColor: "rgba(244, 63, 94, 0.12)"
+    }
+  },
+  {
+    title: "Cloud & SaaS Development",
+    desc: "AWS architecture deployment, multi-tenant SaaS portals, database scaling, and containerized deployment workflows.",
+    icon: <ShoppingCartIcon className="w-7 h-7" />,
+    link: "/services/cloud-solutions",
+    size: "md",
+    bgImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=300&q=70",
+    theme: {
+      cardBg: "bg-emerald-50/40 hover:bg-emerald-50/80",
+      cardBorder: "border-emerald-200/50 hover:border-emerald-300",
+      iconContainer: "bg-emerald-100/50 text-emerald-600 border-emerald-200/50 group-hover:bg-emerald-100 group-hover:text-emerald-700",
+      textAccent: "group-hover:text-emerald-600",
+      spotlightColor: "rgba(16, 185, 129, 0.12)"
     }
   },
 ];
@@ -180,13 +180,13 @@ export default function Services() {
               viewport={{ once: true, amount: 0, margin: "200px" }}
               className="text-4xl md:text-6xl font-bold text-gray-900 mb-8"
             >
-              Transforming Ideas into <br />
-              <span className="text-gradient-cyan">Digital Reality</span>
+              Trusted White-Label <br />
+              <span className="text-gradient-cyan">Technology Partner</span>
             </motion.h2>
 
             <p className="text-lg text-gray-600 leading-relaxed font-medium">
-              We leverage the latest technologies and AI-driven methodologies to build 
-              products that solve complex business problems.
+              We act as your dedicated development extension, delivering reliable software engineering, 
+              technical SEO, and website maintenance under your brand.
             </p>
           </div>
 
@@ -214,7 +214,7 @@ export default function Services() {
                   }`}
                 >
                   <Link to={service.link} className="block h-full">
-                    <div className={`glass-card h-full p-6 md:p-8 relative overflow-hidden flex flex-col items-center text-center justify-between border shadow-sm transition-all duration-500 ${theme.cardBg} ${theme.cardBorder}`}>
+                    <div className={`glass-card h-full p-6 pb-12 md:p-8 md:pb-14 relative overflow-hidden flex flex-col items-center text-center justify-start border shadow-sm transition-all duration-500 ${theme.cardBg} ${theme.cardBorder}`}>
                       
                       {/* Spotlight Effect */}
                       <div 
@@ -239,12 +239,12 @@ export default function Services() {
                           {service.title}
                         </h3>
 
-                        <p className="text-gray-500 text-sm md:text-base leading-relaxed line-clamp-3 font-medium">
+                        <p className={`text-gray-500 leading-relaxed font-medium ${service.size === "sm" ? "line-clamp-2 text-xs md:text-sm" : "line-clamp-3 text-sm md:text-base"}`}>
                           {service.desc}
                         </p>
                       </div>
 
-                      <div className={`relative z-10 w-full flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0 ${theme.textAccent}`}>
+                      <div className={`absolute bottom-4 md:bottom-6 left-0 right-0 mx-auto z-10 w-full flex items-center justify-center gap-2 text-xs md:text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 ${theme.textAccent}`}>
                         Learn More <span>→</span>
                       </div>
                     </div>

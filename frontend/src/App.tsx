@@ -37,13 +37,23 @@ const DigitalMarketing = lazy(() => import("./pages/services/DigitalMarketing"))
 
 // Lazy-loaded new services (named exports from NewServices)
 const AISolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.AISolutions })));
-const CustomSoftwareDevelopment = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.CustomSoftwareDevelopment })));
+const CustomSoftwareDevelopment = lazy(() => import("./pages/services/CustomSoftwareDevelopmentPage"));
 const EnterpriseITSolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.EnterpriseITSolutions })));
 const CloudSolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.CloudSolutions })));
 const SCADAIndustrialAutomation = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.SCADAIndustrialAutomation })));
 const IoTSolutions = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.IoTSolutions })));
 const BusinessAutomation = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.BusinessAutomation })));
 const DataAnalytics = lazy(() => import("./pages/services/NewServices").then(m => ({ default: m.DataAnalytics })));
+
+// Lazy-loaded new premium services
+const AgencyPartnership = lazy(() => import("./pages/AgencyPartnershipPage"));
+const AgencyPartnershipPage = lazy(() => import("./pages/AgencyPartnershipPage"));
+const WhiteLabelDevelopment = lazy(() => import("./pages/services/WhiteLabelDevelopment"));
+const WebsiteMaintenance = lazy(() => import("./pages/services/WebsiteMaintenance"));
+const TechnicalSEO = lazy(() => import("./pages/services/TechnicalSEO"));
+const SEOMaintenance = lazy(() => import("./pages/services/SEOMaintenance"));
+const WebsiteSpeedOptimization = lazy(() => import("./pages/services/WebsiteSpeedOptimization"));
+const AIAutomation = lazy(() => import("./pages/services/AIAutomation"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -65,7 +75,7 @@ function AnimatedRoutes() {
         {/* Specific Service Routes */}
         <Route path="/services/website-development" element={<WebsiteDevelopment />} />
         <Route path="/services/shopify-development" element={<ShopifyDevelopment />} />
-        <Route path="/services/seo" element={<SEOOptimization />} />
+        <Route path="/services/seo" element={<TechnicalSEO />} />
         <Route path="/services/ecommerce" element={<EcommerceWebsite />} />
         <Route path="/services/ppc" element={<PPCServices />} />
         <Route path="/services/app-development" element={<AppDevelopment />} />
@@ -81,6 +91,16 @@ function AnimatedRoutes() {
         <Route path="/services/iot-solutions" element={<IoTSolutions />} />
         <Route path="/services/business-automation" element={<BusinessAutomation />} />
         <Route path="/services/data-analytics" element={<DataAnalytics />} />
+
+        {/* New Premium Service Routes */}
+        <Route path="/agency-partnership" element={<AgencyPartnershipPage />} />
+        <Route path="/services/agency-partnership" element={<AgencyPartnershipPage />} />
+        <Route path="/services/white-label-development" element={<WhiteLabelDevelopment />} />
+        <Route path="/services/website-maintenance" element={<WebsiteMaintenance />} />
+        <Route path="/services/technical-seo" element={<TechnicalSEO />} />
+        <Route path="/services/seo-maintenance" element={<SEOMaintenance />} />
+        <Route path="/services/website-speed-optimization" element={<WebsiteSpeedOptimization />} />
+        <Route path="/services/ai-automation" element={<AIAutomation />} />
 
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />

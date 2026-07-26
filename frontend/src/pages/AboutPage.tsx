@@ -143,7 +143,7 @@ const AboutPage = () => {
             transition={{ delay: 0.2 }}
             className="text-base md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Coreslash Technologies is a premier digital agency crafting enterprise-grade software and immersive brand experiences for the modern web.
+            Coreslash Technologies is a trusted white-label software engineering partner. We help digital, design, branding, and SEO agencies scale their technical capacity and deliver custom software, web platforms, and API integrations under their own brand.
           </motion.p>
 
           <motion.div
@@ -152,9 +152,9 @@ const AboutPage = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <Link to="/services"
+            <Link to="/contact"
               className="btn-pill btn-primary-glow text-white px-8 py-4">
-              Grow Your Business
+              Book a Discovery Call
             </Link>
             <Link to="/portfolio" className="btn-pill btn-glass text-secondary-indigo hover:text-white px-8 py-4">
               View Portfolio
@@ -185,8 +185,8 @@ const AboutPage = () => {
                 className="w-full h-96 object-cover transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-gray-900/80 to-transparent text-white backdrop-blur-[2px]">
-                <h3 className="text-2xl font-bold mb-2 text-white">Empowering Growth</h3>
-                <p className="text-white/70">Delivering excellence in every line of code.</p>
+                <h3 className="text-2xl font-bold mb-2 text-white">Engineering Excellence</h3>
+                <p className="text-white/70">Delivering modular stability in every deployment.</p>
               </div>
             </div>
           </motion.div>
@@ -199,12 +199,12 @@ const AboutPage = () => {
             className="order-1 lg:order-2"
           >
             <SectionHeading
-              badge="Our Journey"
-              title="More Than Just An Agency"
+              badge="Our Identity"
+              title="Solving Technical Challenges for Global Agencies"
               align="left"
             />
             <p className="text-lg text-gray-500 mb-8 leading-relaxed">
-              Founded with a vision to bridge the gap between complex technology and human-centric design, Coreslash has grown from a small studio to a global partner for innovation. We don't just build software; we build relationships and sustainable digital ecosystems.
+              Founded to bridge the gap between creative agency design and premium backend systems execution, CoreSlash Technologies has grown into a trusted global white-label technology partner. We act as your silent technical development team, engineering robust B2B software, high-performance websites, and custom API syncs under your brand. We commit to strict NDAs, transparent Jira sprints, and reliable communication cycles.
             </p>
           </motion.div>
         </div>
@@ -213,7 +213,7 @@ const AboutPage = () => {
           {[
             {
               title: "Our Mission",
-              content: "To accelerate digital transformation through scalable, robust, and beautiful technology solutions that solve real-world problems for businesses of all sizes.",
+              content: "To help global agencies scale their business by providing reliable software development, technical SEO, website maintenance, and custom engineering services under their own brand.",
               icon: RocketLaunchIcon,
               gradient: "bg-white",
               border: "border-gray-200/50 shadow-md",
@@ -222,7 +222,7 @@ const AboutPage = () => {
             },
             {
               title: "Our Vision",
-              content: "To be the world's most trusted partner in digital innovation, setting new standards for quality, creativity, and technical excellence.",
+              content: "To be the premier white-label technology partner for agencies worldwide, recognized for secure coding standards, transparent sprint communication, and seamless silent execution.",
               icon: EyeIcon,
               gradient: "bg-white",
               border: "border-gray-200/50 shadow-md",
@@ -231,7 +231,7 @@ const AboutPage = () => {
             },
             {
               title: "Our Values",
-              content: "Integrity in our actions, innovation in our approach, and impact in our results. We believe in transparent partnerships and delivering value that lasts.",
+              content: "Strict NDA protection, client relationship preservation, long-term technical partnerships, and a dedication to quality assurance and secure coding standards.",
               icon: HeartIcon,
               gradient: "bg-white",
               border: "border-gray-200/50 shadow-md",
@@ -406,13 +406,13 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0, margin: "200px" }}
             >
-              <h2 className="text-4xl md:text-6xl font-bold mb-8 text-gray-900 tracking-tight">Ready To Transform Your <span className="text-gradient-cyan">Digital</span> Presence?</h2>
-              <p className="text-xl text-gray-500 mb-12">Let's build something extraordinary together. Contact us today for a free consultation.</p>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 text-gray-900 tracking-tight">Ready to Scale Your <span className="text-gradient-cyan">Agency's</span> Capacity?</h2>
+              <p className="text-xl text-gray-500 mb-12">Partner with us for reliable, NDA-friendly white-label software engineering. Talk to our partnership team to outline your technical resource needs.</p>
               <Link
                 to="/contact"
                 className="btn-pill btn-primary-glow text-white px-10 py-5 text-lg inline-block"
               >
-                Start Your Project
+                Become a Partner
               </Link>
             </motion.div>
           </div>

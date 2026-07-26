@@ -9,18 +9,20 @@ const footerLinks = {
   company: [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
+    { name: "Partnership", path: "/agency-partnership" },
     { name: "Our Work", path: "/portfolio" },
     { name: "Insights", path: "/blog" },
     { name: "Careers", path: "/careers" },
-    { name: "IT Companies in Belagavi", path: "/top-it-companies-in-belagavi" },
     { name: "Contact", path: "/contact" }
   ],
   services: [
+    { name: "AI Solutions", path: "/services/ai-solutions" },
+    { name: "Custom Software", path: "/services/custom-software-development" },
     { name: "Web Development", path: "/services/website-development" },
-    { name: "AI Solutions", path: "/services/software-development" },
-    { name: "E-Commerce", path: "/services/ecommerce" },
-    { name: "SEO Mastery", path: "/services/seo" },
-    { name: "Cloud Systems", path: "/services" }
+    { name: "Web Maintenance", path: "/services/website-maintenance" },
+    { name: "Technical SEO", path: "/services/technical-seo" },
+    { name: "App Development", path: "/services/app-development" },
+    { name: "Cloud Deployment", path: "/services/cloud-solutions" }
   ],
   legal: [
     { name: "Privacy Policy", path: "/privacy-policy" },
@@ -53,8 +55,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-10 lg:grid-cols-10 border border-gray-200/50 rounded-[2.5rem] bg-white shadow-xl shadow-gray-200/30 overflow-hidden mb-16">
 
           {/* Brand/Logo Column */}
-          <div className="p-8 lg:p-10 flex flex-col justify-start items-center text-center border-b lg:border-b-0 md:border-r border-gray-200/50 space-y-6 md:col-span-5 lg:col-span-3">
-            <div className="space-y-6 flex flex-col items-center">
+          <div className="p-6 lg:p-10 flex flex-col justify-start items-center md:items-start text-center md:text-left border-b md:border-b-0 md:border-r border-gray-200/50 space-y-6 md:col-span-4 lg:col-span-3">
+            <div className="space-y-6 flex flex-col items-center md:items-start">
               <Link to="/" className="inline-block">
                 <img 
                   src={logo} 
@@ -63,17 +65,17 @@ export default function Footer() {
                   decoding="async"
                   width={423}
                   height={54}
-                  className="h-10 w-auto invert mx-auto" 
+                  className="h-10 w-auto invert mx-auto md:mx-0" 
                 />
               </Link>
-              <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
-                Architecting the next generation of digital experiences through
-                intelligent design, custom AI models, and engineering excellence.
+              <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+                Architecting high-performance enterprise systems, custom software,
+                machine learning automation, and technical SEO platforms for global enterprises.
               </p>
             </div>
             
             {/* Social Badges with Custom Glows */}
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-4 justify-center md:justify-start">
               <motion.a
                 whileHover={{ y: -4, scale: 1.05 }}
                 href={envConfig.social.linkedin}
@@ -128,8 +130,8 @@ export default function Footer() {
           </div>
 
           {/* Links Column: Company */}
-          <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-gray-200/50 flex flex-col justify-start items-center text-center space-y-6 md:col-span-5 lg:col-span-2">
-            <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center gap-2">
+          <div className="p-6 lg:p-10 border-b md:border-b-0 md:border-r border-gray-200/50 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-2 lg:col-span-2">
+            <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2 w-full">
               <span className="w-1.5 h-1.5 bg-secondary-indigo rounded-full shrink-0" />
               Company
             </h4>
@@ -138,7 +140,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link 
                     to={link.path} 
-                    className="group/link flex items-center justify-center gap-2 text-gray-500 hover:text-secondary-indigo transition-all duration-300 text-sm font-medium hover:scale-105"
+                    className="group/link flex items-center justify-center md:justify-start gap-2 text-gray-500 hover:text-secondary-indigo transition-all duration-300 text-sm font-medium hover:scale-105 w-full"
                   >
                     <span>{link.name}</span>
                   </Link>
@@ -148,8 +150,8 @@ export default function Footer() {
           </div>
 
           {/* Links Column: Solutions */}
-          <div className="p-8 lg:p-10 border-b md:border-b-0 md:border-r border-gray-200/50 flex flex-col justify-start items-center text-center space-y-6 md:col-span-5 lg:col-span-2">
-            <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center gap-2">
+          <div className="p-6 lg:p-10 border-b md:border-b-0 md:border-r border-gray-200/50 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-2 lg:col-span-2">
+            <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2 w-full">
               <span className="w-1.5 h-1.5 bg-secondary-indigo rounded-full shrink-0" />
               Solutions
             </h4>
@@ -158,7 +160,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link 
                     to={link.path} 
-                    className="group/link flex items-center justify-center gap-2 text-gray-500 hover:text-secondary-indigo transition-all duration-300 text-sm font-medium hover:scale-105"
+                    className="group/link flex items-center justify-center md:justify-start gap-2 text-gray-500 hover:text-secondary-indigo transition-all duration-300 text-sm font-medium hover:scale-105 w-full"
                   >
                     <span>{link.name}</span>
                   </Link>
@@ -168,13 +170,13 @@ export default function Footer() {
           </div>
 
           {/* Connect Column */}
-          <div className="p-8 lg:p-10 flex flex-col justify-start items-center text-center space-y-6 md:col-span-5 lg:col-span-3">
-            <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center gap-2">
+          <div className="p-6 lg:p-10 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-2 lg:col-span-3 w-full">
+            <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2 w-full">
               <span className="w-1.5 h-1.5 bg-secondary-indigo rounded-full shrink-0" />
               Connect
             </h4>
-            <ul className="space-y-4">
-              <li className="flex items-center justify-center gap-3.5 group/link">
+            <ul className="space-y-4 w-full">
+              <li className="flex items-center justify-center md:justify-start gap-3.5 group/link">
                 <Mail size={15} className="text-gray-400 group-hover/link:text-secondary-indigo transition-colors duration-300 shrink-0" />
                 <a 
                   href={`mailto:${envConfig.contact.email}`} 
@@ -183,9 +185,9 @@ export default function Footer() {
                   {envConfig.contact.email}
                 </a>
               </li>
-              <li className="flex items-center justify-center gap-3.5 group/link">
+              <li className="flex items-center justify-center md:justify-start gap-3.5 group/link">
                 <Phone size={15} className="text-gray-400 group-hover/link:text-secondary-indigo transition-colors duration-300 shrink-0" />
-                <div className="flex flex-col items-center gap-1">
+                <div className="flex flex-col items-center md:items-start gap-1">
                   <a 
                     href={`tel:+${envConfig.social.whatsappPhone.replace(/^\+/, '')}`} 
                     className="text-sm text-gray-500 group-hover/link:text-secondary-indigo transition-all duration-300 font-medium text-center"

@@ -27,12 +27,12 @@ export default function LeadSection() {
 
             <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-10 leading-[1.1]">
               Ready to <span className="text-gradient-purple">Scale</span> <br />
-              Your Digital Empire?
+              Your Agency?
             </h2>
 
             <p className="text-gray-500 text-lg mb-12 max-w-lg leading-relaxed">
-              Join 150+ global brands that have transformed their digital presence
-              with our AI-driven strategies and engineering excellence.
+              We help agencies scale their business by providing reliable software development, 
+              technical SEO, website maintenance, and custom engineering services under their own brand.
             </p>
           </motion.div>
 
@@ -49,9 +49,9 @@ export default function LeadSection() {
 
             <div className="relative glass-card p-8 md:p-10 border border-gray-200/60 shadow-xl shadow-gray-200/40 rounded-3xl bg-white">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                Book a <span className="text-gradient-cyan">Free</span> Session
+                Partner with <span className="text-gradient-cyan">CoreSlash</span>
               </h3>
-              <p className="text-gray-500 mb-6 text-base">Get a personalized growth roadmap in 30 minutes.</p>
+              <p className="text-gray-500 mb-6 text-base">Discuss white-label developer capacity, NDA frameworks, or start a pilot sprint with our partnership team.</p>
 
               <ContactForm variant="default" />
             </div>

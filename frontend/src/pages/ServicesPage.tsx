@@ -15,47 +15,65 @@ import managementImg from "../img/social-media-management.webp";
 
 const services = [
   {
-    title: "Website Architectures",
-    desc: "Bespoke, high-performance digital ecosystems tailored for enterprise scale.",
+    title: "AI Solutions",
+    desc: "Predictive analytics, custom NLP pipelines, image modeling, and autonomous workflows designed for operational efficiency.",
+    image: seoImg,
+    link: "/services/ai-solutions"
+  },
+  {
+    title: "Custom Software Development",
+    desc: "Scalable enterprise architectures, legacy modernization, systems integration, and bespoke operations planning databases.",
     image: websiteImg,
+    link: "/services/custom-software-development"
+  },
+  {
+    title: "Website Development",
+    desc: "Sub-second load times, headless architectures, React/Next.js platforms, and high-performance digital stores.",
+    image: ecommerceImg,
     link: "/services/website-development"
   },
   {
-    title: "E-Commerce Engines",
-    desc: "Fluid retail experiences with secure, high-velocity transaction layers.",
-    image: ecommerceImg,
-    link: "/services/ecommerce"
+    title: "Website Maintenance",
+    desc: "Uptime monitoring, continuous security patches, SLA technical support, and backup scheduling.",
+    image: websiteImg,
+    link: "/services/website-maintenance"
   },
   {
-    title: "PPC Ad Intelligence",
-    desc: "Algorithmic bidding and intent-based targeting for aggressive ROI.",
-    image: ppcImg,
-    link: "/services/ppc"
-  },
-  {
-    title: "Google Ads Growth",
-    desc: "Precision-engineered search dominance to capture high-intent leads.",
-    image: googleAdsImg,
-    link: "/services/ppc"
-  },
-  {
-    title: "Paid Social Systems",
-    desc: "Creative social architectures designed for viral engagement and conversion.",
-    image: socialImg,
-    link: "/services/ppc"
-  },
-  {
-    title: "SEO Data Dominance",
-    desc: "Neural-driven search optimization to establish industry authority.",
+    title: "Technical SEO",
+    desc: "Core Web Vitals acceleration, site crawlability optimization, schema mappings, and organic search engineering.",
     image: seoImg,
-    link: "/services/seo"
+    link: "/services/technical-seo"
   },
   {
-    title: "Social Ecosystems",
-    desc: "Strategic community management and brand narrative development.",
-    image: managementImg,
-    link: "/services"
+    title: "ERP & CRM Development",
+    desc: "Operations management suites, billing automations, custom client portals, and pipeline managers.",
+    image: ecommerceImg,
+    link: "/services/erp-crm-development"
   },
+  {
+    title: "SaaS Development",
+    desc: "Multi-tenant platforms, subscription logic integration, dashboard reporting, and secure tenant separation.",
+    image: websiteImg,
+    link: "/services/saas-development"
+  },
+  {
+    title: "API Development & Integration",
+    desc: "Robust RESTful and GraphQL API gateways, secure webhooks, and third-party data synchronization pipelines.",
+    image: websiteImg,
+    link: "/services/api-development"
+  },
+  {
+    title: "Mobile App Development",
+    desc: "Premium native iOS & Android applications and high-performance cross-platform mobile frameworks.",
+    image: websiteImg,
+    link: "/services/app-development"
+  },
+  {
+    title: "Cloud Deployment",
+    desc: "AWS configuration, Docker/Kubernetes container orchestration, server migrations, and CI/CD pipelines.",
+    image: websiteImg,
+    link: "/services/cloud-solutions"
+  }
 ];
 
 export default function ServicesPage() {
@@ -89,8 +107,8 @@ export default function ServicesPage() {
             transition={{ duration: 0.4 }}
             className="text-5xl md:text-8xl font-bold text-gray-900 mb-10 leading-[1.1] tracking-tight"
           >
-            Future-Proof <br />
-            <span className="text-gradient-purple">Intelligence</span> Modules.
+            Engineering <br />
+            <span className="text-gradient-purple">Service Matrix</span>.
           </motion.h1>
 
           <motion.p
@@ -99,8 +117,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.4, delay: 0.08 }}
             className="text-gray-500 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
           >
-            We architect bespoke technology solutions that empower ambitious brands
-            to dominate their digital categories.
+            We build intelligent software, scalable web applications, AI-powered solutions, and high-performance websites for growing businesses.
           </motion.p>
         </div>
       </section>
@@ -109,7 +126,7 @@ export default function ServicesPage() {
       <section className="py-12 md:py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, idx) => {
-            const isWide = idx === 0 || idx === 6;
+            const isWide = idx === 0 || idx === 5;
             return (
               <motion.div
                 key={service.title}
@@ -177,6 +194,31 @@ export default function ServicesPage() {
               </motion.div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ================= ADDITIONAL SERVICES ================= */}
+      <section className="py-12 md:py-16 bg-white border-y border-gray-200/60">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+            Additional <span className="text-gradient-purple">Services</span>
+          </h2>
+          <p className="text-gray-500 text-lg mb-12 max-w-2xl mx-auto font-medium">
+            We also provide supplementary digital consulting and creative systems support.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto text-center">
+            {[
+              { title: "Outsource Design", desc: "Corporate brand assets and collateral layout." },
+              { title: "Social Infrastructure", desc: "Setting up secure workspace channels and communication paths." },
+              { title: "Content Engineering", desc: "Structuring technical blogs and developer documentation." },
+              { title: "Digital Marketing Integration", desc: "Deploying tracking pixels, tag managers, and ad integrations." }
+            ].map((s, idx) => (
+              <div key={idx} className="bg-gray-50 p-6 rounded-3xl border border-gray-200/60 shadow-sm flex flex-col justify-between">
+                <h4 className="font-bold text-gray-900 text-sm mb-2">{s.title}</h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-medium">{s.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

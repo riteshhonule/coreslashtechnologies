@@ -28,7 +28,44 @@
   <link rel="manifest" href="/manifest.json" />
 
   <!-- Viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport-meta" />
+  <script>
+    (function() {
+      function adjustViewport(isInitial) {
+        var ua = navigator.userAgent || "";
+        var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        var screenWidth = window.screen.width || 0;
+        var viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
+        
+        var meta = document.getElementById('viewport-meta') || document.querySelector('meta[name="viewport"]');
+        if (!meta) return;
+        
+        // 1. If User Agent has no mobile keywords but it is a touch device, we know for sure 
+        //    Desktop Site is enabled (Chrome/Safari default behavior). We force 1280px immediately to prevent shifts.
+        var isDesktopUA = isTouch && !/Android|iPhone|iPad|iPod|IEMobile|BlackBerry|Opera Mini/i.test(ua);
+        if (isDesktopUA) {
+          meta.setAttribute('content', 'width=1280');
+          return;
+        }
+        
+        // 2. For custom browsers/UAs that retain mobile keywords (e.g. Firefox Android in desktop mode),
+        //    we wait for DOM/Load state to verify if the viewport is simulated at desktop width (>= 900px).
+        //    If so, we dynamically switch the viewport meta tag to width=1280.
+        if (!isInitial && isTouch && viewportWidth > screenWidth + 50) {
+          meta.setAttribute('content', 'width=1280');
+        }
+      }
+      
+      // Run immediately in <head>
+      adjustViewport(true);
+      
+      // Setup listeners to handle custom UAs once layout sizes are computed
+      document.addEventListener('DOMContentLoaded', function() { adjustViewport(false); });
+      window.addEventListener('load', function() { adjustViewport(false); });
+      window.addEventListener('resize', function() { adjustViewport(false); });
+      window.addEventListener('orientationchange', function() { adjustViewport(false); });
+    })();
+  </script>
 
   <!-- Static SEO Fallbacks -->
   <meta name="robots" content="index,follow" />

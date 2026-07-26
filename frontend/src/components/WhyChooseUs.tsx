@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Target, Zap, TrendingUp } from "lucide-react";
+import { CheckCircle2, Zap, TrendingUp, Users, Shield } from "lucide-react";
 import CoreslashTechnologies_solutions from "../img/CoreslashTechnologies_solutions.webp";
 import CoreslashTechnologies_solutionsAvif from "../img/CoreslashTechnologies_solutions.avif";
 
 const features = [
     {
-        title: "Tailored Solutions",
-        icon: <Target className="w-5 h-5" />,
+        title: "Experienced Engineers",
+        desc: "B2B developers acting as your silent backend engineering extension.",
+        icon: <Users className="w-5 h-5" />,
         theme: {
             cardBg: "bg-blue-50/40 hover:bg-blue-50/80",
             cardBorder: "border-blue-200/50 hover:border-blue-300",
@@ -16,7 +17,8 @@ const features = [
         }
     },
     {
-        title: "Proven Expertise",
+        title: "Transparent Sprints",
+        desc: "Bi-weekly cycles, shared Jira boards, and transparent slack updates.",
         icon: <CheckCircle2 className="w-5 h-5" />,
         theme: {
             cardBg: "bg-purple-50/40 hover:bg-purple-50/80",
@@ -27,7 +29,8 @@ const features = [
         }
     },
     {
-        title: "Data-Driven Results",
+        title: "Scalable Architecture",
+        desc: "Production-grade, highly available systems built to handle client growth.",
         icon: <TrendingUp className="w-5 h-5" />,
         theme: {
             cardBg: "bg-cyan-50/40 hover:bg-cyan-50/80",
@@ -38,8 +41,9 @@ const features = [
         }
     },
     {
-        title: "Innovative Strategies",
-        icon: <Zap className="w-5 h-5" />,
+        title: "Secure Coding & QA",
+        desc: "Complete NDA protection, secure coding standards, and rigorous testing.",
+        icon: <Shield className="w-5 h-5" />,
         theme: {
             cardBg: "bg-rose-50/40 hover:bg-rose-50/80",
             cardBorder: "border-rose-200/50 hover:border-rose-300",
@@ -79,9 +83,9 @@ export default function WhyChooseUs() {
                         initial={{ opacity: 1, scale: 0.97 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, amount: 0, margin: "200px" }}
-                        className="relative group flex flex-col gap-8"
+                        className="relative group flex flex-col gap-8 w-full"
                     >
-                        <div className="relative">
+                        <div className="relative max-w-xl mx-auto lg:max-w-none w-full">
                             <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-gray-200/60 shadow-md transition-all duration-500 group-hover:shadow-lg">
                                 <picture className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103 flex items-center justify-center">
                                     <source srcSet={CoreslashTechnologies_solutionsAvif} type="image/avif" />
@@ -108,7 +112,7 @@ export default function WhyChooseUs() {
                             className="p-6 rounded-[2rem] bg-secondary-indigo/5 border-l-4 border-secondary-indigo italic relative overflow-hidden transition-all duration-500 group-hover:bg-secondary-indigo/10"
                         >
                             <p className="text-gray-650 text-base md:text-lg leading-relaxed relative z-10 font-medium">
-                                "We build the digital infrastructure your business needs to dominate the market."
+                                "We help agencies scale their capacity by providing reliable software, technical SEO, and maintenance under their own brand."
                             </p>
                         </motion.div>
                     </motion.div>
@@ -125,8 +129,8 @@ export default function WhyChooseUs() {
                             </div>
 
                             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-8">
-                                Engineering Experiences,<br />
-                                <span className="text-gradient-cyan">Fueling Global Success</span>
+                                White-Label Engineering,<br />
+                                <span className="text-gradient-cyan">Fueling Agency Success</span>
                             </h2>
                         </motion.div>
 
@@ -156,7 +160,7 @@ export default function WhyChooseUs() {
                                             {item.title}
                                         </h4>
                                         <p className="text-gray-500 text-sm leading-relaxed font-medium">
-                                            Optimized methodologies for maximum performance and impact.
+                                            {item.desc}
                                         </p>
                                     </div>
                                 </motion.div>

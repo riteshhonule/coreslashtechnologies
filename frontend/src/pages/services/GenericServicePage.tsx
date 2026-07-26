@@ -40,7 +40,7 @@ const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle
         <ServiceLayout
             title={title}
             subtitle={subtitle}
-            ctaText="Start Your Project"
+            ctaText="Discuss Partner Program"
         >
             <SEO 
                 title={`${title} Services | CoreSlash Technologies`}
@@ -108,10 +108,10 @@ const GenericServicePage: React.FC<GenericServicePageProps> = ({ title, subtitle
 
                             <div className="text-center mb-12">
                                 <h3 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
-                                    Book Your <span className="text-gradient-purple font-bold">Free</span> Consultation
+                                    Partner with <span className="text-gradient-purple font-bold">CoreSlash</span>
                                 </h3>
                                 <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">
-                                    Get a customized technology strategy and development roadmap from our engineering specialists.
+                                    Discuss white-label developer capacity, NDA frameworks, or start a pilot sprint with our partnership team.
                                 </p>
                             </div>
 

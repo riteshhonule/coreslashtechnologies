@@ -27,6 +27,11 @@ const items = [
     img: imgLogistics,
     description: "An enterprise logistics ecosystem with route optimization, fleet tracking, live delivery monitoring, and warehouse automation.",
     link: "#",
+    overview: "We architected an enterprise logistics ecosystem utilizing custom machine learning models to maximize supply chain efficiency.",
+    challenge: "Inefficient fleet routes, high fuel costs, and lack of real-time monitoring of multi-state delivery assets.",
+    solution: "Built a Python-based path-finding optimization engine integrated with React frontends, scheduling deliveries dynamically.",
+    technologies: ["React", "Python FastAPI", "TensorFlow", "PostgreSQL", "Docker", "AWS"],
+    results: "23% reduction in delivery times and 15% reduction in fuel consumption within 6 months."
   },
   {
     id: 2,
@@ -35,6 +40,11 @@ const items = [
     img: imgHospital,
     description: "A complete digital healthcare suite with patient management, appointment scheduling, billing, EHR, and AI-powered diagnostics.",
     link: "#",
+    overview: "Engineered a secure, HIPAA-compliant patient management and diagnostics platform for multi-specialty hospital networks.",
+    challenge: "Manual paper records, slow billing cycles, and high scheduling friction for doctors and patients.",
+    solution: "Designed microservice database structures for EHR tables, integrated automated appointment triggers, and built a billing gateway.",
+    technologies: ["Angular", "Spring Boot", "MySQL", "Redis Cache", "HIPAA Compliance", "Kubernetes"],
+    results: "99.9% uptime, 40% reduction in billing cycle latencies, and 30,000+ patient records processed securely."
   },
   {
     id: 3,
@@ -43,6 +53,11 @@ const items = [
     img: imgFinTech,
     description: "A secure banking and analytics platform with real-time transactions, fraud detection, investment insights, and compliance monitoring.",
     link: "#",
+    overview: "Built a high-security banking dashboard with real-time transactions processing and anomaly detection.",
+    challenge: "Scalability issues under high query concurrency, and latency during transaction fraud checks.",
+    solution: "Optimized PostgreSQL indexes, implemented connection pools, and built an event-driven Go microservices handler.",
+    technologies: ["React Native", "Go", "PostgreSQL", "Kafka", "AWS Lambda", "PCI-DSS"],
+    results: "Sub-100ms transaction checks, zero fraud escapes, and seamless handling of 10k concurrent users."
   },
   {
     id: 4,
@@ -51,6 +66,11 @@ const items = [
     img: imgCRM,
     description: "An intelligent CRM platform designed for lead management, automated workflows, customer analytics, and sales forecasting.",
     link: "#",
+    overview: "Architected a CRM platform integrating automated workflows and predictive sales forecasting models.",
+    challenge: "Siloed customer databases and lack of visibility on future sales conversion timelines.",
+    solution: "Integrated local LLM engines for automated lead scoring and structured dashboard visualizations.",
+    technologies: ["Vue.js", "Python Django", "MongoDB", "OpenAI API", "HuggingFace"],
+    results: "35% increase in sales conversion rates and automated 10,500 monthly lead emails."
   },
   {
     id: 5,
@@ -59,6 +79,11 @@ const items = [
     img: imgEcommerce,
     description: "A scalable marketplace platform supporting multi-vendor operations, payment gateways, inventory tracking, and analytics.",
     link: "#",
+    overview: "Designed a multi-vendor digital storefront with localized database schemas and fast transaction checkouts.",
+    challenge: "High checkout abandonment rate due to slow page speeds and payment processing latency.",
+    solution: "Configured Cloudflare CDN rules, optimized next-gen asset pipelines, and implemented Stripe API gateways.",
+    technologies: ["React", "NestJS", "PostgreSQL", "Redis", "Stripe API", "Cloudflare Edge"],
+    results: "50% increase in checkout speed and 18% reduction in basket abandonment rates."
   },
   {
     id: 6,
@@ -67,6 +92,11 @@ const items = [
     img: imgRealEstate,
     description: "A digital property ecosystem enabling virtual tours, property listings, CRM integration, and automated lead management.",
     link: "#",
+    overview: "Built a unified property ecosystem enabling custom virtual tours and automatic tenant scheduling.",
+    challenge: "Fragmented systems for listing, scheduling, and invoicing, leading to high administrative friction.",
+    solution: "Constructed API webhooks connecting scheduling engines with billing databases and virtual mapping systems.",
+    technologies: ["React", "Node.js", "GraphQL", "MySQL", "AWS S3", "Twilio API"],
+    results: "Managed 5,000+ rental properties and reduced scheduling friction by 60%."
   },
   {
     id: 7,
@@ -75,6 +105,11 @@ const items = [
     img: imgLMS,
     description: "A modern LMS platform with adaptive learning, live classes, AI-based assessments, and student performance analytics.",
     link: "#",
+    overview: "Developed an adaptive online learning portal with live video integrations and automated performance diagnostics.",
+    challenge: "High student drop-out rates in standard online programs due to lack of adaptive curriculum logic.",
+    solution: "Built a custom recommendation engine matching learning modules to student diagnostic scores.",
+    technologies: ["Next.js", "Python FastAPI", "PostgreSQL", "WebRTC", "Docker"],
+    results: "92% course completion rates and automated grading for 100,000+ practice tests."
   },
   {
     id: 8,
@@ -83,6 +118,11 @@ const items = [
     img: imgCyberSecurity,
     description: "A cloud-native security monitoring platform featuring threat detection, access control, vulnerability scanning, and incident response.",
     link: "#",
+    overview: "Created a cloud security dashboard highlighting system vulnerability scores and threat indicators.",
+    challenge: "Difficulty in tracing un-sanitized form inputs and query errors across distributed client systems.",
+    solution: "Configured automated static code checking, encrypted database rows, and centralized cloud logs.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Docker", "Kubernetes", "AWS CloudWatch"],
+    results: "Detected and neutralized 99.8% of access threats and achieved ISO 27001 security parameters."
   },
   {
     id: 9,
@@ -91,6 +131,11 @@ const items = [
     img: imgManufacturing,
     description: "A next-generation ERP system designed for manufacturing, featuring predictive maintenance, resource planning, and IoT integration.",
     link: "#",
+    overview: "Architected a real-time SCADA and ERP automation system for foundry and mill operations.",
+    challenge: "Equipment breakdown downtime, lack of inventory tracking, and database scale limitations.",
+    solution: "Integrated IoT sensors with a timescale database, and coded resource scheduling logic.",
+    technologies: ["Angular", "Go", "TimescaleDB", "MQTT Protocol", "Kubernetes", "Docker"],
+    results: "30% reduction in equipment downtime and real-time visibility across 4 manufacturing units."
   },
   {
     id: 10,
@@ -99,6 +144,11 @@ const items = [
     img: imgHR,
     description: "An AI-driven HR suite streamlining talent acquisition, resume parsing, employee onboarding, and performance tracking.",
     link: "#",
+    overview: "Built an intelligent recruitment ecosystem featuring OCR resume parsing and automated applicant tracking.",
+    challenge: "Recruiting delays due to manual screening of thousands of resume PDFs.",
+    solution: "Deployed Python OCR parsing pipelines that grade resume text against criteria keywords.",
+    technologies: ["React", "Python Django", "MongoDB", "Tesseract OCR", "Docker", "AWS"],
+    results: "Saved 80+ HR recruiting hours per month and decreased time-to-hire by 50%."
   }
 ];
 
@@ -232,35 +282,55 @@ const PortfolioPage = () => {
                 </div>
  
                 {/* Content Column */}
-                <div className="w-full md:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-between md:h-auto">
-                  <div className="space-y-4">
+                <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-between md:h-auto overflow-y-auto max-h-[60vh] md:max-h-[85vh]">
+                  <div className="space-y-6">
                     <div className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-secondary-indigo animate-pulse" />
-                      <span className="text-secondary-indigo font-bold text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase">{active.category}</span>
+                      <span className="text-secondary-indigo font-bold text-[10px] tracking-[0.25em] uppercase">{active.category}</span>
                     </div>
  
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">{active.title}</h2>
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">{active.title}</h2>
  
-                    <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium italic">
-                      "{active.description}"
-                    </p>
+                    <div className="space-y-4 text-sm text-gray-600">
+                      <div>
+                        <h4 className="font-bold text-gray-950 text-xs uppercase tracking-wider mb-1">Overview</h4>
+                        <p className="font-medium text-xs leading-relaxed">{active.overview}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-950 text-xs uppercase tracking-wider mb-1">Challenge</h4>
+                        <p className="font-medium text-xs leading-relaxed">{active.challenge}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-950 text-xs uppercase tracking-wider mb-1">Solution</h4>
+                        <p className="font-medium text-xs leading-relaxed">{active.solution}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-950 text-xs uppercase tracking-wider mb-1">Technologies Used</h4>
+                        <div className="flex flex-wrap gap-1.5 mt-1.5">
+                          {active.technologies?.map((tech) => (
+                            <span key={tech} className="bg-gray-150 px-2 py-0.5 rounded text-[10px] font-bold text-gray-700 uppercase tracking-wider border border-gray-200">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-950 text-xs uppercase tracking-wider mb-1">Results</h4>
+                        <p className="font-bold text-xs leading-relaxed text-green-700">{active.results}</p>
+                      </div>
+                    </div>
                   </div>
- 
-                  <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:items-center">
-                    <a
-                      href={active.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`btn-pill text-xs md:text-sm lg:text-base px-5 py-3 flex items-center justify-center gap-2 ${active.link === "#"
-                        ? "bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200"
-                        : "btn-primary-glow text-white"
-                        }`}
-                      onClick={(e) => active.link === "#" && e.preventDefault()}
-                    >
-                      {active.link === "#" ? "Project Offline" : "View Project"}
-                      {active.link !== "#" && <ArrowTopRightOnSquareIcon className="w-4 h-4" />}
-                    </a>
-                  </div>
+                  {active.link !== "#" && (
+                    <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:items-center shrink-0">
+                      <a
+                        href={active.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-pill text-xs md:text-sm lg:text-base px-5 py-3 flex items-center justify-center gap-2 btn-primary-glow text-white"
+                      >
+                        View Project
+                        <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
