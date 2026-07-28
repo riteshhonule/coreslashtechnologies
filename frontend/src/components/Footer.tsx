@@ -10,8 +10,9 @@ const footerLinks = {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Partnership", path: "/agency-partnership" },
-    { name: "Our Work", path: "/portfolio" },
-    { name: "Insights", path: "/blog" },
+    { name: "Our Process", path: "/process" },
+    { name: "Tech Stack", path: "/tech-stack" },
+    { name: "Case Studies", path: "/portfolio" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" }
   ],
@@ -21,13 +22,21 @@ const footerLinks = {
     { name: "Web Development", path: "/services/website-development" },
     { name: "Web Maintenance", path: "/services/website-maintenance" },
     { name: "Technical SEO", path: "/services/technical-seo" },
-    { name: "App Development", path: "/services/app-development" },
-    { name: "Cloud Deployment", path: "/services/cloud-solutions" }
+    { name: "App Development", path: "/services/app-development" }
+  ],
+  technologies: [
+    { name: "React", path: "/tech-stack" },
+    { name: "Next.js", path: "/tech-stack" },
+    { name: "NestJS", path: "/tech-stack" },
+    { name: "NodeJS", path: "/tech-stack" },
+    { name: "Python", path: "/tech-stack" },
+    { name: "AWS / Docker", path: "/tech-stack" }
   ],
   legal: [
     { name: "Privacy Policy", path: "/privacy-policy" },
     { name: "Terms of Service", path: "/terms-of-service" },
-    { name: "Cookie Policy", path: "/cookie-policy" }
+    { name: "Cookie Policy", path: "/cookie-policy" },
+    { name: "Blog / Insights", path: "/blog" }
   ]
 };
 
@@ -52,10 +61,10 @@ export default function Footer() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-10 lg:grid-cols-10 border border-gray-200/50 rounded-[2.5rem] bg-white shadow-xl shadow-gray-200/30 overflow-hidden mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 border border-gray-200/50 rounded-[2.5rem] bg-white shadow-xl shadow-gray-200/30 overflow-hidden mb-16">
 
           {/* Brand/Logo Column */}
-          <div className="p-6 lg:p-10 flex flex-col justify-start items-center md:items-start text-center md:text-left border-b md:border-b-0 md:border-r border-gray-200/50 space-y-6 md:col-span-4 lg:col-span-3">
+          <div className="p-6 lg:p-10 flex flex-col justify-start items-center md:items-start text-center md:text-left border-b lg:border-b-0 lg:border-r border-gray-200/50 space-y-6 md:col-span-12 lg:col-span-3">
             <div className="space-y-6 flex flex-col items-center md:items-start">
               <Link to="/" className="inline-block">
                 <img 
@@ -130,7 +139,7 @@ export default function Footer() {
           </div>
 
           {/* Links Column: Company */}
-          <div className="p-6 lg:p-10 border-b md:border-b-0 md:border-r border-gray-200/50 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-2 lg:col-span-2">
+          <div className="p-6 lg:p-10 border-b lg:border-b-0 lg:border-r border-gray-200/50 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-4 lg:col-span-2">
             <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2 w-full">
               <span className="w-1.5 h-1.5 bg-secondary-indigo rounded-full shrink-0" />
               Company
@@ -149,11 +158,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Links Column: Solutions */}
-          <div className="p-6 lg:p-10 border-b md:border-b-0 md:border-r border-gray-200/50 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-2 lg:col-span-2">
+          {/* Links Column: Services */}
+          <div className="p-6 lg:p-10 border-b lg:border-b-0 lg:border-r border-gray-200/50 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-4 lg:col-span-2">
             <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2 w-full">
               <span className="w-1.5 h-1.5 bg-secondary-indigo rounded-full shrink-0" />
-              Solutions
+              Services
             </h4>
             <ul className="space-y-4">
               {footerLinks.services.map(link => (
@@ -169,8 +178,28 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Links Column: Technologies */}
+          <div className="p-6 lg:p-10 border-b lg:border-b-0 lg:border-r border-gray-200/50 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-4 lg:col-span-2">
+            <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2 w-full">
+              <span className="w-1.5 h-1.5 bg-secondary-indigo rounded-full shrink-0" />
+              Tech Stack
+            </h4>
+            <ul className="space-y-4">
+              {footerLinks.technologies.map(link => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.path} 
+                    className="group/link flex items-center justify-center md:justify-start gap-2 text-gray-500 hover:text-secondary-indigo transition-all duration-300 text-sm font-medium hover:scale-105 w-full"
+                  >
+                    <span>{link.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Connect Column */}
-          <div className="p-6 lg:p-10 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-2 lg:col-span-3 w-full">
+          <div className="p-6 lg:p-10 flex flex-col justify-start items-center md:items-start text-center md:text-left space-y-6 md:col-span-12 lg:col-span-3 w-full">
             <h4 className="text-gray-900 font-bold uppercase tracking-[0.25em] text-xs flex items-center justify-center md:justify-start gap-2 w-full">
               <span className="w-1.5 h-1.5 bg-secondary-indigo rounded-full shrink-0" />
               Connect
@@ -195,6 +224,10 @@ export default function Footer() {
                     +91 83107 11652
                   </a>
                 </div>
+              </li>
+              <li className="text-[11px] text-gray-400 font-medium mt-2">
+                Response SLA: 24 Hours <br />
+                Hours: 9:00 AM - 6:00 PM EST
               </li>
             </ul>
           </div>

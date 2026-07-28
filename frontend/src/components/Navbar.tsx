@@ -25,7 +25,8 @@ import {
   Instagram,
   Twitter,
   Cpu,
-  Settings
+  Settings,
+  Handshake
 } from "lucide-react";
 import logo from "../img/CoreslashTechnologies-solutions-main-logo.webp";
 
@@ -33,6 +34,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredService, setHoveredService] = useState(false);
+  const [hoveredAbout, setHoveredAbout] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -70,11 +72,17 @@ export default function Navbar() {
 
   const links = [
     { to: "/", label: "Home", icon: Home },
-    { to: "/about", label: "About", icon: User },
-    { to: "/portfolio", label: "Portfolio", icon: Briefcase },
+    { to: "/agency-partnership", label: "Agency Partnership", icon: Handshake },
     { to: "/blog", label: "Blog", icon: FileText },
     { to: "/careers", label: "Careers", icon: Users },
     { to: "/contact", label: "Contact", icon: Mail },
+  ];
+
+  const aboutLinks = [
+    { to: "/about", label: "About Us", icon: User },
+    { to: "/process", label: "Our Process", icon: Settings },
+    { to: "/tech-stack", label: "Tech Stack", icon: Grid },
+    { to: "/portfolio", label: "Portfolio", icon: Briefcase },
   ];
 
   const servicesLinks = [
@@ -84,7 +92,6 @@ export default function Navbar() {
     { to: "/services/website-maintenance", label: "Web Maintenance", icon: Settings },
     { to: "/services/technical-seo", label: "Technical SEO", icon: Target },
     { to: "/services/app-development", label: "Mobile Apps", icon: Smartphone },
-    { to: "/agency-partnership", label: "Agency Partnership", icon: Users },
     { to: "/services", label: "All Services", icon: Grid },
   ];
 
@@ -152,7 +159,7 @@ export default function Navbar() {
             </div>
 
             {/* Navigation Area */}
-            <div className="flex-1 flex flex-col justify-between px-3.5 pt-3 pb-0 overflow-y-hidden">
+            <div className="flex-1 flex flex-col justify-start px-3.5 pt-3 pb-4 overflow-y-auto space-y-4">
               {/* Main Links */}
               <div className="space-y-1">
                 {links.map((link, idx) => {
@@ -176,6 +183,38 @@ export default function Navbar() {
                         <div className="flex items-center gap-2.5">
                           <Icon className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-500"}`} />
                           <span className="text-sm tracking-wide">{link.label}</span>
+                        </div>
+                        <ChevronRight className={`w-3.5 h-3.5 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* About Section */}
+              <div className="border-t border-gray-100/50 pt-2.5 space-y-1">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#737CFD] mb-1.5 pl-1">ABOUT</p>
+                {aboutLinks.map((subLink, idx) => {
+                  const Icon = subLink.icon;
+                  const isActive = location.pathname === subLink.to;
+                  return (
+                    <motion.div
+                      key={subLink.to}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.03, duration: 0.3 }}
+                    >
+                      <Link
+                        to={subLink.to}
+                        onClick={closeMobileMenu}
+                        className={`flex items-center justify-between px-3 py-1.5 rounded-xl transition-all duration-300 ${isActive
+                          ? "bg-[#f0f4ff] text-secondary-indigo font-bold shadow-sm"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-secondary-indigo font-semibold"
+                          }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <Icon className={`w-4 h-4 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-500"}`} />
+                          <span className="text-sm tracking-wide">{subLink.label}</span>
                         </div>
                         <ChevronRight className={`w-3.5 h-3.5 transition-colors ${isActive ? "text-secondary-indigo" : "text-gray-400"}`} />
                       </Link>
@@ -300,7 +339,7 @@ export default function Navbar() {
               );
             })}
 
-            {/* Services Dropdown — standalone, not tied to any link */}
+            {/* Services Dropdown */}
             <div className="relative"
               onMouseEnter={() => setHoveredService(true)}
               onMouseLeave={() => setHoveredService(false)}>
@@ -351,7 +390,64 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Remaining links: About, Portfolio, Blog, Contact */}
+            {/* About Dropdown */}
+            <div className="relative"
+              onMouseEnter={() => setHoveredAbout(true)}
+              onMouseLeave={() => setHoveredAbout(false)}>
+              <div
+                onClick={() => setHoveredAbout(prev => !prev)}
+                className={`flex items-center gap-1.5 px-2.5 lg:px-5 py-2 text-[10.5px] lg:text-sm font-bold uppercase tracking-widest rounded-full cursor-pointer transition-all duration-300 ${
+                  location.pathname === "/about" ||
+                  location.pathname === "/process" ||
+                  location.pathname === "/tech-stack" ||
+                  location.pathname === "/portfolio"
+                    ? "text-accent-cyan"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                About
+                <ChevronDownIcon className={`w-3 h-3 transition-transform duration-500 ${hoveredAbout ? "rotate-180" : ""}`} />
+              </div>
+
+              <AnimatePresence>
+                {hoveredAbout && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full left-0 w-72 pt-3"
+                    style={{ zIndex: 1001 }}
+                  >
+                    <div className="p-3 bg-white/95 backdrop-blur-3xl border border-gray-200/80 rounded-3xl shadow-2xl overflow-hidden">
+                      {aboutLinks.map((subLink) => {
+                        const isActive = location.pathname === subLink.to;
+                        return (
+                          <Link
+                            key={subLink.to}
+                            to={subLink.to}
+                            onClick={() => setHoveredAbout(false)}
+                            className={`relative flex items-center justify-between px-5 py-3 text-xs font-bold uppercase tracking-widest rounded-2xl transition-all ${isActive
+                              ? "text-secondary-indigo bg-secondary-indigo/5"
+                              : "text-gray-500 hover:text-secondary-indigo hover:bg-gray-50"
+                              }`}
+                          >
+                            <span>{subLink.label}</span>
+                            {isActive && (
+                              <motion.span
+                                layoutId="active-about-dropdown-indicator"
+                                className="w-1.5 h-1.5 rounded-full bg-secondary-indigo"
+                              />
+                            )}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Remaining links: Blog, Careers, Contact */}
             {links.filter(l => l.label !== "Home").map((link) => {
               const isActive = location.pathname === link.to;
               return (

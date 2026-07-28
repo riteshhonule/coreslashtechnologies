@@ -11,6 +11,11 @@ const Portfolio = lazy(() => import("../components/Portfolio"));
 const LeadSection = lazy(() => import("../components/LeadSection"));
 const CTA = lazy(() => import("../components/CTA"));
 
+// New components
+const ClientLogos = lazy(() => import("../components/ClientLogos"));
+const WhyAgenciesPartner = lazy(() => import("../components/WhyAgenciesPartner"));
+const Testimonials = lazy(() => import("../components/Testimonials"));
+
 const Home = () => {
   return (
     <motion.div
@@ -20,15 +25,18 @@ const Home = () => {
       transition={{ duration: 0.25 }}
     >
       <SEO
-        title="CoreSlash Technologies | Software Development & AI Solutions"
-        description="Enterprise-grade software development, AI solutions, web applications, mobile apps, cloud solutions, and digital transformation services."
+        title="CoreSlash Technologies | White-Label Software Engineering Partner"
+        description="We become your invisible engineering team. Partner with CoreSlash for custom software, web development, technical SEO, and AI automation under your brand."
       />
       <Hero />
       <Suspense fallback={null}>
+        <ClientLogos />
+        <WhyAgenciesPartner />
         <Services />
         <PaymentGateway />
         <About />
         <Portfolio />
+        <Testimonials />
         <LeadSection />
         <CTA />
       </Suspense>

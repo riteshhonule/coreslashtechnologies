@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useModal } from "../context/ModalContext";
 import { ArrowUpRightIcon, SparklesIcon } from "@heroicons/react/24/outline";
 
@@ -86,7 +87,7 @@ export default function Hero() {
               >
                 <SparklesIcon className="w-3.5 h-3.5 text-[#5B21F4] shrink-0" />
                 <span className="text-[8.5px] min-[360px]:text-[9px] font-bold text-[#5B21F4] uppercase tracking-[0.2em] whitespace-normal text-center leading-normal">
-                  Enterprise Technology Protocol
+                  Invisible Agency Engineering Protocol
                 </span>
               </motion.div>
 
@@ -95,25 +96,20 @@ export default function Hero() {
                 variants={itemVariants}
                 className="flex flex-col items-center text-center w-full mb-8"
               >
-                {/* AI-powered solutions style */}
                 <span className="block font-bold text-[#5B21F4] text-[24px] min-[375px]:text-[28px] min-[410px]:text-[30px] tracking-tight leading-normal mb-1 font-sans">
-                  White-label development
+                  We become your
                 </span>
 
-                {/* to Solve style */}
                 <span className="block font-bold text-[#111827] text-[32px] min-[375px]:text-[34px] min-[410px]:text-[36px] tracking-tight leading-none mb-2 font-sans">
-                  to Scale
+                  Invisible
                 </span>
 
-                {/* Complex style */}
                 <span className="block font-satisfy font-normal text-[#5B21F4] text-[58px] min-[375px]:text-[66px] min-[410px]:text-[74px] leading-[0.8] my-3 filter drop-shadow-[0_2px_8px_rgba(91,33,244,0.12)]">
-                  Partner
+                  Engineering
                 </span>
 
-                {/* Business Problems style */}
                 <span className="block font-extrabold text-[#111827] text-[38px] min-[375px]:text-[44px] min-[410px]:text-[48px] tracking-tight leading-[0.95] flex flex-col items-center font-sans mt-2">
-                  <span>Technical</span>
-                  <span>Delivery.</span>
+                  <span>Team.</span>
                 </span>
               </motion.div>
 
@@ -122,7 +118,7 @@ export default function Hero() {
                 variants={itemVariants}
                 className="block text-base font-semibold text-[#6B7280] mb-8 text-center"
               >
-                Software • AI Automation • Cloud
+                White-label Software • AI Automation • Technical SEO
               </motion.p>
             </div>
 
@@ -135,7 +131,7 @@ export default function Hero() {
               >
                 <SparklesIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-purple shrink-0" />
                 <span className="text-[8.5px] min-[360px]:text-[9px] sm:text-[10px] font-bold text-primary-purple uppercase tracking-[0.2em] sm:tracking-[0.3em] whitespace-normal text-center leading-normal">
-                  Enterprise Technology Protocol
+                  Invisible Agency Engineering Protocol
                 </span>
               </motion.div>
 
@@ -153,7 +149,7 @@ export default function Hero() {
                     lineHeight: "1",
                   }}
                 >
-                  White-label engineering
+                  We become your
                 </span>
 
                 {/* To Solve + Complex */}
@@ -164,21 +160,21 @@ export default function Hero() {
                   }}
                 >
                   <span
-                    className="text-gray-900 whitespace-nowrap"
-                    style={{
-                      fontSize: "clamp(32px, 4vw, 68px)",
-                    }}
-                  >
-                    to Scale
-                  </span>
-
-                  <span
                     className="bg-gradient-to-r from-primary-purple via-primary-purple to-[#2d007c] bg-clip-text text-transparent whitespace-nowrap font-black"
                     style={{
                       fontSize: "clamp(42px, 5.5vw, 88px)",
                     }}
                   >
-                    Partner
+                    Invisible
+                  </span>
+
+                  <span
+                    className="text-gray-900 whitespace-nowrap"
+                    style={{
+                      fontSize: "clamp(32px, 4vw, 68px)",
+                    }}
+                  >
+                    Engineering
                   </span>
                 </div>
 
@@ -190,21 +186,12 @@ export default function Hero() {
                   }}
                 >
                   <span
-                    className="text-gray-900 whitespace-nowrap"
-                    style={{
-                      fontSize: "clamp(38px, 4.5vw, 76px)",
-                    }}
-                  >
-                    Technical
-                  </span>
-
-                  <span
                     className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent whitespace-nowrap"
                     style={{
                       fontSize: "clamp(38px, 4.5vw, 76px)",
                     }}
                   >
-                    Delivery
+                    Team
                     <span className="text-primary-purple">.</span>
                   </span>
                 </div>
@@ -215,7 +202,7 @@ export default function Hero() {
                 variants={itemVariants}
                 className="hidden md:block max-w-[620px] text-lg md:text-xl text-gray-500 leading-relaxed mb-12 mx-auto md:mx-0 font-medium px-4 md:px-0"
               >
-                We help digital, design, and SEO agencies scale by providing reliable software engineering, technical SEO, website maintenance, and custom development services under their own brand.
+                Partner with CoreSlash Technologies as your trusted behind-the-scenes engineering team. Scale your agency's development capacity, deliver enterprise-grade code, and protect client relationships under complete NDA.
               </motion.p>
 
               {/* Mobile Description */}
@@ -236,9 +223,16 @@ export default function Hero() {
                 onClick={openModal}
                 className="w-fit sm:w-auto btn-pill btn-primary-glow text-white text-base sm:text-lg px-6 py-3.5 sm:px-10 sm:py-5 group shadow-[0_0_20px_rgba(115,124,253,0.15)] hover:shadow-[0_0_30px_rgba(115,124,253,0.3)] transition-all"
               >
-                Book a Discovery Call
+                Book Discovery Call
                 <ArrowUpRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:rotate-45" />
               </button>
+              
+              <Link
+                to="/agency-partnership"
+                className="w-fit sm:w-auto btn-pill btn-glass text-secondary-indigo hover:text-white text-base sm:text-lg px-6 py-3.5 sm:px-10 sm:py-5 group transition-all"
+              >
+                Become a Partner
+              </Link>
             </motion.div>
           </motion.div>
 

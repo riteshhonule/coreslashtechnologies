@@ -8,10 +8,21 @@ import { useModal } from "../context/ModalContext";
 import { MagnifyingGlassIcon, EnvelopeIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import SEO from "../components/SEO";
 
+const categories = [
+    "All",
+    "AI",
+    "Development",
+    "React",
+    "Technical SEO",
+    "Agency Growth",
+    "ERP"
+];
+
 const BlogPage: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [displayCount, setDisplayCount] = useState(6);
     const [searchQuery, setSearchQuery] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("All");
     const { openModal } = useModal();
 
     useEffect(() => {
@@ -19,10 +30,22 @@ const BlogPage: React.FC = () => {
         return () => clearTimeout(timer);
     }, []);
 
-    const filteredPosts = blogPosts.filter(post =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.category.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredPosts = blogPosts.filter(post => {
+        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              post.category.toLowerCase().includes(searchQuery.toLowerCase());
+        if (!matchesSearch) return false;
+        
+        if (selectedCategory === "All") return true;
+        if (selectedCategory === "AI") return post.category === "AI" || post.title.toLowerCase().includes("ai");
+        if (selectedCategory === "Development") return post.category === "Web Development" || post.title.toLowerCase().includes("development");
+        if (selectedCategory === "React") return post.title.toLowerCase().includes("react") || post.description.toLowerCase().includes("react");
+        if (selectedCategory === "Technical SEO") return post.category === "SEO" || post.title.toLowerCase().includes("seo") || post.title.toLowerCase().includes("search engine");
+        if (selectedCategory === "Agency Growth") return post.title.toLowerCase().includes("agency") || post.title.toLowerCase().includes("grow");
+        if (selectedCategory === "ERP") return post.title.toLowerCase().includes("erp") || post.description.toLowerCase().includes("erp");
+        
+        return post.category.toLowerCase() === selectedCategory.toLowerCase();
+    });
 
     const visiblePosts = filteredPosts.slice(0, displayCount);
 
@@ -65,7 +88,7 @@ const BlogPage: React.FC = () => {
             {/* Blog Grid Section */}
             <section className="pt-0 pb-12 md:pt-0 md:pb-24 container mx-auto px-6 relative z-10">
                 {/* Search Bar */}
-                <div className="relative max-w-2xl mx-auto group mb-16 md:mb-20">
+                <div className="relative max-w-2xl mx-auto group mb-8">
                     <div className="absolute inset-y-0 left-8 flex items-center pointer-events-none z-10">
                         <MagnifyingGlassIcon className="h-6 w-6 text-gray-400 group-focus-within:text-secondary-indigo transition-colors" />
                     </div>
@@ -78,6 +101,26 @@ const BlogPage: React.FC = () => {
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
+                </div>
+
+                {/* Category Filters */}
+                <div className="flex justify-center flex-wrap gap-2.5 mb-16 max-w-4xl mx-auto">
+                    {categories.map((cat) => (
+                        <button
+                            key={cat}
+                            onClick={() => {
+                                setSelectedCategory(cat);
+                                setDisplayCount(6);
+                            }}
+                            className={`px-5 py-2 rounded-full text-xs font-bold transition-all border ${
+                                selectedCategory === cat
+                                    ? "bg-secondary-indigo border-secondary-indigo text-white shadow-md shadow-secondary-indigo/25"
+                                    : "bg-white border-gray-200 text-gray-600 hover:border-secondary-indigo/30"
+                            }`}
+                        >
+                            {cat}
+                        </button>
+                    ))}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
