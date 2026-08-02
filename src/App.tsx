@@ -1,17 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Layout from "./components/layout";
-import Home from "./pages/home";
-import About from "./pages/about";
-import Portfolio from "./pages/portfolio";
-import Contact from "./pages/contact";
-import ServicesIndex from "./pages/services";
-import WebsiteDevelopment from "./pages/services/website-development";
-import ShopifyDevelopment from "./pages/services/shopify-development";
-import SEOOptimization from "./pages/services/seo";
-import EcommerceWebsite from "./pages/services/ecommerce";
-import PPCServices from "./pages/services/ppc";
-import NotFound from "./pages/not-found";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import About from "./pages/AboutPage";
+import Portfolio from "./pages/PortfolioPage";
+import Contact from "./pages/ContactPage";
+import ServicesIndex from "./pages/ServicesPage";
+import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
+import ShopifyDevelopment from "./pages/services/ShopifyDevelopment";
+import SEOOptimization from "./pages/services/SEOOptimization";
+import EcommerceWebsite from "./pages/services/EcommerceWebsite";
+import PPCServices from "./pages/services/PPCServices";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -42,3 +42,4 @@ function App() {
 }
 
 export default App;
+

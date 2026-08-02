@@ -1,6 +1,6 @@
 import React from "react";
-import { CircularTestimonials } from "@/components/ui/circular-testimonials";
-import type { Testimonial } from "@/components/ui/circular-testimonials";
+import { CircularTestimonials } from "@/components/CircularTestimonials";
+import type { Testimonial } from "@/components/CircularTestimonials";
 import { Sparkles, MessageSquareQuote } from "lucide-react";
 
 export const DEMO_TESTIMONIALS: Testimonial[] = [
@@ -72,3 +72,4 @@ export const TestimonialsSection: React.FC = () => {
 };
 
 export default TestimonialsSection;
+

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Navbar } from "./ui/navbar";
-import FooterSection from "./sections/footer-section";
+import { Navbar } from "./Navbar";
+import FooterSection from "./Footer";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sparkles, X, CheckCircle2 } from "lucide-react";
 
@@ -127,3 +127,4 @@ export default function Layout() {
     </div>
   );
 }
+

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Clock, Route, Shield, Zap, Phone, Mail } from "lucide-react";
-import { PremiumContactForm } from "@/components/ui/premium-contact-form";
+import { PremiumContactForm } from "@/components/PremiumContactForm";
 
 const features = [
   {
@@ -211,3 +211,4 @@ export const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
+

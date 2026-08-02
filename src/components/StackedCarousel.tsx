@@ -10,7 +10,7 @@ import {
   type MotionValue,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/Badge";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface Slide {
@@ -365,3 +365,4 @@ const Card = ({ slide, index, total, progress, config, onCardClick }: CardProps)
 };
 
 export default CarouselStacked;
+

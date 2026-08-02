@@ -1,9 +1,9 @@
-import { AnimatedMarqueeHero } from "@/components/ui/hero";
-import ExpandableGallery, { NINE_DEMO_IMAGES } from "@/components/ui/expandable-gallery";
-import FanCarouselSection from "@/components/sections/fan-carousel-section";
-import TechnologiesSection from "@/components/sections/technologies-section";
-import TestimonialsSection from "@/components/sections/testimonials-section";
-import ContactSection from "@/components/sections/contact-section";
+import { AnimatedMarqueeHero } from "@/components/Hero";
+import ExpandableGallery, { NINE_DEMO_IMAGES } from "@/components/ExpandableGallery";
+import FanCarouselSection from "@/components/FanCarouselSection";
+import TechnologiesSection from "@/components/TechnologiesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
 import { Sparkles, CheckCircle2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
@@ -127,3 +127,4 @@ export default function Home() {
     </>
   );
 }
+

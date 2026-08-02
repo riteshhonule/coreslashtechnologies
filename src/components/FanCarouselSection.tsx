@@ -1,6 +1,6 @@
 import React from "react";
-import SocialCards from "@/components/ui/card-fan-carousel";
-import type { CardItem } from "@/components/ui/card-fan-carousel";
+import SocialCards from "@/components/CardFanCarousel";
+import type { CardItem } from "@/components/CardFanCarousel";
 import { Sparkles, Layers } from "lucide-react";
 
 export const DEMO_FAN_CARDS: CardItem[] = [
@@ -40,3 +40,4 @@ export const FanCarouselSection: React.FC = () => {
 };
 
 export default FanCarouselSection;
+

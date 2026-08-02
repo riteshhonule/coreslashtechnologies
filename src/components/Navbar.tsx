@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LiquidGlassButton } from "./liquid-glass";
+import { LiquidGlassButton } from "./LiquidGlass";
 import { cn } from "@/lib/utils";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Sparkles, ArrowRight, ChevronDown } from "lucide-react";
