@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { FaLinkedinIn, FaInstagram, FaFacebookF, FaGithub, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function FooterSection() {
   const [email, setEmail] = useState("");
@@ -34,11 +35,6 @@ export default function FooterSection() {
   const itemVariants: any = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-  };
-
-  const hoverLinkProps: any = {
-    whileHover: { x: 5, color: "#60a5fa" }, // text-blue-400
-    transition: { type: "spring", stiffness: 300, damping: 20 },
   };
 
   return (
@@ -160,24 +156,20 @@ export default function FooterSection() {
             <h4 className="text-white font-bold text-lg mb-6">Services</h4>
             <ul className="flex flex-col space-y-3.5">
               {[
-                "AI Development",
-                "Custom Software",
-                "Web Development",
-                "Mobile Apps",
-                "ERP Solutions",
-                "UI/UX Design",
-                "Cloud Solutions",
-                "SEO & Digital Marketing"
+                { label: "Website Development", href: "/services/website-development" },
+                { label: "Shopify Development", href: "/services/shopify-development" },
+                { label: "E-commerce Website", href: "/services/ecommerce" },
+                { label: "Google Ads & PPC", href: "/services/ppc" },
+                { label: "SEO Optimization", href: "/services/seo" },
               ].map((link, i) => (
                 <li key={i}>
-                  <motion.a 
-                    href="#" 
-                    className="text-slate-400 hover:text-white inline-block relative group"
-                    {...hoverLinkProps}
+                  <Link 
+                    to={link.href} 
+                    className="text-slate-400 hover:text-white inline-block relative group transition-transform hover:translate-x-1"
                   >
-                    <span>{link}</span>
+                    <span className="group-hover:text-blue-400 transition-colors">{link.label}</span>
                     <span className="absolute -bottom-1 left-0 w-0 h-px bg-blue-400 group-hover:w-full transition-all duration-300" />
-                  </motion.a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -188,49 +180,41 @@ export default function FooterSection() {
             <h4 className="text-white font-bold text-lg mb-6">Company</h4>
             <ul className="flex flex-col space-y-3.5">
               {[
-                "About Us",
-                "Our Process",
-                "Portfolio",
-                "Case Studies",
-                "Careers",
-                "Blogs",
-                "Contact Us"
+                { label: "Home", href: "/" },
+                { label: "About Us", href: "/about" },
+                { label: "Services", href: "/services" },
+                { label: "Portfolio", href: "/portfolio" },
+                { label: "Contact Us", href: "/contact" },
               ].map((link, i) => (
                 <li key={i}>
-                  <motion.a 
-                    href="#" 
-                    className="text-slate-400 hover:text-white inline-block relative group"
-                    {...hoverLinkProps}
+                  <Link 
+                    to={link.href} 
+                    className="text-slate-400 hover:text-white inline-block relative group transition-transform hover:translate-x-1"
                   >
-                    <span>{link}</span>
+                    <span className="group-hover:text-blue-400 transition-colors">{link.label}</span>
                     <span className="absolute -bottom-1 left-0 w-0 h-px bg-purple-400 group-hover:w-full transition-all duration-300" />
-                  </motion.a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Column 4: Resources */}
+          {/* Column 4: Legal */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h4 className="text-white font-bold text-lg mb-6">Resources</h4>
+            <h4 className="text-white font-bold text-lg mb-6">Legal</h4>
             <ul className="flex flex-col space-y-3.5">
               {[
-                "FAQs",
-                "Privacy Policy",
-                "Terms & Conditions",
-                "Cookie Policy",
-                "Support",
-                "Documentation"
+                { label: "Privacy Policy", href: "#" },
+                { label: "Terms of Service", href: "#" },
               ].map((link, i) => (
                 <li key={i}>
-                  <motion.a 
-                    href="#" 
-                    className="text-slate-400 hover:text-white inline-block relative group"
-                    {...hoverLinkProps}
+                  <Link 
+                    to={link.href} 
+                    className="text-slate-400 hover:text-white inline-block relative group transition-transform hover:translate-x-1"
                   >
-                    <span>{link}</span>
+                    <span className="group-hover:text-blue-400 transition-colors">{link.label}</span>
                     <span className="absolute -bottom-1 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300" />
-                  </motion.a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -48,7 +48,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
     <section
       style={{ paddingTop: '104px' }}
       className={cn(
-        "relative w-full min-h-[80vh] md:min-h-[89vh] overflow-hidden bg-background flex flex-col items-center justify-start pb-32 text-center px-4",
+        "relative w-full min-h-[85vh] md:min-h-[95vh] overflow-hidden bg-background flex flex-col items-center justify-start pb-32 text-center px-4",
         className
       )}
     >

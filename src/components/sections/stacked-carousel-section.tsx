@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselStacked from "@/components/ui/carousel-07";
+import CarouselStacked from "@/components/ui/stacked-carousel";
 import { Sparkles, MoveHorizontal } from "lucide-react";
 
 export const StackedCarouselSection: React.FC = () => {
