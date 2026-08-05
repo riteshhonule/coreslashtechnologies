@@ -59,7 +59,7 @@ export default function TechnologiesSection() {
   const currentTechs = techData[activeTab];
 
   return (
-    <section className="relative py-24 md:py-32 px-6 md:px-12 bg-background border-t border-white/5 overflow-hidden">
+    <section className="relative pt-12 md:pt-32 pb-16 md:pb-24 px-6 md:px-12 bg-background border-t border-white/5 overflow-hidden">
       <div className="max-w-[1100px] mx-auto">
 
         {/* ========================================================
@@ -72,17 +72,22 @@ export default function TechnologiesSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-[900px] mx-auto mb-16"
         >
+          {/* Top Tag */}
+          <div className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white text-sm font-semibold shadow-lg shadow-blue-500/20">
+            <span>Modern Technology Stack</span>
+          </div>
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
             Technologies We Use As A <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-rose-500">
               Leading Development Company
             </span>
           </h2>
+
           <p className="text-slate-500 text-sm md:text-base leading-[1.8] max-w-4xl mx-auto">
             We leverage advanced technologies, modern development frameworks, and industry-leading tools to build secure, scalable, and high-performance digital solutions. Our technology expertise enables us to deliver innovative software, web applications, mobile apps, and enterprise solutions tailored to diverse business requirements.
           </p>
         </motion.div>
-
         {/* ========================================================
             TABS NAVIGATION
             ======================================================== */}
@@ -120,7 +125,7 @@ export default function TechnologiesSection() {
         {/* ========================================================
             TECHNOLOGY GRID
             ======================================================== */}
-        <div className="min-h-[400px]">
+        <div className="min-h-[280px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}

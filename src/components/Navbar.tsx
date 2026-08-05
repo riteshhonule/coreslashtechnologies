@@ -49,13 +49,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const getActiveTab = () => {
     if (location.pathname === "/") return "Home";
     const match = NAV_ITEMS.find(item => item.href !== "/" && location.pathname.startsWith(item.href));
     return match ? match.label : "Home";
   };
-  
+
   const activeTab = getActiveTab();
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -87,41 +87,34 @@ export const Navbar: React.FC<NavbarProps> = ({
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         style={{ fontFamily: CAPSULE_FONT_FAMILY }}
         className={cn(
-          "fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[1440px] h-[72px] md:h-[76px]",
-          "rounded-full transition-all duration-500 flex items-center justify-between px-4 md:px-6 relative",
-          // iPhone Liquid Glass + Low Opacity Black Border
-          isScrolled
-            ? "bg-white/80 dark:bg-white/[0.05] backdrop-blur-3xl backdrop-saturate-150 border border-black/10 dark:border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.12)]"
-            : "bg-white/50 dark:bg-white/[0.02] backdrop-blur-2xl backdrop-saturate-150 border border-black/5 dark:border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.06)]",
+          "sticky top-0 z-50 w-full h-[72px] md:h-[76px]",
+          "transition-all duration-500 flex items-center justify-between px-6 md:px-12 relative bg-blue-800 shadow-lg border-b border-blue-700/50",
           className
         )}
       >
-        {/* Specular Highlight Curve at Top Edge (iPhone Liquid Glass) */}
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent pointer-events-none" />
-
-        {/* LEFT SECTION: Liquid Glass Logo (CoreSlash) */}
+        {/* LEFT SECTION: Logo (CoreSlash) */}
         <div className="flex items-center">
-          <LiquidGlassButton
-            variant="logo"
-            onClick={() => { navigate("/"); setMobileMenuOpen(false); }}
-            className="group py-1.5 px-4 md:px-5 bg-white/60 dark:bg-white/10 hover:bg-white/80 border border-black/10 dark:border-white/20 text-slate-900 shadow-sm"
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-3 group"
           >
             {/* AI Slash Icon */}
-            <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-md shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300">
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-xl bg-white/20 text-white shadow-md group-hover:scale-105 transition-transform duration-300">
               <Sparkles className="w-4 h-4 text-white animate-pulse" />
             </div>
             <span
               style={{ fontFamily: CAPSULE_FONT_FAMILY }}
-              className="text-slate-900 font-extrabold text-lg md:text-xl tracking-tight"
+              className="text-white font-extrabold text-xl md:text-2xl tracking-tight"
             >
-              Core<span className="text-blue-600 dark:text-blue-400">Slash</span>
+              Core<span className="text-blue-200">Slash</span>
             </span>
-          </LiquidGlassButton>
+          </Link>
         </div>
 
-        {/* CENTER NAVIGATION ITEMS (iPhone Capsule Track - Desktop) */}
+        {/* CENTER NAVIGATION ITEMS (Desktop) */}
         <nav
-          className="hidden lg:flex items-center gap-1 p-1.5 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 backdrop-blur-md"
+          className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-blue-700/60 border border-blue-500/40 backdrop-blur-md"
           aria-label="Main Navigation"
         >
           {NAV_ITEMS.map((item) => {
@@ -140,40 +133,36 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <div
                     style={{ fontFamily: CAPSULE_FONT_FAMILY }}
                     className={cn(
-                      "relative px-4 py-1.5 text-[14px] md:text-[15px] font-medium transition-colors duration-300 cursor-pointer select-none rounded-full flex items-center justify-center gap-1",
+                      "relative px-4 py-1.5 text-[14px] md:text-[15px] font-semibold transition-colors duration-300 cursor-pointer select-none rounded-full flex items-center justify-center gap-1.5",
                       isActive
-                        ? "text-slate-950 font-semibold"
-                        : "text-slate-700 hover:text-slate-950"
+                        ? "text-blue-900"
+                        : "text-white/90 hover:text-white"
                     )}
                     aria-expanded={hasDropdown ? isHovered : undefined}
                     aria-haspopup={hasDropdown ? "true" : undefined}
                   >
-                    {/* Active Capsule Highlight Pill */}
+                    {/* Active Highlight Pill */}
                     {isActive && (
                       <motion.div
-                        layoutId="activeCapsulePill"
-                        className="absolute inset-0 rounded-full bg-white dark:bg-sky-600 shadow-[0_2px_10px_rgba(0,0,0,0.08)] border border-black/10 dark:border-sky-500 -z-10"
+                        layoutId="activePill"
+                        className="absolute inset-0 rounded-full bg-white shadow-md -z-10"
                         transition={{ type: "spring", stiffness: 400, damping: 35 }}
                       />
                     )}
-  
+
                     {/* Hover Glow Pill */}
                     {!isActive && isHovered && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
-                        className="absolute inset-0 rounded-full bg-white/60 dark:bg-white/15 -z-10"
+                        className="absolute inset-0 rounded-full bg-white/20 -z-10"
                         transition={{ duration: 0.15 }}
                       />
                     )}
-  
+
                     {/* Text animation */}
-                    <motion.span
-                      animate={{ y: isHovered ? -1 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="relative z-10 flex items-center gap-1"
-                    >
+                    <span className="relative z-10 flex items-center gap-1">
                       {item.label}
                       <ChevronDown
                         className={cn(
@@ -181,7 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           isHovered && "rotate-180"
                         )}
                       />
-                    </motion.span>
+                    </span>
                   </div>
                 ) : (
                   <Link
@@ -189,17 +178,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => handleNavClick()}
                     style={{ fontFamily: CAPSULE_FONT_FAMILY }}
                     className={cn(
-                      "relative px-4 py-1.5 text-[14px] md:text-[15px] font-medium transition-colors duration-300 cursor-pointer select-none rounded-full flex items-center justify-center gap-1",
+                      "relative px-4 py-1.5 text-[14px] md:text-[15px] font-semibold transition-colors duration-300 cursor-pointer select-none rounded-full flex items-center justify-center gap-1.5",
                       isActive
-                        ? "text-slate-950 font-semibold"
-                        : "text-slate-700 hover:text-slate-950"
+                        ? "text-blue-900"
+                        : "text-white/90 hover:text-white"
                     )}
                   >
-                    {/* Active Capsule Highlight Pill */}
+                    {/* Active Highlight Pill */}
                     {isActive && (
                       <motion.div
-                        layoutId="activeCapsulePill"
-                        className="absolute inset-0 rounded-full bg-white dark:bg-sky-600 shadow-[0_2px_10px_rgba(0,0,0,0.08)] border border-black/10 dark:border-sky-500 -z-10"
+                        layoutId="activePill"
+                        className="absolute inset-0 rounded-full bg-white shadow-md -z-10"
                         transition={{ type: "spring", stiffness: 400, damping: 35 }}
                       />
                     )}
@@ -210,19 +199,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
-                        className="absolute inset-0 rounded-full bg-white/60 dark:bg-white/15 -z-10"
+                        className="absolute inset-0 rounded-full bg-white/20 -z-10"
                         transition={{ duration: 0.15 }}
                       />
                     )}
 
                     {/* Text animation */}
-                    <motion.span
-                      animate={{ y: isHovered ? -1 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="relative z-10 flex items-center gap-1"
-                    >
+                    <span className="relative z-10 flex items-center gap-1">
                       {item.label}
-                    </motion.span>
+                    </span>
                   </Link>
                 )}
 
@@ -237,8 +222,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50"
                       >
-                        <div 
-                          className="w-[220px] bg-white rounded-[20px] shadow-[0_16px_40px_rgba(0,0,0,0.12)] p-2 flex flex-col border border-black/5"
+                        <div
+                          className="w-[220px] bg-white rounded-[18px] shadow-xl p-2 flex flex-col border border-slate-100"
                           role="menu"
                         >
                           {item.dropdown?.map((dropItem) => (
@@ -246,7 +231,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                               key={dropItem.label}
                               to={dropItem.href}
                               role="menuitem"
-                              className="px-4 py-2.5 text-[14px] text-slate-600 font-medium rounded-[12px] transition-all hover:bg-purple-600 hover:text-white flex items-center"
+                              className="px-4 py-2.5 text-[14px] text-slate-700 font-medium rounded-[12px] transition-all hover:bg-blue-600 hover:text-white flex items-center"
                             >
                               {dropItem.label}
                             </Link>
@@ -263,27 +248,26 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* RIGHT SIDE CTA BUTTON (Desktop) */}
         <div className="hidden lg:flex items-center">
-          <LiquidGlassButton
-            variant="cta"
+          <button
             onClick={onGetQuoteClick}
-            className="py-2 px-5 font-semibold text-sm bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-blue-500/25 hover:shadow-blue-500/40"
+            className="py-2.5 px-6 font-semibold text-sm rounded-full bg-white text-blue-600 hover:bg-blue-50 transition-all duration-300 shadow-md flex items-center gap-2 group"
           >
             <span style={{ fontFamily: CAPSULE_FONT_FAMILY }}>Connect</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </LiquidGlassButton>
+          </button>
         </div>
 
         {/* MOBILE HAMBURGER BUTTON */}
         <div className="flex lg:hidden items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="relative p-2.5 rounded-full bg-white/60 dark:bg-white/10 border border-black/10 dark:border-white/20 backdrop-blur-xl text-slate-900 hover:bg-white/80 transition-all duration-300 focus:outline-none"
+            className="relative p-2.5 rounded-full bg-white/20 border border-white/30 text-white hover:bg-white/30 transition-all duration-300 focus:outline-none"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-slate-900" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-slate-900" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>

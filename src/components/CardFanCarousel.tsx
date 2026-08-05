@@ -4,8 +4,13 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import gsap from "gsap";
 
 export interface CardItem {
-  imgUrl: string;
-  alt?: string;
+  id: string;
+  name: string;
+  subtitle: string;
+  gradient: string;
+  glowColor: string;
+  logoUrl?: string;
+  svgLogo?: React.ReactNode;
   linkUrl?: string;
 }
 
@@ -21,7 +26,7 @@ const FAN_POSITIONS = [
   { rot: -21, scale: 0.7756, x: -30, y: 7.3, zIndex: 1 },
   { rot: -14, scale: 0.8498, x: -22, y: 4.0, zIndex: 2 },
   { rot: -7,  scale: 0.9346, x: -11, y: 1.3, zIndex: 3 },
-  { rot: 0,   scale: 1.0,    x: 0,   y: 0.0, zIndex: 10 },
+  { rot: 0,   scale: 1.15,   x: 0,   y: -1.0, zIndex: 10 },
   { rot: 7,   scale: 0.9346, x: 11,  y: 1.3, zIndex: 3 },
   { rot: 14,  scale: 0.8498, x: 22,  y: 4.0, zIndex: 2 },
   { rot: 21,  scale: 0.7756, x: 30,  y: 7.3, zIndex: 1 },
@@ -188,8 +193,8 @@ export const SocialCards = ({ cards, className = "" }: SocialCardsProps) => {
           delay = distance * 0.02;
 
           if (slot === hoveredSlot) {
-            targetY -= 2.5 * hM;
-            targetScale *= 1.08;
+            targetY -= 1.0 * hM;
+            targetScale *= 1.05;
           } else {
             const normalized = centerSlot > 0 ? (slot - centerSlot) / centerSlot : 0;
             const pushStrength = 8 * (1 - Math.abs(normalized)) * (1 + 0.2 * Math.max(0, 3 - distance));
@@ -258,16 +263,55 @@ export const SocialCards = ({ cards, className = "" }: SocialCardsProps) => {
       <div className="flex items-center justify-center w-full max-w-[90rem]">
         <div ref={containerRef} className="fan-layout relative flex justify-center items-center w-full h-[22rem] sm:h-[26rem] md:h-[28rem] lg:h-[34rem] xl:h-[38rem]">
           {cards.map((card, index) => {
-            const image = (
-              <div className="relative w-full h-full overflow-hidden rounded-2xl border border-border/40 bg-card shadow-2xl transition-all duration-300 hover:shadow-blue-500/20">
-                <img src={card.imgUrl} loading="lazy" alt={card.alt || `Card ${index}`} className="absolute inset-0 w-full h-full object-cover z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20 pointer-events-none" />
+            const isActive = index === centerIndex;
+            const cardContent = (
+              <div 
+                className={`premium-card relative flex flex-col items-center justify-center p-4 sm:p-6 w-full h-full overflow-hidden rounded-[24px] sm:rounded-[28px] border border-white/20 bg-gradient-to-br ${card.gradient} transition-all duration-300 group`}
+                style={{ '--glow-color': card.glowColor } as React.CSSProperties}
+                data-active={isActive}
+              >
+                {/* Premium Glass Top Light Reflection */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/5 to-transparent opacity-80 pointer-events-none" />
+                
+                {/* Noise Texture for Depth */}
+                <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+
+                <div className="flex-grow flex flex-col items-center justify-center gap-4 sm:gap-6 relative z-10">
+                  {/* Logo Section */}
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">
+                    {card.svgLogo ? (
+                      card.svgLogo
+                    ) : card.logoUrl?.endsWith(".png") ? (
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-md">
+                        <img 
+                          src={card.logoUrl} 
+                          alt={card.name} 
+                          className="w-full h-full object-contain filter drop-shadow-sm" 
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <img 
+                          src={card.logoUrl} 
+                          alt={card.name} 
+                          className="w-full h-full object-contain brightness-0 invert filter drop-shadow-md" 
+                        />
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Text Section */}
+                  <div className="text-center space-y-1">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-white tracking-wide drop-shadow-md">{card.name}</h3>
+                    <p className="text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-wider drop-shadow-sm">{card.subtitle}</p>
+                  </div>
+                </div>
               </div>
             );
             return card.linkUrl ? (
-              <a key={index} href={card.linkUrl} target={card.linkUrl.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer" className="fan-card block cursor-pointer">{image}</a>
+              <a key={card.id || index} href={card.linkUrl} target={card.linkUrl.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer" className="fan-card block cursor-pointer">{cardContent}</a>
             ) : (
-              <div key={index} className="fan-card">{image}</div>
+              <div key={card.id || index} className="fan-card">{cardContent}</div>
             );
           })}
         </div>
@@ -292,27 +336,45 @@ export const SocialCards = ({ cards, className = "" }: SocialCardsProps) => {
       <style>{`
         .fan-card {
           position: absolute;
-          width: 11rem;
-          height: 16rem;
+          width: 8.25rem;
+          height: 12rem;
           transform-origin: center center;
           will-change: transform, opacity;
         }
+        
+        .premium-card {
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        
+        .premium-card[data-active="true"] {
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2), 
+                      0 20px 40px -10px var(--glow-color), 
+                      0 0 20px var(--glow-color);
+        }
+        
+        .fan-card:hover .premium-card {
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 
+                      0 25px 50px -10px var(--glow-color), 
+                      0 0 40px var(--glow-color) !important;
+          filter: brightness(1.1);
+        }
+
         @media (min-width: 640px) {
           .fan-card {
-            width: 14rem;
-            height: 20rem;
+            width: 10.5rem;
+            height: 15rem;
           }
         }
         @media (min-width: 1024px) {
           .fan-card {
-            width: 17rem;
-            height: 24rem;
+            width: 12.75rem;
+            height: 18rem;
           }
         }
         @media (min-width: 1280px) {
           .fan-card {
-            width: 19rem;
-            height: 27rem;
+            width: 14.25rem;
+            height: 20.25rem;
           }
         }
       `}</style>

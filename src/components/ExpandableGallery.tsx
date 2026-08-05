@@ -1,6 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import appDevImg from "@/img/Services/App Development Coreslash Technologies.avif";
+import websiteDevImg from "@/img/Services/Website Development Coreslash Technologies.avif";
+import softwareSysImg from "@/img/Services/Software Systems Coreslash Technologies.avif";
+import ecommerceImg from "@/img/Services/E-commerce Coreslash Technologies.avif";
+import seoImg from "@/img/Services/SEO Optimization Coreslash technologies.avif";
+import digitalMarketingImg from "@/img/Services/Digital Marketing Coreslash Technologies.avif";
+import cloudDevopsImg from "@/img/Services/Cloud & DevOps Coreslash Technologies.avif";
+import dataAnalyticsImg from "@/img/Services/Data Analytics Coreslash Technologies.avif";
+import aiServicesImg from "@/img/Services/Services.avif";
+
 export interface GalleryItem {
   src: string;
   title?: string;
@@ -16,58 +26,58 @@ export interface ExpandableGalleryProps {
 
 export const NINE_DEMO_IMAGES: GalleryItem[] = [
   {
-    src: "https://images.unsplash.com/photo-1709884735646-897b57461d61?q=80&w=1200&auto=format&fit=crop",
-    title: "AI Neural Pipeline",
-    category: "Machine Learning",
-    description: "Enterprise deep learning models optimized for microsecond latency.",
+    src: aiServicesImg,
+    title: "Intelligent AI Automation",
+    category: "AI & Automation",
+    description: "Build AI-powered workflows, chatbots, and intelligent automation solutions that streamline business operations.",
   },
   {
-    src: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200&auto=format&fit=crop",
-    title: "Real-time Telemetry",
+    src: websiteDevImg,
+    title: "Modern Web Development",
+    category: "Website Development",
+    description: "Responsive, high-performance, SEO-friendly websites built for speed, scalability, and business growth.",
+  },
+  {
+    src: appDevImg,
+    title: "Mobile App Development",
+    category: "App Development",
+    description: "Native and cross-platform mobile applications designed for exceptional performance and user experience.",
+  },
+  {
+    src: softwareSysImg,
+    title: "Custom Software Systems",
+    category: "Software Systems",
+    description: "Enterprise-grade software solutions tailored to automate workflows and improve operational efficiency.",
+  },
+  {
+    src: ecommerceImg,
+    title: "Scalable E-Commerce Platforms",
+    category: "E-Commerce Solutions",
+    description: "Secure online stores with payment gateways, inventory management, and conversion-focused experiences.",
+  },
+  {
+    src: seoImg,
+    title: "SEO & Search Growth",
+    category: "SEO Optimization",
+    description: "Technical SEO, on-page optimization, local SEO, and content strategies to improve search rankings.",
+  },
+  {
+    src: digitalMarketingImg,
+    title: "Performance Marketing",
+    category: "Digital Marketing",
+    description: "Google Ads, Meta Ads, social media marketing, and lead generation campaigns that deliver measurable results.",
+  },
+  {
+    src: cloudDevopsImg,
+    title: "Cloud & DevOps",
     category: "Cloud Infrastructure",
-    description: "Distributed analytics dashboard processing 1M+ metrics per second.",
+    description: "Secure cloud hosting, scalable infrastructure, CI/CD pipelines, monitoring, and deployment automation.",
   },
   {
-    src: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1200&auto=format&fit=crop",
-    title: "Quantum Encryption",
-    category: "Cybersecurity",
-    description: "Post-quantum cryptographic defense for high-value financial networks.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1502085671122-2d218cd434e6?q=80&w=1200&auto=format&fit=crop",
-    title: "Omni-Channel API",
-    category: "Full-Stack System",
-    description: "Scalable GraphQL & REST infrastructure built with Rust and TypeScript.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
-    title: "Hyperscale Serverless",
-    category: "Cloud Operations",
-    description: "Auto-scaling multi-region deployment across global edge nodes.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-    title: "Glassmorphic SaaS UI",
-    category: "Product Design",
-    description: "Next-gen user interface with dynamic animations and fluid responsive layouts.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
-    title: "High-GPU Clusters",
-    category: "Hardware Engineering",
-    description: "Custom compute clusters tuned for massive parallel LLM training workloads.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop",
-    title: "Autonomous Robotics",
-    category: "Edge Computing",
-    description: "Real-time spatial perception and path planning algorithms.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
-    title: "Intelligent Automation",
-    category: "Enterprise AI",
-    description: "Automated workflow synthesis and agentic decision engines.",
+    src: dataAnalyticsImg,
+    title: "Business Intelligence",
+    category: "Data Analytics",
+    description: "Transform business data into actionable insights through dashboards, analytics, and reporting.",
   },
 ];
 
@@ -164,66 +174,93 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
           const endOfRow = startOfRow + rowItems.length;
 
           return (
-            <div key={rowIndex} className="flex flex-col sm:flex-row gap-3 h-auto sm:h-72 lg:h-80 w-full">
+            <div key={rowIndex} className="flex flex-col sm:flex-row gap-3 h-auto sm:h-[400px] lg:h-[420px] w-full">
               {rowItems.map((item, indexInRow) => {
                 const globalIndex = startOfRow + indexInRow;
                 const isHovered = hoveredIndex === globalIndex;
+                const isRowHovered = hoveredIndex !== null && hoveredIndex >= startOfRow && hoveredIndex < endOfRow;
+                const isCollapsed = isRowHovered && !isHovered;
+
                 const src = getImageSrc(item);
                 const { title, category } = getItemDetails(item);
 
                 return (
                   <motion.div
                     key={globalIndex}
-                    className="relative cursor-pointer overflow-hidden rounded-2xl border border-border/50 shadow-md hover:shadow-xl transition-all duration-300 min-h-[220px] sm:min-h-0"
+                    className="relative cursor-pointer overflow-hidden rounded-2xl border border-border/50 shadow-md hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 min-h-[300px] sm:min-h-0"
                     style={{ flex: 1 }}
                     animate={{ flex: getFlexValue(globalIndex, startOfRow, endOfRow) }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  onMouseEnter={() => setHoveredIndex(globalIndex)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={() => openImage(globalIndex)}
-                >
-                  <img
-                    src={src}
-                    alt={title || `Gallery card ${globalIndex + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                  
-                  {/* Subtle Gradient Overlay */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"
-                    initial={{ opacity: 0.4 }}
-                    animate={{ opacity: isHovered ? 0.85 : 0.45 }}
-                    transition={{ duration: 0.3 }}
-                  />
+                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                    onMouseEnter={() => setHoveredIndex(globalIndex)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    onClick={() => openImage(globalIndex)}
+                  >
+                    <img
+                      src={src}
+                      alt={title || `Gallery card ${globalIndex + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+                    />
 
-                  {/* Card Content & Badge */}
-                  <div className="absolute inset-0 p-5 flex flex-col justify-between z-10 pointer-events-none">
-                    <div className="flex justify-between items-start">
-                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-black/40 backdrop-blur-md text-white/90 border border-white/20">
-                        {category || `Card ${globalIndex + 1}`}
-                      </span>
-                    </div>
-
+                    {/* Subtle Gradient Overlay */}
                     <motion.div
-                      animate={{ y: isHovered ? 0 : 4 }}
+                      className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.85)] via-[rgba(0,0,0,0.45)] to-transparent"
+                      initial={{ opacity: 0.8 }}
+                      animate={{ opacity: isHovered ? 1 : 0.8 }}
                       transition={{ duration: 0.3 }}
-                    >
-                      <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                        {title || `Gallery Item ${globalIndex + 1}`}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-white/70 mt-1 line-clamp-2">
-                        {typeof item !== 'string' && item.description
-                          ? item.description
-                          : 'Click to expand view in full screen resolution.'}
-                      </p>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        );
-      })}
+                    />
+
+                    {/* Card Content & Badge */}
+                    <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-between z-10 pointer-events-none">
+                      <div className="flex justify-between items-start">
+                        <span className={`px-3 py-1 font-semibold rounded-full bg-blue-900 text-white border border-blue-500 shadow-md transition-all duration-300 truncate max-w-full ${isCollapsed ? 'text-[10px]' : 'text-xs'
+                          }`}>
+                          {category || `Card ${globalIndex + 1}`}
+                        </span>
+                      </div>
+
+                      <motion.div
+                        className={`w-full rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.25)] backdrop-blur-[12px] shadow-lg transition-all duration-300 ${isCollapsed ? 'p-2.5 sm:p-3' : 'p-4 sm:p-5'
+                          }`}
+                        animate={{ y: isHovered ? -8 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <h4 className={`font-extrabold text-white tracking-tight leading-tight mb-2 drop-shadow-sm transition-all duration-300 break-words ${
+                          isHovered 
+                            ? 'text-xl sm:text-2xl lg:text-3xl' 
+                            : isCollapsed 
+                              ? 'text-sm sm:text-base line-clamp-2' 
+                              : 'text-base sm:text-lg lg:text-xl line-clamp-3'
+                        }`}>
+                          {title || `Gallery Item ${globalIndex + 1}`}
+                        </h4>
+                        {/* <p className={`text-gray-300 leading-relaxed drop-shadow-sm transition-all duration-300 ${isHovered ? 'text-[13px] sm:text-[14px] line-clamp-none' :
+                          isCollapsed ? 'text-[11px] sm:text-[12px] line-clamp-2' :
+                            'text-[13px] sm:text-[14px] line-clamp-2'
+                          }`}>
+                          {typeof item !== 'string' && item.description
+                            ? item.description
+                            : 'Click to expand view in full screen resolution.'}
+                        </p> */}
+                        <p
+                          className={`text-gray-300 leading-relaxed drop-shadow-sm transition-all duration-300 ${isHovered
+                            ? 'text-[12px] sm:text-[13px] line-clamp-none'
+                            : isCollapsed
+                              ? 'text-[9px] sm:text-[10px] line-clamp-2'
+                              : 'text-[11px] sm:text-[12px] line-clamp-2'
+                            }`}
+                        >
+                          {typeof item !== 'string' && item.description
+                            ? item.description
+                            : 'Click to expand view in full screen resolution.'}
+                        </p>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
 
       {/* Expanded View Lightbox Modal */}

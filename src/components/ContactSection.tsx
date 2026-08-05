@@ -139,38 +139,7 @@ export const ContactSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Abstract Image / Graphic Replacement */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, delay: 0.5 }}
-              className="absolute -bottom-10 left-0 w-full h-[400px] pointer-events-none opacity-30 -z-10"
-            >
-              {/* Complex CSS representation of "Futuristic Artwork" since image gen failed */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 via-blue-900/20 to-transparent" />
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(56,189,248,0.2)_360deg)] opacity-50"
-              />
-              <div className="absolute inset-0" />
-
-              {/* Neon Lines */}
-              <motion.div
-                animate={{ y: ["-100%", "200%"] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                className="absolute left-[20%] w-[1px] h-32 bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-50 blur-[1px]"
-              />
-              <motion.div
-                animate={{ y: ["200%", "-100%"] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute left-[70%] w-[1px] h-40 bg-gradient-to-b from-transparent via-purple-400 to-transparent opacity-50 blur-[1px]"
-              />
-
-              {/* Glowing Core */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-cyan-400/30 rounded-full blur-xl animate-pulse" />
-            </motion.div>
+            {/* Removed Abstract Animation */}
 
             {/* Bottom Contact */}
             <motion.div
@@ -187,11 +156,11 @@ export const ContactSection: React.FC = () => {
                 <div className="flex gap-6">
                   <a href="tel:+1234567890" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
                     <Phone size={16} className="text-blue-400 group-hover:text-purple-400 transition-colors" />
-                    <span className="text-sm">+91 XXXXX XXXXX</span>
+                    <span className="text-sm">+91 83107 11652</span>
                   </a>
                   <a href="mailto:contact@company.com" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
                     <Mail size={16} className="text-blue-400 group-hover:text-purple-400 transition-colors" />
-                    <span className="text-sm">contact@company.com</span>
+                    <span className="text-sm">contact@coreslashtechnologies.com</span>
                   </a>
                 </div>
               </div>
