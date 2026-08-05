@@ -15,9 +15,25 @@ export default function ServicesIndex() {
 
   const services = [
     {
+      id: "ai-automation",
+      title: "AI Automation",
+      category: "AI & Automation",
+      description: "AI-powered workflows, custom LLM integration, autonomous agentic systems, and predictive data pipelines built for high efficiency.",
+      icon: Cpu,
+      href: "/services/ai-automation",
+      gradient: "from-blue-600 to-cyan-500",
+      features: [
+        "Custom LLM & RAG Integration",
+        "Autonomous Agentic Workflows",
+        "Intelligent Process Automation",
+        "Predictive Analytics Engines"
+      ],
+      popular: true
+    },
+    {
       id: "web-dev",
       title: "Web Development",
-      category: "Frontend & Fullstack",
+      category: "Web Development",
       description: "High-performance React & Next.js websites built for lightning-fast speeds, responsive elegance, and maximal conversion rates.",
       icon: Code2,
       href: "/services/web-development",
@@ -32,8 +48,8 @@ export default function ServicesIndex() {
     },
     {
       id: "app-dev",
-      title: "Mobile App Development",
-      category: "iOS & Android",
+      title: "App Development",
+      category: "App Development",
       description: "Native & cross-platform mobile apps engineered with Flutter and React Native for fluid touch interactions and offline capability.",
       icon: Smartphone,
       href: "/services/app-development",
@@ -46,40 +62,40 @@ export default function ServicesIndex() {
       ]
     },
     {
-      id: "shopify-dev",
-      title: "Shopify & E-Commerce",
-      category: "Digital Commerce",
-      description: "High-converting online stores, liquid custom themes, and frictionless checkout integrations that turn visitors into loyal buyers.",
-      icon: ShoppingBag,
-      href: "/services/shopify-development",
-      gradient: "from-emerald-600 to-teal-600",
-      features: [
-        "Custom Shopify Liquid Theme Design",
-        "Headless Shopify & Storefront API",
-        "Payment Gateway & Taxes Setup",
-        "Conversion Rate Optimization (CRO)"
-      ]
-    },
-    {
       id: "software-systems",
-      title: "Enterprise Software Systems",
-      category: "Backend & AI",
-      description: "Scalable backend APIs, custom CRM/ERP solutions, SCADA integrations, and AI workflow automation tailored for industrial enterprise.",
+      title: "Software Systems",
+      category: "Software Systems",
+      description: "Scalable backend APIs, custom CRM/ERP solutions, SCADA integrations, and enterprise microservices engineered for industrial scale.",
       icon: Cpu,
       href: "/services/software-systems",
       gradient: "from-blue-600 to-sky-500",
       features: [
         "Custom ERP/CRM Enterprise Engines",
-        "AI & Machine Learning Automations",
-        "SCADA & Industrial IoT Pipelines",
-        "Microservices & REST/GraphQL APIs"
+        "Industrial SCADA & IoT Pipelines",
+        "Scalable Microservices Architecture",
+        "High-Throughput REST & GraphQL APIs"
       ],
       popular: true
     },
     {
+      id: "ecommerce-solutions",
+      title: "E-Commerce Solutions",
+      category: "E-Commerce Solutions",
+      description: "B2B and B2C custom web stores featuring inventory sync, multi-currency checkout, sub-second search, and automated shipping.",
+      icon: ShoppingBag,
+      href: "/services/ecommerce-solutions",
+      gradient: "from-cyan-600 to-blue-600",
+      features: [
+        "B2B & B2C Custom Store Architecture",
+        "Multi-Currency & Tax Automation",
+        "Inventory & Logistics API Sync",
+        "Frictionless Instant Checkout"
+      ]
+    },
+    {
       id: "seo-solutions",
-      title: "SEO & Growth Optimization",
-      category: "Organic Visibility",
+      title: "SEO Solutions",
+      category: "SEO Solutions",
       description: "Technical SEO audits, semantic schema markup, Core Web Vitals tuning, and content strategies to rank #1 on Google.",
       icon: Search,
       href: "/services/seo-solutions",
@@ -92,18 +108,48 @@ export default function ServicesIndex() {
       ]
     },
     {
-      id: "ecommerce-custom",
-      title: "Custom E-Commerce Systems",
-      category: "Fullstack Retail",
-      description: "B2B and B2C custom web stores featuring inventory sync, multi-currency checkout, sub-second search, and automated shipping.",
-      icon: Cloud,
-      href: "/services/ecommerce",
-      gradient: "from-cyan-600 to-blue-600",
+      id: "shopify-dev",
+      title: "Shopify Development",
+      category: "Shopify Development",
+      description: "High-converting Liquid custom themes, headless Shopify storefronts, app integrations, and conversion-tuned checkout funnels.",
+      icon: ShoppingBag,
+      href: "/services/shopify-development",
+      gradient: "from-emerald-600 to-teal-600",
       features: [
-        "B2B & B2C Custom Store Architecture",
-        "Multi-Currency & Tax Automation",
-        "Inventory & Logistics API Sync",
-        "Ultra-Fast Elasticsearch / Algolia"
+        "Custom Shopify Liquid Theme Design",
+        "Headless Shopify & Storefront API",
+        "Payment Gateway & Tax Engine Setup",
+        "Conversion Rate Optimization (CRO)"
+      ]
+    },
+    {
+      id: "cloud-infrastructure",
+      title: "Cloud Infrastructure",
+      category: "Cloud Infrastructure",
+      description: "Architecting resilient AWS, Azure, and Cloudflare environments with automated CI/CD pipelines, Kubernetes, and zero-downtime deploys.",
+      icon: Cloud,
+      href: "/services/cloud-infrastructure",
+      gradient: "from-sky-500 to-blue-700",
+      features: [
+        "AWS / Azure Multi-Cloud Architecture",
+        "Automated CI/CD Deployment Pipelines",
+        "Kubernetes & Container Orchestration",
+        "24/7 Monitoring & Infrastructure Security"
+      ]
+    },
+    {
+      id: "data-analytics",
+      title: "Data Analytics",
+      category: "Data Analytics",
+      description: "Transform raw organizational data into actionable executive insights through real-time dashboards, telemetry, and automated reporting.",
+      icon: Cloud,
+      href: "/services/data-analytics",
+      gradient: "from-violet-600 to-indigo-800",
+      features: [
+        "Real-Time Executive Dashboards",
+        "Data Warehouse & Pipeline ETL",
+        "Business Intelligence Telemetry",
+        "Automated PDF & Email Reports"
       ]
     }
   ];

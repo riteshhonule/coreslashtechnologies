@@ -150,7 +150,7 @@ export default function TechnologiesSection() {
                   >
                     {tech.icon}
                   </div>
-                  <span className="font-bold text-black dark:text-white text-base md:text-lg tracking-tight truncate uppercase">
+                  <span className="font-medium text-foreground text-sm md:text-base tracking-tight truncate">
                     {tech.name}
                   </span>
                 </motion.div>

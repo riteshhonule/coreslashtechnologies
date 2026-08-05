@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 import appDevImg from "@/img/Services/App Development Coreslash Technologies.avif";
 import websiteDevImg from "@/img/Services/Website Development Coreslash Technologies.avif";
 import softwareSysImg from "@/img/Services/Software Systems Coreslash Technologies.avif";
 import ecommerceImg from "@/img/Services/E-commerce Coreslash Technologies.avif";
 import seoImg from "@/img/Services/SEO Optimization Coreslash technologies.avif";
-import digitalMarketingImg from "@/img/Services/Digital Marketing Coreslash Technologies.avif";
 import cloudDevopsImg from "@/img/Services/Cloud & DevOps Coreslash Technologies.avif";
 import dataAnalyticsImg from "@/img/Services/Data Analytics Coreslash Technologies.avif";
 import aiServicesImg from "@/img/Services/Services.avif";
@@ -16,6 +16,7 @@ export interface GalleryItem {
   title?: string;
   category?: string;
   description?: string;
+  href?: string;
 }
 
 export interface ExpandableGalleryProps {
@@ -27,57 +28,66 @@ export interface ExpandableGalleryProps {
 export const NINE_DEMO_IMAGES: GalleryItem[] = [
   {
     src: aiServicesImg,
-    title: "Intelligent AI Automation",
-    category: "AI & Automation",
+    title: "AI Automation",
+    category: "AI Automation",
     description: "Build AI-powered workflows, chatbots, and intelligent automation solutions that streamline business operations.",
+    href: "/services/ai-automation",
   },
   {
     src: websiteDevImg,
-    title: "Modern Web Development",
-    category: "Website Development",
+    title: "Web Development",
+    category: "Web Development",
     description: "Responsive, high-performance, SEO-friendly websites built for speed, scalability, and business growth.",
+    href: "/services/web-development",
   },
   {
     src: appDevImg,
-    title: "Mobile App Development",
+    title: "App Development",
     category: "App Development",
     description: "Native and cross-platform mobile applications designed for exceptional performance and user experience.",
+    href: "/services/app-development",
   },
   {
     src: softwareSysImg,
-    title: "Custom Software Systems",
+    title: "Software Systems",
     category: "Software Systems",
     description: "Enterprise-grade software solutions tailored to automate workflows and improve operational efficiency.",
+    href: "/services/software-systems",
   },
   {
     src: ecommerceImg,
-    title: "Scalable E-Commerce Platforms",
+    title: "E-Commerce Solutions",
     category: "E-Commerce Solutions",
     description: "Secure online stores with payment gateways, inventory management, and conversion-focused experiences.",
+    href: "/services/ecommerce-solutions",
   },
   {
     src: seoImg,
-    title: "SEO & Search Growth",
-    category: "SEO Optimization",
+    title: "SEO Solutions",
+    category: "SEO Solutions",
     description: "Technical SEO, on-page optimization, local SEO, and content strategies to improve search rankings.",
+    href: "/services/seo-solutions",
   },
   {
-    src: digitalMarketingImg,
-    title: "Performance Marketing",
-    category: "Digital Marketing",
-    description: "Google Ads, Meta Ads, social media marketing, and lead generation campaigns that deliver measurable results.",
+    src: ecommerceImg,
+    title: "Shopify Development",
+    category: "Shopify Development",
+    description: "Custom Shopify Liquid themes, headless commerce storefronts, app integrations, and conversion-engineered checkout experiences.",
+    href: "/services/shopify-development",
   },
   {
     src: cloudDevopsImg,
-    title: "Cloud & DevOps",
+    title: "Cloud Infrastructure",
     category: "Cloud Infrastructure",
     description: "Secure cloud hosting, scalable infrastructure, CI/CD pipelines, monitoring, and deployment automation.",
+    href: "/services/cloud-infrastructure",
   },
   {
     src: dataAnalyticsImg,
-    title: "Business Intelligence",
+    title: "Data Analytics",
     category: "Data Analytics",
     description: "Transform business data into actionable insights through dashboards, analytics, and reporting.",
+    href: "/services/data-analytics",
   },
 ];
 
@@ -86,7 +96,7 @@ const getImageSrc = (item: string | GalleryItem): string =>
 
 const getItemDetails = (item: string | GalleryItem) => {
   if (typeof item === 'string') {
-    return { title: undefined, category: undefined, description: undefined };
+    return { title: undefined, category: undefined, description: undefined, href: undefined };
   }
   return item;
 };
@@ -96,6 +106,7 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
   className = '',
   rowLayout,
 }) => {
+  const navigate = useNavigate();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -192,8 +203,14 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
                     animate={{ flex: getFlexValue(globalIndex, startOfRow, endOfRow) }}
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                     onMouseEnter={() => setHoveredIndex(globalIndex)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => openImage(globalIndex)}
+                    onClick={() => {
+                      const itemDetails = getItemDetails(item);
+                      if (itemDetails.href) {
+                        navigate(itemDetails.href);
+                      } else {
+                        openImage(globalIndex);
+                      }
+                    }}
                   >
                     <img
                       src={src}

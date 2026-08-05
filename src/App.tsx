@@ -15,6 +15,9 @@ import ShopifyDevelopment from "./pages/services/ShopifyDevelopment";
 import SEOOptimization from "./pages/services/SEOOptimization";
 import EcommerceWebsite from "./pages/services/EcommerceWebsite";
 import SoftwareSystems from "./pages/services/SoftwareSystems";
+import AIAutomation from "./pages/services/AIAutomation";
+import CloudInfrastructure from "./pages/services/CloudInfrastructure";
+import DataAnalytics from "./pages/services/DataAnalytics";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage";
 import TermsOfService from "./pages/TermsOfServicePage";
 import CookiePolicy from "./pages/CookiePolicyPage";
@@ -39,14 +42,18 @@ function App() {
 
             <Route path="services">
               <Route index element={<ServicesIndex />} />
-              <Route path="website-development" element={<WebsiteDevelopment />} />
+              <Route path="ai-automation" element={<AIAutomation />} />
               <Route path="web-development" element={<WebsiteDevelopment />} />
+              <Route path="website-development" element={<WebsiteDevelopment />} />
               <Route path="app-development" element={<AppDevelopment />} />
-              <Route path="shopify-development" element={<ShopifyDevelopment />} />
               <Route path="software-systems" element={<SoftwareSystems />} />
-              <Route path="seo" element={<SEOOptimization />} />
-              <Route path="seo-solutions" element={<SEOOptimization />} />
+              <Route path="ecommerce-solutions" element={<EcommerceWebsite />} />
               <Route path="ecommerce" element={<EcommerceWebsite />} />
+              <Route path="seo-solutions" element={<SEOOptimization />} />
+              <Route path="seo" element={<SEOOptimization />} />
+              <Route path="shopify-development" element={<ShopifyDevelopment />} />
+              <Route path="cloud-infrastructure" element={<CloudInfrastructure />} />
+              <Route path="data-analytics" element={<DataAnalytics />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
