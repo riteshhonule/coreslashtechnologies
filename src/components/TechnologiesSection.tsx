@@ -113,7 +113,7 @@ export default function TechnologiesSection() {
                 {isActive && (
                   <motion.div
                     layoutId="activeTechTabIndicator"
-                    className="absolute -bottom-[17px] left-0 w-full h-[3px] bg-gradient-to-r from-orange-400 to-rose-400 rounded-t-full"
+                    className="absolute -bottom-[17px] left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 to-indigo-500 rounded-t-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -142,7 +142,7 @@ export default function TechnologiesSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: idx * 0.05, duration: 0.3 }}
                   whileHover={{ y: -5 }}
-                  className="group relative flex items-center gap-4 p-4 md:p-5 h-[80px] bg-white dark:bg-white/[0.03] border border-black/10 dark:border-white/5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_30px_rgba(251,146,60,0.15)] dark:hover:shadow-[0_10px_30px_rgba(251,146,60,0.1)] hover:border-orange-400/50 dark:hover:border-orange-400/50 cursor-pointer transition-all duration-300"
+                  className="group relative flex items-center gap-4 p-4 md:p-5 h-[80px] bg-white dark:bg-white/[0.03] border border-black/10 dark:border-white/5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)] hover:border-blue-500/50 dark:hover:border-blue-500/50 cursor-pointer transition-all duration-300"
                 >
                   <div
                     className="flex items-center justify-center w-12 h-12 text-4xl group-hover:scale-110 transition-transform duration-300 drop-shadow-sm"

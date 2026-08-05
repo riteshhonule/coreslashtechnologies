@@ -1,15 +1,28 @@
 import { Helmet } from "react-helmet-async";
+import { ContactSection } from "@/components/ui/contact";
+import { SocialConnect } from "@/components/ui/connect-with-us";
 
-export default function Contact() {
+export default function ContactPage() {
+  const handleFormSubmit = (data: any) => {
+    console.log("Contact form data submitted:", data);
+  };
+
   return (
-    <div className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto min-h-[60vh]">
+    <div className="min-h-screen bg-background text-foreground">
       <Helmet>
         <title>Contact Us | CoreSlash Technologies</title>
         <meta name="description" content="Get in touch with CoreSlash Technologies to discuss your next big digital project." />
         <link rel="canonical" href="https://www.coreslash.com/contact" />
       </Helmet>
-      <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-      <p className="text-muted-foreground">Placeholder content for the Contact page.</p>
+
+      <ContactSection
+        title="We can turn your dream project into reality"
+        mainMessage="Let's talk! 👋"
+        contactEmail="contact@coreslashtechnologies.com"
+        onSubmit={handleFormSubmit}
+      />
+
+      <SocialConnect />
     </div>
   );
 }

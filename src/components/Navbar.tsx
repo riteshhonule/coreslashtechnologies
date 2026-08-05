@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LiquidGlassButton } from "./LiquidGlass";
 import { cn } from "@/lib/utils";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Sparkles, ArrowRight, ChevronDown } from "lucide-react";
 
 export interface NavItem {
@@ -24,7 +24,6 @@ const NAV_ITEMS: NavItem[] = [
       { label: "App Development", href: "/services/app-development" },
       { label: "Shopify Development", href: "/services/shopify-development" },
       { label: "Software Systems", href: "/services/software-systems" },
-      { label: "Digital Marketing", href: "/services/digital-marketing" },
       { label: "SEO Solutions", href: "/services/seo-solutions" },
     ],
   },
@@ -48,7 +47,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onGetQuoteClick,
 }) => {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const getActiveTab = () => {
     if (location.pathname === "/") return "Home";
@@ -89,6 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         className={cn(
           "sticky top-0 z-50 w-full h-[72px] md:h-[76px]",
           "transition-all duration-500 flex items-center justify-between px-6 md:px-12 relative bg-blue-800 shadow-lg border-b border-blue-700/50",
+          isScrolled && "shadow-xl bg-blue-900/95 backdrop-blur-md",
           className
         )}
       >
@@ -273,123 +272,134 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </motion.header>
 
-      {/* MOBILE GLASS DRAWER */}
+      {/* MOBILE GLASS DRAWER */ }
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            transition={{ duration: 0.3 }}
-            style={{ fontFamily: CAPSULE_FONT_FAMILY }}
-            className="fixed inset-0 z-40 bg-sky-50/95 dark:bg-slate-950/95 flex flex-col justify-between pt-28 pb-10 px-8 lg:hidden text-slate-900"
-          >
-            {/* Mobile Nav Links */}
-            <div className="flex flex-col space-y-2 overflow-y-auto max-h-[70vh] px-2 -mx-2">
-              {NAV_ITEMS.map((item, index) => {
-                const isActive = activeTab === item.label;
-                const hasDropdown = !!item.dropdown;
-                const isDropdownOpen = openMobileDropdown === item.label;
+  {
+    mobileMenuOpen && (
+      <motion.div
+        initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+        animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
+        exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+        transition={{ duration: 0.3 }}
+        style={{ fontFamily: CAPSULE_FONT_FAMILY }}
+        className="fixed inset-0 z-40 bg-sky-50/95 dark:bg-slate-950/95 flex flex-col justify-between pt-28 pb-10 px-8 lg:hidden text-slate-900"
+      >
+        {/* Mobile Nav Links */}
+        <div className="flex flex-col space-y-2 overflow-y-auto max-h-[70vh] px-2 -mx-2">
+          {NAV_ITEMS.map((item, index) => {
+            const isActive = activeTab === item.label;
+            const hasDropdown = !!item.dropdown;
+            const isDropdownOpen = openMobileDropdown === item.label;
 
-                return (
-                  <div key={item.label} className="flex flex-col border-b border-black/10 dark:border-white/15 pb-4 mb-2">
-                    <motion.div
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: index * 0.05 + 0.1 }}
-                      style={{ fontFamily: CAPSULE_FONT_FAMILY }}
-                      className="flex items-center justify-between"
+            return (
+              <div key={item.label} className="flex flex-col border-b border-black/10 dark:border-white/15 pb-4 mb-2">
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.05 + 0.1 }}
+                  style={{ fontFamily: CAPSULE_FONT_FAMILY }}
+                  className="flex items-center justify-between"
+                >
+                  {hasDropdown ? (
+                    <div
+                      onClick={() => setOpenMobileDropdown(isDropdownOpen ? null : item.label)}
+                      className={cn(
+                        "text-2xl font-semibold tracking-tight transition-colors flex flex-1 items-center gap-3 cursor-pointer",
+                        isActive
+                          ? "text-blue-600 dark:text-blue-400 font-bold"
+                          : "text-slate-700 hover:text-slate-950"
+                      )}
                     >
-                      {hasDropdown ? (
-                        <div
-                          onClick={() => setOpenMobileDropdown(isDropdownOpen ? null : item.label)}
-                          className={cn(
-                            "text-2xl font-semibold tracking-tight transition-colors flex flex-1 items-center gap-3 cursor-pointer",
-                            isActive
-                              ? "text-blue-600 dark:text-blue-400 font-bold"
-                              : "text-slate-700 hover:text-slate-950"
-                          )}
-                        >
-                          <span>{item.label}</span>
-                          <ChevronDown
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={cn(
+                          "w-6 h-6 transition-transform duration-300 text-slate-500",
+                          isDropdownOpen && "rotate-180"
+                        )}
+                      />
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      onClick={() => handleNavClick()}
+                      className={cn(
+                        "text-2xl font-semibold tracking-tight transition-colors flex flex-1 items-center gap-3",
+                        isActive
+                          ? "text-blue-600 dark:text-blue-400 font-bold"
+                          : "text-slate-700 hover:text-slate-950"
+                      )}
+                    >
+                      <span>{item.label}</span>
+                    </Link>
+                  )}
+                  {isActive && !hasDropdown && (
+                    <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-400 shadow-[0_0_10px_#2563eb]" />
+                  )}
+                </motion.div>
+
+                {/* Mobile Dropdown */}
+                <AnimatePresence>
+                  {hasDropdown && isDropdownOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden flex flex-col space-y-3 pt-4 pl-4"
+                    >
+                      {item.dropdown?.map((dropItem) => {
+                        const isDropActive = location.pathname === dropItem.href || (location.pathname === "/services/seo" && dropItem.href === "/services/seo-solutions");
+                        return (
+                          <Link
+                            key={dropItem.label}
+                            to={dropItem.href}
                             className={cn(
-                              "w-6 h-6 transition-transform duration-300 text-slate-500",
-                              isDropdownOpen && "rotate-180"
+                              "text-[17px] font-medium transition-colors py-1 flex items-center justify-between",
+                              isDropActive
+                                ? "text-blue-600 dark:text-blue-400 font-bold"
+                                : "text-slate-600 hover:text-blue-600 dark:hover:text-blue-400"
                             )}
-                          />
-                        </div>
-                      ) : (
-                        <Link
-                          to={item.href}
-                          onClick={() => handleNavClick()}
-                          className={cn(
-                            "text-2xl font-semibold tracking-tight transition-colors flex flex-1 items-center gap-3",
-                            isActive
-                              ? "text-blue-600 dark:text-blue-400 font-bold"
-                              : "text-slate-700 hover:text-slate-950"
-                          )}
-                        >
-                          <span>{item.label}</span>
-                        </Link>
-                      )}
-                      {isActive && !hasDropdown && (
-                        <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-400 shadow-[0_0_10px_#2563eb]" />
-                      )}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setOpenMobileDropdown(null);
+                            }}
+                          >
+                            <span>{dropItem.label}</span>
+                            {isDropActive && <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-4" />}
+                          </Link>
+                        );
+                      })}
                     </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
 
-                    {/* Mobile Dropdown */}
-                    <AnimatePresence>
-                      {hasDropdown && isDropdownOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden flex flex-col space-y-3 pt-4 pl-4"
-                        >
-                          {item.dropdown?.map((dropItem) => (
-                            <Link
-                              key={dropItem.label}
-                              to={dropItem.href}
-                              className="text-[17px] text-slate-600 font-medium hover:text-purple-600 transition-colors py-1"
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setOpenMobileDropdown(null);
-                              }}
-                            >
-                              {dropItem.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Mobile Bottom CTA */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.35 }}
-              className="pt-6 border-t border-black/10 dark:border-white/15"
-            >
-              <LiquidGlassButton
-                variant="cta"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (onGetQuoteClick) onGetQuoteClick();
-                }}
-                className="w-full py-3.5 text-center justify-center text-base bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white"
-              >
-                <span style={{ fontFamily: CAPSULE_FONT_FAMILY }}>Connect</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </LiquidGlassButton>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Mobile Bottom CTA */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.35 }}
+          className="pt-6 border-t border-black/10 dark:border-white/15"
+        >
+          <LiquidGlassButton
+            variant="cta"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              if (onGetQuoteClick) onGetQuoteClick();
+            }}
+            className="w-full py-3.5 text-center justify-center text-base bg-gradient-to-r from-blue-600 to-indigo-600 text-white"
+          >
+            <span style={{ fontFamily: CAPSULE_FONT_FAMILY }}>Connect</span>
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </LiquidGlassButton>
+        </motion.div>
+      </motion.div>
+    )
+  }
+      </AnimatePresence >
     </>
   );
 };

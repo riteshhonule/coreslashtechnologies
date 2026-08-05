@@ -4,7 +4,7 @@ import FanCarouselSection from "@/components/FanCarouselSection";
 import TechnologiesSection from "@/components/TechnologiesSection";
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
-import { Sparkles, CheckCircle2 } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 import awsImg from "@/img/hero/CoreSlash Technologies  Aws.png";
@@ -182,4 +182,3 @@ export default function Home() {
     </>
   );
 }
-

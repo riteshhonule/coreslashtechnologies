@@ -1,27 +1,4 @@
-import { Helmet } from "react-helmet-async";
-import HeroSection from "@/components/web-development/HeroSection";
-import CoreServices from "@/components/web-development/CoreServices";
-import ProcessTimeline from "@/components/web-development/ProcessTimeline";
-import EngagementModels from "@/components/web-development/EngagementModels";
-import TechnologyGrid from "@/components/web-development/TechnologyGrid";
-import PortfolioSection from "@/components/web-development/PortfolioSection";
-import CTASection from "@/components/web-development/CTASection";
 import FaqSection, { type FaqData } from "@/components/ui/habit-faq-scroller";
-
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Custom Web Development Services",
-  "provider": {
-    "@type": "Organization",
-    "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
-  },
-  "serviceType": "Web Development",
-  "description": "Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies. Modern, scalable, secure, and SEO-friendly web development services.",
-  "areaServed": "Worldwide"
-};
 
 const webDevFaqData: FaqData = {
   mainTitle: "Frequently Asked Questions",
@@ -96,33 +73,10 @@ const webDevFaqData: FaqData = {
   ]
 };
 
-export default function WebsiteDevelopment() {
+export default function FAQAccordion() {
   return (
-    <>
-      <Helmet>
-        <title>Custom Web Development Services | CoreSlash Technologies</title>
-        <meta 
-          name="description" 
-          content="Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies. Modern, scalable, secure, and SEO-friendly web development services." 
-        />
-        <link rel="canonical" href="https://www.coreslash.com/services/web-development" />
-        <script type="application/ld+json">
-          {JSON.stringify(serviceSchema)}
-        </script>
-      </Helmet>
-
-      <HeroSection />
-      <CoreServices />
-      <ProcessTimeline />
-      <EngagementModels />
-      <TechnologyGrid />
-      <PortfolioSection />
-
-      <section className="w-full py-16 md:py-24 border-t border-border/40 overflow-hidden bg-background">
-        <FaqSection data={webDevFaqData} />
-      </section>
-
-      <CTASection />
-    </>
+    <section className="w-full py-16 md:py-24 border-t border-border/40 overflow-hidden bg-background">
+      <FaqSection data={webDevFaqData} />
+    </section>
   );
 }

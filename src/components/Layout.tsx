@@ -4,9 +4,9 @@ import { Navbar } from "./Navbar";
 import FooterSection from "./Footer";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  X, CheckCircle2, User, Mail, MessageSquare,
-  ArrowRight, ShieldCheck
+import { 
+  Sparkles, X, CheckCircle2, User, Mail, MessageSquare, 
+  ArrowRight, ShieldCheck 
 } from "lucide-react";
 
 export default function Layout() {
@@ -21,13 +21,13 @@ export default function Layout() {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
       <Navbar onGetQuoteClick={() => setQuoteModalOpen(true)} />
-
-      <main className="flex-grow pt-4">
+      
+      <main className="flex-grow pt-[96px]">
         <Outlet />
       </main>
 
       <FooterSection />
-
+      
       {/* Floating WhatsApp Button */}
       <WhatsAppButton />
 
