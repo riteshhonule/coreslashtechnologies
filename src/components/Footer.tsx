@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -9,6 +8,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { FaLinkedinIn, FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 export default function FooterSection() {
@@ -73,9 +73,10 @@ export default function FooterSection() {
             </p>
             <div className="flex items-center gap-3">
               {[
-                { name: "LinkedIn", icon: <FaLinkedinIn className="w-4 h-4" />, href: "https://www.linkedin.com/company/coreslash" },
-                { name: "Instagram", icon: <FaInstagram className="w-4 h-4" />, href: "https://www.instagram.com/coreslash" },
-                { name: "Facebook", icon: <FaFacebookF className="w-4 h-4" />, href: "https://www.facebook.com/coreslash" },
+                { name: "LinkedIn", icon: <FaLinkedinIn className="w-4 h-4" />, href: "https://www.linkedin.com/company/coreslash-technologies/" },
+                { name: "X", icon: <FaXTwitter className="w-4 h-4" />, href: "https://x.com/CoreSlashTech" },
+                { name: "Instagram", icon: <FaInstagram className="w-4 h-4" />, href: "https://www.instagram.com/coreslashtechnologies?igsh=MWRmaTN2am1wNG1kdw%3D%3D&utm_source=qr" },
+                { name: "Facebook", icon: <FaFacebookF className="w-4 h-4" />, href: "https://www.facebook.com/profile.php?id=61591466563226" },
                 { name: "WhatsApp", icon: <FaWhatsapp className="w-4 h-4" />, href: "https://wa.me/918310711652" },
               ].map((social, i) => (
                 <motion.a
@@ -94,16 +95,20 @@ export default function FooterSection() {
             </div>
           </motion.div>
 
-          {/* Column 2: Services */}
-          <motion.div variants={itemVariants} className="lg:col-span-2">
+          {/* Column 2: Services (Takes up 3 cols) */}
+          <motion.div variants={itemVariants} className="lg:col-span-3">
             <h4 className="text-white font-bold text-lg mb-6">Services</h4>
-            <ul className="flex flex-col space-y-3.5">
+            <ul className="flex flex-col space-y-3">
               {[
-                { label: "Website Development", href: "/services/website-development" },
+                { label: "AI Automation", href: "/services/ai-automation" },
+                { label: "Web Development", href: "/services/web-development" },
+                { label: "App Development", href: "/services/app-development" },
+                { label: "Software Systems", href: "/services/software-systems" },
+                { label: "E-Commerce Solutions", href: "/services/ecommerce-solutions" },
+                { label: "SEO Solutions", href: "/services/seo-solutions" },
                 { label: "Shopify Development", href: "/services/shopify-development" },
-                { label: "E-commerce Website", href: "/services/ecommerce" },
-                { label: "Google Ads & PPC", href: "/services/ppc" },
-                { label: "SEO Optimization", href: "/services/seo" },
+                { label: "Cloud Infrastructure", href: "/services/cloud-infrastructure" },
+                { label: "Data Analytics", href: "/services/data-analytics" },
               ].map((link, i) => (
                 <li key={i}>
                   <Link
@@ -118,7 +123,7 @@ export default function FooterSection() {
             </ul>
           </motion.div>
 
-          {/* Column 3: Company */}
+          {/* Column 3: Company (Takes up 2 cols) */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
             <h4 className="text-white font-bold text-lg mb-6">Company</h4>
             <ul className="flex flex-col space-y-3.5">
@@ -142,37 +147,16 @@ export default function FooterSection() {
             </ul>
           </motion.div>
 
-          {/* Column 4: Legal */}
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h4 className="text-white font-bold text-lg mb-6">Legal</h4>
-            <ul className="flex flex-col space-y-3.5">
-              {[
-                { label: "Privacy Policy", href: "#" },
-                { label: "Terms of Service", href: "#" },
-              ].map((link, i) => (
-                <li key={i}>
-                  <Link
-                    to={link.href}
-                    className="text-slate-400 hover:text-white inline-block relative group transition-transform hover:translate-x-1"
-                  >
-                    <span className="group-hover:text-blue-400 transition-colors">{link.label}</span>
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Column 5: Contact */}
-          <motion.div variants={itemVariants} className="lg:col-span-2">
+          {/* Column 4: Contact (Takes up 3 cols) */}
+          <motion.div variants={itemVariants} className="lg:col-span-3">
             <h4 className="text-white font-bold text-lg mb-6">Contact</h4>
             <ul className="flex flex-col space-y-4">
               <li>
-                <a href="tel:+9183310711652" className="flex items-start gap-3 group">
+                <a href="tel:+918310711652" className="flex items-start gap-3 group">
                   <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-colors">
                     <Phone className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-slate-400 group-hover:text-white transition-colors text-sm mt-1.5">+91 7995240580</span>
+                  <span className="text-slate-400 group-hover:text-white transition-colors text-sm mt-1.5">+91 8310711652</span>
                 </a>
               </li>
               <li>
@@ -180,25 +164,21 @@ export default function FooterSection() {
                   <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-colors">
                     <Mail className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-slate-400 group-hover:text-white transition-colors text-sm mt-1.5">hello@coreslash.com</span>
+                  <span className="text-slate-400 group-hover:text-white transition-colors text-sm mt-1.5">contact@coreslashtechnologies.com</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-start gap-3 group">
+                <a 
+                  href="https://maps.google.com/?q=Belgaum,+Karnataka,+India+590006" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-start gap-3 group cursor-pointer"
+                >
                   <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-colors">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-slate-400 group-hover:text-white transition-colors text-sm mt-1.5">123 Innovation Drive,<br />Tech City, CA 94016</span>
+                  <span className="text-slate-400 group-hover:text-white transition-colors text-sm mt-1.5">Belgaum, Karnataka, India 590006</span>
                 </a>
-              </li>
-              <li>
-                <div className="flex items-start gap-3 mt-4 pt-4 border-t border-white/5">
-                  <div className="text-xs text-slate-500 font-medium">
-                    <span className="block text-slate-400 mb-1">Business Hours:</span>
-                    Mon - Fri: 9:00 AM - 6:00 PM EST<br />
-                    Sat - Sun: Closed
-                  </div>
-                </div>
               </li>
             </ul>
           </motion.div>
@@ -212,14 +192,10 @@ export default function FooterSection() {
             © {new Date().getFullYear()} CoreSlash Technologies. All Rights Reserved.
           </div>
 
-          <div className="flex items-center gap-1.5 text-slate-400 px-4 py-2 rounded-full bg-white/[0.02] border border-white/5">
-            Made with <span className="text-red-500 animate-pulse">❤️</span> in India
-          </div>
-
           <div className="flex items-center gap-6 text-slate-500">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
           </div>
         </div>
 

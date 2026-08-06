@@ -4,23 +4,23 @@ import FanCarouselSection from "@/components/FanCarouselSection";
 import TechnologiesSection from "@/components/TechnologiesSection";
 import StatsSection from "@/components/StatsSection";
 import ContactSection from "@/components/ContactSection";
-import { Sparkles, CheckCircle2 } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
-import awsImg from "@/img/hero/CoreSlash Technologies  Aws.png";
-import aiDevelopmentImg from "@/img/hero/CoreSlash Technologies AI Development.png";
-import appDevelopmentImg from "@/img/hero/CoreSlash Technologies App Development.png";
-import cloudImg from "@/img/hero/CoreSlash Technologies Cloud .png";
-import cloudflareImg from "@/img/hero/CoreSlash Technologies Cloudflare.png";
-import cyberSecurityImg from "@/img/hero/CoreSlash Technologies Cyber Security.png";
-import digitalTransformationImg from "@/img/hero/CoreSlash Technologies Digital Transformation Framework.jpg";
-import erpImg from "@/img/hero/CoreSlash Technologies ERP Development.png";
-import iosDevelopmentImg from "@/img/hero/CoreSlash Technologies IOS Development.png";
-import pythonDevelopmentImg from "@/img/hero/CoreSlash Technologies Python Development.jpg";
-import softwareDevelopmentImg from "@/img/hero/CoreSlash Technologies Software Development.png";
+import awsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-aws-cloud-services.png";
+import aiDevelopmentImg from "@/assets/services/ai-automation/coreslash-technologies-ai-development-services.png";
+import appDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-mobile-app-development.png";
+import cloudImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-infrastructure.png";
+import cloudflareImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloudflare-cdn-security.png";
+import cyberSecurityImg from "@/assets/services/software-systems/coreslash-technologies-cyber-security-services.png";
+import digitalTransformationImg from "@/assets/services/software-systems/coreslash-technologies-digital-transformation-framework.jpg";
+import erpImg from "@/assets/services/software-systems/coreslash-technologies-erp-software-development.png";
+import iosDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-ios-app-development.png";
+import pythonDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-python-development.jpg";
+import softwareDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-custom-software-development.png";
 
-import aboutTopImg from "@/img/about us/CoreSlash Technologies Team Working .avif";
-import aboutBottomImg from "@/img/about us/Coreslash Technologies Team Work.jpg";
+import aboutTopImg from "@/assets/about/coreslash-technologies-team-working.avif";
+import aboutBottomImg from "@/assets/about/coreslash-technologies-team-work.jpg";
 
 const heroImages = [
   awsImg,
@@ -67,8 +67,9 @@ export default function Home() {
       <section className="relative w-full">
         <AnimatedMarqueeHero
           tagline="CoreSlash AI & Software Engineering"
-          title="AI-powered"
-          smallTitle="solutions to Solve Complex Business Problems"
+          titlePart1="AI-Powered"
+          titlePart2="SOLUTIONS TO SOLVE"
+          titlePart3="COMPLEX BUSINESS PROBLEMS"
           description="We build intelligent AI solutions, high-scale web platforms, and futuristic SaaS applications for ambitious companies worldwide."
           ctaText="Get Started"
           secondaryCtaText="Book Demo"
@@ -182,4 +183,3 @@ export default function Home() {
     </>
   );
 }
-

@@ -154,11 +154,11 @@ export const ContactSection: React.FC = () => {
               <div>
                 <p className="text-white/40 text-xs uppercase tracking-wider mb-2">Need immediate assistance?</p>
                 <div className="flex gap-6">
-                  <a href="tel:+1234567890" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
+                  <a href="tel:+918310711652" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
                     <Phone size={16} className="text-blue-400 group-hover:text-purple-400 transition-colors" />
-                    <span className="text-sm">+91 83107 11652</span>
+                    <span className="text-sm">+91 8310711652</span>
                   </a>
-                  <a href="mailto:contact@company.com" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
+                  <a href="mailto:contact@coreslashtechnologies.com" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
                     <Mail size={16} className="text-blue-400 group-hover:text-purple-400 transition-colors" />
                     <span className="text-sm">contact@coreslashtechnologies.com</span>
                   </a>

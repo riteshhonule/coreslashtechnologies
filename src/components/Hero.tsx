@@ -5,10 +5,14 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface AnimatedMarqueeHeroProps {
   tagline: string;
-  title: string;
+  titlePart1?: string;
+  titlePart2?: string;
+  titlePart3?: string;
+  title?: string;
   smallTitle?: string;
   description: string;
   ctaText: string;
@@ -19,8 +23,9 @@ interface AnimatedMarqueeHeroProps {
 
 export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   tagline,
-  title,
-  smallTitle,
+  titlePart1 = "AI-Powered",
+  titlePart2 = "SOLUTIONS TO SOLVE",
+  titlePart3 = "COMPLEX BUSINESS PROBLEMS",
   description,
   ctaText,
   secondaryCtaText,
@@ -47,87 +52,54 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
     },
   };
 
-  const [charIndex, setCharIndex] = React.useState(0);
-  const [isDeleting, setIsDeleting] = React.useState(false);
-
-  const totalLength = title.length + (smallTitle ? smallTitle.length : 0);
-
-  React.useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
-    const minCharIndex = title.length;
-
-    if (!isDeleting && charIndex === totalLength) {
-      timeout = setTimeout(() => setIsDeleting(true), 2500);
-    } else if (isDeleting && charIndex === minCharIndex) {
-      timeout = setTimeout(() => setIsDeleting(false), 800);
-    } else {
-      const delay = isDeleting ? 30 : 60;
-      timeout = setTimeout(() => {
-        setCharIndex((prev) => prev + (isDeleting ? -1 : 1));
-      }, delay + Math.random() * 30);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, totalLength, title.length]);
-
   return (
     <section
       className={cn(
-        "relative w-full min-h-[80vh] overflow-hidden bg-[#fafcff] flex flex-col items-center justify-start pb-24 text-center px-4 pt-[100px]",
+        "relative w-full min-h-[85vh] overflow-hidden bg-[#fafcff] flex flex-col items-center justify-start pb-24 text-center px-4 pt-[100px]",
         className
       )}
-      style={{ fontFamily: '"Clash Display", "Sora", system-ui, sans-serif' }}
     >
       {/* --- HERO CONTENT --- */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="z-10 flex flex-col items-center relative w-full max-w-[1100px] mx-auto"
+        className="z-10 flex flex-col items-center relative w-full max-w-[1200px] mx-auto"
       >
         {/* Tagline Badge */}
         <motion.div
           variants={itemVariants}
-          className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-blue-800 bg-slate-800 px-3.5 py-1.5 text-[11px] md:text-xs font-semibold text-blue-50 shadow-[0_4px_20px_-4px_rgba(30,58,138,0.4)] backdrop-blur-md"
+          className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-800/20 bg-slate-900 px-4 py-1.5 text-xs md:text-sm font-semibold text-blue-100 shadow-[0_4px_20px_-4px_rgba(30,58,138,0.3)] backdrop-blur-md"
         >
-          <Sparkles className="w-3.5 h-3.5 text-blue-900" />
-          {tagline}
+          <Sparkles className="w-4 h-4 text-blue-400" />
+          <span>{tagline}</span>
         </motion.div>
 
-        {/* Continuous Typewriter Title */}
-        <div className="font-extrabold tracking-tight text-[#0f172a] leading-[1.1] mb-6 max-w-[900px] flex flex-col items-center justify-center gap-y-2 md:gap-y-3">
+        {/* Premium Futuristic Trio Typography Heading */}
+        <motion.h1
+          variants={itemVariants}
+          className="flex flex-col items-center justify-center gap-1 sm:gap-2 mb-8 max-w-[1050px] mx-auto select-none tracking-normal"
+        >
+          {/* Part 1: "AI-Powered" - Handwritten / Script style, Purple-to-Blue Gradient */}
+          <span className="font-hero-script italic text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] font-bold leading-[1.0] text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 glow-purple-blue px-2 transition-transform duration-300 hover:scale-[1.02] -mb-4 sm:-mb-6 z-10 mr-12 sm:mr-24">
+            AI-Powered
+          </span>
 
-          {/* Main Title Row */}
-          <div className="text-[36px] sm:text-[48px] md:text-[60px] lg:text-[68px] flex items-center justify-center flex-wrap text-center">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500 relative flex items-center flex-wrap justify-center">
-
-              {title.split("").map((char, i) => (
-                <span key={`t-${i}`} className={i < charIndex ? "inline-block" : "hidden"}>
-                  {char === " " ? "\u00A0" : char}
-
-                </span>
-              ))}
-            </span>
+          {/* Part 2: "SOLUTIONS TO SOLVE" with custom stylized E */}
+          <div className="flex items-center justify-center font-hero-sans font-black uppercase text-[36px] sm:text-[54px] md:text-[72px] lg:text-[90px] tracking-tight leading-[1.0] text-[#1a1f2e] drop-shadow-sm px-2 z-20">
+            <span>SOLUTIONS TO SOLV</span>
+            <div className="flex flex-col justify-between h-[0.7em] w-[0.6em] ml-[0.05em] mt-[0.05em]">
+              <div className="h-[22%] w-full bg-[#1a1f2e] rounded-sm"></div>
+              <div className="h-[22%] w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-sm"></div>
+              <div className="h-[22%] w-full bg-[#1a1f2e] rounded-sm"></div>
+            </div>
           </div>
 
-          {/* Small Title Row */}
-          {smallTitle && (
-            <div className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[42px] font-bold flex items-center justify-center flex-wrap text-center">
-              <span className="relative flex items-center flex-wrap justify-center">
-                {smallTitle.split("").map((char, i) => {
-                  const globalIdx = title.length + i;
-                  return (
-                    <span key={`s-${i}`} className={globalIdx < charIndex ? "inline-block" : "hidden"}>
-                      {char === " " ? "\u00A0" : char}
-
-                    </span>
-                  );
-                })}
-              </span>
-            </div>
-          )}
-
-        </div>
+          {/* Part 3: "COMPLEX BUSINESS PROBLEMS" - Futuristic tech font, wide letter spacing */}
+          <span className="font-hero-tech font-semibold uppercase text-[18px] sm:text-[24px] md:text-[32px] lg:text-[40px] tracking-[0.2em] sm:tracking-[0.25em] leading-[1.2] text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 px-2 mt-2 ml-4">
+            COMPLEX BUSINESS PROBLEMS
+          </span>
+        </motion.h1>
 
         {/* Description */}
         <motion.p
@@ -146,24 +118,28 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-2xl rounded-full scale-110 pointer-events-none" />
 
           {/* Primary CTA */}
-          <motion.button
-            whileHover={{ scale: 1.03, boxShadow: "0 20px 40px -10px rgba(147, 51, 234, 0.4)" }}
-            whileTap={{ scale: 0.97 }}
-            className="relative px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold text-lg shadow-[0_8px_20px_-6px_rgba(147,51,234,0.3)] transition-all flex items-center gap-2"
-          >
-            {ctaText}
-            <ArrowRight className="w-5 h-5" />
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              whileHover={{ scale: 1.03, boxShadow: "0 20px 40px -10px rgba(147, 51, 234, 0.4)" }}
+              whileTap={{ scale: 0.97 }}
+              className="relative px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold text-lg shadow-[0_8px_20px_-6px_rgba(147,51,234,0.3)] transition-all flex items-center gap-2 cursor-pointer"
+            >
+              {ctaText}
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </Link>
 
           {/* Secondary Outline CTA */}
           {secondaryCtaText && (
-            <motion.button
-              whileHover={{ scale: 1.03, backgroundColor: "rgba(255, 255, 255, 0.8)" }}
-              whileTap={{ scale: 0.97 }}
-              className="relative px-8 py-3.5 rounded-full bg-white/40 border border-slate-200 text-slate-700 font-bold text-lg shadow-sm backdrop-blur-sm transition-all hover:border-slate-300"
-            >
-              {secondaryCtaText}
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.03, backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                whileTap={{ scale: 0.97 }}
+                className="relative px-8 py-3.5 rounded-full bg-white/40 border border-slate-200 text-slate-700 font-bold text-lg shadow-sm backdrop-blur-sm transition-all hover:border-slate-300 cursor-pointer"
+              >
+                {secondaryCtaText}
+              </motion.button>
+            </Link>
           )}
         </motion.div>
       </motion.div>
