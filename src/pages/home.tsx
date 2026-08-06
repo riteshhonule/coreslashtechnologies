@@ -67,8 +67,9 @@ export default function Home() {
       <section className="relative w-full">
         <AnimatedMarqueeHero
           tagline="CoreSlash AI & Software Engineering"
-          title="AI-powered"
-          smallTitle="solutions to Solve Complex Business Problems"
+          titlePart1="AI-Powered"
+          titlePart2="SOLUTIONS TO SOLVE"
+          titlePart3="COMPLEX BUSINESS PROBLEMS"
           description="We build intelligent AI solutions, high-scale web platforms, and futuristic SaaS applications for ambitious companies worldwide."
           ctaText="Get Started"
           secondaryCtaText="Book Demo"
