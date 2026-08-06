@@ -3,13 +3,13 @@ import SocialCards from "@/components/CardFanCarousel";
 import type { CardItem } from "@/components/CardFanCarousel";
 import { Sparkles } from "lucide-react";
 
-import stripeImg from "@/img/payment gateways/stripe.svg";
-import paypalImg from "@/img/payment gateways/paypal.svg";
-import phonepeImg from "@/img/payment gateways/phonepe.svg";
-import razorpayImg from "@/img/payment gateways/razorpay.svg";
-import paytmImg from "@/img/payment gateways/paytm.svg";
-import cashfreeImg from "@/img/payment gateways/cashfree.png";
-import instamojoImg from "@/img/payment gateways/instamojo.png";
+import stripeImg from "@/assets/payment-gateways/stripe-payment-gateway.svg";
+import paypalImg from "@/assets/payment-gateways/paypal-payment-gateway.svg";
+import phonepeImg from "@/assets/payment-gateways/phonepe-payment-gateway.svg";
+import razorpayImg from "@/assets/payment-gateways/razorpay-payment-gateway.svg";
+import paytmImg from "@/assets/payment-gateways/paytm-payment-gateway.svg";
+import cashfreeImg from "@/assets/payment-gateways/cashfree-payment-gateway.png";
+import instamojoImg from "@/assets/payment-gateways/instamojo-payment-gateway.png";
 
 export const PAYMENT_GATEWAYS: CardItem[] = [
   {

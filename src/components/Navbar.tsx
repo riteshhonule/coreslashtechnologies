@@ -89,9 +89,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         style={{ fontFamily: CAPSULE_FONT_FAMILY }}
         className={cn(
-          "sticky top-0 z-50 w-full h-[72px] md:h-[76px]",
-          "transition-all duration-500 flex items-center justify-between px-6 md:px-12 relative bg-blue-800 shadow-lg border-b border-blue-700/50",
-          isScrolled && "shadow-xl bg-blue-900/95 backdrop-blur-md",
+          "fixed top-0 left-0 right-0 z-50 w-full h-[72px] md:h-[76px]",
+          "transition-all duration-500 flex items-center justify-between px-6 md:px-12 bg-blue-800/90 backdrop-blur-md shadow-lg border-b border-blue-700/50",
+          isScrolled && "shadow-xl bg-blue-900/95 backdrop-blur-lg border-blue-600/50",
           className
         )}
       >
@@ -226,19 +226,34 @@ export const Navbar: React.FC<NavbarProps> = ({
                         className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50"
                       >
                         <div
-                          className="w-[220px] bg-white rounded-[18px] shadow-xl p-2 flex flex-col border border-slate-100"
+                          className="w-[240px] bg-white dark:bg-slate-900 rounded-[18px] shadow-2xl p-2 flex flex-col border border-slate-100 dark:border-slate-800"
                           role="menu"
                         >
-                          {item.dropdown?.map((dropItem) => (
-                            <Link
-                              key={dropItem.label}
-                              to={dropItem.href}
-                              role="menuitem"
-                              className="px-4 py-2.5 text-[14px] text-slate-700 font-medium rounded-[12px] transition-all hover:bg-blue-600 hover:text-white flex items-center"
-                            >
-                              {dropItem.label}
-                            </Link>
-                          ))}
+                          {item.dropdown?.map((dropItem) => {
+                            const isDropActive = location.pathname === dropItem.href;
+                            return (
+                              <Link
+                                key={dropItem.label}
+                                to={dropItem.href}
+                                role="menuitem"
+                                onClick={() => {
+                                  setHoveredTab(null);
+                                  handleNavClick();
+                                }}
+                                className={cn(
+                                  "px-4 py-2.5 text-[14px] font-semibold rounded-[12px] transition-all flex items-center justify-between",
+                                  isDropActive
+                                    ? "bg-blue-600 text-white font-bold shadow-sm"
+                                    : "text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400"
+                                )}
+                              >
+                                <span>{dropItem.label}</span>
+                                {isDropActive && (
+                                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                                )}
+                              </Link>
+                            );
+                          })}
                         </div>
                       </motion.div>
                     )}

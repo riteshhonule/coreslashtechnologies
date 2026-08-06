@@ -19,10 +19,10 @@ export default function Layout() {
   }, [pathname]);
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
+    <div className="relative min-h-screen bg-background text-foreground flex flex-col pt-[72px] md:pt-[76px]">
       <Navbar onGetQuoteClick={() => setQuoteModalOpen(true)} />
 
-      <main className="flex-grow pt-4">
+      <main className="flex-grow">
         <Outlet />
       </main>
 

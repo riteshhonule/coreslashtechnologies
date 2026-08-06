@@ -45,8 +45,8 @@ export const VisionSection: React.FC = () => {
 
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-foreground leading-[1.18]">
-            Delivering{" "}
-            <span className="text-blue-600">Innovative & Scalable</span> Digital Solutions
+            Shaping the Next Era{" "}
+            <span className="text-blue-600">Of Intelligent Technology</span>
           </h2>
 
           {/* Subtext */}

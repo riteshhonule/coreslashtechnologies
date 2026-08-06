@@ -1,32 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
 import { FaLinkedinIn, FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 
 interface ContactSectionProps {
-  /**
-   * The title for the contact section.
-   */
   title?: string;
-  /**
-   * The subtitle or main message for the introductory part.
-   */
   mainMessage?: string;
-  /**
-   * The contact email to display.
-   */
   contactEmail?: string;
-  /**
-   * Placeholder image for the background.
-   */
   backgroundImageSrc?: string;
-  /**
-   * Callback function when the form is submitted.
-   * @param data The form data.
-   */
   onSubmit?: (data: any) => void;
 }
 
@@ -37,64 +21,61 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   backgroundImageSrc = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&auto=format&fit=crop&q=80",
   onSubmit,
 }) => {
-  const [formData, setFormData] = React.useState<{
-    name: string;
-    email: string;
-    message: string;
-    projectType: string[];
-  }>({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
+    service: '',
     message: '',
-    projectType: [],
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleCheckboxChange = (type: string, checked: boolean) => {
-    setFormData((prev) => {
-      const currentTypes = prev.projectType;
-      if (checked) {
-        return { ...prev, projectType: [...currentTypes, type] };
-      } else {
-        return { ...prev, projectType: currentTypes.filter((t) => t !== type) };
-      }
-    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit?.(formData);
-    console.log("Form submitted:", formData);
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', service: '', message: '' });
+    }, 4000);
   };
 
-  const projectTypeOptions = [
-    'Website', 'Mobile App', 'Web App', 'E-Commerce',
-    'Brand Identity', '3D & Animation', 'Social Media Marketing',
-    'Brand Strategy & Consulting', 'Other'
+  const serviceOptions = [
+    'AI Automation & Custom LLMs',
+    'Web Development & Next.js',
+    'Mobile App Development (iOS/Android)',
+    'Custom Enterprise Software Systems',
+    'E-Commerce & Storefront Platforms',
+    'SEO & Search Engine Growth',
+    'Shopify OS 2.0 & Headless Development',
+    'Cloud Infrastructure & DevOps',
+    'Data Analytics & BI Dashboards',
+    'Other Digital Solution'
   ];
 
   return (
-    <section className="relative w-full h-[calc(100vh-80px)] min-h-[580px] max-h-[900px] overflow-hidden bg-background flex items-center justify-center">
-      {/* Background Image and Animated Bubbles */}
+    <section className="relative w-full h-[calc(100vh-76px)] min-h-[540px] max-h-[calc(100vh-76px)] flex items-center justify-center py-4 px-4 sm:px-6 lg:px-12 bg-slate-950 overflow-hidden">
+      {/* Background Image and Animated Bubbles (Unchanged) */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
+        className="absolute inset-0 bg-cover bg-center transition-all duration-500"
         style={{ backgroundImage: `url(${backgroundImageSrc})` }}
       >
-        <div className="absolute inset-0 bg-black/65 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[3px]" />
         
         {/* Animated Bubbles */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute bg-white/15 rounded-full animate-bubble opacity-0"
+              className="absolute bg-blue-500/20 rounded-full animate-bubble opacity-0"
               style={{
-                width: `${Math.random() * 18 + 8}px`,
-                height: `${Math.random() * 18 + 8}px`,
+                width: `${Math.random() * 16 + 6}px`,
+                height: `${Math.random() * 16 + 6}px`,
                 left: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 8}s`,
                 animationDuration: `${Math.random() * 16 + 8}s`,
@@ -105,111 +86,182 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         </div>
       </div>
 
-      {/* Main Content Container - Single Screen Compact Layout */}
-      <div className="relative z-10 flex flex-col justify-center items-center w-full h-full p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
-        
-        {/* Main Section - Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 w-full items-center">
+      {/* Main Content Container - Single Screen Fit */}
+      <div className="relative z-10 max-w-[1240px] w-full mx-auto my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
           
-          {/* Left Side: Title */}
-          <div className="lg:col-span-6 flex flex-col justify-center p-2 lg:p-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold text-white leading-[1.15] drop-shadow-md max-w-lg">
+          {/* Left Column: Heading */}
+          <div className="lg:col-span-5 text-left space-y-3 lg:space-y-5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wide backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+              <span>Start A Project</span>
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-extrabold text-white leading-[1.15] tracking-tight drop-shadow-lg">
               {title}
             </h1>
+
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal max-w-md">
+              Have an enterprise project or ambitious idea? Reach out to our solution architects for a free technical consultation.
+            </p>
           </div>
 
-          {/* Right Side: Contact Form Card */}
-          <div className="lg:col-span-6 bg-background/95 dark:bg-slate-900/95 backdrop-blur-md p-5 sm:p-6 rounded-2xl shadow-2xl border border-border/60">
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">{mainMessage}</h2>
+          {/* Right Column: Premium WHITE Form Card */}
+          <div className="lg:col-span-7 bg-white text-slate-900 rounded-[1.75rem] p-5 sm:p-6 md:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200/80 relative overflow-hidden">
+            {/* Success Overlay Notification */}
+            {isSubmitted && (
+              <div className="absolute inset-0 bg-white/95 backdrop-blur-md z-30 flex flex-col items-center justify-center p-6 text-center space-y-2">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold shadow-inner">
+                  ✓
+                </div>
+                <h3 className="text-lg font-extrabold text-slate-900">Message Sent Successfully!</h3>
+                <p className="text-slate-600 text-xs max-w-xs leading-relaxed">
+                  Thank you for reaching out. Our engineering team will review your inquiry and get back to you within 24 hours.
+                </p>
+              </div>
+            )}
 
-            {/* Email & Crisp React Icons */}
-            <div className="mb-3.5">
-              <p className="text-xs text-muted-foreground mb-1 font-medium">Mail us at</p>
-              <a href={`mailto:${contactEmail}`} className="text-primary hover:underline text-sm font-bold">
-                {contactEmail}
-              </a>
-              <div className="flex items-center space-x-2.5 mt-2.5">
-                <span className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">OR</span>
-                <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg border-border/60 hover:bg-accent">
-                  <a href="https://x.com/CoreSlashTech" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-                    <FaTwitter className="h-3.5 w-3.5 text-blue-400" />
+            {/* Header Area */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-slate-100">
+              <div>
+                <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                  {mainMessage}
+                </h2>
+                <div className="flex items-center gap-1.5 text-xs text-slate-500 mt-0.5">
+                  <span>Mail us at</span>
+                  <a href={`mailto:${contactEmail}`} className="text-blue-600 hover:underline font-bold">
+                    {contactEmail}
                   </a>
-                </Button>
-                <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg border-border/60 hover:bg-accent">
-                  <a href="https://www.instagram.com/coreslashtechnologies?igsh=MWRmaTN2am1wNG1kdw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <FaInstagram className="h-3.5 w-3.5 text-pink-500" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg border-border/60 hover:bg-accent">
-                  <a href="https://www.facebook.com/profile.php?id=61591466563226" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <FaFacebookF className="h-3.5 w-3.5 text-blue-600" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg border-border/60 hover:bg-accent">
-                  <a href="https://www.linkedin.com/company/coreslash-technologies/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <FaLinkedinIn className="h-3.5 w-3.5 text-blue-600" />
-                  </a>
-                </Button>
+                </div>
+              </div>
+
+              {/* Social Icons */}
+              <div className="flex items-center gap-1.5">
+                <span className="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mr-1">OR</span>
+                <a 
+                  href="https://x.com/CoreSlashTech" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="X (Twitter)"
+                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-600 flex items-center justify-center border border-slate-200/70 transition-all"
+                >
+                  <FaTwitter className="w-3 h-3 text-blue-400" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/coreslashtechnologies?igsh=MWRmaTN2am1wNG1kdw%3D%3D&utm_source=qr" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="Instagram"
+                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-pink-50 text-slate-600 hover:text-pink-600 flex items-center justify-center border border-slate-200/70 transition-all"
+                >
+                  <FaInstagram className="w-3 h-3 text-pink-500" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61591466563226" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-700 flex items-center justify-center border border-slate-200/70 transition-all"
+                >
+                  <FaFacebookF className="w-3 h-3 text-blue-600" />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/coreslash-technologies/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="LinkedIn"
+                  className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-700 flex items-center justify-center border border-slate-200/70 transition-all"
+                >
+                  <FaLinkedinIn className="w-3 h-3 text-blue-600" />
+                </a>
               </div>
             </div>
 
-            <hr className="my-3.5 border-border/60" />
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-3.5">
-              <p className="text-muted-foreground text-xs font-semibold">Leave us a brief message</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {/* Form Fields */}
+            <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
+              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Leave us a brief message</p>
+              
+              {/* Name & Email Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div className="space-y-1">
-                  <Label htmlFor="name" className="text-xs font-medium">Your name</Label>
-                  <Input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required className="h-9 text-xs" />
+                  <Label htmlFor="name" className="text-xs font-semibold text-slate-700">Your Name *</Label>
+                  <Input 
+                    id="name" 
+                    name="name" 
+                    placeholder="John Doe" 
+                    value={formData.name} 
+                    onChange={handleChange} 
+                    required 
+                    className="h-9 text-xs rounded-lg bg-slate-50/80 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 font-medium transition-all" 
+                  />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="email" className="text-xs font-medium">Email</Label>
-                  <Input id="email" name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required className="h-9 text-xs" />
+                  <Label htmlFor="email" className="text-xs font-semibold text-slate-700">Email Address *</Label>
+                  <Input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    placeholder="john@company.com" 
+                    value={formData.email} 
+                    onChange={handleChange} 
+                    required 
+                    className="h-9 text-xs rounded-lg bg-slate-50/80 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 font-medium transition-all" 
+                  />
                 </div>
               </div>
 
+              {/* Service Selection Dropdown */}
               <div className="space-y-1">
-                <Label htmlFor="message" className="text-xs font-medium">Briefly describe your project idea...</Label>
+                <Label htmlFor="service" className="text-xs font-semibold text-slate-700">I'm looking for...</Label>
+                <div className="relative">
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    required
+                    className="w-full h-9 rounded-lg bg-slate-50/80 border border-slate-200 text-slate-900 text-xs px-3 pr-8 focus:bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 font-medium appearance-none cursor-pointer transition-all outline-none"
+                  >
+                    <option value="" disabled>-- Select a digital service division --</option>
+                    {serviceOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
+              </div>
+
+              {/* Project Description Textarea */}
+              <div className="space-y-1">
+                <Label htmlFor="message" className="text-xs font-semibold text-slate-700">Briefly describe your project idea... *</Label>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Briefly describe your project idea..."
-                  className="min-h-[60px] h-[60px] text-xs resize-none"
+                  placeholder="Tell us about your requirements, goals, or timeline..."
+                  className="min-h-[65px] h-[65px] text-xs rounded-lg bg-slate-50/80 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 font-medium transition-all resize-none"
                   value={formData.message}
                   onChange={handleChange}
                   required
                 />
               </div>
 
-              <div className="space-y-2">
-                <p className="text-muted-foreground text-xs font-semibold">I'm looking for...</p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
-                  {projectTypeOptions.map((option) => (
-                    <div key={option} className="flex items-center space-x-1.5">
-                      <Checkbox
-                        id={option.replace(/\s/g, '-').toLowerCase()}
-                        checked={formData.projectType.includes(option)}
-                        onCheckedChange={(checked) => handleCheckboxChange(option, checked as boolean)}
-                        className="h-3.5 w-3.5"
-                      />
-                      <Label htmlFor={option.replace(/\s/g, '-').toLowerCase()} className="text-[11.5px] font-normal cursor-pointer select-none truncate">
-                        {option}
-                      </Label>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <Button type="submit" className="w-full h-10 text-sm font-semibold bg-[#3b82f6] hover:bg-blue-600 text-white rounded-xl shadow-md transition-all">
-                Send a message
+              {/* Submit Button */}
+              <Button 
+                type="submit" 
+                className="w-full h-10 text-xs font-bold uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md shadow-blue-500/20 hover:shadow-blue-500/35 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 mt-1"
+              >
+                <span>Send a message</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Button>
             </form>
           </div>
+
         </div>
       </div>
 
-      {/* CSS for bubble animation */}
+      {/* Bubble Animation CSS */}
       <style>{`
         @keyframes bubble {
           0% {

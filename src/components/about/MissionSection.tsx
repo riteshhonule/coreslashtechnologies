@@ -90,8 +90,8 @@ export const MissionSection: React.FC = () => {
 
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-foreground leading-[1.18]">
-            Empowering Businesses Through{" "}
-            <span className="text-blue-600">Innovative Digital Solutions</span>
+            Building High-Performance Systems{" "}
+            <span className="text-blue-600">Designed to Scale</span>
           </h2>
 
           {/* Subtext */}

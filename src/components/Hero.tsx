@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface AnimatedMarqueeHeroProps {
   tagline: string;
@@ -146,24 +147,28 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-2xl rounded-full scale-110 pointer-events-none" />
 
           {/* Primary CTA */}
-          <motion.button
-            whileHover={{ scale: 1.03, boxShadow: "0 20px 40px -10px rgba(147, 51, 234, 0.4)" }}
-            whileTap={{ scale: 0.97 }}
-            className="relative px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold text-lg shadow-[0_8px_20px_-6px_rgba(147,51,234,0.3)] transition-all flex items-center gap-2"
-          >
-            {ctaText}
-            <ArrowRight className="w-5 h-5" />
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              whileHover={{ scale: 1.03, boxShadow: "0 20px 40px -10px rgba(147, 51, 234, 0.4)" }}
+              whileTap={{ scale: 0.97 }}
+              className="relative px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold text-lg shadow-[0_8px_20px_-6px_rgba(147,51,234,0.3)] transition-all flex items-center gap-2 cursor-pointer"
+            >
+              {ctaText}
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </Link>
 
           {/* Secondary Outline CTA */}
           {secondaryCtaText && (
-            <motion.button
-              whileHover={{ scale: 1.03, backgroundColor: "rgba(255, 255, 255, 0.8)" }}
-              whileTap={{ scale: 0.97 }}
-              className="relative px-8 py-3.5 rounded-full bg-white/40 border border-slate-200 text-slate-700 font-bold text-lg shadow-sm backdrop-blur-sm transition-all hover:border-slate-300"
-            >
-              {secondaryCtaText}
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.03, backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                whileTap={{ scale: 0.97 }}
+                className="relative px-8 py-3.5 rounded-full bg-white/40 border border-slate-200 text-slate-700 font-bold text-lg shadow-sm backdrop-blur-sm transition-all hover:border-slate-300 cursor-pointer"
+              >
+                {secondaryCtaText}
+              </motion.button>
+            </Link>
           )}
         </motion.div>
       </motion.div>

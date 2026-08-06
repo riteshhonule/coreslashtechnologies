@@ -2,14 +2,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-import appDevImg from "@/img/Services/App Development Coreslash Technologies.avif";
-import websiteDevImg from "@/img/Services/Website Development Coreslash Technologies.avif";
-import softwareSysImg from "@/img/Services/Software Systems Coreslash Technologies.avif";
-import ecommerceImg from "@/img/Services/E-commerce Coreslash Technologies.avif";
-import seoImg from "@/img/Services/SEO Optimization Coreslash technologies.avif";
-import cloudDevopsImg from "@/img/Services/Cloud & DevOps Coreslash Technologies.avif";
-import dataAnalyticsImg from "@/img/Services/Data Analytics Coreslash Technologies.avif";
-import aiServicesImg from "@/img/Services/Services.avif";
+import appDevImg from "@/assets/services/mobile-app-development/coreslash-technologies-mobile-app-development-showcase.avif";
+import websiteDevImg from "@/assets/services/web-development/coreslash-technologies-modern-web-development.avif";
+import softwareSysImg from "@/assets/services/software-systems/coreslash-technologies-custom-software-systems.avif";
+import ecommerceImg from "@/assets/services/ecommerce-solutions/coreslash-technologies-scalable-ecommerce-platforms.avif";
+import seoImg from "@/assets/services/seo-solutions/coreslash-technologies-seo-search-growth.avif";
+import cloudDevopsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-devops.avif";
+import dataAnalyticsImg from "@/assets/services/data-analytics/coreslash-technologies-business-intelligence-data-analytics.avif";
+import aiServicesImg from "@/assets/services/ai-automation/coreslash-technologies-intelligent-ai-automation.avif";
 
 export interface GalleryItem {
   src: string;

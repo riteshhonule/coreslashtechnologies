@@ -71,8 +71,8 @@ export const AboutHeroSection: React.FC = () => {
 
           {/* Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-bold tracking-tight text-foreground leading-[1.2]">
-            Empowering Businesses Through{" "}
-            <span className="text-blue-600">Innovative Software</span>
+            Engineering High-Impact{" "}
+            <span className="text-blue-600">Digital Transformation</span>
           </h1>
 
           {/* Paragraph 1 */}
