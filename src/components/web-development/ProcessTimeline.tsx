@@ -174,7 +174,7 @@ export default function ProcessTimeline() {
                         y={textCoords.y - 4}
                         fill="#ffffff"
                         fontSize="18"
-                        fontWeight="700"
+                        fontWeight="500"
                         textAnchor="middle"
                       >
                         {slice.number}
@@ -188,7 +188,7 @@ export default function ProcessTimeline() {
                             y={textCoords.y + 8}
                             fill="#ffffff"
                             fontSize="8.5"
-                            fontWeight="700"
+                            fontWeight="500"
                             textAnchor="middle"
                             letterSpacing="0.3"
                           >
@@ -199,7 +199,7 @@ export default function ProcessTimeline() {
                             y={textCoords.y + 17}
                             fill="#ffffff"
                             fontSize="8.5"
-                            fontWeight="700"
+                            fontWeight="500"
                             textAnchor="middle"
                             letterSpacing="0.3"
                           >
@@ -212,7 +212,7 @@ export default function ProcessTimeline() {
                           y={textCoords.y + 9}
                           fill="#ffffff"
                           fontSize={slice.label.length > 10 ? "8.5" : "9.5"}
-                          fontWeight="700"
+                          fontWeight="500"
                           textAnchor="middle"
                           letterSpacing="0.4"
                         >
@@ -228,16 +228,16 @@ export default function ProcessTimeline() {
                 <circle cx="180" cy="180" r="76" fill="transparent" stroke="#cbd5e1" strokeWidth="2" className="dark:stroke-slate-800" />
                 
                 {/* Center Core Text */}
-                <text x="180" y="158" textAnchor="middle" fill="#3b82f6" className="dark:fill-blue-400" fontSize="11" fontWeight="700" letterSpacing="1.2">
+                <text x="180" y="158" textAnchor="middle" fill="#3b82f6" className="dark:fill-blue-400" fontSize="11" fontWeight="500" letterSpacing="1.2">
                   THE
                 </text>
-                <text x="180" y="175" textAnchor="middle" fill="#0f172a" className="dark:fill-white" fontSize="14" fontWeight="700" letterSpacing="0.6">
+                <text x="180" y="175" textAnchor="middle" fill="#0f172a" className="dark:fill-white" fontSize="14" fontWeight="500" letterSpacing="0.6">
                   SOFTWARE
                 </text>
-                <text x="180" y="190" textAnchor="middle" fill="#0f172a" className="dark:fill-white" fontSize="14" fontWeight="700" letterSpacing="0.6">
+                <text x="180" y="190" textAnchor="middle" fill="#0f172a" className="dark:fill-white" fontSize="14" fontWeight="500" letterSpacing="0.6">
                   DEVELOPMENT
                 </text>
-                <text x="180" y="204" textAnchor="middle" fill="#3b82f6" className="dark:fill-blue-400" fontSize="11" fontWeight="700" letterSpacing="1.2">
+                <text x="180" y="204" textAnchor="middle" fill="#3b82f6" className="dark:fill-blue-400" fontSize="11" fontWeight="500" letterSpacing="1.2">
                   CYCLE
                 </text>
               </svg>

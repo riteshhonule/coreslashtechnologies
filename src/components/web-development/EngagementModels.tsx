@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link2, Target, Compass, Sparkles, CheckCircle2 } from "lucide-react";
+import { Link2, Target, Compass, CheckCircle2 } from "lucide-react";
 
 export default function EngagementModels() {
   const [activeModel, setActiveModel] = useState<string>("dedicated");
@@ -46,10 +46,12 @@ export default function EngagementModels() {
           
           {/* Left Column: Heading & Interactive Model Detail */}
           <div className="lg:col-span-6 text-left space-y-6">
-            {/* Top Header Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs font-semibold tracking-wider uppercase backdrop-blur-sm">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>ENGAGEMENT MODELS</span>
+            {/* Top Header Accent Line & Title */}
+            <div className="flex items-center">
+              <div className="w-[3px] h-6 bg-blue-600 rounded-full mr-3" />
+              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+                ENGAGEMENT MODELS
+              </h3>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
@@ -93,7 +95,7 @@ export default function EngagementModels() {
               </div>
 
               {/* Highlights Pill Badges */}
-              <div className="flex flex-wrap gap-2 pt-1 border-t border-border/50">
+              <div className="flex flex-wrap gap-2 pt-1">
                 {activeModel === "dedicated" && (
                   <>
                     <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[11px] font-semibold">

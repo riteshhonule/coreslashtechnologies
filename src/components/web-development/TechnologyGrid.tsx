@@ -129,7 +129,7 @@ export default function TechnologyGrid() {
                   >
                     {tech.icon}
                   </div>
-                  <span className="font-medium text-foreground text-sm md:text-base tracking-tight truncate uppercase">
+                  <span className="font-medium text-foreground text-sm md:text-base tracking-tight truncate">
                     {tech.name}
                   </span>
                 </motion.div>

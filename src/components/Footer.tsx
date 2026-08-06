@@ -8,6 +8,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { FaLinkedinIn, FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 export default function FooterSection() {
@@ -72,9 +73,10 @@ export default function FooterSection() {
             </p>
             <div className="flex items-center gap-3">
               {[
-                { name: "LinkedIn", icon: <FaLinkedinIn className="w-4 h-4" />, href: "https://www.linkedin.com/company/coreslash" },
-                { name: "Instagram", icon: <FaInstagram className="w-4 h-4" />, href: "https://www.instagram.com/coreslash" },
-                { name: "Facebook", icon: <FaFacebookF className="w-4 h-4" />, href: "https://www.facebook.com/coreslash" },
+                { name: "LinkedIn", icon: <FaLinkedinIn className="w-4 h-4" />, href: "https://www.linkedin.com/company/coreslash-technologies/" },
+                { name: "X", icon: <FaXTwitter className="w-4 h-4" />, href: "https://x.com/CoreSlashTech" },
+                { name: "Instagram", icon: <FaInstagram className="w-4 h-4" />, href: "https://www.instagram.com/coreslashtechnologies?igsh=MWRmaTN2am1wNG1kdw%3D%3D&utm_source=qr" },
+                { name: "Facebook", icon: <FaFacebookF className="w-4 h-4" />, href: "https://www.facebook.com/profile.php?id=61591466563226" },
                 { name: "WhatsApp", icon: <FaWhatsapp className="w-4 h-4" />, href: "https://wa.me/918310711652" },
               ].map((social, i) => (
                 <motion.a
@@ -166,12 +168,17 @@ export default function FooterSection() {
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 group">
+                <a 
+                  href="https://maps.google.com/?q=Belgaum,+Karnataka,+India+590006" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-start gap-3 group cursor-pointer"
+                >
                   <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-colors">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <span className="text-slate-400 group-hover:text-white transition-colors text-sm mt-1.5">Belgaum, Karnataka, India 590006</span>
-                </div>
+                </a>
               </li>
             </ul>
           </motion.div>
@@ -183,10 +190,6 @@ export default function FooterSection() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-medium">
           <div className="text-slate-500 text-center md:text-left">
             © {new Date().getFullYear()} CoreSlash Technologies. All Rights Reserved.
-          </div>
-
-          <div className="flex items-center gap-1.5 text-slate-400 px-4 py-2 rounded-full bg-white/[0.02] border border-white/5">
-            Made with <span className="text-red-500 animate-pulse">❤️</span> in India
           </div>
 
           <div className="flex items-center gap-6 text-slate-500">
