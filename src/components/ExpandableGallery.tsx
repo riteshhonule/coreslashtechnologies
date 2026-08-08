@@ -109,6 +109,15 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
   const navigate = useNavigate();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth < 640 : false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const openImage = (index: number) => {
     setSelectedIndex(index);
@@ -141,6 +150,7 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
   }, [selectedIndex, closeImage, goToNext, goToPrev]);
 
   // Determine row distribution (Default: 4 cards in Row 1 and 5 cards in Row 2 for 9 items)
+  const displayedImages = isMobile && !isExpanded ? images.slice(0, 4) : images;
   const targetLayout = rowLayout || (images.length === 9 ? [4, 5] : undefined);
   const rows: (string | GalleryItem)[][] = [];
   const rowStartIndices: number[] = [];
@@ -148,22 +158,22 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
   if (targetLayout && targetLayout.length > 0) {
     let currentIdx = 0;
     for (const count of targetLayout) {
-      if (currentIdx < images.length) {
+      if (currentIdx < displayedImages.length) {
         rowStartIndices.push(currentIdx);
-        rows.push(images.slice(currentIdx, currentIdx + count));
+        rows.push(displayedImages.slice(currentIdx, currentIdx + count));
         currentIdx += count;
       }
     }
-    if (currentIdx < images.length) {
+    if (currentIdx < displayedImages.length) {
       rowStartIndices.push(currentIdx);
-      rows.push(images.slice(currentIdx));
+      rows.push(displayedImages.slice(currentIdx));
     }
   } else {
-    const isMultiRow = images.length > 4;
-    const rowSize = isMultiRow ? Math.min(3, Math.ceil(images.length / 3)) : images.length;
-    for (let i = 0; i < images.length; i += rowSize) {
+    const isMultiRow = displayedImages.length > 4;
+    const rowSize = isMultiRow ? Math.min(3, Math.ceil(displayedImages.length / 3)) : displayedImages.length;
+    for (let i = 0; i < displayedImages.length; i += rowSize) {
       rowStartIndices.push(i);
-      rows.push(images.slice(i, i + rowSize));
+      rows.push(displayedImages.slice(i, i + rowSize));
     }
   }
 
@@ -180,12 +190,21 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
     <div className={`w-full ${className}`}>
       {/* 9-Card / Multi-Row Expandable Gallery Grid */}
       <div className="flex flex-col gap-4 w-full">
-        {rows.map((rowItems, rowIndex) => {
-          const startOfRow = rowStartIndices[rowIndex];
-          const endOfRow = startOfRow + rowItems.length;
+        <AnimatePresence initial={false}>
+          {rows.map((rowItems, rowIndex) => {
+            const startOfRow = rowStartIndices[rowIndex];
+            const endOfRow = startOfRow + rowItems.length;
 
-          return (
-            <div key={rowIndex} className="flex flex-col sm:flex-row gap-3 h-auto sm:h-[400px] lg:h-[420px] w-full">
+            return (
+              <motion.div
+                key={startOfRow}
+                initial={isMobile ? { opacity: 0, height: 0, overflow: 'hidden', marginTop: -16 } : false}
+                animate={isMobile ? { opacity: 1, height: 'auto', overflow: 'visible', marginTop: 0 } : { opacity: 1 }}
+                exit={isMobile ? { opacity: 0, height: 0, overflow: 'hidden', marginTop: -16 } : {}}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col sm:flex-row gap-3 h-auto sm:h-[400px] lg:h-[420px] w-full"
+                style={!isMobile ? { height: "", overflow: "" } : undefined}
+              >
               {rowItems.map((item, indexInRow) => {
                 const globalIndex = startOfRow + indexInRow;
                 const isHovered = hoveredIndex === globalIndex;
@@ -198,7 +217,7 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
                 return (
                   <motion.div
                     key={globalIndex}
-                    className="relative cursor-pointer overflow-hidden rounded-2xl border border-border/50 shadow-md hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 min-h-[300px] sm:min-h-0"
+                    className="relative cursor-pointer overflow-hidden rounded-2xl border border-border/50 shadow-md hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 min-h-[380px] w-[calc(100%+1.5rem)] -ml-3 sm:min-h-0 sm:w-auto sm:ml-0"
                     style={{ flex: 1 }}
                     animate={{ flex: getFlexValue(globalIndex, startOfRow, endOfRow) }}
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
@@ -215,7 +234,7 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
                     <img
                       src={src}
                       alt={title || `Gallery card ${globalIndex + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+                      className="absolute sm:relative inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                     />
 
                     {/* Subtle Gradient Overlay */}
@@ -241,13 +260,12 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
                         animate={{ y: isHovered ? -8 : 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <h4 className={`font-extrabold text-white tracking-tight leading-tight mb-2 drop-shadow-sm transition-all duration-300 break-words ${
-                          isHovered 
-                            ? 'text-xl sm:text-2xl lg:text-3xl' 
-                            : isCollapsed 
-                              ? 'text-sm sm:text-base line-clamp-2' 
-                              : 'text-base sm:text-lg lg:text-xl line-clamp-3'
-                        }`}>
+                        <h4 className={`font-extrabold text-white tracking-tight leading-tight mb-2 drop-shadow-sm transition-all duration-300 break-words ${isHovered
+                          ? 'text-xl sm:text-2xl lg:text-3xl'
+                          : isCollapsed
+                            ? 'text-sm sm:text-base line-clamp-2'
+                            : 'text-base sm:text-lg lg:text-xl line-clamp-3'
+                          }`}>
                           {title || `Gallery Item ${globalIndex + 1}`}
                         </h4>
                         {/* <p className={`text-gray-300 leading-relaxed drop-shadow-sm transition-all duration-300 ${isHovered ? 'text-[13px] sm:text-[14px] line-clamp-none' :
@@ -275,10 +293,31 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
                   </motion.div>
                 );
               })}
-            </div>
-          );
-        })}
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
+
+      {/* Mobile Read More / Read Less Toggle */}
+      {isMobile && images.length > 4 && (
+        <div className="w-full flex justify-center mt-6">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="px-8 py-3 rounded-full bg-slate-900 border border-border text-white text-sm font-semibold shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : "rotate-0"}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {/* Expanded View Lightbox Modal */}
       <AnimatePresence>

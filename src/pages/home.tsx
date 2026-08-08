@@ -85,7 +85,10 @@ export default function Home() {
             <span>All Services</span>
           </div>
 
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground text-center">
+          <h2
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-2xl md:text-4xl font-bold tracking-tight text-foreground text-center"
+          >
             Explore Our Digital Services
           </h2>
         </div>
