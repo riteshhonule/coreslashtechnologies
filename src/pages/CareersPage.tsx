@@ -268,7 +268,6 @@ export default function CareersPage() {
                     <Input
                       id="fullName"
                       name="fullName"
-                      placeholder="e.g. Rahul Sharma"
                       value={formData.fullName}
                       onChange={handleInputChange}
                       required
@@ -285,7 +284,6 @@ export default function CareersPage() {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="rahul@example.com"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
@@ -304,7 +302,6 @@ export default function CareersPage() {
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="Enter phone number"
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
@@ -343,7 +340,6 @@ export default function CareersPage() {
                     <Input
                       id="portfolioUrl"
                       name="portfolioUrl"
-                      placeholder="https://linkedin.com/in/yourprofile"
                       value={formData.portfolioUrl}
                       onChange={handleInputChange}
                       className="h-12 rounded-xl focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500"
@@ -404,7 +400,6 @@ export default function CareersPage() {
                   <Textarea
                     id="coverLetter"
                     name="coverLetter"
-                    placeholder="Tell us about your core technical accomplishments, key projects, or why you'd like to join CoreSlash..."
                     value={formData.coverLetter}
                     onChange={handleInputChange}
                     className="min-h-[110px] rounded-xl text-sm focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500"
