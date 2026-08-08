@@ -10,6 +10,7 @@ import {
 import { FaLinkedinIn, FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import footerLogo from "@/assets/coreslash technologies footer.png";
 
 export default function FooterSection() {
 
@@ -61,12 +62,11 @@ export default function FooterSection() {
           {/* Column 1: Brand (Takes up 4 cols on large screens) */}
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-8">
             <a href="#" className="flex items-center gap-3 mb-6 group">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] group-hover:scale-105 transition-transform duration-300">
-                <Sparkles className="w-5 h-5 animate-pulse" />
-              </div>
-              <span className="text-2xl font-extrabold tracking-tight text-white">
-                Core<span className="text-blue-500">Slash</span>
-              </span>
+              <img
+                src={footerLogo}
+                alt="CoreSlash Technologies"
+                className="h-9 md:h-11 w-auto object-contain brightness-0 invert group-hover:scale-[1.02] transition-transform duration-300 drop-shadow-[0_0_4px_rgba(255,255,255,0.1)]"
+              />
             </a>
             <p className="text-slate-400 leading-relaxed mb-8">
               Building AI-powered software solutions for businesses worldwide. We engineer high-performance tools that define the future of technology and enterprise workflows.
