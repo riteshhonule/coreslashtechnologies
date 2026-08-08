@@ -1,0 +1,696 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ==========================================
+// ENUMS
+// ==========================================
+
+enum Role {
+  ADMIN
+  EDITOR
+  AUTHOR
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum InquiryStatus {
+  NEW
+  IN_PROGRESS
+  COMPLETED
+  SPAM
+}
+
+enum JobStatus {
+  OPEN
+  CLOSED
+  FILLED
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  DOCUMENT
+  ICON
+  LOGO
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  INTERNSHIP
+  CONTRACT
+  REMOTE
+  HYBRID
+}
+
+enum ActivityStatus {
+  SUCCESS
+  FAILED
+  PARTIAL
+}
+
+// ==========================================
+// MODELS
+// ==========================================
+
+model User {
+  id                Int       @id @default(autoincrement())
+  name              String
+  email             String    @unique
+  password          String
+  phone             String?
+  role              Role      @default(AUTHOR)
+  status            Status    @default(ACTIVE)
+  profileImageId    Int?
+  isEmailVerified   Boolean   @default(false)
+  passwordChangedAt DateTime?
+  lastLogin         DateTime?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  profileImage      Media?           @relation("UserProfileImage", fields: [profileImageId], references: [id], onDelete: SetNull)
+  blogs             Blog[]
+  portfolios        Portfolio[]
+  assignedInquiries ContactInquiry[] @relation("AssignedInquiries")
+  activityLogs      ActivityLog[]
+  uploadedMedia     Media[]          @relation("UploadedByMedia")
+  refreshTokens     RefreshToken[]
+
+  @@index([email])
+  @@index([status])
+  @@index([role])
+  @@index([deletedAt])
+}
+
+model RefreshToken {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  token     String    @unique @db.Text
+  expiresAt DateTime
+  revokedAt DateTime?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@index([expiresAt])
+  @@index([deletedAt])
+}
+
+model Permission {
+  id          Int     @id @default(autoincrement())
+  name        String
+  slug        String  @unique
+  description String? @db.Text
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  rolePermissions RolePermission[]
+
+  @@index([slug])
+  @@index([deletedAt])
+}
+
+model RolePermission {
+  id           Int  @id @default(autoincrement())
+  role         Role
+  permissionId Int
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([role, permissionId])
+  @@index([role])
+  @@index([permissionId])
+  @@index([deletedAt])
+}
+
+model ActivityLog {
+  id          Int            @id @default(autoincrement())
+  userId      Int?
+  action      String
+  module      String
+  recordId    Int?
+  description String?        @db.Text
+  status      ActivityStatus @default(SUCCESS)
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime       @default(now())
+
+  // Relations
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([module])
+  @@index([action])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model BlogCategory {
+  id          Int     @id @default(autoincrement())
+  name        String
+  slug        String  @unique
+  description String? @db.Text
+  status      Status  @default(ACTIVE)
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  blogs Blog[]
+
+  @@index([slug])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model Blog {
+  id              Int       @id @default(autoincrement())
+  title           String
+  slug            String    @unique
+  excerpt         String?   @db.Text
+  content         String    @db.Text
+  featuredImageId Int?
+  metaTitle       String?
+  metaDescription String?   @db.Text
+  keywords        String?
+  status          Status    @default(DRAFT)
+  publishedAt     DateTime?
+  readTime        Int?
+  isFeatured      Boolean   @default(false)
+  viewCount       Int       @default(0)
+  shareCount      Int       @default(0)
+  allowComments   Boolean   @default(true)
+  isPinned        Boolean   @default(false)
+  categoryId      Int
+  authorId        Int
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  category      BlogCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  author        User         @relation(fields: [authorId], references: [id], onDelete: Restrict)
+  featuredImage Media?       @relation("BlogFeaturedImage", fields: [featuredImageId], references: [id], onDelete: SetNull)
+  tagMaps       BlogTagMap[]
+
+  @@index([slug])
+  @@index([status])
+  @@index([categoryId])
+  @@index([authorId])
+  @@index([publishedAt])
+  @@index([isFeatured])
+  @@index([deletedAt])
+  @@index([status, publishedAt])
+}
+
+model BlogTag {
+  id   Int    @id @default(autoincrement())
+  name String
+  slug String @unique
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  tagMaps BlogTagMap[]
+
+  @@index([slug])
+  @@index([deletedAt])
+}
+
+model BlogTagMap {
+  id     Int @id @default(autoincrement())
+  blogId Int
+  tagId  Int
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  blog Blog    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  tag  BlogTag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([blogId, tagId])
+  @@index([blogId])
+  @@index([tagId])
+  @@index([deletedAt])
+}
+
+model Service {
+  id                Int      @id @default(autoincrement())
+  title             String
+  slug              String   @unique
+  shortDescription  String?  @db.Text
+  description       String   @db.Text
+  icon              String?
+  heroImageId       Int?
+  bannerImageId     Int?
+  estimatedDelivery String?
+  startingPrice     Decimal? @db.Decimal(10, 2)
+  metaTitle         String?
+  metaDescription   String?  @db.Text
+  keywords          String?
+  status            Status   @default(ACTIVE)
+  displayOrder      Int      @default(0)
+  isFeatured        Boolean  @default(false)
+  features          Json?
+  process           Json?
+  faqs              Json?
+  technologies      Json?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  heroImage   Media? @relation("ServiceHeroImage", fields: [heroImageId], references: [id], onDelete: SetNull)
+  bannerImage Media? @relation("ServiceBannerImage", fields: [bannerImageId], references: [id], onDelete: SetNull)
+
+  @@index([slug])
+  @@index([status])
+  @@index([displayOrder])
+  @@index([isFeatured])
+  @@index([deletedAt])
+}
+
+model PortfolioCategory {
+  id   Int    @id @default(autoincrement())
+  name String
+  slug String @unique
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  portfolios Portfolio[]
+
+  @@index([slug])
+  @@index([deletedAt])
+}
+
+model Portfolio {
+  id              Int       @id @default(autoincrement())
+  title           String
+  slug            String    @unique
+  description     String    @db.Text
+  coverImageId    Int?
+  clientLogoId    Int?
+  gallery         Json?
+  client          String?
+  industry        String?
+  website         String?
+  technologies    Json?
+  projectDuration String?
+  projectStatus   Status    @default(PUBLISHED)
+  completionDate  DateTime?
+  featured        Boolean   @default(false)
+  metaTitle       String?
+  metaDescription String?   @db.Text
+  status          Status    @default(PUBLISHED)
+  categoryId      Int
+  authorId        Int?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  category   PortfolioCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  author     User?             @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  coverImage Media?            @relation("PortfolioCoverImage", fields: [coverImageId], references: [id], onDelete: SetNull)
+  clientLogo Media?            @relation("PortfolioClientLogo", fields: [clientLogoId], references: [id], onDelete: SetNull)
+
+  @@index([slug])
+  @@index([status])
+  @@index([categoryId])
+  @@index([authorId])
+  @@index([featured])
+  @@index([deletedAt])
+}
+
+model FAQ {
+  id           Int     @id @default(autoincrement())
+  question     String
+  answer       String  @db.Text
+  page         String?
+  displayOrder Int     @default(0)
+  status       Status  @default(ACTIVE)
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  @@index([page])
+  @@index([status])
+  @@index([displayOrder])
+  @@index([deletedAt])
+}
+
+model ContactInquiry {
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String
+  phone        String?
+  company      String?
+  service      String?
+  subject      String?
+  message      String        @db.Text
+  status       InquiryStatus @default(NEW)
+  priority     String?       @default("MEDIUM")
+  notes        String?       @db.Text
+  source       String?
+  ipAddress    String?
+  userAgent    String?
+  isRead       Boolean       @default(false)
+  isArchived   Boolean       @default(false)
+  assignedToId Int?
+  followUpDate DateTime?
+  resolvedAt   DateTime?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  assignedTo User? @relation("AssignedInquiries", fields: [assignedToId], references: [id], onDelete: SetNull)
+
+  @@index([email])
+  @@index([status])
+  @@index([priority])
+  @@index([assignedToId])
+  @@index([isArchived])
+  @@index([createdAt])
+  @@index([deletedAt])
+}
+
+model Career {
+  id              Int            @id @default(autoincrement())
+  title           String
+  slug            String         @unique
+  department      String?
+  location        String?
+  employmentType  EmploymentType @default(FULL_TIME)
+  experience      String?
+  salary          String?
+  description     String         @db.Text
+  requirements    Json?
+  responsibilities Json?
+  benefits        Json?
+  status          JobStatus      @default(OPEN)
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  jobApplications JobApplication[]
+
+  @@index([slug])
+  @@index([status])
+  @@index([department])
+  @@index([employmentType])
+  @@index([deletedAt])
+}
+
+model JobApplication {
+  id          Int           @id @default(autoincrement())
+  careerId    Int
+  fullName    String
+  email       String
+  phone       String
+  resume      String
+  coverLetter String?       @db.Text
+  status      InquiryStatus @default(NEW)
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  career Career @relation(fields: [careerId], references: [id], onDelete: Cascade)
+
+  @@index([careerId])
+  @@index([email])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model NewsletterSubscriber {
+  id                Int      @id @default(autoincrement())
+  email             String   @unique
+  status            Status   @default(ACTIVE)
+  isVerified        Boolean  @default(false)
+  verificationToken String?
+  unsubscribeToken  String?
+  subscribedAt      DateTime @default(now())
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  @@index([email])
+  @@index([status])
+  @@index([isVerified])
+  @@index([deletedAt])
+}
+
+model SeoMeta {
+  id                 Int       @id @default(autoincrement())
+  page               String
+  pageId             Int?
+  slug               String?
+  title              String?
+  description        String?   @db.Text
+  keywords           String?
+  canonicalUrl       String?
+  robots             String?
+  focusKeyword       String?
+  noIndex            Boolean   @default(false)
+  noFollow           Boolean   @default(false)
+  priority           Float?    @default(0.8)
+  changeFrequency    String?   @default("monthly")
+  lastModified       DateTime?
+  ogTitle            String?
+  ogDescription      String?   @db.Text
+  ogImageId          Int?
+  twitterTitle       String?
+  twitterDescription String?   @db.Text
+  twitterImageId     Int?
+  schemaMarkup       Json?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  ogImage      Media? @relation("SeoOgImage", fields: [ogImageId], references: [id], onDelete: SetNull)
+  twitterImage Media? @relation("SeoTwitterImage", fields: [twitterImageId], references: [id], onDelete: SetNull)
+
+  @@index([page])
+  @@index([pageId])
+  @@index([slug])
+  @@index([deletedAt])
+  @@index([page, pageId])
+}
+
+model Media {
+  id           Int       @id @default(autoincrement())
+  fileName     String
+  originalName String
+  filePath     String
+  fileType     MediaType @default(IMAGE)
+  mimeType     String
+  fileSize     Int
+  altText      String?
+  title        String?
+  folder       String?   @default("uploads")
+  width        Int?
+  height       Int?
+  extension    String?
+  storageType  String?   @default("local")
+  checksum     String?
+  isPublic     Boolean   @default(true)
+  uploadedById Int?
+  uploadedAt   DateTime  @default(now())
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  uploader                User?             @relation("UploadedByMedia", fields: [uploadedById], references: [id], onDelete: SetNull)
+  userProfiles            User[]            @relation("UserProfileImage")
+  blogFeaturedImages      Blog[]            @relation("BlogFeaturedImage")
+  serviceHeroImages       Service[]         @relation("ServiceHeroImage")
+  serviceBannerImages     Service[]         @relation("ServiceBannerImage")
+  portfolioCoverImages    Portfolio[]       @relation("PortfolioCoverImage")
+  portfolioClientLogos    Portfolio[]       @relation("PortfolioClientLogo")
+  websiteLogos            WebsiteSettings[] @relation("WebsiteLogo")
+  websiteFavicons         WebsiteSettings[] @relation("WebsiteFavicon")
+  websiteDefaultOgImages WebsiteSettings[] @relation("WebsiteDefaultOgImage")
+  seoOgImages             SeoMeta[]         @relation("SeoOgImage")
+  seoTwitterImages        SeoMeta[]         @relation("SeoTwitterImage")
+
+  @@index([fileType])
+  @@index([uploadedById])
+  @@index([folder])
+  @@index([checksum])
+  @@index([uploadedAt])
+  @@index([deletedAt])
+  @@index([createdAt])
+}
+
+model WebsiteSettings {
+  id                    Int     @id @default(autoincrement())
+  siteName              String
+  siteDescription       String? @db.Text
+  tagline               String?
+  logoId                Int?
+  faviconId             Int?
+  defaultOgImageId      Int?
+  defaultMetaTitle      String?
+  defaultMetaDescription String? @db.Text
+  email                 String?
+  phone                 String?
+  address               String?
+  facebook              String?
+  linkedin              String?
+  instagram             String?
+  twitter               String?
+  youtube               String?
+  businessHours         Json?
+  googleMap             String? @db.Text
+  copyright             String?
+  googleAnalyticsId     String?
+  googleTagManagerId    String?
+  facebookPixelId       String?
+  robotsTxt             String? @db.Text
+  themeColor            String?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  // Relations
+  logo           Media? @relation("WebsiteLogo", fields: [logoId], references: [id], onDelete: SetNull)
+  favicon        Media? @relation("WebsiteFavicon", fields: [faviconId], references: [id], onDelete: SetNull)
+  defaultOgImage Media? @relation("WebsiteDefaultOgImage", fields: [defaultOgImageId], references: [id], onDelete: SetNull)
+
+  @@index([deletedAt])
+}
+
+model SystemSettings {
+  id                Int     @id @default(autoincrement())
+  maintenanceMode   Boolean @default(false)
+  allowRegistration Boolean @default(false)
+  maxUploadSize     Int     @default(10485760)
+  defaultLanguage   String  @default("en")
+  timezone          String  @default("UTC")
+  dateFormat        String  @default("YYYY-MM-DD")
+  timeFormat        String  @default("HH:mm")
+  smtpEnabled       Boolean @default(false)
+  smtpHost          String?
+  smtpPort          Int?
+  smtpUsername      String?
+  smtpPassword      String?
+
+  // Audit Fields
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  createdBy Int?
+  updatedBy Int?
+
+  @@index([deletedAt])
+}
