@@ -1,11 +1,16 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 import { RedisService } from '../redis/redis.service';
+import { MetricsService } from '../metrics/metrics.service';
 
 @Injectable()
 export class CacheService {
   private readonly logger = new Logger(CacheService.name);
+  private readonly inFlight = new Map<string, Promise<any>>();
 
-  constructor(private readonly redisService: RedisService) {}
+  constructor(
+    private readonly redisService: RedisService,
+    @Optional() private readonly metricsService?: MetricsService,
+  ) {}
 
   /**
    * Type-safe cache GET. Returns parsed value or null on miss/error.
@@ -14,10 +19,13 @@ export class CacheService {
     try {
       const raw = await this.redisService.get(key);
       if (raw === null) {
+        if (this.metricsService) this.metricsService.recordCacheMiss();
         return null;
       }
+      if (this.metricsService) this.metricsService.recordCacheHit();
       return JSON.parse(raw) as T;
     } catch (err) {
+      if (this.metricsService) this.metricsService.recordRedisFailure();
       const msg = err instanceof Error ? err.message : String(err);
       this.logger.warn(`Cache deserialization error for key "${key}": ${msg}`);
       return null;
@@ -35,13 +43,14 @@ export class CacheService {
       const serialized = JSON.stringify(value);
       await this.redisService.set(key, serialized, ttlSeconds);
     } catch (err) {
+      if (this.metricsService) this.metricsService.recordRedisFailure();
       const msg = err instanceof Error ? err.message : String(err);
       this.logger.warn(`Cache serialization error for key "${key}": ${msg}`);
     }
   }
 
   /**
-   * Get cached item or compute & cache value using factory.
+   * Get cached item or compute & cache value using factory with single-flight stampede protection.
    */
   async getOrSet<T>(
     key: string,
@@ -53,14 +62,25 @@ export class CacheService {
       return cached;
     }
 
-    // Cache Miss or Error: Execute factory loader once
-    const result = await factory();
-
-    if (result !== undefined && result !== null) {
-      await this.set<T>(key, result, ttlSeconds);
+    // Cache Stampede Protection: Single-Flight promise execution for identical concurrent cache misses
+    if (this.inFlight.has(key)) {
+      return this.inFlight.get(key) as Promise<T>;
     }
 
-    return result;
+    const promise = (async () => {
+      try {
+        const result = await factory();
+        if (result !== undefined && result !== null) {
+          await this.set<T>(key, result, ttlSeconds);
+        }
+        return result;
+      } finally {
+        this.inFlight.delete(key);
+      }
+    })();
+
+    this.inFlight.set(key, promise);
+    return promise;
   }
 
   /**

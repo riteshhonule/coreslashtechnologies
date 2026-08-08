@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Layout from "./components/layout";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import About from "./pages/AboutPage";
 import Portfolio from "./pages/PortfolioPage";
 import Contact from "./pages/ContactPage";
@@ -21,6 +21,7 @@ import DataAnalytics from "./pages/services/DataAnalytics";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage";
 import TermsOfService from "./pages/TermsOfServicePage";
 import CookiePolicy from "./pages/CookiePolicyPage";
+import EnquiryFormPage from "./pages/EnquiryFormPage";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="portfolio" element={<Portfolio />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="enquiry-form" element={<EnquiryFormPage />} />
             <Route path="careers" element={<Careers />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />

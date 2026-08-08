@@ -23,9 +23,9 @@ interface AnimatedMarqueeHeroProps {
 
 export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   tagline,
-  titlePart1 = "AI-Powered",
-  titlePart2 = "SOLUTIONS TO SOLVE",
-  titlePart3 = "COMPLEX BUSINESS PROBLEMS",
+  titlePart1: _titlePart1 = "AI-Powered",
+  titlePart2: _titlePart2 = "SOLUTIONS TO SOLVE",
+  titlePart3: _titlePart3 = "COMPLEX BUSINESS PROBLEMS",
   description,
   ctaText,
   secondaryCtaText,

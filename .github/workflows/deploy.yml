@@ -1,0 +1,90 @@
+name: CoreSlash Production CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  audit-and-build:
+    name: Build & Security Audit
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: coreslash_test
+          POSTGRES_PASSWORD: testpassword
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install Dependencies (npm ci)
+        run: |
+          cd backend
+          npm ci
+
+      - name: Verify Prisma Schema Integrity
+        run: |
+          cd backend
+          npx prisma validate
+          git diff --exit-code -- prisma/schema.prisma
+
+      - name: Compile Production Build
+        run: |
+          cd backend
+          npm run build
+
+  deploy:
+    name: Production Deployment & Health Verification
+    needs: audit-and-build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.PROD_SERVER_IP }}
+          username: ${{ secrets.PROD_SERVER_USER }}
+          key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd /var/www/coreslash/backend
+            git fetch origin main
+            git reset --hard origin/main
+            npm ci
+            npm run build
+            npx prisma migrate status
+            pm2 reload ecosystem.config.js --env production
+            sleep 5
+            curl -f http://127.0.0.1:5000/api/v1/health/liveness || exit 1
+            curl -f http://127.0.0.1:5000/api/v1/health/readiness || exit 1
+            echo "CoreSlash Backend successfully deployed and verified healthy!"

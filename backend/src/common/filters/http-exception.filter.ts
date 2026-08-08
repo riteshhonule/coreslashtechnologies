@@ -7,6 +7,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { REQUEST_ID_HEADER } from '../middleware/request-id.middleware';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
@@ -16,6 +17,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
+    const requestId = (request.headers[REQUEST_ID_HEADER] as string) || (request as any).id || 'N/A';
 
     let statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
     let message = 'Internal server error';
@@ -41,13 +43,13 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     } else if (exception && typeof exception === 'object') {
       message = exception.message || 'Internal server error';
       this.logger.error(
-        `Unhandled Exception: ${message}`,
+        `[${requestId}] Unhandled Exception: ${message}`,
         exception.stack,
       );
     }
 
     this.logger.warn(
-      `HTTP ${statusCode} [${request.method}] ${request.url} - ${message}`,
+      `[${requestId}] HTTP ${statusCode} [${request.method}] ${request.url} - ${message}`,
     );
 
     response.status(statusCode).json({
@@ -55,6 +57,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
       statusCode,
       message,
       errors,
+      requestId,
       timestamp: new Date().toISOString(),
       path: request.url,
     });
