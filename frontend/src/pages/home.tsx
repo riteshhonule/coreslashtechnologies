@@ -147,8 +147,8 @@ export default function Home() {
 
             {/* Headline */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.25] mb-6">
-              AI-Powered Software Company Delivering Scalable{" "}
-              <span className="text-blue-600">Innovative Digital Solutions</span>
+              AI-Powered Software Company {" "}
+              <span className="text-blue-600">Delivering Scalable Innovative Digital Solutions</span>
             </h2>
 
             {/* Subtext Paragraphs */}

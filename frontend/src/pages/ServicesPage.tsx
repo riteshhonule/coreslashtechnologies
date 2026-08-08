@@ -257,7 +257,7 @@ export default function ServicesIndex() {
       {/* ========================================================
           1. HERO SECTION (DARK SLATE WITH BACKGROUND IMAGE)
           ======================================================== */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-8 md:py-12 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&auto=format&fit=crop&q=80')",
@@ -270,7 +270,7 @@ export default function ServicesIndex() {
 
         <div className="relative z-10 max-w-[1400px] w-full text-left space-y-4 md:space-y-5">
           {/* Breadcrumb */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -293,7 +293,7 @@ export default function ServicesIndex() {
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -306,17 +306,17 @@ export default function ServicesIndex() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-normal"
           >
-            Explore our specialized development divisions. From autonomous AI agents and high-scale web platforms to cloud microservices and real-time business telemetry, we engineer products built to scale revenue.
+            CoreSlash Technologies is a specialized software development company delivering scalable AI solutions, high-performance web platforms, cloud microservices, and real-time business intelligence to help businesses grow faster.
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -326,7 +326,7 @@ export default function ServicesIndex() {
               to="/contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm md:text-base shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-300"
             >
-              <span>Schedule Technical Consultation</span>
+              <span>Schedule Free Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -345,7 +345,7 @@ export default function ServicesIndex() {
           ======================================================== */}
       <section id="services-grid" className="w-full py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-background border-t border-border/40">
         <div className="max-w-[1400px] mx-auto">
-          
+
           {/* Header */}
           <div className="flex flex-col items-start gap-4 mb-16 text-left">
             <div className="flex items-center">
@@ -378,9 +378,9 @@ export default function ServicesIndex() {
 
                   {/* Card Header Background Image Layer */}
                   <div className="relative w-full h-[200px] overflow-hidden">
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
+                    <img
+                      src={item.image}
+                      alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-[0.85] dark:brightness-[0.75]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />

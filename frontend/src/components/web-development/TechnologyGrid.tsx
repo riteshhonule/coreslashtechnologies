@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
+import {
   SiReact, SiNextdotjs, SiVuedotjs, SiAngular, SiJavascript, SiTypescript,
   SiFlutter, SiSwift, SiKotlin, SiThreedotjs, SiGreensock,
   SiNodedotjs, SiPython, SiDjango, SiSpringboot, SiPhp, SiLaravel,
@@ -62,16 +62,21 @@ export default function TechnologyGrid() {
   return (
     <section className="relative w-full pt-16 pb-12 md:pt-20 md:pb-16 border-t border-border/40 overflow-hidden bg-background">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 w-full text-left">
-        
-        {/* Title block with vertical accent border */}
-        <div className="flex flex-col items-start gap-4 mb-8 text-left">
-          <div className="flex items-center">
-            <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-            <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
-              Technology Stack
-            </h3>
+
+        {/* Centered Modern Technology Stack Header */}
+        <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center justify-center gap-2 px-5 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-500/20">
+            <span>Modern Technology Stack</span>
           </div>
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl font-normal mt-1">
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight text-center">
+            Technologies{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+              We Use
+            </span>
+          </h2>
+
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
             We choose technologies based on project requirements, system stability, scalability, security, and long-term maintainability rather than short-term trends or popularity, ensuring reliable and future-ready digital solutions.
           </p>
         </div>
@@ -85,9 +90,8 @@ export default function TechnologyGrid() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`relative px-4 py-2 text-sm md:text-base font-medium tracking-wider transition-colors duration-300 uppercase focus:outline-none ${
-                  isActive ? "text-blue-600 dark:text-blue-400 font-bold" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`relative px-4 py-2 text-sm md:text-base font-medium tracking-wider transition-colors duration-300 uppercase focus:outline-none ${isActive ? "text-blue-600 dark:text-blue-400 font-bold" : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {tab}
                 {/* Active Underline Indicator */}
@@ -106,7 +110,7 @@ export default function TechnologyGrid() {
         {/* Dynamic Grid Layout matching exact styling of image 2 */}
         <div>
           <AnimatePresence mode="wait">
-            <motion.div 
+            <motion.div
               key={activeTab}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -123,7 +127,7 @@ export default function TechnologyGrid() {
                   whileHover={{ y: -4 }}
                   className="group relative flex items-center gap-4 p-4 md:p-5 h-[80px] bg-white dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)] hover:border-blue-500/50 dark:hover:border-blue-500/50 cursor-pointer transition-all duration-300"
                 >
-                  <div 
+                  <div
                     className="flex items-center justify-center w-12 h-12 text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300 drop-shadow-sm shrink-0"
                     style={{ color: tech.color }}
                   >

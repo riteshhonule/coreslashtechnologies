@@ -300,16 +300,21 @@ export default function DataAnalytics() {
           ======================================================== */}
       <section className="relative w-full py-16 md:py-24 border-t border-border/40 bg-background">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="flex flex-col items-start gap-4 mb-8 text-left">
-            <div className="flex items-center">
-              <div className="w-[3px] h-6 bg-blue-600 rounded-full mr-3" />
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
-                Data Tech Stack
-              </h3>
+          <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-500/20">
+              <span>Modern Technology Stack</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
-              Enterprise Data Tools
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight text-center">
+              Technologies{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+                We Use
+              </span>
             </h2>
+
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
+              Enterprise Data Tools
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 border-b border-border/40 mb-8 py-2">

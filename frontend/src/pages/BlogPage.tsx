@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Sparkles, Search, Clock, ArrowRight, ChevronDown, X } from "lucide-react";
 import { BLOG_POSTS } from "@/data/blogData";
 import { Input } from "@/components/ui/input";
+import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Articles");
@@ -102,19 +103,15 @@ export default function BlogPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="group relative rounded-3xl bg-white dark:bg-slate-900 border border-border/80 shadow-xl hover:shadow-2xl hover:border-blue-500/40 transition-all duration-500 overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+          className="group relative rounded-[2.5rem] bg-white dark:bg-slate-900 border border-border/80 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-8 lg:p-10 gap-8 items-center"
         >
-          <div className="lg:col-span-6 relative h-64 sm:h-80 lg:h-auto overflow-hidden bg-slate-950">
-            <img 
-              src={featuredPost.coverImage} 
-              alt={featuredPost.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          <div className="lg:col-span-6 relative w-full flex justify-center pb-6 sm:pb-8 lg:pb-0">
+            <OverlappingImageCard
+              primaryImage={featuredPost.coverImage}
+              secondaryImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&auto=format&fit=crop&q=80"
+              altText={featuredPost.title}
+              badgeText={featuredPost.category}
             />
-            <div className="absolute top-4 left-4">
-              <span className="px-3.5 py-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-extrabold uppercase shadow-md">
-                {featuredPost.category}
-              </span>
-            </div>
           </div>
 
           <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between space-y-6">

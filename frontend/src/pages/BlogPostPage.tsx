@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { BLOG_POSTS } from "@/data/blogData";
 import { Button } from "@/components/ui/button";
+import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -149,13 +150,14 @@ export default function BlogPostPage() {
           {/* Main Article Content Column (8 Cols) */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* High-Res Featured Cover Image */}
-            <div className="w-full h-80 sm:h-[450px] rounded-3xl overflow-hidden border border-border/60 shadow-xl bg-slate-950 relative">
-              <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
-              {/* Subtle watermark badge over image */}
-              <div className="absolute bottom-4 right-4 px-3 py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase text-slate-300 tracking-widest">
-                CORESLASH INSIGHTS
-              </div>
+            {/* High-Res Featured Cover Image with Overlapping Dual Card Design */}
+            <div className="w-full pb-6 sm:pb-8 flex justify-center">
+              <OverlappingImageCard
+                primaryImage={post.coverImage}
+                secondaryImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&auto=format&fit=crop&q=80"
+                altText={post.title}
+                badgeText="CoreSlash Insights"
+              />
             </div>
 
             {/* Intro Lead Paragraph Box */}

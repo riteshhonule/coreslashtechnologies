@@ -34,19 +34,28 @@ export default function PortfolioSection() {
   return (
     <section className="pt-16 pb-20 md:pt-20 md:pb-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 overflow-hidden bg-background">
       
-      {/* Header Block matching Zikrabyte Layout */}
-      <div className="flex items-center justify-between mb-12">
-        <div className="flex items-center">
-          <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-            Case Studies
-          </h3>
+      {/* Centered Middle Heading Block for Case Studies */}
+      <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
+        <div className="inline-flex items-center justify-center gap-2 px-5 py-2 mb-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-500/25">
+          <span>Case Studies</span>
         </div>
+
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
+          Featured{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+            Case Studies
+          </span>
+        </h2>
+
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center mb-6">
+          Explore how we engineer scalable software solutions, custom web applications, and high-impact digital experiences for enterprise clients.
+        </p>
+
         <Link 
           to="/portfolio" 
-          className="text-xs md:text-sm font-semibold text-[#3b82f6] flex items-center gap-1 group hover:text-blue-600 transition-colors uppercase tracking-wider"
+          className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors uppercase tracking-wider group"
         >
-          View All 
+          <span>VIEW ALL CASE STUDIES</span> 
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>

@@ -217,12 +217,19 @@ export default function ShopifyDevelopment() {
       {/* 5. TECH STACK (Animated Framer Motion Sliding Tabs) */}
       <section className="relative w-full py-24 border-t border-border/40 overflow-hidden bg-background">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 w-full text-left">
-          <div className="flex flex-col items-start gap-4 mb-8">
-            <div className="flex items-center">
-              <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-              <h3 className="text-sm font-extrabold uppercase tracking-widest text-muted-foreground">Technology Stack</h3>
+          <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-500/20">
+              <span>Modern Technology Stack</span>
             </div>
-            <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl font-medium mt-2">
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight text-center">
+              Technologies{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+                We Use
+              </span>
+            </h2>
+
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
               We leverage modern Shopify OS 2.0 architectures, Remix/Hydrogen headless tech, and Storefront APIs for high conversion.
             </p>
           </div>
@@ -274,13 +281,25 @@ export default function ShopifyDevelopment() {
 
       {/* 7. CASE STUDIES (PORTFOLIO SHOWCASE) */}
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 overflow-hidden bg-background">
-        <div className="flex items-center justify-between mb-16">
-          <div className="flex items-center">
-            <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-            <h3 className="text-sm font-extrabold uppercase tracking-widest text-muted-foreground">Case Studies</h3>
+        {/* Centered Middle Heading Block for Case Studies */}
+        <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center justify-center gap-2 px-5 py-2 mb-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-500/25">
+            <span>Case Studies</span>
           </div>
-          <Link to="/portfolio" className="text-xs md:text-sm font-extrabold text-[#3b82f6] flex items-center gap-1 group hover:text-blue-600 transition-colors uppercase tracking-wider">
-            View All <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
+            Featured{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+              Case Studies
+            </span>
+          </h2>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center mb-6">
+            Explore high-converting e-commerce platforms and Shopify Plus stores built for global brands.
+          </p>
+
+          <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors uppercase tracking-wider group">
+            <span>VIEW ALL CASE STUDIES</span> <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 

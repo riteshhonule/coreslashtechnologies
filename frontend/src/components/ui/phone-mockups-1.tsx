@@ -2,23 +2,35 @@ import {
   type ImageItem,
   PhoneCarousel,
 } from "@/components/ui/phone-mockups-1-utils/phone-carousel";
+import behanceScreen from "@/assets/app-development/coreslash-Behance-screen.png";
+import notionScreen from "@/assets/app-development/coreslash-Notion-screen.png";
+import oneScreen from "@/assets/app-development/coreslash-One-screen.png";
+import redditScreen from "@/assets/app-development/coreslash-Reddit.png";
 
 const exampleImages: ImageItem[] = [
   {
-    src: "https://res.cloudinary.com/harshitproject/image/upload/v1746774805/Behance-screen.png",
+    src: behanceScreen,
     alt: "Behance app on iPhone",
+    title: "Creative Portfolio Engine",
+    description: "High-density Retina display UI engineered for fluid portfolio browsing and creative gallery showcases."
   },
   {
-    src: "https://res.cloudinary.com/harshitproject/image/upload/v1746774805/Notion-screen.png",
+    src: notionScreen,
     alt: "Notion app on iPhone",
+    title: "Workspace & Notes Suite",
+    description: "Real-time collaborative document editor with rich markdown formatting and instant offline sync."
   },
   {
-    src: "https://res.cloudinary.com/harshitproject/image/upload/v1746774806/One-screen.png",
+    src: oneScreen,
     alt: "One app on iPhone",
+    title: "Fintech Mobile Wallet",
+    description: "Next-gen banking experience featuring biometric security and sub-second payment transaction flows."
   },
   {
-    src: "https://res.cloudinary.com/harshitproject/image/upload/v1746774807/Reddit-nj7hwh.png",
+    src: redditScreen,
     alt: "Reddit app on iPhone",
+    title: "Community Social Platform",
+    description: "Real-time thread discussions, dark mode feeds, and high-concurrency media streaming."
   },
 ];
 
