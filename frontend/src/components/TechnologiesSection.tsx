@@ -84,7 +84,7 @@ export default function TechnologiesSection() {
             </span>
           </h2>
 
-          <p className="text-slate-500 text-sm md:text-base leading-[1.8] max-w-4xl mx-auto">
+          <p className="hidden md:block text-slate-500 text-sm md:text-base leading-[1.8] max-w-4xl mx-auto">
             We leverage advanced technologies, modern development frameworks, and industry-leading tools to build secure, scalable, and high-performance digital solutions. Our technology expertise enables us to deliver innovative software, web applications, mobile apps, and enterprise solutions tailored to diverse business requirements.
           </p>
         </motion.div>
@@ -96,7 +96,7 @@ export default function TechnologiesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-2 md:gap-8 mb-16 border-b border-white/10 pb-4"
+          className="flex flex-nowrap overflow-x-auto sm:flex-wrap items-center justify-start sm:justify-center gap-4 md:gap-8 mb-16 border-b border-black/10 dark:border-white/10 pb-4 w-full hide-scrollbar scroll-smooth"
         >
           {CATEGORIES.map((category) => {
             const isActive = activeTab === category;
@@ -105,8 +105,8 @@ export default function TechnologiesSection() {
                 key={category}
                 onClick={() => setActiveTab(category)}
                 className={cn(
-                  "relative px-4 py-3 text-sm md:text-base font-medium uppercase tracking-wider transition-colors duration-300",
-                  isActive ? "text-black dark:text-white font-bold" : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                  "relative px-3 sm:px-4 py-3 text-sm md:text-base font-medium uppercase tracking-wider transition-colors duration-300 whitespace-nowrap flex-shrink-0",
+                  isActive ? "text-blue-600 dark:text-blue-500 font-bold" : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
                 )}
               >
                 {category}

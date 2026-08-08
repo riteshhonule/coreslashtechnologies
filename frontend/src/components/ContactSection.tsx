@@ -117,7 +117,7 @@ export const ContactSection: React.FC = () => {
               Tell us about your project and our experts will prepare a personalized roadmap with technology recommendations, timelines, estimated costs and the best development strategy.
             </motion.p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-4 mb-8">
               {features.map((feature, idx) => (
                 <motion.div
                   key={idx}

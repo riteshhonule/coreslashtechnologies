@@ -10,30 +10,22 @@ import { Helmet } from "react-helmet-async";
 import awsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-aws-cloud-services.png";
 import aiDevelopmentImg from "@/assets/services/ai-automation/coreslash-technologies-ai-development-services.png";
 import appDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-mobile-app-development.png";
-import cloudImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-infrastructure.png";
-import cloudflareImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloudflare-cdn-security.png";
 import cyberSecurityImg from "@/assets/services/software-systems/coreslash-technologies-cyber-security-services.png";
-import digitalTransformationImg from "@/assets/services/software-systems/coreslash-technologies-digital-transformation-framework.jpg";
 import erpImg from "@/assets/services/software-systems/coreslash-technologies-erp-software-development.png";
 import iosDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-ios-app-development.png";
 import pythonDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-python-development.jpg";
-import softwareDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-custom-software-development.png";
 
 import aboutTopImg from "@/assets/about/coreslash-technologies-team-working.avif";
 import aboutBottomImg from "@/assets/about/coreslash-technologies-team-work.jpg";
 
 const heroImages = [
-  awsImg,
-  aiDevelopmentImg,
-  appDevelopmentImg,
-  cloudImg,
-  cloudflareImg,
-  cyberSecurityImg,
-  digitalTransformationImg,
   erpImg,
+  aiDevelopmentImg,
   iosDevelopmentImg,
+  appDevelopmentImg,
   pythonDevelopmentImg,
-  softwareDevelopmentImg,
+  cyberSecurityImg,
+  awsImg,
 ];
 
 const organizationSchema = {
@@ -85,7 +77,10 @@ export default function Home() {
             <span>All Services</span>
           </div>
 
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground text-center">
+          <h2
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-2xl md:text-4xl font-bold tracking-tight text-foreground text-center"
+          >
             Explore Our Digital Services
           </h2>
         </div>
