@@ -1,4 +1,4 @@
-import { Module, OnModuleInit, Logger } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer, OnModuleInit, Logger } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { ThrottlerModule } from '@nestjs/throttler';
@@ -13,10 +13,24 @@ import uploadConfig from '@core/config/upload.config';
 import { DatabaseModule } from './database/database.module';
 import { RedisModule } from '@core/redis/redis.module';
 import { CacheModule } from '@core/cache/cache.module';
+import { MetricsModule } from '@core/metrics/metrics.module';
 import { HealthModule } from './health/health.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotificationModule } from './modules/notifications/notification.module';
+import { UploadsModule } from './modules/uploads/uploads.module';
+import { SettingsModule } from './modules/settings/settings.module';
+import { ServicesModule } from './modules/services/services.module';
+import { BlogCategoriesModule } from './modules/blog-categories/blog-categories.module';
+import { BlogsModule } from './modules/blogs/blogs.module';
+import { PortfolioModule } from './modules/portfolio/portfolio.module';
+import { FaqModule } from './modules/faq/faq.module';
+import { CareersModule } from './modules/careers/careers.module';
+import { ContactModule } from './modules/contact/contact.module';
+import { NewsletterModule } from './modules/newsletter/newsletter.module';
+import { SeoModule } from './modules/seo/seo.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { RequestIdMiddleware } from '@common/middleware/request-id.middleware';
 import { ensureDirectoriesExist } from '@core/helpers/file.helper';
 import { UPLOAD_CONSTANTS } from '@core/constants/upload.constants';
 
@@ -63,16 +77,33 @@ import { UPLOAD_CONSTANTS } from '@core/constants/upload.constants';
     DatabaseModule,
     RedisModule,
     CacheModule,
+    MetricsModule,
     NotificationModule,
     HealthModule,
     AuthModule,
     UsersModule,
+    UploadsModule,
+    SettingsModule,
+    ServicesModule,
+    BlogCategoriesModule,
+    BlogsModule,
+    PortfolioModule,
+    FaqModule,
+    CareersModule,
+    ContactModule,
+    NewsletterModule,
+    SeoModule,
+    DashboardModule,
   ],
 })
-export class AppModule implements OnModuleInit {
+export class AppModule implements NestModule, OnModuleInit {
   private readonly logger = new Logger(AppModule.name);
 
   constructor(private readonly configService: ConfigService) {}
+
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(RequestIdMiddleware).forRoutes('*');
+  }
 
   onModuleInit(): void {
     const uploadDest = this.configService.get<string>(
