@@ -12,11 +12,12 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Custom Web Development Services",
+  "url": "https://coreslashtechnologies.com/services/web-development",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Web Development",
   "description": "Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies. Modern, scalable, secure, and SEO-friendly web development services.",
@@ -105,7 +106,7 @@ export default function WebsiteDevelopment() {
           name="description" 
           content="Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies. Modern, scalable, secure, and SEO-friendly web development services." 
         />
-        <link rel="canonical" href="https://www.coreslash.com/services/web-development" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/web-development" />
         <script type="application/ld+json">
           {JSON.stringify(serviceSchema)}
         </script>

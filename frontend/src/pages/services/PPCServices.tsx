@@ -10,11 +10,12 @@ const ppcSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "PPC & Performance Marketing Services",
+  "url": "https://coreslashtechnologies.com/services/ppc",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "PPC Marketing",
   "description": "Maximize ad spend ROAS with data-driven Google Ads, LinkedIn Ads, retargeting funnels, and landing page conversion rate optimization.",
@@ -73,7 +74,7 @@ export default function PPCServices() {
       <Helmet>
         <title>Google Ads & PPC Management Services | CoreSlash Technologies</title>
         <meta name="description" content="Maximize your return on ad spend with high-converting Google Ads, LinkedIn B2B campaigns, and conversion rate optimization." />
-        <link rel="canonical" href="https://www.coreslash.com/services/ppc" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/ppc" />
         <script type="application/ld+json">{JSON.stringify(ppcSchema)}</script>
       </Helmet>
 

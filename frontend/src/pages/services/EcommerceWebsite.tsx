@@ -11,13 +11,16 @@ const ecommerceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Custom E-Commerce Development Services",
+  "url": "https://coreslashtechnologies.com/services/ecommerce-solutions",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "E-Commerce Development",
-  "description": "Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration for scaling online businesses."
+  "description": "Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration for scaling online businesses.",
+  "areaServed": "Worldwide"
 };
 
 const ecommerceFaqData: FaqData = {
@@ -52,7 +55,7 @@ export default function EcommerceWebsite() {
       <Helmet>
         <title>Custom E-Commerce Development | CoreSlash Technologies</title>
         <meta name="description" content="Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration." />
-        <link rel="canonical" href="https://www.coreslash.com/services/ecommerce" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/ecommerce-solutions" />
         <script type="application/ld+json">{JSON.stringify(ecommerceSchema)}</script>
       </Helmet>
 

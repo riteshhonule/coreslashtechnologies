@@ -99,21 +99,21 @@ export default function EngagementModels() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 backdrop-blur-md shadow-lg shadow-blue-500/5 space-y-3 max-w-xl"
+                className="p-5 rounded-2xl bg-slate-900 border border-slate-800 backdrop-blur-md shadow-xl shadow-slate-950/20 space-y-3 max-w-xl"
               >
                 <div className="flex items-start gap-3.5">
-                  <div className="w-11 h-11 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/30">
                     {activeModel === "dedicated" && <Link2 className="w-5 h-5" />}
                     {activeModel === "hourly" && <Target className="w-5 h-5" />}
                     {activeModel === "fixed" && <Compass className="w-5 h-5" />}
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-base font-bold text-foreground">
+                    <h4 className="text-base font-bold text-white">
                       {activeModel === "dedicated" && "Dedicated Engineering Team"}
                       {activeModel === "hourly" && "Hourly Consultation & Advisory"}
                       {activeModel === "fixed" && "Fixed Scope Project Delivery"}
                     </h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                       {activeModel === "dedicated" && "Full-time software engineers, UI designers, and project managers working as a seamless extension of your organization."}
                       {activeModel === "hourly" && "Flexible access to senior solutions architects for code reviews, technical audits, and high-impact advisory sprints."}
                       {activeModel === "fixed" && "Defined deliverables, milestones, and predictable budget requirements for well-scoped software releases."}
@@ -125,31 +125,31 @@ export default function EngagementModels() {
                 <div className="flex flex-wrap gap-2 pt-1">
                   {activeModel === "dedicated" && (
                     <>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3" /> Agile Sprints
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-500/15 border border-blue-500/30 text-blue-300 text-[11px] font-semibold">
+                        <CheckCircle2 className="w-3 h-3 text-blue-400" /> Agile Sprints
                       </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3" /> Full Time Alignment
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-500/15 border border-blue-500/30 text-blue-300 text-[11px] font-semibold">
+                        <CheckCircle2 className="w-3 h-3 text-blue-400" /> Full Time Alignment
                       </span>
                     </>
                   )}
                   {activeModel === "hourly" && (
                     <>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3" /> Pay As You Go
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-[11px] font-semibold">
+                        <CheckCircle2 className="w-3 h-3 text-cyan-400" /> Pay As You Go
                       </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3" /> Senior Architect Access
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-[11px] font-semibold">
+                        <CheckCircle2 className="w-3 h-3 text-cyan-400" /> Senior Architect Access
                       </span>
                     </>
                   )}
                   {activeModel === "fixed" && (
                     <>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3" /> Guaranteed Milestones
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-semibold">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Guaranteed Milestones
                       </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3" /> Predictable Budget
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-semibold">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Predictable Budget
                       </span>
                     </>
                   )}

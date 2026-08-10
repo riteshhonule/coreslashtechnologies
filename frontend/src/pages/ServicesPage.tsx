@@ -26,11 +26,12 @@ const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "CoreSlash Engineering & Software Development Services",
+  "url": "https://coreslashtechnologies.com/services",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "description": "Full-suite software engineering services: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics.",
   "areaServed": "Worldwide"
@@ -250,7 +251,7 @@ export default function ServicesIndex() {
           name="description"
           content="Explore CoreSlash Technologies' software engineering divisions: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/services" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services" />
         <script type="application/ld+json">{JSON.stringify(servicesSchema)}</script>
       </Helmet>
 

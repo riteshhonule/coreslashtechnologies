@@ -22,11 +22,12 @@ const cloudSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Cloud Infrastructure & DevOps Engineering Services",
+  "url": "https://coreslashtechnologies.com/services/cloud-infrastructure",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Cloud Infrastructure",
   "description": "Architect high-availability AWS, Azure, and Cloudflare environments with automated CI/CD pipelines, Kubernetes container orchestration, and 99.99% uptime guarantees.",
@@ -132,7 +133,7 @@ export default function CloudInfrastructure() {
           name="description"
           content="Architect resilient AWS, Azure, and Cloudflare environments with automated CI/CD pipelines, Kubernetes container orchestration, and zero-downtime deployments."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/services/cloud-infrastructure" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/cloud-infrastructure" />
         <script type="application/ld+json">{JSON.stringify(cloudSchema)}</script>
       </Helmet>
 

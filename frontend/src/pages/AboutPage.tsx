@@ -12,7 +12,7 @@ export default function AboutPage() {
           name="description" 
           content="Learn about CoreSlash Technologies, our team, mission, and how we deliver cutting-edge software and web solutions." 
         />
-        <link rel="canonical" href="https://www.coreslash.com/about" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/about" />
       </Helmet>
 
       {/* 1. Hero Section */}

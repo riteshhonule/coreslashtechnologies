@@ -11,13 +11,16 @@ const seoSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "SEO & Organic Search Services",
+  "url": "https://coreslashtechnologies.com/services/seo-solutions",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Search Engine Optimization",
-  "description": "Technical SEO audits, structural schema.org markup, high-intent keyword targeting, and organic link building designed to maximize Google search rankings."
+  "description": "Technical SEO audits, structural schema.org markup, high-intent keyword targeting, and organic link building designed to maximize Google search rankings.",
+  "areaServed": "Worldwide"
 };
 
 const seoFaqData: FaqData = {
@@ -52,7 +55,7 @@ export default function SEOOptimization() {
       <Helmet>
         <title>SEO Optimization Services | CoreSlash Technologies</title>
         <meta name="description" content="Technical SEO audits, schema markup, high-intent keyword strategies, and organic search ranking growth." />
-        <link rel="canonical" href="https://www.coreslash.com/services/seo" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/seo-solutions" />
         <script type="application/ld+json">{JSON.stringify(seoSchema)}</script>
       </Helmet>
 

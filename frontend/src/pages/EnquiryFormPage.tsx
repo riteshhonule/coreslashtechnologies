@@ -119,7 +119,7 @@ export default function EnquiryFormPage() {
       <Helmet>
         <title>Quick Enquiry | CoreSlash Technologies</title>
         <meta name="description" content="CoreSlash Technologies Quick Enquiry Form" />
-        <link rel="canonical" href="https://www.coreslash.com/enquiry-form" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/enquiry-form" />
       </Helmet>
 
       {/* Confetti Animation when Submitted */}

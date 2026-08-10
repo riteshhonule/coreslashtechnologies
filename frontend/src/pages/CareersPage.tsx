@@ -165,7 +165,7 @@ export default function CareersPage() {
           name="description" 
           content="Join CoreSlash Technologies. Work with cutting-edge technologies, remote freedom, and high-impact engineering teams." 
         />
-        <link rel="canonical" href="https://www.coreslash.com/careers" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/careers" />
       </Helmet>
 
       {/* 1. Hero Section */}

@@ -18,14 +18,16 @@ const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Custom Software Systems & Enterprise Engineering",
+  "url": "https://coreslashtechnologies.com/services/software-systems",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Enterprise Software Engineering",
-  "description": "Custom enterprise software development, SaaS platforms, cloud microservices, ERP/CRM systems, and automated workflow pipelines engineered for high scalability."
+  "description": "Custom enterprise software development, SaaS platforms, cloud microservices, ERP/CRM systems, and automated workflow pipelines engineered for high scalability.",
+  "areaServed": "Worldwide"
 };
 
 // ----------------------------------------------------
@@ -101,7 +103,7 @@ export default function SoftwareSystems() {
       <Helmet>
         <title>Custom Software Systems & Enterprise Solutions | CoreSlash Technologies</title>
         <meta name="description" content="Build enterprise SaaS platforms, custom ERPs, cloud microservices, and automated workflow systems with CoreSlash Technologies." />
-        <link rel="canonical" href="https://www.coreslash.com/services/software-systems" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/software-systems" />
         <script type="application/ld+json">{JSON.stringify(softwareSchema)}</script>
       </Helmet>
 

@@ -5,7 +5,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Sparkles,
 } from "lucide-react";
 import { FaLinkedinIn, FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";

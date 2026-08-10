@@ -12,7 +12,7 @@ export default function ContactPage() {
       <Helmet>
         <title>Contact Us | CoreSlash Technologies</title>
         <meta name="description" content="Get in touch with CoreSlash Technologies to discuss your next big digital project." />
-        <link rel="canonical" href="https://www.coreslash.com/contact" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/contact" />
       </Helmet>
 
       <ContactSection

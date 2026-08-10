@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Star, ShieldCheck, Briefcase, Headphones, Users, Bot } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 interface CountUpProps {
   end: number;

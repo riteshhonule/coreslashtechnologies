@@ -32,14 +32,16 @@ const shopifySchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Shopify Development Services",
+  "url": "https://coreslashtechnologies.com/services/shopify-development",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Shopify Development",
-  "description": "Custom Shopify themes, Liquid templates, Headless Storefronts, and seamless app integrations engineered to maximize conversions and scale e-commerce growth."
+  "description": "Custom Shopify themes, Liquid templates, Headless Storefronts, and seamless app integrations engineered to maximize conversions and scale e-commerce growth.",
+  "areaServed": "Worldwide"
 };
 
 const shopifyFaqData: FaqData = {
@@ -86,7 +88,7 @@ export default function ShopifyDevelopment() {
       <Helmet>
         <title>Shopify Development Services | CoreSlash Technologies</title>
         <meta name="description" content="Custom Shopify themes, Liquid templates, Headless Storefronts, and app integrations engineered to scale e-commerce revenue." />
-        <link rel="canonical" href="https://www.coreslash.com/services/shopify-development" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/shopify-development" />
         <script type="application/ld+json">{JSON.stringify(shopifySchema)}</script>
       </Helmet>
 

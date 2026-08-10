@@ -33,7 +33,7 @@ export default function BlogPage() {
           name="description" 
           content="Explore technical articles, web development guides, local SEO strategies, and software insights from CoreSlash Technologies." 
         />
-        <link rel="canonical" href="https://www.coreslash.com/blog" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/blog" />
       </Helmet>
 
       {/* 1. Hero Banner */}

@@ -20,11 +20,12 @@ const aiSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "AI Automation & Autonomous LLM Agents",
+  "url": "https://coreslashtechnologies.com/services/ai-automation",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "AI Automation",
   "description": "Build AI-powered workflows, custom LLM fine-tuning, RAG vector search, autonomous AI agents, and intelligent process automation with CoreSlash Technologies.",
@@ -133,7 +134,7 @@ export default function AIAutomation() {
           name="description"
           content="Accelerate enterprise operations with custom AI agents, autonomous workflows, LLM fine-tuning, RAG vector search, and intelligent process automation."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/services/ai-automation" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/ai-automation" />
         <script type="application/ld+json">{JSON.stringify(aiSchema)}</script>
       </Helmet>
 

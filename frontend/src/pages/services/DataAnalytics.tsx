@@ -21,11 +21,12 @@ const dataSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Data Analytics & Business Intelligence Solutions",
+  "url": "https://coreslashtechnologies.com/services/data-analytics",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Data Analytics",
   "description": "Transform complex business data into real-time interactive executive dashboards, automated reporting pipelines, and predictive telemetry.",
@@ -132,7 +133,7 @@ export default function DataAnalytics() {
           name="description"
           content="Turn raw operational data into actionable insights through custom real-time executive dashboards, ETL data pipelines, and predictive business intelligence."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/services/data-analytics" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/data-analytics" />
         <script type="application/ld+json">{JSON.stringify(dataSchema)}</script>
       </Helmet>
 

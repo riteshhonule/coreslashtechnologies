@@ -150,7 +150,7 @@ export default function PortfolioPage() {
           name="description" 
           content="Explore real-world case studies of digital platforms, e-commerce storefronts, SaaS applications, and mobile apps engineered by CoreSlash Technologies." 
         />
-        <link rel="canonical" href="https://www.coreslash.com/portfolio" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/portfolio" />
       </Helmet>
 
       {/* 1. Hero Header Section */}

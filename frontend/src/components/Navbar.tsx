@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LiquidGlassButton } from "./LiquidGlass";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sparkles, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import logoImg from "@/assets/coreslash technologies.png";
 
 export interface NavItem {

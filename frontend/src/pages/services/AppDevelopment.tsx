@@ -20,14 +20,16 @@ const appDevSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Mobile App Development Services",
+  "url": "https://coreslashtechnologies.com/services/app-development",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Mobile App Development",
-  "description": "Custom native iOS, Android, and cross-platform Flutter/React Native mobile application development with scalable cloud APIs and intuitive user interfaces."
+  "description": "Custom native iOS, Android, and cross-platform Flutter/React Native mobile application development with scalable cloud APIs and intuitive user interfaces.",
+  "areaServed": "Worldwide"
 };
 
 // ----------------------------------------------------
@@ -126,7 +128,7 @@ export default function AppDevelopment() {
       <Helmet>
         <title>Mobile App Development Services | CoreSlash Technologies</title>
         <meta name="description" content="Build high-performance native iOS, Android, and cross-platform Flutter/React Native mobile applications with CoreSlash Technologies." />
-        <link rel="canonical" href="https://www.coreslash.com/services/app-development" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/app-development" />
         <script type="application/ld+json">{JSON.stringify(appDevSchema)}</script>
       </Helmet>
 
