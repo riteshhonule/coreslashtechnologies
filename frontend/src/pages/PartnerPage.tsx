@@ -22,8 +22,6 @@ export default function PartnerPage() {
       {/* Why Partner Section */}
       <WhyPartnerSection />
 
-
-
       {/* Who Can Partner With Us Section */}
       <WhoCanPartnerSection />
 
