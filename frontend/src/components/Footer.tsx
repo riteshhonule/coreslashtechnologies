@@ -131,6 +131,7 @@ export default function FooterSection() {
                 { label: "About Us", href: "/about" },
                 { label: "Services", href: "/services" },
                 { label: "Portfolio", href: "/portfolio" },
+                { label: "Partner Program", href: "/partner" },
                 { label: "Contact Us", href: "/contact" },
               ].map((link, i) => (
                 <li key={i}>

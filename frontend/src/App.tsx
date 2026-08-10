@@ -22,6 +22,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicyPage";
 import TermsOfService from "./pages/TermsOfServicePage";
 import CookiePolicy from "./pages/CookiePolicyPage";
 import EnquiryFormPage from "./pages/EnquiryFormPage";
+import PartnerPage from "./pages/PartnerPage";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="portfolio" element={<Portfolio />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="partner" element={<PartnerPage />} />
+            <Route path="partner-program" element={<PartnerPage />} />
+            <Route path="dealership" element={<PartnerPage />} />
             <Route path="enquiry-form" element={<EnquiryFormPage />} />
             <Route path="careers" element={<Careers />} />
             <Route path="blog" element={<Blog />} />
@@ -41,6 +45,7 @@ function App() {
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="cookie-policy" element={<CookiePolicy />} />
+
 
             <Route path="services">
               <Route index element={<ServicesIndex />} />

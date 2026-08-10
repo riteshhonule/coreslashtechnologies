@@ -34,6 +34,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Partner Program", href: "/partner" },
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
