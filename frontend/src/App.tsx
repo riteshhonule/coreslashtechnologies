@@ -25,11 +25,21 @@ import EnquiryFormPage from "./pages/EnquiryFormPage";
 import PartnerPage from "./pages/PartnerPage";
 import NotFound from "./pages/NotFound";
 
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+
 function App() {
   return (
     <HelmetProvider>
       <Router>
         <Routes>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="login" element={<AdminLogin />} />
+          </Route>
+
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />

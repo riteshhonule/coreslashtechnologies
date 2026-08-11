@@ -46,28 +46,14 @@ export default function CareersPage() {
     coverLetter: "",
   });
 
-  // Fetch OPEN careers from Backend API
+  // Mock careers since backend only handles form submissions
   useEffect(() => {
-    async function fetchCareers() {
-      setIsLoadingCareers(true);
-      setCareersFetchError(null);
-      try {
-        const res = await fetch('/api/v1/careers?status=OPEN');
-        if (!res.ok) {
-          throw new Error(`Server returned HTTP ${res.status}`);
-        }
-        const responseData = await res.json();
-        const items = responseData.data?.items || responseData.data || responseData.items || [];
-        setCareers(Array.isArray(items) ? items : []);
-      } catch (err: any) {
-        console.error('Failed to load career openings:', err);
-        setCareersFetchError('Could not load current career openings from server.');
-      } finally {
-        setIsLoadingCareers(false);
-      }
-    }
-
-    fetchCareers();
+    setIsLoadingCareers(false);
+    setCareers([
+      { id: 1, title: 'Senior Frontend Developer', slug: 'senior-frontend-developer', department: 'Engineering', location: 'Remote', employmentType: 'Full-time', experience: '3+ years', salary: null, description: 'Join our team to build scalable UIs.', requirements: ['React', 'TypeScript'], status: 'OPEN' },
+      { id: 2, title: 'Backend Node.js Developer', slug: 'backend-nodejs-developer', department: 'Engineering', location: 'Remote', employmentType: 'Full-time', experience: '3+ years', salary: null, description: 'Design and build high performance APIs.', requirements: ['Node.js', 'NestJS'], status: 'OPEN' },
+      { id: 3, title: 'DevOps Engineer', slug: 'devops-engineer', department: 'Infrastructure', location: 'Remote', employmentType: 'Full-time', experience: '4+ years', salary: null, description: 'Maintain and scale our cloud infrastructure.', requirements: ['AWS', 'Docker', 'Kubernetes'], status: 'OPEN' },
+    ]);
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -103,22 +89,23 @@ export default function CareersPage() {
 
     try {
       const formData = new FormData();
-      formData.append('careerId', String(selectedCareerId));
+      const selectedJob = careers.find(c => c.id === selectedCareerId);
+      formData.append('position', selectedJob ? selectedJob.title : String(selectedCareerId));
       formData.append('fullName', formFields.fullName.trim());
       formData.append('email', formFields.email.trim());
       formData.append('phone', formFields.phone.trim());
 
       let fullCover = formFields.coverLetter ? formFields.coverLetter.trim() : '';
       if (formFields.portfolioUrl) {
-        fullCover = `Portfolio/LinkedIn: ${formFields.portfolioUrl.trim()}\n\n${fullCover}`.trim();
+        formData.append('portfolioUrl', formFields.portfolioUrl.trim());
       }
       if (fullCover) {
-        formData.append('coverLetter', fullCover);
+        formData.append('coverNote', fullCover);
       }
 
       formData.append('resume', resumeFile);
 
-      const res = await fetch('/api/v1/careers/apply', {
+      const res = await fetch('/api/jobs/apply', {
         method: 'POST',
         body: formData,
       });

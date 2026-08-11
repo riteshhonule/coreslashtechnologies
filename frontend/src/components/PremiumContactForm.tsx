@@ -61,17 +61,15 @@ export function PremiumContactForm({
 
     try {
       const payload = {
-        name: formData.name,
-        email: formData.email,
+        fullName: formData.name,
+        workEmail: formData.email,
         phone: formData.phone || initialPhone || '',
-        company: formData.location ? `Location: ${formData.location}` : undefined,
+        location: formData.location || 'Not provided',
         service: formData.industry || 'General Consultation',
-        subject: 'Website Consultation Request',
-        message: formData.details || 'Interested in CoreSlash software & AI services.',
-        source: source,
+        projectDetails: formData.details || 'Interested in CoreSlash software & AI services.',
       };
 
-      const res = await fetch('/api/v1/inquiries', {
+      const res = await fetch('/api/enquiries/standard', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

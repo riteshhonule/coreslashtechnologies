@@ -41,17 +41,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
     try {
       const payload = {
-        name: formData.fullName || 'Website Inquiry',
-        email: formData.workEmail,
-        phone: formData.phoneNumber || undefined,
-        company: formData.location ? `Location: ${formData.location}` : undefined,
+        fullName: formData.fullName || 'Website Inquiry',
+        workEmail: formData.workEmail,
+        phone: formData.phoneNumber || 'Not provided',
+        location: formData.location || 'Not provided',
         service: formData.industry || 'General Inquiry',
-        subject: 'Contact Form Inquiry',
-        message: formData.projectDetails || 'New contact inquiry from website.',
-        source: 'ui_contact_section',
+        projectDetails: formData.projectDetails || 'New contact inquiry from website.',
       };
 
-      const res = await fetch('/api/v1/inquiries', {
+      const res = await fetch('/api/enquiries/standard', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
