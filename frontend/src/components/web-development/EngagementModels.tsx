@@ -90,7 +90,7 @@ export default function EngagementModels() {
               </h2>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-xl font-normal text-slate-800 dark:text-slate-300">
-                We offer client-aligned partnership structures tailored to your project scope, engineering scale, and release timelines.
+                CoreSlash offers client-aligned partnership structures tailored to your project scope, engineering scale, and release timelines.
               </p>
 
               {/* Interactive Model Info Card */}

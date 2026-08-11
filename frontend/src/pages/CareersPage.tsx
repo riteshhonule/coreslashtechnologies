@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Briefcase, MapPin, Clock, ArrowRight, Upload, 
+import {
+  Briefcase, MapPin, Clock, ArrowRight, Upload,
   Sparkles, CheckCircle2, Zap, AlertCircle, Loader2,
   User, Mail, Phone, Globe, FileText, Send, Building2, Star
 } from "lucide-react";
@@ -148,9 +148,9 @@ export default function CareersPage() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Helmet>
         <title>Careers & Opportunities | CoreSlash Technologies</title>
-        <meta 
-          name="description" 
-          content="Join CoreSlash Technologies. Work with cutting-edge technologies, remote freedom, and high-impact engineering teams." 
+        <meta
+          name="description"
+          content="Join CoreSlash Technologies. Work with cutting-edge technologies, remote freedom, and high-impact engineering teams."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/careers" />
       </Helmet>
@@ -158,7 +158,7 @@ export default function CareersPage() {
       {/* 1. Hero Section */}
       <section className="relative w-full pt-6 pb-12 md:pt-10 md:pb-16 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto overflow-hidden">
         <div className="relative z-10 rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border border-slate-800 p-8 sm:p-12 lg:p-16 text-white shadow-2xl overflow-hidden">
-          
+
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -178,7 +178,7 @@ export default function CareersPage() {
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal max-w-2xl">
-              We are a team of passionate developers, product designers, and cloud architects crafting high-performance software. Discover open roles and elevate your career.
+              CoreSlash is a team of passionate developers, product designers, and cloud architects crafting high-performance software. Discover open roles and elevate your career.
             </p>
 
             <div className="flex flex-wrap items-center gap-6 pt-2 text-xs sm:text-sm font-semibold text-slate-300">
@@ -231,10 +231,10 @@ export default function CareersPage() {
           <div className="space-y-5 pt-4">
             <AnimatePresence mode="wait">
               {careers.map((job) => {
-                const reqTags = Array.isArray(job.requirements) 
-                  ? job.requirements 
-                  : typeof job.requirements === 'string' 
-                    ? [job.requirements] 
+                const reqTags = Array.isArray(job.requirements)
+                  ? job.requirements
+                  : typeof job.requirements === 'string'
+                    ? [job.requirements]
                     : [];
 
                 return (
@@ -304,7 +304,7 @@ export default function CareersPage() {
       {/* 3. Job Application Form Section */}
       <section id="application-form-section" className="w-full py-20 border-t border-border/40 bg-gradient-to-b from-muted/30 to-background">
         <div className="max-w-[950px] mx-auto px-6 md:px-12">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-blue-600/10 border-l-4 border-blue-600 text-blue-600 text-xs font-extrabold tracking-wider uppercase">
               APPLICATION PORTAL
@@ -316,7 +316,7 @@ export default function CareersPage() {
           </div>
 
           <div className="relative rounded-3xl bg-white dark:bg-slate-900 border border-border/80 shadow-2xl p-6 sm:p-12 overflow-hidden">
-            
+
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-600" />
 
             {submitError && (
@@ -349,7 +349,7 @@ export default function CareersPage() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Full Name */}
                   <div className="space-y-2">

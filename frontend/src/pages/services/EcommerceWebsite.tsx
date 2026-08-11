@@ -33,7 +33,7 @@ const ecommerceFaqData: FaqData = {
       direction: "left",
       faqItems: [
         { id: "q1", question: "What is Headless E-Commerce and why choose it?", answer: "Headless e-commerce decouples frontend from backend. This allows sub-second page loads, total design freedom, and custom app integration." },
-        { id: "q2", question: "Can you handle custom multi-vendor marketplaces?", answer: "Yes! We build multi-vendor platforms with seller onboarding dashboards, automated split payouts, inventory tracking, and commission rules." }
+        { id: "q2", question: "Can you handle custom multi-vendor marketplaces?", answer: "Yes! CoreSlash builds multi-vendor platforms with seller onboarding dashboards, automated split payouts, inventory tracking, and commission rules." }
       ]
     },
     {
@@ -41,8 +41,8 @@ const ecommerceFaqData: FaqData = {
       speed: "40s",
       direction: "right",
       faqItems: [
-        { id: "q3", question: "How do you ensure secure payment processing?", answer: "We enforce tokenized payment gateways (Stripe, PayPal) keeping your platform 100% PCI-DSS compliant." },
-        { id: "q4", question: "Do you integrate with warehouse and ERP software?", answer: "Yes, we integrate custom REST APIs with ERPs like SAP, NetSuite, Odoo, and warehouse management systems for real-time sync." }
+        { id: "q3", question: "How do you ensure secure payment processing?", answer: "CoreSlash enforces tokenized payment gateways (Stripe, PayPal) keeping your platform 100% PCI-DSS compliant." },
+        { id: "q4", question: "Do you integrate with warehouse and ERP software?", answer: "Yes, CoreSlash integrates custom REST APIs with ERPs like SAP, NetSuite, Odoo, and warehouse management systems for real-time sync." }
       ]
     }
   ]
@@ -60,7 +60,7 @@ export default function EcommerceWebsite() {
       </Helmet>
 
       {/* 1. HERO SECTION */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1556742049-0a6756598c19?w=1600&auto=format&fit=crop&q=80')",
@@ -92,7 +92,7 @@ export default function EcommerceWebsite() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            We engineer headless storefronts, multi-currency checkout architectures, inventory sync pipelines, and ultra-fast product search engines tailored to scale your online retail sales.
+            CoreSlash engineers headless storefronts, multi-currency checkout architectures, inventory sync pipelines, and ultra-fast product search engines tailored to scale your online retail sales.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}
@@ -190,7 +190,7 @@ export default function EcommerceWebsite() {
 
       {/* 7. CTA */}
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}

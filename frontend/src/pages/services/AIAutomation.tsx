@@ -71,17 +71,17 @@ const aiFaqData: FaqData = {
         {
           id: "q1",
           question: "What AI automation solutions do you engineer?",
-          answer: "We engineer autonomous agentic workflows, custom LLM fine-tuning, Retrieval-Augmented Generation (RAG) vector pipelines, intelligent document extraction, and enterprise AI chatbots."
+          answer: "CoreSlash engineers autonomous agentic workflows, custom LLM fine-tuning, Retrieval-Augmented Generation (RAG) vector pipelines, intelligent document extraction, and enterprise AI chatbots."
         },
         {
           id: "q2",
           question: "How do you ensure our enterprise data remains private?",
-          answer: "We deploy models inside private cloud VPC environments with zero-retention API agreements, end-to-end data encryption, and isolated vector database storage."
+          answer: "CoreSlash deploys models inside private cloud VPC environments with zero-retention API agreements, end-to-end data encryption, and isolated vector database storage."
         },
         {
           id: "q3",
           question: "Can AI agents integrate with our CRM and databases?",
-          answer: "Yes! We integrate custom AI agents directly with Salesforce, HubSpot, PostgreSQL, SAP, Shopify, and custom REST/GraphQL microservices."
+          answer: "Yes! CoreSlash integrates custom AI agents directly with Salesforce, HubSpot, PostgreSQL, SAP, Shopify, and custom REST/GraphQL microservices."
         }
       ]
     },
@@ -98,12 +98,12 @@ const aiFaqData: FaqData = {
         {
           id: "q5",
           question: "How do you prevent LLM hallucination?",
-          answer: "We utilize strict Retrieval-Augmented Generation (RAG), ground truth context verification, deterministic prompt guardrails, and human-in-the-loop validation checkpoints."
+          answer: "CoreSlash utilizes strict Retrieval-Augmented Generation (RAG), ground truth context verification, deterministic prompt guardrails, and human-in-the-loop validation checkpoints."
         },
         {
           id: "q6",
           question: "Do you provide model drift and latency telemetry?",
-          answer: "Yes, we set up 24/7 latency telemetry dashboards, model drift monitoring, continuous prompt evaluation, and SLAs for ongoing fine-tuning."
+          answer: "Yes, CoreSlash sets up 24/7 latency telemetry dashboards, model drift monitoring, continuous prompt evaluation, and SLAs for ongoing fine-tuning."
         }
       ]
     }
@@ -141,7 +141,7 @@ export default function AIAutomation() {
       {/* ========================================================
           1. HERO SECTION
           ======================================================== */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-8 md:py-12 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: `url(${aiHeroBg})`,
@@ -154,7 +154,7 @@ export default function AIAutomation() {
 
         <div className="relative z-10 max-w-[1400px] w-full text-left space-y-4 md:space-y-5">
           {/* Breadcrumb */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -179,7 +179,7 @@ export default function AIAutomation() {
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -192,7 +192,7 @@ export default function AIAutomation() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -202,7 +202,7 @@ export default function AIAutomation() {
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -231,7 +231,7 @@ export default function AIAutomation() {
           ======================================================== */}
       <section className="relative w-full py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-background border-t border-border/40">
         <div className="max-w-[1400px] mx-auto">
-          
+
           {/* Header */}
           <div className="flex flex-col items-start gap-4 mb-16 text-left">
             <div className="flex items-center">
@@ -244,7 +244,7 @@ export default function AIAutomation() {
               Enterprise AI & Automation Solutions
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
-              We design and deploy custom artificial intelligence systems that automate complex business logic, structure unstructured data, and transform executive decision making.
+              CoreSlash designs and deploy custom artificial intelligence systems that automate complex business logic, structure unstructured data, and transform executive decision making.
             </p>
           </div>
 
@@ -324,9 +324,8 @@ export default function AIAutomation() {
               <button
                 key={tab}
                 onClick={() => setActiveTechTab(tab)}
-                className={`relative px-4 py-2 text-sm md:text-base font-medium tracking-wider transition-colors duration-300 uppercase focus:outline-none ${
-                  activeTechTab === tab ? "text-blue-600 dark:text-blue-400 font-bold" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`relative px-4 py-2 text-sm md:text-base font-medium tracking-wider transition-colors duration-300 uppercase focus:outline-none ${activeTechTab === tab ? "text-blue-600 dark:text-blue-400 font-bold" : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {tab}
                 {activeTechTab === tab && (
@@ -359,7 +358,7 @@ export default function AIAutomation() {
                     whileHover={{ y: -4 }}
                     className="group relative flex items-center gap-4 p-4 md:p-5 h-[80px] bg-white dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)] hover:border-blue-500/50 dark:hover:border-blue-500/50 cursor-pointer transition-all duration-300"
                   >
-                    <div 
+                    <div
                       className="flex items-center justify-center w-12 h-12 text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300 drop-shadow-sm shrink-0"
                       style={{ color: tech.color }}
                     >

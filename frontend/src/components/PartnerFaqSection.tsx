@@ -17,7 +17,7 @@ const partnerFaqData: FaqData = {
         {
           id: "q2",
           question: "Can CoreSlash work under our brand?",
-          answer: "Yes. We can support white-label development arrangements where CoreSlash works behind the scenes as your technical delivery partner.",
+          answer: "Yes. CoreSlash can support white-label development arrangements where CoreSlash works behind the scenes as your technical delivery partner.",
         },
         {
           id: "q3",
@@ -49,12 +49,12 @@ const partnerFaqData: FaqData = {
         {
           id: "q7",
           question: "What types of projects do you accept?",
-          answer: "We support websites, custom software, APIs, AI automation, ERP/CRM solutions, technical SEO, website maintenance, and other software engineering requirements.",
+          answer: "CoreSlash supports websites, custom software, APIs, AI automation, ERP/CRM solutions, technical SEO, website maintenance, and other software engineering requirements.",
         },
         {
           id: "q8",
           question: "How quickly can you respond to a new requirement?",
-          answer: "Our target is to provide an initial response within 24 hours for project and partnership inquiries.",
+          answer: "CoreSlash's target is to provide an initial response within 24 hours for project and partnership inquiries.",
         },
       ],
     },

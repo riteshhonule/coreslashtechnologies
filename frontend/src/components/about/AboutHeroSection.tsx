@@ -8,9 +8,9 @@ import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
 export const AboutHeroSection: React.FC = () => {
   return (
     <section className="relative w-full pt-4 md:pt-6 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto overflow-hidden bg-background text-foreground">
-      
+
       {/* Breadcrumb Navigation */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -27,7 +27,7 @@ export const AboutHeroSection: React.FC = () => {
 
       {/* Main Layout Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-        
+
         {/* Left Column: Overlapping Dual Image Composition */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -62,7 +62,7 @@ export const AboutHeroSection: React.FC = () => {
 
           {/* Paragraph 1 */}
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-normal">
-            As digital innovators, we have embraced technological advancement and modern business transformation, helping brands adapt to the evolving digital landscape. Since our beginning, we have focused on delivering innovative software solutions, strategic digital services, and performance-driven technologies that help businesses stay competitive and future-ready.
+            As digital innovators, CoreSlash has embraced technological advancement and modern business transformation, helping brands adapt to the evolving digital landscape. Since our beginning, we have focused on delivering innovative software solutions, strategic digital services, and performance-driven technologies that help businesses stay competitive and future-ready.
           </p>
 
           {/* Paragraph 2 */}

@@ -42,7 +42,7 @@ const seoFaqData: FaqData = {
       direction: "right",
       faqItems: [
         { id: "q3", question: "Do you guarantee #1 rankings on Google?", answer: "No reputable agency guarantees position #1 because algorithms update constantly. However, our methodology consistently delivers top rankings." },
-        { id: "q4", question: "Do you optimize for local SEO?", answer: "Yes! We optimize Google Business Profiles, local citations, NAP consistency, and geo-targeted landing pages for local search dominance." }
+        { id: "q4", question: "Do you optimize for local SEO?", answer: "Yes! CoreSlash optimizes Google Business Profiles, local citations, NAP consistency, and geo-targeted landing pages for local search dominance." }
       ]
     }
   ]
@@ -60,7 +60,7 @@ export default function SEOOptimization() {
       </Helmet>
 
       {/* 1. HERO SECTION */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&auto=format&fit=crop&q=80')",
@@ -91,7 +91,7 @@ export default function SEOOptimization() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            We engineer technical SEO audits, structural schema markup, high-intent keyword strategies, and organic link building designed to maximize Google search visibility.
+            CoreSlash engineers technical SEO audits, structural schema markup, high-intent keyword strategies, and organic link building designed to maximize Google search visibility.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}
@@ -189,7 +189,7 @@ export default function SEOOptimization() {
 
       {/* 7. CTA */}
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}

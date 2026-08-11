@@ -111,12 +111,12 @@ export const PartnershipPrinciplesSection: FC = () => {
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
-        
+
         {/* ============================================================ */}
         {/* HEADER SECTION                                                */}
         {/* ============================================================ */}
         <div className="flex flex-col items-center text-center mb-14 md:mb-16">
-          
+
           {/* Eyebrow Badge Pill */}
           <motion.div
             initial={{ opacity: 0, y: -15 }}
@@ -155,8 +155,8 @@ export const PartnershipPrinciplesSection: FC = () => {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl font-sans"
           >
-            We believe long-term partnerships are built through transparency,
-            accountability, confidentiality, quality, communication, and long-term
+            CoreSlash believes long-term partnerships are built through transparency,
+            accountability, confidentiality, quality, communication and long-term
             thinking.
           </motion.p>
 
@@ -177,7 +177,7 @@ export const PartnershipPrinciplesSection: FC = () => {
           {PRINCIPLES.map((principle, idx) => {
             const IconComponent = principle.icon;
 
-            {/* FEATURED TRANSPARENCY CARD (01) */}
+            {/* FEATURED TRANSPARENCY CARD (01) */ }
             if (principle.featured) {
               return (
                 <motion.div
@@ -227,7 +227,7 @@ export const PartnershipPrinciplesSection: FC = () => {
               );
             }
 
-            {/* CARDS 02, 03, 04, 05 */}
+            {/* CARDS 02, 03, 04, 05 */ }
             return (
               <motion.div
                 key={principle.id}
