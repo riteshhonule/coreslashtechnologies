@@ -20,7 +20,7 @@ export default function PartnerFormPage() {
   // Form State
   const [formData, setFormData] = useState({
     firstName: "",
-    lastName: "",
+    contactNumber: "",
     businessEmail: "",
     companyName: "",
     partnershipType: "",
@@ -62,8 +62,8 @@ export default function PartnerFormPage() {
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required.";
     }
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required.";
+    if (!formData.contactNumber.trim()) {
+      newErrors.contactNumber = "Contact number is required.";
     }
     if (!formData.businessEmail.trim()) {
       newErrors.businessEmail = "Business email is required.";
@@ -88,15 +88,16 @@ export default function PartnerFormPage() {
 
     try {
       const payload = {
-        fullName: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
+        fullName: formData.firstName.trim(),
+        contactNumber: formData.contactNumber.trim(),
         workEmail: formData.businessEmail.trim(),
-        phone: 'Not provided',
-        location: formData.companyName.trim() || 'Not provided',
-        service: `Partner Enquiry - ${formData.partnershipType || 'General Partnership'}`,
-        projectDetails: `Company: ${formData.companyName.trim() || 'N/A'}. Partnership Type: ${formData.partnershipType || 'N/A'}. Marketing Consent: ${formData.consentMarketing ? 'Yes' : 'No'}.`,
+        companyName: formData.companyName.trim() || 'Not provided',
+        partnershipType: formData.partnershipType || 'General Partnership',
+        consentData: formData.consentData,
+        consentMarketing: formData.consentMarketing,
       };
 
-      const res = await fetch('/api/enquiries/standard', {
+      const res = await fetch('/api/partnerships', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -129,10 +130,10 @@ export default function PartnerFormPage() {
 
       {/* Main Two-Column Desktop Layout (60% Form / 40% Image) */}
       <div className="flex flex-col lg:flex-row min-h-screen w-full relative overflow-hidden bg-[#070B12]">
-        
+
         {/* Left Column: Form & Controls (60% width of screen) */}
         <div className="w-full lg:w-[60%] px-6 sm:px-10 lg:px-14 xl:px-16 pt-4 sm:pt-6 pb-8 sm:pb-10 flex flex-col justify-between z-20 bg-[#070B12]">
-          
+
           {/* Top Bar: Back Link */}
           <div className="flex items-center justify-between mb-3 sm:mb-4 pt-1">
             <button
@@ -147,7 +148,7 @@ export default function PartnerFormPage() {
 
           {/* Form Content Body (Positioned cleanly right under BACK button without vertical empty gap) */}
           <div className="max-w-xl w-full mx-auto mt-1 sm:mt-2 mb-auto py-0">
-            
+
             <AnimatePresence mode="wait">
               {isSubmitted ? (
                 <motion.div
@@ -178,7 +179,7 @@ export default function PartnerFormPage() {
                         setIsSubmitted(false);
                         setFormData({
                           firstName: "",
-                          lastName: "",
+                          contactNumber: "",
                           businessEmail: "",
                           companyName: "",
                           partnershipType: "",
@@ -216,7 +217,7 @@ export default function PartnerFormPage() {
 
                   {/* Form with enlarged text & inputs */}
                   <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-10">
-                    
+
                     {/* First Name & Last Name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
                       {/* First Name */}
@@ -227,10 +228,9 @@ export default function PartnerFormPage() {
                           name="firstName"
                           value={formData.firstName}
                           onChange={handleInputChange}
-                          placeholder="First name*"
-                          className={`w-full bg-transparent border-b ${
-                            errors.firstName ? "border-red-500" : "border-slate-700 focus:border-blue-400"
-                          } py-4 text-white placeholder:text-slate-400 text-lg sm:text-xl focus:outline-none transition-colors`}
+                          placeholder="Name*"
+                          className={`w-full bg-transparent border-b ${errors.firstName ? "border-red-500" : "border-slate-700 focus:border-blue-400"
+                            } py-4 text-white placeholder:text-slate-400 text-lg sm:text-xl focus:outline-none transition-colors`}
                         />
                         {errors.firstName && (
                           <span className="text-sm text-red-400 mt-1.5 block font-medium">
@@ -239,22 +239,21 @@ export default function PartnerFormPage() {
                         )}
                       </div>
 
-                      {/* Last Name */}
+                      {/* Contact Number */}
                       <div className="relative">
                         <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          value={formData.lastName}
+                          type="tel"
+                          id="contactNumber"
+                          name="contactNumber"
+                          value={formData.contactNumber}
                           onChange={handleInputChange}
-                          placeholder="Last Name*"
-                          className={`w-full bg-transparent border-b ${
-                            errors.lastName ? "border-red-500" : "border-slate-700 focus:border-blue-400"
-                          } py-4 text-white placeholder:text-slate-400 text-lg sm:text-xl focus:outline-none transition-colors`}
+                          placeholder="Contact Number*"
+                          className={`w-full bg-transparent border-b ${errors.contactNumber ? "border-red-500" : "border-slate-700 focus:border-blue-400"
+                            } py-4 text-white placeholder:text-slate-400 text-lg sm:text-xl focus:outline-none transition-colors`}
                         />
-                        {errors.lastName && (
+                        {errors.contactNumber && (
                           <span className="text-sm text-red-400 mt-1.5 block font-medium">
-                            {errors.lastName}
+                            {errors.contactNumber}
                           </span>
                         )}
                       </div>
@@ -271,9 +270,8 @@ export default function PartnerFormPage() {
                           value={formData.businessEmail}
                           onChange={handleInputChange}
                           placeholder="Business Email*"
-                          className={`w-full bg-transparent border-b ${
-                            errors.businessEmail ? "border-red-500" : "border-slate-700 focus:border-blue-400"
-                          } py-4 text-white placeholder:text-slate-400 text-lg sm:text-xl focus:outline-none transition-colors`}
+                          className={`w-full bg-transparent border-b ${errors.businessEmail ? "border-red-500" : "border-slate-700 focus:border-blue-400"
+                            } py-4 text-white placeholder:text-slate-400 text-lg sm:text-xl focus:outline-none transition-colors`}
                         />
                         {errors.businessEmail && (
                           <span className="text-sm text-red-400 mt-1.5 block font-medium">
@@ -333,11 +331,10 @@ export default function PartnerFormPage() {
                                     setFormData((prev) => ({ ...prev, partnershipType: option }));
                                     setIsDropdownOpen(false);
                                   }}
-                                  className={`w-full text-left px-6 py-3.5 text-base sm:text-lg transition-colors flex items-center justify-between cursor-pointer ${
-                                    formData.partnershipType === option
+                                  className={`w-full text-left px-6 py-3.5 text-base sm:text-lg transition-colors flex items-center justify-between cursor-pointer ${formData.partnershipType === option
                                       ? "bg-blue-600/30 text-blue-400 font-semibold"
                                       : "text-slate-200 hover:bg-slate-800/80 hover:text-white"
-                                  }`}
+                                    }`}
                                 >
                                   <span>{option}</span>
                                   {formData.partnershipType === option && (

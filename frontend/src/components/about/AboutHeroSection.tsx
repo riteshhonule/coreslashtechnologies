@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
 import aboutHeroImg from "@/assets/about/coreslash-about-hero.jpg";
-import teamWorkImg from "@/assets/about/coreslash-technologies-team-work.jpg";
+import teamWorkImg from "@/assets/about/coreslash-technologies-team-work.jpeg";
 
 export const AboutHeroSection: React.FC = () => {
   return (

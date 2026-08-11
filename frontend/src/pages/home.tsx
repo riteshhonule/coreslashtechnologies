@@ -16,7 +16,7 @@ import iosDevelopmentImg from "@/assets/services/mobile-app-development/coreslas
 import pythonDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-python-development.jpg";
 
 import aboutTopImg from "@/assets/about/coreslash-technologies-team-working.avif";
-import aboutBottomImg from "@/assets/about/coreslash-technologies-team-work.jpg";
+import aboutBottomImg from "@/assets/about/coreslash-technologies-team-work.jpeg";
 
 const heroImages = [
   erpImg,
@@ -73,9 +73,9 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Helmet>
         <title>CoreSlash Technologies | AI, Web & Software Development</title>
-        <meta 
-          name="description" 
-          content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics." 
+        <meta
+          name="description"
+          content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/" />
         <meta property="og:title" content="CoreSlash Technologies" />

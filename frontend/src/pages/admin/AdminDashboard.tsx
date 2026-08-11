@@ -1,21 +1,28 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Briefcase, Download, Search, Edit2, X, ChevronLeft, ChevronRight, FileText, Globe } from 'lucide-react';
+import { Users, Briefcase, Download, Search, Edit2, X, ChevronLeft, ChevronRight, FileText, Globe, Handshake } from 'lucide-react';
 import { format } from 'date-fns';
 
-type TabType = 'jobs' | 'enquiries';
+type TabType = 'jobs' | 'enquiries' | 'partnerships';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState<TabType>('jobs');
-  const [stats, setStats] = useState({ totalJobs: 0, newJobs: 0, totalEnquiries: 0, newEnquiries: 0 });
-  
+  const [stats, setStats] = useState({
+    totalJobs: 0,
+    newJobs: 0,
+    totalEnquiries: 0,
+    newEnquiries: 0,
+    totalPartnerships: 0,
+    newPartnerships: 0
+  });
+
   const [data, setData] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
-  
+
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -47,9 +54,9 @@ export default function AdminDashboard() {
       });
       if (res.ok) {
         const json = await res.json();
-        setData(json.items);
-        setTotal(json.total);
-        setTotalPages(json.totalPages);
+        setData(json.items || []);
+        setTotal(json.total || 0);
+        setTotalPages(json.totalPages || 1);
       }
     } catch (e) {
       console.error(e);
@@ -68,7 +75,7 @@ export default function AdminDashboard() {
     try {
       const res = await fetch(`/api/admin/${activeTab}/${id}/status`, {
         method: 'PATCH',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
         },
@@ -105,41 +112,55 @@ export default function AdminDashboard() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex items-center justify-between">
           <div>
-            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Total Apps</p>
-            <p className="text-3xl font-black text-slate-900 mt-1">{stats.totalJobs}</p>
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Job Applications</p>
+            <div className="flex items-baseline gap-2 mt-1">
+              <span className="text-3xl font-black text-slate-900">{stats.totalJobs}</span>
+              {stats.newJobs > 0 && (
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                  {stats.newJobs} new
+                </span>
+              )}
+            </div>
           </div>
           <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
             <Briefcase className="w-6 h-6" />
           </div>
         </div>
+
         <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex items-center justify-between">
           <div>
-            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">New Apps</p>
-            <p className="text-3xl font-black text-blue-600 mt-1">{stats.newJobs}</p>
-          </div>
-          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
-            <div className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-pulse" />
-          </div>
-        </div>
-        <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex items-center justify-between">
-          <div>
-            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Total Enquiries</p>
-            <p className="text-3xl font-black text-slate-900 mt-1">{stats.totalEnquiries}</p>
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Project Enquiries</p>
+            <div className="flex items-baseline gap-2 mt-1">
+              <span className="text-3xl font-black text-slate-900">{stats.totalEnquiries}</span>
+              {stats.newEnquiries > 0 && (
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700">
+                  {stats.newEnquiries} new
+                </span>
+              )}
+            </div>
           </div>
           <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center">
             <Users className="w-6 h-6" />
           </div>
         </div>
+
         <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex items-center justify-between">
           <div>
-            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">New Enquiries</p>
-            <p className="text-3xl font-black text-indigo-600 mt-1">{stats.newEnquiries}</p>
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Partnerships</p>
+            <div className="flex items-baseline gap-2 mt-1">
+              <span className="text-3xl font-black text-slate-900">{stats.totalPartnerships || 0}</span>
+              {(stats.newPartnerships || 0) > 0 && (
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
+                  {stats.newPartnerships} new
+                </span>
+              )}
+            </div>
           </div>
-          <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center">
-            <div className="w-2.5 h-2.5 bg-indigo-600 rounded-full animate-pulse" />
+          <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center">
+            <Handshake className="w-6 h-6" />
           </div>
         </div>
       </div>
@@ -160,6 +181,12 @@ export default function AdminDashboard() {
                 className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'enquiries' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
               >
                 Project Enquiries
+              </button>
+              <button
+                onClick={() => { setActiveTab('partnerships'); setPage(1); setStatusFilter(''); }}
+                className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'partnerships' ? 'bg-white text-emerald-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+              >
+                Partnerships
               </button>
             </div>
 
@@ -195,7 +222,9 @@ export default function AdminDashboard() {
               <tr>
                 <th className="px-6 py-4">Name / Date</th>
                 <th className="px-6 py-4">Contact</th>
-                <th className="px-6 py-4">{activeTab === 'jobs' ? 'Position' : 'Service & Location'}</th>
+                <th className="px-6 py-4">
+                  {activeTab === 'jobs' ? 'Position' : activeTab === 'enquiries' ? 'Service & Location' : 'Company & Type'}
+                </th>
                 <th className="px-6 py-4">Status</th>
                 <th className="px-6 py-4 text-right">Action</th>
               </tr>
@@ -209,14 +238,23 @@ export default function AdminDashboard() {
                   </td>
                   <td className="px-6 py-4">
                     <p className="text-slate-700 font-medium">{activeTab === 'jobs' ? item.email : item.workEmail}</p>
-                    <p className="text-slate-500 text-xs mt-0.5">{item.phone}</p>
+                    <p className="text-slate-500 text-xs mt-0.5">{item.phone || item.contactNumber || 'Not provided'}</p>
                   </td>
                   <td className="px-6 py-4">
-                    <p className="font-semibold text-slate-700 max-w-[200px] truncate">
-                      {activeTab === 'jobs' ? item.position : item.service}
-                    </p>
+                    {activeTab === 'jobs' && (
+                      <p className="font-semibold text-slate-700 max-w-[200px] truncate">{item.position}</p>
+                    )}
                     {activeTab === 'enquiries' && (
-                      <p className="text-xs text-slate-500 mt-0.5 max-w-[200px] truncate">{item.location}</p>
+                      <>
+                        <p className="font-semibold text-slate-700 max-w-[200px] truncate">{item.service}</p>
+                        <p className="text-xs text-slate-500 mt-0.5 max-w-[200px] truncate">{item.location}</p>
+                      </>
+                    )}
+                    {activeTab === 'partnerships' && (
+                      <>
+                        <p className="font-semibold text-slate-700 max-w-[200px] truncate">{item.partnershipType || 'General Partnership'}</p>
+                        <p className="text-xs text-slate-500 mt-0.5 max-w-[200px] truncate">{item.companyName || 'N/A'}</p>
+                      </>
                     )}
                   </td>
                   <td className="px-6 py-4">
@@ -227,7 +265,7 @@ export default function AdminDashboard() {
                   <td className="px-6 py-4 text-right">
                     <button
                       onClick={() => { setSelectedItem(item); setIsModalOpen(true); }}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-md transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-md transition-colors cursor-pointer"
                     >
                       <Edit2 className="w-3.5 h-3.5" /> View / Edit
                     </button>
@@ -274,7 +312,7 @@ export default function AdminDashboard() {
       <AnimatePresence>
         {isModalOpen && selectedItem && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}
               className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
@@ -283,19 +321,19 @@ export default function AdminDashboard() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col z-10"
             >
               <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50">
                 <h3 className="text-lg font-black text-slate-900">
-                  {activeTab === 'jobs' ? 'Job Application Details' : 'Project Enquiry Details'}
+                  {activeTab === 'jobs' ? 'Job Application Details' : activeTab === 'enquiries' ? 'Project Enquiry Details' : 'Partnership Enquiry Details'}
                 </h3>
-                <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-700 bg-white p-1 rounded-md shadow-sm border border-slate-200 transition-colors">
+                <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-700 bg-white p-1 rounded-md shadow-sm border border-slate-200 transition-colors cursor-pointer">
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              
+
               <div className="p-6 overflow-y-auto custom-scrollbar space-y-6">
-                
+
                 {/* Status Update */}
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
@@ -309,7 +347,7 @@ export default function AdminDashboard() {
                     <select
                       value={selectedItem.status}
                       onChange={(e) => handleUpdateStatus(selectedItem.id, e.target.value)}
-                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     >
                       {(activeTab === 'jobs' ? JobStatuses : EnquiryStatuses).map(s => (
                         <option key={s} value={s}>{s}</option>
@@ -329,15 +367,15 @@ export default function AdminDashboard() {
                     <p className="text-sm font-semibold text-blue-600">{activeTab === 'jobs' ? selectedItem.email : selectedItem.workEmail}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Phone</p>
-                    <p className="text-sm font-semibold text-slate-900">{selectedItem.phone}</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Contact Number</p>
+                    <p className="text-sm font-semibold text-slate-900">{selectedItem.phone || selectedItem.contactNumber || 'Not provided'}</p>
                   </div>
                   <div>
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Submitted On</p>
                     <p className="text-sm font-semibold text-slate-900">{format(new Date(selectedItem.createdAt), 'PPpp')}</p>
                   </div>
-                  
-                  {activeTab === 'jobs' ? (
+
+                  {activeTab === 'jobs' && (
                     <>
                       <div>
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Position</p>
@@ -352,7 +390,9 @@ export default function AdminDashboard() {
                         ) : <span className="text-sm text-slate-400 italic">Not provided</span>}
                       </div>
                     </>
-                  ) : (
+                  )}
+
+                  {activeTab === 'enquiries' && (
                     <>
                       <div>
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Service / Industry</p>
@@ -364,9 +404,22 @@ export default function AdminDashboard() {
                       </div>
                     </>
                   )}
+
+                  {activeTab === 'partnerships' && (
+                    <>
+                      <div>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Partnership Type</p>
+                        <p className="text-sm font-semibold text-slate-900">{selectedItem.partnershipType || 'General Partnership'}</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Company Name</p>
+                        <p className="text-sm font-semibold text-slate-900">{selectedItem.companyName || 'Not provided'}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
 
-                {/* Long Text Areas */}
+                {/* Long Text / Additional Areas */}
                 {activeTab === 'jobs' && (
                   <div className="space-y-4 pt-4 border-t border-slate-100">
                     <div>
@@ -377,9 +430,9 @@ export default function AdminDashboard() {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Resume Document</p>
-                      <a 
-                        href={`http://localhost:5000${selectedItem.resumeUrl}`} 
-                        target="_blank" 
+                      <a
+                        href={`http://localhost:5000${selectedItem.resumeUrl}`}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl text-sm font-bold transition-colors border border-blue-200"
                       >
@@ -395,6 +448,16 @@ export default function AdminDashboard() {
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Project Details</p>
                     <div className="bg-slate-50 rounded-xl p-4 text-sm text-slate-700 whitespace-pre-wrap font-medium leading-relaxed">
                       {selectedItem.projectDetails}
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === 'partnerships' && (
+                  <div className="pt-4 border-t border-slate-100 space-y-3">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Consents & Permissions</p>
+                    <div className="bg-slate-50 rounded-xl p-4 text-sm text-slate-700 space-y-2 font-medium">
+                      <p>Data Processing Consent: <span className="font-bold text-emerald-600">{selectedItem.consentData ? 'Yes' : 'No'}</span></p>
+                      <p>Marketing Communications: <span className="font-bold text-slate-900">{selectedItem.consentMarketing ? 'Yes' : 'No'}</span></p>
                     </div>
                   </div>
                 )}

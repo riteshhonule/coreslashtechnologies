@@ -7,6 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 enum JobApplicationStatus {
@@ -59,3 +60,26 @@ model ProjectEnquiry {
   createdAt            DateTime      @default(now())
   updatedAt            DateTime      @updatedAt
 }
+
+enum PartnershipStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  COMPLETED
+  REJECTED
+}
+
+model PartnershipEnquiry {
+  id               Int               @id @default(autoincrement())
+  fullName         String
+  contactNumber    String
+  workEmail        String
+  companyName      String?
+  partnershipType  String?
+  consentData      Boolean           @default(true)
+  consentMarketing Boolean           @default(false)
+  status           PartnershipStatus @default(NEW)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+}
+
