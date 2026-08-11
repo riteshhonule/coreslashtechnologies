@@ -3,10 +3,15 @@ import PartnerHero from "@/components/PartnerHero";
 import WhyPartnerSection from "@/components/WhyPartnerSection";
 import PartnerDeliverSection from "@/components/PartnerDeliverSection";
 import WhoCanPartnerSection from "@/components/WhoCanPartnerSection";
+import PartnershipModelsSection from "@/components/PartnershipModelsSection";
+import WhiteLabelPartnershipSection from "@/components/WhiteLabelPartnershipSection";
+import PartnershipPrinciplesSection from "@/components/PartnershipPrinciplesSection";
+import PartnerFaqSection from "@/components/PartnerFaqSection";
+import CTASection from "@/components/web-development/CTASection";
 
 export default function PartnerPage() {
   return (
-    <div className="min-h-screen bg-[#070b0a] transition-colors duration-300">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       <Helmet>
         <title>Partner With CoreSlash | CoreSlash Technologies Partner Program</title>
         <meta
@@ -27,6 +32,33 @@ export default function PartnerPage() {
 
       {/* What We Can Deliver Section */}
       <PartnerDeliverSection />
+
+      {/* 6. Partnership Models Section */}
+      <PartnershipModelsSection />
+
+      {/* White-Label Partnership Section */}
+      <WhiteLabelPartnershipSection />
+
+      {/* Partnership Principles Section */}
+      <PartnershipPrinciplesSection />
+
+      {/* FAQ Section */}
+      <PartnerFaqSection />
+
+      {/* CTA Section */}
+      <CTASection
+        badge="GROW WITH CORESLASH"
+        title="Ready to Expand Your Technical Capabilities?"
+        subtitle="Whether you have an immediate client requirement or want to establish a long-term technical delivery partnership, CoreSlash is ready to execute."
+        primaryBtnText="Become a Partner"
+        secondaryBtnText="Schedule Strategy Call"
+        primaryBtnLink="/contact"
+        secondaryBtnLink="/contact"
+      />
     </div>
   );
 }
+
+
+
+
