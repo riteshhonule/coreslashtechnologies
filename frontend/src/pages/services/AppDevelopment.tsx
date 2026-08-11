@@ -8,8 +8,8 @@ import ProcessTimeline from "@/components/web-development/ProcessTimeline";
 import FaqSection, { type FaqData } from "@/components/ui/habit-faq-scroller";
 import PhoneMockupBasic from "@/components/ui/phone-mockups-1";
 import { CoreServiceCard } from "@/components/web-development/CoreServices";
-import { 
-  SiSwift, SiKotlin, SiFlutter, SiReact, SiApple, 
+import {
+  SiSwift, SiKotlin, SiFlutter, SiReact, SiApple,
   SiAndroid, SiFirebase, SiTypescript, SiGraphql, SiTailwindcss
 } from "react-icons/si";
 
@@ -93,7 +93,7 @@ const appDevFaqData: FaqData = {
       speed: "50s",
       direction: "left",
       faqItems: [
-        { id: "q1", question: "Do you build native iOS and Android apps?", answer: "Yes! We build native apps using Swift for iOS and Kotlin for Android, as well as cross-platform Flutter and React Native apps." },
+        { id: "q1", question: "Do you build native iOS and Android apps?", answer: "Yes! CoreSlash builds native apps using Swift for iOS and Kotlin for Android, as well as cross-platform Flutter and React Native apps." },
         { id: "q2", question: "Should I choose Native or Cross-Platform?", answer: "Cross-platform (Flutter/React Native) is ideal for faster time-to-market and shared codebase. Native is best for deep hardware access and heavy graphics." }
       ]
     },
@@ -102,8 +102,8 @@ const appDevFaqData: FaqData = {
       speed: "45s",
       direction: "right",
       faqItems: [
-        { id: "q3", question: "How do you handle App Store and Google Play deployment?", answer: "We manage the entire submission process, app guidelines compliance, metadata optimization, and app store approvals." },
-        { id: "q4", question: "Can you integrate push notifications & biometric login?", answer: "Yes, we integrate Firebase push notifications, Apple FaceID/TouchID, Google Biometrics, and OAuth social logins." }
+        { id: "q3", question: "How do you handle App Store and Google Play deployment?", answer: "CoreSlash manages the entire submission process, app guidelines compliance, metadata optimization, and app store approvals." },
+        { id: "q4", question: "Can you integrate push notifications & biometric login?", answer: "Yes, CoreSlash integrates Firebase push notifications, Apple FaceID/TouchID, Google Biometrics, and OAuth social logins." }
       ]
     }
   ]
@@ -133,7 +133,7 @@ export default function AppDevelopment() {
       </Helmet>
 
       {/* 1. HERO SECTION */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1600&auto=format&fit=crop&q=80')",
@@ -165,7 +165,7 @@ export default function AppDevelopment() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            We build scalable, high-performance native iOS, Android, and cross-platform Flutter/React Native mobile applications with seamless cloud backends and intuitive user interfaces.
+            CoreSlash builds scalable, high-performance native iOS, Android, and cross-platform Flutter/React Native mobile applications with seamless cloud backends and intuitive user interfaces.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}
@@ -277,7 +277,7 @@ export default function AppDevelopment() {
             </h2>
 
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
-              We leverage enterprise mobile frameworks and cloud backends ensuring fluid 60fps animations, rock-solid security, and future-ready scalability.
+              CoreSlash leverages enterprise mobile frameworks and cloud backends ensuring fluid 60fps animations, rock-solid security, and future-ready scalability.
             </p>
           </div>
 
@@ -354,8 +354,8 @@ export default function AppDevelopment() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CASE_STUDIES.map((item, idx) => (
-            <motion.div 
-              key={item.title} 
+            <motion.div
+              key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -394,7 +394,7 @@ export default function AppDevelopment() {
 
       {/* 9. CTA */}
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}

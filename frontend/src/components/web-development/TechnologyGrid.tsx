@@ -77,7 +77,7 @@ export default function TechnologyGrid() {
           </h2>
 
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
-            We choose technologies based on project requirements, system stability, scalability, security, and long-term maintainability rather than short-term trends or popularity, ensuring reliable and future-ready digital solutions.
+            CoreSlash chooses technologies based on project requirements, system stability, scalability, security, and long-term maintainability rather than short-term trends or popularity, ensuring reliable and future-ready digital solutions.
           </p>
         </div>
 

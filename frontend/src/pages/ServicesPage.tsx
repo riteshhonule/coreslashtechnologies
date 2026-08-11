@@ -49,12 +49,12 @@ const allServicesFaqData: FaqData = {
         {
           id: "q1",
           question: "Which service domain should we choose for our business?",
-          answer: "Our solution architects provide free technical consultations to review your goals and recommend the ideal stack—whether that is a custom SaaS platform, web app, mobile app, or AI automation pipeline."
+          answer: "CoreSlash solution architects provide free technical consultations to review your goals and recommend the ideal stack—whether that is a custom SaaS platform, web app, mobile app, or AI automation pipeline."
         },
         {
           id: "q2",
           question: "Do you offer full-stack end-to-end development?",
-          answer: "Yes! We handle UI/UX wireframing, frontend engineering, backend API development, database optimization, cloud DevOps deployment, and post-launch SLA support."
+          answer: "Yes! CoreSlash handle UI/UX wireframing, frontend engineering, backend API development, database optimization, cloud DevOps deployment, and post-launch SLA support."
         },
         {
           id: "q3",
@@ -81,7 +81,7 @@ const allServicesFaqData: FaqData = {
         {
           id: "q6",
           question: "What SLA support models do you provide post-launch?",
-          answer: "We offer 24/7 DevOps cloud monitoring, monthly security patches, database backups, performance scaling, and dedicated SLA response windows."
+          answer: "CoreSlash offer 24/7 DevOps cloud monitoring, monthly security patches, database backups, performance scaling, and dedicated SLA response windows."
         }
       ]
     }

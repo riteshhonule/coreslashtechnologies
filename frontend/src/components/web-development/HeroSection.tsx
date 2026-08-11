@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section 
+    <section
       className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-slate-950"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&auto=format&fit=crop&q=80')",
@@ -18,9 +18,9 @@ export default function HeroSection() {
 
       {/* Hero Content Container */}
       <div className="relative z-10 max-w-[1400px] w-full text-left space-y-6">
-        
+
         {/* Breadcrumb Navigation */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -34,7 +34,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Headline */}
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
@@ -48,13 +48,13 @@ export default function HeroSection() {
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium"
         >
-          We build and create secure, high-performance websites and web applications using trusted technologies and structured engineering practices.
+          CoreSlash builds and creates secure, high-performance websites and web applications using trusted technologies and structured engineering practices.
         </motion.p>
 
         {/* CTA Buttons & Feature Badges Row */}
