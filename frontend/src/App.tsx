@@ -23,6 +23,7 @@ import TermsOfService from "./pages/TermsOfServicePage";
 import CookiePolicy from "./pages/CookiePolicyPage";
 import EnquiryFormPage from "./pages/EnquiryFormPage";
 import PartnerPage from "./pages/PartnerPage";
+import PartnerFormPage from "./pages/PartnerFormPage";
 import NotFound from "./pages/NotFound";
 
 import AdminLayout from "./components/admin/AdminLayout";
@@ -48,6 +49,8 @@ function App() {
             <Route path="partner" element={<PartnerPage />} />
             <Route path="partner-program" element={<PartnerPage />} />
             <Route path="dealership" element={<PartnerPage />} />
+            <Route path="partner-form" element={<PartnerFormPage />} />
+            <Route path="partner/form" element={<PartnerFormPage />} />
             <Route path="enquiry-form" element={<EnquiryFormPage />} />
             <Route path="careers" element={<Careers />} />
             <Route path="blog" element={<Blog />} />

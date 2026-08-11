@@ -1,3 +1,45 @@
+import blog01 from "@/assets/blogs/coreslash_blog_01.png";
+import blog02 from "@/assets/blogs/coreslash_blog_02.png";
+import blog03 from "@/assets/blogs/coreslash_blog_03.png";
+import blog04 from "@/assets/blogs/coreslash_blog_04.png";
+import blog05 from "@/assets/blogs/coreslash_blog_05.jpg";
+import blog06 from "@/assets/blogs/coreslash_blog_06.jpg";
+import blog07 from "@/assets/blogs/coreslash_blog_07.jpg";
+import blog08 from "@/assets/blogs/coreslash_blog_08.jpg";
+import blog09 from "@/assets/blogs/coreslash_blog_09.jpg";
+import blog10 from "@/assets/blogs/coreslash_blog_10.jpg";
+import blog11 from "@/assets/blogs/coreslash_blog_11.jpg";
+import blog12 from "@/assets/blogs/coreslash_blog_12.jpg";
+import blog13 from "@/assets/blogs/coreslash_blog_13.jpg";
+import blog14 from "@/assets/blogs/coreslash_blog_14.jpg";
+import blog15 from "@/assets/blogs/coreslash_blog_15.jpg";
+import blog16 from "@/assets/blogs/coreslash_blog_16.jpg";
+import blog17 from "@/assets/blogs/coreslash_blog_17.jpg";
+import blog18 from "@/assets/blogs/coreslash_blog_18.jpg";
+import blog19 from "@/assets/blogs/coreslash_blog_19.jpg";
+import blog20 from "@/assets/blogs/coreslash_blog_20.jpg";
+import blog21 from "@/assets/blogs/coreslash_blog_21.jpg";
+import blog22 from "@/assets/blogs/coreslash_blog_22.jpg";
+import blog23 from "@/assets/blogs/coreslash_blog_23.jpg";
+import blog24 from "@/assets/blogs/coreslash_blog_24.jpg";
+import blog25 from "@/assets/blogs/coreslash_blog_25.jpg";
+import blog26 from "@/assets/blogs/coreslash_blog_26.jpg";
+import blog27 from "@/assets/blogs/coreslash_blog_27.jpg";
+import blog28 from "@/assets/blogs/coreslash_blog_28.jpg";
+import blog29 from "@/assets/blogs/coreslash_blog_29.jpg";
+import blog30 from "@/assets/blogs/coreslash_blog_30.jpg";
+import blog31 from "@/assets/blogs/coreslash_blog_31.jpg";
+import blog32 from "@/assets/blogs/coreslash_blog_32.jpg";
+import blog33 from "@/assets/blogs/coreslash_blog_33.jpg";
+import blog34 from "@/assets/blogs/coreslash_blog_34.jpg";
+
+const blogImages = [
+  blog01, blog02, blog03, blog04, blog05, blog06, blog07, blog08, blog09, blog10,
+  blog11, blog12, blog13, blog14, blog15, blog16, blog17, blog18, blog19, blog20,
+  blog21, blog22, blog23, blog24, blog25, blog26, blog27, blog28, blog29, blog30,
+  blog31, blog32, blog33, blog34
+];
+
 export type BlogCategory = "Web Development" | "SEO Strategy" | "Software Systems" | "Tech Trends";
 
 export interface BlogPostSection {
@@ -951,13 +993,14 @@ const rawPosts = [
   }
 ];
 
-export const BLOG_POSTS: BlogPost[] = rawPosts.map(post => {
+export const BLOG_POSTS: BlogPost[] = rawPosts.map((post, index) => {
   const category = post["category"] as BlogCategory;
   const bespoke = bespokeArticlesContent[post.slug];
   const content = bespoke || generateCategorySpecificContent(post.title, post.summary, category);
 
   return {
     ...post,
+    coverImage: blogImages[index % blogImages.length],
     category,
     content
   };

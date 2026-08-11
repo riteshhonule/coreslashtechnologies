@@ -9,6 +9,13 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
 
+import pitcsImg from "@/assets/portfolio/pitcs.png";
+import skandanImg from "@/assets/portfolio/skandan.png";
+import thedutzImg from "@/assets/portfolio/thedutz.png";
+import healthpulseImg from "@/assets/portfolio/healthpulse.png";
+import flexicartImg from "@/assets/portfolio/flexicart.png";
+import fintrackImg from "@/assets/portfolio/fintrack.png";
+
 interface CaseStudy {
   id: string;
   title: string;
@@ -31,7 +38,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "PITCS Tech Solutions",
     category: "Web Platforms",
     description: "Enterprise talent acquisition & workforce management engine serving Fortune 500 companies with automated candidate matching.",
-    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80",
+    imageUrl: pitcsImg,
     metrics: ["250K+ Candidates Managed", "40% Faster Onboarding", "99.9% System Uptime"],
     techStack: ["React", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
     challenge: "Managing thousands of candidate applications across multiple countries using legacy manual spreadsheets resulted in delayed client hiring timelines and high drop-off rates.",
@@ -49,7 +56,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "Skandan Global Advisory",
     category: "SaaS & Systems",
     description: "Executive decision engine providing business crisis management, real-time risk assessment, and operational advisory dashboards.",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80",
+    imageUrl: skandanImg,
     metrics: ["3x Operational Efficiency", "100+ Enterprise Clients", "Zero Downtime"],
     techStack: ["React", "TypeScript", "Python", "Chart.js", "Django"],
     challenge: "Corporate executives lacked real-time visibility into cross-department operational risks during economic fluctuations.",
@@ -66,7 +73,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "The Dutz Organics",
     category: "E-Commerce & Shopify",
     description: "High-converting D2C e-commerce experience for organic dates & energy snacks with automated cart upsells and subscriptions.",
-    imageUrl: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=800&auto=format&fit=crop&q=80",
+    imageUrl: thedutzImg,
     metrics: ["180% Revenue Growth", "0.8s Page Speed", "42% Repeat Customers"],
     techStack: ["Shopify OS 2.0", "Liquid", "GraphQL", "Tailwind CSS"],
     challenge: "The client's existing online store was slow on mobile devices, suffered from cart abandonment, and failed to showcase premium organic branding.",
@@ -83,7 +90,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "HealthPulse Care Network",
     category: "Mobile Apps",
     description: "Cross-platform mobile telemedicine app featuring HD video consultations, electronic health records, and biometric login.",
-    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
+    imageUrl: healthpulseImg,
     metrics: ["50K+ Monthly Consultations", "4.9 App Store Rating", "HIPAA Compliant"],
     techStack: ["Flutter", "Dart", "Firebase", "WebRTC", "Swift"],
     challenge: "Patients faced long wait times for specialist consultations and lacked a secure, encrypted mobile channel for sharing medical records.",
@@ -100,7 +107,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "FlexiCart Inc.",
     category: "Mobile Apps",
     description: "On-demand hyper-local grocery & retail delivery platform featuring live driver GPS tracking and instant split payments.",
-    imageUrl: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&auto=format&fit=crop&q=80",
+    imageUrl: flexicartImg,
     metrics: ["1M+ Orders Shipped", "15 Mins Avg Delivery", "99.9% Uptime"],
     techStack: ["React Native", "Node.js", "Socket.io", "Stripe API", "MongoDB"],
     challenge: "Building a scalable dispatching architecture that could handle thousands of concurrent driver GPS updates during peak hours without server lag.",
@@ -117,7 +124,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "FinTrack Global",
     category: "SaaS & Systems",
     description: "AI-driven corporate expense portal featuring multi-currency accounting, automated invoice extraction, and audit readiness.",
-    imageUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=80",
+    imageUrl: fintrackImg,
     metrics: ["$12M+ Monthly Volume", "SOC2 Compliant", "95% Auto Categorized"],
     techStack: ["React", "NestJS", "Python AI", "PostgreSQL", "Redis"],
     challenge: "Finance teams spent hundreds of hours manually categorizing receipts, cross-checking bank feeds, and compiling quarterly tax reports.",

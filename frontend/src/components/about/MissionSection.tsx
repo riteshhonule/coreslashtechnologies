@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import missionMainImg from "@/assets/about/coreslash-mission-main.jpg";
+import missionSecondaryImg from "@/assets/about/coreslash-mission-secondary.png";
 
 interface MissionPillar {
   title: string;
@@ -94,7 +96,7 @@ export const MissionSection: React.FC = () => {
               {/* Primary Main Image (Indian Software Engineering Team) */}
               <div className="relative z-10 overflow-hidden rounded-[2.2rem] shadow-2xl border border-slate-800/80 aspect-[4/3] bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop&q=80"
+                  src={missionMainImg}
                   alt="Indian IT software engineering team collaborating in modern tech office"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
@@ -103,7 +105,7 @@ export const MissionSection: React.FC = () => {
               {/* Secondary Floating Overlap Image (Indian Tech Professional) */}
               <div className="absolute -bottom-6 -right-2 sm:right-2 w-[70%] sm:w-[64%] z-20 rounded-[1.8rem] shadow-2xl border-4 border-[#090E17] overflow-hidden aspect-[4/3] bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1000&auto=format&fit=crop&q=80"
+                  src={missionSecondaryImg}
                   alt="Indian software developer reviewing code on laptop"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
+import aboutHeroImg from "@/assets/about/coreslash-about-hero.jpg";
+import teamWorkImg from "@/assets/about/coreslash-technologies-team-work.jpg";
 
 export const AboutHeroSection: React.FC = () => {
   return (
@@ -36,8 +38,8 @@ export const AboutHeroSection: React.FC = () => {
           className="lg:col-span-6 relative w-full flex justify-center pb-6 sm:pb-8 lg:pb-0"
         >
           <OverlappingImageCard
-            primaryImage="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&auto=format&fit=crop&q=80"
-            secondaryImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&auto=format&fit=crop&q=80"
+            primaryImage={aboutHeroImg}
+            secondaryImage={teamWorkImg}
             altText="Modern IT office workspace & engineering collaboration"
           />
         </motion.div>

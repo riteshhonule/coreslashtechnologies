@@ -52,7 +52,7 @@ export default function PartnerPage() {
         subtitle="Whether you have an immediate client requirement or want to establish a long-term technical delivery partnership, CoreSlash is ready to execute."
         primaryBtnText="Become a Partner"
         secondaryBtnText="Schedule Strategy Call"
-        primaryBtnLink="/contact"
+        primaryBtnLink="/partner-form"
         secondaryBtnLink="/contact"
       />
     </div>

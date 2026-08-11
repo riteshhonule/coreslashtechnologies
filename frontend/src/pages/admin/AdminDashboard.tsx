@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Briefcase, Download, Search, Edit2, X, ChevronLeft, ChevronRight, FileText, Globe } from 'lucide-react';
 import { format } from 'date-fns';

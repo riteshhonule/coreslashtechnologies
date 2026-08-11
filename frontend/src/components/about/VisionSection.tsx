@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import visionMainImg from "@/assets/about/coreslash-vision-main.png";
+import visionSecondaryImg from "@/assets/about/coreslash-vision-secondary.png";
 
 interface VisionPillar {
   title: string;
@@ -156,7 +158,7 @@ export const VisionSection: React.FC = () => {
             {/* Primary Main Image (Indian Software Engineering Team) */}
             <div className="relative z-10 overflow-hidden rounded-[2.2rem] shadow-2xl border border-border/50 aspect-[4/3] bg-muted">
               <img
-                src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=1200&auto=format&fit=crop&q=80"
+                src={visionMainImg}
                 alt="Indian IT software team in strategic vision planning meeting"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -165,7 +167,7 @@ export const VisionSection: React.FC = () => {
             {/* Secondary Floating Overlap Image (Indian Software Professional) */}
             <div className="absolute -bottom-6 -left-2 sm:left-2 w-[70%] sm:w-[64%] z-20 rounded-[1.8rem] shadow-2xl border-4 border-background overflow-hidden aspect-[4/3] bg-muted">
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&auto=format&fit=crop&q=80"
+                src={visionSecondaryImg}
                 alt="Indian software developers working together on digital product"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />

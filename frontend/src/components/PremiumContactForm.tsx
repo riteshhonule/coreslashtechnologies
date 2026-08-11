@@ -28,7 +28,7 @@ export function PremiumContactForm({
   initialPhone,
   onBack,
   onSuccess,
-  source = 'premium_contact_form'
+  source: _source = 'premium_contact_form'
 }: PremiumContactFormProps = {}) {
   const [formData, setFormData] = useState({
     name: "",

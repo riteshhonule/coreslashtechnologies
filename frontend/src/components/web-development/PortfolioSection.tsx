@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
+import pitcsImg from "@/assets/portfolio/pitcs.png";
+import skandanImg from "@/assets/portfolio/skandan.png";
+import thedutzImg from "@/assets/portfolio/thedutz.png";
+
 interface CaseStudyItem {
   title: string;
   subtext: string;
@@ -13,19 +17,19 @@ const CASES: CaseStudyItem[] = [
   {
     title: "PITCS – IT Consulting & Staffing Solutions",
     subtext: "Providing global IT consulting, staffing, payroll, and workforce management services across multiple industries.",
-    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80",
+    imageUrl: pitcsImg,
     link: "/portfolio"
   },
   {
     title: "Skandan – Business Consulting Solutions",
     subtext: "Helping businesses with crisis management, consulting, and smart solutions for better growth and operations.",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&auto=format&fit=crop&q=80",
+    imageUrl: skandanImg,
     link: "/portfolio"
   },
   {
     title: "The Dutz – Healthy, Guilt-Free Snacks",
     subtext: "Handcrafted energy bites made with premium dates, nuts, and seeds. 100% natural and plastic-free.",
-    imageUrl: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=400&auto=format&fit=crop&q=80",
+    imageUrl: thedutzImg,
     link: "/portfolio"
   }
 ];

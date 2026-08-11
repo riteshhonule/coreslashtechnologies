@@ -28,7 +28,7 @@ interface CareerPosition {
 export default function CareersPage() {
   const [careers, setCareers] = useState<CareerPosition[]>([]);
   const [isLoadingCareers, setIsLoadingCareers] = useState<boolean>(true);
-  const [careersFetchError, setCareersFetchError] = useState<string | null>(null);
+  const [careersFetchError, _setCareersFetchError] = useState<string | null>(null);
 
   const [selectedCareerId, setSelectedCareerId] = useState<number | "">("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);

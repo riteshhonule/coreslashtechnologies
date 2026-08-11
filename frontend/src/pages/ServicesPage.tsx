@@ -21,6 +21,7 @@ import ecommerceImg from "@/assets/services/ecommerce-solutions/coreslash-techno
 import seoImg from "@/assets/services/seo-solutions/coreslash-technologies-seo-search-growth.avif";
 import cloudDevopsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-devops.avif";
 import dataAnalyticsImg from "@/assets/services/data-analytics/coreslash-technologies-business-intelligence-data-analytics.avif";
+import shopifyDevImg from "@/assets/services/shopify-development/coreslash-technology-shopify-development.png";
 
 const servicesSchema = {
   "@context": "https://schema.org",
@@ -200,7 +201,7 @@ export default function ServicesIndex() {
       description: "High-converting custom Liquid OS 2.0 themes, Headless Shopify Hydrogen storefronts, custom app microservices, and revenue-tuned checkout funnels.",
       icon: ShoppingBag,
       href: "/services/shopify-development",
-      image: ecommerceImg,
+      image: shopifyDevImg,
       gradient: "from-emerald-600 to-teal-600",
       features: [
         "Custom Shopify OS 2.0 Liquid Themes",
