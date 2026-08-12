@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
+import aboutHeroImg from "@/assets/about/coreslash-about-hero.jpg";
+import teamWorkImg from "@/assets/about/coreslash-technologies-team-work.jpeg";
 
 export const AboutHeroSection: React.FC = () => {
   return (
     <section className="relative w-full pt-4 md:pt-6 pb-8 md:pb-12 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto overflow-hidden bg-background text-foreground">
-      
+
       {/* Breadcrumb Navigation */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -27,7 +29,7 @@ export const AboutHeroSection: React.FC = () => {
 
       {/* Main Layout Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-        
+
         {/* Left Column: Overlapping Dual Image Composition */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -36,8 +38,8 @@ export const AboutHeroSection: React.FC = () => {
           className="lg:col-span-6 relative w-full flex justify-center pb-6 sm:pb-8 lg:pb-0"
         >
           <OverlappingImageCard
-            primaryImage="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&auto=format&fit=crop&q=80"
-            secondaryImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&auto=format&fit=crop&q=80"
+            primaryImage={aboutHeroImg}
+            secondaryImage={teamWorkImg}
             altText="Modern IT office workspace & engineering collaboration"
           />
         </motion.div>
@@ -62,7 +64,7 @@ export const AboutHeroSection: React.FC = () => {
 
           {/* Paragraph 1 */}
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-normal">
-            As digital innovators, we have embraced technological advancement and modern business transformation, helping brands adapt to the evolving digital landscape. Since our beginning, we have focused on delivering innovative software solutions, strategic digital services, and performance-driven technologies that help businesses stay competitive and future-ready.
+            As digital innovators, CoreSlash has embraced technological advancement and modern business transformation, helping brands adapt to the evolving digital landscape. Since our beginning, we have focused on delivering innovative software solutions, strategic digital services, and performance-driven technologies that help businesses stay competitive and future-ready.
           </p>
 
           {/* Paragraph 2 */}

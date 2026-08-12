@@ -132,7 +132,7 @@ export default function PartnerHero() {
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
           >
             {/* Primary CTA */}
-            <Link to="/contact" className="w-full sm:w-auto">
+            <Link to="/partner-form" className="w-full sm:w-auto">
               <button
                 type="button"
                 aria-label="Become a Partner"

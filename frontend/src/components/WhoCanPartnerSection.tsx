@@ -42,10 +42,10 @@ export default function WhoCanPartnerSection() {
             style={{ fontFamily: "Cambria, Georgia, serif" }}
             className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight mb-5"
           >
-            Who Can Partner With Us?
+            Who Can Partner With CoreSlash?
           </h2>
           <p className="text-slate-900 text-sm sm:text-base leading-relaxed">
-            Whether you are an agency, consultant, software company, or independent professional, CoreSlash can extend your technical capabilities and help you take on more opportunities.
+            Whether you are an agency, consultant, software company or independent professional, CoreSlash can extend your technical capabilities and help you take on more opportunities.
           </p>
         </div>
 

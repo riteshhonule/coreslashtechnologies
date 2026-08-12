@@ -1,19 +1,37 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { Pool } from 'pg';
 import 'dotenv/config';
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
+  private readonly logger = new Logger(PrismaService.name);
+
   constructor() {
-    const connectionString = process.env.DATABASE_URL;
-    const pool = new Pool({ connectionString });
-    const adapter = new PrismaPg(pool);
-    super({ adapter });
+    super({
+      datasources: process.env.DATABASE_URL
+        ? {
+            db: {
+              url: process.env.DATABASE_URL,
+            },
+          }
+        : undefined,
+    });
   }
 
   async onModuleInit() {
-    await this.$connect();
+    if (!process.env.DATABASE_URL) {
+      this.logger.warn(
+        'DATABASE_URL is not set in environment variables or .env file. Database operations will require a valid DATABASE_URL.',
+      );
+      return;
+    }
+    try {
+      await this.$connect();
+      this.logger.log('Prisma connected to database successfully.');
+    } catch (error) {
+      this.logger.error('Failed to connect to PostgreSQL database:', error);
+    }
   }
 }
+
+

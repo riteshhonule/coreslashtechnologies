@@ -195,50 +195,51 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Column: One-Screen Fittable White Trustworthy Form Card */}
-          <div className="lg:col-span-7 bg-white text-slate-900 rounded-[22px] p-5 sm:p-6 lg:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.18)] border border-slate-200/90 relative overflow-hidden">
+          {/* Right Column: One-Screen Fittable Dark Luxury Glass Form Card */}
+          <div className="lg:col-span-7 bg-[#0B101D]/95 backdrop-blur-2xl text-white rounded-[26px] p-5 sm:p-6 lg:p-7 shadow-[0_25px_70px_rgba(0,0,0,0.75)] border border-slate-700/60 relative overflow-hidden">
             
             {/* Top Accent Gradient Line */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500" />
 
             {/* Success Overlay Notification */}
             {isSubmitted && (
-              <div className="absolute inset-0 bg-white/98 backdrop-blur-md z-30 flex flex-col items-center justify-center p-6 text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-600 flex items-center justify-center text-2xl font-bold shadow-inner">
+              <div className="absolute inset-0 bg-[#0B101D]/98 backdrop-blur-md z-30 flex flex-col items-center justify-center p-6 text-center space-y-3">
+                <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl font-bold shadow-inner">
                   ✓
                 </div>
-                <h3 className="text-xl font-black text-[#0B1228]">Consultation Requested!</h3>
-                <p className="text-slate-600 text-xs sm:text-sm max-w-sm leading-relaxed font-medium">
-                  Thank you for reaching out. Our engineering team will review your inquiry and get back to you shortly.
+                <h3 className="text-xl font-black text-white">Consultation Requested! 🎉</h3>
+                <p className="text-slate-300 text-xs sm:text-sm max-w-sm leading-relaxed font-medium">
+                  Thank you for reaching out to <span className="font-extrabold text-white">CoreSlash Technologies</span>. Our team will review your project details and reach out to you within <span className="font-extrabold text-blue-400">24 hours</span>.
                 </p>
               </div>
             )}
 
             {/* Header */}
             <div className="mb-4 text-left">
-              <span className="inline-block text-[10px] font-black tracking-widest uppercase text-blue-600 bg-blue-50 border border-blue-200/80 px-2.5 py-0.5 rounded mb-1.5">
+              <span className="inline-flex items-center gap-1 text-[10px] font-extrabold tracking-widest uppercase text-blue-400 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full shadow-sm mb-2">
+                <Sparkles className="w-3 h-3 text-blue-400 animate-pulse" />
                 PROJECT ENQUIRY
               </span>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-[#0B1228] tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
                 Let's Build Something Great
               </h2>
-              <p className="text-slate-600 text-[11px] sm:text-xs mt-1 leading-normal font-normal">
-                Tell us a little about your project and our team will get back to you shortly.
+              <p className="text-slate-300 text-[11px] sm:text-xs mt-1 leading-relaxed font-medium">
+                Tell us a little about your project and our solution architects will get back to you shortly.
               </p>
             </div>
 
             {/* Form Fields */}
-            <form onSubmit={handleSubmit} className="space-y-3 text-left">
+            <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
               
               {/* Row 1: Full Name & Work Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 
                 {/* Full Name */}
-                <div className="space-y-1">
-                  <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center gap-1">
-                    <User className="w-3 h-3 text-blue-600" /> Full Name *
+                <div className="space-y-1.5">
+                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                    <User className="w-3.5 h-3.5 text-blue-400" /> Full Name *
                   </label>
-                  <div className="relative flex items-center bg-[#F8FAFC] border border-[#D9E1EC] hover:border-slate-400 rounded-xl focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/10 focus-within:bg-white transition-all overflow-hidden">
+                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
                     <input
                       type="text"
                       name="fullName"
@@ -246,17 +247,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       value={formData.fullName}
                       onChange={handleChange}
                       required
-                      className="w-full bg-transparent px-3 py-2.5 text-xs text-[#111827] placeholder:text-[#64748B] focus:outline-none font-medium"
+                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none font-semibold"
                     />
                   </div>
                 </div>
 
                 {/* Work Email */}
-                <div className="space-y-1">
-                  <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center gap-1">
-                    <Mail className="w-3 h-3 text-blue-600" /> Work Email *
+                <div className="space-y-1.5">
+                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-blue-400" /> Work Email *
                   </label>
-                  <div className="relative flex items-center bg-[#F8FAFC] border border-[#D9E1EC] hover:border-slate-400 rounded-xl focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/10 focus-within:bg-white transition-all overflow-hidden">
+                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
                     <input
                       type="email"
                       name="workEmail"
@@ -264,7 +265,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       value={formData.workEmail}
                       onChange={handleChange}
                       required
-                      className="w-full bg-transparent px-3 py-2.5 text-xs text-[#111827] placeholder:text-[#64748B] focus:outline-none font-medium"
+                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none font-semibold"
                     />
                   </div>
                 </div>
@@ -272,38 +273,38 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
 
               {/* Row 2: Phone Number & Location */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 
                 {/* Phone Number */}
-                <div className="space-y-1">
-                  <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center gap-1">
-                    <Phone className="w-3 h-3 text-blue-600" /> Phone Number *
+                <div className="space-y-1.5">
+                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-blue-400" /> Phone Number *
                   </label>
-                  <div className="relative flex items-center bg-[#F8FAFC] border border-[#D9E1EC] hover:border-slate-400 rounded-xl focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/10 focus-within:bg-white transition-all overflow-hidden">
+                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
                     <input
                       type="tel"
                       name="phoneNumber"
                       placeholder="Enter your phone number"
                       value={formData.phoneNumber}
                       onChange={handleChange}
-                      className="w-full bg-transparent px-3 py-2.5 text-xs text-[#111827] font-medium placeholder:text-[#64748B] focus:outline-none"
+                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 font-semibold placeholder:text-slate-500 focus:outline-none"
                     />
                   </div>
                 </div>
 
                 {/* Location */}
-                <div className="space-y-1">
-                  <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-blue-600" /> Location / City
+                <div className="space-y-1.5">
+                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-blue-400" /> Location / City
                   </label>
-                  <div className="relative flex items-center bg-[#F8FAFC] border border-[#D9E1EC] hover:border-slate-400 rounded-xl focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/10 focus-within:bg-white transition-all overflow-hidden">
+                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
                     <input
                       type="text"
                       name="location"
                       placeholder="Enter your city / location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="w-full bg-transparent px-3 py-2.5 text-xs text-[#111827] placeholder:text-[#64748B] focus:outline-none font-medium"
+                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none font-semibold"
                     />
                   </div>
                 </div>
@@ -311,19 +312,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
 
               {/* Row 3: Service / Industry */}
-              <div className="space-y-1">
-                <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center gap-1">
-                  <Building2 className="w-3 h-3 text-blue-600" /> Service / Industry
+              <div className="space-y-1.5">
+                <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                  <Building2 className="w-3.5 h-3.5 text-blue-400" /> Service / Industry
                 </label>
-                <div className="relative flex items-center bg-[#F8FAFC] border border-[#D9E1EC] hover:border-slate-400 rounded-xl focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/10 focus-within:bg-white transition-all">
+                <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all shadow-inner">
                   <select
                     name="industry"
                     value={formData.industry}
                     onChange={handleChange}
                     required
-                    className="w-full bg-transparent px-3 py-2.5 text-xs text-[#111827] appearance-none cursor-pointer focus:outline-none font-medium [&>option]:bg-white [&>option]:text-slate-900"
+                    className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 appearance-none cursor-pointer focus:outline-none font-semibold [&>option]:bg-slate-900 [&>option]:text-slate-100"
                   >
-                    <option value="" disabled className="text-slate-400">
+                    <option value="" disabled className="text-slate-500">
                       Select a service
                     </option>
                     {industryOptions.map((opt) => (
@@ -337,11 +338,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
 
               {/* Row 4: Project Details */}
-              <div className="space-y-1">
-                <label className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-700 flex items-center gap-1">
-                  <MessageSquare className="w-3 h-3 text-blue-600" /> Project Details *
+              <div className="space-y-1.5">
+                <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                  <MessageSquare className="w-3.5 h-3.5 text-blue-400" /> Project Details *
                 </label>
-                <div className="relative flex items-start bg-[#F8FAFC] border border-[#D9E1EC] hover:border-slate-400 rounded-xl focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/10 focus-within:bg-white transition-all">
+                <div className="relative flex items-start bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all shadow-inner">
                   <textarea
                     name="projectDetails"
                     placeholder="Tell us about your project, goals, timeline, or requirements..."
@@ -349,21 +350,21 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     onChange={handleChange}
                     required
                     rows={3}
-                    className="w-full bg-transparent px-3 py-2.5 text-xs text-[#111827] placeholder:text-[#64748B] focus:outline-none resize-none h-[88px] font-medium"
+                    className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none resize-none h-[88px] font-semibold"
                   />
                 </div>
               </div>
 
               {/* Row 5: CTA Button & Trust Microcopy */}
-              <div className="pt-1.5 space-y-2">
+              <div className="pt-2 space-y-2.5">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 active:scale-[0.99] text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer disabled:opacity-50"
+                  className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 active:scale-[0.99] text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(37,99,235,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.55)] transition-all duration-300 cursor-pointer disabled:opacity-50 tracking-wide uppercase"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin text-white" />
                       <span>Submitting...</span>
                     </>
                   ) : (
@@ -374,9 +375,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   )}
                 </button>
 
-                <p className="text-[10px] text-slate-500 text-center flex items-center justify-center gap-1 font-medium">
-                  <Shield className="w-3 h-3 text-blue-600" />
-                  Your information is kept confidential and will only be used to respond to your enquiry.
+                <p className="text-[10px] text-slate-400 text-center flex items-center justify-center gap-1.5 font-medium">
+                  <Shield className="w-3.5 h-3.5 text-blue-400" />
+                  Your information is strictly confidential and will only be used to respond to your enquiry.
                 </p>
               </div>
 

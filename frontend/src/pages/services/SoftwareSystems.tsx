@@ -6,8 +6,8 @@ import EngagementModels from "@/components/web-development/EngagementModels";
 import ProcessTimeline from "@/components/web-development/ProcessTimeline";
 import FaqSection, { type FaqData } from "@/components/ui/habit-faq-scroller";
 import { CoreServiceCard } from "@/components/web-development/CoreServices";
-import { 
-  SiNodedotjs, SiPython, SiGo, SiDocker, SiKubernetes, 
+import {
+  SiNodedotjs, SiPython, SiGo, SiDocker, SiKubernetes,
   SiPostgresql, SiMongodb, SiRedis, SiTypescript
 } from "react-icons/si";
 
@@ -88,9 +88,9 @@ const softwareFaqData: FaqData = {
       speed: "45s",
       direction: "right",
       faqItems: [
-        { id: "q3", question: "Can you modernize our existing legacy application?", answer: "Yes! We convert monolithic applications into microservices, wrap legacy databases with modern REST APIs, and deploy zero-downtime cloud pipelines." },
-        { id: "q4", question: "How do you handle software data security and RBAC?", answer: "We enforce AES-256 data encryption, Granular Role-Based Access Control (RBAC), multi-factor auth, and compliance auditing for SOC2, HIPAA, and GDPR." },
-        { id: "q5", question: "Do you offer post-deployment SLA support?", answer: "Yes, we provide 24/7 infrastructure monitoring, zero-downtime CI/CD deployment pipelines, automated backups, and guaranteed SLA response times." }
+        { id: "q3", question: "Can you modernize our existing legacy application?", answer: "Yes! CoreSlash converts monolithic applications into microservices, wrap legacy databases with modern REST APIs, and deploy zero-downtime cloud pipelines." },
+        { id: "q4", question: "How do you handle software data security and RBAC?", answer: "CoreSlash enforces AES-256 data encryption, Granular Role-Based Access Control (RBAC), multi-factor auth, and compliance auditing for SOC2, HIPAA, and GDPR." },
+        { id: "q5", question: "Do you offer post-deployment SLA support?", answer: "Yes, CoreSlash provides 24/7 infrastructure monitoring, zero-downtime CI/CD deployment pipelines, automated backups, and guaranteed SLA response times." }
       ]
     }
   ]
@@ -108,7 +108,7 @@ export default function SoftwareSystems() {
       </Helmet>
 
       {/* 1. HERO SECTION */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&auto=format&fit=crop&q=80')",
@@ -140,7 +140,7 @@ export default function SoftwareSystems() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            We architect robust enterprise SaaS engines, custom CRM/ERP platforms, microservices backends, and automated data pipelines engineered for high availability and zero downtime.
+            CoreSlash architects robust enterprise SaaS engines, custom CRM/ERP platforms, microservices backends, and automated data pipelines engineered for high availability and zero downtime.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}
@@ -247,7 +247,7 @@ export default function SoftwareSystems() {
             </h2>
 
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
-              We leverage cloud-native enterprise technologies ensuring sub-second response times, rock-solid security, and seamless horizontal scalability.
+              CoreSlash leverages cloud-native enterprise technologies ensuring sub-second response times, rock-solid security, and seamless horizontal scalability.
             </p>
           </div>
 
@@ -288,8 +288,8 @@ export default function SoftwareSystems() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CASE_STUDIES.map((item, idx) => (
-            <motion.div 
-              key={item.title} 
+            <motion.div
+              key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -323,7 +323,7 @@ export default function SoftwareSystems() {
 
       {/* 9. CTA */}
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}

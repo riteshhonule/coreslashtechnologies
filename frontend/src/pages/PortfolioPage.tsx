@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ArrowRight, Sparkles, X, CheckCircle2, 
+import {
+  ArrowRight, Sparkles, X, CheckCircle2,
   ShieldCheck, Star, TrendingUp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
+
+import pitcsImg from "@/assets/portfolio/pitcs.png";
+import skandanImg from "@/assets/portfolio/skandan.png";
+import thedutzImg from "@/assets/portfolio/thedutz.png";
+import healthpulseImg from "@/assets/portfolio/healthpulse.png";
+import flexicartImg from "@/assets/portfolio/flexicart.png";
+import fintrackImg from "@/assets/portfolio/fintrack.png";
 
 interface CaseStudy {
   id: string;
@@ -31,7 +38,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "PITCS Tech Solutions",
     category: "Web Platforms",
     description: "Enterprise talent acquisition & workforce management engine serving Fortune 500 companies with automated candidate matching.",
-    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80",
+    imageUrl: pitcsImg,
     metrics: ["250K+ Candidates Managed", "40% Faster Onboarding", "99.9% System Uptime"],
     techStack: ["React", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
     challenge: "Managing thousands of candidate applications across multiple countries using legacy manual spreadsheets resulted in delayed client hiring timelines and high drop-off rates.",
@@ -49,7 +56,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "Skandan Global Advisory",
     category: "SaaS & Systems",
     description: "Executive decision engine providing business crisis management, real-time risk assessment, and operational advisory dashboards.",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80",
+    imageUrl: skandanImg,
     metrics: ["3x Operational Efficiency", "100+ Enterprise Clients", "Zero Downtime"],
     techStack: ["React", "TypeScript", "Python", "Chart.js", "Django"],
     challenge: "Corporate executives lacked real-time visibility into cross-department operational risks during economic fluctuations.",
@@ -66,7 +73,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "The Dutz Organics",
     category: "E-Commerce & Shopify",
     description: "High-converting D2C e-commerce experience for organic dates & energy snacks with automated cart upsells and subscriptions.",
-    imageUrl: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=800&auto=format&fit=crop&q=80",
+    imageUrl: thedutzImg,
     metrics: ["180% Revenue Growth", "0.8s Page Speed", "42% Repeat Customers"],
     techStack: ["Shopify OS 2.0", "Liquid", "GraphQL", "Tailwind CSS"],
     challenge: "The client's existing online store was slow on mobile devices, suffered from cart abandonment, and failed to showcase premium organic branding.",
@@ -83,7 +90,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "HealthPulse Care Network",
     category: "Mobile Apps",
     description: "Cross-platform mobile telemedicine app featuring HD video consultations, electronic health records, and biometric login.",
-    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
+    imageUrl: healthpulseImg,
     metrics: ["50K+ Monthly Consultations", "4.9 App Store Rating", "HIPAA Compliant"],
     techStack: ["Flutter", "Dart", "Firebase", "WebRTC", "Swift"],
     challenge: "Patients faced long wait times for specialist consultations and lacked a secure, encrypted mobile channel for sharing medical records.",
@@ -100,7 +107,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "FlexiCart Inc.",
     category: "Mobile Apps",
     description: "On-demand hyper-local grocery & retail delivery platform featuring live driver GPS tracking and instant split payments.",
-    imageUrl: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&auto=format&fit=crop&q=80",
+    imageUrl: flexicartImg,
     metrics: ["1M+ Orders Shipped", "15 Mins Avg Delivery", "99.9% Uptime"],
     techStack: ["React Native", "Node.js", "Socket.io", "Stripe API", "MongoDB"],
     challenge: "Building a scalable dispatching architecture that could handle thousands of concurrent driver GPS updates during peak hours without server lag.",
@@ -117,7 +124,7 @@ const CASE_STUDIES: CaseStudy[] = [
     client: "FinTrack Global",
     category: "SaaS & Systems",
     description: "AI-driven corporate expense portal featuring multi-currency accounting, automated invoice extraction, and audit readiness.",
-    imageUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=80",
+    imageUrl: fintrackImg,
     metrics: ["$12M+ Monthly Volume", "SOC2 Compliant", "95% Auto Categorized"],
     techStack: ["React", "NestJS", "Python AI", "PostgreSQL", "Redis"],
     challenge: "Finance teams spent hundreds of hours manually categorizing receipts, cross-checking bank feeds, and compiling quarterly tax reports.",
@@ -146,9 +153,9 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Helmet>
         <title>Our Portfolio & Case Studies | CoreSlash Technologies</title>
-        <meta 
-          name="description" 
-          content="Explore real-world case studies of digital platforms, e-commerce storefronts, SaaS applications, and mobile apps engineered by CoreSlash Technologies." 
+        <meta
+          name="description"
+          content="Explore real-world case studies of digital platforms, e-commerce storefronts, SaaS applications, and mobile apps engineered by CoreSlash Technologies."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/portfolio" />
       </Helmet>
@@ -156,7 +163,7 @@ export default function PortfolioPage() {
       {/* 1. Hero Header Section */}
       <section className="relative w-full pt-8 pb-12 md:pt-12 md:pb-16 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto overflow-hidden">
         <div className="relative z-10 rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border border-slate-800 p-8 sm:p-12 lg:p-16 text-white shadow-2xl overflow-hidden">
-          
+
           {/* Ambient Glows */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none" />
@@ -177,7 +184,7 @@ export default function PortfolioPage() {
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal max-w-2xl">
-              Discover how we partner with ambitious brands, SaaS startups, and global enterprises to build high-performance web applications, e-commerce storefronts, and mobile ecosystems.
+              Discover how CoreSlash partners with ambitious brands, SaaS startups, and global enterprises to build high-performance web applications, e-commerce storefronts, and mobile ecosystems.
             </p>
 
             {/* Live Stats Bar */}
@@ -265,11 +272,10 @@ export default function PortfolioPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
-                  activeCategory === cat
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${activeCategory === cat
                     ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md font-semibold"
                     : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -291,14 +297,14 @@ export default function PortfolioPage() {
               >
                 {/* Top Image Box */}
                 <div className="relative w-full h-56 rounded-2xl overflow-hidden mb-6 bg-slate-950 border border-border/40">
-                  <img 
-                    src={item.imageUrl} 
+                  <img
+                    src={item.imageUrl}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                  
+
                   <div className="absolute top-3 left-3">
                     <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-semibold uppercase tracking-wider border border-white/10 backdrop-blur-md">
                       {item.category}
@@ -337,7 +343,7 @@ export default function PortfolioPage() {
 
       {/* 5. CTA Section */}
       <section className="py-20 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -345,7 +351,7 @@ export default function PortfolioPage() {
           className="rounded-[3rem] bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-10 md:p-16 text-center text-white relative overflow-hidden border border-slate-800 shadow-2xl"
         >
           <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-          
+
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Have a Visionary Project in Mind?</h2>
             <p className="text-slate-300 text-base md:text-lg leading-relaxed">

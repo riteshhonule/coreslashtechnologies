@@ -7,7 +7,7 @@ import EngagementModels from "@/components/web-development/EngagementModels";
 import ProcessTimeline from "@/components/web-development/ProcessTimeline";
 import FaqSection, { type FaqData } from "@/components/ui/habit-faq-scroller";
 import { CoreServiceCard } from "@/components/web-development/CoreServices";
-import { 
+import {
   SiShopify, SiReact, SiTailwindcss, SiGraphql
 } from "react-icons/si";
 
@@ -53,8 +53,8 @@ const shopifyFaqData: FaqData = {
       speed: "48s",
       direction: "left",
       faqItems: [
-        { id: "q1", question: "Can you build custom Shopify themes from scratch?", answer: "Yes! We design custom Shopify OS 2.0 themes tailored to your brand aesthetics and conversion goals." },
-        { id: "q2", question: "Can you migrate my existing store to Shopify?", answer: "We provide complete migration services from WooCommerce, Magento, or custom platforms, preserving all order data and SEO rankings." }
+        { id: "q1", question: "Can you build custom Shopify themes from scratch?", answer: "Yes! CoreSlash designs custom Shopify OS 2.0 themes tailored to your brand aesthetics and conversion goals." },
+        { id: "q2", question: "Can you migrate my existing store to Shopify?", answer: "CoreSlash provides complete migration services from WooCommerce, Magento, or custom platforms, preserving all order data and SEO rankings." }
       ]
     },
     {
@@ -62,7 +62,7 @@ const shopifyFaqData: FaqData = {
       speed: "42s",
       direction: "right",
       faqItems: [
-        { id: "q3", question: "Do you offer Headless Shopify development?", answer: "Yes, we build Headless Shopify storefronts using Hydrogen (Remix) and Next.js connected to the Storefront GraphQL API for ultra-fast speeds." },
+        { id: "q3", question: "Do you offer Headless Shopify development?", answer: "Yes, CoreSlash builds Headless Shopify storefronts using Hydrogen (Remix) and Next.js connected to the Storefront GraphQL API for ultra-fast speeds." },
         { id: "q4", question: "How long does a custom Shopify store take?", answer: "Standard custom store setups take 3-5 weeks, while enterprise multi-country stores with custom app integrations take 6-10 weeks." }
       ]
     }
@@ -93,7 +93,7 @@ export default function ShopifyDevelopment() {
       </Helmet>
 
       {/* 1. HERO SECTION */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&auto=format&fit=crop&q=80')",
@@ -125,7 +125,7 @@ export default function ShopifyDevelopment() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            We engineer custom Shopify themes, OS 2.0 Liquid architectures, Headless Hydrogen storefronts, and deep API integrations built for speed and revenue growth.
+            CoreSlash engineers custom Shopify themes, OS 2.0 Liquid architectures, Headless Hydrogen storefronts, and deep API integrations built for speed and revenue growth.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}
@@ -232,7 +232,7 @@ export default function ShopifyDevelopment() {
             </h2>
 
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
-              We leverage modern Shopify OS 2.0 architectures, Remix/Hydrogen headless tech, and Storefront APIs for high conversion.
+              CoreSlash leverages modern Shopify OS 2.0 architectures, Remix/Hydrogen headless tech, and Storefront APIs for high conversion.
             </p>
           </div>
 
@@ -311,8 +311,8 @@ export default function ShopifyDevelopment() {
             { title: "LuxeDecor – Headless Hydrogen Storefront", subtext: "Oxygen hosted Remix/Hydrogen storefront handling 100k+ monthly active shoppers with instant page transitions.", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&auto=format&fit=crop&q=80" },
             { title: "KetoBites – Private App & Migration to Plus", subtext: "Seamless Magento to Shopify Plus migration with subscription billing & custom private app integration.", img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400&auto=format&fit=crop&q=80" }
           ].map((item, idx) => (
-            <motion.div 
-              key={item.title} 
+            <motion.div
+              key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -345,7 +345,7 @@ export default function ShopifyDevelopment() {
 
       {/* 9. CTA */}
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}

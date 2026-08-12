@@ -68,7 +68,7 @@ export default function FooterSection() {
               />
             </a>
             <p className="text-slate-400 leading-relaxed mb-8">
-              Building AI-powered software solutions for businesses worldwide. We engineer high-performance tools that define the future of technology and enterprise workflows.
+              Building AI-powered software solutions for businesses worldwide. CoreSlash engineers high-performance tools that define the future of technology and enterprise workflows.
             </p>
             <div className="flex items-center gap-3">
               {[
@@ -168,10 +168,10 @@ export default function FooterSection() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://maps.google.com/?q=Belgaum,+Karnataka,+India+590006" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://maps.google.com/?q=Belgaum,+Karnataka,+India+590006"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-start gap-3 group cursor-pointer"
                 >
                   <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 group-hover:text-blue-400 transition-colors">

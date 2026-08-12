@@ -21,6 +21,7 @@ import ecommerceImg from "@/assets/services/ecommerce-solutions/coreslash-techno
 import seoImg from "@/assets/services/seo-solutions/coreslash-technologies-seo-search-growth.avif";
 import cloudDevopsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-devops.avif";
 import dataAnalyticsImg from "@/assets/services/data-analytics/coreslash-technologies-business-intelligence-data-analytics.avif";
+import shopifyDevImg from "@/assets/services/shopify-development/coreslash-technology-shopify-development.png";
 
 const servicesSchema = {
   "@context": "https://schema.org",
@@ -49,12 +50,12 @@ const allServicesFaqData: FaqData = {
         {
           id: "q1",
           question: "Which service domain should we choose for our business?",
-          answer: "Our solution architects provide free technical consultations to review your goals and recommend the ideal stack—whether that is a custom SaaS platform, web app, mobile app, or AI automation pipeline."
+          answer: "CoreSlash solution architects provide free technical consultations to review your goals and recommend the ideal stack—whether that is a custom SaaS platform, web app, mobile app, or AI automation pipeline."
         },
         {
           id: "q2",
           question: "Do you offer full-stack end-to-end development?",
-          answer: "Yes! We handle UI/UX wireframing, frontend engineering, backend API development, database optimization, cloud DevOps deployment, and post-launch SLA support."
+          answer: "Yes! CoreSlash handle UI/UX wireframing, frontend engineering, backend API development, database optimization, cloud DevOps deployment, and post-launch SLA support."
         },
         {
           id: "q3",
@@ -81,7 +82,7 @@ const allServicesFaqData: FaqData = {
         {
           id: "q6",
           question: "What SLA support models do you provide post-launch?",
-          answer: "We offer 24/7 DevOps cloud monitoring, monthly security patches, database backups, performance scaling, and dedicated SLA response windows."
+          answer: "CoreSlash offer 24/7 DevOps cloud monitoring, monthly security patches, database backups, performance scaling, and dedicated SLA response windows."
         }
       ]
     }
@@ -200,7 +201,7 @@ export default function ServicesIndex() {
       description: "High-converting custom Liquid OS 2.0 themes, Headless Shopify Hydrogen storefronts, custom app microservices, and revenue-tuned checkout funnels.",
       icon: ShoppingBag,
       href: "/services/shopify-development",
-      image: ecommerceImg,
+      image: shopifyDevImg,
       gradient: "from-emerald-600 to-teal-600",
       features: [
         "Custom Shopify OS 2.0 Liquid Themes",

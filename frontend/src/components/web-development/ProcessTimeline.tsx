@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import sectionBg from "@/assets/about/coreslash-tech.jpg";
+import sectionBg from "@/assets/about/coreslash-about-hero.jpg";
 
 interface StageConfig {
   id: number;
@@ -278,7 +278,7 @@ export default function ProcessTimeline() {
 
                       {/* Icon */}
                       <g
-                        transform={`translate(${textCoords.x - 9}, ${textCoords.y - 21}) scale(0.75)`}
+                        transform={`translate(${textCoords.x - 9}, ${textCoords.y - 20}) scale(0.75)`}
                         style={{
                           color: "#ffffff",
                           opacity: isSubdued ? 0.6 : 1,
@@ -295,28 +295,15 @@ export default function ProcessTimeline() {
                         />
                       </g>
 
-                      {/* Step Number */}
-                      <text
-                        x={textCoords.x}
-                        y={textCoords.y + 3}
-                        fill="#ffffff"
-                        fontSize="13"
-                        fontWeight="800"
-                        textAnchor="middle"
-                        opacity={isSubdued ? 0.6 : 1}
-                      >
-                        {stage.number}
-                      </text>
-
                       {/* Step Short Label */}
                       <text
                         x={textCoords.x}
-                        y={textCoords.y + 15}
+                        y={textCoords.y + 12}
                         fill="#ffffff"
-                        fontSize="7.5"
-                        fontWeight="700"
+                        fontSize="8.5"
+                        fontWeight="800"
                         textAnchor="middle"
-                        letterSpacing="0.6"
+                        letterSpacing="0.8"
                         opacity={isSubdued ? 0.65 : 0.95}
                       >
                         {stage.shortLabel}
@@ -484,7 +471,17 @@ export default function ProcessTimeline() {
                         transform: isHovered ? "scale(1.1)" : "scale(1)"
                       }}
                     >
-                      {stage.number}
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d={stage.iconPath} />
+                      </svg>
                     </div>
                   </div>
 
@@ -497,16 +494,6 @@ export default function ProcessTimeline() {
                       >
                         {stage.title}
                       </h4>
-                      {isHovered && (
-                        <motion.span
-                          initial={{ opacity: 0, x: -5 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md text-white hidden sm:inline-block"
-                          style={{ backgroundColor: stage.color }}
-                        >
-                          Phase {stage.number}
-                        </motion.span>
-                      )}
                     </div>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                       {stage.description}

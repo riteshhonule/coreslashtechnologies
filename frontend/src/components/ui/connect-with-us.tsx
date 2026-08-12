@@ -12,7 +12,7 @@ const SocialConnect: React.FC = () => {
           Connect <span className="text-white">With Us</span>
         </h2>
         <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-medium leading-relaxed">
-          Join our community and stay updated with the latest engineering insights, product releases, and tech trends.
+          Join CoreSlash's community and stay updated with the latest engineering insights, product releases, and tech trends.
         </p>
       </div>
 
@@ -26,10 +26,10 @@ const SocialConnect: React.FC = () => {
         >
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
             {/* Instagram */}
-            <a 
-              href="https://www.instagram.com/coreslashtechnologies?igsh=MWRmaTN2am1wNG1kdw%3D%3D&utm_source=qr" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://www.instagram.com/coreslashtechnologies?igsh=MWRmaTN2am1wNG1kdw%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
               className="social-icon instagram"
             >
               <div className="icon-container">
@@ -48,10 +48,10 @@ const SocialConnect: React.FC = () => {
             </a>
 
             {/* Facebook */}
-            <a 
-              href="https://www.facebook.com/profile.php?id=61591466563226" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://www.facebook.com/profile.php?id=61591466563226"
+              target="_blank"
+              rel="noopener noreferrer"
               className="social-icon facebook"
             >
               <div className="icon-container">
@@ -70,10 +70,10 @@ const SocialConnect: React.FC = () => {
             </a>
 
             {/* X / Twitter */}
-            <a 
-              href="https://x.com/CoreSlashTech" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://x.com/CoreSlashTech"
+              target="_blank"
+              rel="noopener noreferrer"
               className="social-icon x-twitter"
             >
               <div className="icon-container">
@@ -92,10 +92,10 @@ const SocialConnect: React.FC = () => {
             </a>
 
             {/* LinkedIn */}
-            <a 
-              href="https://www.linkedin.com/company/coreslash-technologies/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://www.linkedin.com/company/coreslash-technologies/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="social-icon linkedin"
             >
               <div className="icon-container">
