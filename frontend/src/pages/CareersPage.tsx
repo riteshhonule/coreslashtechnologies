@@ -105,7 +105,7 @@ export default function CareersPage() {
 
       formData.append('resume', resumeFile);
 
-      const res = await fetch('/api/jobs/apply', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ''}/api/jobs/apply`, {
         method: 'POST',
         body: formData,
       });

@@ -16,7 +16,7 @@ export default function AdminLogin() {
     setError(null);
 
     try {
-      const res = await fetch('/api/admin/login', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ''}/api/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
