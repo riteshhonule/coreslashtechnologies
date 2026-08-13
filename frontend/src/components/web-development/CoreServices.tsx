@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 export interface CoreServiceCardProps {
@@ -11,44 +12,72 @@ export interface CoreServiceCardProps {
   delay?: number;
 }
 
-export const CoreServiceCard = ({ number, title, subtext, highlight, badge, darkBg, blueBg, delay = 0 }: CoreServiceCardProps) => {
+export const CoreServiceCard = ({
+  number,
+  title,
+  subtext,
+  highlight,
+  badge,
+  darkBg,
+  blueBg,
+  delay = 0
+}: CoreServiceCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
   const displayHighlight = highlight || badge;
+  const isDark = darkBg || isHovered;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-50px" }}
       transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -8, scale: 1.015 }}
-      className={`group relative overflow-hidden p-8 md:p-10 rounded-3xl border flex flex-col justify-between transition-all duration-300 cursor-pointer ${darkBg
-          ? "bg-slate-900 text-white border-slate-800 shadow-xl hover:border-blue-500/50 hover:shadow-[0_20px_50px_rgba(59,130,246,0.2)]"
+      whileHover={{ y: -4, scale: 1.015 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`group relative overflow-hidden p-8 md:p-10 rounded-3xl border flex flex-col justify-between transition-all duration-300 cursor-pointer ${
+        isDark
+          ? "bg-slate-900 text-white border-slate-800 shadow-[0_20px_50px_rgba(59,130,246,0.2)] border-blue-500/50"
           : blueBg
-            ? "bg-blue-500/5 text-foreground border-blue-500/20 shadow-sm hover:border-blue-500/50 hover:shadow-[0_20px_45px_rgba(59,130,246,0.15)]"
-            : "bg-card text-foreground border-border/80 shadow-sm hover:border-blue-500/40 hover:shadow-[0_20px_45px_rgba(59,130,246,0.12)]"
-        }`}
+          ? "bg-blue-500/5 text-foreground border-blue-500/20 shadow-sm"
+          : "bg-card text-foreground border-border/80 shadow-sm"
+      }`}
     >
       {/* Glow highlight effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div
+        className={`absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 pointer-events-none transition-opacity duration-500 ${
+          isDark ? "opacity-100" : "opacity-0"
+        }`}
+      />
 
       <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8 relative z-10">
         {/* Large Number with Gradients */}
         <div
-          className={`text-6xl md:text-7xl font-bold select-none tracking-tighter shrink-0 transition-transform duration-300 group-hover:scale-110 ${darkBg
-              ? "text-transparent bg-clip-text bg-gradient-to-b from-white/40 to-white/10"
+          className={`text-6xl md:text-7xl font-bold select-none tracking-tighter shrink-0 transition-all duration-300 ${
+            isDark
+              ? "text-transparent bg-clip-text bg-gradient-to-b from-white/40 to-white/10 scale-110"
               : blueBg
-                ? "text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-blue-300"
-                : "text-transparent bg-clip-text bg-gradient-to-b from-slate-300 to-slate-100 dark:from-slate-800 dark:to-slate-900"
-            }`}
+              ? "text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-blue-300"
+              : "text-transparent bg-clip-text bg-gradient-to-b from-slate-300 to-slate-100 dark:from-slate-800 dark:to-slate-900"
+          }`}
         >
           {number}
         </div>
 
         {/* Text Area */}
         <div className="space-y-4 text-left">
-          <h4 className="text-xl md:text-2xl font-bold text-[#3b82f6] group-hover:text-blue-500 transition-colors">
+          <h4
+            className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
+              isDark ? "text-blue-400" : "text-[#3b82f6]"
+            }`}
+          >
             {title}
           </h4>
-          <p className={`text-sm md:text-base leading-relaxed ${darkBg ? "text-slate-300" : "text-muted-foreground"}`}>
+          <p
+            className={`text-sm md:text-base leading-relaxed transition-colors duration-300 ${
+              isDark ? "text-slate-300" : "text-muted-foreground"
+            }`}
+          >
             {subtext}
           </p>
         </div>
@@ -56,8 +85,16 @@ export const CoreServiceCard = ({ number, title, subtext, highlight, badge, dark
 
       {/* Highlight Box with Left Accent Vertical Border */}
       {displayHighlight && (
-        <div className="mt-8 pl-4 border-l-2 border-[#3b82f6] group-hover:border-blue-400 text-left relative z-10 transition-colors duration-300">
-          <p className={`text-xs md:text-sm font-semibold italic ${darkBg ? "text-slate-400" : "text-foreground/80"}`}>
+        <div
+          className={`mt-8 pl-4 border-l-2 text-left relative z-10 transition-colors duration-300 ${
+            isDark ? "border-blue-400" : "border-[#3b82f6]"
+          }`}
+        >
+          <p
+            className={`text-xs md:text-sm font-semibold italic transition-colors duration-300 ${
+              isDark ? "text-slate-400" : "text-foreground/80"
+            }`}
+          >
             {displayHighlight}
           </p>
         </div>
@@ -69,8 +106,7 @@ export const CoreServiceCard = ({ number, title, subtext, highlight, badge, dark
 export default function CoreServices() {
   return (
     <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 overflow-hidden">
-
-      {/* Title with left accent vertical border, matching the Zikrabyte screenshot */}
+      {/* Title with left accent vertical border */}
       <div className="flex flex-col items-start gap-4 mb-16">
         <div className="flex items-center">
           <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
@@ -113,7 +149,6 @@ export default function CoreServices() {
           delay={0.4}
         />
       </div>
-
     </section>
   );
 }

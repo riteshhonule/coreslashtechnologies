@@ -21,11 +21,12 @@ const dataSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Data Analytics & Business Intelligence Solutions",
+  "url": "https://coreslashtechnologies.com/services/data-analytics",
   "provider": {
     "@type": "Organization",
     "name": "CoreSlash Technologies",
-    "url": "https://www.coreslash.com",
-    "logo": "https://www.coreslash.com/vite.svg"
+    "url": "https://coreslashtechnologies.com/",
+    "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Data Analytics",
   "description": "Transform complex business data into real-time interactive executive dashboards, automated reporting pipelines, and predictive telemetry.",
@@ -69,17 +70,17 @@ const dataFaqData: FaqData = {
         {
           id: "q1",
           question: "What data analytics and business intelligence solutions do you build?",
-          answer: "We engineer custom executive dashboards, automated ETL data pipelines, enterprise data warehousing (Snowflake/BigQuery), predictive ML models, and scheduled PDF email reports."
+          answer: "CoreSlash engineers custom executive dashboards, automated ETL data pipelines, enterprise data warehousing (Snowflake/BigQuery), predictive ML models, and scheduled PDF email reports."
         },
         {
           id: "q2",
           question: "Can you aggregate data from multiple isolated SaaS tools into one dashboard?",
-          answer: "Yes! We consolidate Shopify sales, Stripe revenue, Google Analytics traffic, Salesforce CRM leads, and custom database records into a single source-of-truth dashboard."
+          answer: "Yes! CoreSlash consolidates Shopify sales, Stripe revenue, Google Analytics traffic, Salesforce CRM leads, and custom database records into a single source-of-truth dashboard."
         },
         {
           id: "q3",
           question: "How do you ensure sub-second response times on massive datasets?",
-          answer: "We utilize high-performance OLAP analytics databases (ClickHouse / Snowflake), Redis in-memory caching, and WebSocket streaming to render millions of data points under 200ms."
+          answer: "CoreSlash utilizes high-performance OLAP analytics databases (ClickHouse / Snowflake), Redis in-memory caching, and WebSocket streaming to render millions of data points under 200ms."
         }
       ]
     },
@@ -91,12 +92,12 @@ const dataFaqData: FaqData = {
         {
           id: "q4",
           question: "Can executive reports be generated and sent out automatically?",
-          answer: "Yes, we build automated scheduled PDF report generators that deliver weekly or monthly performance digests directly to executive email inboxes and Slack channels."
+          answer: "Yes, CoreSlash builds automated scheduled PDF report generators that deliver weekly or monthly performance digests directly to executive email inboxes and Slack channels."
         },
         {
           id: "q5",
           question: "How is sensitive organizational data encrypted and protected?",
-          answer: "We enforce Role-Based Access Control (RBAC), Single Sign-On (SSO) authentication, column-level data encryption, and GDPR/HIPAA compliance standards."
+          answer: "CoreSlash enforces Role-Based Access Control (RBAC), Single Sign-On (SSO) authentication, column-level data encryption, and GDPR/HIPAA compliance standards."
         },
         {
           id: "q6",
@@ -132,14 +133,14 @@ export default function DataAnalytics() {
           name="description"
           content="Turn raw operational data into actionable insights through custom real-time executive dashboards, ETL data pipelines, and predictive business intelligence."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/services/data-analytics" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/services/data-analytics" />
         <script type="application/ld+json">{JSON.stringify(dataSchema)}</script>
       </Helmet>
 
       {/* ========================================================
           1. HERO SECTION
           ======================================================== */}
-      <section 
+      <section
         className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-start overflow-hidden py-8 md:py-12 px-6 md:px-12 lg:px-24 bg-slate-950"
         style={{
           backgroundImage: `url(${dataHeroBg})`,
@@ -152,7 +153,7 @@ export default function DataAnalytics() {
 
         <div className="relative z-10 max-w-[1400px] w-full text-left space-y-4 md:space-y-5">
           {/* Breadcrumb */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -177,7 +178,7 @@ export default function DataAnalytics() {
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -190,7 +191,7 @@ export default function DataAnalytics() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -200,7 +201,7 @@ export default function DataAnalytics() {
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -229,7 +230,7 @@ export default function DataAnalytics() {
           ======================================================== */}
       <section className="relative w-full py-20 md:py-28 px-6 md:px-12 lg:px-24 bg-background border-t border-border/40">
         <div className="max-w-[1400px] mx-auto">
-          
+
           {/* Header */}
           <div className="flex flex-col items-start gap-4 mb-16 text-left">
             <div className="flex items-center">
@@ -242,7 +243,7 @@ export default function DataAnalytics() {
               Data Engineering & BI Solutions
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
-              We design real-time analytics architectures, automated ETL data ingestion pipelines, and interactive executive dashboards that provide single-source-of-truth clarity.
+              CoreSlash designs real-time analytics architectures, automated ETL data ingestion pipelines, and interactive executive dashboards that provide single-source-of-truth clarity.
             </p>
           </div>
 
@@ -300,16 +301,21 @@ export default function DataAnalytics() {
           ======================================================== */}
       <section className="relative w-full py-16 md:py-24 border-t border-border/40 bg-background">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="flex flex-col items-start gap-4 mb-8 text-left">
-            <div className="flex items-center">
-              <div className="w-[3px] h-6 bg-blue-600 rounded-full mr-3" />
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
-                Data Tech Stack
-              </h3>
+          <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-blue-500/20">
+              <span>Modern Technology Stack</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
-              Enterprise Data Tools
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight text-center">
+              Technologies{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+                We Use
+              </span>
             </h2>
+
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
+              Enterprise Data Tools
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 border-b border-border/40 mb-8 py-2">
@@ -317,9 +323,8 @@ export default function DataAnalytics() {
               <button
                 key={tab}
                 onClick={() => setActiveTechTab(tab)}
-                className={`relative px-4 py-2 text-sm md:text-base font-medium tracking-wider transition-colors duration-300 uppercase focus:outline-none ${
-                  activeTechTab === tab ? "text-blue-600 dark:text-blue-400 font-bold" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`relative px-4 py-2 text-sm md:text-base font-medium tracking-wider transition-colors duration-300 uppercase focus:outline-none ${activeTechTab === tab ? "text-blue-600 dark:text-blue-400 font-bold" : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {tab}
                 {activeTechTab === tab && (
@@ -352,7 +357,7 @@ export default function DataAnalytics() {
                     whileHover={{ y: -4 }}
                     className="group relative flex items-center gap-4 p-4 md:p-5 h-[80px] bg-white dark:bg-white/[0.03] border border-black/10 dark:border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)] hover:border-blue-500/50 dark:hover:border-blue-500/50 cursor-pointer transition-all duration-300"
                   >
-                    <div 
+                    <div
                       className="flex items-center justify-center w-12 h-12 text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300 drop-shadow-sm shrink-0"
                       style={{ color: tech.color }}
                     >

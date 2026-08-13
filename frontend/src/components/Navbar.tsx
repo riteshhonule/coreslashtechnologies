@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LiquidGlassButton } from "./LiquidGlass";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sparkles, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import logoImg from "@/assets/coreslash technologies.png";
 
 export interface NavItem {
@@ -34,6 +34,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Partner Program", href: "/partner" },
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },

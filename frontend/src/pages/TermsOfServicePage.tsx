@@ -56,7 +56,7 @@ export default function TermsOfServicePage() {
           name="description"
           content="Review the Terms of Service for CoreSlash Technologies. Understand client agreements, IP code ownership, payment milestones, and legal guidelines."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/terms-of-service" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/terms-of-service" />
       </Helmet>
 
       {/* 1. HERO BANNER */}

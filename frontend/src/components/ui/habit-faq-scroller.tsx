@@ -75,17 +75,17 @@ const FaqSection = ({ data }: { data: FaqData }) => {
     <div className="relative flex flex-col items-center gap-8 sm:gap-10 py-12 w-full max-w-7xl mx-auto overflow-hidden">
       {data.mainTitle && (
         <div className="flex flex-col items-center gap-3 text-center z-10 max-w-3xl px-4">
-          <div className="inline-flex items-center px-3.5 py-1.5 rounded-md bg-blue-600/10 border-l-4 border-blue-600 text-blue-600 text-xs font-semibold tracking-wider uppercase select-none">
-            FAQs
+          <div className="inline-flex items-center px-4 py-1 rounded-r-lg rounded-l-xs bg-blue-50 dark:bg-blue-950/60 border-l-4 border-blue-600 text-blue-600 dark:text-blue-400 text-xs font-extrabold tracking-wider uppercase select-none shadow-xs">
+            FAQS
           </div>
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight animate-fade-in-up"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-tight animate-fade-in-up pt-1"
           >
             {data.mainTitle}
           </h2>
           {data.mainSubtitle && (
             <p
-              className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl"
+              className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl font-normal pt-1"
             >
               {data.mainSubtitle}
             </p>

@@ -7,6 +7,7 @@ import websiteDevImg from "@/assets/services/web-development/coreslash-technolog
 import softwareSysImg from "@/assets/services/software-systems/coreslash-technologies-custom-software-systems.avif";
 import ecommerceImg from "@/assets/services/ecommerce-solutions/coreslash-technologies-scalable-ecommerce-platforms.avif";
 import seoImg from "@/assets/services/seo-solutions/coreslash-technologies-seo-search-growth.avif";
+import shopifyDevImg from "@/assets/services/shopify-development/coreslash-technology-shopify-development.png";
 import cloudDevopsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-devops.avif";
 import dataAnalyticsImg from "@/assets/services/data-analytics/coreslash-technologies-business-intelligence-data-analytics.avif";
 import aiServicesImg from "@/assets/services/ai-automation/coreslash-technologies-intelligent-ai-automation.avif";
@@ -28,65 +29,74 @@ export interface ExpandableGalleryProps {
 export const NINE_DEMO_IMAGES: GalleryItem[] = [
   {
     src: aiServicesImg,
-    title: "AI Automation",
+    title: "AI Automation Services",
     category: "AI Automation",
-    description: "Build AI-powered workflows, chatbots, and intelligent automation solutions that streamline business operations.",
+    description:
+      "Automate business workflows with AI-powered solutions, intelligent chatbots, process automation, and custom AI applications.",
     href: "/services/ai-automation",
   },
   {
     src: websiteDevImg,
-    title: "Web Development",
+    title: "Web Development Services",
     category: "Web Development",
-    description: "Responsive, high-performance, SEO-friendly websites built for speed, scalability, and business growth.",
+    description:
+      "Build fast, responsive, and SEO-friendly websites with modern technologies, scalable architecture, and user-focused experiences.",
     href: "/services/web-development",
   },
   {
     src: appDevImg,
-    title: "App Development",
+    title: "Mobile App Development",
     category: "App Development",
-    description: "Native and cross-platform mobile applications designed for exceptional performance and user experience.",
+    description:
+      "Develop scalable Android and iOS applications with intuitive user experiences, reliable performance, and modern mobile technologies.",
     href: "/services/app-development",
   },
   {
     src: softwareSysImg,
-    title: "Software Systems",
-    category: "Software Systems",
-    description: "Enterprise-grade software solutions tailored to automate workflows and improve operational efficiency.",
+    title: "Custom Software Development",
+    category: "Software Development",
+    description:
+      "Develop custom software systems that streamline business processes, automate workflows, integrate third-party platforms, and scale with your business.",
     href: "/services/software-systems",
   },
   {
     src: ecommerceImg,
-    title: "E-Commerce Solutions",
-    category: "E-Commerce Solutions",
-    description: "Secure online stores with payment gateways, inventory management, and conversion-focused experiences.",
+    title: "E-Commerce Development",
+    category: "E-Commerce",
+    description:
+      "Create secure and scalable e-commerce websites with payment gateway integration, product management, inventory systems, and optimized shopping experiences.",
     href: "/services/ecommerce-solutions",
   },
   {
     src: seoImg,
-    title: "SEO Solutions",
-    category: "SEO Solutions",
-    description: "Technical SEO, on-page optimization, local SEO, and content strategies to improve search rankings.",
+    title: "SEO Services",
+    category: "SEO",
+    description:
+      "Improve organic search visibility with technical SEO, on-page optimization, local SEO, content strategy, and performance improvements.",
     href: "/services/seo-solutions",
   },
   {
-    src: ecommerceImg,
-    title: "Shopify Development",
+    src: shopifyDevImg,
+    title: "Shopify Development Services",
     category: "Shopify Development",
-    description: "Custom Shopify Liquid themes, headless commerce storefronts, app integrations, and conversion-engineered checkout experiences.",
+    description:
+      "Build and customize Shopify stores with tailored themes, Shopify integrations, custom functionality, and conversion-focused e-commerce experiences.",
     href: "/services/shopify-development",
   },
   {
     src: cloudDevopsImg,
-    title: "Cloud Infrastructure",
-    category: "Cloud Infrastructure",
-    description: "Secure cloud hosting, scalable infrastructure, CI/CD pipelines, monitoring, and deployment automation.",
+    title: "Cloud & DevOps Services",
+    category: "Cloud & DevOps",
+    description:
+      "Deploy and manage scalable cloud infrastructure with secure hosting, CI/CD pipelines, monitoring, deployment automation, and performance optimization.",
     href: "/services/cloud-infrastructure",
   },
   {
     src: dataAnalyticsImg,
-    title: "Data Analytics",
+    title: "Data Analytics Services",
     category: "Data Analytics",
-    description: "Transform business data into actionable insights through dashboards, analytics, and reporting.",
+    description:
+      "Turn business data into actionable insights with analytics dashboards, reporting systems, data visualization, and performance tracking.",
     href: "/services/data-analytics",
   },
 ];
@@ -205,70 +215,71 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
                 className="flex flex-col sm:flex-row gap-3 h-auto sm:h-[400px] lg:h-[420px] w-full"
                 style={!isMobile ? { height: "", overflow: "" } : undefined}
               >
-              {rowItems.map((item, indexInRow) => {
-                const globalIndex = startOfRow + indexInRow;
-                const isHovered = hoveredIndex === globalIndex;
-                const isRowHovered = hoveredIndex !== null && hoveredIndex >= startOfRow && hoveredIndex < endOfRow;
-                const isCollapsed = isRowHovered && !isHovered;
+                {rowItems.map((item, indexInRow) => {
+                  const globalIndex = startOfRow + indexInRow;
+                  const isHovered = hoveredIndex === globalIndex;
+                  const isRowHovered = hoveredIndex !== null && hoveredIndex >= startOfRow && hoveredIndex < endOfRow;
+                  const isCollapsed = isRowHovered && !isHovered;
 
-                const src = getImageSrc(item);
-                const { title, category } = getItemDetails(item);
+                  const src = getImageSrc(item);
+                  const { title, category } = getItemDetails(item);
 
-                return (
-                  <motion.div
-                    key={globalIndex}
-                    className="relative cursor-pointer overflow-hidden rounded-2xl border border-border/50 shadow-md hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 min-h-[380px] w-[calc(100%+1.5rem)] -ml-3 sm:min-h-0 sm:w-auto sm:ml-0"
-                    style={{ flex: 1 }}
-                    animate={{ flex: getFlexValue(globalIndex, startOfRow, endOfRow) }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    onMouseEnter={() => setHoveredIndex(globalIndex)}
-                    onClick={() => {
-                      const itemDetails = getItemDetails(item);
-                      if (itemDetails.href) {
-                        navigate(itemDetails.href);
-                      } else {
-                        openImage(globalIndex);
-                      }
-                    }}
-                  >
-                    <img
-                      src={src}
-                      alt={title || `Gallery card ${globalIndex + 1}`}
-                      className="absolute sm:relative inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-                    />
-
-                    {/* Subtle Gradient Overlay */}
+                  return (
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.85)] via-[rgba(0,0,0,0.45)] to-transparent"
-                      initial={{ opacity: 0.8 }}
-                      animate={{ opacity: isHovered ? 1 : 0.8 }}
-                      transition={{ duration: 0.3 }}
-                    />
+                      key={globalIndex}
+                      className="relative cursor-pointer overflow-hidden rounded-2xl border border-border/50 shadow-md hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 min-h-[380px] w-[calc(100%+1.5rem)] -ml-3 sm:min-h-0 sm:w-auto sm:ml-0"
+                      style={{ flex: 1 }}
+                      animate={{ flex: getFlexValue(globalIndex, startOfRow, endOfRow) }}
+                      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                      onMouseEnter={() => setHoveredIndex(globalIndex)}
+                      onClick={() => {
+                        const itemDetails = getItemDetails(item);
+                        if (itemDetails.href) {
+                          navigate(itemDetails.href);
+                        } else {
+                          openImage(globalIndex);
+                        }
+                      }}
+                    >
+                      <img
+                        src={src}
+                        alt={title ? `${title} by CoreSlash Technologies` : `Gallery card ${globalIndex + 1}`}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+                        loading="lazy"
+                      />
 
-                    {/* Card Content & Badge */}
-                    <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-between z-10 pointer-events-none">
-                      <div className="flex justify-between items-start">
-                        <span className={`px-3 py-1 font-semibold rounded-full bg-blue-900 text-white border border-blue-500 shadow-md transition-all duration-300 truncate max-w-full ${isCollapsed ? 'text-[10px]' : 'text-xs'
-                          }`}>
-                          {category || `Card ${globalIndex + 1}`}
-                        </span>
-                      </div>
-
+                      {/* Subtle Gradient Overlay */}
                       <motion.div
-                        className={`w-full rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.25)] backdrop-blur-[12px] shadow-lg transition-all duration-300 ${isCollapsed ? 'p-2.5 sm:p-3' : 'p-4 sm:p-5'
-                          }`}
-                        animate={{ y: isHovered ? -8 : 0 }}
+                        className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.85)] via-[rgba(0,0,0,0.45)] to-transparent"
+                        initial={{ opacity: 0.8 }}
+                        animate={{ opacity: isHovered ? 1 : 0.8 }}
                         transition={{ duration: 0.3 }}
-                      >
-                        <h4 className={`font-extrabold text-white tracking-tight leading-tight mb-2 drop-shadow-sm transition-all duration-300 break-words ${isHovered
-                          ? 'text-xl sm:text-2xl lg:text-3xl'
-                          : isCollapsed
-                            ? 'text-sm sm:text-base line-clamp-2'
-                            : 'text-base sm:text-lg lg:text-xl line-clamp-3'
-                          }`}>
-                          {title || `Gallery Item ${globalIndex + 1}`}
-                        </h4>
-                        {/* <p className={`text-gray-300 leading-relaxed drop-shadow-sm transition-all duration-300 ${isHovered ? 'text-[13px] sm:text-[14px] line-clamp-none' :
+                      />
+
+                      {/* Card Content & Badge */}
+                      <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-between z-10 pointer-events-none">
+                        <div className="flex justify-between items-start">
+                          <span className={`px-3 py-1 font-semibold rounded-full bg-blue-900 text-white border border-blue-500 shadow-md transition-all duration-300 truncate max-w-full ${isCollapsed ? 'text-[10px]' : 'text-xs'
+                            }`}>
+                            {category || `Card ${globalIndex + 1}`}
+                          </span>
+                        </div>
+
+                        <motion.div
+                          className={`w-full rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[rgba(0,0,0,0.25)] backdrop-blur-[12px] shadow-lg transition-all duration-300 ${isCollapsed ? 'p-2.5 sm:p-3' : 'p-4 sm:p-5'
+                            }`}
+                          animate={{ y: isHovered ? -8 : 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <h4 className={`font-extrabold text-white tracking-tight leading-tight mb-2 drop-shadow-sm transition-all duration-300 break-words ${isHovered
+                            ? 'text-xl sm:text-2xl lg:text-3xl'
+                            : isCollapsed
+                              ? 'text-sm sm:text-base line-clamp-2'
+                              : 'text-base sm:text-lg lg:text-xl line-clamp-3'
+                            }`}>
+                            {title || `Gallery Item ${globalIndex + 1}`}
+                          </h4>
+                          {/* <p className={`text-gray-300 leading-relaxed drop-shadow-sm transition-all duration-300 ${isHovered ? 'text-[13px] sm:text-[14px] line-clamp-none' :
                           isCollapsed ? 'text-[11px] sm:text-[12px] line-clamp-2' :
                             'text-[13px] sm:text-[14px] line-clamp-2'
                           }`}>
@@ -276,23 +287,23 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
                             ? item.description
                             : 'Click to expand view in full screen resolution.'}
                         </p> */}
-                        <p
-                          className={`text-gray-300 leading-relaxed drop-shadow-sm transition-all duration-300 ${isHovered
-                            ? 'text-[12px] sm:text-[13px] line-clamp-none'
-                            : isCollapsed
-                              ? 'text-[9px] sm:text-[10px] line-clamp-2'
-                              : 'text-[11px] sm:text-[12px] line-clamp-2'
-                            }`}
-                        >
-                          {typeof item !== 'string' && item.description
-                            ? item.description
-                            : 'Click to expand view in full screen resolution.'}
-                        </p>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                          <p
+                            className={`text-gray-300 leading-relaxed drop-shadow-sm transition-all duration-300 ${isHovered
+                              ? 'text-[12px] sm:text-[13px] line-clamp-none'
+                              : isCollapsed
+                                ? 'text-[9px] sm:text-[10px] line-clamp-2'
+                                : 'text-[11px] sm:text-[12px] line-clamp-2'
+                              }`}
+                          >
+                            {typeof item !== 'string' && item.description
+                              ? item.description
+                              : 'Click to expand view in full screen resolution.'}
+                          </p>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
             );
           })}

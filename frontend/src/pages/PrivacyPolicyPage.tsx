@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
           name="description"
           content="Read the Privacy Policy for CoreSlash Technologies. Learn how we collect, protect, and use your personal information."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/privacy-policy" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/privacy-policy" />
       </Helmet>
 
       {/* 1. HERO BANNER */}

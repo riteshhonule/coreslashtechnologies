@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Layout from "./components/layout";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import About from "./pages/AboutPage";
 import Portfolio from "./pages/PortfolioPage";
 import Contact from "./pages/ContactPage";
@@ -21,24 +21,44 @@ import DataAnalytics from "./pages/services/DataAnalytics";
 import PrivacyPolicy from "./pages/PrivacyPolicyPage";
 import TermsOfService from "./pages/TermsOfServicePage";
 import CookiePolicy from "./pages/CookiePolicyPage";
+import EnquiryFormPage from "./pages/EnquiryFormPage";
+import PartnerPage from "./pages/PartnerPage";
+import PartnerFormPage from "./pages/PartnerFormPage";
 import NotFound from "./pages/NotFound";
+
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
         <Routes>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="login" element={<AdminLogin />} />
+          </Route>
+
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="portfolio" element={<Portfolio />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="partner" element={<PartnerPage />} />
+            <Route path="partner-program" element={<PartnerPage />} />
+            <Route path="dealership" element={<PartnerPage />} />
+            <Route path="partner-form" element={<PartnerFormPage />} />
+            <Route path="partner/form" element={<PartnerFormPage />} />
+            <Route path="enquiry-form" element={<EnquiryFormPage />} />
             <Route path="careers" element={<Careers />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="cookie-policy" element={<CookiePolicy />} />
+
 
             <Route path="services">
               <Route index element={<ServicesIndex />} />

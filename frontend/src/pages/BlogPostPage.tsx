@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { BLOG_POSTS } from "@/data/blogData";
 import { Button } from "@/components/ui/button";
+import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -39,19 +40,19 @@ export default function BlogPostPage() {
     "author": {
       "@type": "Organization",
       "name": "CoreSlash Technologies",
-      "url": "https://www.coreslash.com"
+      "url": "https://coreslashtechnologies.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "CoreSlash Technologies",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.coreslash.com/vite.svg"
+        "url": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://www.coreslash.com/blog/${post.slug}`
+      "@id": `https://coreslashtechnologies.com/blog/${post.slug}`
     }
   };
 
@@ -60,13 +61,13 @@ export default function BlogPostPage() {
       <Helmet>
         <title>{`${post.title} | CoreSlash Technologies`}</title>
         <meta name="description" content={post.metaDescription} />
-        <link rel="canonical" href={`https://www.coreslash.com/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://coreslashtechnologies.com/blog/${post.slug}`} />
         
         {/* Open Graph SEO */}
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.metaDescription} />
         <meta property="og:image" content={post.coverImage} />
-        <meta property="og:url" content={`https://www.coreslash.com/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://coreslashtechnologies.com/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         
         {/* JSON-LD Schema */}
@@ -149,13 +150,14 @@ export default function BlogPostPage() {
           {/* Main Article Content Column (8 Cols) */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* High-Res Featured Cover Image */}
-            <div className="w-full h-80 sm:h-[450px] rounded-3xl overflow-hidden border border-border/60 shadow-xl bg-slate-950 relative">
-              <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
-              {/* Subtle watermark badge over image */}
-              <div className="absolute bottom-4 right-4 px-3 py-1 rounded-md bg-slate-900/80 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase text-slate-300 tracking-widest">
-                CORESLASH INSIGHTS
-              </div>
+            {/* High-Res Featured Cover Image with Overlapping Dual Card Design */}
+            <div className="w-full pb-6 sm:pb-8 flex justify-center">
+              <OverlappingImageCard
+                primaryImage={post.coverImage}
+                secondaryImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&auto=format&fit=crop&q=80"
+                altText={post.title}
+                badgeText="CoreSlash Insights"
+              />
             </div>
 
             {/* Intro Lead Paragraph Box */}
@@ -185,6 +187,29 @@ export default function BlogPostPage() {
                     {section.body}
                   </p>
 
+                  {section.table && (
+                    <div className="overflow-x-auto my-4 rounded-2xl border border-border/70 shadow-inner">
+                      <table className="w-full text-left text-xs sm:text-sm">
+                        <thead className="bg-slate-950 text-white font-extrabold">
+                          <tr>
+                            {section.table.headers.map((th, thIdx) => (
+                              <th key={thIdx} className="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-800">{th}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-border/60 bg-muted/20">
+                          {section.table.rows.map((row, rIdx) => (
+                            <tr key={rIdx} className="hover:bg-muted/50 transition-colors">
+                              {row.map((cell, cIdx) => (
+                                <td key={cIdx} className="px-4 py-3 sm:px-6 sm:py-4 text-foreground/90 font-medium">{cell}</td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+
                   {section.bulletPoints && (
                     <div className="space-y-3 pt-3 pl-2 border-t border-border/40">
                       {section.bulletPoints.map((bp, bIdx) => (
@@ -197,6 +222,45 @@ export default function BlogPostPage() {
                   )}
                 </motion.div>
               ))}
+
+              {/* Related Service Internal Links Bar */}
+              {post.content.relatedServices && post.content.relatedServices.length > 0 && (
+                <div className="p-6 sm:p-8 rounded-3xl bg-blue-500/10 border border-blue-500/20 space-y-4">
+                  <span className="text-xs font-black uppercase text-blue-600 dark:text-blue-400 tracking-wider">
+                    EXPLORE RELATED CORESLASH SERVICES
+                  </span>
+                  <div className="flex flex-wrap gap-3">
+                    {post.content.relatedServices.map((srv, sIdx) => (
+                      <Link 
+                        key={sIdx} 
+                        to={srv.path}
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-extrabold shadow-md transition-all"
+                      >
+                        <span>{srv.title}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Article FAQs Section */}
+              {post.content.faqs && post.content.faqs.length > 0 && (
+                <div className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-border/80 shadow-sm space-y-6">
+                  <h3 className="text-2xl font-extrabold text-foreground flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <span>Frequently Asked Questions</span>
+                  </h3>
+                  <div className="space-y-4">
+                    {post.content.faqs.map((faq, fIdx) => (
+                      <div key={fIdx} className="p-5 rounded-2xl bg-muted/30 border border-border/50 space-y-2">
+                        <h4 className="text-base font-extrabold text-foreground">{faq.question}</h4>
+                        <p className="text-sm text-muted-foreground font-normal leading-relaxed">{faq.answer}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Key Takeaway Box */}
               <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white space-y-4 shadow-2xl border border-slate-800 relative overflow-hidden">
@@ -211,9 +275,6 @@ export default function BlogPostPage() {
                 </p>
               </div>
             </div>
-
-
-
           </div>
 
           {/* Right Sidebar Column (4 Cols) */}

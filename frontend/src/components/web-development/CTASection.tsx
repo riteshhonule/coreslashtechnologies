@@ -3,12 +3,31 @@ import { LiquidGlassButton } from "../LiquidGlass";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export default function CTASection() {
+interface CTASectionProps {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+  primaryBtnText?: string;
+  secondaryBtnText?: string;
+  primaryBtnLink?: string;
+  secondaryBtnLink?: string;
+}
+
+export default function CTASection({
+  badge = "Launch Your Innovation",
+  title = "Ready to Build Your Next Digital Product?",
+  subtitle = "CoreSlash brings robust software engineering standards, advanced technologies, and transparent communication to every lifecycle milestone. Let's build a secure, lightning-fast digital asset together.",
+  primaryBtnText = "Start Your Project",
+  secondaryBtnText = "Contact Us",
+  primaryBtnLink = "/contact",
+  secondaryBtnLink = "/contact",
+}: CTASectionProps) {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto overflow-hidden">
-      <motion.div
+    <section className="w-full bg-white dark:bg-slate-950 py-16 md:py-24 border-t border-border/40 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: false, margin: "-100px" }}
@@ -31,36 +50,37 @@ export default function CTASection() {
         <div className="relative z-10 max-w-3xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold mb-2">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Launch Your Innovation</span>
+            <span>{badge}</span>
           </div>
 
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Ready to Build Your Next Digital Product?
+            {title}
           </h2>
 
           <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
-            CoreSlash brings robust software engineering standards, advanced technologies, and transparent communication to every lifecycle milestone. Let's build a secure, lightning-fast digital asset together.
+            {subtitle}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
             <LiquidGlassButton
               variant="cta"
-              onClick={() => navigate("/contact")}
-              className="flex items-center gap-2 group border-white/20 hover:border-white/40"
+              onClick={() => navigate(primaryBtnLink)}
+              className="flex items-center gap-2 group border-white/20 hover:border-white/40 cursor-pointer"
             >
-              Start Your Project
+              {primaryBtnText}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </LiquidGlassButton>
             <LiquidGlassButton
               variant="default"
-              onClick={() => navigate("/contact")}
-              className="bg-transparent border-white/10 hover:bg-white/5 text-white hover:text-white"
+              onClick={() => navigate(secondaryBtnLink)}
+              className="bg-transparent border-white/10 hover:bg-white/5 text-white hover:text-white cursor-pointer"
             >
-              Contact Us
+              {secondaryBtnText}
             </LiquidGlassButton>
           </div>
         </div>
       </motion.div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }

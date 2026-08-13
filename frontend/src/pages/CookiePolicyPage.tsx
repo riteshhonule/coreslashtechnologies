@@ -54,7 +54,7 @@ export default function CookiePolicyPage() {
           name="description"
           content="Learn about the Cookie Policy at CoreSlash Technologies. Discover how we deploy essential, analytics, and functional tracking cookies to enhance user experience."
         />
-        <link rel="canonical" href="https://www.coreslashtechnologies.com/cookie-policy" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/cookie-policy" />
       </Helmet>
 
       {/* 1. HERO BANNER */}

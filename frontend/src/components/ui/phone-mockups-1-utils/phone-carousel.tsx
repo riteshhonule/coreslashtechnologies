@@ -85,15 +85,15 @@ export const PhoneCarousel: React.FC<PhoneCarouselProps> = ({
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Header Accent Badge */}
-      <div className="flex flex-col items-center text-center mb-4 sm:mb-6 space-y-1.5">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-widest shadow-sm">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Interactive App Showcase</span>
+      <div className="flex flex-col items-center text-center mb-6 sm:mb-8 space-y-2">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-400/40 dark:border-blue-500/40 text-blue-600 dark:text-blue-400 text-xs font-extrabold uppercase tracking-widest shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+          <span>INTERACTIVE APP SHOWCASE</span>
         </div>
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-foreground tracking-tight">
+        <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-tight pt-1">
           Experience Live Mobile UI Mockups
         </h3>
-        <p className="text-muted-foreground text-xs sm:text-sm max-w-md leading-relaxed">
+        <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-normal pt-1">
           Swipe through native iOS & Android user interface designs engineered for performance and maximum engagement.
         </p>
       </div>

@@ -10,56 +10,78 @@ import { Helmet } from "react-helmet-async";
 import awsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-aws-cloud-services.png";
 import aiDevelopmentImg from "@/assets/services/ai-automation/coreslash-technologies-ai-development-services.png";
 import appDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-mobile-app-development.png";
-import cloudImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-infrastructure.png";
-import cloudflareImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloudflare-cdn-security.png";
 import cyberSecurityImg from "@/assets/services/software-systems/coreslash-technologies-cyber-security-services.png";
-import digitalTransformationImg from "@/assets/services/software-systems/coreslash-technologies-digital-transformation-framework.jpg";
 import erpImg from "@/assets/services/software-systems/coreslash-technologies-erp-software-development.png";
 import iosDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-ios-app-development.png";
 import pythonDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-python-development.jpg";
-import softwareDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-custom-software-development.png";
 
 import aboutTopImg from "@/assets/about/coreslash-technologies-team-working.avif";
-import aboutBottomImg from "@/assets/about/coreslash-technologies-team-work.jpg";
+import aboutBottomImg from "@/assets/about/coreslash-technologies-team-work.jpeg";
 
 const heroImages = [
-  awsImg,
-  aiDevelopmentImg,
-  appDevelopmentImg,
-  cloudImg,
-  cloudflareImg,
-  cyberSecurityImg,
-  digitalTransformationImg,
   erpImg,
+  aiDevelopmentImg,
   iosDevelopmentImg,
+  appDevelopmentImg,
   pythonDevelopmentImg,
-  softwareDevelopmentImg,
+  cyberSecurityImg,
+  awsImg,
 ];
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "CoreSlash Technologies",
-  "url": "https://www.coreslash.com",
-  "logo": "https://www.coreslash.com/vite.svg",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91-9000000000",
-    "contactType": "customer service"
+  "url": "https://coreslashtechnologies.com/",
+  "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png",
+  "email": "contact@coreslashtechnologies.com",
+  "telephone": "+918310711652",
+  "sameAs": [
+    "https://www.linkedin.com/company/coreslash-technologies/",
+    "https://www.instagram.com/coreslashtechnologies/",
+    "https://www.facebook.com/coreslashtechnologies/",
+    "https://t.me/coreslashtechnologies/",
+    "https://discord.com/users/coreslash_technologies"
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CoreSlash Technologies",
+  "url": "https://coreslashtechnologies.com/",
+  "telephone": "+918310711652",
+  "email": "contact@coreslashtechnologies.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Belagavi",
+    "addressRegion": "Karnataka",
+    "postalCode": "590006",
+    "addressCountry": "IN"
   }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CoreSlash Technologies",
+  "url": "https://coreslashtechnologies.com/"
 };
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Helmet>
-        <title>CoreSlash Technologies | Enterprise-grade digital solutions</title>
-        <meta name="description" content="Top web development and IT solutions company in Belgaum." />
-        <link rel="canonical" href="https://www.coreslash.com/" />
+        <title>CoreSlash Technologies | AI, Web & Software Development</title>
+        <meta
+          name="description"
+          content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics."
+        />
+        <link rel="canonical" href="https://coreslashtechnologies.com/" />
         <meta property="og:title" content="CoreSlash Technologies" />
         <meta property="og:description" content="Top web development and IT solutions company in Belgaum." />
         <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
+          {JSON.stringify([organizationSchema, localBusinessSchema, websiteSchema])}
         </script>
       </Helmet>
 
@@ -70,7 +92,7 @@ export default function Home() {
           titlePart1="AI-Powered"
           titlePart2="SOLUTIONS TO SOLVE"
           titlePart3="COMPLEX BUSINESS PROBLEMS"
-          description="We build intelligent AI solutions, high-scale web platforms, and futuristic SaaS applications for ambitious companies worldwide."
+          description="Coreslash builds intelligent AI solutions, high-scale web platforms, and futuristic SaaS applications for ambitious companies worldwide."
           ctaText="Get Started"
           secondaryCtaText="Book Demo"
           images={heroImages}
@@ -155,8 +177,8 @@ export default function Home() {
 
             {/* Headline */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.25] mb-6">
-              AI-Powered Software Company Delivering Scalable{" "}
-              <span className="text-blue-600">Innovative Digital Solutions</span>
+              AI-Powered Software Company {" "}
+              <span className="text-blue-600">Delivering Scalable Innovative Digital Solutions</span>
             </h2>
 
             {/* Subtext Paragraphs */}
@@ -183,6 +205,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
