@@ -431,7 +431,7 @@ export default function AdminDashboard() {
                     <div>
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Resume Document</p>
                       <a
-                        href={`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}${selectedItem.resumeUrl}`}
+                        href={`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'}${selectedItem.resumeUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl text-sm font-bold transition-colors border border-blue-200"
