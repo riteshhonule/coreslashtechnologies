@@ -9,7 +9,7 @@ async function bootstrap() {
 
   // Enable CORS if needed for frontend integration
   app.enableCors({
-    origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : ['http://localhost:5173', 'https://coreslashtechnologies.com'],
+    origin: true,
     credentials: true,
   });
 
