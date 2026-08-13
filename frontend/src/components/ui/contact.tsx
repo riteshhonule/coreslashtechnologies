@@ -49,7 +49,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         projectDetails: formData.projectDetails || 'New contact inquiry from website.',
       };
 
-      const res = await fetch('/api/enquiries/standard', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ''}/api/enquiries/standard`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

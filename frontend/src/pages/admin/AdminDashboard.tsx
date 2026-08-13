@@ -30,7 +30,7 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch('/api/admin/stats', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ''}/api/admin/stats`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {

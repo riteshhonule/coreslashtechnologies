@@ -97,7 +97,7 @@ export default function PartnerFormPage() {
         consentMarketing: formData.consentMarketing,
       };
 
-      const res = await fetch('/api/partnerships', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ''}/api/partnerships`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
