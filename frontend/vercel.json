@@ -7,6 +7,11 @@
       "source": "/top-it-companies-in-belagavi",
       "destination": "/blog/best-software-company-in-belagavi",
       "permanent": true
+    },
+    {
+      "source": "/services/cloud-solutions",
+      "destination": "/services/cloud-infrastructure",
+      "permanent": true
     }
   ],
   "rewrites": [
