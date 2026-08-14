@@ -9,7 +9,6 @@
 - [Services](https://coreslashtechnologies.com/services): Comprehensive list of digital, automation, and cloud services.
 - [Portfolio](https://coreslashtechnologies.com/portfolio): Case studies and highlights of our past projects.
 - [Blog](https://coreslashtechnologies.com/blog): Insights, tutorials, and latest tech updates from our engineering teams.
-- [FAQ](https://coreslashtechnologies.com/faq): Answers to frequently asked questions.
 - [Contact](https://coreslashtechnologies.com/contact): Reach out for project consultation and business inquiries.
 
 ## Services
