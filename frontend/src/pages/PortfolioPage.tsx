@@ -137,6 +137,36 @@ const CASE_STUDIES: CaseStudy[] = [
   }
 ];
 
+const portfolioTitle = "Software Development Portfolio & Case Studies | CoreSlash Technologies";
+const portfolioDescription = "Explore CoreSlash Technologies' software development portfolio featuring web apps, mobile applications, SaaS platforms, e-commerce solutions, and custom software case studies.";
+const portfolioCanonical = "https://coreslashtechnologies.com/portfolio";
+const portfolioOgImage = "https://coreslashtechnologies.com/coreslash_technologies_url_image.webp";
+
+const portfolioSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": portfolioTitle,
+  "description": portfolioDescription,
+  "url": portfolioCanonical,
+  "numberOfItems": CASE_STUDIES.length,
+  "itemListElement": CASE_STUDIES.map((cs, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "item": {
+      "@type": "CreativeWork",
+      "name": cs.title,
+      "description": cs.description,
+      "provider": {
+        "@type": "Organization",
+        "name": "CoreSlash Technologies",
+        "url": "https://coreslashtechnologies.com/"
+      },
+      "genre": cs.category,
+      "keywords": cs.techStack.join(", ")
+    }
+  }))
+};
+
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState<string>("All Projects");
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
@@ -152,12 +182,27 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Helmet>
-        <title>Our Portfolio & Case Studies | CoreSlash Technologies</title>
-        <meta
-          name="description"
-          content="Explore real-world case studies of digital platforms, e-commerce storefronts, SaaS applications, and mobile apps engineered by CoreSlash Technologies."
-        />
-        <link rel="canonical" href="https://coreslashtechnologies.com/portfolio" />
+        <title>{portfolioTitle}</title>
+        <meta name="description" content={portfolioDescription} />
+        <link rel="canonical" href={portfolioCanonical} />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content={portfolioTitle} />
+        <meta property="og:description" content={portfolioDescription} />
+        <meta property="og:image" content={portfolioOgImage} />
+        <meta property="og:url" content={portfolioCanonical} />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={portfolioTitle} />
+        <meta name="twitter:description" content={portfolioDescription} />
+        <meta name="twitter:image" content={portfolioOgImage} />
+
+        {/* JSON-LD Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(portfolioSchema)}
+        </script>
       </Helmet>
 
       {/* 1. Hero Header Section */}
@@ -244,6 +289,26 @@ export default function PortfolioPage() {
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                 {featuredProject.description}
               </p>
+
+              {/* Crawlable Tech Stack & Metric Highlights */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                {featuredProject.techStack.map(t => (
+                  <span key={t} className="text-xs font-semibold px-2.5 py-1 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {featuredProject.metrics && featuredProject.metrics.length > 0 && (
+                <div className="flex flex-wrap gap-4 pt-1">
+                  {featuredProject.metrics.map(m => (
+                    <div key={m} className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                      <span>{m}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="pt-4 flex items-center justify-end border-t border-border/40">
@@ -314,13 +379,29 @@ export default function PortfolioPage() {
 
                 {/* Body Content */}
                 <div className="space-y-4 flex-grow flex flex-col justify-between">
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
                       {item.title}
                     </h3>
                     <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3">
                       {item.description}
                     </p>
+
+                    {/* Crawlable Tech Stack Tags & Key Result */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {item.techStack.map(t => (
+                        <span key={t} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {item.metrics && item.metrics.length > 0 && (
+                      <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 pt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                        <span>{item.metrics[0]}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Trigger button */}
