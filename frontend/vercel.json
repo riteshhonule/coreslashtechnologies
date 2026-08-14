@@ -52,6 +52,31 @@
       "source": "/agency-partnership",
       "destination": "/partner",
       "permanent": true
+    },
+    {
+      "source": "/blog/local-seo-vs-national-seo-guide-indian-businesses",
+      "destination": "/blog/local-seo-vs-national-seo-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/digital-marketing-services",
+      "destination": "/blog/best-digital-marketing-company-in-india",
+      "permanent": true
+    },
+    {
+      "source": "/services/technical-seo",
+      "destination": "/services/seo-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/services/ecommerce",
+      "destination": "/services/ecommerce-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/services/website-development",
+      "destination": "/services/web-development",
+      "permanent": true
     }
   ],
   "rewrites": [
