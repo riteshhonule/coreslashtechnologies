@@ -22,6 +22,11 @@
       "source": "/blog/why-every-business-needs-a-website-in-2026",
       "destination": "/blog/why-every-business-needs-website-2026",
       "permanent": true
+    },
+    {
+      "source": "/blog/custom-website-vs-template-website",
+      "destination": "/blog/custom-vs-template-website-2026",
+      "permanent": true
     }
   ],
   "rewrites": [
