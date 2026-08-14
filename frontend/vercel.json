@@ -27,6 +27,11 @@
       "source": "/blog/custom-website-vs-template-website",
       "destination": "/blog/custom-vs-template-website-2026",
       "permanent": true
+    },
+    {
+      "source": "/services/software-development",
+      "destination": "/services/software-systems",
+      "permanent": true
     }
   ],
   "rewrites": [
