@@ -47,6 +47,11 @@
       "source": "/blog/software-development-cost-belagavi",
       "destination": "/blog/best-software-company-in-belagavi",
       "permanent": true
+    },
+    {
+      "source": "/agency-partnership",
+      "destination": "/partner",
+      "permanent": true
     }
   ],
   "rewrites": [
