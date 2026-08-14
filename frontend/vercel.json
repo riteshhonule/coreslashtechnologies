@@ -32,6 +32,11 @@
       "source": "/services/software-development",
       "destination": "/services/software-systems",
       "permanent": true
+    },
+    {
+      "source": "/services/iot-solutions",
+      "destination": "/services/software-systems",
+      "permanent": true
     }
   ],
   "rewrites": [

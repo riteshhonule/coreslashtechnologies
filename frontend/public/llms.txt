@@ -26,6 +26,6 @@
 - [Enterprise IT Solutions](https://coreslashtechnologies.com/services/enterprise-it-solutions): Robust, scalable IT consulting and systems integration for enterprises.
 - [Cloud Solutions](https://coreslashtechnologies.com/services/cloud-solutions): AWS, Azure, and Google Cloud platform infrastructure setup, migrations, and DevOps.
 - [SCADA & Industrial Automation](https://coreslashtechnologies.com/services/scada-industrial-automation): SCADA systems, PLCs, industrial automation, and shop floor monitoring.
-- [IoT Solutions](https://coreslashtechnologies.com/services/iot-solutions): Custom IoT device integration, data streams, and remote control systems.
+- [IoT Solutions](https://coreslashtechnologies.com/services/software-systems): Custom IoT device integration, data streams, and remote control systems.
 - [Business Automation](https://coreslashtechnologies.com/services/business-automation): Custom CRM/ERP, workflow automation, and internal tool design.
 - [Data Analytics](https://coreslashtechnologies.com/services/data-analytics): Business intelligence, data visualization, pipelines, and reporting.
