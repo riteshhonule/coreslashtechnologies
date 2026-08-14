@@ -125,7 +125,7 @@ export default function ShopifyDevelopment() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash engineers custom Shopify themes, OS 2.0 Liquid architectures, Headless Hydrogen storefronts, and deep API integrations built for speed and revenue growth.
+            CoreSlash Technologies provides Shopify development services for custom themes, Shopify OS 2.0, Headless Hydrogen storefronts, and API integrations built for speed, scalability, and e-commerce growth.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}

@@ -314,7 +314,7 @@ export default function ServicesIndex() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-normal"
           >
-            CoreSlash Technologies is a specialized software development company delivering scalable AI solutions, high-performance web platforms, cloud microservices, and real-time business intelligence to help businesses grow faster.
+            CoreSlash Technologies provides software development services for scalable AI solutions, high-performance web platforms, mobile applications, cloud infrastructure, custom software systems, and real-time business intelligence.
           </motion.p>
 
           {/* CTA Buttons */}

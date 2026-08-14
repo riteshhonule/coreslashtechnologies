@@ -54,7 +54,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium"
         >
-          CoreSlash builds and creates secure, high-performance websites and web applications using trusted technologies and structured engineering practices.
+          CoreSlash Technologies provides custom web development services to build secure, high-performance websites and web applications with scalable architecture, modern technologies, and SEO-friendly engineering practices.
         </motion.p>
 
         {/* CTA Buttons & Feature Badges Row */}

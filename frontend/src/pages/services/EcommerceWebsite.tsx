@@ -92,7 +92,7 @@ export default function EcommerceWebsite() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash engineers headless storefronts, multi-currency checkout architectures, inventory sync pipelines, and ultra-fast product search engines tailored to scale your online retail sales.
+            CoreSlash Technologies provides custom e-commerce development services for high-converting online stores, headless storefronts, multi-vendor marketplaces, and scalable commerce platforms with secure checkout and real-time inventory integration.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}

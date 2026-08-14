@@ -198,7 +198,7 @@ export default function AIAutomation() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-normal"
           >
-            Engineer custom LLM architectures, retrieval-augmented generation (RAG) pipelines, autonomous multi-agent systems, and fine-tuned AI workflows designed to eliminate repetitive operational overhead.
+            CoreSlash AI automation services engineer custom LLM architectures, retrieval-augmented generation (RAG) pipelines, autonomous multi-agent systems, and fine-tuned AI workflows designed to eliminate repetitive operational overhead.
           </motion.p>
 
           {/* CTA Buttons */}

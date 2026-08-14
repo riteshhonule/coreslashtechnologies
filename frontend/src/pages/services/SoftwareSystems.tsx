@@ -140,7 +140,7 @@ export default function SoftwareSystems() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash architects robust enterprise SaaS engines, custom CRM/ERP platforms, microservices backends, and automated data pipelines engineered for high availability and zero downtime.
+            CoreSlash Technologies provides custom software development services for enterprise SaaS platforms, CRM/ERP systems, microservices backends, and automated data pipelines engineered for scalability, security, and high availability.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}

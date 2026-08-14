@@ -2,6 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/top-it-companies-in-belagavi",
+      "destination": "/blog/best-software-company-in-belagavi",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/",

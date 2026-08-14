@@ -197,7 +197,7 @@ export default function CloudInfrastructure() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-normal"
           >
-            Architect resilient cloud environments on AWS, Azure, and Cloudflare. Implement automated CI/CD pipelines, Kubernetes container orchestration, and zero-downtime deployment pipelines built for 99.99% SLA uptime.
+            CoreSlash Technologies provides cloud infrastructure services for resilient AWS, Azure, and Cloudflare environments, with automated CI/CD pipelines, Kubernetes orchestration, and zero-downtime deployments built for high availability.
           </motion.p>
 
           {/* CTA Buttons */}

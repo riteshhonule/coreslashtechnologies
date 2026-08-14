@@ -197,7 +197,7 @@ export default function DataAnalytics() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-normal"
           >
-            Transform raw organizational data into actionable executive insights through real-time dashboards, high-throughput ETL data pipelines, data warehousing, and automated telemetry reporting.
+            CoreSlash Technologies provides data analytics services that transform raw organizational data into actionable executive insights through real-time dashboards, ETL data pipelines, data warehousing, and automated telemetry reporting.
           </motion.p>
 
           {/* CTA Buttons */}

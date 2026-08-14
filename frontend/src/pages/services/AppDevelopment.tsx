@@ -165,7 +165,7 @@ export default function AppDevelopment() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash builds scalable, high-performance native iOS, Android, and cross-platform Flutter/React Native mobile applications with seamless cloud backends and intuitive user interfaces.
+            CoreSlash Technologies provides custom mobile app development services for iOS and Android, building high-performance native and cross-platform applications with scalable cloud backends and intuitive user experiences.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}

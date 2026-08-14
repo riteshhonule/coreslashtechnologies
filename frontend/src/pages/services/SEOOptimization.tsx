@@ -91,7 +91,7 @@ export default function SEOOptimization() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash engineers technical SEO audits, structural schema markup, high-intent keyword strategies, and organic link building designed to maximize Google search visibility.
+            CoreSlash Technologies provides SEO services focused on technical SEO audits, structured data, high-intent keyword strategies, and organic link building designed to maximize Google search visibility.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}
