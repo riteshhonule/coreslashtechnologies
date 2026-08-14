@@ -12,6 +12,11 @@
       "source": "/services/cloud-solutions",
       "destination": "/services/cloud-infrastructure",
       "permanent": true
+    },
+    {
+      "source": "/services/seo",
+      "destination": "/services/seo-solutions",
+      "permanent": true
     }
   ],
   "rewrites": [
