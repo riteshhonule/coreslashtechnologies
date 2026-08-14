@@ -23,7 +23,7 @@
 - [Digital Marketing](https://coreslashtechnologies.com/services/digital-marketing): Digital growth marketing, social media management, and branding.
 - [AI Solutions](https://coreslashtechnologies.com/services/ai-solutions): Machine learning, deep learning, NLP, and intelligent agent integrations.
 - [Custom Software Development](https://coreslashtechnologies.com/services/custom-software-development): Custom software engineering tailored for specialized business needs.
-- [Enterprise IT Solutions](https://coreslashtechnologies.com/services/enterprise-it-solutions): Robust, scalable IT consulting and systems integration for enterprises.
+- [Enterprise IT Solutions](https://coreslashtechnologies.com/services/software-systems): Robust, scalable IT consulting and systems integration for enterprises.
 - [Cloud Solutions](https://coreslashtechnologies.com/services/cloud-solutions): AWS, Azure, and Google Cloud platform infrastructure setup, migrations, and DevOps.
 - [SCADA & Industrial Automation](https://coreslashtechnologies.com/services/scada-industrial-automation): SCADA systems, PLCs, industrial automation, and shop floor monitoring.
 - [IoT Solutions](https://coreslashtechnologies.com/services/software-systems): Custom IoT device integration, data streams, and remote control systems.
