@@ -135,7 +135,7 @@ const generateCategorySpecificContent = (title: string, summary: string, categor
       keyTakeaway: `Partnering with an experienced search agency to execute ${title} provides compounding organic traffic growth and lower customer acquisition costs.`,
       relatedServices: [
         { title: "SEO Optimization Services", path: "/services/seo-solutions" },
-        { title: "PPC Performance Marketing", path: "/services/ppc" }
+        { title: "PPC Performance Marketing", path: "/services/seo-solutions" }
       ]
     };
   } else if (category === "Software Systems") {
@@ -314,7 +314,7 @@ const bespokeArticlesContent: Record<string, BlogPost["content"]> = {
     keyTakeaway: "Executing a tailored Local or National SEO campaign with structured Schema.org data ensures continuous organic lead generation without reliance on costly ad spend.",
     relatedServices: [
       { title: "SEO Optimization Services", path: "/services/seo-solutions" },
-      { title: "PPC & Ad Campaigns", path: "/services/ppc" }
+      { title: "PPC & Ad Campaigns", path: "/services/seo-solutions" }
     ]
   },
   "ecommerce-website-setup-checklist": {

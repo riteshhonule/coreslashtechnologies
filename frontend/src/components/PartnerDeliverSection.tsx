@@ -16,14 +16,14 @@ export default function PartnerDeliverSection() {
       title: "Custom Software",
       description: "ERP, CRM, dashboards & business applications",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      href: "/services/custom-software",
+      href: "/services/software-systems",
     },
     {
       id: 3,
       title: "Backend & APIs",
       description: "APIs, integrations, authentication & databases",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-      href: "/services/backend-apis",
+      href: "/services/web-development",
     },
     {
       id: 4,
@@ -37,14 +37,14 @@ export default function PartnerDeliverSection() {
       title: "Technical SEO",
       description: "Technical SEO, Core Web Vitals, performance & schema",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      href: "/services/technical-seo",
+      href: "/services/seo-solutions",
     },
     {
       id: 6,
       title: "Maintenance & Support",
       description: "Bug fixes, updates, monitoring & ongoing development",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-      href: "/services/maintenance-support",
+      href: "/services/web-development",
     },
   ];
 

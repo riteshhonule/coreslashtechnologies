@@ -37,6 +37,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://coreslashtechnologies.com/partner</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/partner-form</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/enquiry-form</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://coreslashtechnologies.com/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
