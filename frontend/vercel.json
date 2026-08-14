@@ -50,7 +50,7 @@
     },
     {
       "source": "/agency-partnership",
-      "destination": "/partner-program",
+      "destination": "/partner",
       "permanent": true
     }
   ],
