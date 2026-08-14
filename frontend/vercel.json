@@ -42,6 +42,11 @@
       "source": "/services/enterprise-it-solutions",
       "destination": "/services/software-systems",
       "permanent": true
+    },
+    {
+      "source": "/blog/software-development-cost-belagavi",
+      "destination": "/blog/best-software-company-in-belagavi",
+      "permanent": true
     }
   ],
   "rewrites": [
