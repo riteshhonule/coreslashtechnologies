@@ -68,6 +68,26 @@
       "destination": "/index.html"
     },
     {
+      "source": "/partner",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/partner-program",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dealership",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/partner-form",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/partner/form",
+      "destination": "/index.html"
+    },
+    {
       "source": "/contact",
       "destination": "/index.html"
     },
