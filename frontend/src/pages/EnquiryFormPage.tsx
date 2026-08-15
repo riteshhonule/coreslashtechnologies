@@ -118,7 +118,10 @@ export default function EnquiryFormPage() {
     <div className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center bg-[#f8fafc] text-slate-900 py-8 px-4 relative overflow-hidden">
       <Helmet>
         <title>Quick Enquiry | CoreSlash Technologies</title>
-        <meta name="description" content="CoreSlash Technologies Quick Enquiry Form" />
+        <meta
+          name="description"
+          content="Submit a quick project enquiry to CoreSlash Technologies. Get a custom quote for AI automation, web development, app development, or software solutions."
+        />
         <link rel="canonical" href="https://coreslashtechnologies.com/enquiry-form" />
       </Helmet>
 
