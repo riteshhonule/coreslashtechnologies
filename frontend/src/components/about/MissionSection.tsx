@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import missionMainImg from "@/assets/about/coreslash-mission-main.jpg";
-import missionSecondaryImg from "@/assets/about/coreslash-mission-secondary.png";
+import missionMainImg from "@/assets/about/coreslash-mission-main.webp";
+import missionSecondaryImg from "@/assets/about/coreslash-mission-secondary.webp";
 
 interface MissionPillar {
   title: string;

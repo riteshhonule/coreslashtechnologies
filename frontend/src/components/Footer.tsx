@@ -60,7 +60,7 @@ export default function FooterSection() {
         >
           {/* Column 1: Brand (Takes up 4 cols on large screens) */}
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-8">
-            <a href="#" className="flex items-center gap-3 mb-6 group">
+            <a href="/" className="flex items-center gap-3 mb-6 group">
               <img
                 src={footerLogo}
                 alt="CoreSlash Technologies"

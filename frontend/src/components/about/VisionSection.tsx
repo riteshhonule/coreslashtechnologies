@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import visionMainImg from "@/assets/about/coreslash-vision-main.png";
-import visionSecondaryImg from "@/assets/about/coreslash-vision-secondary.png";
+import visionMainImg from "@/assets/about/coreslash-vision-main.webp";
+import visionSecondaryImg from "@/assets/about/coreslash-vision-secondary.webp";
 
 interface VisionPillar {
   title: string;

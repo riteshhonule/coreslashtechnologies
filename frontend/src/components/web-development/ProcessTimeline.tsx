@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import sectionBg from "@/assets/about/coreslash-about-hero.jpg";
+import sectionBg from "@/assets/about/coreslash-about-hero.webp";
 
 interface StageConfig {
   id: number;

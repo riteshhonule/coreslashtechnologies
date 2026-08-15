@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Layout from "./components/layout";
 
@@ -27,6 +27,7 @@ const CookiePolicy = lazy(() => import("./pages/CookiePolicyPage"));
 const EnquiryFormPage = lazy(() => import("./pages/EnquiryFormPage"));
 const PartnerPage = lazy(() => import("./pages/PartnerPage"));
 const PartnerFormPage = lazy(() => import("./pages/PartnerFormPage"));
+const SoftwareCompanyInBelagavi = lazy(() => import("./pages/SoftwareCompanyInBelagavi"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AdminLayout = lazy(() => import("./components/admin/AdminLayout"));
@@ -62,6 +63,7 @@ function App() {
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-of-service" element={<TermsOfService />} />
               <Route path="cookie-policy" element={<CookiePolicy />} />
+              <Route path="software-company-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
 
               <Route path="services">
                 <Route index element={<ServicesIndex />} />
@@ -74,6 +76,7 @@ function App() {
                 <Route path="ecommerce" element={<EcommerceWebsite />} />
                 <Route path="seo-solutions" element={<SEOOptimization />} />
                 <Route path="seo" element={<SEOOptimization />} />
+                <Route path="digital-marketing" element={<Navigate to="/services/seo-solutions" replace />} />
                 <Route path="shopify-development" element={<ShopifyDevelopment />} />
                 <Route path="cloud-infrastructure" element={<CloudInfrastructure />} />
                 <Route path="data-analytics" element={<DataAnalytics />} />

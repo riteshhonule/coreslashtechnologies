@@ -11,7 +11,7 @@ import CTASection from "@/components/web-development/CTASection";
 import {
   SiPython, SiPytorch, SiTensorflow, SiDocker
 } from "react-icons/si";
-import aiHeroBg from "@/assets/services/ai-automation/coreslash-technologies-ai-development-services.png";
+import aiHeroBg from "@/assets/services/ai-automation/coreslash-technologies-ai-development-services.webp";
 
 // ----------------------------------------------------
 // SCHEMA

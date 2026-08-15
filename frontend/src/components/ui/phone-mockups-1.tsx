@@ -2,10 +2,10 @@ import {
   type ImageItem,
   PhoneCarousel,
 } from "@/components/ui/phone-mockups-1-utils/phone-carousel";
-import behanceScreen from "@/assets/app-development/coreslash-Behance-screen.png";
-import notionScreen from "@/assets/app-development/coreslash-Notion-screen.png";
-import oneScreen from "@/assets/app-development/coreslash-One-screen.png";
-import redditScreen from "@/assets/app-development/coreslash-Reddit.png";
+import behanceScreen from "@/assets/app-development/coreslash-Behance-screen.webp";
+import notionScreen from "@/assets/app-development/coreslash-Notion-screen.webp";
+import oneScreen from "@/assets/app-development/coreslash-One-screen.webp";
+import redditScreen from "@/assets/app-development/coreslash-Reddit.webp";
 
 const exampleImages: ImageItem[] = [
   {

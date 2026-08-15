@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-import pitcsImg from "@/assets/portfolio/pitcs.png";
-import skandanImg from "@/assets/portfolio/skandan.png";
-import thedutzImg from "@/assets/portfolio/thedutz.png";
+import pitcsImg from "@/assets/portfolio/pitcs.webp";
+import skandanImg from "@/assets/portfolio/skandan.webp";
+import thedutzImg from "@/assets/portfolio/thedutz.webp";
 
 interface CaseStudyItem {
   title: string;

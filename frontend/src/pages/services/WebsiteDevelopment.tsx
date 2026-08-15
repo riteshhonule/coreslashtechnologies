@@ -110,6 +110,18 @@ export default function WebsiteDevelopment() {
           content="Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies. Modern, scalable, secure, and SEO-friendly web development services."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/web-development" />
+        
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="Custom Web Development Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies. Modern, scalable, secure, and SEO-friendly web development services." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/web-development" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Custom Web Development Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies." />
+
         <script type="application/ld+json">
           {JSON.stringify(serviceSchema)}
         </script>

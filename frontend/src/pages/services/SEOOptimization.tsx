@@ -56,6 +56,18 @@ export default function SEOOptimization() {
         <title>SEO Optimization Services | CoreSlash Technologies</title>
         <meta name="description" content="Technical SEO audits, schema markup, high-intent keyword strategies, and organic search ranking growth." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/seo-solutions" />
+        
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="SEO Optimization Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Technical SEO audits, schema markup, high-intent keyword strategies, and organic search ranking growth." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/seo-solutions" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SEO Optimization Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Technical SEO audits, schema markup, high-intent keyword strategies, and organic search ranking growth." />
+
         <script type="application/ld+json">{JSON.stringify(seoSchema)}</script>
       </Helmet>
 

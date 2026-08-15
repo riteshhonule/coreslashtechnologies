@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, CheckCircle2, AlertCircle, ChevronDown, Check } from "lucide-react";
 
-import partnerHeroImg from "@/assets/coreslash-partner-hero.png";
+import partnerHeroImg from "@/assets/coreslash-partner-hero.webp";
 
 const PARTNERSHIP_OPTIONS = [
   "Project-Based Partnership",

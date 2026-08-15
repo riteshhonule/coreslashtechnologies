@@ -66,6 +66,11 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://coreslashtechnologies.com/software-company-in-belagavi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Primary Service Divisions -->
   <url>

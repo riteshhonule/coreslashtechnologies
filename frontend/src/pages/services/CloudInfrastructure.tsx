@@ -13,7 +13,7 @@ import {
   SiGithubactions, SiDatadog, SiPrometheus
 } from "react-icons/si";
 import { FaCloud, FaServer } from "react-icons/fa";
-import cloudHeroBg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-infrastructure.png";
+import cloudHeroBg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-infrastructure.webp";
 
 // ----------------------------------------------------
 // SCHEMA

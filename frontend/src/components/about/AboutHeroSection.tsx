@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
-import aboutHeroImg from "@/assets/about/coreslash-about-hero.jpg";
+import aboutHeroImg from "@/assets/about/coreslash-about-hero.webp";
 import teamWorkImg from "@/assets/about/coreslash-technologies-team-work.jpeg";
 
 export const AboutHeroSection: React.FC = () => {

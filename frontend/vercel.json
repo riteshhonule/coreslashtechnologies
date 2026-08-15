@@ -77,6 +77,11 @@
       "source": "/services/website-development",
       "destination": "/services/web-development",
       "permanent": true
+    },
+    {
+      "source": "/services/digital-marketing",
+      "destination": "/services/seo-solutions",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -21,7 +21,7 @@ import ecommerceImg from "@/assets/services/ecommerce-solutions/coreslash-techno
 import seoImg from "@/assets/services/seo-solutions/coreslash-technologies-seo-search-growth.avif";
 import cloudDevopsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-devops.avif";
 import dataAnalyticsImg from "@/assets/services/data-analytics/coreslash-technologies-business-intelligence-data-analytics.avif";
-import shopifyDevImg from "@/assets/services/shopify-development/coreslash-technology-shopify-development.png";
+import shopifyDevImg from "@/assets/services/shopify-development/coreslash-technology-shopify-development.webp";
 
 const servicesSchema = {
   "@context": "https://schema.org",

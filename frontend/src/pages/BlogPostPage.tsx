@@ -69,6 +69,13 @@ export default function BlogPostPage() {
         <meta property="og:image" content={post.coverImage} />
         <meta property="og:url" content={`https://coreslashtechnologies.com/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="CoreSlash Technologies" />
+        
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.metaDescription} />
+        <meta name="twitter:image" content={post.coverImage} />
         
         {/* JSON-LD Schema */}
         <script type="application/ld+json">
