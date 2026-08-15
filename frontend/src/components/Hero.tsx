@@ -37,7 +37,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   useEffect(() => {
     const timer = setInterval(() => {
       setAnimationKey(prev => prev + 1);
-    }, 2000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -198,7 +198,11 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
               <img
                 src={src}
                 alt={`Showcase ${index + 1}`}
-                loading="lazy"
+                width={187}
+                height={250}
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
+                decoding={index === 0 ? "sync" : "async"}
                 className="w-full h-full object-cover rounded-[20px] sm:rounded-[24px] border border-white/40 shadow-lg"
               />
             </div>

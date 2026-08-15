@@ -7,7 +7,7 @@ import websiteDevImg from "@/assets/services/web-development/coreslash-technolog
 import softwareSysImg from "@/assets/services/software-systems/coreslash-technologies-custom-software-systems.avif";
 import ecommerceImg from "@/assets/services/ecommerce-solutions/coreslash-technologies-scalable-ecommerce-platforms.avif";
 import seoImg from "@/assets/services/seo-solutions/coreslash-technologies-seo-search-growth.avif";
-import shopifyDevImg from "@/assets/services/shopify-development/coreslash-technology-shopify-development.png";
+import shopifyDevImg from "@/assets/services/shopify-development/coreslash-technology-shopify-development.webp";
 import cloudDevopsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-cloud-devops.avif";
 import dataAnalyticsImg from "@/assets/services/data-analytics/coreslash-technologies-business-intelligence-data-analytics.avif";
 import aiServicesImg from "@/assets/services/ai-automation/coreslash-technologies-intelligent-ai-automation.avif";
@@ -21,7 +21,7 @@ export interface GalleryItem {
 }
 
 export interface ExpandableGalleryProps {
-  images: (string | GalleryItem)[];
+  images?: (string | GalleryItem)[];
   className?: string;
   rowLayout?: number[];
 }
@@ -112,7 +112,7 @@ const getItemDetails = (item: string | GalleryItem) => {
 };
 
 const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
-  images,
+  images = NINE_DEMO_IMAGES,
   className = '',
   rowLayout,
 }) => {

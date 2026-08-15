@@ -1,12 +1,15 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/web-development/HeroSection";
-import CoreServices from "@/components/web-development/CoreServices";
-import ProcessTimeline from "@/components/web-development/ProcessTimeline";
-import EngagementModels from "@/components/web-development/EngagementModels";
-import TechnologyGrid from "@/components/web-development/TechnologyGrid";
-import PortfolioSection from "@/components/web-development/PortfolioSection";
-import CTASection from "@/components/web-development/CTASection";
-import FaqSection, { type FaqData } from "@/components/ui/habit-faq-scroller";
+import { type FaqData } from "@/components/ui/habit-faq-scroller";
+
+const CoreServices = lazy(() => import("@/components/web-development/CoreServices"));
+const ProcessTimeline = lazy(() => import("@/components/web-development/ProcessTimeline"));
+const EngagementModels = lazy(() => import("@/components/web-development/EngagementModels"));
+const TechnologyGrid = lazy(() => import("@/components/web-development/TechnologyGrid"));
+const PortfolioSection = lazy(() => import("@/components/web-development/PortfolioSection"));
+const CTASection = lazy(() => import("@/components/web-development/CTASection"));
+const FaqSection = lazy(() => import("@/components/ui/habit-faq-scroller"));
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -113,17 +116,20 @@ export default function WebsiteDevelopment() {
       </Helmet>
 
       <HeroSection />
-      <CoreServices />
-      <ProcessTimeline />
-      <EngagementModels />
-      <TechnologyGrid />
-      <PortfolioSection />
 
-      <section className="w-full py-16 md:py-24 border-t border-border/40 overflow-hidden bg-background">
-        <FaqSection data={webDevFaqData} />
-      </section>
+      <Suspense fallback={null}>
+        <CoreServices />
+        <ProcessTimeline />
+        <EngagementModels />
+        <TechnologyGrid />
+        <PortfolioSection />
 
-      <CTASection />
+        <section className="w-full py-16 md:py-24 border-t border-border/40 overflow-hidden bg-background">
+          <FaqSection data={webDevFaqData} />
+        </section>
+
+        <CTASection />
+      </Suspense>
     </>
   );
 }

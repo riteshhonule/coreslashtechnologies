@@ -1,18 +1,20 @@
+import { lazy, Suspense } from "react";
 import AnimatedMarqueeHero from "@/components/Hero";
-import ExpandableGallery, { NINE_DEMO_IMAGES } from "@/components/ExpandableGallery";
-import FanCarouselSection from "@/components/FanCarouselSection";
-import TechnologiesSection from "@/components/TechnologiesSection";
-import StatsSection from "@/components/StatsSection";
-import ContactSection from "@/components/ContactSection";
 import { Sparkles } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
-import awsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-aws-cloud-services.png";
-import aiDevelopmentImg from "@/assets/services/ai-automation/coreslash-technologies-ai-development-services.png";
-import appDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-mobile-app-development.png";
-import cyberSecurityImg from "@/assets/services/software-systems/coreslash-technologies-cyber-security-services.png";
-import erpImg from "@/assets/services/software-systems/coreslash-technologies-erp-software-development.png";
-import iosDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-ios-app-development.png";
+const ExpandableGallery = lazy(() => import("@/components/ExpandableGallery"));
+const FanCarouselSection = lazy(() => import("@/components/FanCarouselSection"));
+const TechnologiesSection = lazy(() => import("@/components/TechnologiesSection"));
+const StatsSection = lazy(() => import("@/components/StatsSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+
+import awsImg from "@/assets/services/cloud-infrastructure/coreslash-technologies-aws-cloud-services.webp";
+import aiDevelopmentImg from "@/assets/services/ai-automation/coreslash-technologies-ai-development-services.webp";
+import appDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-mobile-app-development.webp";
+import cyberSecurityImg from "@/assets/services/software-systems/coreslash-technologies-cyber-security-services.webp";
+import erpImg from "@/assets/services/software-systems/coreslash-technologies-erp-software-development.webp";
+import iosDevelopmentImg from "@/assets/services/mobile-app-development/coreslash-technologies-ios-app-development.webp";
 import pythonDevelopmentImg from "@/assets/services/software-systems/coreslash-technologies-python-development.jpg";
 
 import aboutTopImg from "@/assets/about/coreslash-technologies-team-working.avif";
@@ -115,22 +117,24 @@ export default function Home() {
           </h2>
         </div>
 
-        <ExpandableGallery images={NINE_DEMO_IMAGES} />
+        <Suspense fallback={null}>
+          <ExpandableGallery />
+        </Suspense>
       </section>
 
       {/* GSAP 3D Fanned Card Carousel Section */}
-      <FanCarouselSection />
+      <Suspense fallback={null}>
+        <FanCarouselSection />
 
-      {/* Technologies We Use Section */}
-      <TechnologiesSection />
+        {/* Technologies We Use Section */}
+        <TechnologiesSection />
 
-      {/* Stats and Trust Metrics Section */}
-      <StatsSection />
+        {/* Stats and Trust Metrics Section */}
+        <StatsSection />
 
-
-
-      {/* Book a Free Session Contact Section */}
-      <ContactSection />
+        {/* Book a Free Session Contact Section */}
+        <ContactSection />
+      </Suspense>
 
       {/* About Section */}
       <section className="py-24 px-6 md:px-12 max-w-[1300px] mx-auto border-t border-border/40">
@@ -142,6 +146,10 @@ export default function Home() {
               <img
                 src={aboutBottomImg}
                 alt="CoreSlash Team Space"
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={280}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -151,6 +159,10 @@ export default function Home() {
               <img
                 src={aboutTopImg}
                 alt="CoreSlash Team Working"
+                loading="lazy"
+                decoding="async"
+                width={450}
+                height={290}
                 className="w-full h-full object-cover"
               />
             </div>

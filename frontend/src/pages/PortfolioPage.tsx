@@ -9,12 +9,12 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { OverlappingImageCard } from "@/components/ui/OverlappingImageCard";
 
-import pitcsImg from "@/assets/portfolio/pitcs.png";
-import skandanImg from "@/assets/portfolio/skandan.png";
-import thedutzImg from "@/assets/portfolio/thedutz.png";
-import healthpulseImg from "@/assets/portfolio/healthpulse.png";
-import flexicartImg from "@/assets/portfolio/flexicart.png";
-import fintrackImg from "@/assets/portfolio/fintrack.png";
+import pitcsImg from "@/assets/portfolio/pitcs.webp";
+import skandanImg from "@/assets/portfolio/skandan.webp";
+import thedutzImg from "@/assets/portfolio/thedutz.webp";
+import healthpulseImg from "@/assets/portfolio/healthpulse.webp";
+import flexicartImg from "@/assets/portfolio/flexicart.webp";
+import fintrackImg from "@/assets/portfolio/fintrack.webp";
 
 interface CaseStudy {
   id: string;
@@ -365,8 +365,11 @@ export default function PortfolioPage() {
                   <img
                     src={item.imageUrl}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width={400}
+                    height={224}
                     loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
 
