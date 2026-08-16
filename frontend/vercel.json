@@ -4,11 +4,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/top-it-companies-in-belagavi",
-      "destination": "/blog/best-software-company-in-belagavi",
-      "permanent": true
-    },
-    {
       "source": "/services/cloud-solutions",
       "destination": "/services/cloud-infrastructure",
       "permanent": true
@@ -169,6 +164,14 @@
     },
     {
       "source": "/software-company-in-belagavi",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/top-it-companies-in-belgavi",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/top-it-companies-in-belagavi",
       "destination": "/index.html"
     },
     {
