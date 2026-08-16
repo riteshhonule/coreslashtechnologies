@@ -69,7 +69,7 @@ export const AboutHeroSection: React.FC = () => {
 
           {/* Paragraph 2 */}
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-normal">
-            Whether you need a high-performing eCommerce website, custom CMS development, or integrated digital marketing solutions to engage modern audiences, our experienced team delivers measurable results. Our design, development, and communication experts work collaboratively to help businesses increase sales, strengthen brand visibility, improve customer engagement, and drive meaningful business growth through innovative digital experiences.
+            Whether you need a high-performing eCommerce website, custom CMS development, or integrated digital marketing solutions to engage modern audiences, our experienced team delivers measurable results. Our design, development, and communication experts work collaboratively to help businesses increase sales, strengthen brand visibility, improve customer engagement, and drive meaningful business growth through innovative digital experiences. Learn more about our regional engineering operations as a leading <Link to="/software-company-in-belagavi" className="text-blue-600 font-semibold hover:underline">software company in Belagavi</Link>.
           </p>
 
           {/* Call to Action Buttons */}

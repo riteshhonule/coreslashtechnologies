@@ -28,7 +28,9 @@ export default function BlogPostPage() {
     );
   }
 
-  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 3);
+  const sameCategoryPosts = BLOG_POSTS.filter(p => p.id !== post.id && p.category === post.category);
+  const otherCategoryPosts = BLOG_POSTS.filter(p => p.id !== post.id && p.category !== post.category);
+  const relatedPosts = [...sameCategoryPosts, ...otherCategoryPosts].slice(0, 3);
 
   const blogSchema = {
     "@context": "https://schema.org",
