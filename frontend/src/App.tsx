@@ -72,6 +72,7 @@ function App() {
                 <Route path="website-development" element={<WebsiteDevelopment />} />
                 <Route path="app-development" element={<AppDevelopment />} />
                 <Route path="software-systems" element={<SoftwareSystems />} />
+                <Route path="erp-crm-development" element={<Navigate to="/services/software-systems" replace />} />
                 <Route path="ecommerce-solutions" element={<EcommerceWebsite />} />
                 <Route path="ecommerce" element={<EcommerceWebsite />} />
                 <Route path="seo-solutions" element={<SEOOptimization />} />

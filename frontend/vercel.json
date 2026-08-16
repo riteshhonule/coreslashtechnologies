@@ -44,6 +44,11 @@
       "permanent": true
     },
     {
+      "source": "/services/erp-crm-development",
+      "destination": "/services/software-systems",
+      "permanent": true
+    },
+    {
       "source": "/blog/software-development-cost-belagavi",
       "destination": "/blog/best-software-company-in-belagavi",
       "permanent": true
