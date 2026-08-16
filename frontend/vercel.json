@@ -87,6 +87,71 @@
       "source": "/services/digital-marketing",
       "destination": "/services/seo-solutions",
       "permanent": true
+    },
+    {
+      "source": "/blog/best-web-development-company-in-bangalore",
+      "destination": "/blog/best-web-development-company-in-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-digital-marketing-agency-in-bangalore",
+      "destination": "/blog/digital-marketing-strategy-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-seo-company-in-bangalore",
+      "destination": "/blog/how-to-choose-seo-company-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-digital-marketing-agency-in-hubli",
+      "destination": "/blog/local-seo-google-maps-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-digital-marketing-company-in-mysore",
+      "destination": "/blog/regional-brand-authority-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-digital-marketing-company-in-tumkur",
+      "destination": "/blog/b2b-lead-generation-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/coreslash-technologies-best-digital-marketing-agency-in-bangalore",
+      "destination": "/blog/coreslash-digital-marketing-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-digital-marketing-company-in-ballari",
+      "destination": "/blog/industrial-digital-marketing-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-seo-company-in-bangalore-karnataka",
+      "destination": "/blog/technical-seo-audits-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-it-company-in-hubli",
+      "destination": "/blog/how-to-select-it-company-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-digital-marketing-company-in-mangalore",
+      "destination": "/blog/digital-marketing-roi-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-social-media-marketing-company-in-bangalore",
+      "destination": "/blog/social-media-marketing-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-react-js-development-company-in-bangalore",
+      "destination": "/blog/react-nextjs-development-belagavi",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -211,7 +276,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-react-js-development-company-in-bangalore",
+      "source": "/blog/react-nextjs-development-belagavi",
       "destination": "/index.html"
     },
     {
@@ -247,15 +312,15 @@
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-web-development-company-in-bangalore",
+      "source": "/blog/best-web-development-company-in-belagavi",
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-digital-marketing-agency-in-bangalore",
+      "source": "/blog/digital-marketing-strategy-belagavi",
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-seo-company-in-bangalore",
+      "source": "/blog/how-to-choose-seo-company-belagavi",
       "destination": "/index.html"
     },
     {
@@ -267,7 +332,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-digital-marketing-agency-in-hubli",
+      "source": "/blog/local-seo-google-maps-belagavi",
       "destination": "/index.html"
     },
     {
@@ -275,23 +340,23 @@
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-digital-marketing-company-in-mysore",
+      "source": "/blog/regional-brand-authority-belagavi",
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-digital-marketing-company-in-tumkur",
+      "source": "/blog/b2b-lead-generation-belagavi",
       "destination": "/index.html"
     },
     {
-      "source": "/blog/coreslash-technologies-best-digital-marketing-agency-in-bangalore",
+      "source": "/blog/coreslash-digital-marketing-belagavi",
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-digital-marketing-company-in-ballari",
+      "source": "/blog/industrial-digital-marketing-belagavi",
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-seo-company-in-bangalore-karnataka",
+      "source": "/blog/technical-seo-audits-belagavi",
       "destination": "/index.html"
     },
     {
@@ -303,11 +368,11 @@
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-it-company-in-hubli",
+      "source": "/blog/how-to-select-it-company-belagavi",
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-digital-marketing-company-in-mangalore",
+      "source": "/blog/digital-marketing-roi-belagavi",
       "destination": "/index.html"
     },
     {
@@ -315,7 +380,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/blog/best-social-media-marketing-company-in-bangalore",
+      "source": "/blog/social-media-marketing-belagavi",
       "destination": "/index.html"
     },
     {
