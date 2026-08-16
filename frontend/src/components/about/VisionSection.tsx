@@ -115,12 +115,12 @@ export const VisionSection: React.FC = () => {
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <h3 className={`text-sm sm:text-base font-bold text-foreground ${theme.text} transition-colors tracking-tight`}>
+                        <h3 className={`text-sm sm:text-base font-bold text-foreground dark:text-white ${theme.text} transition-colors tracking-tight`}>
                           {pillar.title}
                         </h3>
                         <ArrowRight className={`w-3.5 h-3.5 ${theme.icon} opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0 ml-2`} />
                       </div>
-                      <p className={`text-muted-foreground text-xs sm:text-[13px] leading-relaxed font-normal mt-1 ${theme.desc} transition-colors`}>
+                      <p className={`text-muted-foreground dark:text-slate-300 text-xs sm:text-[13px] leading-relaxed font-normal mt-1 ${theme.desc} transition-colors`}>
                         {pillar.description}
                       </p>
                     </div>

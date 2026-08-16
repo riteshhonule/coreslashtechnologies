@@ -254,31 +254,31 @@ export default function CareersPage() {
                           </span>
                         )}
                         {job.location && (
-                          <span className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground bg-muted/50 px-2.5 py-1 rounded-md">
-                            <MapPin className="w-3.5 h-3.5 text-blue-600" /> {job.location}
+                          <span className="flex items-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-200/50 dark:border-slate-700/50">
+                            <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" /> {job.location}
                           </span>
                         )}
                         {job.employmentType && (
-                          <span className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground bg-muted/50 px-2.5 py-1 rounded-md">
-                            <Clock className="w-3.5 h-3.5 text-blue-500" /> {job.employmentType.replace('_', ' ')}
+                          <span className="flex items-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-200/50 dark:border-slate-700/50">
+                            <Clock className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400" /> {job.employmentType.replace('_', ' ')}
                           </span>
                         )}
                         {job.experience && (
-                          <span className="text-xs font-medium text-muted-foreground bg-muted/50 px-2.5 py-1 rounded-md">
+                          <span className="text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-200/50 dark:border-slate-700/50">
                             Exp: {job.experience}
                           </span>
                         )}
                       </div>
 
-                      <h3 className="text-xl sm:text-2xl font-black text-foreground group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-black text-foreground dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {job.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{job.description}</p>
+                      <p className="text-muted-foreground dark:text-slate-300 text-sm leading-relaxed">{job.description}</p>
 
                       {reqTags.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 pt-1">
                           {reqTags.map((tag: string) => (
-                            <span key={tag} className="text-[11px] font-normal px-2.5 py-0.5 rounded bg-muted text-muted-foreground">
+                            <span key={tag} className="text-[11px] font-normal px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/40 dark:border-slate-700/40">
                               #{tag}
                             </span>
                           ))}

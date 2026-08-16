@@ -7,8 +7,8 @@ import React from 'react';
 export const FaqCard = ({ question, answer }: { question: string; answer: string }) => {
   return (
     <div className="flex flex-col items-start gap-3 p-6 bg-white dark:bg-slate-900 border border-border/60 rounded-2xl shadow-md hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 w-80 sm:w-96 flex-shrink-0 faq-card">
-      <h3 className="text-base sm:text-lg font-semibold text-foreground faq-title leading-snug">{question}</h3>
-      <p className="text-xs sm:text-sm text-muted-foreground faq-answer leading-relaxed">{answer}</p>
+      <h3 className="text-base sm:text-lg font-semibold text-foreground dark:text-white faq-title leading-snug">{question}</h3>
+      <p className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300 faq-answer leading-relaxed">{answer}</p>
     </div>
   );
 };

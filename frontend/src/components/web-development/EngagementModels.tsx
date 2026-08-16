@@ -182,7 +182,7 @@ export default function EngagementModels() {
                       >
                         <Link2 className="w-8 h-8 text-[#3b82f6]" />
                       </motion.div>
-                      <span className="text-[10px] sm:text-xs font-bold tracking-tight text-foreground text-center max-w-[120px] leading-tight select-none uppercase bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1 rounded-full border border-border/80 shadow-md">
+                      <span className="text-[10px] sm:text-xs font-bold tracking-tight text-slate-800 dark:text-white text-center max-w-[120px] leading-tight select-none uppercase bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 shadow-md">
                         Dedicated Team
                       </span>
                     </div>
@@ -199,7 +199,7 @@ export default function EngagementModels() {
                       >
                         <Target className="w-8 h-8 text-cyan-500" />
                       </motion.div>
-                      <span className="text-[10px] sm:text-xs font-bold tracking-tight text-foreground text-center max-w-[120px] leading-tight select-none uppercase bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1 rounded-full border border-border/80 shadow-md">
+                      <span className="text-[10px] sm:text-xs font-bold tracking-tight text-slate-800 dark:text-white text-center max-w-[120px] leading-tight select-none uppercase bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 shadow-md">
                         Hourly Consultation
                       </span>
                     </div>
@@ -216,7 +216,7 @@ export default function EngagementModels() {
                       >
                         <Compass className="w-8 h-8 text-emerald-500" />
                       </motion.div>
-                      <span className="text-[10px] sm:text-xs font-bold tracking-tight text-foreground text-center max-w-[120px] leading-tight select-none uppercase bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1 rounded-full border border-border/80 shadow-md">
+                      <span className="text-[10px] sm:text-xs font-bold tracking-tight text-slate-800 dark:text-white text-center max-w-[120px] leading-tight select-none uppercase bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 shadow-md">
                         Fixed Scope
                       </span>
                     </div>
@@ -227,8 +227,8 @@ export default function EngagementModels() {
                 {/* Center Core Circle */}
                 <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white/95 dark:bg-slate-900/95 border-2 border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col items-center justify-center text-center p-2 z-10 pointer-events-none backdrop-blur-md">
                   <span className="text-[10px] font-semibold tracking-widest text-[#3b82f6] uppercase">CORE</span>
-                  <span className="text-sm font-bold text-foreground uppercase tracking-wider">ENGAGEMENT</span>
-                  <span className="text-[10px] font-medium text-muted-foreground uppercase">MODELS</span>
+                  <span className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">ENGAGEMENT</span>
+                  <span className="text-[10px] font-medium text-slate-600 dark:text-slate-300 uppercase">MODELS</span>
                 </div>
 
               </div>

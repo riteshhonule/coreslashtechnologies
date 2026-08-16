@@ -228,11 +228,11 @@ export default function BlogPage() {
                       <span>{post.publishDate}</span>
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
+                    <h3 className="text-xl font-extrabold text-foreground dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
                       {post.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground dark:text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-3">
                       {post.summary}
                     </p>
                   </div>

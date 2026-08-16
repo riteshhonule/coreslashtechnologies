@@ -282,11 +282,11 @@ export default function PortfolioPage() {
                 <span>{featuredProject.client}</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {featuredProject.title}
               </h3>
 
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              <p className="text-muted-foreground dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                 {featuredProject.description}
               </p>
 
@@ -383,10 +383,10 @@ export default function PortfolioPage() {
                 {/* Body Content */}
                 <div className="space-y-4 flex-grow flex flex-col justify-between">
                   <div className="space-y-3">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
+                    <h3 className="text-xl font-bold text-foreground dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
                       {item.title}
                     </h3>
-                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground dark:text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-3">
                       {item.description}
                     </p>
 
