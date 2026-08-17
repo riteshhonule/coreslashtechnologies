@@ -10,6 +10,7 @@ import { X } from "lucide-react";
 export default function Layout() {
   const { pathname } = useLocation();
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [quoteSubmitted, setQuoteSubmitted] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,6 +45,7 @@ export default function Layout() {
               <button
                 onClick={() => {
                   setQuoteModalOpen(false);
+                  setQuoteSubmitted(false);
                 }}
                 className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-slate-800/50 hover:bg-slate-700/80 text-slate-400 hover:text-white transition-colors border border-slate-600/50 z-50 cursor-pointer"
               >
