@@ -361,7 +361,7 @@ const bespokeArticlesContent: Record<string, BlogPost["content"]> = {
     relatedServices: [
       { title: "Software Systems Engineering", path: "/services/software-systems" },
       { title: "Cloud Infrastructure Services", path: "/services/cloud-infrastructure" },
-      { title: "IT Companies in Belagavi", path: "/top-it-companies-in-belgavi" }
+      { title: "IT Companies in Belagavi", path: "/top-it-companies-in-belagavi" }
     ]
   },
   "local-seo-vs-national-seo-guide": {
@@ -438,7 +438,7 @@ const bespokeArticlesContent: Record<string, BlogPost["content"]> = {
     relatedServices: [
       { title: "Custom Software Systems", path: "/services/software-systems" },
       { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" },
-      { title: "Belagavi IT Companies", path: "/top-it-companies-in-belgavi" }
+      { title: "Belagavi IT Companies", path: "/top-it-companies-in-belagavi" }
     ]
   },
   "how-coreslash-modernizing-it-belagavi": {
@@ -460,7 +460,7 @@ const bespokeArticlesContent: Record<string, BlogPost["content"]> = {
     ],
     keyTakeaway: "Modernizing IT operations in Belagavi with proprietary software systems eliminates manual bottlenecks and accelerates long-term regional market growth.",
     relatedServices: [
-      { title: "Top IT Companies in Belagavi", path: "/top-it-companies-in-belgavi" },
+      { title: "Top IT Companies in Belagavi", path: "/top-it-companies-in-belagavi" },
       { title: "Custom Software Systems", path: "/services/software-systems" },
       { title: "Web Development Services", path: "/services/web-development" }
     ]
@@ -541,7 +541,7 @@ const bespokeArticlesContent: Record<string, BlogPost["content"]> = {
     relatedServices: [
       { title: "Custom Web Development", path: "/services/web-development" },
       { title: "SEO Optimization Services", path: "/services/seo-solutions" },
-      { title: "Software Companies in Belagavi", path: "/top-it-companies-in-belgavi" }
+      { title: "Software Companies in Belagavi", path: "/top-it-companies-in-belagavi" }
     ]
   }
 };
