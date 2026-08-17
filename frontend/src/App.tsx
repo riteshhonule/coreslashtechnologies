@@ -63,8 +63,8 @@ function App() {
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-of-service" element={<TermsOfService />} />
               <Route path="cookie-policy" element={<CookiePolicy />} />
-              <Route path="software-company-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
-              <Route path="top-it-companies-in-belgavi" element={<SoftwareCompanyInBelagavi />} />
+              <Route path="software-company-in-belagavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
+              <Route path="top-it-companies-in-belgavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
               <Route path="top-it-companies-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
 
               <Route path="services">

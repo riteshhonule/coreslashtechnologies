@@ -16,7 +16,7 @@ const belagaviServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Top IT & Software Development Services in Belagavi (Belgaum)",
-  "url": "https://coreslashtechnologies.com/top-it-companies-in-belgavi",
+  "url": "https://coreslashtechnologies.com/top-it-companies-in-belagavi",
   "serviceType": "Software Development",
   "description": "CoreSlash Technologies is a software development company in Belagavi offering custom web applications, mobile apps, enterprise software systems, and AI solutions.",
   "provider": {
@@ -312,12 +312,12 @@ export default function SoftwareCompanyInBelagavi() {
           name="description"
           content="Explore top IT companies and software development services in Belagavi (Belgaum), Karnataka, including web development, mobile apps, enterprise software, AI automation, and more."
         />
-        <link rel="canonical" href="https://coreslashtechnologies.com/top-it-companies-in-belgavi" />
+        <link rel="canonical" href="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="Top IT Companies in Belagavi (Belgaum) | Software Development" />
         <meta property="og:description" content="Guide to top IT companies and software development firms in Belagavi (Belgaum), Karnataka. Explore leading technology providers, services, and local digital ecosystem." />
-        <meta property="og:url" content="https://coreslashtechnologies.com/top-it-companies-in-belgavi" />
+        <meta property="og:url" content="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CoreSlash Technologies" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
