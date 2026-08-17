@@ -104,6 +104,18 @@ export default function SoftwareSystems() {
         <title>Custom Software Systems & Enterprise Solutions | CoreSlash Technologies</title>
         <meta name="description" content="Build enterprise SaaS platforms, custom ERPs, cloud microservices, and automated workflow systems with CoreSlash Technologies." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/software-systems" />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="Custom Software Systems & Enterprise Solutions | CoreSlash Technologies" />
+        <meta property="og:description" content="Build enterprise SaaS platforms, custom ERPs, cloud microservices, and automated workflow systems with CoreSlash Technologies." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/software-systems" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Custom Software Systems & Enterprise Solutions | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Build enterprise SaaS platforms, custom ERPs, cloud microservices, and automated workflow systems with CoreSlash Technologies." />
+
         <script type="application/ld+json">{JSON.stringify(softwareSchema)}</script>
       </Helmet>
 

@@ -129,6 +129,18 @@ export default function AppDevelopment() {
         <title>Mobile App Development Services | CoreSlash Technologies</title>
         <meta name="description" content="Build high-performance native iOS, Android, and cross-platform Flutter/React Native mobile applications with CoreSlash Technologies." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/app-development" />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="Mobile App Development Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Build high-performance native iOS, Android, and cross-platform Flutter/React Native mobile applications with CoreSlash Technologies." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/app-development" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mobile App Development Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Build high-performance native iOS, Android, and cross-platform Flutter/React Native mobile applications with CoreSlash Technologies." />
+
         <script type="application/ld+json">{JSON.stringify(appDevSchema)}</script>
       </Helmet>
 

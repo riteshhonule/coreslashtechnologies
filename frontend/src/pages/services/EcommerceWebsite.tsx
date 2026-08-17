@@ -56,6 +56,18 @@ export default function EcommerceWebsite() {
         <title>Custom E-Commerce Development | CoreSlash Technologies</title>
         <meta name="description" content="Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/ecommerce-solutions" />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="Custom E-Commerce Development | CoreSlash Technologies" />
+        <meta property="og:description" content="Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/ecommerce-solutions" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Custom E-Commerce Development | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration." />
+
         <script type="application/ld+json">{JSON.stringify(ecommerceSchema)}</script>
       </Helmet>
 

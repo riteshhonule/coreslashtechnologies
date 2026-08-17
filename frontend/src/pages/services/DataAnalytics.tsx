@@ -134,6 +134,18 @@ export default function DataAnalytics() {
           content="Turn raw operational data into actionable insights through custom real-time executive dashboards, ETL data pipelines, and predictive business intelligence."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/data-analytics" />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="Data Analytics & Business Intelligence Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Turn raw operational data into actionable insights through custom real-time executive dashboards, ETL data pipelines, and predictive business intelligence." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/data-analytics" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Data Analytics & Business Intelligence Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Turn raw operational data into actionable insights through custom real-time executive dashboards, ETL data pipelines, and predictive business intelligence." />
+
         <script type="application/ld+json">{JSON.stringify(dataSchema)}</script>
       </Helmet>
 

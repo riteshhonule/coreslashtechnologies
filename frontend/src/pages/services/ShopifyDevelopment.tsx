@@ -89,6 +89,18 @@ export default function ShopifyDevelopment() {
         <title>Shopify Development Services | CoreSlash Technologies</title>
         <meta name="description" content="Custom Shopify themes, Liquid templates, Headless Storefronts, and app integrations engineered to scale e-commerce revenue." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/shopify-development" />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="Shopify Development Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Custom Shopify themes, Liquid templates, Headless Storefronts, and app integrations engineered to scale e-commerce revenue." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/shopify-development" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Shopify Development Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Custom Shopify themes, Liquid templates, Headless Storefronts, and app integrations engineered to scale e-commerce revenue." />
+
         <script type="application/ld+json">{JSON.stringify(shopifySchema)}</script>
       </Helmet>
 

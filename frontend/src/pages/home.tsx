@@ -80,8 +80,20 @@ export default function Home() {
           content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/" />
-        <meta property="og:title" content="CoreSlash Technologies" />
-        <meta property="og:description" content="Top web development and IT solutions company in Belgaum." />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="CoreSlash Technologies | AI, Web & Software Development" />
+        <meta property="og:description" content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="CoreSlash Technologies | AI, Web & Software Development" />
+        <meta name="twitter:description" content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
+
         <script type="application/ld+json">
           {JSON.stringify([organizationSchema, localBusinessSchema, websiteSchema])}
         </script>

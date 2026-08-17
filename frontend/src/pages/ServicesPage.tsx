@@ -253,6 +253,18 @@ export default function ServicesIndex() {
           content="Explore CoreSlash Technologies' software engineering divisions: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services" />
+
+        {/* Open Graph SEO */}
+        <meta property="og:title" content="Full-Stack Software Engineering & Digital Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Explore CoreSlash Technologies' software engineering divisions: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Full-Stack Software Engineering & Digital Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Explore CoreSlash Technologies' software engineering divisions: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics." />
+
         <script type="application/ld+json">{JSON.stringify(servicesSchema)}</script>
       </Helmet>
 
