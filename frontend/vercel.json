@@ -147,6 +147,11 @@
       "source": "/blog/best-react-js-development-company-in-bangalore",
       "destination": "/blog/react-nextjs-development-belagavi",
       "permanent": true
+    },
+    {
+      "source": "/blog/seo-company-in-bangalore-guide",
+      "destination": "/services/seo-solutions",
+      "permanent": true
     }
   ],
   "rewrites": [
