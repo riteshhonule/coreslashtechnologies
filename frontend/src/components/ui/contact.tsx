@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaLinkedinIn, FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
-import { ArrowRight, ChevronDown, Sparkles, User, Mail, Phone, MapPin, Building2, MessageSquare, Shield, Loader2 } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles, User, Mail, Phone, MapPin, Building2, MessageSquare, Shield, Loader2, Check } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface ContactSectionProps {
   title?: string;
@@ -99,20 +100,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   ];
 
   return (
-    <section className="relative w-full min-h-[calc(100vh-76px)] lg:h-[calc(100vh-76px)] flex items-center justify-center py-4 px-4 sm:px-6 lg:px-12 bg-slate-950 overflow-hidden">
+    <section className="relative w-full min-h-[calc(100vh-76px)] lg:h-[calc(100vh-76px)] flex items-center justify-center py-4 px-4 sm:px-6 lg:px-12 bg-[#050810] overflow-hidden">
       {/* Background Image and Animated Bubbles */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-500"
         style={{ backgroundImage: `url(${backgroundImageSrc})` }}
       >
-        <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-[#050810]/90 backdrop-blur-sm" />
         
         {/* Animated Bubbles */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute bg-blue-500/20 rounded-full animate-bubble opacity-0"
+              className="absolute bg-blue-500/10 rounded-full animate-bubble opacity-0"
               style={{
                 width: `${Math.random() * 16 + 6}px`,
                 height: `${Math.random() * 16 + 6}px`,
@@ -132,199 +133,196 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           
           {/* Left Column: Heading & Info */}
           <div className="lg:col-span-5 text-left space-y-3 lg:space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wide backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[11px] font-bold tracking-widest uppercase backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
               <span>Start A Project</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-white leading-[1.15] tracking-tight drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-normal text-white leading-[1.15] tracking-tight drop-shadow-lg">
               {title}
             </h1>
 
-            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal max-w-md">
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-light max-w-md">
               Have an enterprise project or ambitious idea? Reach out to our solution architects for a free technical consultation.
             </p>
 
             {/* Direct Contact & Social Links */}
-            <div className="pt-3 border-t border-slate-800/80 space-y-2">
+            <div className="pt-6 border-t border-slate-800/80 space-y-3">
               <div>
-                <p className="text-[11px] text-slate-400 font-medium">Mail us directly</p>
-                <a href={`mailto:${contactEmail}`} className="text-blue-400 hover:text-blue-300 text-xs sm:text-sm font-semibold transition-colors">
+                <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">Mail us directly</p>
+                <a href={`mailto:${contactEmail}`} className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
                   {contactEmail}
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 pt-1">
+              <div className="flex items-center gap-3 pt-2">
                 <a 
                   href="https://x.com/CoreSlashTech" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="X (Twitter)"
-                  className="w-8 h-8 rounded-xl bg-slate-900/80 hover:bg-blue-600/20 text-slate-300 hover:text-blue-400 flex items-center justify-center border border-slate-800 transition-all text-xs"
+                  className="w-10 h-10 rounded-full bg-slate-900 hover:bg-blue-600/20 text-slate-400 hover:text-blue-400 flex items-center justify-center transition-all text-sm"
                 >
-                  <FaTwitter className="w-3.5 h-3.5" />
+                  <FaTwitter className="w-4 h-4" />
                 </a>
                 <a 
                   href="https://www.instagram.com/coreslashtechnologies?igsh=MWRmaTN2am1wNG1kdw%3D%3D&utm_source=qr" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="Instagram"
-                  className="w-8 h-8 rounded-xl bg-slate-900/80 hover:bg-pink-600/20 text-slate-300 hover:text-pink-400 flex items-center justify-center border border-slate-800 transition-all text-xs"
+                  className="w-10 h-10 rounded-full bg-slate-900 hover:bg-pink-600/20 text-slate-400 hover:text-pink-400 flex items-center justify-center transition-all text-sm"
                 >
-                  <FaInstagram className="w-3.5 h-3.5" />
+                  <FaInstagram className="w-4 h-4" />
                 </a>
                 <a 
                   href="https://www.facebook.com/profile.php?id=61591466563226" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="Facebook"
-                  className="w-8 h-8 rounded-xl bg-slate-900/80 hover:bg-blue-600/20 text-slate-300 hover:text-blue-500 flex items-center justify-center border border-slate-800 transition-all text-xs"
+                  className="w-10 h-10 rounded-full bg-slate-900 hover:bg-blue-600/20 text-slate-400 hover:text-blue-500 flex items-center justify-center transition-all text-sm"
                 >
-                  <FaFacebookF className="w-3.5 h-3.5" />
+                  <FaFacebookF className="w-4 h-4" />
                 </a>
                 <a 
                   href="https://www.linkedin.com/company/coreslash-technologies/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="LinkedIn"
-                  className="w-8 h-8 rounded-xl bg-slate-900/80 hover:bg-blue-600/20 text-slate-300 hover:text-blue-400 flex items-center justify-center border border-slate-800 transition-all text-xs"
+                  className="w-10 h-10 rounded-full bg-slate-900 hover:bg-blue-600/20 text-slate-400 hover:text-blue-400 flex items-center justify-center transition-all text-sm"
                 >
-                  <FaLinkedinIn className="w-3.5 h-3.5" />
+                  <FaLinkedinIn className="w-4 h-4" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column: One-Screen Fittable Dark Luxury Glass Form Card */}
-          <div className="lg:col-span-7 bg-[#0B101D]/95 backdrop-blur-2xl text-white rounded-[26px] p-5 sm:p-6 lg:p-7 shadow-[0_25px_70px_rgba(0,0,0,0.75)] border border-slate-700/60 relative overflow-hidden">
+          {/* Right Column: Minimalist Underline Form */}
+          <div className="lg:col-span-7 bg-[#0A0F1C] text-white rounded-[20px] p-6 sm:p-8 shadow-2xl relative overflow-hidden">
             
             {/* Top Accent Gradient Line */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 to-cyan-400" />
 
             {/* Success Overlay Notification */}
-            {isSubmitted && (
-              <div className="absolute inset-0 bg-[#0B101D]/98 backdrop-blur-md z-30 flex flex-col items-center justify-center p-6 text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl font-bold shadow-inner">
-                  ✓
-                </div>
-                <h3 className="text-xl font-black text-white">Consultation Requested! 🎉</h3>
-                <p className="text-slate-300 text-xs sm:text-sm max-w-sm leading-relaxed font-medium">
-                  Thank you for reaching out to <span className="font-extrabold text-white">CoreSlash Technologies</span>. Our team will review your project details and reach out to you within <span className="font-extrabold text-blue-400">24 hours</span>.
-                </p>
-              </div>
-            )}
+            <AnimatePresence>
+              {isSubmitted && (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-[#0A0F1C]/95 backdrop-blur-md z-30 flex flex-col items-center justify-center p-8 text-center"
+                >
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-6">
+                    <Check className="w-8 h-8 stroke-[2.5]" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-normal text-white tracking-tight mb-3">Consultation Requested! 🎉</h3>
+                  <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+                    Thank you for reaching out to <span className="text-white">CoreSlash Technologies</span>. Our team will review your project details and reach out to you within <span className="text-blue-400">24 hours</span>.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Header */}
-            <div className="mb-4 text-left">
-              <span className="inline-flex items-center gap-1 text-[10px] font-extrabold tracking-widest uppercase text-blue-400 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full shadow-sm mb-2">
-                <Sparkles className="w-3 h-3 text-blue-400 animate-pulse" />
+            <div className="mb-6 text-left">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full mb-3">
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                 PROJECT ENQUIRY
               </span>
-              <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-normal text-white tracking-tight mb-2">
                 Let's Build Something Great
               </h2>
-              <p className="text-slate-300 text-[11px] sm:text-xs mt-1 leading-relaxed font-medium">
+              <p className="text-slate-400 text-sm leading-relaxed font-light">
                 Tell us a little about your project and our solution architects will get back to you shortly.
               </p>
             </div>
 
             {/* Form Fields */}
-            <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6 text-left">
               
-              {/* Row 1: Full Name & Work Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Row 1: Full Name & Phone Number */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                 
                 {/* Full Name */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                    <User className="w-3.5 h-3.5 text-blue-400" /> Full Name *
+                <div className="space-y-2 relative group">
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mb-1">
+                    Full Name *
                   </label>
-                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
-                    <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Enter your full name"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none font-semibold"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-transparent border-b border-slate-700 focus:border-blue-500 pb-1.5 text-base sm:text-lg text-white placeholder:text-slate-600 focus:outline-none transition-colors"
+                  />
                 </div>
 
-                {/* Work Email */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-blue-400" /> Work Email *
+                {/* Phone Number */}
+                <div className="space-y-1 relative group">
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mb-1">
+                    Phone Number *
                   </label>
-                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
-                    <input
-                      type="email"
-                      name="workEmail"
-                      placeholder="Enter your work email"
-                      value={formData.workEmail}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none font-semibold"
-                    />
-                  </div>
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Enter your phone number"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    className="w-full bg-transparent border-b border-slate-700 focus:border-blue-500 pb-1.5 text-base sm:text-lg text-white placeholder:text-slate-600 focus:outline-none transition-colors"
+                  />
                 </div>
-
               </div>
 
-              {/* Row 2: Phone Number & Location */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Row 2: Work Email & Location */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                 
-                {/* Phone Number */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-blue-400" /> Phone Number *
+                {/* Work Email */}
+                <div className="space-y-1 relative group">
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mb-1">
+                    Work Email *
                   </label>
-                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      placeholder="Enter your phone number"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
-                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 font-semibold placeholder:text-slate-500 focus:outline-none"
-                    />
-                  </div>
+                  <input
+                    type="email"
+                    name="workEmail"
+                    placeholder="Enter your work email"
+                    value={formData.workEmail}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-transparent border-b border-slate-700 focus:border-blue-500 pb-1.5 text-base sm:text-lg text-white placeholder:text-slate-600 focus:outline-none transition-colors"
+                  />
                 </div>
 
                 {/* Location */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-blue-400" /> Location / City
+                <div className="space-y-1 relative group">
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mb-1">
+                    Location / City
                   </label>
-                  <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all overflow-hidden shadow-inner">
-                    <input
-                      type="text"
-                      name="location"
-                      placeholder="Enter your city / location"
-                      value={formData.location}
-                      onChange={handleChange}
-                      className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none font-semibold"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    name="location"
+                    placeholder="Enter your city / location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    className="w-full bg-transparent border-b border-slate-700 focus:border-blue-500 pb-1.5 text-base sm:text-lg text-white placeholder:text-slate-600 focus:outline-none transition-colors"
+                  />
                 </div>
-
               </div>
 
               {/* Row 3: Service / Industry */}
-              <div className="space-y-1.5">
-                <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                  <Building2 className="w-3.5 h-3.5 text-blue-400" /> Service / Industry
+              <div className="space-y-1 relative group">
+                <label className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mb-1">
+                  Service / Industry
                 </label>
-                <div className="relative flex items-center bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all shadow-inner">
+                <div className="relative">
                   <select
                     name="industry"
                     value={formData.industry}
                     onChange={handleChange}
                     required
-                    className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 appearance-none cursor-pointer focus:outline-none font-semibold [&>option]:bg-slate-900 [&>option]:text-slate-100"
+                    className="w-full bg-transparent border-b border-slate-700 focus:border-blue-500 pb-1.5 text-base sm:text-lg text-white appearance-none cursor-pointer focus:outline-none transition-colors [&>option]:bg-[#0A0F1C] [&>option]:text-white"
                   >
-                    <option value="" disabled className="text-slate-500">
+                    <option value="" disabled className="text-slate-600">
                       Select a service
                     </option>
                     {industryOptions.map((opt) => (
@@ -333,50 +331,48 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       </option>
                     ))}
                   </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 mr-3 pointer-events-none flex-shrink-0" />
+                  <ChevronDown size={18} className="absolute right-0 top-0 text-slate-500 pointer-events-none" />
                 </div>
               </div>
 
               {/* Row 4: Project Details */}
-              <div className="space-y-1.5">
-                <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                  <MessageSquare className="w-3.5 h-3.5 text-blue-400" /> Project Details *
+              <div className="space-y-1 relative group">
+                <label className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 block mb-1">
+                  Project Details *
                 </label>
-                <div className="relative flex items-start bg-slate-900/80 border border-slate-700/80 hover:border-slate-600 rounded-xl focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/25 focus-within:bg-slate-950 transition-all shadow-inner">
-                  <textarea
-                    name="projectDetails"
-                    placeholder="Tell us about your project, goals, timeline, or requirements..."
-                    value={formData.projectDetails}
-                    onChange={handleChange}
-                    required
-                    rows={3}
-                    className="w-full bg-transparent px-3.5 py-2.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none resize-none h-[88px] font-semibold"
-                  />
-                </div>
+                <textarea
+                  name="projectDetails"
+                  placeholder="Tell us about your project, goals, timeline, or requirements..."
+                  value={formData.projectDetails}
+                  onChange={handleChange}
+                  required
+                  rows={2}
+                  className="w-full bg-transparent border-b border-slate-700 focus:border-blue-500 pb-1.5 text-base sm:text-lg text-white placeholder:text-slate-600 focus:outline-none resize-none transition-colors"
+                />
               </div>
 
               {/* Row 5: CTA Button & Trust Microcopy */}
-              <div className="pt-2 space-y-2.5">
+              <div className="pt-3 space-y-3">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 active:scale-[0.99] text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(37,99,235,0.4)] hover:shadow-[0_15px_35px_rgba(37,99,235,0.55)] transition-all duration-300 cursor-pointer disabled:opacity-50 tracking-wide uppercase"
+                  className="w-full py-3 px-6 rounded-none bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 active:scale-[0.99] text-white font-bold tracking-wider text-sm sm:text-base flex items-center justify-center gap-2 shadow-[0_8px_25px_rgba(37,99,235,0.3)] transition-all duration-300 cursor-pointer disabled:opacity-50 uppercase"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin text-white" />
+                      <Loader2 className="w-5 h-5 animate-spin text-white" />
                       <span>Submitting...</span>
                     </>
                   ) : (
                     <>
                       <span>Book a Free Consultation</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-5 h-5" />
                     </>
                   )}
                 </button>
 
-                <p className="text-[10px] text-slate-400 text-center flex items-center justify-center gap-1.5 font-medium">
-                  <Shield className="w-3.5 h-3.5 text-blue-400" />
+                <p className="text-xs text-slate-500 text-center flex items-center justify-center gap-2 font-medium">
+                  <Shield className="w-4 h-4 text-blue-500/70" />
                   Your information is strictly confidential and will only be used to respond to your enquiry.
                 </p>
               </div>
@@ -413,8 +409,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         textarea:-webkit-autofill {
-          -webkit-text-fill-color: #111827 !important;
-          -webkit-box-shadow: 0 0 0px 1000px #F8FAFC inset !important;
+          -webkit-text-fill-color: #ffffff !important;
+          -webkit-box-shadow: 0 0 0px 1000px #0A0F1C inset !important;
           transition: background-color 5000s ease-in-out 0s;
         }
       `}</style>
