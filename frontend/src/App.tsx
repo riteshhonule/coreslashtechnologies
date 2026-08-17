@@ -63,22 +63,22 @@ function App() {
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-of-service" element={<TermsOfService />} />
               <Route path="cookie-policy" element={<CookiePolicy />} />
-              <Route path="software-company-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
-              <Route path="top-it-companies-in-belgavi" element={<SoftwareCompanyInBelagavi />} />
+              <Route path="software-company-in-belagavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
+              <Route path="top-it-companies-in-belgavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
               <Route path="top-it-companies-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
 
               <Route path="services">
                 <Route index element={<ServicesIndex />} />
                 <Route path="ai-automation" element={<AIAutomation />} />
                 <Route path="web-development" element={<WebsiteDevelopment />} />
-                <Route path="website-development" element={<WebsiteDevelopment />} />
+                <Route path="website-development" element={<Navigate to="/services/web-development" replace />} />
                 <Route path="app-development" element={<AppDevelopment />} />
                 <Route path="software-systems" element={<SoftwareSystems />} />
                 <Route path="erp-crm-development" element={<Navigate to="/services/software-systems" replace />} />
                 <Route path="ecommerce-solutions" element={<EcommerceWebsite />} />
-                <Route path="ecommerce" element={<EcommerceWebsite />} />
+                <Route path="ecommerce" element={<Navigate to="/services/ecommerce-solutions" replace />} />
                 <Route path="seo-solutions" element={<SEOOptimization />} />
-                <Route path="seo" element={<SEOOptimization />} />
+                <Route path="seo" element={<Navigate to="/services/seo-solutions" replace />} />
                 <Route path="digital-marketing" element={<Navigate to="/services/seo-solutions" replace />} />
                 <Route path="shopify-development" element={<ShopifyDevelopment />} />
                 <Route path="cloud-infrastructure" element={<CloudInfrastructure />} />

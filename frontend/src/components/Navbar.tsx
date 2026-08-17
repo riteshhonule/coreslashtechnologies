@@ -365,7 +365,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             className="overflow-hidden flex flex-col space-y-3 pt-4 pl-4"
                           >
                             {item.dropdown?.map((dropItem) => {
-                              const isDropActive = location.pathname === dropItem.href || (location.pathname === "/services/seo" && dropItem.href === "/services/seo-solutions");
+                              const isDropActive = location.pathname === dropItem.href || (location.pathname === "/services/seo-solutions" && dropItem.href === "/services/seo-solutions");
                               return (
                                 <Link
                                   key={dropItem.label}

@@ -140,7 +140,7 @@ export default function SoftwareSystems() {
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash Technologies provides custom software development services for enterprise SaaS platforms, CRM/ERP systems, microservices backends, and automated data pipelines engineered for regional leaders and <Link to="/top-it-companies-in-belgavi" className="text-blue-400 font-semibold hover:underline">software companies in Belagavi</Link>.
+            CoreSlash Technologies provides custom software development services for enterprise SaaS platforms, CRM/ERP systems, microservices backends, and automated data pipelines engineered for regional leaders and <Link to="/top-it-companies-in-belagavi" className="text-blue-400 font-semibold hover:underline">software companies in Belagavi</Link>.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}

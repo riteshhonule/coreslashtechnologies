@@ -131,6 +131,7 @@ export default function FooterSection() {
                 { label: "About Us", href: "/about" },
                 { label: "Services", href: "/services" },
                 { label: "Portfolio", href: "/portfolio" },
+                { label: "IT Company in Belagavi", href: "/top-it-companies-in-belagavi" },
                 { label: "Partner Program", href: "/partner" },
                 { label: "Careers", href: "/careers" },
                 { label: "Blog Insights", href: "/blog" },

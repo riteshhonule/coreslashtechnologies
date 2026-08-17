@@ -167,6 +167,16 @@
       "source": "/tech-stack",
       "destination": "/services",
       "permanent": true
+    },
+    {
+      "source": "/top-it-companies-in-belgavi",
+      "destination": "/top-it-companies-in-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/software-company-in-belagavi",
+      "destination": "/top-it-companies-in-belagavi",
+      "permanent": true
     }
   ],
   "rewrites": [

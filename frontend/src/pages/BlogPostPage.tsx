@@ -17,6 +17,10 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <div className="py-28 px-6 text-center max-w-[1200px] mx-auto space-y-6">
+        <Helmet>
+          <title>Blog Post Not Found | CoreSlash Technologies</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <h1 className="text-4xl font-black text-foreground">Blog Post Not Found</h1>
         <p className="text-muted-foreground text-base">The article you are looking for does not exist or has been moved.</p>
         <Link to="/blog">
