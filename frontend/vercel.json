@@ -162,6 +162,11 @@
       "source": "/services/website-maintenance",
       "destination": "/services/web-development",
       "permanent": true
+    },
+    {
+      "source": "/tech-stack",
+      "destination": "/services",
+      "permanent": true
     }
   ],
   "rewrites": [
