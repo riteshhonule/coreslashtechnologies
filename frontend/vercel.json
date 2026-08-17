@@ -157,6 +157,11 @@
       "source": "/process",
       "destination": "/services",
       "permanent": true
+    },
+    {
+      "source": "/services/website-maintenance",
+      "destination": "/services/web-development",
+      "permanent": true
     }
   ],
   "rewrites": [
