@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaLinkedinIn, FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
-import { ArrowRight, ChevronDown, Sparkles, User, Mail, Phone, MapPin, Building2, MessageSquare, Shield, Loader2, Check } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles, Shield, Loader2, Check } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface ContactSectionProps {
