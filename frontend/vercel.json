@@ -152,6 +152,11 @@
       "source": "/blog/seo-company-in-bangalore-guide",
       "destination": "/services/seo-solutions",
       "permanent": true
+    },
+    {
+      "source": "/process",
+      "destination": "/services",
+      "permanent": true
     }
   ],
   "rewrites": [
