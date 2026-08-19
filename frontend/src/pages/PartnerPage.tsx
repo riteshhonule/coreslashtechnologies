@@ -7,6 +7,7 @@ import PartnershipModelsSection from "@/components/PartnershipModelsSection";
 import WhiteLabelPartnershipSection from "@/components/WhiteLabelPartnershipSection";
 import PartnershipPrinciplesSection from "@/components/PartnershipPrinciplesSection";
 import PartnerFaqSection from "@/components/PartnerFaqSection";
+import PartnerTechnologyStackSection from "@/components/PartnerTechnologyStackSection";
 import CTASection from "@/components/web-development/CTASection";
 
 export default function PartnerPage() {
@@ -50,11 +51,14 @@ export default function PartnerPage() {
       {/* White-Label Partnership Section */}
       <WhiteLabelPartnershipSection />
 
-      {/* Partnership Principles Section */}
-      <PartnershipPrinciplesSection />
-
       {/* FAQ Section */}
       <PartnerFaqSection />
+
+      {/* Technology Stack Section */}
+      <PartnerTechnologyStackSection />
+
+      {/* Partnership Principles Section */}
+      <PartnershipPrinciplesSection />
 
       {/* CTA Section */}
       <CTASection
