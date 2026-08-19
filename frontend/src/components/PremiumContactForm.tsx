@@ -292,9 +292,9 @@ export function PremiumContactForm({
               )}
             </button>
 
-            <p className="text-xs text-slate-500 text-center flex items-center justify-center gap-2 font-medium">
-              <Shield className="w-4 h-4 text-blue-500/70" />
-              Your information is strictly confidential and will only be used to respond to your enquiry.
+            <p className="text-xs text-slate-400 text-center flex items-center justify-center gap-2 font-medium pt-1">
+              <Shield className="w-4 h-4 text-blue-400 shrink-0" />
+              <span>Your information is strictly confidential and will only be used to respond to your enquiry.</span>
             </p>
           </div>
 
