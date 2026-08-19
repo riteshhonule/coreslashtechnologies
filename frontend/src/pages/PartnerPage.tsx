@@ -51,14 +51,16 @@ export default function PartnerPage() {
       {/* White-Label Partnership Section */}
       <WhiteLabelPartnershipSection />
 
-      {/* FAQ Section */}
-      <PartnerFaqSection />
+      {/* Partnership Principles Section */}
+      <PartnershipPrinciplesSection />
 
       {/* Technology Stack Section */}
       <PartnerTechnologyStackSection />
 
-      {/* Partnership Principles Section */}
-      <PartnershipPrinciplesSection />
+      {/* FAQ Section */}
+      <PartnerFaqSection />
+
+
 
       {/* CTA Section */}
       <CTASection
