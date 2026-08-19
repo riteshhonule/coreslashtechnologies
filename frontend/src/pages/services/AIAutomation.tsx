@@ -132,20 +132,20 @@ export default function AIAutomation() {
         <title>AI Automation & Custom LLM Agent Development | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Accelerate enterprise operations with custom AI agents, autonomous workflows, LLM fine-tuning, RAG vector search, and intelligent process automation."
+          content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/ai-automation" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="AI Automation & Custom LLM Agent Development | CoreSlash Technologies" />
-        <meta property="og:description" content="Accelerate enterprise operations with custom AI agents, autonomous workflows, LLM fine-tuning, RAG vector search, and intelligent process automation." />
+        <meta property="og:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/ai-automation" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI Automation & Custom LLM Agent Development | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Accelerate enterprise operations with custom AI agents, autonomous workflows, LLM fine-tuning, RAG vector search, and intelligent process automation." />
+        <meta name="twitter:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
 
         <script type="application/ld+json">{JSON.stringify(aiSchema)}</script>
       </Helmet>

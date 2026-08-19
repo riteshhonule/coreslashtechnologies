@@ -10,20 +10,20 @@ export default function AboutPage() {
         <title>About Us | CoreSlash Technologies</title>
         <meta 
           name="description" 
-          content="Learn about CoreSlash Technologies, our team, mission, and how we deliver cutting-edge software and web solutions." 
+          content="Discover CoreSlash Technologies, our engineering team, and core mission to deliver custom software, scalable web platforms, and AI innovation for businesses." 
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/about" />
         
         {/* Open Graph SEO */}
         <meta property="og:title" content="About Us | CoreSlash Technologies" />
-        <meta property="og:description" content="Learn about CoreSlash Technologies, our team, mission, and how we deliver cutting-edge software and web solutions." />
+        <meta property="og:description" content="Discover CoreSlash Technologies, our engineering team, and core mission to deliver custom software, scalable web platforms, and AI innovation for businesses." />
         <meta property="og:url" content="https://coreslashtechnologies.com/about" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Us | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Learn about CoreSlash Technologies, our team, mission, and how we deliver cutting-edge software and web solutions." />
+        <meta name="twitter:description" content="Discover CoreSlash Technologies, our engineering team, and core mission to deliver custom software, scalable web platforms, and AI innovation for businesses." />
       </Helmet>
 
       {/* 1. Hero Section */}

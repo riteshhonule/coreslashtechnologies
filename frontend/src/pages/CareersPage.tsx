@@ -150,7 +150,7 @@ export default function CareersPage() {
         <title>Careers & Opportunities | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Join CoreSlash Technologies. Work with cutting-edge technologies, remote freedom, and high-impact engineering teams."
+          content="Explore career opportunities at CoreSlash Technologies. Join our engineering team to build modern web applications, cloud systems, and AI technologies."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/careers" />
       </Helmet>

@@ -77,13 +77,13 @@ export default function Home() {
         <title>CoreSlash Technologies | AI, Web & Software Development</title>
         <meta
           name="description"
-          content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics."
+          content="Accelerate digital growth with CoreSlash Technologies. We engineer custom software systems, scalable web platforms, mobile apps, and AI automation solutions."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="CoreSlash Technologies | AI, Web & Software Development" />
-        <meta property="og:description" content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics." />
+        <meta property="og:description" content="Accelerate digital growth with CoreSlash Technologies. We engineer custom software systems, scalable web platforms, mobile apps, and AI automation solutions." />
         <meta property="og:url" content="https://coreslashtechnologies.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
@@ -91,7 +91,7 @@ export default function Home() {
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="CoreSlash Technologies | AI, Web & Software Development" />
-        <meta name="twitter:description" content="CoreSlash Technologies provides cutting-edge AI Automation, Web Development, Mobile Apps, Enterprise Software Systems, E-Commerce, SEO, Cloud Infrastructure, and Data Analytics." />
+        <meta name="twitter:description" content="Accelerate digital growth with CoreSlash Technologies. We engineer custom software systems, scalable web platforms, mobile apps, and AI automation solutions." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">

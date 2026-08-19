@@ -54,7 +54,7 @@ export default function TermsOfServicePage() {
         <title>Terms of Service | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Review the Terms of Service for CoreSlash Technologies. Understand client agreements, IP code ownership, payment milestones, and legal guidelines."
+          content="Review the CoreSlash Technologies Terms of Service covering custom software delivery agreements, intellectual property ownership, milestone payments, and SLAs."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/terms-of-service" />
       </Helmet>

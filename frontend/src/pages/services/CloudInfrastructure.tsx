@@ -131,20 +131,20 @@ export default function CloudInfrastructure() {
         <title>Cloud Infrastructure & DevOps Engineering Services | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Architect resilient AWS, Azure, and Cloudflare environments with automated CI/CD pipelines, Kubernetes container orchestration, and zero-downtime deployments."
+          content="Optimize cloud operations with CoreSlash Technologies through resilient AWS architecture, Docker containers, automated CI/CD pipelines, and 24/7 DevOps support."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/cloud-infrastructure" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="Cloud Infrastructure & DevOps Engineering Services | CoreSlash Technologies" />
-        <meta property="og:description" content="Architect resilient AWS, Azure, and Cloudflare environments with automated CI/CD pipelines, Kubernetes container orchestration, and zero-downtime deployments." />
+        <meta property="og:description" content="Optimize cloud operations with CoreSlash Technologies through resilient AWS architecture, Docker containers, automated CI/CD pipelines, and 24/7 DevOps support." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/cloud-infrastructure" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Cloud Infrastructure & DevOps Engineering Services | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Architect resilient AWS, Azure, and Cloudflare environments with automated CI/CD pipelines, Kubernetes container orchestration, and zero-downtime deployments." />
+        <meta name="twitter:description" content="Optimize cloud operations with CoreSlash Technologies through resilient AWS architecture, Docker containers, automated CI/CD pipelines, and 24/7 DevOps support." />
 
         <script type="application/ld+json">{JSON.stringify(cloudSchema)}</script>
       </Helmet>

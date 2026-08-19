@@ -17,20 +17,20 @@ export default function PartnerPage() {
         <title>Partner With CoreSlash | CoreSlash Technologies Partner Program</title>
         <meta
           name="description"
-          content="Have a client requirement, software project, website project, or digital transformation opportunity? Partner with CoreSlash for technical expertise and delivery capabilities."
+          content="Partner with CoreSlash Technologies for agency white-label software engineering, sub-contracting, and full-stack technical delivery capabilities."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/partner" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="Partner With CoreSlash | CoreSlash Technologies Partner Program" />
-        <meta property="og:description" content="Have a client requirement, software project, website project, or digital transformation opportunity? Partner with CoreSlash for technical expertise and delivery capabilities." />
+        <meta property="og:description" content="Partner with CoreSlash Technologies for agency white-label software engineering, sub-contracting, and full-stack technical delivery capabilities." />
         <meta property="og:url" content="https://coreslashtechnologies.com/partner" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Partner With CoreSlash | CoreSlash Technologies Partner Program" />
-        <meta name="twitter:description" content="Have a client requirement, software project, website project, or digital transformation opportunity? Partner with CoreSlash for technical expertise and delivery capabilities." />
+        <meta name="twitter:description" content="Partner with CoreSlash Technologies for agency white-label software engineering, sub-contracting, and full-stack technical delivery capabilities." />
       </Helmet>
 
       {/* Hero Section */}

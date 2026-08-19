@@ -250,20 +250,20 @@ export default function ServicesIndex() {
         <title>Full-Stack Software Engineering & Digital Services | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Explore CoreSlash Technologies' software engineering divisions: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics."
+          content="Explore software engineering services by CoreSlash Technologies, spanning AI automation, web development, custom software, mobile apps, and cloud infrastructure."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="Full-Stack Software Engineering & Digital Services | CoreSlash Technologies" />
-        <meta property="og:description" content="Explore CoreSlash Technologies' software engineering divisions: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics." />
+        <meta property="og:description" content="Explore software engineering services by CoreSlash Technologies, spanning AI automation, web development, custom software, mobile apps, and cloud infrastructure." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Full-Stack Software Engineering & Digital Services | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Explore CoreSlash Technologies' software engineering divisions: AI Automation, Web Development, Mobile Apps, Custom Software Systems, E-Commerce, SEO, Shopify, Cloud Infrastructure, and Data Analytics." />
+        <meta name="twitter:description" content="Explore software engineering services by CoreSlash Technologies, spanning AI automation, web development, custom software, mobile apps, and cloud infrastructure." />
 
         <script type="application/ld+json">{JSON.stringify(servicesSchema)}</script>
       </Helmet>

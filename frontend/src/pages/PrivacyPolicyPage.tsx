@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
         <title>Privacy Policy | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Read the Privacy Policy for CoreSlash Technologies. Learn how we collect, protect, and use your personal information."
+          content="Read the CoreSlash Technologies Privacy Policy to understand how client data, personal information, and website analytics are collected, secured, and managed."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/privacy-policy" />
       </Helmet>

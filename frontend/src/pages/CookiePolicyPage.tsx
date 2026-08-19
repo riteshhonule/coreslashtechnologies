@@ -52,7 +52,7 @@ export default function CookiePolicyPage() {
         <title>Cookie Policy | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Learn about the Cookie Policy at CoreSlash Technologies. Discover how we deploy essential, analytics, and functional tracking cookies to enhance user experience."
+          content="Learn how CoreSlash Technologies uses essential, analytical, and performance cookies to optimize site navigation, user experience, and web service functionality."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/cookie-policy" />
       </Helmet>

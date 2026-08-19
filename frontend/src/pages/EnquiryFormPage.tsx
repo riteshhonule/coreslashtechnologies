@@ -120,7 +120,7 @@ export default function EnquiryFormPage() {
         <title>Quick Enquiry | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Submit a quick project enquiry to CoreSlash Technologies. Get a custom quote for AI automation, web development, app development, or software solutions."
+          content="Submit a quick inquiry to CoreSlash Technologies to receive a detailed technical proposal and project estimate for your web, mobile, or AI application."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/enquiry-form" />
       </Helmet>

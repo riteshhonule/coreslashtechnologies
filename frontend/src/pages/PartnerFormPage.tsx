@@ -123,7 +123,7 @@ export default function PartnerFormPage() {
         <title>Partner With Us | CoreSlash Technologies Partner Program</title>
         <meta
           name="description"
-          content="Interested in partnering with CoreSlash Technologies? Fill out our official partner enquiry form to collaborate on software projects and digital transformation."
+          content="Apply to the CoreSlash Technologies Partner Program. Submit your agency details to collaborate on custom web, mobile, and software development projects."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/partner-form" />
       </Helmet>

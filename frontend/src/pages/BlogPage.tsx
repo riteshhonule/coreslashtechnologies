@@ -31,20 +31,20 @@ export default function BlogPage() {
         <title>Blog & Tech Insights | CoreSlash Technologies</title>
         <meta 
           name="description" 
-          content="Explore technical articles, web development guides, local SEO strategies, and software insights from CoreSlash Technologies." 
+          content="Read software engineering insights, full-stack web guides, local SEO strategies, and cloud architecture articles from the CoreSlash Technologies tech team." 
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/blog" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="Blog & Tech Insights | CoreSlash Technologies" />
-        <meta property="og:description" content="Explore technical articles, web development guides, local SEO strategies, and software insights from CoreSlash Technologies." />
+        <meta property="og:description" content="Read software engineering insights, full-stack web guides, local SEO strategies, and cloud architecture articles from the CoreSlash Technologies tech team." />
         <meta property="og:url" content="https://coreslashtechnologies.com/blog" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blog & Tech Insights | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Explore technical articles, web development guides, local SEO strategies, and software insights from CoreSlash Technologies." />
+        <meta name="twitter:description" content="Read software engineering insights, full-stack web guides, local SEO strategies, and cloud architecture articles from the CoreSlash Technologies tech team." />
       </Helmet>
 
       {/* 1. Hero Banner */}

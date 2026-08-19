@@ -54,19 +54,19 @@ export default function EcommerceWebsite() {
     <>
       <Helmet>
         <title>Custom E-Commerce Development | CoreSlash Technologies</title>
-        <meta name="description" content="Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration." />
+        <meta name="description" content="Launch high-converting online storefronts with custom e-commerce development from CoreSlash, featuring fast checkouts, payment APIs, and ERP integrations." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/ecommerce-solutions" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="Custom E-Commerce Development | CoreSlash Technologies" />
-        <meta property="og:description" content="Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration." />
+        <meta property="og:description" content="Launch high-converting online storefronts with custom e-commerce development from CoreSlash, featuring fast checkouts, payment APIs, and ERP integrations." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/ecommerce-solutions" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Custom E-Commerce Development | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Custom headless e-commerce platforms, checkout optimization, multi-currency cart architectures, and ERP integration." />
+        <meta name="twitter:description" content="Launch high-converting online storefronts with custom e-commerce development from CoreSlash, featuring fast checkouts, payment APIs, and ERP integrations." />
 
         <script type="application/ld+json">{JSON.stringify(ecommerceSchema)}</script>
       </Helmet>
