@@ -123,6 +123,13 @@ export default function EnquiryFormPage() {
           content="Submit a quick inquiry to CoreSlash Technologies to receive a detailed technical proposal and project estimate for your web, mobile, or AI application."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/enquiry-form" />
+        <meta property="og:title" content="Quick Enquiry | CoreSlash Technologies" />
+        <meta property="og:description" content="Submit a quick inquiry to CoreSlash Technologies to receive a detailed technical proposal and project estimate for your web, mobile, or AI application." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/enquiry-form" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Quick Enquiry | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Submit a quick inquiry to CoreSlash Technologies to receive a detailed technical proposal and project estimate for your web, mobile, or AI application." />
       </Helmet>
 
       {/* Confetti Animation when Submitted */}

@@ -21,6 +21,7 @@ const SoftwareSystems = lazy(() => import("./pages/services/SoftwareSystems"));
 const AIAutomation = lazy(() => import("./pages/services/AIAutomation"));
 const CloudInfrastructure = lazy(() => import("./pages/services/CloudInfrastructure"));
 const DataAnalytics = lazy(() => import("./pages/services/DataAnalytics"));
+const PPCServices = lazy(() => import("./pages/services/PPCServices"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsOfService = lazy(() => import("./pages/TermsOfServicePage"));
 const CookiePolicy = lazy(() => import("./pages/CookiePolicyPage"));
@@ -83,6 +84,7 @@ function App() {
                 <Route path="shopify-development" element={<ShopifyDevelopment />} />
                 <Route path="cloud-infrastructure" element={<CloudInfrastructure />} />
                 <Route path="data-analytics" element={<DataAnalytics />} />
+                <Route path="ppc" element={<PPCServices />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />

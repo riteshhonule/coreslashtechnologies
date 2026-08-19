@@ -55,6 +55,13 @@ export default function CookiePolicyPage() {
           content="Learn how CoreSlash Technologies uses essential, analytical, and performance cookies to optimize site navigation, user experience, and web service functionality."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/cookie-policy" />
+        <meta property="og:title" content="Cookie Policy | CoreSlash Technologies" />
+        <meta property="og:description" content="Learn how CoreSlash Technologies uses essential, analytical, and performance cookies to optimize site navigation, user experience, and web service functionality." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/cookie-policy" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Cookie Policy | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Learn how CoreSlash Technologies uses essential, analytical, and performance cookies to optimize site navigation, user experience, and web service functionality." />
       </Helmet>
 
       {/* 1. HERO BANNER */}

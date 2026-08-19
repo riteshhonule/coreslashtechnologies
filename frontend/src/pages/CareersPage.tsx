@@ -153,6 +153,13 @@ export default function CareersPage() {
           content="Explore career opportunities at CoreSlash Technologies. Join our engineering team to build modern web applications, cloud systems, and AI technologies."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/careers" />
+        <meta property="og:title" content="Careers & Opportunities | CoreSlash Technologies" />
+        <meta property="og:description" content="Explore career opportunities at CoreSlash Technologies. Join our engineering team to build modern web applications, cloud systems, and AI technologies." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/careers" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Careers & Opportunities | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Explore career opportunities at CoreSlash Technologies. Join our engineering team to build modern web applications, cloud systems, and AI technologies." />
       </Helmet>
 
       {/* 1. Hero Section */}

@@ -58,6 +58,13 @@ export default function PrivacyPolicyPage() {
           content="Read the CoreSlash Technologies Privacy Policy to understand how client data, personal information, and website analytics are collected, secured, and managed."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy | CoreSlash Technologies" />
+        <meta property="og:description" content="Read the CoreSlash Technologies Privacy Policy to understand how client data, personal information, and website analytics are collected, secured, and managed." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/privacy-policy" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Privacy Policy | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Read the CoreSlash Technologies Privacy Policy to understand how client data, personal information, and website analytics are collected, secured, and managed." />
       </Helmet>
 
       {/* 1. HERO BANNER */}

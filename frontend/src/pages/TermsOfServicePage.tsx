@@ -57,6 +57,13 @@ export default function TermsOfServicePage() {
           content="Review the CoreSlash Technologies Terms of Service covering custom software delivery agreements, intellectual property ownership, milestone payments, and SLAs."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/terms-of-service" />
+        <meta property="og:title" content="Terms of Service | CoreSlash Technologies" />
+        <meta property="og:description" content="Review the CoreSlash Technologies Terms of Service covering custom software delivery agreements, intellectual property ownership, milestone payments, and SLAs." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/terms-of-service" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Terms of Service | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Review the CoreSlash Technologies Terms of Service covering custom software delivery agreements, intellectual property ownership, milestone payments, and SLAs." />
       </Helmet>
 
       {/* 1. HERO BANNER */}

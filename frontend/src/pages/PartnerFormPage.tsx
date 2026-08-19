@@ -126,6 +126,13 @@ export default function PartnerFormPage() {
           content="Apply to the CoreSlash Technologies Partner Program. Submit your agency details to collaborate on custom web, mobile, and software development projects."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/partner-form" />
+        <meta property="og:title" content="Partner With Us | CoreSlash Technologies Partner Program" />
+        <meta property="og:description" content="Apply to the CoreSlash Technologies Partner Program. Submit your agency details to collaborate on custom web, mobile, and software development projects." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/partner-form" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Partner With Us | CoreSlash Technologies Partner Program" />
+        <meta name="twitter:description" content="Apply to the CoreSlash Technologies Partner Program. Submit your agency details to collaborate on custom web, mobile, and software development projects." />
       </Helmet>
 
       {/* Main Two-Column Desktop Layout (60% Form / 40% Image) */}

@@ -75,6 +75,13 @@ export default function PPCServices() {
         <title>Google Ads & PPC Management Services | CoreSlash Technologies</title>
         <meta name="description" content="Maximize return on ad spend with target-driven Google Ads and LinkedIn B2B PPC management campaigns optimized for conversions by CoreSlash Technologies." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/ppc" />
+        <meta property="og:title" content="Google Ads & PPC Management Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Maximize return on ad spend with target-driven Google Ads and LinkedIn B2B PPC management campaigns optimized for conversions by CoreSlash Technologies." />
+        <meta property="og:url" content="https://coreslashtechnologies.com/services/ppc" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Google Ads & PPC Management Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Maximize return on ad spend with target-driven Google Ads and LinkedIn B2B PPC management campaigns optimized for conversions by CoreSlash Technologies." />
         <script type="application/ld+json">{JSON.stringify(ppcSchema)}</script>
       </Helmet>
 
