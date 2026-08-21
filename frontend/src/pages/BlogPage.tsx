@@ -106,7 +106,7 @@ export default function BlogPage() {
       {/* 2. Featured Spotlight Article */}
       <section className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 pb-16">
         <div className="flex flex-col items-start gap-2 mb-6">
-          <h2 className="text-2xl sm:text-3xl font-black text-foreground">Featured Article</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-foreground dark:text-white">Featured Article</h2>
         </div>
 
         <motion.div
@@ -135,11 +135,11 @@ export default function BlogPage() {
                 <span>{featuredPost.publishDate}</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black text-foreground leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-black text-foreground dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {featuredPost.title}
               </h3>
 
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              <p className="text-muted-foreground dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                 {featuredPost.summary}
               </p>
             </div>
@@ -164,7 +164,7 @@ export default function BlogPage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-600/10 border-l-4 border-blue-600 text-blue-600 text-xs font-extrabold tracking-wider uppercase">
               LATEST ARTICLES
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground tracking-tight">Explore Recent Posts</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-foreground dark:text-white tracking-tight">Explore Recent Posts</h2>
           </div>
 
           {/* Filter Category Pills */}

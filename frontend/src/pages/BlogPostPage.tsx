@@ -175,13 +175,13 @@ export default function BlogPostPage() {
 
             {/* Intro Lead Paragraph Box */}
             <div className="p-6 sm:p-8 rounded-3xl bg-muted/30 border-l-4 border-blue-600 shadow-sm">
-              <p className="text-lg sm:text-xl font-medium text-foreground leading-relaxed">
+              <p className="text-lg sm:text-xl font-medium text-foreground dark:text-slate-100 leading-relaxed">
                 {post.content.intro}
               </p>
             </div>
 
             {/* Article Content Sections */}
-            <div className="space-y-8 text-base sm:text-lg text-foreground/90 leading-relaxed font-normal">
+            <div className="space-y-8 text-base sm:text-lg text-foreground/90 dark:text-slate-200 leading-relaxed font-normal">
               {post.content.sections.map((section, idx) => (
                 <motion.div 
                   key={idx}
@@ -191,12 +191,12 @@ export default function BlogPostPage() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-border/70 shadow-sm space-y-4"
                 >
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight flex items-center gap-2">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground dark:text-white tracking-tight flex items-center gap-2">
                     <span className="w-2 h-6 bg-blue-600 rounded-full inline-block" />
                     <span>{section.heading}</span>
                   </h2>
                   
-                  <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                  <p className="text-muted-foreground dark:text-slate-300 text-base sm:text-lg leading-relaxed">
                     {section.body}
                   </p>
 
@@ -214,7 +214,7 @@ export default function BlogPostPage() {
                           {section.table.rows.map((row, rIdx) => (
                             <tr key={rIdx} className="hover:bg-muted/50 transition-colors">
                               {row.map((cell, cIdx) => (
-                                <td key={cIdx} className="px-4 py-3 sm:px-6 sm:py-4 text-foreground/90 font-medium">{cell}</td>
+                                <td key={cIdx} className="px-4 py-3 sm:px-6 sm:py-4 text-foreground/90 dark:text-slate-200 font-medium">{cell}</td>
                               ))}
                             </tr>
                           ))}
@@ -226,7 +226,7 @@ export default function BlogPostPage() {
                   {section.bulletPoints && (
                     <div className="space-y-3 pt-3 pl-2 border-t border-border/40">
                       {section.bulletPoints.map((bp, bIdx) => (
-                        <div key={bIdx} className="flex items-start gap-3 text-sm sm:text-base text-foreground/90 font-medium">
+                        <div key={bIdx} className="flex items-start gap-3 text-sm sm:text-base text-foreground/90 dark:text-slate-200 font-medium">
                           <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-1" />
                           <span>{bp}</span>
                         </div>
@@ -260,15 +260,15 @@ export default function BlogPostPage() {
               {/* Article FAQs Section */}
               {post.content.faqs && post.content.faqs.length > 0 && (
                 <div className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-border/80 shadow-sm space-y-6">
-                  <h3 className="text-2xl font-extrabold text-foreground flex items-center gap-2">
+                  <h3 className="text-2xl font-extrabold text-foreground dark:text-white flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     <span>Frequently Asked Questions</span>
                   </h3>
                   <div className="space-y-4">
                     {post.content.faqs.map((faq, fIdx) => (
                       <div key={fIdx} className="p-5 rounded-2xl bg-muted/30 border border-border/50 space-y-2">
-                        <h4 className="text-base font-extrabold text-foreground">{faq.question}</h4>
-                        <p className="text-sm text-muted-foreground font-normal leading-relaxed">{faq.answer}</p>
+                        <h4 className="text-base font-extrabold text-foreground dark:text-white">{faq.question}</h4>
+                        <p className="text-sm text-muted-foreground dark:text-slate-300 font-normal leading-relaxed">{faq.answer}</p>
                       </div>
                     ))}
                   </div>
@@ -320,7 +320,7 @@ export default function BlogPostPage() {
               {/* Related Articles Widget */}
               <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-border/80 shadow-md space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-border/40">
-                  <h3 className="text-base font-black text-foreground flex items-center gap-2">
+                  <h3 className="text-base font-black text-foreground dark:text-white flex items-center gap-2">
                     <BookOpen className="w-4 h-4 text-blue-600 dark:text-blue-400" /> Trending Articles
                   </h3>
                   <Link to="/blog" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
@@ -334,7 +334,7 @@ export default function BlogPostPage() {
                       <img src={rel.coverImage} alt={rel.title} className="w-16 h-16 rounded-xl object-cover shrink-0 border bg-slate-950" />
                       <div className="space-y-1">
                         <span className="text-[10px] font-black uppercase text-blue-600 dark:text-blue-400 block">{rel.category}</span>
-                        <h4 className="text-xs font-bold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+                        <h4 className="text-xs font-bold text-foreground dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
                           {rel.title}
                         </h4>
                       </div>
@@ -352,7 +352,7 @@ export default function BlogPostPage() {
       {/* 3. Full-Width Bottom Recommendations Grid */}
       <section className="relative z-10 w-full py-16 border-t border-border/40 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between mb-8">
-          <h3 className="text-2xl font-black text-foreground">More Recommended Reading</h3>
+          <h3 className="text-2xl font-black text-foreground dark:text-white">More Recommended Reading</h3>
           <Link to="/blog" className="text-xs sm:text-sm font-extrabold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
             <span>Explore All 34 Articles</span>
             <ArrowRight className="w-4 h-4" />
@@ -367,9 +367,9 @@ export default function BlogPostPage() {
                   <img src={rel.coverImage} alt={rel.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <span className="text-xs font-black uppercase text-blue-600 dark:text-blue-400">{rel.category}</span>
-                <h4 className="text-lg font-extrabold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">{rel.title}</h4>
+                <h4 className="text-lg font-extrabold text-foreground dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">{rel.title}</h4>
               </div>
-              <div className="pt-4 border-t border-border/40 mt-4 flex items-center justify-between text-xs text-muted-foreground font-semibold">
+              <div className="pt-4 border-t border-border/40 mt-4 flex items-center justify-between text-xs text-muted-foreground dark:text-slate-400 font-semibold">
                 <span>{rel.publishDate}</span>
                 <span className="text-blue-600 dark:text-blue-400 font-black flex items-center gap-1">Read Post <ArrowRight className="w-3.5 h-3.5" /></span>
               </div>
