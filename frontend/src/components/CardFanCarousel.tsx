@@ -281,7 +281,7 @@ export const SocialCards = ({ cards, className = "" }: SocialCardsProps) => {
                   <div className="relative w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">
                     {card.svgLogo ? (
                       card.svgLogo
-                    ) : card.logoUrl?.endsWith(".png") ? (
+                    ) : card.logoUrl?.includes(".png") ? (
                       <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-md">
                         <img 
                           src={card.logoUrl} 
@@ -294,7 +294,7 @@ export const SocialCards = ({ cards, className = "" }: SocialCardsProps) => {
                         <img 
                           src={card.logoUrl} 
                           alt={card.name} 
-                          className="w-full h-full object-contain brightness-0 invert filter drop-shadow-md" 
+                          className="w-full h-full object-contain filter drop-shadow-md" 
                         />
                       </div>
                     )}
