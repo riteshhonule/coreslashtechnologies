@@ -209,45 +209,19 @@ for (const route of routes) {
   // Replace baseline metadata in templateHtml with route-specific headMeta
   let routeHtml = templateHtml;
 
-  // Insert or update title
-  if (/<title[\s\S]*?<\/title>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<title[\s\S]*?<\/title>/i, `<title data-rh="true">${route.title}</title>`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <title data-rh="true">${route.title}</title>\n</head>`);
-  }
+  // Replace title
+  routeHtml = routeHtml.replace(/<title[\s\S]*?<\/title>/i, `<title data-rh="true">${route.title}</title>`);
 
-  // Insert or update meta description
-  if (/<meta\s+name="description"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+name="description"[\s\S]*?\/>/i, `<meta name="description" content="${route.description}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta name="description" content="${route.description}" data-rh="true" />\n</head>`);
-  }
+  // Replace existing meta description
+  routeHtml = routeHtml.replace(/<meta\s+name="description"[\s\S]*?\/>/i, `<meta name="description" content="${route.description}" data-rh="true" />`);
 
-  // Insert or update OG title & description
-  if (/<meta\s+property="og:title"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+property="og:title"[\s\S]*?\/>/i, `<meta property="og:title" content="${route.title}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta property="og:title" content="${route.title}" data-rh="true" />\n</head>`);
-  }
+  // Replace existing OG title & description
+  routeHtml = routeHtml.replace(/<meta\s+property="og:title"[\s\S]*?\/>/i, `<meta property="og:title" content="${route.title}" data-rh="true" />`);
+  routeHtml = routeHtml.replace(/<meta\s+property="og:description"[\s\S]*?\/>/i, `<meta property="og:description" content="${route.description}" data-rh="true" />`);
 
-  if (/<meta\s+property="og:description"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+property="og:description"[\s\S]*?\/>/i, `<meta property="og:description" content="${route.description}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta property="og:description" content="${route.description}" data-rh="true" />\n</head>`);
-  }
-
-  // Insert or update Twitter title & description
-  if (/<meta\s+name="twitter:title"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+name="twitter:title"[\s\S]*?\/>/i, `<meta name="twitter:title" content="${route.title}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta name="twitter:title" content="${route.title}" data-rh="true" />\n</head>`);
-  }
-
-  if (/<meta\s+name="twitter:description"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+name="twitter:description"[\s\S]*?\/>/i, `<meta name="twitter:description" content="${route.description}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta name="twitter:description" content="${route.description}" data-rh="true" />\n</head>`);
-  }
+  // Replace existing Twitter title & description
+  routeHtml = routeHtml.replace(/<meta\s+name="twitter:title"[\s\S]*?\/>/i, `<meta name="twitter:title" content="${route.title}" data-rh="true" />`);
+  routeHtml = routeHtml.replace(/<meta\s+name="twitter:description"[\s\S]*?\/>/i, `<meta name="twitter:description" content="${route.description}" data-rh="true" />`);
 
   // Insert or update canonical tag
   if (routeHtml.includes('rel="canonical"')) {
