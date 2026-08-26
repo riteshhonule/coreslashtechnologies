@@ -6,18 +6,89 @@ import { cn } from "@/lib/utils";
 import {
   SiReact, SiNextdotjs, SiVuedotjs, SiAngular, SiJavascript, SiTypescript,
   SiFlutter, SiSwift, SiKotlin, SiThreedotjs, SiGreensock,
-  SiNodedotjs, SiPython, SiDjango, SiSpringboot, SiPhp, SiLaravel,
+  SiNodedotjs, SiDjango, SiSpringboot, SiPhp, SiLaravel,
   SiDotnet, SiGo, SiRubyonrails, SiKibana,
   SiFigma, SiSketch, SiMarvelapp
 } from "react-icons/si";
 import { FaJava, FaWindows, FaPalette, FaImage } from "react-icons/fa";
 
-type TechCategory = "FRONT-END" | "BACK-END" | "DESIGN";
+import openaiLogo from "@/assets/tech/coreslash_openai_logo.svg";
+import geminiLogo from "@/assets/tech/coreslash_gemini_logo.svg";
+import claudeLogo from "@/assets/tech/coreslash_claude_logo.svg";
+import n8nLogo from "@/assets/tech/coreslash_n8n_logo.svg";
+import makeLogo from "@/assets/tech/coreslash_make_logo.svg";
+import clayLogo from "@/assets/tech/coreslash_clay_logo.svg";
+import apolloLogo from "@/assets/tech/coreslash_apollo_logo.svg";
+import firecrawlLogo from "@/assets/tech/coreslash_firecrawl_logo.svg";
+import apifyLogo from "@/assets/tech/coreslash_apify_logo.svg";
+import playwrightLogo from "@/assets/tech/coreslash_playwright_logo.svg";
+import crawleeLogo from "@/assets/tech/coreslash_crawlee_logo.svg";
+import pythonLogo from "@/assets/tech/coreslash_python_logo.svg";
+import postgresqlLogo from "@/assets/tech/coreslash_postgresql_logo.svg";
+import redisLogo from "@/assets/tech/coreslash_redis_logo.svg";
+import bullmqLogo from "@/assets/tech/coreslash_bullmq_logo.svg";
+import awsLambdaLogo from "@/assets/tech/coreslash_aws_lambda_logo.svg";
+import awsEventBridgeLogo from "@/assets/tech/coreslash_aws_eventbridge_logo.svg";
 
-const CATEGORIES: TechCategory[] = ["FRONT-END", "BACK-END", "DESIGN"];
+type TechCategory = 
+  | "AI & LLM" 
+  | "AUTOMATION" 
+  | "AI RESEARCH & DATA" 
+  | "ENGINEERING" 
+  | "DATA & INFRASTRUCTURE" 
+  | "FRONT-END & MOBILE" 
+  | "DESIGN";
 
-const techData: Record<TechCategory, { name: string; icon: React.ReactNode; color: string }[]> = {
-  "FRONT-END": [
+const CATEGORIES: TechCategory[] = [
+  "AI & LLM",
+  "AUTOMATION",
+  "AI RESEARCH & DATA",
+  "ENGINEERING",
+  "DATA & INFRASTRUCTURE",
+  "FRONT-END & MOBILE",
+  "DESIGN"
+];
+
+const techData: Record<TechCategory, { name: string; icon: React.ReactNode; color?: string }[]> = {
+  "AI & LLM": [
+    { name: "OpenAI", icon: <img src={openaiLogo} alt="OpenAI" className="w-8 h-8 object-contain" />, color: "#10A37F" },
+    { name: "Google Gemini", icon: <img src={geminiLogo} alt="Google Gemini" className="w-8 h-8 object-contain" />, color: "#1A73E8" },
+    { name: "Claude", icon: <img src={claudeLogo} alt="Claude" className="w-8 h-8 object-contain" />, color: "#D97757" },
+  ],
+  "AUTOMATION": [
+    { name: "n8n", icon: <img src={n8nLogo} alt="n8n" className="w-8 h-8 object-contain" />, color: "#EA4B71" },
+    { name: "Make", icon: <img src={makeLogo} alt="Make" className="w-8 h-8 object-contain" />, color: "#9333EA" },
+  ],
+  "AI RESEARCH & DATA": [
+    { name: "Clay", icon: <img src={clayLogo} alt="Clay" className="w-8 h-8 object-contain" />, color: "#2563EB" },
+    { name: "Apollo", icon: <img src={apolloLogo} alt="Apollo" className="w-8 h-8 object-contain" />, color: "#F97316" },
+    { name: "Firecrawl", icon: <img src={firecrawlLogo} alt="Firecrawl" className="w-8 h-8 object-contain" />, color: "#FF4500" },
+    { name: "Apify", icon: <img src={apifyLogo} alt="Apify" className="w-8 h-8 object-contain" />, color: "#00C676" },
+  ],
+  "ENGINEERING": [
+    { name: "Python", icon: <img src={pythonLogo} alt="Python" className="w-8 h-8 object-contain" />, color: "#3776AB" },
+    { name: "Playwright", icon: <img src={playwrightLogo} alt="Playwright" className="w-8 h-8 object-contain" />, color: "#2EAD33" },
+    { name: "Crawlee", icon: <img src={crawleeLogo} alt="Crawlee" className="w-8 h-8 object-contain" />, color: "#FF6B6B" },
+    { name: "TypeScript", icon: <SiTypescript />, color: "#3178C6" },
+    { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
+    { name: "Go", icon: <SiGo />, color: "#00ADD8" },
+    { name: "Java", icon: <FaJava />, color: "#007396" },
+    { name: "Spring Boot", icon: <SiSpringboot />, color: "#6DB33F" },
+    { name: "Django", icon: <SiDjango />, color: "#092E20" },
+    { name: "PHP", icon: <SiPhp />, color: "#777BB4" },
+    { name: "Laravel", icon: <SiLaravel />, color: "#FF2D20" },
+    { name: ".NET", icon: <SiDotnet />, color: "#512BD4" },
+    { name: "Ruby on Rails", icon: <SiRubyonrails />, color: "#CC0000" },
+  ],
+  "DATA & INFRASTRUCTURE": [
+    { name: "PostgreSQL", icon: <img src={postgresqlLogo} alt="PostgreSQL" className="w-8 h-8 object-contain" />, color: "#336791" },
+    { name: "Redis", icon: <img src={redisLogo} alt="Redis" className="w-8 h-8 object-contain" />, color: "#DC382D" },
+    { name: "BullMQ", icon: <img src={bullmqLogo} alt="BullMQ" className="w-8 h-8 object-contain" />, color: "#E11D48" },
+    { name: "AWS Lambda", icon: <img src={awsLambdaLogo} alt="AWS Lambda" className="w-8 h-8 object-contain" />, color: "#FF9900" },
+    { name: "AWS EventBridge", icon: <img src={awsEventBridgeLogo} alt="AWS EventBridge" className="w-8 h-8 object-contain" />, color: "#FF9900" },
+    { name: "Kibana", icon: <SiKibana />, color: "#005571" },
+  ],
+  "FRONT-END & MOBILE": [
     { name: "React.js", icon: <SiReact />, color: "#61DAFB" },
     { name: "Next.js", icon: <SiNextdotjs />, color: "#000000" },
     { name: "Vue.js", icon: <SiVuedotjs />, color: "#4FC08D" },
@@ -31,19 +102,6 @@ const techData: Record<TechCategory, { name: string; icon: React.ReactNode; colo
     { name: "Three.js", icon: <SiThreedotjs />, color: "#000000" },
     { name: "GSAP", icon: <SiGreensock />, color: "#88CE02" },
   ],
-  "BACK-END": [
-    { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
-    { name: "Python", icon: <SiPython />, color: "#3776AB" },
-    { name: "Django", icon: <SiDjango />, color: "#092E20" },
-    { name: "Java", icon: <FaJava />, color: "#007396" },
-    { name: "Spring Boot", icon: <SiSpringboot />, color: "#6DB33F" },
-    { name: "PHP", icon: <SiPhp />, color: "#777BB4" },
-    { name: "Laravel", icon: <SiLaravel />, color: "#FF2D20" },
-    { name: ".NET", icon: <SiDotnet />, color: "#512BD4" },
-    { name: "Go", icon: <SiGo />, color: "#00ADD8" },
-    { name: "Ruby on Rails", icon: <SiRubyonrails />, color: "#CC0000" },
-    { name: "Kibana", icon: <SiKibana />, color: "#005571" },
-  ],
   "DESIGN": [
     { name: "Figma", icon: <SiFigma />, color: "#F24E1E" },
     { name: "Adobe XD", icon: <FaPalette />, color: "#FF61F6" },
@@ -54,7 +112,7 @@ const techData: Record<TechCategory, { name: string; icon: React.ReactNode; colo
 };
 
 export default function TechnologiesSection() {
-  const [activeTab, setActiveTab] = useState<TechCategory>("FRONT-END");
+  const [activeTab, setActiveTab] = useState<TechCategory>("AI & LLM");
 
   const currentTechs = techData[activeTab];
 
@@ -85,9 +143,10 @@ export default function TechnologiesSection() {
           </h2>
 
           <p className="hidden md:block text-slate-500 text-sm md:text-base leading-[1.8] max-w-4xl mx-auto">
-            We leverage advanced technologies, modern development frameworks, and industry-leading tools to build secure, scalable, and high-performance digital solutions. Our technology expertise enables us to deliver innovative software, web applications, mobile apps, and enterprise solutions tailored to diverse business requirements.
+            We leverage advanced AI models, intelligent workflow automation tools, data engineering frameworks, and modern cloud infrastructure to build secure, scalable, and high-performance digital solutions tailored to diverse business requirements.
           </p>
         </motion.div>
+
         {/* ========================================================
             TABS NAVIGATION
             ======================================================== */}
@@ -163,3 +222,4 @@ export default function TechnologiesSection() {
     </section>
   );
 }
+
