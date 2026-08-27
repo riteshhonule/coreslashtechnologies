@@ -1065,22 +1065,6 @@ const rawPosts = [
     "summary": "A practical 2026 guide for Belagavi businesses to optimize Google Business Profiles, improve Google Maps 3-Pack rankings, maintain NAP consistency, build local citations, and drive organic local search leads."
   },
   {
-    "id": "best-digital-marketing-company-in-belagavi",
-    "slug": "best-digital-marketing-company-in-belagavi",
-    "title": "Best Digital Marketing Company in Belagavi & North Karnataka",
-    "metaDescription": "Empower your Belagavi business with performance marketing, high-converting web design, and targeted social media advertising by CoreSlash.",
-    "publishDate": "July 12, 2026",
-    "readTime": "6 min read",
-    "category": "SEO Strategy",
-    "author": {
-      "name": "CoreSlash Belagavi Lab",
-      "role": "Senior Growth Consultant",
-      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
-    },
-    "coverImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=80",
-    "summary": "A comprehensive guide on how Belagavi companies can dominate local search results and scale revenue using CoreSlash's proven digital growth engine."
-  },
-  {
     "id": "regional-brand-authority-belagavi",
     "slug": "regional-brand-authority-belagavi",
     "title": "Building Regional Brand Authority & Organic Traffic in Belagavi & Karnataka",
