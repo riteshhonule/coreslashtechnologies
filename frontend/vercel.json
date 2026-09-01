@@ -4,6 +4,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(.*)\\.vercel\\.app"
+        }
+      ],
+      "destination": "https://coreslashtechnologies.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/services/cloud-solutions",
       "destination": "/services/cloud-infrastructure",
       "permanent": true
