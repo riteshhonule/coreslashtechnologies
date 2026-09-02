@@ -1624,8 +1624,8 @@ const rawPosts = [
     "summary": "Why engineering custom web applications with React.js and Next.js ensures sub-second page rendering and modular scalability for Belagavi tech firms."
   },
   {
-    "id": "best-software-development-company-in-india",
-    "slug": "best-software-development-company-in-india",
+    "id": "best-software-development-company-in-india-custom-erp",
+    "slug": "best-software-development-company-in-india-custom-erp",
     "title": "Best Software Development Company in India & Custom ERP Solutions",
     "metaDescription": "CoreSlash Technologies is a top software development company in India building custom ERPs, SaaS platforms, and enterprise cloud solutions.",
     "publishDate": "May 15, 2026",
