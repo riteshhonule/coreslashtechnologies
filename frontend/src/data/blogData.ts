@@ -1834,10 +1834,158 @@ const rawPosts = [
   }
 ];
 
+const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
+  "best-web-development-company-in-belagavi": [
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "SEO Solutions", path: "/services/seo-solutions" }
+  ],
+  "digital-marketing-strategy-belagavi": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "PPC Advertising", path: "/services/ppc" }
+  ],
+  "how-to-choose-seo-company-belagavi": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "Data Analytics", path: "/services/data-analytics" }
+  ],
+  "latest-trends-website-development-india": [
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "Software Systems", path: "/services/software-systems" }
+  ],
+  "scaling-your-brand-digital-marketing-agency": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "PPC Advertising", path: "/services/ppc" }
+  ],
+  "future-of-ai-in-digital-marketing": [
+    { title: "AI Automation", path: "/services/ai-automation" },
+    { title: "Data Analytics", path: "/services/data-analytics" }
+  ],
+  "local-seo-google-maps-belagavi": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "PPC Advertising", path: "/services/ppc" }
+  ],
+  "regional-brand-authority-belagavi": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "Web Development", path: "/services/web-development" }
+  ],
+  "b2b-lead-generation-belagavi": [
+    { title: "PPC Advertising", path: "/services/ppc" },
+    { title: "SEO Solutions", path: "/services/seo-solutions" }
+  ],
+  "coreslash-digital-marketing-belagavi": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "Data Analytics", path: "/services/data-analytics" },
+    { title: "PPC Advertising", path: "/services/ppc" }
+  ],
+  "industrial-digital-marketing-belagavi": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "Software Systems", path: "/services/software-systems" }
+  ],
+  "technical-seo-audits-belagavi": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "Web Development", path: "/services/web-development" }
+  ],
+  "best-digital-marketing-company-in-india": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "PPC Advertising", path: "/services/ppc" }
+  ],
+  "best-web-development-company-in-india": [
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
+  ],
+  "how-to-select-it-company-belagavi": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "Web Development", path: "/services/web-development" }
+  ],
+  "best-software-development-company-in-india": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
+  ],
+  "best-software-company-in-belagavi": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "AI Automation", path: "/services/ai-automation" }
+  ],
+  "digital-marketing-roi-belagavi": [
+    { title: "Data Analytics", path: "/services/data-analytics" },
+    { title: "PPC Advertising", path: "/services/ppc" },
+    { title: "SEO Solutions", path: "/services/seo-solutions" }
+  ],
+  "best-ppc-agency-in-karnataka": [
+    { title: "PPC Advertising", path: "/services/ppc" },
+    { title: "Data Analytics", path: "/services/data-analytics" }
+  ],
+  "social-media-marketing-belagavi": [
+    { title: "PPC Advertising", path: "/services/ppc" },
+    { title: "SEO Solutions", path: "/services/seo-solutions" }
+  ],
+  "react-nextjs-development-belagavi": [
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "Software Systems", path: "/services/software-systems" }
+  ],
+  "best-software-development-company-in-india-custom-erp": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
+  ],
+  "why-belagavi-businesses-moving-custom-cloud": [
+    { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" },
+    { title: "Software Systems", path: "/services/software-systems" }
+  ],
+  "how-to-choose-best-web-design-company-belagavi": [
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "Ecommerce Solutions", path: "/services/ecommerce-solutions" }
+  ],
+  "digital-transformation-small-businesses": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "AI Automation", path: "/services/ai-automation" },
+    { title: "Web Development", path: "/services/web-development" }
+  ],
+  "roi-professional-digital-marketing-clinics": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "PPC Advertising", path: "/services/ppc" }
+  ],
+  "ecommerce-website-setup-checklist": [
+    { title: "Ecommerce Solutions", path: "/services/ecommerce-solutions" },
+    { title: "Shopify Development", path: "/services/shopify-development" }
+  ],
+  "custom-software-vs-saas-karnataka": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
+  ],
+  "how-coreslash-modernizing-it-belagavi": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "AI Automation", path: "/services/ai-automation" }
+  ],
+  "why-mobile-app-development-booming-tier2": [
+    { title: "App Development", path: "/services/app-development" },
+    { title: "Software Systems", path: "/services/software-systems" }
+  ],
+  "what-to-look-for-hiring-it-consultants": [
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
+  ],
+  "local-seo-vs-national-seo-guide": [
+    { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "PPC Advertising", path: "/services/ppc" }
+  ],
+  "why-every-business-needs-website-2026": [
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "SEO Solutions", path: "/services/seo-solutions" }
+  ],
+  "custom-vs-template-website-2026": [
+    { title: "Web Development", path: "/services/web-development" },
+    { title: "Ecommerce Solutions", path: "/services/ecommerce-solutions" }
+  ]
+};
+
 export const BLOG_POSTS: BlogPost[] = rawPosts.map((post, index) => {
   const category = post["category"] as BlogCategory;
   const bespoke = bespokeArticlesContent[post.slug];
-  const content = bespoke || generateCategorySpecificContent(post.title, post.summary, category);
+  const baseContent = bespoke || generateCategorySpecificContent(post.title, post.summary, category);
+  const relatedServices = relatedServicesMap[post.slug] || [];
+  const content = {
+    ...baseContent,
+    relatedServices: baseContent.relatedServices || relatedServices
+  };
 
   return {
     ...post,
