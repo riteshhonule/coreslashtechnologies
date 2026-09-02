@@ -140,11 +140,13 @@ export default function DataAnalytics() {
         <meta property="og:description" content="Transform complex operational data into actionable insights with real-time executive dashboards, automated ETL pipelines, and business intelligence solutions." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/data-analytics" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Data Analytics & Business Intelligence Services | CoreSlash Technologies" />
         <meta name="twitter:description" content="Transform complex operational data into actionable insights with real-time executive dashboards, automated ETL pipelines, and business intelligence solutions." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(dataSchema)}</script>
       </Helmet>

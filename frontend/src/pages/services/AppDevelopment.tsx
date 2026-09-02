@@ -135,11 +135,13 @@ export default function AppDevelopment() {
         <meta property="og:description" content="Engineer cross-platform mobile apps for iOS and Android using Flutter and React Native, featuring smooth UI, offline sync, and secure APIs by CoreSlash." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/app-development" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mobile App Development Services | CoreSlash Technologies" />
         <meta name="twitter:description" content="Engineer cross-platform mobile apps for iOS and Android using Flutter and React Native, featuring smooth UI, offline sync, and secure APIs by CoreSlash." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(appDevSchema)}</script>
       </Helmet>

@@ -62,11 +62,13 @@ export default function EcommerceWebsite() {
         <meta property="og:description" content="Launch high-converting online storefronts with custom e-commerce development from CoreSlash, featuring fast checkouts, payment APIs, and ERP integrations." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/ecommerce-solutions" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Custom E-Commerce Development | CoreSlash Technologies" />
         <meta name="twitter:description" content="Launch high-converting online storefronts with custom e-commerce development from CoreSlash, featuring fast checkouts, payment APIs, and ERP integrations." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(ecommerceSchema)}</script>
       </Helmet>

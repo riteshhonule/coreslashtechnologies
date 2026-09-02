@@ -110,11 +110,13 @@ export default function SoftwareSystems() {
         <meta property="og:description" content="Streamline enterprise operations with custom software systems from CoreSlash Technologies, including scalable ERP platforms, CRMs, and backend microservices." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/software-systems" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Custom Software Systems & Enterprise Solutions | CoreSlash Technologies" />
         <meta name="twitter:description" content="Streamline enterprise operations with custom software systems from CoreSlash Technologies, including scalable ERP platforms, CRMs, and backend microservices." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(softwareSchema)}</script>
       </Helmet>

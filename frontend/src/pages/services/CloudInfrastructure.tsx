@@ -140,11 +140,13 @@ export default function CloudInfrastructure() {
         <meta property="og:description" content="Optimize cloud operations with CoreSlash Technologies through resilient AWS architecture, Docker containers, automated CI/CD pipelines, and 24/7 DevOps support." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/cloud-infrastructure" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Cloud Infrastructure & DevOps Engineering Services | CoreSlash Technologies" />
         <meta name="twitter:description" content="Optimize cloud operations with CoreSlash Technologies through resilient AWS architecture, Docker containers, automated CI/CD pipelines, and 24/7 DevOps support." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(cloudSchema)}</script>
       </Helmet>

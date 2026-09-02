@@ -116,11 +116,13 @@ export default function WebsiteDevelopment() {
         <meta property="og:description" content="Build high-performance React and Next.js web applications, corporate portals, and SaaS platforms with custom web development by CoreSlash Technologies." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/web-development" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Custom Web Development Services | CoreSlash Technologies" />
         <meta name="twitter:description" content="Build high-performance React and Next.js web applications, corporate portals, and SaaS platforms with custom web development by CoreSlash Technologies." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">
           {JSON.stringify(serviceSchema)}

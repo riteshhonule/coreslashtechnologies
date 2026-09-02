@@ -141,11 +141,13 @@ export default function AIAutomation() {
         <meta property="og:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/ai-automation" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI Automation & Custom LLM Agent Development | CoreSlash Technologies" />
         <meta name="twitter:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
+        <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(aiSchema)}</script>
       </Helmet>
