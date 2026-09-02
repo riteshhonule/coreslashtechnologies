@@ -44,9 +44,14 @@ export default function BlogPostPage() {
     "image": post.coverImage,
     "datePublished": post.publishDate,
     "author": {
-      "@type": "Organization",
-      "name": "CoreSlash Technologies",
-      "url": "https://coreslashtechnologies.com/"
+      "@type": "Person",
+      "name": post.author.name,
+      "jobTitle": post.author.role,
+      "worksFor": {
+        "@type": "Organization",
+        "name": "CoreSlash Technologies",
+        "url": "https://coreslashtechnologies.com/"
+      }
     },
     "publisher": {
       "@type": "Organization",
