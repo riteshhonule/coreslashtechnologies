@@ -247,10 +247,10 @@ export default function ServicesIndex() {
   return (
     <div className="w-full min-h-screen bg-background text-foreground overflow-hidden">
       <Helmet>
-        <title>Full-Stack Software Engineering & Digital Services | CoreSlash Technologies</title>
+        <title>Software Development Services | Web, AI & IT Solutions | CoreSlash</title>
         <meta
           name="description"
-          content="Explore software engineering services by CoreSlash Technologies, spanning AI automation, web development, custom software, mobile apps, and cloud infrastructure."
+          content="Explore CoreSlash Technologies software development services, including web, AI, mobile apps, custom software, e-commerce, cloud, SEO, and data analytics."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services" />
 
