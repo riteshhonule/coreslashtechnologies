@@ -101,8 +101,8 @@ export default function SoftwareSystems() {
   return (
     <>
       <Helmet>
-        <title>Custom Software Systems & Enterprise Solutions | CoreSlash Technologies</title>
-        <meta name="description" content="Streamline enterprise operations with custom software systems from CoreSlash Technologies, including scalable ERP platforms, CRMs, and backend microservices." />
+        <title>Custom Software Development Services | Enterprise Software | CoreSlash</title>
+        <meta name="description" content="Custom software development services by CoreSlash Technologies, building enterprise software, SaaS platforms, ERP systems, CRM solutions, and cloud microservices." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/software-systems" />
 
         {/* Open Graph SEO */}
