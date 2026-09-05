@@ -310,7 +310,7 @@ export default function SoftwareCompanyInBelagavi() {
         <title>Top IT Companies in Belagavi (Belgaum) | Software Development</title>
         <meta
           name="description"
-          content="Discover leading software development and IT services in Belagavi by CoreSlash Technologies, covering custom web apps, mobile solutions, and enterprise software."
+          content="Discover the top IT and software companies in Belgaum (Belagavi), Karnataka. Explore leading technology firms, software services, and digital solutions for businesses."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
 
