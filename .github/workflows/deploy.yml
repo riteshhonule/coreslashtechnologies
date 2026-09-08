@@ -64,30 +64,3 @@ jobs:
         run: |
           cd backend
           npm run build
-
-  deploy:
-    name: Production Deployment & Health Verification
-    needs: audit-and-build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to Server via SSH
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.PROD_SERVER_IP }}
-          username: ${{ secrets.PROD_SERVER_USER }}
-          key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
-          script: |
-            set -e
-            cd /var/www/coreslash/backend
-            git fetch origin main
-            git reset --hard origin/main
-            npm ci
-            npm run build
-            npx prisma migrate status
-            pm2 reload ecosystem.config.js --env production
-            sleep 5
-            curl -f http://127.0.0.1:5000/api/v1/health/liveness || exit 1
-            curl -f http://127.0.0.1:5000/api/v1/health/readiness || exit 1
-            echo "CoreSlash Backend successfully deployed and verified healthy!"
