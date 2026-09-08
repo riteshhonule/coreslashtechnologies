@@ -50,6 +50,11 @@ const routes = [
     description: 'Get in touch with CoreSlash Technologies to discuss your custom web, mobile app, software engineering, or AI automation project with senior technical leads.'
   },
   {
+    path: '/website-audit',
+    title: 'Free AI Website Audit & Performance Analyzer | CoreSlash Technologies',
+    description: 'Audit your website performance, SEO, mobile responsiveness, accessibility, security headers, technology stack, and AI readiness with CoreSlash Technologies.'
+  },
+  {
     path: '/partner',
     title: 'Partner With CoreSlash | CoreSlash Technologies Partner Program',
     description: 'Partner with CoreSlash Technologies for agency white-label software engineering, sub-contracting, and full-stack technical delivery capabilities.'

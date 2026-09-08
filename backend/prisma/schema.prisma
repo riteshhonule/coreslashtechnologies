@@ -84,3 +84,36 @@ model PartnershipEnquiry {
   updatedAt        DateTime          @updatedAt
 }
 
+enum AuditStatus {
+  PENDING
+  FETCHING_WEBSITE
+  PERFORMANCE_ANALYSIS
+  SEO_ANALYSIS
+  MOBILE_ANALYSIS
+  ACCESSIBILITY_ANALYSIS
+  SECURITY_ANALYSIS
+  TECH_STACK_DETECTION
+  AI_READINESS_ANALYSIS
+  COMPETITOR_ANALYSIS
+  GENERATING_REPORT
+  COMPLETED
+  FAILED
+}
+
+model WebsiteAudit {
+  id            Int         @id @default(autoincrement())
+  auditId       String      @unique
+  url           String
+  competitorUrl String?
+  email         String?
+  status        AuditStatus @default(PENDING)
+  overallScore  Int?
+  grade         String?
+  reportJson    Json?
+  errorMessage  String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  completedAt   DateTime?
+}
+
+

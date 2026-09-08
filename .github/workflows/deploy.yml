@@ -52,6 +52,9 @@ jobs:
           npm ci
 
       - name: Verify Prisma Schema Integrity
+        env:
+          DATABASE_URL: postgresql://postgres:testpassword@localhost:5432/coreslash_test
+          DIRECT_URL: postgresql://postgres:testpassword@localhost:5432/coreslash_test
         run: |
           cd backend
           npx prisma validate

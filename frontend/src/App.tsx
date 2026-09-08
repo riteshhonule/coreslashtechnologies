@@ -29,6 +29,7 @@ const EnquiryFormPage = lazy(() => import("./pages/EnquiryFormPage"));
 const PartnerPage = lazy(() => import("./pages/PartnerPage"));
 const PartnerFormPage = lazy(() => import("./pages/PartnerFormPage"));
 const SoftwareCompanyInBelagavi = lazy(() => import("./pages/SoftwareCompanyInBelagavi"));
+const WebsiteAudit = lazy(() => import("./pages/WebsiteAuditPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AdminLayout = lazy(() => import("./components/admin/AdminLayout"));
@@ -52,6 +53,8 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="portfolio" element={<Portfolio />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="website-audit" element={<WebsiteAudit />} />
+              <Route path="ai-tools" element={<Navigate to="/website-audit" replace />} />
               <Route path="partner" element={<PartnerPage />} />
               <Route path="partner-program" element={<PartnerPage />} />
               <Route path="dealership" element={<PartnerPage />} />
