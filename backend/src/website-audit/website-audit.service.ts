@@ -108,73 +108,326 @@ export class WebsiteAuditService {
   private async processAudit(auditId: string, url: string, competitorUrl?: string) {
     this.logger.log(`[Audit ${auditId}] Background audit process started for target: ${url}`);
     try {
+      // =========================================================================
+      // PHASE 1 — FAST REPORT (Fetch + SEO + Mobile + Accessibility + Security + Tech + AI + UX)
+      // Execution target: ~5 to 10 seconds total on Render Free
+      // =========================================================================
+
       // Stage 1: FETCHING_WEBSITE with redirect-safe SSRF validation
-      this.logger.log(`[Audit ${auditId}] Stage 1: Fetching website structure & checking SSRF...`);
+      this.logger.log(`[Audit ${auditId}] Phase 1 (1/8): Fetching website structure & checking SSRF...`);
       await this.updateStatus(auditId, AuditStatus.FETCHING_WEBSITE);
       const mainFetch = await fetchSafeWithSsrfRedirects(url, { timeoutMs: 12000, maxRedirects: 5 });
 
-      // Stage 2: PERFORMANCE_ANALYSIS (Mobile & Desktop Lighthouse)
-      await this.updateStatus(auditId, AuditStatus.PERFORMANCE_ANALYSIS);
-
-      this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse mobile started...`);
-      const mobilePerf = await this.runPageSpeedAudit(mainFetch.finalUrl, 'mobile');
-      if (mobilePerf.status === 'SUCCESS') {
-        this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse mobile completed (Score: ${mobilePerf.score})`);
-      } else {
-        this.logger.warn(`[Audit ${auditId}] Stage 2: Lighthouse mobile failed: ${mobilePerf.error}`);
-      }
-
-      this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse desktop started...`);
-      const desktopPerf = await this.runPageSpeedAudit(mainFetch.finalUrl, 'desktop');
-      if (desktopPerf.status === 'SUCCESS') {
-        this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse desktop completed (Score: ${desktopPerf.score})`);
-      } else {
-        this.logger.warn(`[Audit ${auditId}] Stage 2: Lighthouse desktop failed: ${desktopPerf.error}`);
-      }
-
-      const targetPerfScore = this.calculatePerformanceCategoryScore(mobilePerf.score, desktopPerf.score);
-
-      // Stage 3: SEO_ANALYSIS
-      this.logger.log(`[Audit ${auditId}] Stage 3: SEO analysis started...`);
+      // Stage 2 (Fast): SEO_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Phase 1 (2/8): SEO analysis started...`);
       await this.updateStatus(auditId, AuditStatus.SEO_ANALYSIS);
       const seoResult = await this.analyzeSeo(mainFetch.html, mainFetch.headers, mainFetch.finalUrl);
 
-      // Stage 4: MOBILE_ANALYSIS
-      this.logger.log(`[Audit ${auditId}] Stage 4: Mobile analysis started...`);
+      // Stage 3 (Fast): MOBILE_ANALYSIS (HTML Heuristics)
+      this.logger.log(`[Audit ${auditId}] Phase 1 (3/8): Mobile HTML heuristics started...`);
       await this.updateStatus(auditId, AuditStatus.MOBILE_ANALYSIS);
-      const mobileResult = this.analyzeMobile(mainFetch.html, mobilePerf);
+      let initialMobilePerf: PageSpeedMetricResult = {
+        isMeasured: false,
+        status: 'IN_PROGRESS',
+        strategy: 'mobile',
+        score: null,
+        accessibilityScore: null,
+        fcp: null,
+        lcp: null,
+        tbt: null,
+        cls: null,
+        speedIndex: null,
+      };
+      let mobileResult = this.analyzeMobile(mainFetch.html, initialMobilePerf);
 
-      // Stage 5: ACCESSIBILITY_ANALYSIS
-      this.logger.log(`[Audit ${auditId}] Stage 5: Accessibility analysis started...`);
+      // Stage 4 (Fast): ACCESSIBILITY_ANALYSIS (HTML Heuristics)
+      this.logger.log(`[Audit ${auditId}] Phase 1 (4/8): Accessibility HTML heuristics started...`);
       await this.updateStatus(auditId, AuditStatus.ACCESSIBILITY_ANALYSIS);
       const accessibilityResult = this.analyzeAccessibility(mainFetch.html);
-      const targetAccessibilityScore = this.calculateAccessibilityCategoryScore(
-        mobilePerf.accessibilityScore,
-        desktopPerf.accessibilityScore
-      );
+      let targetAccessibilityScore: number | null = null;
 
-      // Stage 6: SECURITY_ANALYSIS
-      this.logger.log(`[Audit ${auditId}] Stage 6: Security analysis started...`);
+      // Stage 5 (Fast): SECURITY_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Phase 1 (5/8): Security analysis started...`);
       await this.updateStatus(auditId, AuditStatus.SECURITY_ANALYSIS);
       const securityResult = this.analyzeSecurity(mainFetch.finalUrl, mainFetch.headers);
 
-      // Stage 7: TECH_STACK_DETECTION
-      this.logger.log(`[Audit ${auditId}] Stage 7: Technology stack detection started...`);
+      // Stage 6 (Fast): TECH_STACK_DETECTION
+      this.logger.log(`[Audit ${auditId}] Phase 1 (6/8): Technology stack detection started...`);
       await this.updateStatus(auditId, AuditStatus.TECH_STACK_DETECTION);
       const detectedTech = detectTechnologies(mainFetch.html, mainFetch.headers);
 
-      // Stage 8: AI_READINESS_ANALYSIS
-      this.logger.log(`[Audit ${auditId}] Stage 8: AI readiness analysis started...`);
+      // Stage 7 (Fast): AI_READINESS_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Phase 1 (7/8): AI readiness analysis started...`);
       await this.updateStatus(auditId, AuditStatus.AI_READINESS_ANALYSIS);
       const aiReadinessResult = await this.analyzeAiReadiness(mainFetch.finalUrl, mainFetch.html);
 
-      // Stage 9: AUTOMATED UX & CRO ANALYSIS
+      // Stage 8 (Fast): AUTOMATED UX & CRO ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Phase 1 (8/8): Automated UX & CRO analysis completed.`);
       const uxResult = analyzeUxAndCro(mainFetch.html);
 
-      // Stage 10: COMPETITOR_ANALYSIS (if supplied)
+      // Build Phase 1 Initial Report Structure (Unmeasured Lighthouse fields are NOT zero)
+      let mobilePerf: PageSpeedMetricResult = { ...initialMobilePerf };
+      let desktopPerf: PageSpeedMetricResult = {
+        isMeasured: false,
+        status: 'PENDING',
+        strategy: 'desktop',
+        score: null,
+        accessibilityScore: null,
+        fcp: null,
+        lcp: null,
+        tbt: null,
+        cls: null,
+        speedIndex: null,
+      };
+
+      let categoryScores: Record<string, number | null> = {
+        performanceMobile: null,
+        performanceDesktop: null,
+        performance: null,
+        seo: seoResult.score,
+        mobile: mobileResult.score,
+        ux: uxResult.score,
+        security: securityResult.score,
+        accessibility: targetAccessibilityScore,
+        aiReadiness: aiReadinessResult.score,
+      };
+
+      let overall = this.calculateOverallScore(categoryScores);
+
+      let allChecks = [
+        ...seoResult.checks,
+        ...mobileResult.checks,
+        ...securityResult.checks,
+        ...aiReadinessResult.checks,
+        ...uxResult.checks,
+        ...accessibilityResult.checks,
+      ];
+
+      let failedChecks = allChecks.filter(c => c.status === 'FAIL');
+      let warningChecks = allChecks.filter(c => c.status === 'WARN');
+
+      let recommendations = [
+        ...failedChecks.map(c => ({ severity: 'HIGH', title: c.title, fix: c.recommendation || c.detail })),
+        ...warningChecks.map(c => ({ severity: 'MEDIUM', title: c.title, fix: c.recommendation || c.detail })),
+      ].slice(0, 5);
+
+      let reportJson: any = {
+        auditId,
+        url: mainFetch.finalUrl,
+        competitorUrl,
+        timestamp: new Date().toISOString(),
+        overallScore: overall.score,
+        grade: overall.grade,
+        categories: categoryScores,
+        performance: {
+          mobile: mobilePerf,
+          desktop: desktopPerf,
+        },
+        seo: seoResult,
+        mobile: mobileResult,
+        security: securityResult,
+        accessibility: {
+          score: targetAccessibilityScore,
+          isMeasured: targetAccessibilityScore !== null,
+          checks: accessibilityResult.checks,
+        },
+        aiReadiness: aiReadinessResult,
+        ux: uxResult,
+        technologyStack: detectedTech,
+        checks: allChecks,
+        recommendations,
+        competitorComparison: null,
+      };
+
+      // Persist Phase 1 Fast Report immediately so frontend unblocks within 5–10s
+      this.logger.log(`[Audit ${auditId}] Phase 1 complete. Persisting fast report (provisional score: ${overall.score}) to PostgreSQL...`);
+      await this.prisma.websiteAudit.update({
+        where: { auditId },
+        data: {
+          status: AuditStatus.PERFORMANCE_ANALYSIS,
+          overallScore: overall.score,
+          grade: overall.grade,
+          reportJson: reportJson as any,
+        },
+      });
+
+      // =========================================================================
+      // PHASE 2 — BACKGROUND PERFORMANCE (Mobile Lighthouse)
+      // =========================================================================
+      this.logger.log(`[Audit ${auditId}] Phase 2: Starting background Mobile Lighthouse...`);
+      try {
+        const rawMobilePerf = await this.runPageSpeedAudit(mainFetch.finalUrl, 'mobile');
+        if (rawMobilePerf.status === 'SUCCESS') {
+          mobilePerf = { ...rawMobilePerf, isMeasured: true, status: 'SUCCESS' };
+          this.logger.log(`[Audit ${auditId}] Mobile Lighthouse completed successfully (Score: ${mobilePerf.score})`);
+        } else {
+          mobilePerf = {
+            isMeasured: false,
+            status: 'FAILED',
+            strategy: 'mobile',
+            score: null,
+            accessibilityScore: null,
+            fcp: null,
+            lcp: null,
+            tbt: null,
+            cls: null,
+            speedIndex: null,
+            error: rawMobilePerf.error || 'Mobile performance analysis timed out or encountered an error.',
+          };
+          this.logger.warn(`[Audit ${auditId}] Mobile Lighthouse failed safely: ${mobilePerf.error}`);
+        }
+      } catch (err: any) {
+        mobilePerf = {
+          isMeasured: false,
+          status: 'FAILED',
+          strategy: 'mobile',
+          score: null,
+          accessibilityScore: null,
+          fcp: null,
+          lcp: null,
+          tbt: null,
+          cls: null,
+          speedIndex: null,
+          error: err.message || 'Mobile performance analysis encountered an exception.',
+        };
+        this.logger.warn(`[Audit ${auditId}] Mobile Lighthouse exception caught safely: ${err.message}`);
+      }
+
+      // Re-evaluate mobile checks & accessibility score with Mobile Lighthouse metrics
+      mobileResult = this.analyzeMobile(mainFetch.html, mobilePerf);
+      targetAccessibilityScore = this.calculateAccessibilityCategoryScore(
+        mobilePerf.accessibilityScore ?? null,
+        desktopPerf.accessibilityScore ?? null
+      );
+
+      const targetPerfScoreMobile = this.calculatePerformanceCategoryScore(mobilePerf.score, desktopPerf.score);
+
+      categoryScores = {
+        ...categoryScores,
+        performanceMobile: mobilePerf.score,
+        performance: targetPerfScoreMobile,
+        mobile: mobileResult.score,
+        accessibility: targetAccessibilityScore,
+      };
+
+      overall = this.calculateOverallScore(categoryScores);
+
+      reportJson = {
+        ...reportJson,
+        overallScore: overall.score,
+        grade: overall.grade,
+        categories: categoryScores,
+        performance: {
+          mobile: mobilePerf,
+          desktop: desktopPerf,
+        },
+        mobile: mobileResult,
+        accessibility: {
+          score: targetAccessibilityScore,
+          isMeasured: targetAccessibilityScore !== null,
+          checks: accessibilityResult.checks,
+        },
+      };
+
+      // Persist Phase 2 Mobile Lighthouse results to PostgreSQL
+      await this.prisma.websiteAudit.update({
+        where: { auditId },
+        data: {
+          overallScore: overall.score,
+          grade: overall.grade,
+          reportJson: reportJson as any,
+        },
+      });
+
+      // =========================================================================
+      // PHASE 3 — BACKGROUND COMPLETION (Desktop Lighthouse & Competitor Analysis)
+      // =========================================================================
+      this.logger.log(`[Audit ${auditId}] Phase 3: Starting background Desktop Lighthouse...`);
+      try {
+        const rawDesktopPerf = await this.runPageSpeedAudit(mainFetch.finalUrl, 'desktop');
+        if (rawDesktopPerf.status === 'SUCCESS') {
+          desktopPerf = { ...rawDesktopPerf, isMeasured: true, status: 'SUCCESS' };
+          this.logger.log(`[Audit ${auditId}] Desktop Lighthouse completed successfully (Score: ${desktopPerf.score})`);
+        } else {
+          desktopPerf = {
+            isMeasured: false,
+            status: 'FAILED',
+            strategy: 'desktop',
+            score: null,
+            accessibilityScore: null,
+            fcp: null,
+            lcp: null,
+            tbt: null,
+            cls: null,
+            speedIndex: null,
+            error: rawDesktopPerf.error || 'Desktop performance analysis timed out or encountered an error.',
+          };
+          this.logger.warn(`[Audit ${auditId}] Desktop Lighthouse failed safely: ${desktopPerf.error}`);
+        }
+      } catch (err: any) {
+        desktopPerf = {
+          isMeasured: false,
+          status: 'FAILED',
+          strategy: 'desktop',
+          score: null,
+          accessibilityScore: null,
+          fcp: null,
+          lcp: null,
+          tbt: null,
+          cls: null,
+          speedIndex: null,
+          error: err.message || 'Desktop performance analysis encountered an exception.',
+        };
+        this.logger.warn(`[Audit ${auditId}] Desktop Lighthouse exception caught safely: ${err.message}`);
+      }
+
+      targetAccessibilityScore = this.calculateAccessibilityCategoryScore(
+        mobilePerf.accessibilityScore ?? null,
+        desktopPerf.accessibilityScore ?? null
+      );
+
+      const finalTargetPerfScore = this.calculatePerformanceCategoryScore(mobilePerf.score, desktopPerf.score);
+
+      categoryScores = {
+        ...categoryScores,
+        performanceMobile: mobilePerf.score,
+        performanceDesktop: desktopPerf.score,
+        performance: finalTargetPerfScore,
+        accessibility: targetAccessibilityScore,
+      };
+
+      overall = this.calculateOverallScore(categoryScores);
+
+      reportJson = {
+        ...reportJson,
+        overallScore: overall.score,
+        grade: overall.grade,
+        categories: categoryScores,
+        performance: {
+          mobile: mobilePerf,
+          desktop: desktopPerf,
+        },
+        accessibility: {
+          score: targetAccessibilityScore,
+          isMeasured: targetAccessibilityScore !== null,
+          checks: accessibilityResult.checks,
+        },
+      };
+
+      // Persist Desktop Lighthouse update
+      await this.prisma.websiteAudit.update({
+        where: { auditId },
+        data: {
+          overallScore: overall.score,
+          grade: overall.grade,
+          reportJson: reportJson as any,
+        },
+      });
+
+      // Competitor Analysis (if requested)
       let competitorReport: any = null;
       if (competitorUrl) {
-        this.logger.log(`[Audit ${auditId}] Stage 10: Competitor analysis started for ${competitorUrl}...`);
+        this.logger.log(`[Audit ${auditId}] Phase 3: Competitor analysis started for ${competitorUrl}...`);
         await this.updateStatus(auditId, AuditStatus.COMPETITOR_ANALYSIS);
         try {
           const compFetch = await fetchSafeWithSsrfRedirects(competitorUrl, { timeoutMs: 12000, maxRedirects: 5 });
@@ -226,79 +479,22 @@ export class WebsiteAuditService {
             reason: `Competitor site was unavailable or blocked automated measurement (${err.message})`,
           };
         }
+
+        reportJson = {
+          ...reportJson,
+          competitorComparison: competitorReport
+            ? {
+                targetScore: overall.score,
+                competitorScore: competitorReport.overallScore ?? null,
+                delta: competitorReport.overallScore !== null && overall.score !== null ? overall.score - competitorReport.overallScore : null,
+                details: competitorReport,
+              }
+            : null,
+        };
       }
 
-      // Stage 11: GENERATING_REPORT
-      this.logger.log(`[Audit ${auditId}] Stage 11: Report generation started...`);
-      await this.updateStatus(auditId, AuditStatus.GENERATING_REPORT);
-
-      const categoryScores = {
-        performanceMobile: mobilePerf.score,
-        performanceDesktop: desktopPerf.score,
-        performance: targetPerfScore,
-        seo: seoResult.score,
-        mobile: mobileResult.score,
-        ux: uxResult.score,
-        security: securityResult.score,
-        accessibility: targetAccessibilityScore,
-        aiReadiness: aiReadinessResult.score,
-      };
-
-      const overall = this.calculateOverallScore(categoryScores);
-
-      const allChecks = [
-        ...seoResult.checks,
-        ...mobileResult.checks,
-        ...securityResult.checks,
-        ...aiReadinessResult.checks,
-        ...uxResult.checks,
-        ...accessibilityResult.checks,
-      ];
-
-      const failedChecks = allChecks.filter(c => c.status === 'FAIL');
-      const warningChecks = allChecks.filter(c => c.status === 'WARN');
-
-      const recommendations = [
-        ...failedChecks.map(c => ({ severity: 'HIGH', title: c.title, fix: c.recommendation || c.detail })),
-        ...warningChecks.map(c => ({ severity: 'MEDIUM', title: c.title, fix: c.recommendation || c.detail })),
-      ].slice(0, 5);
-
-      const reportJson = {
-        auditId,
-        url: mainFetch.finalUrl,
-        competitorUrl,
-        timestamp: new Date().toISOString(),
-        overallScore: overall.score,
-        grade: overall.grade,
-        categories: categoryScores,
-        performance: {
-          mobile: mobilePerf,
-          desktop: desktopPerf,
-        },
-        seo: seoResult,
-        mobile: mobileResult,
-        security: securityResult,
-        accessibility: {
-          score: targetAccessibilityScore,
-          isMeasured: targetAccessibilityScore !== null,
-          checks: accessibilityResult.checks,
-        },
-        aiReadiness: aiReadinessResult,
-        ux: uxResult,
-        technologyStack: detectedTech,
-        checks: allChecks,
-        recommendations,
-        competitorComparison: competitorReport
-          ? {
-              targetScore: overall.score,
-              competitorScore: competitorReport.overallScore ?? null,
-              delta: competitorReport.overallScore !== null && overall.score !== null ? overall.score - competitorReport.overallScore : null,
-              details: competitorReport,
-            }
-          : null,
-      };
-
-      this.logger.log(`[Audit ${auditId}] Stage 12: Database completion - Audit ${auditId} COMPLETED successfully.`);
+      // Final completion
+      this.logger.log(`[Audit ${auditId}] All phases complete. Setting status COMPLETED.`);
       await this.prisma.websiteAudit.update({
         where: { auditId },
         data: {
