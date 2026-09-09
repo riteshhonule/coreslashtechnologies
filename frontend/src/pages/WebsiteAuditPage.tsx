@@ -102,7 +102,7 @@ interface ReportData {
 
 const STAGES = [
   { key: 'FETCHING_WEBSITE', label: 'Fetching website structure & verifying SSRF safety' },
-  { key: 'PERFORMANCE_ANALYSIS', label: 'Running Mobile & Desktop Google PageSpeed Insights' },
+  { key: 'PERFORMANCE_ANALYSIS', label: 'Running Mobile & Desktop Lighthouse' },
   { key: 'SEO_ANALYSIS', label: 'Auditing SEO metadata, canonicals & indexability' },
   { key: 'MOBILE_ANALYSIS', label: 'Evaluating viewport & layout stability' },
   { key: 'ACCESSIBILITY_ANALYSIS', label: 'Running automated accessibility checks' },
@@ -179,7 +179,13 @@ export default function WebsiteAuditPage() {
     const interval = setInterval(async () => {
       try {
         const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ''}/api/website-audit/${auditId}`);
-        if (!res.ok) return;
+        if (!res.ok) {
+          setError(`Failed to fetch audit status (HTTP ${res.status}).`);
+          setLoading(false);
+          setStatus('FAILED');
+          clearInterval(interval);
+          return;
+        }
 
         const data = await res.json();
         setStatus(data.status);
@@ -189,7 +195,7 @@ export default function WebsiteAuditPage() {
           setLoading(false);
           clearInterval(interval);
         } else if (data.status === 'FAILED') {
-          setError(data.errorMessage || 'Audit process failed.');
+          setError(data.errorMessage || 'Audit process encountered a failure.');
           setLoading(false);
           clearInterval(interval);
         }
@@ -235,7 +241,7 @@ export default function WebsiteAuditPage() {
           Free AI Website & Performance Audit
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-          Instantly evaluate real Google PageSpeed scores (Mobile & Desktop), SEO technical health, mobile responsiveness, security configuration, technology stack, and AI readiness.
+          Instantly evaluate real Lighthouse performance scores (Mobile & Desktop), SEO technical health, mobile responsiveness, security configuration, technology stack, and AI readiness.
         </p>
 
         {/* Input Form */}
@@ -329,7 +335,7 @@ export default function WebsiteAuditPage() {
               <span>Real-Time Audit Engine Active</span>
             </h3>
             <p className="text-sm text-slate-400 mb-8">
-              Performing live HTTP fetch, parsing DOM structure, and requesting Google PageSpeed data.
+              Performing live HTTP fetch, parsing DOM structure, and running local Lighthouse audit.
             </p>
 
             <div className="space-y-3">
@@ -453,9 +459,9 @@ export default function WebsiteAuditPage() {
               <div>
                 <h3 className="text-xl font-bold text-white flex items-center gap-2">
                   <Zap className="w-5 h-5 text-amber-400" />
-                  <span>Google PageSpeed & Core Web Vitals</span>
+                  <span>Lighthouse Performance & Core Web Vitals</span>
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">Real Lighthouse measurements via Google PageSpeed Insights API</p>
+                <p className="text-xs text-slate-400 mt-1">Real Lighthouse measurements executed on self-hosted engine</p>
               </div>
 
               {/* Strategy Selector */}
@@ -506,7 +512,7 @@ export default function WebsiteAuditPage() {
               </div>
             ) : (
               <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 text-sm">
-                Google PageSpeed measurement for <strong>{perfStrategy}</strong> was unavailable or timed out.
+                Lighthouse measurement for <strong>{perfStrategy}</strong> was unavailable or timed out.
               </div>
             )}
           </div>
