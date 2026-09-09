@@ -325,7 +325,10 @@ export class WebsiteAuditService {
   }
 
   private async runPageSpeedAudit(url: string, strategy: 'mobile' | 'desktop'): Promise<PageSpeedMetricResult> {
-    const apiKey = process.env.PAGESPEED_API_KEY || '';
+    const apiKey =
+      process.env.PAGESPEED_API_KEY ||
+      process.env.GOOGLE_PAGESPEED_API_KEY ||
+      '';
     const endpoint = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(
       url
     )}&strategy=${strategy}&category=performance&category=seo&category=accessibility&category=best-practices${
