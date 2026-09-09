@@ -227,6 +227,9 @@ export async function fetchSafeWithSsrfRedirects(
 
           while (true) {
             const { done, value } = await reader.read();
+            if (controller.signal.aborted) {
+              throw new Error(`Request timed out after ${timeoutMs} ms.`);
+            }
             if (done) break;
             if (value) {
               bytesReceived += value.byteLength;
@@ -236,6 +239,10 @@ export async function fetchSafeWithSsrfRedirects(
               }
               chunks.push(value);
             }
+          }
+
+          if (controller.signal.aborted) {
+            throw new Error(`Request timed out after ${timeoutMs} ms.`);
           }
 
           const combined = new Uint8Array(bytesReceived);
