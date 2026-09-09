@@ -118,6 +118,7 @@ export async function runLocalLighthouseAudit(
 
         logger.log(`[Lighthouse] Launching Chromium (${chromePath}) for ${strategy}...`);
 
+        // Resource-optimized Chrome flags for low-RAM / low-CPU containerized environment
         chrome = await chromeLauncher.launch({
           chromePath,
           chromeFlags: [
@@ -126,7 +127,32 @@ export async function runLocalLighthouseAudit(
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
             '--disable-gpu',
+            '--disable-software-rasterizer',
+            '--disable-extensions',
+            '--disable-component-extensions-with-background-pages',
+            '--disable-default-apps',
+            '--mute-audio',
+            '--no-default-browser-check',
             '--no-first-run',
+            '--disable-background-networking',
+            '--disable-background-timer-throttling',
+            '--disable-backgrounding-occluded-windows',
+            '--disable-breakpad',
+            '--disable-client-side-phishing-detection',
+            '--disable-component-update',
+            '--disable-features=Translate,BackForwardCache,AcceptCHFrame,MediaRouter,OptimizationHints',
+            '--disable-hang-monitor',
+            '--disable-ipc-flooding-protection',
+            '--disable-popup-blocking',
+            '--disable-prompt-on-repost',
+            '--disable-renderer-backgrounding',
+            '--disable-sync',
+            '--force-color-profile=srgb',
+            '--metrics-recording-only',
+            '--safebrowsing-disable-auto-update',
+            '--enable-automation',
+            '--password-store=basic',
+            '--use-mock-keychain',
           ],
         });
 
@@ -141,28 +167,39 @@ export async function runLocalLighthouseAudit(
           onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
         };
 
-        let config: any = undefined;
-        if (strategy === 'desktop') {
-          config = {
-            extends: 'lighthouse:default',
-            settings: {
-              formFactor: 'desktop',
-              screenEmulation: {
-                mobile: false,
-                width: 1350,
-                height: 940,
-                deviceScaleFactor: 1,
-                disabled: false,
-              },
-              throttling: {
-                rttMs: 40,
-                throughputKbps: 10240,
-                cpuSlowdownMultiplier: 1,
-                requestKeyable: true,
-              },
+        // Resource-optimized Lighthouse configuration
+        const config: any = {
+          extends: 'lighthouse:default',
+          settings: {
+            formFactor: strategy === 'desktop' ? 'desktop' : 'mobile',
+            screenEmulation: strategy === 'desktop' ? {
+              mobile: false,
+              width: 1350,
+              height: 940,
+              deviceScaleFactor: 1,
+              disabled: false,
+            } : {
+              mobile: true,
+              width: 412,
+              height: 823,
+              deviceScaleFactor: 1.75,
+              disabled: false,
             },
-          };
-        }
+            // Disable heavy 4x CPU slowdown calculation to prevent CPU bottleneck on low-core hosts
+            throttling: {
+              rttMs: 40,
+              throughputKbps: 10240,
+              cpuSlowdownMultiplier: 1,
+              requestKeyable: true,
+            },
+            // Skip heavy screenshot frame capturing & base64 image encoding to save ~100MB RAM & CPU cycles
+            skipAudits: [
+              'full-page-screenshot',
+              'screenshot-thumbnails',
+              'final-screenshot',
+            ],
+          },
+        };
 
         logger.log(`[Lighthouse] Executing Lighthouse audit runner for ${targetUrl} (${strategy})...`);
         const runnerResult = await lighthouse(targetUrl, options, config);
