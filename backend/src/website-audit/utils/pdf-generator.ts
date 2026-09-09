@@ -3,7 +3,11 @@ import PDFDocument = require('pdfkit');
 export function generateAuditPdf(reportData: any): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     try {
-      const doc = new PDFDocument({ margin: 40, size: 'A4' });
+      const doc = new PDFDocument({
+        margin: 40,
+        size: 'A4',
+        bufferPages: true,
+      });
       const buffers: Buffer[] = [];
 
       doc.on('data', chunk => buffers.push(chunk));
