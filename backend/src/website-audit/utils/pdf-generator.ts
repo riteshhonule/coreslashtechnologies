@@ -1,4 +1,4 @@
-import PDFDocument from 'pdfkit';
+import PDFDocument = require('pdfkit');
 
 export function generateAuditPdf(reportData: any): Promise<Buffer> {
   return new Promise((resolve, reject) => {
