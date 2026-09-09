@@ -202,33 +202,52 @@ export async function fetchSafeWithSsrfRedirects(
         }
       }
 
-      // Read response body with streaming size enforcement
+      // Read response body with streaming size enforcement & abort signal cancellation
       let bodyText = '';
       if (res.body && typeof (res.body as any).getReader === 'function') {
         const reader = (res.body as any).getReader();
-        const chunks: Uint8Array[] = [];
-        let bytesReceived = 0;
 
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          if (value) {
-            bytesReceived += value.byteLength;
-            if (bytesReceived > maxSizeBytes) {
-              try { reader.cancel(); } catch {}
-              throw new Error(`Response payload exceeded maximum safe size limit (${maxSizeBytes} bytes).`);
-            }
-            chunks.push(value);
+        // Attach abort handler so when controller aborts, the active stream reader is cancelled immediately
+        const onAbort = () => {
+          try {
+            reader.cancel('Request timeout exceeded during body stream read');
+          } catch {}
+        };
+        controller.signal.addEventListener('abort', onAbort);
+
+        try {
+          // If controller is already aborted before reading body, cancel reader immediately
+          if (controller.signal.aborted) {
+            onAbort();
+            throw new Error(`Request timed out after ${timeoutMs} ms.`);
           }
-        }
 
-        const combined = new Uint8Array(bytesReceived);
-        let offset = 0;
-        for (const chunk of chunks) {
-          combined.set(chunk, offset);
-          offset += chunk.byteLength;
+          const chunks: Uint8Array[] = [];
+          let bytesReceived = 0;
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            if (value) {
+              bytesReceived += value.byteLength;
+              if (bytesReceived > maxSizeBytes) {
+                try { reader.cancel(); } catch {}
+                throw new Error(`Response payload exceeded maximum safe size limit (${maxSizeBytes} bytes).`);
+              }
+              chunks.push(value);
+            }
+          }
+
+          const combined = new Uint8Array(bytesReceived);
+          let offset = 0;
+          for (const chunk of chunks) {
+            combined.set(chunk, offset);
+            offset += chunk.byteLength;
+          }
+          bodyText = new TextDecoder('utf-8').decode(combined);
+        } finally {
+          controller.signal.removeEventListener('abort', onAbort);
         }
-        bodyText = new TextDecoder('utf-8').decode(combined);
       } else {
         bodyText = await res.text();
         if (bodyText.length > maxSizeBytes) {
