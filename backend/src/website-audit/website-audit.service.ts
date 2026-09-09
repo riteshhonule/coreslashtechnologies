@@ -106,27 +106,46 @@ export class WebsiteAuditService {
   }
 
   private async processAudit(auditId: string, url: string, competitorUrl?: string) {
+    this.logger.log(`[Audit ${auditId}] Background audit process started for target: ${url}`);
     try {
       // Stage 1: FETCHING_WEBSITE with redirect-safe SSRF validation
+      this.logger.log(`[Audit ${auditId}] Stage 1: Fetching website structure & checking SSRF...`);
       await this.updateStatus(auditId, AuditStatus.FETCHING_WEBSITE);
       const mainFetch = await fetchSafeWithSsrfRedirects(url, { timeoutMs: 12000, maxRedirects: 5 });
 
-      // Stage 2: PERFORMANCE_ANALYSIS (Mobile & Desktop PageSpeed API)
+      // Stage 2: PERFORMANCE_ANALYSIS (Mobile & Desktop Lighthouse)
       await this.updateStatus(auditId, AuditStatus.PERFORMANCE_ANALYSIS);
+
+      this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse mobile started...`);
       const mobilePerf = await this.runPageSpeedAudit(mainFetch.finalUrl, 'mobile');
+      if (mobilePerf.status === 'SUCCESS') {
+        this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse mobile completed (Score: ${mobilePerf.score})`);
+      } else {
+        this.logger.warn(`[Audit ${auditId}] Stage 2: Lighthouse mobile failed: ${mobilePerf.error}`);
+      }
+
+      this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse desktop started...`);
       const desktopPerf = await this.runPageSpeedAudit(mainFetch.finalUrl, 'desktop');
+      if (desktopPerf.status === 'SUCCESS') {
+        this.logger.log(`[Audit ${auditId}] Stage 2: Lighthouse desktop completed (Score: ${desktopPerf.score})`);
+      } else {
+        this.logger.warn(`[Audit ${auditId}] Stage 2: Lighthouse desktop failed: ${desktopPerf.error}`);
+      }
 
       const targetPerfScore = this.calculatePerformanceCategoryScore(mobilePerf.score, desktopPerf.score);
 
       // Stage 3: SEO_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Stage 3: SEO analysis started...`);
       await this.updateStatus(auditId, AuditStatus.SEO_ANALYSIS);
       const seoResult = await this.analyzeSeo(mainFetch.html, mainFetch.headers, mainFetch.finalUrl);
 
       // Stage 4: MOBILE_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Stage 4: Mobile analysis started...`);
       await this.updateStatus(auditId, AuditStatus.MOBILE_ANALYSIS);
       const mobileResult = this.analyzeMobile(mainFetch.html, mobilePerf);
 
       // Stage 5: ACCESSIBILITY_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Stage 5: Accessibility analysis started...`);
       await this.updateStatus(auditId, AuditStatus.ACCESSIBILITY_ANALYSIS);
       const accessibilityResult = this.analyzeAccessibility(mainFetch.html);
       const targetAccessibilityScore = this.calculateAccessibilityCategoryScore(
@@ -135,14 +154,17 @@ export class WebsiteAuditService {
       );
 
       // Stage 6: SECURITY_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Stage 6: Security analysis started...`);
       await this.updateStatus(auditId, AuditStatus.SECURITY_ANALYSIS);
       const securityResult = this.analyzeSecurity(mainFetch.finalUrl, mainFetch.headers);
 
       // Stage 7: TECH_STACK_DETECTION
+      this.logger.log(`[Audit ${auditId}] Stage 7: Technology stack detection started...`);
       await this.updateStatus(auditId, AuditStatus.TECH_STACK_DETECTION);
       const detectedTech = detectTechnologies(mainFetch.html, mainFetch.headers);
 
       // Stage 8: AI_READINESS_ANALYSIS
+      this.logger.log(`[Audit ${auditId}] Stage 8: AI readiness analysis started...`);
       await this.updateStatus(auditId, AuditStatus.AI_READINESS_ANALYSIS);
       const aiReadinessResult = await this.analyzeAiReadiness(mainFetch.finalUrl, mainFetch.html);
 
@@ -152,6 +174,7 @@ export class WebsiteAuditService {
       // Stage 10: COMPETITOR_ANALYSIS (if supplied)
       let competitorReport: any = null;
       if (competitorUrl) {
+        this.logger.log(`[Audit ${auditId}] Stage 10: Competitor analysis started for ${competitorUrl}...`);
         await this.updateStatus(auditId, AuditStatus.COMPETITOR_ANALYSIS);
         try {
           const compFetch = await fetchSafeWithSsrfRedirects(competitorUrl, { timeoutMs: 12000, maxRedirects: 5 });
@@ -196,7 +219,7 @@ export class WebsiteAuditService {
             ux: compUx,
           };
         } catch (err: any) {
-          this.logger.warn(`Competitor analysis failed for ${competitorUrl}: ${err.message}`);
+          this.logger.warn(`[Audit ${auditId}] Competitor analysis failed for ${competitorUrl}: ${err.message}`);
           competitorReport = {
             url: competitorUrl,
             status: 'UNAVAILABLE',
@@ -206,6 +229,7 @@ export class WebsiteAuditService {
       }
 
       // Stage 11: GENERATING_REPORT
+      this.logger.log(`[Audit ${auditId}] Stage 11: Report generation started...`);
       await this.updateStatus(auditId, AuditStatus.GENERATING_REPORT);
 
       const categoryScores = {
@@ -274,6 +298,7 @@ export class WebsiteAuditService {
           : null,
       };
 
+      this.logger.log(`[Audit ${auditId}] Stage 12: Database completion - Audit ${auditId} COMPLETED successfully.`);
       await this.prisma.websiteAudit.update({
         where: { auditId },
         data: {
@@ -285,14 +310,19 @@ export class WebsiteAuditService {
         },
       });
     } catch (err: any) {
-      this.logger.error(`Audit failed for ${auditId}: ${err.message}`);
-      await this.prisma.websiteAudit.update({
-        where: { auditId },
-        data: {
-          status: AuditStatus.FAILED,
-          errorMessage: err.message || 'Audit encountered an unexpected failure.',
-        },
-      });
+      const errorMsg = err.message || 'Audit encountered an unexpected failure.';
+      this.logger.error(`[Audit ${auditId}] Audit FAILED: ${errorMsg}`, err.stack);
+      try {
+        await this.prisma.websiteAudit.update({
+          where: { auditId },
+          data: {
+            status: AuditStatus.FAILED,
+            errorMessage: errorMsg,
+          },
+        });
+      } catch (dbErr: any) {
+        this.logger.error(`[Audit ${auditId}] Failed to set FAILED status in DB: ${dbErr.message}`);
+      }
     }
   }
 

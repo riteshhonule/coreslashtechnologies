@@ -22,15 +22,28 @@ export interface LighthouseMetricResult {
   error?: string;
 }
 
-// In-process async mutex to ensure MAX 1 Lighthouse execution at a time
+// In-process async mutex to ensure MAX 1 Lighthouse execution at a time with guaranteed lock release
 let executionLock: Promise<void> = Promise.resolve();
 
 function withMutex<T>(fn: () => Promise<T>): Promise<T> {
-  const nextLock = executionLock.then(async () => {
-    return await fn();
+  let releaseLock: () => void = () => {};
+  const lockPromise = new Promise<void>((resolve) => {
+    releaseLock = resolve;
   });
-  executionLock = nextLock.then(() => {}, () => {});
-  return nextLock;
+
+  const currentLock = executionLock;
+  executionLock = executionLock.then(
+    () => lockPromise,
+    () => lockPromise
+  );
+
+  return currentLock.then(async () => {
+    try {
+      return await fn();
+    } finally {
+      releaseLock();
+    }
+  });
 }
 
 function getChromiumExecutablePath(): string | undefined {
@@ -93,76 +106,81 @@ export async function runLocalLighthouseAudit(
     let chrome: chromeLauncher.LaunchedChrome | undefined;
     let timeoutTimer: NodeJS.Timeout | undefined;
 
+    logger.log(`[Lighthouse] Starting ${strategy} audit for target: ${targetUrl}`);
+
     try {
-      const chromePath = getChromiumExecutablePath();
-      if (!chromePath) {
-        throw new Error('Chromium/Chrome executable not found on host system.');
-      }
+      // Wrap launch, dynamic import, and execution in a hard 60-second global timeout
+      const auditPromise = (async () => {
+        const chromePath = getChromiumExecutablePath();
+        if (!chromePath) {
+          throw new Error('Chromium/Chrome executable not found on host system.');
+        }
 
-      logger.log(`Launching Chromium (${strategy}) for target: ${targetUrl}`);
+        logger.log(`[Lighthouse] Launching Chromium (${chromePath}) for ${strategy}...`);
 
-      chrome = await chromeLauncher.launch({
-        chromePath,
-        chromeFlags: [
-          '--headless=new',
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-          '--disable-gpu',
-          '--no-first-run',
-        ],
-      });
+        chrome = await chromeLauncher.launch({
+          chromePath,
+          chromeFlags: [
+            '--headless=new',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--no-first-run',
+          ],
+        });
 
-      // Import Lighthouse ESM module dynamically
-      const lighthouse = (await import('lighthouse')).default;
+        logger.log(`[Lighthouse] Chromium launched on port ${chrome.port}. Importing Lighthouse ESM module...`);
 
-      const options: any = {
-        port: chrome.port,
-        logLevel: 'error',
-        output: 'json',
-        onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
-      };
+        const lighthouse = (await import('lighthouse')).default;
 
-      let config: any = undefined;
-      if (strategy === 'desktop') {
-        config = {
-          extends: 'lighthouse:default',
-          settings: {
-            formFactor: 'desktop',
-            screenEmulation: {
-              mobile: false,
-              width: 1350,
-              height: 940,
-              deviceScaleFactor: 1,
-              disabled: false,
-            },
-            throttling: {
-              rttMs: 40,
-              throughputKbps: 10240,
-              cpuSlowdownMultiplier: 1,
-              requestKeyable: true,
-            },
-          },
+        const options: any = {
+          port: chrome.port,
+          logLevel: 'error',
+          output: 'json',
+          onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
         };
-      }
 
-      // 60-second execution timeout guard
+        let config: any = undefined;
+        if (strategy === 'desktop') {
+          config = {
+            extends: 'lighthouse:default',
+            settings: {
+              formFactor: 'desktop',
+              screenEmulation: {
+                mobile: false,
+                width: 1350,
+                height: 940,
+                deviceScaleFactor: 1,
+                disabled: false,
+              },
+              throttling: {
+                rttMs: 40,
+                throughputKbps: 10240,
+                cpuSlowdownMultiplier: 1,
+                requestKeyable: true,
+              },
+            },
+          };
+        }
+
+        logger.log(`[Lighthouse] Executing Lighthouse audit runner for ${targetUrl} (${strategy})...`);
+        const runnerResult = await lighthouse(targetUrl, options, config);
+
+        if (!runnerResult || !runnerResult.lhr) {
+          throw new Error('Lighthouse payload incomplete or missing categories.');
+        }
+
+        return runnerResult.lhr;
+      })();
+
       const timeoutPromise = new Promise<never>((_, reject) => {
         timeoutTimer = setTimeout(() => {
-          reject(new Error(`Lighthouse audit timed out after 60 seconds for ${targetUrl}`));
+          reject(new Error(`Lighthouse audit hard timeout after 60 seconds for ${targetUrl}`));
         }, 60000);
       });
 
-      const runnerResult = await Promise.race([
-        lighthouse(targetUrl, options, config),
-        timeoutPromise,
-      ]);
-
-      if (!runnerResult || !runnerResult.lhr) {
-        throw new Error('Lighthouse payload incomplete or missing categories.');
-      }
-
-      const result = runnerResult.lhr;
+      const result = await Promise.race([auditPromise, timeoutPromise]);
 
       const categories = result.categories || {};
       const audits = result.audits || {};
@@ -178,6 +196,8 @@ export async function runLocalLighthouseAudit(
 
       const bpScoreRaw = categories['best-practices']?.score;
       const bpScore = typeof bpScoreRaw === 'number' ? Math.round(bpScoreRaw * 100) : null;
+
+      logger.log(`[Lighthouse] ${strategy} audit completed successfully for ${targetUrl} (Perf: ${perfScore}, Access: ${accessScore})`);
 
       return {
         isMeasured: true,
@@ -196,7 +216,7 @@ export async function runLocalLighthouseAudit(
       };
     } catch (err: any) {
       const errorMsg = err.message || 'Lighthouse execution failed.';
-      logger.warn(`Lighthouse audit failed for ${targetUrl} (${strategy}): ${errorMsg}`);
+      logger.warn(`[Lighthouse] ${strategy} audit failed for ${targetUrl}: ${errorMsg}`);
       return {
         isMeasured: false,
         status: 'UNAVAILABLE',
@@ -219,9 +239,10 @@ export async function runLocalLighthouseAudit(
       }
       if (chrome) {
         try {
+          logger.log(`[Lighthouse] Cleaning up Chromium process for ${targetUrl}...`);
           await chrome.kill();
         } catch (killErr: any) {
-          logger.debug(`Chrome process cleanup notice: ${killErr.message}`);
+          logger.debug(`[Lighthouse] Chrome process cleanup notice: ${killErr.message}`);
         }
       }
     }
