@@ -31,7 +31,7 @@ interface AuditCheck {
 
 interface PageSpeedData {
   isMeasured: boolean;
-  status: 'SUCCESS' | 'UNAVAILABLE';
+  status: 'SUCCESS' | 'UNAVAILABLE' | 'IN_PROGRESS' | 'PENDING' | 'FAILED';
   strategy: 'mobile' | 'desktop';
   score: number | null;
   fcp: string | null;
@@ -190,9 +190,12 @@ export default function WebsiteAuditPage() {
         const data = await res.json();
         setStatus(data.status);
 
-        if (data.status === 'COMPLETED') {
+        if (data.report) {
           setReport(data.report);
           setLoading(false);
+        }
+
+        if (data.status === 'COMPLETED') {
           clearInterval(interval);
         } else if (data.status === 'FAILED') {
           setError(data.errorMessage || 'Audit process encountered a failure.');
@@ -202,7 +205,7 @@ export default function WebsiteAuditPage() {
       } catch {
         // Continue polling
       }
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [auditId, status]);
@@ -335,7 +338,7 @@ export default function WebsiteAuditPage() {
               <span>Real-Time Audit Engine Active</span>
             </h3>
             <p className="text-sm text-slate-400 mb-8">
-              Performing live HTTP fetch, parsing DOM structure, and running local Lighthouse audit.
+              Performing live HTTP fetch, parsing DOM structure, and building your initial audit report.
             </p>
 
             <div className="space-y-3">
@@ -376,9 +379,22 @@ export default function WebsiteAuditPage() {
                   <span>Audited Website:</span>
                   <span className="text-white font-semibold">{report.url}</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-                  Audit Report Summary
-                </h2>
+                <div className="flex flex-wrap items-center gap-3 mb-1">
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+                    Audit Report Summary
+                  </h2>
+                  {status !== 'COMPLETED' && status !== 'FAILED' ? (
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 text-xs font-medium backdrop-blur-sm animate-pulse">
+                      <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                      <span>Background Performance Audit Running</span>
+                    </div>
+                  ) : (
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 text-xs font-medium backdrop-blur-sm">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>Complete Audit Report</span>
+                    </div>
+                  )}
+                </div>
                 <p className="text-sm text-slate-400 mt-2">
                   Generated on {new Date(report.timestamp).toLocaleString()} • Audit ID: {report.auditId}
                 </p>
@@ -386,7 +402,9 @@ export default function WebsiteAuditPage() {
 
               <div className="flex items-center gap-6 self-stretch lg:self-auto justify-between bg-slate-950/80 border border-slate-800 rounded-2xl p-6">
                 <div>
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Overall Health</div>
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                    {status !== 'COMPLETED' ? 'Provisional Health' : 'Overall Health'}
+                  </div>
                   <div className="text-5xl font-black text-white flex items-baseline gap-2">
                     <span>{report.overallScore !== null ? report.overallScore : 'N/A'}</span>
                     {report.overallScore !== null && <span className="text-lg font-bold text-slate-500">/100</span>}
@@ -422,8 +440,8 @@ export default function WebsiteAuditPage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
               {[
-                { title: 'Mobile Speed', score: report.categories.performanceMobile, icon: Smartphone },
-                { title: 'Desktop Speed', score: report.categories.performanceDesktop, icon: Monitor },
+                { title: 'Mobile Speed', score: report.categories.performanceMobile, icon: Smartphone, isPerf: true, perfData: report.performance?.mobile },
+                { title: 'Desktop Speed', score: report.categories.performanceDesktop, icon: Monitor, isPerf: true, perfData: report.performance?.desktop },
                 { title: 'SEO Health', score: report.categories.seo, icon: Search },
                 { title: 'Mobile Viewport', score: report.categories.mobile, icon: Smartphone },
                 { title: 'Automated UX', score: report.categories.ux, icon: Layers },
@@ -435,6 +453,7 @@ export default function WebsiteAuditPage() {
                 const scoreVal = isMeasured ? (cat.score as number) : null;
                 const isHigh = isMeasured && (scoreVal as number) >= 80;
                 const isMed = isMeasured && (scoreVal as number) >= 50 && (scoreVal as number) < 80;
+                const isRunning = cat.isPerf && (cat.perfData?.status === 'IN_PROGRESS' || cat.perfData?.status === 'PENDING');
 
                 return (
                   <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-center">
@@ -443,6 +462,11 @@ export default function WebsiteAuditPage() {
                     {isMeasured ? (
                       <div className={`text-2xl font-bold ${isHigh ? 'text-emerald-400' : isMed ? 'text-amber-400' : 'text-red-400'}`}>
                         {scoreVal}
+                      </div>
+                    ) : isRunning ? (
+                      <div className="text-xs font-semibold text-cyan-400 animate-pulse flex items-center justify-center gap-1">
+                        <RefreshCw className="w-3 h-3 animate-spin text-cyan-400" />
+                        <span>Measuring...</span>
                       </div>
                     ) : (
                       <div className="text-sm font-semibold text-slate-500">Unavailable</div>
@@ -487,7 +511,7 @@ export default function WebsiteAuditPage() {
               </div>
             </div>
 
-            {activePerfData?.isMeasured ? (
+            {activePerfData?.isMeasured || activePerfData?.status === 'SUCCESS' ? (
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
                 <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
                   <div className="text-xs text-slate-400 font-medium">Performance Score</div>
@@ -510,9 +534,26 @@ export default function WebsiteAuditPage() {
                   <div className="text-xl font-bold text-white mt-1">{activePerfData.cls || 'N/A'}</div>
                 </div>
               </div>
+            ) : activePerfData?.status === 'IN_PROGRESS' || activePerfData?.status === 'PENDING' ? (
+              <div className="p-6 bg-slate-950 border border-cyan-900/60 rounded-xl flex items-center gap-4">
+                <RefreshCw className="w-6 h-6 text-cyan-400 animate-spin shrink-0" />
+                <div>
+                  <div className="text-sm font-bold text-white mb-1 flex items-center gap-2">
+                    <span>Real-time {perfStrategy === 'mobile' ? 'Mobile' : 'Desktop'} Performance Analysis in Progress</span>
+                    <span className="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 text-[10px] font-extrabold uppercase border border-cyan-500/30">Live Measurement</span>
+                  </div>
+                  <div className="text-xs text-slate-400 leading-relaxed">
+                    Lighthouse is measuring your website live on Chromium (FCP, LCP, TBT, CLS). Real metrics will appear here automatically when complete.
+                  </div>
+                </div>
+              </div>
             ) : (
-              <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 text-sm">
-                Lighthouse measurement for <strong>{perfStrategy}</strong> was unavailable or timed out.
+              <div className="p-4 bg-slate-950 border border-amber-950/80 rounded-xl text-amber-300 text-sm flex items-center gap-3">
+                <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0" />
+                <div>
+                  <span className="font-semibold">Lighthouse measurement for {perfStrategy} was unavailable or timed out.</span>
+                  <span className="block text-xs text-slate-400 mt-0.5">{activePerfData?.error || 'All other audit categories remain fully valid and measured.'}</span>
+                </div>
               </div>
             )}
           </div>

@@ -7,7 +7,7 @@ const logger = new Logger('LighthouseRunner');
 
 export interface LighthouseMetricResult {
   isMeasured: boolean;
-  status: 'SUCCESS' | 'UNAVAILABLE';
+  status: 'SUCCESS' | 'UNAVAILABLE' | 'IN_PROGRESS' | 'PENDING' | 'FAILED';
   strategy: 'mobile' | 'desktop';
   score: number | null;
   accessibilityScore: number | null;
