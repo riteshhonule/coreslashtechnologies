@@ -8,19 +8,9 @@ import { generateAuditPdf } from './utils/pdf-generator';
 import { AuditStatus } from '@prisma/client';
 import { randomUUID } from 'crypto';
 
-export interface PageSpeedMetricResult {
-  isMeasured: boolean;
-  status: 'SUCCESS' | 'UNAVAILABLE';
-  strategy: 'mobile' | 'desktop';
-  score: number | null;
-  accessibilityScore: number | null;
-  fcp: string | null;
-  lcp: string | null;
-  tbt: string | null;
-  cls: string | null;
-  speedIndex: string | null;
-  error?: string;
-}
+import { runLocalLighthouseAudit, LighthouseMetricResult } from './utils/lighthouse-runner';
+
+export type PageSpeedMetricResult = LighthouseMetricResult;
 
 @Injectable()
 export class WebsiteAuditService {
@@ -325,83 +315,7 @@ export class WebsiteAuditService {
   }
 
   private async runPageSpeedAudit(url: string, strategy: 'mobile' | 'desktop'): Promise<PageSpeedMetricResult> {
-    const apiKey =
-      process.env.PAGESPEED_API_KEY ||
-      process.env.GOOGLE_PAGESPEED_API_KEY ||
-      '';
-    const endpoint = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(
-      url
-    )}&strategy=${strategy}&category=performance&category=seo&category=accessibility&category=best-practices${
-      apiKey ? `&key=${apiKey}` : ''
-    }`;
-
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 18000);
-
-    try {
-      const res = await fetch(endpoint, { signal: controller.signal });
-
-      if (!res.ok) {
-        let errorMsg = `Google PageSpeed API returned HTTP ${res.status}`;
-        if (res.status === 400) errorMsg = 'Bad request to Google PageSpeed API (HTTP 400)';
-        else if (res.status === 403) errorMsg = 'Access forbidden or invalid API key for Google PageSpeed API (HTTP 403)';
-        else if (res.status === 429) errorMsg = 'Rate limit exceeded for Google PageSpeed API (HTTP 429)';
-        else if (res.status >= 500) errorMsg = `Google PageSpeed API server error (HTTP ${res.status})`;
-
-        throw new Error(errorMsg);
-      }
-
-      const json = await res.json();
-      const lighthouse = json.lighthouseResult;
-
-      if (!lighthouse || !lighthouse.categories) {
-        throw new Error('Lighthouse payload incomplete or missing categories.');
-      }
-
-      const perfScoreRaw = lighthouse.categories.performance?.score;
-      const perfScore = typeof perfScoreRaw === 'number' ? Math.round(perfScoreRaw * 100) : null;
-
-      const accessScoreRaw = lighthouse.categories.accessibility?.score;
-      const accessScore = typeof accessScoreRaw === 'number' ? Math.round(accessScoreRaw * 100) : null;
-
-      const audits = lighthouse.audits || {};
-
-      return {
-        isMeasured: true,
-        status: 'SUCCESS',
-        strategy,
-        score: perfScore,
-        accessibilityScore: accessScore,
-        fcp: audits['first-contentful-paint']?.displayValue || null,
-        lcp: audits['largest-contentful-paint']?.displayValue || null,
-        tbt: audits['total-blocking-time']?.displayValue || null,
-        cls: audits['cumulative-layout-shift']?.displayValue || null,
-        speedIndex: audits['speed-index']?.displayValue || null,
-      };
-    } catch (err: any) {
-      let rawMsg = err.name === 'AbortError'
-        ? 'Google PageSpeed Insights API request timed out after 18 seconds.'
-        : (err.message || 'PageSpeed Insights API request failed.');
-
-      const sanitizedMsg = rawMsg.replace(/key=[^&]+/gi, 'key=HIDDEN');
-
-      this.logger.warn(`PageSpeed API measurement unavailable for ${url} (${strategy}): ${sanitizedMsg}`);
-      return {
-        isMeasured: false,
-        status: 'UNAVAILABLE',
-        strategy,
-        score: null,
-        accessibilityScore: null,
-        fcp: null,
-        lcp: null,
-        tbt: null,
-        cls: null,
-        speedIndex: null,
-        error: sanitizedMsg,
-      };
-    } finally {
-      clearTimeout(timeout);
-    }
+    return runLocalLighthouseAudit(url, strategy);
   }
 
   private async analyzeSeo(html: string, headers: Record<string, string>, url: string) {
