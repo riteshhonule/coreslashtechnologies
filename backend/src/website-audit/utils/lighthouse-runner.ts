@@ -73,10 +73,23 @@ function getChromiumExecutablePath(): string | undefined {
   }
 }
 
+// Module-level lazy singleton promise to cache Lighthouse ESM module outside timed audit execution
+let lighthouseModulePromise: Promise<any> | null = null;
+
+function getLighthouseModule(): Promise<any> {
+  if (!lighthouseModulePromise) {
+    lighthouseModulePromise = import('lighthouse').then((mod) => mod.default || mod);
+  }
+  return lighthouseModulePromise;
+}
+
 export async function runLocalLighthouseAudit(
   url: string,
   strategy: 'mobile' | 'desktop'
 ): Promise<LighthouseMetricResult> {
+  // Pre-load/resolve Lighthouse ESM module BEFORE starting timed execution
+  const lighthouse = await getLighthouseModule();
+
   // 1. Re-verify SSRF security before passing URL to Chromium
   const ssrfCheck = await validateUrlSsrf(url);
   if (!ssrfCheck.isValid || !ssrfCheck.normalizedUrl) {
@@ -109,7 +122,7 @@ export async function runLocalLighthouseAudit(
     logger.log(`[Lighthouse] Starting ${strategy} audit for target: ${targetUrl}`);
 
     try {
-      // Wrap launch, dynamic import, and execution in a hard 60-second global timeout
+      // Wrap launch and execution in a hard 60-second global timeout
       const auditPromise = (async () => {
         const chromePath = getChromiumExecutablePath();
         if (!chromePath) {
@@ -156,15 +169,13 @@ export async function runLocalLighthouseAudit(
           ],
         });
 
-        logger.log(`[Lighthouse] Chromium launched on port ${chrome.port}. Importing Lighthouse ESM module...`);
-
-        const lighthouse = (await import('lighthouse')).default;
+        logger.log(`[Lighthouse] Chromium launched on port ${chrome.port}. Executing audit...`);
 
         const options: any = {
           port: chrome.port,
           logLevel: 'error',
           output: 'json',
-          onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
+          onlyCategories: ['performance'],
         };
 
         // Resource-optimized Lighthouse configuration
@@ -185,6 +196,8 @@ export async function runLocalLighthouseAudit(
               deviceScaleFactor: 1.75,
               disabled: false,
             },
+            maxWaitForFcp: 15000,
+            maxWaitForLoad: 20000,
             // Disable heavy 4x CPU slowdown calculation to prevent CPU bottleneck on low-core hosts
             throttling: {
               rttMs: 40,
