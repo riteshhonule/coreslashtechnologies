@@ -20,6 +20,9 @@ export interface CdpMetricResult {
   lcp: string | null;
   tbt: string | null;
   cls: string | null;
+  ttfb: string | null;
+  domInteractive: string | null;
+  loadEvent: string | null;
   speedIndex: string | null;
   tti?: string | null;
   navigationTiming?: {
@@ -85,7 +88,7 @@ export class CdpClient {
     return new Promise((resolve, reject) => {
       const reqId = ++this.id;
       this.callbacks.set(reqId, { resolve, reject });
-      if (this.ws.readyState !== WebSocket.OPEN) {
+      if (this.ws.readyState !== WS.OPEN) {
         this.callbacks.delete(reqId);
         return reject(new Error('WebSocket is not open'));
       }
@@ -102,7 +105,7 @@ export class CdpClient {
 
   close(): Promise<void> {
     return new Promise((resolve) => {
-      if (this.ws.readyState === WebSocket.CLOSED || this.ws.readyState === WebSocket.CLOSING) {
+      if (this.ws.readyState === WS.CLOSED || this.ws.readyState === WS.CLOSING) {
         return resolve();
       }
       this.ws.on('close', () => resolve());
@@ -115,12 +118,20 @@ function getChromiumExecutablePath(): string | undefined {
   if (process.env.CHROME_PATH && fs.existsSync(process.env.CHROME_PATH)) {
     return process.env.CHROME_PATH;
   }
+  if (process.env.CHROME_BIN && fs.existsSync(process.env.CHROME_BIN)) {
+    return process.env.CHROME_BIN;
+  }
+  if (process.env.PUPPETEER_EXECUTABLE_PATH && fs.existsSync(process.env.PUPPETEER_EXECUTABLE_PATH)) {
+    return process.env.PUPPETEER_EXECUTABLE_PATH;
+  }
 
   const candidates = [
     '/usr/bin/chromium',
     '/usr/bin/chromium-browser',
     '/usr/bin/google-chrome',
     '/usr/bin/google-chrome-stable',
+    '/usr/lib/chromium/chromium',
+    '/usr/lib/chromium-browser/chromium-browser',
     'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
   ];
@@ -194,41 +205,42 @@ export async function runCdpPerformanceAuditPair(url: string): Promise<{
   mobileTimeMs: number;
   desktopTimeMs: number;
 }> {
+  const createFailResult = (strategy: 'mobile' | 'desktop', errorMsg: string): CdpMetricResult => ({
+    isMeasured: false,
+    status: 'FAILED',
+    strategy,
+    score: null,
+    accessibilityScore: null,
+    fcp: null,
+    lcp: null,
+    tbt: null,
+    cls: null,
+    ttfb: null,
+    domInteractive: null,
+    loadEvent: null,
+    speedIndex: null,
+    error: errorMsg,
+  });
+
   const ssrfCheck = await validateUrlSsrf(url);
   if (!ssrfCheck.isValid || !ssrfCheck.normalizedUrl) {
-    const failResult = (strategy: 'mobile' | 'desktop'): CdpMetricResult => ({
-      isMeasured: false,
-      status: 'FAILED',
-      strategy,
-      score: null,
-      accessibilityScore: null,
-      fcp: null,
-      lcp: null,
-      tbt: null,
-      cls: null,
-      speedIndex: null,
-      error: `SSRF validation failed: ${ssrfCheck.error}`,
-    });
-    return { mobile: failResult('mobile'), desktop: failResult('desktop'), mobileTimeMs: 0, desktopTimeMs: 0 };
+    return {
+      mobile: createFailResult('mobile', `SSRF validation failed: ${ssrfCheck.error}`),
+      desktop: createFailResult('desktop', `SSRF validation failed: ${ssrfCheck.error}`),
+      mobileTimeMs: 0,
+      desktopTimeMs: 0,
+    };
   }
 
   const targetUrl = ssrfCheck.normalizedUrl;
   const chromePath = getChromiumExecutablePath();
   if (!chromePath) {
-    const failResult = (strategy: 'mobile' | 'desktop'): CdpMetricResult => ({
-      isMeasured: false,
-      status: 'FAILED',
-      strategy,
-      score: null,
-      accessibilityScore: null,
-      fcp: null,
-      lcp: null,
-      tbt: null,
-      cls: null,
-      speedIndex: null,
-      error: 'Chromium executable not found on host system.',
-    });
-    return { mobile: failResult('mobile'), desktop: failResult('desktop'), mobileTimeMs: 0, desktopTimeMs: 0 };
+    return {
+      mobile: createFailResult('mobile', 'Chromium executable not found on host system.'),
+      desktop: createFailResult('desktop', 'Chromium executable not found on host system.'),
+      mobileTimeMs: 0,
+      desktopTimeMs: 0,
+    };
   }
 
   let chrome: chromeLauncher.LaunchedChrome | undefined;
@@ -280,20 +292,12 @@ export async function runCdpPerformanceAuditPair(url: string): Promise<{
     return { mobile, desktop, mobileTimeMs, desktopTimeMs };
   } catch (err: any) {
     logger.error(`CDP measurement error: ${err.message}`, err.stack);
-    const failResult = (strategy: 'mobile' | 'desktop'): CdpMetricResult => ({
-      isMeasured: false,
-      status: 'FAILED',
-      strategy,
-      score: null,
-      accessibilityScore: null,
-      fcp: null,
-      lcp: null,
-      tbt: null,
-      cls: null,
-      speedIndex: null,
-      error: err.message || 'CDP browser measurement failed.',
-    });
-    return { mobile: failResult('mobile'), desktop: failResult('desktop'), mobileTimeMs: 0, desktopTimeMs: 0 };
+    return {
+      mobile: createFailResult('mobile', err.message || 'CDP browser measurement failed.'),
+      desktop: createFailResult('desktop', err.message || 'CDP browser measurement failed.'),
+      mobileTimeMs: 0,
+      desktopTimeMs: 0,
+    };
   } finally {
     if (browserClient) {
       try { await browserClient.close(); } catch {}
@@ -433,6 +437,14 @@ async function runSingleStrategyCdp(
             if (fcpEntry) fcpMs = fcpEntry.startTime;
           }
 
+          let lcpMs = perf.lcp;
+          if (lcpMs === null || lcpMs === undefined) {
+            const lcpEntries = performance.getEntriesByType('largest-contentful-paint');
+            if (lcpEntries && lcpEntries.length > 0) {
+              lcpMs = lcpEntries[lcpEntries.length - 1].startTime;
+            }
+          }
+
           const dns = (nav.domainLookupEnd && nav.domainLookupStart && nav.domainLookupEnd > nav.domainLookupStart)
             ? (nav.domainLookupEnd - nav.domainLookupStart)
             : (timing.domainLookupEnd && timing.domainLookupStart && timing.domainLookupEnd > timing.domainLookupStart ? timing.domainLookupEnd - timing.domainLookupStart : null);
@@ -459,10 +471,10 @@ async function runSingleStrategyCdp(
 
           return JSON.stringify({
             fcpMs,
-            lcpMs: perf.lcp,
-            cls: perf.cls,
-            tbtMs: perf.tbt,
-            longTasksCount: perf.longTasksCount,
+            lcpMs,
+            cls: perf.cls !== undefined ? perf.cls : null,
+            tbtMs: perf.tbt !== undefined ? perf.tbt : null,
+            longTasksCount: perf.longTasksCount || 0,
             dnsMs: dns,
             connectMs: connect,
             ttfbMs: ttfb,
@@ -475,7 +487,7 @@ async function runSingleStrategyCdp(
       returnByValue: true,
     });
 
-    const parsed = JSON.parse(evalResult.result.value || '{}');
+    const parsed = JSON.parse(evalResult.result?.value || '{}');
 
     const fcpMs = typeof parsed.fcpMs === 'number' ? parsed.fcpMs : null;
     const lcpMs = typeof parsed.lcpMs === 'number' ? parsed.lcpMs : null;
@@ -503,6 +515,9 @@ async function runSingleStrategyCdp(
       lcp: formatMs(lcpMs),
       tbt: tbtMs !== null ? `${Math.round(tbtMs)} ms` : null,
       cls: cls !== null ? cls.toString() : null,
+      ttfb: formatMs(parsed.ttfbMs),
+      domInteractive: formatMs(parsed.domInteractiveMs),
+      loadEvent: formatMs(parsed.loadEventMs),
       speedIndex: formatMs(lcpMs ? lcpMs * 0.85 : null),
       tti: formatMs(loadEventMs),
       navigationTiming: {
@@ -526,6 +541,9 @@ async function runSingleStrategyCdp(
       lcp: null,
       tbt: null,
       cls: null,
+      ttfb: null,
+      domInteractive: null,
+      loadEvent: null,
       speedIndex: null,
       error: err.message || `${strategy} measurement failed.`,
     };

@@ -38,6 +38,9 @@ interface PageSpeedData {
   lcp: string | null;
   tbt: string | null;
   cls: string | null;
+  ttfb?: string | null;
+  domInteractive?: string | null;
+  loadEvent?: string | null;
   speedIndex: string | null;
   error?: string;
 }

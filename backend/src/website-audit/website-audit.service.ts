@@ -155,6 +155,8 @@ export class WebsiteAuditService {
       const mobilePerf = cdpResults.mobile;
       const desktopPerf = cdpResults.desktop;
 
+      this.logger.log(`[WebsiteAuditService] CDP result: mobile score=${mobilePerf.score}, status=${mobilePerf.status}, fcp=${mobilePerf.fcp}, lcp=${mobilePerf.lcp} | desktop score=${desktopPerf.score}, status=${desktopPerf.status}, fcp=${desktopPerf.fcp}, lcp=${desktopPerf.lcp}`);
+
       const mobileResult = this.analyzeMobile(mainFetch.html, mobilePerf);
 
       const targetPerfScore = this.calculatePerformanceCategoryScore(mobilePerf.score, desktopPerf.score);
@@ -279,6 +281,7 @@ export class WebsiteAuditService {
       };
 
       // Final completion DB update
+      this.logger.log(`[WebsiteAuditService] Final performance report: ${JSON.stringify(reportJson.performance)}`);
       this.logger.log(`[Audit ${auditId}] Complete audit finished. Overall score: ${overall.score}`);
       await this.prisma.websiteAudit.update({
         where: { auditId },

@@ -82,26 +82,42 @@ export function generateAuditPdf(reportData: any): Promise<Buffer> {
 
       // Core Web Vitals
       if (reportData.performance) {
-        doc.fillColor('#0F172A').fontSize(14).font('Helvetica-Bold').text('Core Web Vitals & Real Performance', 40, doc.y);
-        doc.y += 18;
+        doc.fillColor('#0F172A').fontSize(13).font('Helvetica-Bold').text('Core Web Vitals & Real Performance', 40, doc.y);
+        doc.y += 14;
 
         const perfMobile = reportData.performance?.mobile;
-        const metrics = [
-          { name: 'First Contentful Paint (FCP)', val: perfMobile?.fcp },
-          { name: 'Largest Contentful Paint (LCP)', val: perfMobile?.lcp },
-          { name: 'Total Blocking Time (TBT)', val: perfMobile?.tbt },
-          { name: 'Cumulative Layout Shift (CLS)', val: perfMobile?.cls },
-        ];
+        const perfDesktop = reportData.performance?.desktop;
 
-        let mY = doc.y;
-        metrics.forEach((m, i) => {
-          const x = 40 + (i * 125);
-          doc.rect(x, mY, 120, 45).fillAndStroke('#FFFFFF', '#E2E8F0');
-          doc.fillColor('#64748B').fontSize(8).font('Helvetica').text(m.name, x + 5, mY + 6, { width: 110 });
-          doc.fillColor('#0F172A').fontSize(12).font('Helvetica-Bold').text(m.val || 'N/A', x + 5, mY + 26);
-        });
+        const renderPerfRow = (title: string, data: any) => {
+          if (!data) return;
+          const scoreDisplay = data.score !== null && data.score !== undefined ? `${data.score}/100` : 'Unavailable';
+          doc.fillColor('#334155').fontSize(9.5).font('Helvetica-Bold').text(`${title} (Score: ${scoreDisplay})`, 40, doc.y);
+          doc.y += 12;
 
-        doc.y = mY + 60;
+          const metrics = [
+            { name: 'FCP', val: data.fcp },
+            { name: 'LCP', val: data.lcp },
+            { name: 'TBT', val: data.tbt },
+            { name: 'CLS', val: data.cls },
+            { name: 'TTFB', val: data.ttfb },
+            { name: 'Load', val: data.loadEvent },
+          ];
+
+          const mY = doc.y;
+          metrics.forEach((m, i) => {
+            const x = 40 + (i * 85);
+            doc.rect(x, mY, 80, 36).fillAndStroke('#FFFFFF', '#CBD5E1');
+            doc.fillColor('#64748B').fontSize(7.5).font('Helvetica').text(m.name, x + 4, mY + 4, { width: 72 });
+            doc.fillColor('#0F172A').fontSize(10).font('Helvetica-Bold').text(m.val || 'N/A', x + 4, mY + 18);
+          });
+
+          doc.y = mY + 42;
+        };
+
+        renderPerfRow('Mobile Performance', perfMobile);
+        renderPerfRow('Desktop Performance', perfDesktop);
+
+        doc.y += 5;
       }
 
       // Top Priority Fixes
