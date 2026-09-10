@@ -39,11 +39,17 @@ export function analyzeUxAndCro(html: string): UxAnalysisResult {
     'learn more', 'explore services', 'view portfolio', 'see pricing', 'read more', 'submit'
   ];
 
-  // Extract buttons, links, submit inputs
+  // Extract buttons, links, submit inputs and tag attributes
   const linkAndButtonTexts = [
     ...extractTagTexts('button'),
     ...extractTagTexts('a'),
   ];
+
+  // Also search raw anchor & button tag attributes for CTA keywords
+  const tagAttrMatches = html.match(/<(a|button)\b[^>]*>/gi) || [];
+  for (const tag of tagAttrMatches) {
+    linkAndButtonTexts.push(tag);
+  }
 
   // Check input submit values
   const inputSubmitMatches = html.match(/<input\b[^>]*type=["'](?:submit|button)["'][^>]*value=["']([^"']+)["']/gi) || [];
@@ -61,7 +67,7 @@ export function analyzeUxAndCro(html: string): UxAnalysisResult {
     const lowerText = text.toLowerCase();
     for (const kw of highIntentKeywords) {
       if (lowerText.includes(kw)) {
-        matchedHighIntentCta = text;
+        matchedHighIntentCta = kw;
         break;
       }
     }
@@ -69,7 +75,7 @@ export function analyzeUxAndCro(html: string): UxAnalysisResult {
 
     for (const kw of secondaryKeywords) {
       if (lowerText.includes(kw)) {
-        matchedSecondaryCta = text;
+        matchedSecondaryCta = kw;
         break;
       }
     }
@@ -103,9 +109,11 @@ export function analyzeUxAndCro(html: string): UxAnalysisResult {
 
   // 2. NAVIGATION
   const navBlocks = html.match(/<nav\b[^>]*>([\s\S]*?)<\/nav>/gi) || [];
+  const headerBlocks = html.match(/<header\b[^>]*>([\s\S]*?)<\/header>/gi) || [];
   const navHrefs: string[] = [];
 
-  for (const block of navBlocks) {
+  const searchBlocks = [...navBlocks, ...headerBlocks];
+  for (const block of searchBlocks) {
     const hrefMatches = block.match(/href=["']([^"']+)["']/gi) || [];
     for (const hm of hrefMatches) {
       const val = hm.match(/href=["']([^"']+)["']/i);
@@ -116,17 +124,17 @@ export function analyzeUxAndCro(html: string): UxAnalysisResult {
   }
   const distinctNavLinkCount = new Set(navHrefs).size;
 
-  if (navBlocks.length > 0 && distinctNavLinkCount >= 3) {
+  if (distinctNavLinkCount >= 3) {
     checks.push({
       status: 'PASS',
       title: 'Structured Semantic Navigation',
-      detail: `Semantic <nav> element found containing ${distinctNavLinkCount} distinct navigation links.`,
+      detail: `Header/nav area found containing ${distinctNavLinkCount} distinct navigation links.`,
     });
-  } else if (navBlocks.length > 0 || lowerHtml.includes('role="navigation"') || (lowerHtml.includes('<header') && lowerHtml.includes('<a'))) {
+  } else if (distinctNavLinkCount > 0 || lowerHtml.includes('<header') || lowerHtml.includes('role="navigation"')) {
     checks.push({
       status: 'WARN',
       title: 'Minimal Header Navigation',
-      detail: `Navigation elements found, but fewer than 3 distinct links (${distinctNavLinkCount} distinct found) were detected in semantic <nav> containers.`,
+      detail: `Navigation elements found (${distinctNavLinkCount} distinct link(s) detected in header/nav).`,
       recommendation: 'Ensure key site sections are clearly organized within semantic <nav> tags.',
     });
     score -= 10;
@@ -148,13 +156,11 @@ export function analyzeUxAndCro(html: string): UxAnalysisResult {
 
   for (const fBlock of formBlocks) {
     const lowerForm = fBlock.toLowerCase();
-    // Skip search forms
     if (lowerForm.includes('role="search"') || (lowerForm.includes('action="') && lowerForm.includes('search'))) {
       continue;
     }
 
     const inputs = fBlock.match(/<(input|textarea|select)\b[^>]*>/gi) || [];
-    // Filter out hidden, submit, csrf inputs
     const relevantInputs = inputs.filter(inp => {
       const lInp = inp.toLowerCase();
       return !lInp.includes('type="hidden"') && !lInp.includes('type="submit"') && !lInp.includes('type="button"');
@@ -168,6 +174,20 @@ export function analyzeUxAndCro(html: string): UxAnalysisResult {
         /<input\b[^>]*type=["'](?:submit|button|image)["']/i.test(fBlock) ||
         /<button\b/i.test(fBlock);
       break;
+    }
+  }
+
+  // Fallback: check for inputs across full document if form tag omitted in SSR template
+  if (!leadFormFound) {
+    const allInputs = html.match(/<(input|textarea)\b[^>]*>/gi) || [];
+    const relevantInputs = allInputs.filter(inp => {
+      const lInp = inp.toLowerCase();
+      return !lInp.includes('type="hidden"') && !lInp.includes('type="submit"') && !lInp.includes('type="search"');
+    });
+    if (relevantInputs.length > 0) {
+      leadFormFound = true;
+      leadFormFieldCount = relevantInputs.length;
+      leadFormHasSubmit = true;
     }
   }
 
