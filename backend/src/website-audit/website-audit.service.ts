@@ -49,8 +49,10 @@ export class WebsiteAuditService {
       },
     });
 
-    // Run audit synchronously in the request path (~5-10 seconds target)
-    await this.processAudit(auditId, targetUrl, normalizedCompetitorUrl);
+    // Start audit processing asynchronously in background so POST /api/website-audit responds immediately with PENDING status
+    this.processAudit(auditId, targetUrl, normalizedCompetitorUrl).catch((err) => {
+      this.logger.error(`[Audit ${auditId}] Background audit execution failed: ${err.message}`, err.stack);
+    });
 
     const record = await this.prisma.websiteAudit.findUnique({
       where: { auditId },

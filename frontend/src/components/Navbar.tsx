@@ -32,8 +32,15 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Data Analytics", href: "/services/data-analytics" },
     ],
   },
-  { label: "About", href: "/about" },
-  { label: "Portfolio", href: "/portfolio" },
+  {
+    label: "About",
+    href: "/about",
+    dropdown: [
+      { label: "About Us", href: "/about" },
+      { label: "Portfolio", href: "/portfolio" },
+    ],
+  },
+  { label: "Website Audit", href: "/website-audit" },
   { label: "Partner Program", href: "/partner" },
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
@@ -56,7 +63,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const getActiveTab = () => {
     if (location.pathname === "/") return "Home";
-    const match = NAV_ITEMS.find(item => item.href !== "/" && location.pathname.startsWith(item.href));
+    const match = NAV_ITEMS.find(item => {
+      if (item.href !== "/" && location.pathname.startsWith(item.href)) return true;
+      if (item.dropdown && item.dropdown.some(drop => location.pathname === drop.href)) return true;
+      return false;
+    });
     return match ? match.label : "Home";
   };
 
