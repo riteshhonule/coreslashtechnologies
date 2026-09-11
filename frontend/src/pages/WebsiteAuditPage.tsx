@@ -41,7 +41,7 @@ interface PageSpeedData {
   ttfb?: string | null;
   domInteractive?: string | null;
   loadEvent?: string | null;
-  speedIndex: string | null;
+  methodologyNote?: string;
   error?: string;
 }
 
@@ -52,6 +52,10 @@ interface ReportData {
   timestamp: string;
   overallScore: number | null;
   grade: string;
+  auditMethodology?: {
+    performance?: string;
+    heuristicsNote?: string;
+  };
   categories: {
     performanceMobile?: number | null;
     performanceDesktop?: number | null;
@@ -102,6 +106,7 @@ interface ReportData {
     };
   };
 }
+
 
 const STAGES = [
   { key: 'FETCHING_WEBSITE', label: 'Fetching website structure & verifying SSRF safety' },
@@ -508,29 +513,48 @@ export default function WebsiteAuditPage() {
             </div>
 
             {activePerfData?.isMeasured || activePerfData?.status === 'SUCCESS' ? (
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                  <div className="text-xs text-slate-400 font-medium">Core Web Perf Score</div>
-                  <div className="text-2xl font-bold text-cyan-400 mt-1">{activePerfData.score !== null ? `${activePerfData.score}/100` : 'N/A'}</div>
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+                  <div className="bg-slate-950 p-4 rounded-xl border border-cyan-500/30">
+                    <div className="text-xs text-cyan-400 font-semibold">Core Web Perf Score</div>
+                    <div className="text-2xl font-black text-cyan-300 mt-1">{activePerfData.score !== null ? `${activePerfData.score}/100` : 'N/A'}</div>
+                  </div>
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-xs text-slate-400 font-medium">FCP</div>
+                    <div className="text-lg font-bold text-white mt-1">{activePerfData.fcp || 'N/A'}</div>
+                  </div>
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-xs text-slate-400 font-medium">LCP</div>
+                    <div className="text-lg font-bold text-white mt-1">{activePerfData.lcp || 'N/A'}</div>
+                  </div>
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-xs text-slate-400 font-medium" title="Total Blocking Time from FCP to Load Event">TBT (Load Window)</div>
+                    <div className="text-lg font-bold text-white mt-1">{activePerfData.tbt || 'N/A'}</div>
+                  </div>
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-xs text-slate-400 font-medium" title="W3C Session-Window Layout Shift">CLS</div>
+                    <div className="text-lg font-bold text-white mt-1">{activePerfData.cls !== null && activePerfData.cls !== undefined ? activePerfData.cls : 'N/A'}</div>
+                  </div>
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-xs text-slate-400 font-medium">TTFB</div>
+                    <div className="text-lg font-bold text-white mt-1">{activePerfData.ttfb || 'N/A'}</div>
+                  </div>
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-xs text-slate-400 font-medium">DOM Interactive</div>
+                    <div className="text-lg font-bold text-white mt-1">{activePerfData.domInteractive || 'N/A'}</div>
+                  </div>
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-xs text-slate-400 font-medium">Load Event</div>
+                    <div className="text-lg font-bold text-white mt-1">{activePerfData.loadEvent || 'N/A'}</div>
+                  </div>
                 </div>
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                  <div className="text-xs text-slate-400 font-medium">First Contentful Paint</div>
-                  <div className="text-xl font-bold text-white mt-1">{activePerfData.fcp || 'N/A'}</div>
-                </div>
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                  <div className="text-xs text-slate-400 font-medium">Largest Contentful Paint</div>
-                  <div className="text-xl font-bold text-white mt-1">{activePerfData.lcp || 'N/A'}</div>
-                </div>
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                  <div className="text-xs text-slate-400 font-medium">Total Blocking Time</div>
-                  <div className="text-xl font-bold text-white mt-1">{activePerfData.tbt || 'N/A'}</div>
-                </div>
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                  <div className="text-xs text-slate-400 font-medium">Cumulative Layout Shift</div>
-                  <div className="text-xl font-bold text-white mt-1">{activePerfData.cls || 'N/A'}</div>
+
+                <div className="p-3 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-slate-400 leading-relaxed">
+                  <strong className="text-cyan-400 font-semibold">Measurement Methodology:</strong> {activePerfData.methodologyNote || "Measured in Chromium via CDP. Mobile strategy uses viewport (412x823) and mobile User-Agent emulation without CPU/network throttling. Scores use CoreSlash's Lighthouse-style log-normal methodology."}
                 </div>
               </div>
             ) : (
+
               <div className="p-4 bg-slate-950 border border-amber-950/80 rounded-xl text-amber-300 text-sm flex items-center gap-3">
                 <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0" />
                 <div>
