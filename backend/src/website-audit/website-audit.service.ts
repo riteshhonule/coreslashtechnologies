@@ -253,6 +253,10 @@ export class WebsiteAuditService {
         overallScore: overall.score,
         grade: overall.grade,
         categories: categoryScores,
+        auditMethodology: {
+          performance: "Performance metrics are measured directly in a Chromium browser using Chrome DevTools Protocol. Mobile results use mobile viewport/user-agent emulation without CPU/network throttling. Scores use CoreSlash's Lighthouse-style scoring methodology and are not official Lighthouse/PageSpeed scores.",
+          heuristicsNote: "Some recommendations (SEO, UX, AI Readiness) are optimized for commercial/lead-generation websites and may not apply to search engines, web apps, or internal content platforms."
+        },
         performance: {
           mobile: mobilePerf,
           desktop: desktopPerf,
@@ -279,6 +283,7 @@ export class WebsiteAuditService {
             }
           : null,
       };
+
 
       // Final completion DB update
       this.logger.log(`[WebsiteAuditService] Final performance report: ${JSON.stringify(reportJson.performance)}`);
@@ -532,12 +537,13 @@ export class WebsiteAuditService {
       }
     }
 
-    // 4. Mobile PageSpeed Insights Status Signal
+    // 4. Mobile Performance Status Signal
     if (mobilePerf.isMeasured && mobilePerf.score !== null) {
-      checks.push({ status: mobilePerf.score >= 70 ? 'PASS' : mobilePerf.score >= 50 ? 'WARN' : 'FAIL', title: 'Google Mobile PageSpeed Insights Score', detail: `Measured mobile performance score: ${mobilePerf.score}/100.` });
+      checks.push({ status: mobilePerf.score >= 70 ? 'PASS' : mobilePerf.score >= 50 ? 'WARN' : 'FAIL', title: 'Chromium Mobile Performance Score', detail: `Measured mobile performance score: ${mobilePerf.score}/100.` });
     } else {
-      checks.push({ status: 'WARN', title: 'Google Mobile PageSpeed Insights Status', detail: 'Real mobile PageSpeed API score was unavailable for this audit run.' });
+      checks.push({ status: 'WARN', title: 'Chromium Mobile Performance Status', detail: 'Real mobile performance score was unavailable for this audit run.' });
     }
+
 
     // 5. Layout Shift Signal from Measured PageSpeed
     if (mobilePerf.cls) {

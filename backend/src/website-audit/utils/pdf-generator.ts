@@ -97,11 +97,12 @@ export function generateAuditPdf(reportData: any): Promise<Buffer> {
           const metrics = [
             { name: 'FCP', val: data.fcp },
             { name: 'LCP', val: data.lcp },
-            { name: 'TBT', val: data.tbt },
+            { name: 'TBT (Load)', val: data.tbt },
             { name: 'CLS', val: data.cls },
             { name: 'TTFB', val: data.ttfb },
-            { name: 'Load', val: data.loadEvent },
+            { name: 'Load Event', val: data.loadEvent },
           ];
+
 
           const mY = doc.y;
           metrics.forEach((m, i) => {

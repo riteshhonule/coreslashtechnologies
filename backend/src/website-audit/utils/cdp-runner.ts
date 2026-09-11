@@ -18,13 +18,12 @@ export interface CdpMetricResult {
   bestPracticesScore?: number | null;
   fcp: string | null;
   lcp: string | null;
-  tbt: string | null;
+  tbt: string | null; // Total Blocking Time (Load Window)
   cls: string | null;
   ttfb: string | null;
   domInteractive: string | null;
   loadEvent: string | null;
-  speedIndex: string | null;
-  tti?: string | null;
+  methodologyNote?: string;
   navigationTiming?: {
     dnsMs: number | null;
     connectMs: number | null;
@@ -150,40 +149,69 @@ function getChromiumExecutablePath(): string | undefined {
 }
 
 /**
- * Continuous metric scoring function based on exact industry thresholds:
- * LCP: Good <= 2500ms, Poor > 4000ms
- * TBT: Good <= 200ms, Poor > 600ms
- * FCP: Good <= 1800ms, Poor > 3000ms
- * CLS: Good <= 0.10, Poor > 0.25
- * Navigation/Load: Good <= 2000ms, Poor > 5000ms
+ * Standard Error Function (erf) approximation (Abramowitz & Stegun formula 7.1.26)
  */
-function scoreMetric(val: number | null, goodThreshold: number, poorThreshold: number): number | null {
-  if (val === null || val === undefined || isNaN(val)) return null;
-  if (val <= goodThreshold) {
-    const ratio = Math.max(0, val) / goodThreshold;
-    return Math.round(100 - ratio * 10);
-  } else if (val <= poorThreshold) {
-    const ratio = (val - goodThreshold) / (poorThreshold - goodThreshold);
-    return Math.round(89 - ratio * 39);
-  } else {
-    const ratio = Math.min(1, (val - poorThreshold) / (poorThreshold * 2));
-    return Math.round(49 - ratio * 49);
-  }
+function erf(x: number): number {
+  const a1 =  0.254829592;
+  const a2 = -0.284496736;
+  const a3 =  1.421413741;
+  const a4 = -1.453152027;
+  const a5 =  1.061405429;
+  const p  =  0.3275911;
+
+  const sign = x < 0 ? -1 : 1;
+  const absX = Math.abs(x);
+  const t = 1.0 / (1.0 + p * absX);
+  const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-absX * absX);
+
+  return sign * y;
 }
 
+function normalCdf(x: number, mean: number, stdDev: number): number {
+  return 0.5 * (1 + erf((x - mean) / (stdDev * Math.sqrt(2))));
+}
+
+/**
+ * Log-Normal scoring function based on standard web-performance methodology:
+ * - p10 (Good threshold): score = 90
+ * - p50 (Median threshold): score = 50
+ * Curve parameters: mu = ln(p50), sigma = -ln(p10/p50) / 1.2815515655446004
+ */
+function scoreLogNormalMetric(val: number | null, p10: number, p50: number): number | null {
+  if (val === null || val === undefined || isNaN(val) || val < 0) return null;
+  if (val === 0) return 100;
+
+  const mu = Math.log(p50);
+  const sigma = -Math.log(p10 / p50) / 1.2815515655446004;
+
+  if (sigma <= 0) return null;
+
+  const cdfVal = normalCdf(Math.log(val), mu, sigma);
+  const score = Math.round(100 * (1 - cdfVal));
+  return Math.min(100, Math.max(0, score));
+}
+
+/**
+ * CoreSlash Performance Score — Lighthouse-style log-normal methodology:
+ * - LCP: 30% weight (p10 = 2500ms, p50 = 4000ms)
+ * - Total Blocking Time (Load Window): 30% weight (p10 = 200ms, p50 = 600ms)
+ * - FCP: 15% weight (p10 = 1800ms, p50 = 3000ms)
+ * - CLS (Session Window): 15% weight (p10 = 0.10, p50 = 0.25)
+ * - TTFB: 10% weight (p10 = 800ms, p50 = 1800ms)
+ */
 function calculateCoreWebPerformanceScore(metrics: {
   lcpMs: number | null;
   tbtMs: number | null;
   fcpMs: number | null;
   cls: number | null;
-  loadEventMs: number | null;
+  ttfbMs: number | null;
 }): number | null {
   const scores = [
-    { weight: 0.30, score: scoreMetric(metrics.lcpMs, 2500, 4000) },
-    { weight: 0.25, score: scoreMetric(metrics.tbtMs, 200, 600) },
-    { weight: 0.20, score: scoreMetric(metrics.fcpMs, 1800, 3000) },
-    { weight: 0.15, score: scoreMetric(metrics.cls, 0.10, 0.25) },
-    { weight: 0.10, score: scoreMetric(metrics.loadEventMs, 2000, 5000) },
+    { weight: 0.30, score: scoreLogNormalMetric(metrics.lcpMs, 2500, 4000) },
+    { weight: 0.30, score: scoreLogNormalMetric(metrics.tbtMs, 200, 600) },
+    { weight: 0.15, score: scoreLogNormalMetric(metrics.fcpMs, 1800, 3000) },
+    { weight: 0.15, score: scoreLogNormalMetric(metrics.cls, 0.10, 0.25) },
+    { weight: 0.10, score: scoreLogNormalMetric(metrics.ttfbMs, 800, 1800) },
   ];
 
   let totalWeight = 0;
@@ -218,7 +246,6 @@ export async function runCdpPerformanceAuditPair(url: string): Promise<{
     ttfb: null,
     domInteractive: null,
     loadEvent: null,
-    speedIndex: null,
     error: errorMsg,
   });
 
@@ -273,7 +300,7 @@ export async function runCdpPerformanceAuditPair(url: string): Promise<{
 
     const port = chrome.port;
     const versionRes = await fetch(`http://127.0.0.1:${port}/json/version`);
-    const versionData = await versionRes.json();
+    const versionData: any = await versionRes.json();
     const browserWsUrl = versionData.webSocketDebuggerUrl;
 
     browserClient = new CdpClient(browserWsUrl);
@@ -361,9 +388,8 @@ async function runSingleStrategyCdp(
       window.__cdpPerf = {
         fcp: null,
         lcp: null,
-        cls: 0,
-        tbt: 0,
-        longTasksCount: 0
+        layoutShifts: [],
+        longTasks: []
       };
 
       try {
@@ -388,7 +414,10 @@ async function runSingleStrategyCdp(
         new PerformanceObserver((entryList) => {
           for (const entry of entryList.getEntries()) {
             if (!entry.hadRecentInput) {
-              window.__cdpPerf.cls += entry.value;
+              window.__cdpPerf.layoutShifts.push({
+                score: entry.value,
+                startTime: entry.startTime
+              });
             }
           }
         }).observe({ type: 'layout-shift', buffered: true });
@@ -398,8 +427,10 @@ async function runSingleStrategyCdp(
         new PerformanceObserver((entryList) => {
           for (const entry of entryList.getEntries()) {
             if (entry.duration > 50) {
-              window.__cdpPerf.tbt += (entry.duration - 50);
-              window.__cdpPerf.longTasksCount++;
+              window.__cdpPerf.longTasks.push({
+                duration: entry.duration,
+                startTime: entry.startTime
+              });
             }
           }
         }).observe({ type: 'longtask', buffered: true });
@@ -415,14 +446,14 @@ async function runSingleStrategyCdp(
 
     await pageClient.send('Page.navigate', { url: targetUrl });
 
-    // Bounded navigation wait (max 3500ms wait + 1000ms stabilization)
+    // Bounded navigation wait (max 4000ms load wait + 1500ms stabilization window for LCP/layout shifts)
     const startTime = Date.now();
-    while (!loaded && Date.now() - startTime < 3500) {
+    while (!loaded && Date.now() - startTime < 4000) {
       await new Promise((r) => setTimeout(r, 100));
     }
 
-    // 1000ms paint & metric collection stabilization window
-    await new Promise((r) => setTimeout(r, 1000));
+    // 1500ms stabilization window to allow LCP candidates and layout shifts to settle
+    await new Promise((r) => setTimeout(r, 1500));
 
     const evalResult = await pageClient.send('Runtime.evaluate', {
       expression: `
@@ -469,12 +500,46 @@ async function runSingleStrategyCdp(
             ? nav.loadEventEnd
             : (timing.loadEventEnd && timing.navigationStart ? timing.loadEventEnd - timing.navigationStart : null);
 
+          // W3C CLS Session Window calculation (max gap 1s, max session 5s, take max window score)
+          let maxClsSessionScore = 0;
+          let sessionValue = 0;
+          let sessionStart = 0;
+          let previousStart = 0;
+
+          for (const entry of (perf.layoutShifts || [])) {
+            if (sessionStart && (entry.startTime - previousStart < 1000) && (entry.startTime - sessionStart < 5000)) {
+              sessionValue += entry.score;
+            } else {
+              sessionStart = entry.startTime;
+              sessionValue = entry.score;
+            }
+            previousStart = entry.startTime;
+            if (sessionValue > maxClsSessionScore) {
+              maxClsSessionScore = sessionValue;
+            }
+          }
+
+          // Total Blocking Time (Load Window): Sum duration-50 for longtasks occurring between FCP and Load Event
+          const fcpBoundary = typeof fcpMs === 'number' ? fcpMs : 0;
+          const loadBoundary = typeof loadEvent === 'number' ? loadEvent : performance.now();
+          let tbtLoadWindowMs = 0;
+          let longTasksCount = 0;
+
+          for (const task of (perf.longTasks || [])) {
+            if (task.startTime >= fcpBoundary && task.startTime <= loadBoundary) {
+              if (task.duration > 50) {
+                tbtLoadWindowMs += (task.duration - 50);
+                longTasksCount++;
+              }
+            }
+          }
+
           return JSON.stringify({
             fcpMs,
             lcpMs,
-            cls: perf.cls !== undefined ? perf.cls : null,
-            tbtMs: perf.tbt !== undefined ? perf.tbt : null,
-            longTasksCount: perf.longTasksCount || 0,
+            cls: perf.layoutShifts && perf.layoutShifts.length > 0 ? Math.round(maxClsSessionScore * 1000) / 1000 : 0,
+            tbtMs: tbtLoadWindowMs,
+            longTasksCount,
             dnsMs: dns,
             connectMs: connect,
             ttfbMs: ttfb,
@@ -493,15 +558,19 @@ async function runSingleStrategyCdp(
     const lcpMs = typeof parsed.lcpMs === 'number' ? parsed.lcpMs : null;
     const tbtMs = typeof parsed.tbtMs === 'number' ? parsed.tbtMs : null;
     const cls = typeof parsed.cls === 'number' ? Math.round(parsed.cls * 1000) / 1000 : null;
-    const loadEventMs = typeof parsed.loadEventMs === 'number' ? parsed.loadEventMs : null;
+    const ttfbMs = typeof parsed.ttfbMs === 'number' ? parsed.ttfbMs : null;
 
-    const perfScore = calculateCoreWebPerformanceScore({ lcpMs, tbtMs, fcpMs, cls, loadEventMs });
+    const perfScore = calculateCoreWebPerformanceScore({ lcpMs, tbtMs, fcpMs, cls, ttfbMs });
 
     const formatMs = (val: number | null): string | null => {
       if (val === null || val === undefined || isNaN(val)) return null;
       if (val >= 1000) return `${(val / 1000).toFixed(1)} s`;
       return `${Math.round(val)} ms`;
     };
+
+    const methodologyNote = strategy === 'mobile'
+      ? 'Performance metrics measured in Chromium via CDP using mobile viewport (412x823) and mobile User-Agent emulation without CPU/network throttling. Scores use CoreSlash log-normal methodology.'
+      : 'Performance metrics measured in Chromium via CDP using desktop viewport (1350x940) without CPU/network throttling. Scores use CoreSlash log-normal methodology.';
 
     return {
       isMeasured: true,
@@ -515,11 +584,10 @@ async function runSingleStrategyCdp(
       lcp: formatMs(lcpMs),
       tbt: tbtMs !== null ? `${Math.round(tbtMs)} ms` : null,
       cls: cls !== null ? cls.toString() : null,
-      ttfb: formatMs(parsed.ttfbMs),
+      ttfb: formatMs(ttfbMs),
       domInteractive: formatMs(parsed.domInteractiveMs),
       loadEvent: formatMs(parsed.loadEventMs),
-      speedIndex: formatMs(lcpMs ? lcpMs * 0.85 : null),
-      tti: formatMs(loadEventMs),
+      methodologyNote,
       navigationTiming: {
         dnsMs: parsed.dnsMs ? Math.round(parsed.dnsMs) : null,
         connectMs: parsed.connectMs ? Math.round(parsed.connectMs) : null,
@@ -544,7 +612,6 @@ async function runSingleStrategyCdp(
       ttfb: null,
       domInteractive: null,
       loadEvent: null,
-      speedIndex: null,
       error: err.message || `${strategy} measurement failed.`,
     };
   } finally {
@@ -556,3 +623,4 @@ async function runSingleStrategyCdp(
     }
   }
 }
+
