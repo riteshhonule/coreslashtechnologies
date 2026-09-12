@@ -339,12 +339,36 @@ export default function WebsiteAuditPage() {
 
   const activePerfData = perfStrategy === 'mobile' ? report?.performance?.mobile : report?.performance?.desktop;
 
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free AI Website & Performance Audit",
+    "url": "https://coreslashtechnologies.com/website-audit",
+    "description": "Audit your website performance, SEO, mobile responsiveness, accessibility, security headers, technology stack, and AI readiness with CoreSlash Technologies.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "A modern web browser with JavaScript enabled",
+    "provider": {
+      "@type": "Organization",
+      "name": "CoreSlash Technologies",
+      "url": "https://coreslashtechnologies.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CoreSlash Technologies",
+      "url": "https://coreslashtechnologies.com/"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
       <Helmet>
         <title>Free AI Website Audit & Performance Analyzer | CoreSlash Technologies</title>
         <meta name="description" content="Audit your website's performance, SEO, mobile responsiveness, accessibility, security headers, technology stack, and AI readiness with CoreSlash Technologies." />
         <link rel="canonical" href="https://coreslashtechnologies.com/website-audit" />
+        <script type="application/ld+json">
+          {JSON.stringify(webAppSchema)}
+        </script>
       </Helmet>
 
       {/* Initial Audit Input Form (Hidden once report is available) */}
