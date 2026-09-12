@@ -238,6 +238,38 @@ export default function BlogPostPage() {
                       ))}
                     </div>
                   )}
+
+                  {section.cta && (
+                    <div className="mt-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border border-slate-800 shadow-xl relative overflow-hidden space-y-4">
+                      {/* Subtle Ambient Glow */}
+                      <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" />
+                      <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-indigo-600/15 rounded-full blur-2xl pointer-events-none" />
+
+                      <div className="relative z-10 flex items-center gap-2 text-xs font-black tracking-wider text-blue-400 uppercase">
+                        <Sparkles className="w-4 h-4 text-blue-400" />
+                        <span>FREE WEBSITE AUDIT TOOL</span>
+                      </div>
+
+                      <h3 className="relative z-10 text-xl sm:text-2xl font-black text-white tracking-tight">
+                        {section.cta.heading}
+                      </h3>
+
+                      <p className="relative z-10 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                        {section.cta.text}
+                      </p>
+
+                      <div className="relative z-10 pt-2">
+                        <Link 
+                          to={section.cta.link}
+                          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs sm:text-sm font-extrabold shadow-lg transition-all group"
+                        >
+                          <Zap className="w-4 h-4 text-blue-300 group-hover:scale-110 transition-transform" />
+                          <span>{section.cta.buttonText}</span>
+                          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               ))}
 
