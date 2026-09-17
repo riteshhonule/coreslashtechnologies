@@ -115,7 +115,7 @@ const routes = [
   {
     path: '/top-it-companies-in-belagavi',
     title: 'Top IT Companies in Belagavi (Belgaum) | Software Development',
-    description: 'Discover leading software development and IT services in Belagavi by CoreSlash Technologies, covering custom web apps, mobile solutions, and enterprise software.'
+    description: 'Discover top IT companies and software development services in Belgaum (Belagavi), Karnataka. CoreSlash Technologies builds custom web applications, mobile apps, and enterprise software.'
   },
 
   // Service Pages

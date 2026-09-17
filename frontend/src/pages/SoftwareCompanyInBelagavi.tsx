@@ -310,13 +310,13 @@ export default function SoftwareCompanyInBelagavi() {
         <title>Top IT Companies in Belagavi (Belgaum) | Software Development</title>
         <meta
           name="description"
-          content="Discover the top IT and software companies in Belgaum (Belagavi), Karnataka. Explore leading technology firms, software services, and digital solutions for businesses."
+          content="Discover top IT companies and software development services in Belgaum (Belagavi), Karnataka. CoreSlash Technologies builds custom web applications, mobile apps, and enterprise software."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
 
         {/* Open Graph SEO */}
         <meta property="og:title" content="Top IT Companies in Belagavi (Belgaum) | Software Development" />
-        <meta property="og:description" content="Discover leading software development and IT services in Belagavi by CoreSlash Technologies, covering custom web apps, mobile solutions, and enterprise software." />
+        <meta property="og:description" content="Discover top IT companies and software development services in Belgaum (Belagavi), Karnataka. CoreSlash Technologies builds custom web applications, mobile apps, and enterprise software." />
         <meta property="og:url" content="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CoreSlash Technologies" />
@@ -325,7 +325,7 @@ export default function SoftwareCompanyInBelagavi() {
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Top IT Companies in Belagavi (Belgaum) | Software Development" />
-        <meta name="twitter:description" content="Discover leading software development and IT services in Belagavi by CoreSlash Technologies, covering custom web apps, mobile solutions, and enterprise software." />
+        <meta name="twitter:description" content="Discover top IT companies and software development services in Belgaum (Belagavi), Karnataka. CoreSlash Technologies builds custom web applications, mobile apps, and enterprise software." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* JSON-LD Schema */}
@@ -539,6 +539,39 @@ export default function SoftwareCompanyInBelagavi() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          CONTEXTUAL WEBSITE AUDIT CONVERSION CALLOUT
+          ======================================================== */}
+      <section className="py-12 md:py-16 px-6 md:px-12 max-w-[1400px] mx-auto border-b border-border/40">
+        <div className="relative rounded-3xl bg-slate-900 border border-white/10 p-8 md:p-12 text-white shadow-xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500" />
+
+          <div className="space-y-3 text-left max-w-2xl relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Free Digital Diagnostic</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Want to Check Your Website?
+            </h3>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Run a free AI-powered website audit to identify SEO, performance, mobile, accessibility, security, and technical issues.
+            </p>
+          </div>
+
+          <div className="relative z-10 flex-shrink-0">
+            <Link
+              to="/website-audit"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold text-sm shadow-lg shadow-blue-600/25 transition-all duration-300 group cursor-pointer"
+            >
+              <span>Run a Free Website Audit</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
