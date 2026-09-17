@@ -74,6 +74,7 @@ function App() {
               <Route path="services">
                 <Route index element={<ServicesIndex />} />
                 <Route path="ai-automation" element={<AIAutomation />} />
+                <Route path="ai-solutions" element={<Navigate to="/services/ai-automation" replace />} />
                 <Route path="web-development" element={<WebsiteDevelopment />} />
                 <Route path="website-development" element={<Navigate to="/services/web-development" replace />} />
                 <Route path="app-development" element={<AppDevelopment />} />

@@ -20,6 +20,21 @@
       "permanent": true
     },
     {
+      "source": "/services/ai-solutions",
+      "destination": "/services/ai-automation",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-in-digital-marketing-bangalore",
+      "destination": "/blog/future-of-ai-in-digital-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/blog/website-development-company-in-india-trends",
+      "destination": "/blog/latest-trends-website-development-india",
+      "permanent": true
+    },
+    {
       "source": "/services/seo",
       "destination": "/services/seo-solutions",
       "permanent": true
