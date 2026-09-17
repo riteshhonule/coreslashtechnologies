@@ -196,6 +196,30 @@ export default function SEOOptimization() {
       {/* 4. ENGAGEMENT MODELS */}
       <EngagementModels />
 
+      {/* 5. LOCAL SEO & REGIONAL SEARCH DOMINANCE */}
+      <section className="py-20 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 bg-slate-900/50 rounded-3xl my-12">
+        <div className="max-w-4xl mx-auto space-y-6 text-left">
+          <div className="flex items-center gap-2">
+            <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full" />
+            <span className="text-xs font-extrabold uppercase tracking-widest text-blue-400">
+              Regional & Local SEO Dominance
+            </span>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+            Dominating Local Search Markets in Belagavi, Karnataka & India
+          </h2>
+
+          <p className="text-slate-300 text-base leading-relaxed">
+            For regional enterprises and growing brands across Belagavi (Belgaum), Karnataka, and throughout India, winning local search visibility is essential to capturing high-intent commercial clients. CoreSlash Technologies engineers localized organic search strategies that optimize your Google Business Profile, secure local citation authority, enforce NAP (Name, Address, Phone) consistency, and deploy high-converting local landing pages.
+          </p>
+
+          <p className="text-slate-300 text-base leading-relaxed">
+            By aligning your technical web architecture with regional search intent and Google Maps local pack algorithms, we convert high-intent local searches into direct customer inquiries and project proposals. Want to assess your site's current technical readiness? You can <Link to="/website-audit" className="text-blue-400 hover:text-blue-300 font-semibold underline">Run a Free Website Audit</Link> using our enterprise analyzer.
+          </p>
+        </div>
+      </section>
+
       {/* 6. FAQS */}
       <section className="w-full py-16 md:py-24 border-t border-border/40 overflow-hidden bg-background">
         <FaqSection data={seoFaqData} />
@@ -212,7 +236,7 @@ export default function SEOOptimization() {
         >
           <h2 className="text-3xl md:text-5xl font-black mb-6">Ready to Dominate Search Engine Results?</h2>
           <p className="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-8">Get a complete technical SEO audit and keyword strategy roadmap from our engineers.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#3b82f6] text-white font-extrabold hover:bg-blue-600 transition-all shadow-lg">
+          <Link to="/website-audit" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#3b82f6] text-white font-extrabold hover:bg-blue-600 transition-all shadow-lg">
             <span>Request Free Audit</span>
             <ArrowRight className="w-5 h-5" />
           </Link>

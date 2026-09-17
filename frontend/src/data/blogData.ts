@@ -1891,6 +1891,7 @@ const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
   ],
   "how-to-choose-seo-company-belagavi": [
     { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "Free Website Audit", path: "/website-audit" },
     { title: "Data Analytics", path: "/services/data-analytics" }
   ],
   "latest-trends-website-development-india": [
@@ -1928,6 +1929,7 @@ const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
   ],
   "technical-seo-audits-belagavi": [
     { title: "SEO Solutions", path: "/services/seo-solutions" },
+    { title: "Free Website Audit", path: "/website-audit" },
     { title: "Web Development", path: "/services/web-development" }
   ],
   "best-digital-marketing-company-in-india": [
