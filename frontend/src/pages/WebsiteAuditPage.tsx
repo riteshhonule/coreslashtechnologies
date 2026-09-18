@@ -108,69 +108,97 @@ interface ReportData {
 }
 
 const getServiceMapping = (title: string, fix?: string): { path: string; label: string } | null => {
-  const text = `${title} ${fix || ''}`.toLowerCase();
+  const titleText = (title || '').toLowerCase();
+  const fullText = `${title || ''} ${fix || ''}`.toLowerCase();
 
-  const containsAny = (keywords: string[]): boolean => {
-    return keywords.some(kw => text.includes(kw));
+  const containsAny = (textStr: string, keywords: string[]): boolean => {
+    return keywords.some(kw => textStr.includes(kw));
   };
 
-  const containsWord = (word: string): boolean => {
+  const containsWord = (textStr: string, word: string): boolean => {
     const regex = new RegExp(`(?:^|[^a-z0-9])${word}(?:$|[^a-z0-9])`, 'i');
-    return regex.test(text);
+    return regex.test(textStr);
   };
 
-  // 1. Explicit AI Readiness & AI Discoverability Signals ONLY
+  // 1. Explicit SEO Structured Data & SEO Title Signals (Takes precedence over recommendation AI text noise)
   if (
-    containsAny([
+    containsAny(titleText, [
+      'structured data',
+      'json-ld',
+      'schema',
+      'organization markup',
+      'entity markup',
+      'h1',
+      'heading',
+      'title tag',
+      'meta title',
+      'meta description',
+      'canonical',
+      'robots',
+      'sitemap',
+      'noindex',
+      'open graph',
+      'local seo'
+    ]) ||
+    containsWord(titleText, 'h1') ||
+    containsWord(titleText, 'seo')
+  ) {
+    return { path: '/services/seo-solutions', label: 'Explore SEO Solutions' };
+  }
+
+  // 2. Explicit AI Readiness Finding Signals (ONLY when the title explicitly indicates AI/LLM readiness)
+  if (
+    containsAny(titleText, [
+      'llms.txt',
+      'llm manifest',
+      'llm readiness',
       'ai readiness',
       'ai crawler',
       'ai crawlers',
       'ai indexing',
-      'ai search',
+      'ai search readiness',
       'ai discoverability',
       'generative ai',
       'ai-specific',
-      'machine-readable ai',
-      'llms.txt',
-      'llm manifest'
+      'machine-readable ai'
     ]) ||
-    containsWord('llm') ||
-    containsWord('llms')
+    containsWord(titleText, 'llm') ||
+    containsWord(titleText, 'llms')
   ) {
     return { path: '/services/ai-automation', label: 'AI & Automation Services' };
   }
 
-  // 2. Cloud Infrastructure & Security Headers
+  // 3. Cloud Infrastructure & Security Headers (Uses strict word-boundary matching for short acronyms)
   if (
-    containsAny([
+    containsAny(fullText, [
       'ssl',
       'https',
       'tls',
       'security header',
       'security headers',
       'content-security-policy',
-      'csp',
       'x-frame-options',
       'clickjacking',
       'x-content-type-options',
       'referrer-policy',
       'permissions-policy',
-      'hsts',
       'strict-transport-security',
       'cross-origin',
-      'coop',
-      'coep',
-      'corp',
       'infrastructure security'
     ]) ||
-    (containsWord('security') && !text.includes('social proof'))
+    containsWord(fullText, 'csp') ||
+    containsWord(fullText, 'hsts') ||
+    containsWord(fullText, 'coop') ||
+    containsWord(fullText, 'coep') ||
+    containsWord(fullText, 'corp') ||
+    (containsWord(fullText, 'security') && !fullText.includes('social proof') && !fullText.includes('accessibility'))
   ) {
     return { path: '/services/cloud-infrastructure', label: 'Cloud Infrastructure Services' };
   }
 
-  // 3. Web Development, Performance, Core Web Vitals, Responsiveness & Frontend UX
+  // 4. Web Development, Performance, Core Web Vitals, Responsiveness & UX
   if (
-    containsAny([
+    containsAny(fullText, [
       'performance',
       'mobile performance',
       'desktop performance',
@@ -191,47 +219,28 @@ const getServiceMapping = (title: string, fix?: string): { path: string; label: 
       'dom content loaded',
       'dom size'
     ]) ||
-    containsWord('ux') ||
-    containsAny(['user experience'])
+    containsWord(fullText, 'ux') ||
+    containsAny(fullText, ['user experience'])
   ) {
     return { path: '/services/web-development', label: 'Web Development Services' };
   }
 
-  // 4. SEO Solutions, Headings, Meta Tags, Canonicals & Structured Data
+  // 5. Broad SEO (Catch remaining fullText SEO keywords if title didn't trigger)
   if (
-    containsAny([
-      'seo',
-      'heading',
-      'title tag',
-      'meta title',
-      'meta description',
-      'canonical',
-      'robots',
-      'sitemap',
-      'indexing',
-      'noindex',
-      'crawl',
-      'crawler',
+    containsAny(fullText, [
       'search engine',
       'search visibility',
       'keyword',
       'internal linking',
-      'structured data',
-      'json-ld',
-      'schema',
-      'open graph',
       'seo metadata',
-      'organization markup',
-      'organization entity markup',
-      'entity markup',
-      'local seo'
-    ]) ||
-    containsWord('h1')
+      'crawl',
+      'crawler'
+    ])
   ) {
     return { path: '/services/seo-solutions', label: 'Explore SEO Solutions' };
   }
 
-  // 5. Fallthrough - No service link for findings that do not belong to the 4 commercial categories
+  // 6. Fallthrough - Generic / Unmatched findings receive NO LINK
   return null;
 };
 
