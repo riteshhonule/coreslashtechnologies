@@ -110,51 +110,128 @@ interface ReportData {
 const getServiceMapping = (title: string, fix?: string): { path: string; label: string } | null => {
   const text = `${title} ${fix || ''}`.toLowerCase();
 
+  const containsAny = (keywords: string[]): boolean => {
+    return keywords.some(kw => text.includes(kw));
+  };
+
+  const containsWord = (word: string): boolean => {
+    const regex = new RegExp(`(?:^|[^a-z0-9])${word}(?:$|[^a-z0-9])`, 'i');
+    return regex.test(text);
+  };
+
+  // 1. Explicit AI Readiness & AI Discoverability Signals ONLY
   if (
-    text.includes('seo') ||
-    text.includes('title tag') ||
-    text.includes('meta description') ||
-    text.includes('h1 heading') ||
-    text.includes('canonical') ||
-    text.includes('sitemap') ||
-    text.includes('open graph')
-  ) {
-    return { path: '/services/seo-solutions', label: 'Explore SEO Solutions' };
-  }
-  if (
-    text.includes('performance') ||
-    text.includes('speed') ||
-    text.includes('fcp') ||
-    text.includes('lcp') ||
-    text.includes('cls') ||
-    text.includes('layout shift') ||
-    text.includes('fixed-width') ||
-    text.includes('viewport') ||
-    text.includes('ux') ||
-    text.includes('cro')
-  ) {
-    return { path: '/services/web-development', label: 'Web Development Services' };
-  }
-  if (
-    text.includes('https') ||
-    text.includes('hsts') ||
-    text.includes('csp') ||
-    text.includes('security') ||
-    text.includes('clickjacking') ||
-    text.includes('ssl') ||
-    text.includes('headers')
-  ) {
-    return { path: '/services/cloud-infrastructure', label: 'Cloud Infrastructure Services' };
-  }
-  if (
-    text.includes('ai') ||
-    text.includes('llm') ||
-    text.includes('llms.txt') ||
-    text.includes('json-ld') ||
-    text.includes('structured data')
+    containsAny([
+      'ai readiness',
+      'ai crawler',
+      'ai crawlers',
+      'ai indexing',
+      'ai search',
+      'ai discoverability',
+      'generative ai',
+      'ai-specific',
+      'machine-readable ai',
+      'llms.txt',
+      'llm manifest'
+    ]) ||
+    containsWord('llm') ||
+    containsWord('llms')
   ) {
     return { path: '/services/ai-automation', label: 'AI & Automation Services' };
   }
+
+  // 2. Cloud Infrastructure & Security Headers
+  if (
+    containsAny([
+      'ssl',
+      'https',
+      'tls',
+      'security header',
+      'security headers',
+      'content-security-policy',
+      'csp',
+      'x-frame-options',
+      'clickjacking',
+      'x-content-type-options',
+      'referrer-policy',
+      'permissions-policy',
+      'hsts',
+      'strict-transport-security',
+      'cross-origin',
+      'coop',
+      'coep',
+      'corp',
+      'infrastructure security'
+    ]) ||
+    (containsWord('security') && !text.includes('social proof'))
+  ) {
+    return { path: '/services/cloud-infrastructure', label: 'Cloud Infrastructure Services' };
+  }
+
+  // 3. Web Development, Performance, Core Web Vitals, Responsiveness & Frontend UX
+  if (
+    containsAny([
+      'performance',
+      'mobile performance',
+      'desktop performance',
+      'page speed',
+      'pagespeed',
+      'lcp',
+      'fcp',
+      'tbt',
+      'cls',
+      'load time',
+      'browser performance',
+      'responsive',
+      'responsiveness',
+      'viewport',
+      'layout shift',
+      'frontend rendering',
+      'dom interactive',
+      'dom content loaded',
+      'dom size'
+    ]) ||
+    containsWord('ux') ||
+    containsAny(['user experience'])
+  ) {
+    return { path: '/services/web-development', label: 'Web Development Services' };
+  }
+
+  // 4. SEO Solutions, Headings, Meta Tags, Canonicals & Structured Data
+  if (
+    containsAny([
+      'seo',
+      'heading',
+      'title tag',
+      'meta title',
+      'meta description',
+      'canonical',
+      'robots',
+      'sitemap',
+      'indexing',
+      'noindex',
+      'crawl',
+      'crawler',
+      'search engine',
+      'search visibility',
+      'keyword',
+      'internal linking',
+      'structured data',
+      'json-ld',
+      'schema',
+      'open graph',
+      'seo metadata',
+      'organization markup',
+      'organization entity markup',
+      'entity markup',
+      'local seo'
+    ]) ||
+    containsWord('h1')
+  ) {
+    return { path: '/services/seo-solutions', label: 'Explore SEO Solutions' };
+  }
+
+  // 5. Fallthrough - No service link for findings that do not belong to the 4 commercial categories
   return null;
 };
 
