@@ -307,10 +307,10 @@ export default function SoftwareCompanyInBelagavi() {
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Helmet>
-        <title>Top IT Companies in Belagavi (Belgaum) | Software Development</title>
+        <title>Top IT & Software Companies in Belgaum (Belagavi)</title>
         <meta
           name="description"
-          content="Discover the top IT and software companies in Belgaum (Belagavi), Karnataka. Explore leading technology firms, software services, and digital solutions for businesses."
+          content="Looking for the top IT companies in Belgaum? CoreSlash Technologies is a leading software company in Belgaum (Belagavi) offering custom web, app, and enterprise development."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
 
@@ -363,9 +363,9 @@ export default function SoftwareCompanyInBelagavi() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]"
             >
-              Top IT Companies in{" "}
+              Top IT & Software Companies in{" "}
               <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-                Belagavi
+                Belgaum
               </span>
             </motion.h1>
 
@@ -376,7 +376,7 @@ export default function SoftwareCompanyInBelagavi() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-normal"
             >
-              Guide to top IT companies and software development providers in Belagavi (Belgaum). CoreSlash Technologies delivers custom web applications, mobile apps, enterprise software, and AI solutions for growing businesses in Karnataka.
+              Serving Belagavi and North Karnataka with custom software, web, mobile and enterprise solutions. CoreSlash Technologies delivers high-performance digital platforms for growing businesses.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -471,7 +471,7 @@ export default function SoftwareCompanyInBelagavi() {
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-snug">
-              Empowering Businesses in Belagavi & Belgaum With Modern Software Systems
+              Software Development Services for Businesses in Belgaum
             </h2>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -553,7 +553,7 @@ export default function SoftwareCompanyInBelagavi() {
             <span>Comprehensive Service Capabilities</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Software Engineering Services Offered in Belagavi
+            IT Company in Belgaum: Our Core Services
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
             We deliver end-to-end digital capabilities utilizing modern technology stacks, proven software architecture patterns, and rigorous quality assurance.
@@ -606,7 +606,7 @@ export default function SoftwareCompanyInBelagavi() {
             <span>Factual Advantage</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Why Businesses Choose CoreSlash Technologies
+            Why Businesses in Belgaum Choose CoreSlash Technologies
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
             We operate with complete engineering transparency, delivering clean source code, predictable timelines, and dedicated post-launch support.

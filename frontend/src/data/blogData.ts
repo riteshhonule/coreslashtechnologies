@@ -1949,6 +1949,7 @@ const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
     { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
   ],
   "best-software-company-in-belagavi": [
+    { title: "Top IT Companies in Belgaum", path: "/top-it-companies-in-belagavi" },
     { title: "Software Systems", path: "/services/software-systems" },
     { title: "AI Automation", path: "/services/ai-automation" }
   ],
