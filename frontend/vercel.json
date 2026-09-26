@@ -4,6 +4,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/blog/best-software-company-in-belagavi",
+      "destination": "/top-it-companies-in-belagavi",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
@@ -56,7 +61,7 @@
     },
     {
       "source": "/blog/software-development-cost-belagavi",
-      "destination": "/blog/best-software-company-in-belagavi",
+      "destination": "/top-it-companies-in-belagavi",
       "permanent": true
     },
     {
@@ -316,10 +321,6 @@
     },
     {
       "source": "/blog/react-nextjs-development-belagavi",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/blog/best-software-company-in-belagavi",
       "destination": "/index.html"
     },
     {
