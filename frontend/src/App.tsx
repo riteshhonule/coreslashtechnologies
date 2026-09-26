@@ -18,6 +18,7 @@ const ShopifyDevelopment = lazy(() => import("./pages/services/ShopifyDevelopmen
 const SEOOptimization = lazy(() => import("./pages/services/SEOOptimization"));
 const EcommerceWebsite = lazy(() => import("./pages/services/EcommerceWebsite"));
 const SoftwareSystems = lazy(() => import("./pages/services/SoftwareSystems"));
+const ErpCrmDevelopment = lazy(() => import("./pages/services/ErpCrmDevelopment"));
 const AIAutomation = lazy(() => import("./pages/services/AIAutomation"));
 const CloudInfrastructure = lazy(() => import("./pages/services/CloudInfrastructure"));
 const DataAnalytics = lazy(() => import("./pages/services/DataAnalytics"));
@@ -78,7 +79,7 @@ function App() {
                 <Route path="website-development" element={<Navigate to="/services/web-development" replace />} />
                 <Route path="app-development" element={<AppDevelopment />} />
                 <Route path="software-systems" element={<SoftwareSystems />} />
-                <Route path="erp-crm-development" element={<Navigate to="/services/software-systems" replace />} />
+                <Route path="erp-crm-development" element={<ErpCrmDevelopment />} />
                 <Route path="ecommerce-solutions" element={<EcommerceWebsite />} />
                 <Route path="ecommerce" element={<Navigate to="/services/ecommerce-solutions" replace />} />
                 <Route path="seo-solutions" element={<SEOOptimization />} />

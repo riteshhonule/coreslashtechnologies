@@ -163,6 +163,22 @@ export default function ServicesIndex() {
       ]
     },
     {
+      id: "erp-crm-development",
+      title: "ERP & CRM Development",
+      category: "ENTERPRISE AUTOMATION",
+      description: "Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems.",
+      icon: Layers,
+      href: "/services/erp-crm-development",
+      image: softwareSysImg,
+      gradient: "from-sky-600 to-indigo-500",
+      features: [
+        "End-to-End ERP Implementation",
+        "Business Process Automation",
+        "CRM Integration & Cloud Modules",
+        "Zero Licensing Fees & 100% IP"
+      ]
+    },
+    {
       id: "ecommerce-solutions",
       title: "E-Commerce Solutions",
       category: "E-COMMERCE ENGINES",

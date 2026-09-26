@@ -145,6 +145,11 @@ const routes = [
     description: 'Streamline enterprise operations with custom software systems from CoreSlash Technologies, including scalable ERP platforms, CRMs, and backend microservices.'
   },
   {
+    path: '/services/erp-crm-development',
+    title: 'Custom ERP Software Development Company in India | CoreSlash',
+    description: 'Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems.'
+  },
+  {
     path: '/services/ecommerce-solutions',
     title: 'Custom E-Commerce Development | CoreSlash Technologies',
     description: 'Launch high-converting online storefronts with custom e-commerce development from CoreSlash, featuring fast checkouts, payment APIs, and ERP integrations.'

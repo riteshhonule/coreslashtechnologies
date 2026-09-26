@@ -4,6 +4,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/blog/best-software-development-company-in-india-custom-erp",
+      "destination": "/services/erp-crm-development",
+      "permanent": true
+    },
+    {
       "source": "/blog/best-software-company-in-belagavi",
       "destination": "/top-it-companies-in-belagavi",
       "permanent": true
@@ -51,11 +56,6 @@
     },
     {
       "source": "/services/enterprise-it-solutions",
-      "destination": "/services/software-systems",
-      "permanent": true
-    },
-    {
-      "source": "/services/erp-crm-development",
       "destination": "/services/software-systems",
       "permanent": true
     },
