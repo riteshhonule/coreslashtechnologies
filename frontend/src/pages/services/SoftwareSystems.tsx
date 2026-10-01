@@ -206,14 +206,16 @@ export default function SoftwareSystems() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <CoreServiceCard
-            number="01"
-            title="Custom Enterprise Software & ERPs"
-            subtext="Build scalable multi-tenant SaaS platforms, custom ERP/CRM engines, and automated workflow portals with 100% IP ownership."
-            highlight="Multi-tenant cloud architecture built to support high concurrency and SLA uptime."
-            darkBg={true}
-            delay={0.1}
-          />
+          <Link to="/services/erp-crm-development" className="block focus:outline-none">
+            <CoreServiceCard
+              number="01"
+              title="Custom Enterprise Software & ERPs"
+              subtext="Build scalable multi-tenant SaaS platforms, custom ERP/CRM engines, and automated workflow portals with 100% IP ownership."
+              highlight="Multi-tenant cloud architecture built to support high concurrency and SLA uptime."
+              darkBg={true}
+              delay={0.1}
+            />
+          </Link>
           <CoreServiceCard
             number="02"
             title="Cloud Microservices Architecture"

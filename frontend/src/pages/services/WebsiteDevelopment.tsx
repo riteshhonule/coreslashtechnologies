@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import HeroSection from "@/components/web-development/HeroSection";
 import { type FaqData } from "@/components/ui/habit-faq-scroller";
 
@@ -130,6 +131,14 @@ export default function WebsiteDevelopment() {
       </Helmet>
 
       <HeroSection />
+
+      <section className="w-full py-12 bg-slate-950 border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
+            As a leading engineering partner, we specialize in high-performance frontend architecture. If your enterprise is evaluating regional talent, explore our comprehensive guide on choosing the <Link to="/blog/best-react-js-development-company-in-bangalore" className="text-[#3b82f6] font-semibold hover:underline">best React.js development company in Bangalore</Link> to understand the modern web standards we deliver.
+          </p>
+        </div>
+      </section>
 
       <Suspense fallback={null}>
         <CoreServices />
