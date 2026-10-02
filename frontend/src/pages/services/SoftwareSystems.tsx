@@ -313,7 +313,7 @@ export default function SoftwareSystems() {
               className="group flex flex-col justify-between rounded-[2rem] bg-white dark:bg-slate-900 border border-border/80 shadow-sm hover:shadow-lg transition-all p-6"
             >
               <div className="relative w-full h-56 bg-slate-50 dark:bg-slate-950 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-border/40">
-                <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500" />
+                <img src={item.imageUrl} alt={item.title} loading="lazy" className="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500" />
               </div>
 
               <div className="text-left space-y-3 flex-grow flex flex-col justify-between">
