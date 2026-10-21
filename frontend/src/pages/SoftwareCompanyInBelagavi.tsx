@@ -299,6 +299,70 @@ const PROCESS_STEPS = [
   }
 ];
 
+const IT_LANDSCAPE_CATEGORIES = [
+  {
+    icon: <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
+    title: "Custom Software & Product Engineering Firms",
+    focus: "Bespoke web applications, cross-platform mobile apps, cloud backends, microservices, and dedicated SaaS software platforms.",
+    bestFor: "Growing businesses, startups, and enterprises requiring unique business logic, proprietary workflows, and full intellectual property ownership without template constraints."
+  },
+  {
+    icon: <Server className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />,
+    title: "Enterprise IT Support & Managed Cloud Providers",
+    focus: "Workplace IT administration, network infrastructure, server virtualization, managed cloud hosting, and IT helpdesk services.",
+    bestFor: "Organizations seeking ongoing hardware maintenance, local network security, data backup infrastructure, and day-to-day office systems administration."
+  },
+  {
+    icon: <Search className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />,
+    title: "Web Design & CMS-Focused Agencies",
+    focus: "Standard corporate websites, marketing landing pages, template-driven CMS setups (such as WordPress or Shopify), and digital branding.",
+    bestFor: "Small businesses seeking an entry-level online presence or standard informational websites with straightforward content requirements."
+  },
+  {
+    icon: <Factory className="w-6 h-6 text-amber-600 dark:text-amber-400" />,
+    title: "Industrial Software & Automation Specialists",
+    focus: "Shop-floor production tracking, SCADA interfacing, custom manufacturing ERPs, and hardware-software integration.",
+    bestFor: "Foundries, machining hubs, and manufacturing facilities in regional industrial corridors seeking to digitize material tracking, inventory, and operations."
+  }
+];
+
+const EVALUATION_CHECKLIST = [
+  {
+    num: "01",
+    title: "Source-Code Ownership & Intellectual Property Terms",
+    description: "Ensure your contract explicitly stipulates 100% legal transfer of all custom source code, git repositories, database schemas, and architectural assets upon milestone payment. Avoid proprietary vendor lock-in or recurring software licensing fees for custom deliverables.",
+    questionToAsk: "Will our business maintain full legal IP ownership and complete, unencumbered access to all source code and database repositories upon project completion?"
+  },
+  {
+    num: "02",
+    title: "Architecture, Maintainability & Technology Fit",
+    description: "Evaluate whether the recommended technology stack matches your application's lifecycle requirements rather than short-term agency preference. Modern modular stacks (such as React, Node.js, and Python) offer broad developer availability and long-term maintainability.",
+    questionToAsk: "Why is this specific technology stack recommended for our scale, and how easily can another independent engineering team maintain or extend this codebase?"
+  },
+  {
+    num: "03",
+    title: "Security Protocols, Backups & Support Commitments",
+    description: "Verify baseline enterprise security practices: role-based access control (RBAC), encryption in transit and at rest, secure credential storage, automated database backups, and defined Service Level Agreements (SLAs) for post-launch maintenance.",
+    questionToAsk: "What formal SLAs, automated backup schedules, and security vulnerability patching procedures are included during delivery and ongoing operations?"
+  },
+  {
+    num: "04",
+    title: "Performance Benchmarks & Core Web Vitals",
+    description: "Look for quantifiable performance benchmarks rather than ambiguous marketing promises. Production web platforms should demonstrate measurable Core Web Vitals scores across mobile and desktop devices prior to deployment.",
+    questionToAsk: "How does your team measure and validate real-world page speed, mobile performance, and Core Web Vitals before production release?",
+    linkText: "Analyze your web performance with our free website audit analyzer",
+    linkHref: "/website-audit"
+  },
+  {
+    num: "05",
+    title: "Technical Accountability & Direct Team Access",
+    description: "Ensure you have direct communication with the actual solution architects and software engineers building your system. Transparent milestone demos and structured sprint reviews significantly minimize delivery risks.",
+    questionToAsk: "Will our project stakeholders collaborate directly with the solution architect and senior engineers responsible for building the system?",
+    linkText: "Read our comprehensive Belagavi IT partner selection guide",
+    linkHref: "/blog/how-to-select-it-company-belagavi"
+  }
+];
+
 export default function SoftwareCompanyInBelagavi() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -544,6 +608,65 @@ export default function SoftwareCompanyInBelagavi() {
       </section>
 
       {/* ========================================================
+          3B. BELAGAVI IT & SOFTWARE ECOSYSTEM OVERVIEW
+          ======================================================== */}
+      <section className="py-20 px-6 md:px-12 max-w-[1400px] mx-auto border-b border-border/40">
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-semibold">
+            <Layers className="w-3.5 h-3.5" />
+            <span>Regional Ecosystem</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Overview of the IT & Software Landscape in Belgaum
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Belagavi (Belgaum) serves as an expanding commercial and technical center in North Karnataka. Situated strategically between Pune and Bengaluru, the region benefits from established engineering institutions—including the headquarters of Visvesvaraya Technological University (VTU) and prominent engineering colleges—which supply an active pool of engineering talent. Combined with major manufacturing clusters in areas like Udyambag and Machhe, the local requirement for digital solutions has progressed from static websites to custom software engineering and cloud systems.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {IT_LANDSCAPE_CATEGORIES.map((cat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="p-7 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between group"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/50 border border-blue-200/60 dark:border-blue-800/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    {cat.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {cat.title}
+                  </h3>
+                </div>
+
+                <div className="space-y-2 text-xs sm:text-sm">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <strong className="text-slate-900 dark:text-slate-200">Primary Focus: </strong>
+                    {cat.focus}
+                  </p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <strong className="text-slate-900 dark:text-slate-200">Best Suited For: </strong>
+                    {cat.bestFor}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-8 p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 text-center max-w-3xl mx-auto">
+          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <em>Note: The categories above represent broad service models within the regional technology ecosystem rather than a competitive ranking or exhaustive directory of named companies. Organizations should evaluate providers based on their specific technical scope, architecture, and project goals.</em>
+          </p>
+        </div>
+      </section>
+
+      {/* ========================================================
           4. CORE SERVICES GRID
           ======================================================== */}
       <section className="py-20 px-6 md:px-12 max-w-[1400px] mx-auto border-b border-border/40">
@@ -629,6 +752,72 @@ export default function SoftwareCompanyInBelagavi() {
                 {pillar.description}
               </p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ========================================================
+          5B. VENDOR EVALUATION FRAMEWORK & BUYER CHECKLIST
+          ======================================================== */}
+      <section className="py-20 px-6 md:px-12 max-w-[1400px] mx-auto border-b border-border/40">
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-semibold">
+            <CheckCircle2 className="w-3.5 h-3.5" />
+            <span>Buyer's Evaluation Framework</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
+            How to Evaluate and Choose an IT Partner in Belgaum
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+            Selecting an IT or software engineering partner is a key operational decision. To help business owners and technology leaders make informed choices, use this practical evaluation checklist and ask prospective providers these critical questions during discovery.
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          {EVALUATION_CHECKLIST.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300"
+            >
+              <div className="flex flex-col md:flex-row md:items-start gap-4 sm:gap-6">
+                <span className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent font-mono flex-shrink-0">
+                  {item.num}
+                </span>
+
+                <div className="space-y-3 flex-1 text-left">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <div className="p-3.5 rounded-xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50">
+                    <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium">
+                      <strong className="text-blue-700 dark:text-blue-400">Buyer Question to Ask: </strong>
+                      "{item.questionToAsk}"
+                    </p>
+                  </div>
+
+                  {item.linkHref && (
+                    <div className="pt-1">
+                      <Link
+                        to={item.linkHref}
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline group"
+                      >
+                        <span>{item.linkText}</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>
