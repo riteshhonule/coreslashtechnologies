@@ -67,10 +67,27 @@ export default function BlogPostPage() {
     }
   };
 
+  const faqSchema = (post.content.faqs && post.content.faqs.length > 0) ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.content.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  } : null;
+
+  const pageTitle = post.slug === "best-react-js-development-company-in-bangalore"
+    ? `${post.title} | CoreSlash`
+    : `${post.title} | CoreSlash Technologies`;
+
   return (
     <article className="min-h-screen bg-background text-foreground transition-colors duration-300 relative overflow-hidden">
       <Helmet>
-        <title>{`${post.title} | CoreSlash Technologies`}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={post.metaDescription} />
         <link rel="canonical" href={`https://coreslashtechnologies.com/blog/${post.slug}`} />
         
@@ -92,6 +109,11 @@ export default function BlogPostPage() {
         <script type="application/ld+json">
           {JSON.stringify(blogSchema)}
         </script>
+        {faqSchema && (
+          <script type="application/ld+json">
+            {JSON.stringify(faqSchema)}
+          </script>
+        )}
       </Helmet>
 
       {/* CORESLASH WATERMARK BACKGROUND TEXT */}

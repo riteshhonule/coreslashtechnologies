@@ -183,9 +183,13 @@ const routes = [
 
 // Add Blog Article Routes
 rawPosts.forEach(post => {
+  const titleSuffix = post.slug === 'best-react-js-development-company-in-bangalore'
+    ? '| CoreSlash'
+    : '| CoreSlash Technologies';
+
   routes.push({
     path: `/blog/${post.slug}`,
-    title: `${post.title} | CoreSlash Technologies`,
+    title: `${post.title} ${titleSuffix}`,
     description: post.metaDescription
   });
 });

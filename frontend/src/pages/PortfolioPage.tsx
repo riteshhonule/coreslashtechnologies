@@ -311,10 +311,20 @@ export default function PortfolioPage() {
               )}
             </div>
 
-            <div className="pt-4 flex items-center justify-end border-t border-border/40">
+            <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border/40">
+              <p className="text-xs text-muted-foreground dark:text-slate-400">
+                Evaluating frontend teams? Read our technical guide on choosing a{" "}
+                <Link
+                  to="/blog/best-react-js-development-company-in-bangalore"
+                  className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                >
+                  React.js development company in Bangalore
+                </Link>
+                .
+              </p>
               <Button
                 onClick={() => setSelectedCase(featuredProject)}
-                className="h-11 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
+                className="h-11 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2 shrink-0"
               >
                 <span>Read Full Case Study</span>
                 <ArrowRight className="w-4 h-4" />
