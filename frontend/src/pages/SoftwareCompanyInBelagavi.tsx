@@ -307,16 +307,16 @@ export default function SoftwareCompanyInBelagavi() {
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Helmet>
-        <title>Top IT & Software Companies in Belgaum (Belagavi)</title>
+        <title>IT Companies in Belgaum (Belagavi) | CoreSlash</title>
         <meta
           name="description"
-          content="Looking for the top IT companies in Belgaum? CoreSlash Technologies is a leading software company in Belgaum (Belagavi) offering custom web, app, and enterprise development."
+          content="Looking for IT companies in Belgaum (Belagavi)? CoreSlash Technologies builds custom web apps, mobile apps, and enterprise software for growing businesses."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Top IT Companies in Belagavi (Belgaum) | Software Development" />
-        <meta property="og:description" content="Discover leading software development and IT services in Belagavi by CoreSlash Technologies, covering custom web apps, mobile solutions, and enterprise software." />
+        <meta property="og:title" content="IT Companies in Belgaum (Belagavi) | CoreSlash" />
+        <meta property="og:description" content="Looking for IT companies in Belgaum (Belagavi)? CoreSlash Technologies builds custom web apps, mobile apps, and enterprise software for growing businesses." />
         <meta property="og:url" content="https://coreslashtechnologies.com/top-it-companies-in-belagavi" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CoreSlash Technologies" />
@@ -324,8 +324,8 @@ export default function SoftwareCompanyInBelagavi() {
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Top IT Companies in Belagavi (Belgaum) | Software Development" />
-        <meta name="twitter:description" content="Discover leading software development and IT services in Belagavi by CoreSlash Technologies, covering custom web apps, mobile solutions, and enterprise software." />
+        <meta name="twitter:title" content="IT Companies in Belgaum (Belagavi) | CoreSlash" />
+        <meta name="twitter:description" content="Looking for IT companies in Belgaum (Belagavi)? CoreSlash Technologies builds custom web apps, mobile apps, and enterprise software for growing businesses." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* JSON-LD Schema */}
