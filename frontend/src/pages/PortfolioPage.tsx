@@ -138,7 +138,7 @@ const CASE_STUDIES: CaseStudy[] = [
 ];
 
 const portfolioTitle = "Software Development Portfolio & Case Studies | CoreSlash";
-const portfolioDescription = "Explore CoreSlash Technologies' software development portfolio, featuring web apps, SaaS platforms, e-commerce solutions, mobile apps, and enterprise projects.";
+const portfolioDescription = "Explore verified software development case studies by CoreSlash. Review real-world architectures, client metrics, and results across SaaS, web, and mobile apps.";
 const portfolioCanonical = "https://coreslashtechnologies.com/portfolio";
 const portfolioOgImage = "https://coreslashtechnologies.com/coreslash_technologies_url_image.webp";
 

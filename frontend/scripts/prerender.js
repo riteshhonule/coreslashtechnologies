@@ -41,8 +41,8 @@ const routes = [
   },
   {
     path: '/portfolio',
-    title: 'Software Development Portfolio & Case Studies | CoreSlash Technologies',
-    description: 'Explore client case studies and software solutions by CoreSlash Technologies, featuring enterprise web apps, SaaS platforms, and custom mobile applications.'
+    title: 'Software Development Portfolio & Case Studies | CoreSlash',
+    description: 'Explore verified software development case studies by CoreSlash. Review real-world architectures, client metrics, and results across SaaS, web, and mobile apps.'
   },
   {
     path: '/contact',
