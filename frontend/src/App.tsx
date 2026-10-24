@@ -63,6 +63,7 @@ function App() {
               <Route path="enquiry-form" element={<EnquiryFormPage />} />
               <Route path="careers" element={<Careers />} />
               <Route path="blog" element={<Blog />} />
+              <Route path="blog/best-software-development-company-in-india-custom-erp" element={<Navigate to="/services/erp-crm-development" replace />} />
               <Route path="blog/:slug" element={<BlogPost />} />
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-of-service" element={<TermsOfService />} />

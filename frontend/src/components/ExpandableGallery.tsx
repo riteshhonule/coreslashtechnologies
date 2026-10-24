@@ -60,6 +60,14 @@ export const NINE_DEMO_IMAGES: GalleryItem[] = [
     href: "/services/software-systems",
   },
   {
+    src: softwareSysImg,
+    title: "ERP & CRM Development",
+    category: "ERP & CRM",
+    description:
+      "Build scalable cloud ERP platforms, automated business workflows, and secure CRM integrations with 100% IP ownership.",
+    href: "/services/erp-crm-development",
+  },
+  {
     src: ecommerceImg,
     title: "E-Commerce Development",
     category: "E-Commerce",
@@ -159,9 +167,9 @@ const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedIndex, closeImage, goToNext, goToPrev]);
 
-  // Determine row distribution (Default: 4 cards in Row 1 and 5 cards in Row 2 for 9 items)
+  // Determine row distribution (Default: 5+5 for 10 items, 4+5 for 9 items)
   const displayedImages = isMobile && !isExpanded ? images.slice(0, 4) : images;
-  const targetLayout = rowLayout || (images.length === 9 ? [4, 5] : undefined);
+  const targetLayout = rowLayout || (images.length === 10 ? [5, 5] : images.length === 9 ? [4, 5] : undefined);
   const rows: (string | GalleryItem)[][] = [];
   const rowStartIndices: number[] = [];
 

@@ -1746,22 +1746,6 @@ const rawPosts = [
     "summary": "Discover top React.js and Next.js development services in Belagavi (Belgaum) and Bangalore with CoreSlash Technologies. Custom web apps, SaaS, and enterprise portals."
   },
   {
-    "id": "best-software-development-company-in-india-custom-erp",
-    "slug": "best-software-development-company-in-india-custom-erp",
-    "title": "Best Software Development Company in India & Custom ERP Solutions",
-    "metaDescription": "CoreSlash Technologies is a top software development company in India building custom ERPs, SaaS platforms, and enterprise cloud solutions.",
-    "publishDate": "May 15, 2026",
-    "readTime": "7 min read",
-    "category": "Software Systems",
-    "author": {
-      "name": "CoreSlash Enterprise Team",
-      "role": "Chief Software Architect",
-      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-    },
-    "coverImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80",
-    "summary": "How custom software development delivers 3x long-term ROI over off-the-shelf SaaS subscriptions for growing Indian enterprises."
-  },
-  {
     "id": "why-belagavi-businesses-moving-custom-cloud",
     "slug": "why-belagavi-businesses-moving-custom-cloud",
     "title": "Why Belagavi Businesses Are Moving to Custom Cloud Solutions & Infrastructure",
@@ -2001,7 +1985,8 @@ const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
   ],
   "industrial-digital-marketing-belagavi": [
     { title: "SEO Solutions", path: "/services/seo-solutions" },
-    { title: "Software Systems", path: "/services/software-systems" }
+    { title: "Software Systems", path: "/services/software-systems" },
+    { title: "ERP & CRM Development", path: "/services/erp-crm-development" }
   ],
   "technical-seo-audits-belagavi": [
     { title: "SEO Solutions", path: "/services/seo-solutions" },
@@ -2022,6 +2007,7 @@ const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
   ],
   "best-software-development-company-in-india": [
     { title: "Software Systems", path: "/services/software-systems" },
+    { title: "ERP & CRM Development", path: "/services/erp-crm-development" },
     { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
   ],
   "best-software-company-in-belagavi": [
@@ -2047,10 +2033,6 @@ const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
     { title: "Software Systems", path: "/services/software-systems" },
     { title: "Belagavi IT Companies", path: "/top-it-companies-in-belagavi" }
   ],
-  "best-software-development-company-in-india-custom-erp": [
-    { title: "Software Systems", path: "/services/software-systems" },
-    { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
-  ],
   "why-belagavi-businesses-moving-custom-cloud": [
     { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" },
     { title: "Software Systems", path: "/services/software-systems" }
@@ -2074,6 +2056,7 @@ const relatedServicesMap: Record<string, { title: string; path: string }[]> = {
   ],
   "custom-software-vs-saas-karnataka": [
     { title: "Software Systems", path: "/services/software-systems" },
+    { title: "ERP & CRM Development", path: "/services/erp-crm-development" },
     { title: "Cloud Infrastructure", path: "/services/cloud-infrastructure" }
   ],
   "how-coreslash-modernizing-it-belagavi": [

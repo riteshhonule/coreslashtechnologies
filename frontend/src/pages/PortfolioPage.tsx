@@ -419,6 +419,18 @@ export default function PortfolioPage() {
 
                   {/* Trigger button */}
                   <div className="pt-4 border-t border-border/40 mt-auto">
+                    {item.id === "fintrack" && (
+                      <p className="text-xs text-muted-foreground dark:text-slate-400 mb-3">
+                        Looking to streamline enterprise workflows? Partner with a{" "}
+                        <Link
+                          to="/services/erp-crm-development"
+                          className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                        >
+                          Custom ERP Software Development Company in India
+                        </Link>
+                        .
+                      </p>
+                    )}
                     <Button
                       onClick={() => setSelectedCase(item)}
                       variant="outline"
@@ -520,6 +532,18 @@ export default function PortfolioPage() {
                     <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                       {selectedCase.solution}
                     </p>
+                    {selectedCase.id === "fintrack" && (
+                      <p className="text-xs text-muted-foreground dark:text-slate-400 pt-2">
+                        Looking to streamline enterprise workflows? Partner with a{" "}
+                        <Link
+                          to="/services/erp-crm-development"
+                          className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                        >
+                          Custom ERP Software Development Company in India
+                        </Link>
+                        .
+                      </p>
+                    )}
                   </div>
                 </div>
 
