@@ -142,8 +142,8 @@ const routes = [
   },
   {
     path: '/services/software-systems',
-    title: 'Custom Software Systems & Enterprise Solutions | CoreSlash Technologies',
-    description: 'Streamline enterprise operations with custom software systems from CoreSlash Technologies, including scalable ERP platforms, CRMs, and backend microservices.'
+    title: 'Custom Software Development Services | CoreSlash',
+    description: 'Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends.'
   },
   {
     path: '/services/erp-crm-development',

@@ -101,21 +101,21 @@ export default function SoftwareSystems() {
   return (
     <>
       <Helmet>
-        <title>Custom Software Development Services | Enterprise Software | CoreSlash</title>
-        <meta name="description" content="Custom software development services by CoreSlash Technologies, building enterprise software, SaaS platforms, ERP systems, CRM solutions, and cloud microservices." />
+        <title>Custom Software Development Services | CoreSlash</title>
+        <meta name="description" content="Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/software-systems" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Custom Software Systems & Enterprise Solutions | CoreSlash Technologies" />
-        <meta property="og:description" content="Streamline enterprise operations with custom software systems from CoreSlash Technologies, including scalable ERP platforms, CRMs, and backend microservices." />
+        <meta property="og:title" content="Custom Software Development Services | CoreSlash" />
+        <meta property="og:description" content="Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/software-systems" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Custom Software Systems & Enterprise Solutions | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Streamline enterprise operations with custom software systems from CoreSlash Technologies, including scalable ERP platforms, CRMs, and backend microservices." />
+        <meta name="twitter:title" content="Custom Software Development Services | CoreSlash" />
+        <meta name="twitter:description" content="Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(softwareSchema)}</script>

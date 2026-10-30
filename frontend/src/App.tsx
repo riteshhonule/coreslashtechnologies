@@ -79,6 +79,8 @@ function App() {
                 <Route path="website-development" element={<Navigate to="/services/web-development" replace />} />
                 <Route path="app-development" element={<AppDevelopment />} />
                 <Route path="software-systems" element={<SoftwareSystems />} />
+                <Route path="software-development" element={<Navigate to="/services/software-systems" replace />} />
+                <Route path="enterprise-it-solutions" element={<Navigate to="/services/software-systems" replace />} />
                 <Route path="erp-crm-development" element={<ErpCrmDevelopment />} />
                 <Route path="ecommerce-solutions" element={<EcommerceWebsite />} />
                 <Route path="ecommerce" element={<Navigate to="/services/ecommerce-solutions" replace />} />
