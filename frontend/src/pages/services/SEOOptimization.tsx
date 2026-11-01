@@ -10,7 +10,7 @@ import { CoreServiceCard } from "@/components/web-development/CoreServices";
 const seoSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "SEO & Organic Search Services",
+  "name": "Technical SEO & Digital Marketing Services",
   "url": "https://coreslashtechnologies.com/services/seo-solutions",
   "provider": {
     "@type": "Organization",
@@ -18,9 +18,34 @@ const seoSchema = {
     "url": "https://coreslashtechnologies.com/",
     "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
-  "serviceType": "Search Engine Optimization",
+  "serviceType": "Technical Search Engine Optimization & Digital Marketing",
   "description": "Technical SEO audits, structural schema.org markup, high-intent keyword targeting, and organic link building designed to maximize Google search rankings.",
   "areaServed": "Worldwide"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://coreslashtechnologies.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://coreslashtechnologies.com/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Technical SEO & Digital Marketing",
+      "item": "https://coreslashtechnologies.com/services/seo-solutions"
+    }
+  ]
 };
 
 const seoFaqData: FaqData = {
@@ -53,24 +78,25 @@ export default function SEOOptimization() {
   return (
     <>
       <Helmet>
-        <title>SEO Optimization Services | CoreSlash Technologies</title>
-        <meta name="description" content="Drive organic search traffic with SEO optimization services from CoreSlash Technologies, focusing on technical audits, schema markup, and Core Web Vitals." />
+        <title>Technical SEO & Digital Marketing Services | CoreSlash</title>
+        <meta name="description" content="Grow organic visibility with technical SEO, digital marketing, website audits, schema markup, content strategy and search performance optimization." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/seo-solutions" />
         
         {/* Open Graph SEO */}
-        <meta property="og:title" content="SEO Optimization Services | CoreSlash Technologies" />
-        <meta property="og:description" content="Drive organic search traffic with SEO optimization services from CoreSlash Technologies, focusing on technical audits, schema markup, and Core Web Vitals." />
+        <meta property="og:title" content="Technical SEO & Digital Marketing Services | CoreSlash" />
+        <meta property="og:description" content="Grow organic visibility with technical SEO, digital marketing, website audits, schema markup, content strategy and search performance optimization." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/seo-solutions" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SEO Optimization Services | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Drive organic search traffic with SEO optimization services from CoreSlash Technologies, focusing on technical audits, schema markup, and Core Web Vitals." />
+        <meta name="twitter:title" content="Technical SEO & Digital Marketing Services | CoreSlash" />
+        <meta name="twitter:description" content="Grow organic visibility with technical SEO, digital marketing, website audits, schema markup, content strategy and search performance optimization." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(seoSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* 1. HERO SECTION */}
@@ -98,14 +124,14 @@ export default function SEOOptimization() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.15] max-w-4xl">
-            Dominating Search Rankings with{" "}
+            Technical SEO &{" "}
             <span className="text-[#3b82f6]">
-              Data-Driven SEO
+              Digital Marketing Services
             </span>
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash Technologies provides SEO services focused on technical SEO audits, structured data, high-intent keyword strategies, and organic link building designed to maximize Google search visibility.
+            CoreSlash Technologies delivers technical SEO audits, digital marketing strategy, structured schema data, high-intent keyword positioning, and organic link building engineered for sustainable search dominance.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}

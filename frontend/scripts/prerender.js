@@ -157,8 +157,8 @@ const routes = [
   },
   {
     path: '/services/seo-solutions',
-    title: 'SEO Optimization Services | CoreSlash Technologies',
-    description: 'Drive organic search traffic with SEO optimization services from CoreSlash Technologies, focusing on technical audits, schema markup, and Core Web Vitals.'
+    title: 'Technical SEO & Digital Marketing Services | CoreSlash',
+    description: 'Grow organic visibility with technical SEO, digital marketing, website audits, schema markup, content strategy and search performance optimization.'
   },
   {
     path: '/services/shopify-development',
