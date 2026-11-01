@@ -263,23 +263,23 @@ export default function ServicesIndex() {
   return (
     <div className="w-full min-h-screen bg-background text-foreground overflow-hidden">
       <Helmet>
-        <title>Software Development Services | Web, AI & IT Solutions | CoreSlash</title>
+        <title>Software Development Services | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Explore CoreSlash Technologies software development services, including web, AI, mobile apps, custom software, e-commerce, cloud, SEO, and data analytics."
+          content="Explore custom software development services by CoreSlash Technologies, spanning web platforms, mobile apps, enterprise systems, cloud, and AI automation."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Full-Stack Software Engineering & Digital Services | CoreSlash Technologies" />
-        <meta property="og:description" content="Explore software engineering services by CoreSlash Technologies, spanning AI automation, web development, custom software, mobile apps, and cloud infrastructure." />
+        <meta property="og:title" content="Software Development Services | CoreSlash Technologies" />
+        <meta property="og:description" content="Explore custom software development services by CoreSlash Technologies, spanning web platforms, mobile apps, enterprise systems, cloud, and AI automation." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Full-Stack Software Engineering & Digital Services | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Explore software engineering services by CoreSlash Technologies, spanning AI automation, web development, custom software, mobile apps, and cloud infrastructure." />
+        <meta name="twitter:title" content="Software Development Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="Explore custom software development services by CoreSlash Technologies, spanning web platforms, mobile apps, enterprise systems, cloud, and AI automation." />
 
         <script type="application/ld+json">{JSON.stringify(servicesSchema)}</script>
       </Helmet>

@@ -122,8 +122,8 @@ const routes = [
   // Service Pages
   {
     path: '/services',
-    title: 'Full-Stack Software Engineering & Digital Services | CoreSlash Technologies',
-    description: 'Explore software engineering services by CoreSlash Technologies, spanning AI automation, web development, custom software, mobile apps, and cloud infrastructure.'
+    title: 'Software Development Services | CoreSlash Technologies',
+    description: 'Explore custom software development services by CoreSlash Technologies, spanning web platforms, mobile apps, enterprise systems, cloud, and AI automation.'
   },
   {
     path: '/services/ai-automation',
