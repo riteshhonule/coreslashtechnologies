@@ -28,6 +28,31 @@ const serviceSchema = {
   "areaServed": "Worldwide"
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://coreslashtechnologies.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://coreslashtechnologies.com/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Web Development",
+      "item": "https://coreslashtechnologies.com/services/web-development"
+    }
+  ]
+};
+
 const webDevFaqData: FaqData = {
   mainTitle: "Frequently Asked Questions",
   mainSubtitle: "Everything you need to know about our web development process, tech stack, and service deliverables.",
@@ -127,6 +152,9 @@ export default function WebsiteDevelopment() {
 
         <script type="application/ld+json">
           {JSON.stringify(serviceSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
 

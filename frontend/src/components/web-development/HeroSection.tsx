@@ -40,11 +40,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.15] max-w-4xl"
         >
-          Creating Scalable, Reliable{" "}
+          Custom Web Development Services &{" "}
           <span className="text-[#3b82f6]">
-            Web Platforms
-          </span>{" "}
-          for Business Growth Success
+            Scalable Web Platforms
+          </span>
         </motion.h1>
 
         {/* Subtitle */}
