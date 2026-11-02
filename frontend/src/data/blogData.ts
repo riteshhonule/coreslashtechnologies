@@ -54,6 +54,10 @@ export interface BlogPostSection {
     language: string;
     code: string;
   };
+  inlineLink?: {
+    text: string;
+    url: string;
+  };
 }
 
 export interface BlogPost {
@@ -733,7 +737,11 @@ const bespokeArticlesContent: Record<string, BlogPost["content"]> = {
       },
       {
         heading: "6. CoreSlash Engineering Standard for Web Applications",
-        body: "CoreSlash Technologies builds custom web applications using modern full-stack technologies including React, Next.js, Node.js, TypeScript, Tailwind CSS, and cloud edge infrastructure. By standardizing component-driven architecture and clean code hygiene, we deliver sub-second performance, 100% source code ownership, and scalable web solutions for clients in Belagavi and globally."
+        body: "CoreSlash Technologies provides custom web development services and builds web applications using modern full-stack technologies including React, Next.js, Node.js, TypeScript, Tailwind CSS, and cloud edge infrastructure. By standardizing component-driven architecture and clean code hygiene, we deliver sub-second performance, 100% source code ownership, and scalable web solutions for clients in Belagavi and globally.",
+        inlineLink: {
+          text: "custom web development services",
+          url: "/services/web-development"
+        }
       }
     ],
     faqs: [

@@ -224,7 +224,28 @@ export default function BlogPostPage() {
                   </h2>
                   
                   <p className="text-muted-foreground dark:text-slate-300 text-base sm:text-lg leading-relaxed">
-                    {section.body}
+                    {section.inlineLink && section.body.includes(section.inlineLink.text) ? (
+                      (() => {
+                        const index = section.body.indexOf(section.inlineLink.text);
+                        if (index === -1) return section.body;
+                        const before = section.body.slice(0, index);
+                        const after = section.body.slice(index + section.inlineLink.text.length);
+                        return (
+                          <>
+                            {before}
+                            <Link
+                              to={section.inlineLink.url}
+                              className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                            >
+                              {section.inlineLink.text}
+                            </Link>
+                            {after}
+                          </>
+                        );
+                      })()
+                    ) : (
+                      section.body
+                    )}
                   </p>
 
                   {section.table && (
