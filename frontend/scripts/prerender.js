@@ -115,8 +115,8 @@ const routes = [
   },
   {
     path: '/top-it-companies-in-belagavi',
-    title: 'Top IT & Software Companies in Belgaum (Belagavi) | CoreSlash',
-    description: 'Explore top IT and software companies in Belgaum (Belagavi). CoreSlash Technologies engineers custom software, web platforms, and enterprise cloud systems.'
+    title: 'Top IT & Software Companies in Belgaum (Guide) | CoreSlash',
+    description: 'Looking for IT and software companies in Belgaum (Belagavi)? Explore local tech landscape categories, evaluation checklists, and custom engineering services.'
   },
 
   // Service Pages
