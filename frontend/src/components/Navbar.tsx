@@ -33,15 +33,8 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Data Analytics", href: "/services/data-analytics" },
     ],
   },
-  {
-    label: "About",
-    href: "/about",
-    dropdown: [
-      { label: "About Us", href: "/about" },
-      { label: "Portfolio", href: "/portfolio" },
-    ],
-  },
-  { label: "Website Audit", href: "/website-audit" },
+  { label: "About", href: "/about" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Partner Program", href: "/partner" },
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
