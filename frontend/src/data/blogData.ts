@@ -428,7 +428,11 @@ const bespokeArticlesContent: Record<string, BlogPost["content"]> = {
         },
         {
           heading: "4. Choosing the Right Architecture: React SPA vs. Next.js",
-          body: "Selecting the appropriate frontend paradigm is a critical architectural decision for any web project. While single-page applications (SPAs) built with React and Vite excel in complex, authenticated client dashboards where instant state transitions are paramount, Next.js offers server-side rendering and static pre-rendering that benefit public marketing sites, e-commerce storefronts, and content-rich portals. CoreSlash evaluates technical requirements, SEO objectives, and caching architectures to recommend the optimal stack for your business."
+          body: "Selecting the appropriate frontend paradigm is a critical architectural decision for any web project. While single-page applications (SPAs) built with React and Vite excel in complex, authenticated client dashboards where instant state transitions are paramount, Next.js offers server-side rendering and static pre-rendering that benefit public marketing sites, e-commerce storefronts, and content-rich portals. Through our custom web development services, CoreSlash evaluates technical requirements, SEO objectives, and caching architectures to recommend the optimal stack for your business.",
+          inlineLink: {
+            text: "custom web development services",
+            url: "/services/web-development"
+          }
         }
       ],
       faqs: [
