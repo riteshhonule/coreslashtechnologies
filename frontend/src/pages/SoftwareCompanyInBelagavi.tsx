@@ -107,6 +107,11 @@ const belagaviFaqData: FaqData = {
           id: "q3",
           question: "Do you build custom software or use pre-made templates?",
           answer: "We specialize in custom software engineering tailored specifically to your business logic using React, Next.js, Node.js, Python, and cloud-native microservices, ensuring zero bloat and maximum scalability."
+        },
+        {
+          id: "q7",
+          question: "How much does custom software or web development cost in Belgaum?",
+          answer: "Custom software and web development costs in Belgaum depend on functional scope, system architecture, third-party integrations, and ongoing maintenance requirements. Rather than arbitrary pricing, project estimates reflect engineering sprints, technical complexity, database modeling, and cloud infrastructure choices."
         }
       ]
     },
@@ -129,6 +134,11 @@ const belagaviFaqData: FaqData = {
           id: "q6",
           question: "Do you provide post-launch support and maintenance for Belagavi businesses?",
           answer: "Yes, we offer ongoing SLA maintenance contracts including 24/7 cloud DevOps monitoring, security updates, database backups, and feature enhancements."
+        },
+        {
+          id: "q8",
+          question: "What is the advantage of choosing a local IT company in Belgaum over hiring outstation agencies?",
+          answer: "Working with an IT company based near Belgaum may make in-person discussions, requirement clarification, and project coordination more convenient when face-to-face collaboration is important. However, the right choice depends on technical expertise, project experience, communication practices, delivery processes, and long-term support rather than location alone."
         }
       ]
     }
@@ -539,11 +549,11 @@ export default function SoftwareCompanyInBelagavi() {
             </h2>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-              As Belagavi (commonly known as Belgaum) expands as a major industrial, educational, and commercial center in North Karnataka, local enterprises and growing organizations increasingly rely on high-performance IT infrastructure. Navigating software and technology options in Belagavi requires choosing engineering partners that deliver scalable digital software, complete code ownership, and robust cloud security.
+              As Belagavi (commonly known as Belgaum) expands as a major industrial, educational, and commercial center in North Karnataka, local enterprises and growing organizations increasingly rely on high-performance digital infrastructure. When evaluating established <strong>IT companies in Belgaum</strong>, businesses require engineering partners that deliver scalable custom applications, complete source-code ownership, and enterprise-grade cloud security. As a dedicated <strong>software company in Belgaum</strong>, CoreSlash Technologies bridges local accessibility with modern full-stack engineering standards.
             </p>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-              Whether your organization in Belagavi or Belgaum requires custom <Link to="/services/web-development" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">web development</Link> with React and Next.js, cross-platform <Link to="/services/app-development" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">mobile app development</Link>, <Link to="/services/erp-crm-development" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">custom ERP software</Link>, custom <Link to="/services/software-systems" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">enterprise software systems</Link>, or intelligent <Link to="/services/ai-automation" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">AI automation</Link>, modern engineering standards ensure long-term operational success.
+              Whether your organization requires custom <Link to="/services/web-development" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">web development</Link> with React and Next.js, cross-platform <Link to="/services/app-development" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">mobile app development</Link>, <Link to="/services/erp-crm-development" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">custom ERP software</Link>, scalable <Link to="/services/software-systems" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">enterprise software systems</Link>, intelligent <Link to="/services/ai-automation" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">AI automation</Link>, or data-driven <Link to="/services/seo-solutions" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">technical SEO solutions</Link>, modern software engineering practices ensure sustainable operational and search performance.
             </p>
 
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
@@ -620,7 +630,7 @@ export default function SoftwareCompanyInBelagavi() {
             Overview of the IT & Software Landscape in Belgaum
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Belagavi (Belgaum) serves as an expanding commercial and technical center in North Karnataka. Situated strategically between Pune and Bengaluru, the region benefits from established engineering institutions—including the headquarters of Visvesvaraya Technological University (VTU) and prominent engineering colleges—which supply an active pool of engineering talent. Combined with major manufacturing clusters in areas like Udyambag and Machhe, the local requirement for digital solutions has progressed from static websites to custom software engineering and cloud systems.
+            Belagavi (Belgaum) serves as an expanding commercial and technical center in North Karnataka. Situated strategically between Pune and Bengaluru, the region benefits from established engineering institutions—including the headquarters of Visvesvaraya Technological University (VTU) and prominent engineering colleges—which supply an active pool of engineering talent to regional <strong>Belgaum IT companies</strong>. Combined with major manufacturing clusters in industrial corridors like Udyambag and Machhe, business demand across local <strong>software companies in Belgaum</strong> has progressed from basic static websites to custom software engineering, cloud systems, and automated ERP workflows.
           </p>
         </div>
 
@@ -710,7 +720,7 @@ export default function SoftwareCompanyInBelagavi() {
                   to={service.link}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 group-hover:gap-2.5 transition-all"
                 >
-                  <span>Explore Service</span>
+                  <span>Explore {service.title}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -753,6 +763,32 @@ export default function SoftwareCompanyInBelagavi() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ========================================================
+          5A. MID-PAGE CONSULTATION CALLOUT
+          ======================================================== */}
+      <section className="py-10 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <div className="relative rounded-2xl bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-cyan-600/10 dark:from-blue-950/40 dark:via-indigo-950/40 dark:to-cyan-950/40 border border-blue-200/60 dark:border-blue-900/50 p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm overflow-hidden">
+          <div className="space-y-2 text-center md:text-left max-w-2xl">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+              Looking for a trusted IT partner in Belgaum?
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed">
+              Discuss your business requirements with our engineering team. We evaluate your workflow needs, technical feasibility, and deployment architecture with complete transparency.
+            </p>
+          </div>
+
+          <div className="flex-shrink-0">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-200"
+            >
+              <span>Talk to Our Engineers</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
