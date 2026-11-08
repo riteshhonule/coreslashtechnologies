@@ -51,9 +51,8 @@ const routes = [
   },
   {
     path: '/website-audit',
-    title: 'Software Development Portfolio & Case Studies | CoreSlash Technologies',
-    description: 'Explore client case studies and software solutions by CoreSlash Technologies, featuring enterprise web apps, SaaS platforms, and custom mobile applications.',
-    canonical: 'https://coreslashtechnologies.com/portfolio'
+    title: 'Free AI Website Audit & Performance Analyzer | CoreSlash Technologies',
+    description: 'Audit your website performance, SEO, mobile responsiveness, accessibility, security headers, technology stack, and AI readiness with CoreSlash Technologies.'
   },
   {
     path: '/partner',
