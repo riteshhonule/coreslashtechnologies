@@ -1,12 +1,54 @@
 import * as fs from 'fs';
 import * as chromeLauncher from 'chrome-launcher';
-import { validateUrlSsrf } from './ssrf-validator';
+import { validateUrlSsrf, validateBrowserRequestUrl } from './ssrf-validator';
+import { chromiumConcurrencyManager } from './concurrency-manager';
+import { createSsrfProxy, SsrfProxyInstance } from './ssrf-proxy';
 import { Logger } from '@nestjs/common';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const WS = require('ws');
 
 const logger = new Logger('CdpPerformanceRunner');
+
+/**
+ * Static URL block patterns passed directly to Chromium's Network.setBlockedURLs.
+ * Blocks known loopbacks, private subnets, cloud metadata IPs, and unsafe protocols
+ * directly at the native Chromium network layer.
+ */
+export const BLOCKED_URL_PATTERNS = [
+  '*://localhost/*',
+  '*://localhost:*/*',
+  '*://127.0.0.1/*',
+  '*://127.0.0.1:*/*',
+  '*://0.0.0.0/*',
+  '*://0.0.0.0:*/*',
+  '*://169.254.169.254/*',
+  '*://169.254.169.254:*/*',
+  '*://169.254.*/*',
+  '*://169.254.*:*/*',
+  '*://10.*/*',
+  '*://10.*:*/*',
+  '*://192.168.*/*',
+  '*://192.168.*:*/*',
+  '*://172.16.*/*',
+  '*://172.17.*/*',
+  '*://172.18.*/*',
+  '*://172.19.*/*',
+  '*://172.2*.*/*',
+  '*://172.30.*/*',
+  '*://172.31.*/*',
+  '*://[::1]*',
+  '*://[::1]:*/*',
+  '*.local/*',
+  '*.local:*/*',
+  '*.internal/*',
+  '*.internal:*/*',
+  '*://metadata.google.internal/*',
+  '*://instance-data/*',
+  'file://*',
+  'ftp://*',
+  'gopher://*',
+];
 
 export interface CdpMetricResult {
   isMeasured: boolean;
@@ -270,11 +312,29 @@ export async function runCdpPerformanceAuditPair(url: string): Promise<{
     };
   }
 
+  // Bounded Concurrency: acquire an execution slot (default max 2 concurrent browsers)
+  let releaseSlot: (() => void) | undefined;
+  try {
+    releaseSlot = await chromiumConcurrencyManager.acquire();
+  } catch (queueErr: any) {
+    logger.warn(`Concurrency limit reached: ${queueErr.message}`);
+    return {
+      mobile: createFailResult('mobile', queueErr.message || 'Audit capacity reached. Server busy, please try again later.'),
+      desktop: createFailResult('desktop', queueErr.message || 'Audit capacity reached. Server busy, please try again later.'),
+      mobileTimeMs: 0,
+      desktopTimeMs: 0,
+    };
+  }
+
+  let proxy: SsrfProxyInstance | undefined;
   let chrome: chromeLauncher.LaunchedChrome | undefined;
   let browserClient: CdpClient | undefined;
 
   try {
-    logger.log(`Launching Chromium (${chromePath}) for CDP measurement...`);
+    // Spin up local destination-pinning SSRF proxy for this browser session
+    proxy = await createSsrfProxy();
+
+    logger.log(`Launching Chromium (${chromePath}) with destination IP pinning proxy on port ${proxy.port}...`);
     chrome = await chromeLauncher.launch({
       chromePath,
       chromeFlags: [
@@ -295,6 +355,8 @@ export async function runCdpPerformanceAuditPair(url: string): Promise<{
         '--disable-component-update',
         '--disable-sync',
         '--metrics-recording-only',
+        `--proxy-server=http://127.0.0.1:${proxy.port}`,
+        '--proxy-bypass-list=<-loopback>',
       ],
     });
 
@@ -337,6 +399,16 @@ export async function runCdpPerformanceAuditPair(url: string): Promise<{
         logger.debug(`Chrome process cleanup notice: ${killErr.message}`);
       }
     }
+    if (proxy) {
+      try {
+        await proxy.close();
+      } catch (proxyErr: any) {
+        logger.debug(`Proxy cleanup notice: ${proxyErr.message}`);
+      }
+    }
+    if (releaseSlot) {
+      releaseSlot();
+    }
   }
 }
 
@@ -348,6 +420,8 @@ async function runSingleStrategyCdp(
 ): Promise<CdpMetricResult> {
   let targetId: string | undefined;
   let pageClient: CdpClient | undefined;
+  const inFlightRequests = new Set<string>();
+  let isInterceptionActive = false;
 
   try {
     const createRes = await browserClient.send('Target.createTarget', { url: 'about:blank' });
@@ -360,6 +434,66 @@ async function runSingleStrategyCdp(
     await pageClient.send('Page.enable');
     await pageClient.send('Network.enable');
     await pageClient.send('Performance.enable');
+
+    // Tier 1: Static Native URL Block Patterns
+    await pageClient.send('Network.setBlockedURLs', { urls: BLOCKED_URL_PATTERNS });
+
+    // Tier 2: Dynamic CDP Request Interception with Timeout & In-Flight Tracking
+    const dnsCache = new Map<string, boolean>();
+    isInterceptionActive = true;
+
+    // IMPORTANT: Register Fetch.requestPaused listener BEFORE sending Fetch.enable
+    pageClient.on('Fetch.requestPaused', async (params: any) => {
+      const { requestId, request } = params;
+      if (!requestId) return;
+
+      inFlightRequests.add(requestId);
+
+      let handled = false;
+      const safeFail = async (reason = 'AccessDenied') => {
+        if (handled || !isInterceptionActive) return;
+        handled = true;
+        inFlightRequests.delete(requestId);
+        try {
+          await pageClient!.send('Fetch.failRequest', { requestId, errorReason: reason });
+        } catch {}
+      };
+
+      const safeContinue = async () => {
+        if (handled || !isInterceptionActive) return;
+        handled = true;
+        inFlightRequests.delete(requestId);
+        try {
+          await pageClient!.send('Fetch.continueRequest', { requestId });
+        } catch {}
+      };
+
+      // Hard timeout per paused request (3000ms) prevents stalled navigations
+      const reqTimer = setTimeout(() => {
+        logger.debug(`[CDP SSRF Guard] Request timeout for ${request?.url || requestId}`);
+        safeFail('TimedOut');
+      }, 3000);
+      if (typeof reqTimer.unref === 'function') reqTimer.unref();
+
+      try {
+        const check = await validateBrowserRequestUrl(request.url, dnsCache);
+        clearTimeout(reqTimer);
+
+        if (!check.isAllowed) {
+          logger.warn(`[CDP SSRF Guard] Blocked request: ${request.url} (${check.reason})`);
+          await safeFail('AccessDenied');
+        } else {
+          await safeContinue();
+        }
+      } catch (err: any) {
+        clearTimeout(reqTimer);
+        logger.debug(`[CDP SSRF Guard] Interception exception on ${request?.url}: ${err.message}`);
+        await safeFail('AccessDenied');
+      }
+    });
+
+    // Send Fetch.enable AFTER listener is registered
+    await pageClient.send('Fetch.enable', { patterns: [{ requestStage: 'Request' }] });
 
     if (strategy === 'mobile') {
       await pageClient.send('Emulation.setDeviceMetricsOverride', {
@@ -553,6 +687,12 @@ async function runSingleStrategyCdp(
     });
 
     const parsed = JSON.parse(evalResult.result?.value || '{}');
+    isInterceptionActive = false;
+    for (const reqId of inFlightRequests) {
+      pageClient.send('Fetch.failRequest', { requestId: reqId, errorReason: 'Aborted' }).catch(() => {});
+    }
+    inFlightRequests.clear();
+    await pageClient.send('Fetch.disable').catch(() => {});
 
     const fcpMs = typeof parsed.fcpMs === 'number' ? parsed.fcpMs : null;
     const lcpMs = typeof parsed.lcpMs === 'number' ? parsed.lcpMs : null;
@@ -615,7 +755,12 @@ async function runSingleStrategyCdp(
       error: err.message || `${strategy} measurement failed.`,
     };
   } finally {
+    isInterceptionActive = false;
     if (pageClient) {
+      for (const reqId of inFlightRequests) {
+        pageClient.send('Fetch.failRequest', { requestId: reqId, errorReason: 'Aborted' }).catch(() => {});
+      }
+      inFlightRequests.clear();
       try { await pageClient.close(); } catch {}
     }
     if (targetId && browserClient) {
