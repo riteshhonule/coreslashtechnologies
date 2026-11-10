@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException, BadRequestException, Logger } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { EmailService } from '../email/email.service';
 import { CreateAuditDto } from './dto/create-audit.dto';
 import { validateUrlSsrf, fetchSafeWithSsrfRedirects } from './utils/ssrf-validator';
 import { detectTechnologies } from './utils/tech-detector';
@@ -16,8 +17,12 @@ export type PageSpeedMetricResult = CdpMetricResult;
 @Injectable()
 export class WebsiteAuditService {
   private readonly logger = new Logger(WebsiteAuditService.name);
+  private readonly notifyingAudits = new Set<string>();
 
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private emailService: EmailService,
+  ) {}
 
   async createAudit(dto: CreateAuditDto) {
     // 1. SSRF Validation for Main URL
@@ -84,6 +89,13 @@ export class WebsiteAuditService {
       throw new NotFoundException(`Audit with ID ${auditId} not found.`);
     }
 
+    // Strip internal lead/notification metadata from public report
+    let sanitizedReport = record.reportJson as any;
+    if (sanitizedReport && typeof sanitizedReport === 'object' && sanitizedReport.salesNotification) {
+      const { salesNotification, ...rest } = sanitizedReport;
+      sanitizedReport = rest;
+    }
+
     return {
       auditId: record.auditId,
       url: record.url,
@@ -91,7 +103,7 @@ export class WebsiteAuditService {
       status: record.status,
       overallScore: record.overallScore,
       grade: record.grade,
-      report: record.reportJson,
+      report: sanitizedReport,
       errorMessage: record.errorMessage,
       createdAt: record.createdAt,
       updatedAt: record.updatedAt,
@@ -290,7 +302,7 @@ export class WebsiteAuditService {
       // Final completion DB update
       this.logger.log(`[WebsiteAuditService] Final performance report: ${JSON.stringify(reportJson.performance)}`);
       this.logger.log(`[Audit ${auditId}] Complete audit finished. Overall score: ${overall.score}`);
-      await this.prisma.websiteAudit.update({
+      const completedRecord = await this.prisma.websiteAudit.update({
         where: { auditId },
         data: {
           status: AuditStatus.COMPLETED,
@@ -300,6 +312,11 @@ export class WebsiteAuditService {
           completedAt: new Date(),
         },
       });
+
+      // Sales Lead Notification (Only for completed audits with email)
+      if (completedRecord.email && completedRecord.email.trim().length > 0) {
+        await this.handleSalesLeadNotification(completedRecord, reportJson, overall);
+      }
     } catch (err: any) {
       const errorMsg = err.message || 'Audit encountered an unexpected failure.';
       this.logger.error(`[Audit ${auditId}] Audit FAILED: ${errorMsg}`, err.stack);
@@ -314,6 +331,76 @@ export class WebsiteAuditService {
       } catch (dbErr: any) {
         this.logger.error(`[Audit ${auditId}] Failed to set FAILED status in DB: ${dbErr.message}`);
       }
+    }
+  }
+
+  /**
+   * Dispatches sales lead notification with duplicate prevention and failure resilience.
+   */
+  async handleSalesLeadNotification(
+    record: { auditId: string; url: string; email: string | null; competitorUrl?: string | null; completedAt?: Date | null },
+    reportJson: any,
+    overall: { score: number | null; grade: string | null },
+  ) {
+    const auditId = record.auditId;
+
+    if (!record.email || !record.email.trim()) {
+      return;
+    }
+
+    // 1. In-process deduplication check (prevents concurrent duplicate triggers)
+    if (this.notifyingAudits.has(auditId)) {
+      this.logger.warn(`[Audit ${auditId}] Sales notification already in progress. Skipping duplicate.`);
+      return;
+    }
+
+    // 2. Database state deduplication check (prevents duplicate delivery on re-runs)
+    const existingNotification = reportJson?.salesNotification;
+    if (existingNotification?.status === 'SENT') {
+      this.logger.log(`[Audit ${auditId}] Sales notification was already sent at ${existingNotification.sentAt}. Skipping duplicate.`);
+      return;
+    }
+
+    this.notifyingAudits.add(auditId);
+
+    try {
+      this.logger.log(`[Audit ${auditId}] Triggering sales lead notification for email: ${record.email}`);
+
+      const emailResult = await this.emailService.sendSalesAuditLeadNotification({
+        auditId: record.auditId,
+        url: record.url,
+        email: record.email,
+        overallScore: overall.score,
+        grade: overall.grade,
+        completedAt: record.completedAt || new Date(),
+        competitorUrl: record.competitorUrl,
+        categoryScores: reportJson?.categories,
+      });
+
+      const notificationMeta = {
+        status: emailResult.success ? 'SENT' : emailResult.skipped ? 'SKIPPED' : 'FAILED',
+        sentAt: emailResult.success ? new Date().toISOString() : null,
+        attemptedAt: new Date().toISOString(),
+        messageId: emailResult.messageId || null,
+        error: emailResult.error || null,
+        reason: emailResult.reason || null,
+      };
+
+      reportJson.salesNotification = notificationMeta;
+
+      await this.prisma.websiteAudit.update({
+        where: { auditId },
+        data: {
+          reportJson: reportJson as any,
+        },
+      });
+
+      this.logger.log(`[Audit ${auditId}] Sales notification status recorded: ${notificationMeta.status}`);
+    } catch (err: any) {
+      // Critical requirement: Email failure does NOT fail the completed audit!
+      this.logger.error(`[Audit ${auditId}] Error during sales lead notification: ${err.message}`, err.stack);
+    } finally {
+      this.notifyingAudits.delete(auditId);
     }
   }
 
