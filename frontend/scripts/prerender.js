@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import http from 'http';
+import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,7 +16,160 @@ if (!fs.existsSync(indexHtmlPath)) {
   process.exit(1);
 }
 
-const templateHtml = fs.readFileSync(indexHtmlPath, 'utf8');
+// Keep a copy of the pristine template HTML before modifying any files
+const pristineTemplateHtml = fs.readFileSync(indexHtmlPath, 'utf8')
+  .replace(/<title[\s\S]*?<\/title>/gi, '')
+  .replace(/<link\s+rel="canonical"[\s\S]*?>/gi, '')
+  .replace(/<meta\s+name="description"[\s\S]*?>/gi, '');
+
+/**
+ * Safely and atomically writes content to a destination file.
+ *
+ * Guarantees:
+ * 1. Writes payload to an isolated temporary file located in the target directory
+ *    (ensuring same filesystem volume for atomic rename).
+ * 2. Uses cryptographically secure random bytes (`crypto.randomBytes`) for collision resistance.
+ * 3. Opens the temporary path exclusively via `fs.openSync(candidatePath, 'wx')`,
+ *    guaranteeing atomic creation without overwriting an existing file.
+ * 4. Immediately claims ownership of `tempPath` upon successful `openSync` so partial writes
+ *    or mid-write failures can always identify and clean up the file.
+ * 5. Writes via the file descriptor and manages descriptor lifecycle synchronously without leaks.
+ * 6. Does not mark a descriptor as closed until `closeSync()` succeeds, and avoids blind retries
+ *    when descriptor state is uncertain.
+ * 7. Verifies non-zero byte size prior to filesystem commitment.
+ * 8. Commits via `fs.renameSync()`, which is atomic on POSIX (Vercel/Linux) and Windows NTFS.
+ * 9. Never falls back to non-atomic copying (`copyFileSync()`). If atomic replacement fails,
+ *    it cleans up only its own temporary file and aborts safely, leaving existing files intact.
+ * 10. Preserves primary write/rename errors while explicitly reporting any cleanup failures.
+ */
+function atomicWriteFileSync(outputPath, content, maxRetries = 3) {
+  const dir = path.dirname(outputPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  let tempPath = null;
+  let fd = null;
+  let attempts = 0;
+
+  // Step 1, 2, 3: Exclusively open temporary file with unique entropy
+  while (attempts < maxRetries) {
+    attempts++;
+    const entropy = crypto.randomBytes(8).toString('hex');
+    const candidateTempPath = `${outputPath}.tmp.${process.pid}.${Date.now()}.${entropy}`;
+
+    try {
+      // Exclusive creation: fails with EEXIST if path already exists
+      fd = fs.openSync(candidateTempPath, 'wx');
+      // Immediately record ownership of candidateTempPath once openSync succeeds
+      tempPath = candidateTempPath;
+      break;
+    } catch (err) {
+      if (err.code === 'EEXIST' && attempts < maxRetries) {
+        continue; // Collision on temp path: retry with fresh entropy
+      }
+      throw new Error(`Failed to create exclusive temporary file for atomic write (${outputPath}): ${err.message}`);
+    }
+  }
+
+  try {
+    // Step 4: Write payload using the file descriptor
+    fs.writeFileSync(fd, content, 'utf8');
+
+    // Step 5: Close file descriptor before rename or verification
+    // Do not mark descriptor as closed until closeSync succeeds. If it throws,
+    // clear fd reference so catch does not blindly retry on uncertain descriptor state.
+    try {
+      fs.closeSync(fd);
+      fd = null;
+    } catch (closeErr) {
+      fd = null; // Do not attempt to re-close uncertain descriptor
+      throw closeErr;
+    }
+
+    // Step 6: Verify written temporary file size
+    const stat = fs.statSync(tempPath);
+    if (stat.size === 0 && content.length > 0) {
+      throw new Error(`Atomic write verification failed: temporary file ${tempPath} is 0 bytes`);
+    }
+
+    // Step 7: Atomic commitment via rename (with transient lock retry for concurrent replacement contention)
+    let renameAttempts = 0;
+    const maxRenameRetries = 10;
+    while (true) {
+      try {
+        fs.renameSync(tempPath, outputPath);
+        tempPath = null; // Successfully committed, no cleanup needed
+        break;
+      } catch (renameErr) {
+        renameAttempts++;
+        if (
+          renameAttempts < maxRenameRetries &&
+          (renameErr.code === 'EPERM' || renameErr.code === 'EBUSY' || renameErr.code === 'EACCES')
+        ) {
+          const delayMs = Math.floor(10 + Math.random() * 20);
+          const end = Date.now() + delayMs;
+          while (Date.now() < end) {}
+          continue;
+        }
+        throw renameErr;
+      }
+    }
+  } catch (err) {
+    const cleanupFailures = [];
+
+    // Ensure file descriptor is closed in error paths if closeSync was not yet attempted
+    if (fd !== null) {
+      const fdToClose = fd;
+      fd = null; // Prevent duplicate close attempt
+      try {
+        fs.closeSync(fdToClose);
+      } catch (closeErr) {
+        cleanupFailures.push(`failed to close descriptor ${fdToClose} (${closeErr.message})`);
+      }
+    }
+
+    // Step 8: Clean up ONLY the temporary file owned by this invocation
+    if (tempPath) {
+      try {
+        if (fs.existsSync(tempPath)) {
+          fs.unlinkSync(tempPath);
+        }
+      } catch (unlinkErr) {
+        cleanupFailures.push(`failed to remove temporary file ${tempPath} (${unlinkErr.message})`);
+      }
+    }
+
+    const cleanupSuffix = cleanupFailures.length > 0
+      ? ` [Cleanup warnings: ${cleanupFailures.join('; ')}]`
+      : '';
+
+    const finalError = new Error(`Atomic write failed for ${outputPath}: ${err.message}${cleanupSuffix}`);
+    finalError.cause = err;
+    throw finalError;
+  }
+}
+
+/**
+ * Normalizes captured HTML by stripping ephemeral preview server origins
+ * (e.g. from Vite's dynamic modulepreload link tags) and strictly asserts
+ * zero localhost / loopback address leakage in production output.
+ */
+function normalizeHtml(html, port) {
+  // Strip ephemeral origins injected during browser rendering
+  const ephemeralOriginPattern = new RegExp(`https?:\\/\\/(?:127\\.0\\.0\\.1|localhost):${port}`, 'g');
+  let normalized = html.replace(ephemeralOriginPattern, '');
+
+  // Strict build validation: Fail build if any 127.0.0.1 or localhost URLs remain in captured HTML
+  const leakedOrigins = normalized.match(/https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?/gi);
+  if (leakedOrigins && leakedOrigins.length > 0) {
+    throw new Error(
+      `Critical build validation failed: Ephemeral preview origins leaked into pre-rendered HTML: ${[...new Set(leakedOrigins)].join(', ')}`
+    );
+  }
+
+  return normalized;
+}
 
 // Load blog posts from blogData.ts
 const blogDataPath = path.resolve(rootDir, 'src/data/blogData.ts');
@@ -194,96 +349,371 @@ rawPosts.forEach(post => {
   });
 });
 
+// Phase 1 POC Target Routes Definition with Explicit SEO Acceptance Criteria
+const SNAPSHOT_TARGET_ROUTES = [
+  {
+    path: '/',
+    expectedH1Substrings: ['COMPLEX BUSINESS PROBLEMS', 'AI-Powered'],
+    expectedTitleSubstring: 'CoreSlash Technologies',
+    expectedCanonical: 'https://coreslashtechnologies.com/',
+    minLinks: 20,
+    expectedJsonLdCount: 1
+  },
+  {
+    path: '/top-it-companies-in-belagavi',
+    expectedH1Substrings: ['Top IT & Software Companies in Belgaum'],
+    expectedTitleSubstring: 'Top IT & Software Companies in Belgaum',
+    expectedCanonical: 'https://coreslashtechnologies.com/top-it-companies-in-belagavi',
+    minLinks: 40,
+    expectedJsonLdCount: 1
+  },
+  {
+    path: '/services/web-development',
+    expectedH1Substrings: ['Custom Web Development Services'],
+    expectedTitleSubstring: 'Custom Web Development Services',
+    expectedCanonical: 'https://coreslashtechnologies.com/services/web-development',
+    minLinks: 30,
+    expectedJsonLdCount: 2
+  }
+];
+
+const snapshotPaths = new Set(SNAPSHOT_TARGET_ROUTES.map(r => r.path));
+
 console.log(`Pre-rendering HTML files for ${routes.length} total discovered routes...`);
+console.log(`[Phase 1 Scope] Browser-based static snapshot enabled for 3 target routes:`);
+SNAPSHOT_TARGET_ROUTES.forEach(r => console.log(`  • ${r.path}`));
 
-let processedCount = 0;
-
+// Step 1: Pre-render metadata-only HTML for all non-snapshot routes (preserving existing pipeline)
+let nonSnapshotCount = 0;
 for (const route of routes) {
+  if (snapshotPaths.has(route.path)) continue;
+
   const canonicalUrl = route.canonical || `https://coreslashtechnologies.com${route.path === '/' ? '' : route.path}`;
 
-  // Construct route-specific head metadata block
-  const headMeta = `
-  <!-- Pre-rendered Route Metadata -->
-  <title data-rh="true">${route.title}</title>
-  <meta name="description" content="${route.description}" data-rh="true" />
-  <link rel="canonical" href="${canonicalUrl}" data-rh="true" />
-  
-  <meta property="og:type" content="website" data-rh="true" />
-  <meta property="og:title" content="${route.title}" data-rh="true" />
-  <meta property="og:description" content="${route.description}" data-rh="true" />
-  <meta property="og:url" content="${canonicalUrl}" data-rh="true" />
-  <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" data-rh="true" />
-  
-  <meta name="twitter:card" content="summary_large_image" data-rh="true" />
-  <meta name="twitter:title" content="${route.title}" data-rh="true" />
-  <meta name="twitter:description" content="${route.description}" data-rh="true" />
-  <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" data-rh="true" />
-`;
-
-  // Replace baseline metadata in templateHtml with route-specific headMeta
-  let routeHtml = templateHtml;
+  let routeHtml = pristineTemplateHtml;
 
   // Insert or update title
-  if (/<title[\s\S]*?<\/title>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<title[\s\S]*?<\/title>/i, `<title data-rh="true">${route.title}</title>`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <title data-rh="true">${route.title}</title>\n</head>`);
-  }
+  routeHtml = routeHtml.replace('</head>', `  <title data-rh="true">${route.title}</title>\n</head>`);
+  routeHtml = routeHtml.replace('</head>', `  <meta name="description" content="${route.description}" data-rh="true" />\n</head>`);
+  routeHtml = routeHtml.replace('</head>', `  <meta property="og:title" content="${route.title}" data-rh="true" />\n</head>`);
+  routeHtml = routeHtml.replace('</head>', `  <meta property="og:description" content="${route.description}" data-rh="true" />\n</head>`);
+  routeHtml = routeHtml.replace('</head>', `  <meta property="og:url" content="${canonicalUrl}" data-rh="true" />\n</head>`);
+  routeHtml = routeHtml.replace('</head>', `  <meta name="twitter:title" content="${route.title}" data-rh="true" />\n</head>`);
+  routeHtml = routeHtml.replace('</head>', `  <meta name="twitter:description" content="${route.description}" data-rh="true" />\n</head>`);
+  routeHtml = routeHtml.replace('</head>', `  <link rel="canonical" href="${canonicalUrl}" data-rh="true" />\n</head>`);
 
-  // Insert or update meta description
-  if (/<meta\s+name="description"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+name="description"[\s\S]*?\/>/i, `<meta name="description" content="${route.description}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta name="description" content="${route.description}" data-rh="true" />\n</head>`);
+  const routeFolder = path.resolve(distDir, route.path.replace(/^\//, ''));
+  if (!fs.existsSync(routeFolder)) {
+    fs.mkdirSync(routeFolder, { recursive: true });
   }
-
-  // Insert or update OG title & description
-  if (/<meta\s+property="og:title"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+property="og:title"[\s\S]*?\/>/i, `<meta property="og:title" content="${route.title}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta property="og:title" content="${route.title}" data-rh="true" />\n</head>`);
-  }
-
-  if (/<meta\s+property="og:description"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+property="og:description"[\s\S]*?\/>/i, `<meta property="og:description" content="${route.description}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta property="og:description" content="${route.description}" data-rh="true" />\n</head>`);
-  }
-
-  // Insert or update Twitter title & description
-  if (/<meta\s+name="twitter:title"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+name="twitter:title"[\s\S]*?\/>/i, `<meta name="twitter:title" content="${route.title}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta name="twitter:title" content="${route.title}" data-rh="true" />\n</head>`);
-  }
-
-  if (/<meta\s+name="twitter:description"[\s\S]*?\/>/i.test(routeHtml)) {
-    routeHtml = routeHtml.replace(/<meta\s+name="twitter:description"[\s\S]*?\/>/i, `<meta name="twitter:description" content="${route.description}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <meta name="twitter:description" content="${route.description}" data-rh="true" />\n</head>`);
-  }
-
-  // Insert or update canonical tag
-  if (routeHtml.includes('rel="canonical"')) {
-    routeHtml = routeHtml.replace(/<link\s+rel="canonical"[\s\S]*?\/>/i, `<link rel="canonical" href="${canonicalUrl}" data-rh="true" />`);
-  } else {
-    routeHtml = routeHtml.replace('</head>', `  <link rel="canonical" href="${canonicalUrl}" data-rh="true" />\n</head>`);
-  }
-
-  // Save file to dist/<route>/index.html
-  let filePath;
-  if (route.path === '/') {
-    filePath = path.resolve(distDir, 'index.html');
-  } else {
-    const routeFolder = path.resolve(distDir, route.path.replace(/^\//, ''));
-    if (!fs.existsSync(routeFolder)) {
-      fs.mkdirSync(routeFolder, { recursive: true });
-    }
-    filePath = path.resolve(routeFolder, 'index.html');
-  }
-
-  fs.writeFileSync(filePath, routeHtml, 'utf8');
-  processedCount++;
+  const filePath = path.resolve(routeFolder, 'index.html');
+  atomicWriteFileSync(filePath, routeHtml);
+  nonSnapshotCount++;
 }
 
-console.log(`Successfully pre-rendered HTML for all ${processedCount} routes.`);
+console.log(`Pre-rendered metadata-only HTML for ${nonSnapshotCount} routes.`);
+
+// Step 2: Browser Snapshotting for the 3 Target Routes
+const mimeTypes = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.mjs': 'application/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf'
+};
+
+function startPreviewServer() {
+  return new Promise((resolve, reject) => {
+    const server = http.createServer((req, res) => {
+      try {
+        const urlPath = req.url.split('?')[0];
+        const filePath = path.join(distDir, urlPath);
+
+        // Serve static assets from dist/
+        if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+          const ext = path.extname(filePath).toLowerCase();
+          res.writeHead(200, {
+            'Content-Type': mimeTypes[ext] || 'application/octet-stream',
+            'Access-Control-Allow-Origin': '*'
+          });
+          fs.createReadStream(filePath).pipe(res);
+          return;
+        }
+
+        // Serve pristine HTML for client SPA route rendering
+        res.writeHead(200, {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Access-Control-Allow-Origin': '*'
+        });
+        res.end(pristineTemplateHtml);
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end(err.message);
+      }
+    });
+
+    server.listen(0, '127.0.0.1', () => {
+      resolve({ server, port: server.address().port });
+    });
+    server.on('error', reject);
+  });
+}
+
+async function launchCompatibleBrowser() {
+  const { chromium } = await import('playwright');
+  const launchArgs = [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-dev-shm-usage',
+    '--disable-gpu'
+  ];
+
+  // 1. Custom executable path from environment variable (e.g. AWS Lambda / CI runner)
+  const customExecutable = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || process.env.CHROMIUM_PATH;
+  if (customExecutable && fs.existsSync(customExecutable)) {
+    console.log(`[Browser Launch] Using custom Chromium executable: ${customExecutable}`);
+    return await chromium.launch({
+      executablePath: customExecutable,
+      headless: true,
+      args: launchArgs
+    });
+  }
+
+  // 2. Check if default Playwright Chromium binary is installed
+  let standardExecutable = null;
+  try {
+    standardExecutable = chromium.executablePath();
+  } catch {}
+
+  if (!standardExecutable || !fs.existsSync(standardExecutable)) {
+    console.log('[Browser Launch] Playwright Chromium binary not found. Initiating non-privileged download (npx playwright install chromium)...');
+    try {
+      const { execSync } = await import('child_process');
+      execSync('npx playwright install chromium', {
+        cwd: rootDir,
+        stdio: 'inherit',
+        env: { ...process.env, PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '0' }
+      });
+      console.log('[Browser Launch] Playwright Chromium download completed.');
+    } catch (installErr) {
+      console.warn('[Browser Launch] Auto-installation of Chromium failed or skipped:', installErr.message);
+    }
+  }
+
+  // 3. Attempt launch with Playwright bundled Chromium
+  try {
+    return await chromium.launch({ headless: true, args: launchArgs });
+  } catch (primaryErr) {
+    console.warn(`[Browser Launch] Standard Chromium launch failed (${primaryErr.message}). Attempting fallback options...`);
+
+    // 4. Fallback: On developer workstations, attempt system Chrome channel
+    try {
+      console.log('[Browser Launch] Attempting local system Chrome channel fallback...');
+      return await chromium.launch({ channel: 'chrome', headless: true, args: launchArgs });
+    } catch (channelErr) {
+      console.error('[Browser Launch] All browser launch strategies failed.');
+      throw new Error(`Failed to launch browser: Primary (${primaryErr.message}), Channel fallback (${channelErr.message})`);
+    }
+  }
+}
+
+async function runStaticSnapshots() {
+  console.log('\nStarting local preview HTTP server on ephemeral port...');
+  const { server, port } = await startPreviewServer();
+  console.log(`Preview server active at http://127.0.0.1:${port}`);
+
+  console.log('Launching headless browser instance for static snapshot generation...');
+  const browser = await launchCompatibleBrowser();
+
+  const auditResults = [];
+  let criticalFailureCount = 0;
+
+  try {
+    for (const target of SNAPSHOT_TARGET_ROUTES) {
+      console.log(`\n[Prerendering Snapshot] Capturing: ${target.path}`);
+      const startTime = Date.now();
+      const page = await browser.newPage({
+        viewport: { width: 1440, height: 900 }
+      });
+
+      try {
+        const response = await page.goto(`http://127.0.0.1:${port}${target.path}`, {
+          waitUntil: 'domcontentloaded',
+          timeout: 15000
+        });
+
+        const httpStatus = response ? response.status() : 0;
+        if (httpStatus !== 200) {
+          throw new Error(`Expected HTTP 200 from preview server, received ${httpStatus}`);
+        }
+
+        // 1. Wait for layout and primary H1 to render
+        await page.waitForSelector('h1', { timeout: 10000 });
+
+        // 2. Wait for page-specific JSON-LD to appear in head via React Helmet
+        await page.waitForFunction(
+          (minCount) => {
+            const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+            return scripts.length >= minCount;
+          },
+          target.expectedJsonLdCount,
+          { timeout: 8000 }
+        );
+
+        // 3. Short settle pass for Framer Motion initial render
+        await page.waitForTimeout(300);
+
+        // Extract metrics for validation
+        const title = await page.title();
+        const h1Text = await page.$eval('h1', el => el.innerText);
+        const rootHtml = await page.$eval('#root', el => el.innerHTML);
+        const canonicals = await page.$$eval('link[rel="canonical"]', els => els.map(e => e.getAttribute('href')));
+        const jsonLdCount = await page.$$eval('script[type="application/ld+json"]', els => els.length);
+        const internalLinks = await page.$$eval('a[href]', els => els.map(e => e.getAttribute('href')).filter(h => h && h.startsWith('/')));
+        const noindexes = await page.$$eval('meta[name="robots"][content*="noindex"]', els => els.length);
+
+        // Run Acceptance Criteria Validations
+        if (!title.includes(target.expectedTitleSubstring)) {
+          throw new Error(`Title mismatch: expected to contain "${target.expectedTitleSubstring}", got "${title}"`);
+        }
+
+        for (const sub of target.expectedH1Substrings) {
+          if (!h1Text.includes(sub)) {
+            throw new Error(`H1 mismatch: expected to contain "${sub}", got "${h1Text.replace(/\n/g, ' ')}"`);
+          }
+        }
+
+        if (canonicals.length === 0) {
+          throw new Error(`Missing canonical tag on route ${target.path}`);
+        }
+        if (canonicals.length > 1) {
+          throw new Error(`Duplicate canonical tags detected (${canonicals.length}): ${canonicals.join(', ')}`);
+        }
+        if (canonicals[0] !== target.expectedCanonical) {
+          throw new Error(`Canonical mismatch: expected "${target.expectedCanonical}", got "${canonicals[0]}"`);
+        }
+
+        if (rootHtml.length < 5000) {
+          throw new Error(`#root content too short (${rootHtml.length} chars). Possible empty body.`);
+        }
+
+        if (internalLinks.length < target.minLinks) {
+          throw new Error(`Insufficient internal links: expected at least ${target.minLinks}, found ${internalLinks.length}`);
+        }
+
+        if (jsonLdCount < target.expectedJsonLdCount) {
+          throw new Error(`Insufficient JSON-LD scripts: expected at least ${target.expectedJsonLdCount}, found ${jsonLdCount}`);
+        }
+
+        if (noindexes > 0) {
+          throw new Error(`Accidental noindex tag detected on critical route ${target.path}`);
+        }
+
+        // Capture full document HTML
+        const fullHtml = await page.content();
+        const duration = Date.now() - startTime;
+
+        // Normalize captured HTML and assert zero ephemeral preview origin leakage
+        const normalizedHtml = normalizeHtml(fullHtml, port);
+
+        // Write snapshot to target destination atomically
+        let outputPath;
+        if (target.path === '/') {
+          outputPath = path.resolve(distDir, 'index.html');
+        } else {
+          const folder = path.resolve(distDir, target.path.replace(/^\//, ''));
+          if (!fs.existsSync(folder)) {
+            fs.mkdirSync(folder, { recursive: true });
+          }
+          outputPath = path.resolve(folder, 'index.html');
+        }
+
+        atomicWriteFileSync(outputPath, normalizedHtml);
+
+        auditResults.push({
+          path: target.path,
+          status: 'PASS',
+          duration: `${duration}ms`,
+          htmlSize: `${(normalizedHtml.length / 1024).toFixed(1)} KB`,
+          rootLength: `${(rootHtml.length / 1024).toFixed(1)} KB`,
+          h1: h1Text.replace(/\n/g, ' ').substring(0, 50) + '...',
+          links: internalLinks.length,
+          jsonLd: jsonLdCount,
+          canonical: canonicals[0]
+        });
+
+        console.log(`  ✓ Snapshot validated & written: ${outputPath} (${(normalizedHtml.length / 1024).toFixed(1)} KB in ${duration}ms)`);
+      } catch (routeErr) {
+        criticalFailureCount++;
+        auditResults.push({
+          path: target.path,
+          status: 'FAIL',
+          error: routeErr.message
+        });
+        console.error(`  ✗ CRITICAL FAILURE for ${target.path}: ${routeErr.message}`);
+      } finally {
+        await page.close();
+      }
+    }
+  } finally {
+    await browser.close();
+    server.close();
+    console.log('Preview server and browser resources cleanly shut down.');
+  }
+
+  // Print Structured Audit Summary Table
+  console.log('\n' + '='.repeat(90));
+  console.log('CORESLASH STATIC PRERENDER AUDIT REPORT — PHASE 1 POC (3 ROUTES)');
+  console.log('='.repeat(90));
+  console.log(
+    'Route'.padEnd(32) +
+    'Status'.padEnd(8) +
+    'Duration'.padEnd(12) +
+    'HTML Size'.padEnd(12) +
+    'Links'.padEnd(8) +
+    'JSON-LD'.padEnd(10) +
+    'Canonical'
+  );
+  console.log('-'.repeat(90));
+
+  auditResults.forEach(r => {
+    if (r.status === 'PASS') {
+      console.log(
+        r.path.padEnd(32) +
+        r.status.padEnd(8) +
+        r.duration.padEnd(12) +
+        r.htmlSize.padEnd(12) +
+        String(r.links).padEnd(8) +
+        String(r.jsonLd).padEnd(10) +
+        r.canonical
+      );
+    } else {
+      console.log(r.path.padEnd(32) + r.status.padEnd(8) + `ERROR: ${r.error}`);
+    }
+  });
+
+  console.log('='.repeat(90));
+  console.log(`Target Routes: ${SNAPSHOT_TARGET_ROUTES.length} | Passed: ${SNAPSHOT_TARGET_ROUTES.length - criticalFailureCount} | Failed: ${criticalFailureCount}`);
+
+  if (criticalFailureCount > 0) {
+    console.error('\n[BUILD TERMINATED] Critical SEO route snapshot failed. Aborting build to prevent deployment of empty-body HTML.');
+    process.exit(1);
+  }
+
+  console.log('\n[SUCCESS] Phase 1 static prerendering proof of concept successfully generated and verified.\n');
+}
+
+runStaticSnapshots().catch(err => {
+  console.error('[FATAL PRERENDER EXCEPTION]:', err);
+  process.exit(1);
+});
