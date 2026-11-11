@@ -188,6 +188,16 @@
       "source": "/software-company-in-belagavi",
       "destination": "/top-it-companies-in-belagavi",
       "permanent": true
+    },
+    {
+      "source": "/top-it-companies-in-belgaum",
+      "destination": "/top-it-companies-in-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/software-company-in-belgaum",
+      "destination": "/top-it-companies-in-belagavi",
+      "permanent": true
     }
   ],
   "rewrites": [
