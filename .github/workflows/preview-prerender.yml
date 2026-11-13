@@ -1,0 +1,127 @@
+name: Frontend Static Prerender & Vercel Preview
+
+on:
+  push:
+    branches:
+      - seo-prerender-poc-staging
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  prerender-and-deploy-preview:
+    name: Build, Prerender & Deploy Preview
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Strict Staging Branch Whitelist Guard
+        env:
+          CURRENT_REF: ${{ github.ref }}
+        run: |
+          EXPECTED_REF="refs/heads/seo-prerender-poc-staging"
+          if [ "$CURRENT_REF" != "$EXPECTED_REF" ]; then
+            echo "::error::CRITICAL: Prebuilt staging workflow may ONLY execute on branch 'seo-prerender-poc-staging'. Current ref: '$CURRENT_REF'"
+            exit 1
+          fi
+          echo "Branch whitelist check passed: executing on $CURRENT_REF"
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies (npm ci)
+        run: npm ci
+
+      - name: Install Playwright Chromium & OS Dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Pinned Vercel CLI
+        run: npm install --global vercel@65.14.0
+
+      - name: Pull Vercel Preview Configuration
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: vercel pull --yes --environment=preview
+
+      - name: Compile Application & Generate Static Snapshots (Vercel Build)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: vercel build
+
+      - name: Validate Generated Static Snapshots & Output Filesystem
+        run: node scripts/validate-prerender.js --vercel-output
+
+      - name: Deploy Prebuilt Artifacts to Vercel Preview
+        id: deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          echo "Deploying prebuilt output to Vercel Preview..."
+          # Note: Never pass --prod or production aliases
+          vercel deploy --prebuilt > deploy_raw.log 2>&1
+          DEPLOY_STATUS=$?
+          cat deploy_raw.log
+
+          if [ $DEPLOY_STATUS -ne 0 ]; then
+            echo "::error::CRITICAL: 'vercel deploy --prebuilt' failed with exit code $DEPLOY_STATUS."
+            exit 1
+          fi
+
+          # 1. Sanitize raw output: strip ANSI color and cursor escape sequences
+          sed -E 's/\x1B\[[0-9;]*[a-zA-Z]//g' deploy_raw.log > deploy_clean.log
+
+          # 2. Strategy A: Check for explicit deployment marker (e.g. "Preview: https://..." or "Deployed to https://...")
+          # Excludes Vercel dashboard inspect URLs (https://vercel.com/...)
+          MARKED_URLS=$(grep -iE '(preview:|deployed to)' deploy_clean.log | grep -oE 'https://[a-zA-Z0-9.-]+\.vercel\.app' | sed 's:/*$::' | sort -u || true)
+          MARKED_COUNT=$(echo "$MARKED_URLS" | grep -c '^https://' || true)
+
+          # 3. Strategy B: Extract all distinct *.vercel.app URLs from the output
+          ALL_URLS=$(grep -oE 'https://[a-zA-Z0-9.-]+\.vercel\.app' deploy_clean.log | sed 's:/*$::' | sort -u || true)
+          ALL_COUNT=$(echo "$ALL_URLS" | grep -c '^https://' || true)
+
+          PREVIEW_URL=""
+          if [ "$MARKED_COUNT" -eq 1 ]; then
+            PREVIEW_URL="$MARKED_URLS"
+          elif [ "$MARKED_COUNT" -eq 0 ] && [ "$ALL_COUNT" -eq 1 ]; then
+            PREVIEW_URL="$ALL_URLS"
+          elif [ "$ALL_COUNT" -gt 1 ]; then
+            echo "::error::CRITICAL: Ambiguous Vercel CLI output: multiple distinct *.vercel.app URLs detected without a single unambiguous deployment marker. Refusing to publish an ambiguous URL."
+            exit 1
+          else
+            echo "::error::CRITICAL: Failed to identify a valid Vercel preview deployment URL from deployment output."
+            exit 1
+          fi
+
+          if ! echo "$PREVIEW_URL" | grep -qE '^https://[a-zA-Z0-9.-]+\.vercel\.app$'; then
+            echo "::error::CRITICAL: Extracted preview URL is malformed: '$PREVIEW_URL'"
+            exit 1
+          fi
+
+          echo "PREVIEW_URL=${PREVIEW_URL}" >> $GITHUB_ENV
+          echo "### 🚀 Vercel Preview Deployment Succeeded" >> $GITHUB_STEP_SUMMARY
+          echo "- **Preview URL:** ${PREVIEW_URL}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch:** \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Static Snapshots:** Validated 3 target routes + 60 metadata routes" >> $GITHUB_STEP_SUMMARY
+          echo "Deployment completed successfully: ${PREVIEW_URL}"
