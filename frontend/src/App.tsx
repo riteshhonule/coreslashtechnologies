@@ -30,6 +30,7 @@ const EnquiryFormPage = lazy(() => import("./pages/EnquiryFormPage"));
 const PartnerPage = lazy(() => import("./pages/PartnerPage"));
 const PartnerFormPage = lazy(() => import("./pages/PartnerFormPage"));
 const SoftwareCompanyInBelagavi = lazy(() => import("./pages/SoftwareCompanyInBelagavi"));
+const WebDevelopmentBelagavi = lazy(() => import("./pages/local/WebDevelopmentBelagavi"));
 const WebsiteAudit = lazy(() => import("./pages/WebsiteAuditPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -72,6 +73,8 @@ function App() {
               <Route path="software-company-in-belagavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
               <Route path="top-it-companies-in-belgavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
               <Route path="top-it-companies-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
+              <Route path="web-development-company-in-belagavi" element={<WebDevelopmentBelagavi />} />
+              <Route path="website-development-company-in-belagavi" element={<Navigate to="/web-development-company-in-belagavi" replace />} />
 
               <Route path="services">
                 <Route index element={<ServicesIndex />} />

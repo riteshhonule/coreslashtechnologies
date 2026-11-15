@@ -198,6 +198,11 @@
       "source": "/software-company-in-belgaum",
       "destination": "/top-it-companies-in-belagavi",
       "permanent": true
+    },
+    {
+      "source": "/website-development-company-in-belagavi",
+      "destination": "/web-development-company-in-belagavi",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -215,6 +220,10 @@
     },
     {
       "source": "/top-it-companies-in-belagavi",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/web-development-company-in-belagavi",
       "destination": "/index.html"
     },
     {

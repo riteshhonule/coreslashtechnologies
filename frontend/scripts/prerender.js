@@ -272,6 +272,11 @@ const routes = [
     title: 'Top IT & Software Companies in Belgaum (Guide) | CoreSlash',
     description: 'Looking for IT and software companies in Belgaum (Belagavi)? Explore local tech landscape categories, evaluation checklists, and custom engineering services.'
   },
+  {
+    path: '/web-development-company-in-belagavi',
+    title: 'Web Development Company in Belagavi (Belgaum) | CoreSlash',
+    description: 'CoreSlash Technologies is a custom web development company in Belagavi (Belgaum). We build fast, responsive business websites, web portals and custom applications.'
+  },
 
   // Service Pages
   {
@@ -281,13 +286,13 @@ const routes = [
   },
   {
     path: '/services/ai-automation',
-    title: 'AI Automation & Custom LLM Agent Development | CoreSlash Technologies',
-    description: 'Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations.'
+    title: 'AI Automation Company & AI Development Services | CoreSlash Technologies',
+    description: 'CoreSlash Technologies is an AI automation company providing bespoke AI development services, custom AI agent development, and intelligent business process automation.'
   },
   {
     path: '/services/web-development',
-    title: 'Custom Web Development Services | CoreSlash Technologies',
-    description: 'Build high-performance React and Next.js web applications, corporate portals, and SaaS platforms with custom web development by CoreSlash Technologies.'
+    title: 'Custom Web Development Services & Company in India | CoreSlash Technologies',
+    description: 'CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services.'
   },
   {
     path: '/services/app-development',
@@ -296,13 +301,13 @@ const routes = [
   },
   {
     path: '/services/software-systems',
-    title: 'Custom Software Development Services | CoreSlash',
-    description: 'Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends.'
+    title: 'Custom Software Development Company & Services | CoreSlash Technologies',
+    description: 'CoreSlash Technologies is a custom software development company offering enterprise software development, business software development, and software development services.'
   },
   {
     path: '/services/erp-crm-development',
-    title: 'Custom ERP Software Development Company in India | CoreSlash',
-    description: 'Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems.'
+    title: 'Custom ERP Software Development Company & Custom CRM | CoreSlash',
+    description: 'CoreSlash is a custom ERP software development company engineering tailored ERP software development, custom CRM development, and manufacturing ERP software.'
   },
   {
     path: '/services/ecommerce-solutions',
@@ -374,13 +379,21 @@ const SNAPSHOT_TARGET_ROUTES = [
     expectedCanonical: 'https://coreslashtechnologies.com/services/web-development',
     minLinks: 30,
     expectedJsonLdCount: 2
+  },
+  {
+    path: '/web-development-company-in-belagavi',
+    expectedH1Substrings: ['Custom Web Development Company in', 'Belagavi'],
+    expectedTitleSubstring: 'Web Development Company in Belagavi',
+    expectedCanonical: 'https://coreslashtechnologies.com/web-development-company-in-belagavi',
+    minLinks: 15,
+    expectedJsonLdCount: 2
   }
 ];
 
 const snapshotPaths = new Set(SNAPSHOT_TARGET_ROUTES.map(r => r.path));
 
 console.log(`Pre-rendering HTML files for ${routes.length} total discovered routes...`);
-console.log(`[Phase 1 Scope] Browser-based static snapshot enabled for 3 target routes:`);
+console.log(`[Snapshot Pipeline] Browser-based static snapshot enabled for ${SNAPSHOT_TARGET_ROUTES.length} target routes:`);
 SNAPSHOT_TARGET_ROUTES.forEach(r => console.log(`  • ${r.path}`));
 
 // Step 1: Pre-render metadata-only HTML for all non-snapshot routes (preserving existing pipeline)

@@ -129,24 +129,24 @@ export default function AIAutomation() {
   return (
     <div className="w-full bg-background min-h-screen">
       <Helmet>
-        <title>AI Automation & Custom LLM Agent Development | CoreSlash Technologies</title>
+        <title>AI Automation Company & AI Development Services | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations."
+          content="CoreSlash Technologies is an AI automation company providing bespoke AI development services, custom AI agent development, and intelligent business process automation."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/ai-automation" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="AI Automation & Custom LLM Agent Development | CoreSlash Technologies" />
-        <meta property="og:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
+        <meta property="og:title" content="AI Automation Company & AI Development Services | CoreSlash Technologies" />
+        <meta property="og:description" content="CoreSlash Technologies is an AI automation company providing bespoke AI development services, custom AI agent development, and intelligent business process automation." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/ai-automation" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI Automation & Custom LLM Agent Development | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
+        <meta name="twitter:title" content="AI Automation Company & AI Development Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="CoreSlash Technologies is an AI automation company providing bespoke AI development services, custom AI agent development, and intelligent business process automation." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(aiSchema)}</script>
@@ -189,7 +189,7 @@ export default function AIAutomation() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs md:text-sm font-semibold tracking-wide backdrop-blur-md"
           >
             <Cpu className="w-4 h-4 text-blue-400 animate-pulse" />
-            <span>AI & Autonomous Agentic Workflows</span>
+            <span>AI Automation Company • Agentic Engineering</span>
           </motion.div>
 
           {/* Main Title */}
@@ -199,9 +199,9 @@ export default function AIAutomation() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] max-w-4xl"
           >
-            Autonomous AI Agents &{" "}
+            AI Automation Company &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">
-              Intelligent Workflow Automation
+              AI Development Services
             </span>
           </motion.h1>
 
@@ -212,7 +212,7 @@ export default function AIAutomation() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-normal"
           >
-            CoreSlash AI automation services engineer custom LLM architectures, retrieval-augmented generation (RAG) pipelines, autonomous multi-agent systems, and fine-tuned AI workflows designed to eliminate repetitive operational overhead.
+            CoreSlash Technologies is a specialized AI automation company providing end-to-end AI development services. We engineer custom AI agent development, enterprise RAG vector search, and intelligent business process automation systems that eliminate operational bottlenecks and scale business productivity.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -240,6 +240,15 @@ export default function AIAutomation() {
         </div>
       </section>
 
+      {/* Cross-Service Contextual Banner */}
+      <section className="w-full py-12 bg-slate-950 border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
+            As an enterprise <strong className="text-white font-medium">AI automation company</strong>, CoreSlash pairs artificial intelligence with robust engineering. Seamlessly integrate intelligent agents into your <Link to="/services/software-systems" className="text-[#3b82f6] font-semibold hover:underline">custom software systems</Link>, automate enterprise data flows with our <Link to="/services/erp-crm-development" className="text-[#3b82f6] font-semibold hover:underline">custom ERP & CRM platforms</Link>, or deliver AI-powered portals via our <Link to="/services/web-development" className="text-[#3b82f6] font-semibold hover:underline">custom web development services</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* ========================================================
           2. CORE SERVICES SECTION
           ======================================================== */}
@@ -250,15 +259,15 @@ export default function AIAutomation() {
           <div className="flex flex-col items-start gap-4 mb-16 text-left">
             <div className="flex items-center">
               <div className="w-[3px] h-6 bg-blue-600 rounded-full mr-3" />
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-[#3b82f6]">
                 AI Capabilities
               </h3>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-              Enterprise AI & Automation Solutions
+              Enterprise AI Development Services & Business Process Automation
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
-              CoreSlash designs and deploy custom artificial intelligence systems that automate complex business logic, structure unstructured data, and transform executive decision making.
+              As a dedicated AI automation company, CoreSlash designs and deploys custom artificial intelligence systems, custom AI agent development frameworks, and scalable business process automation that eliminate manual overhead and transform operations.
             </p>
           </div>
 
@@ -266,8 +275,8 @@ export default function AIAutomation() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <CoreServiceCard
               number="01"
-              title="Custom LLM Fine-Tuning & RAG"
-              subtext="Domain-specific model fine-tuning and retrieval-augmented generation (RAG) vector search."
+              title="Custom AI Agent Development & LLMs"
+              subtext="Domain-specific model fine-tuning and custom AI agent development with retrieval-augmented generation (RAG) vector search for enterprise knowledge bases."
               highlight="Llama 3 & GPT-4 domain training paired with Pinecone/Qdrant vector retrieval for zero-hallucination accuracy."
               darkBg={true}
               delay={0.1}
@@ -275,8 +284,8 @@ export default function AIAutomation() {
 
             <CoreServiceCard
               number="02"
-              title="Autonomous Multi-Agent Systems"
-              subtext="Autonomous AI agentic frameworks that execute complex multi-step procedures automatically."
+              title="Intelligent Business Process Automation"
+              subtext="Autonomous agentic frameworks and business process automation solutions executing complex multi-step procedures, automated data extraction, and cross-system triggers."
               highlight="CrewAI, AutoGen, and LangChain agents that parse documents, generate reports, and trigger API actions."
               delay={0.2}
             />

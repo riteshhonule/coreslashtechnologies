@@ -43,6 +43,8 @@ const routePreloaders: Record<string, () => Promise<unknown>> = {
   '/software-company-in-belagavi': () => import('./pages/SoftwareCompanyInBelagavi'),
   '/top-it-companies-in-belgavi': () => import('./pages/SoftwareCompanyInBelagavi'),
   '/top-it-companies-in-belagavi': () => import('./pages/SoftwareCompanyInBelagavi'),
+  '/web-development-company-in-belagavi': () => import('./pages/local/WebDevelopmentBelagavi'),
+  '/website-development-company-in-belagavi': () => import('./pages/local/WebDevelopmentBelagavi'),
   '/website-audit': () => import('./pages/WebsiteAuditPage'),
   '/ai-tools': () => import('./pages/WebsiteAuditPage'),
 }

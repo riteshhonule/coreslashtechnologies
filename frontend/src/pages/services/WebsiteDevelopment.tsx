@@ -130,24 +130,24 @@ export default function WebsiteDevelopment() {
   return (
     <>
       <Helmet>
-        <title>Custom Web Development Services | CoreSlash Technologies</title>
+        <title>Custom Web Development Services & Company in India | CoreSlash Technologies</title>
         <meta
           name="description"
-          content="Build high-performance React and Next.js web applications, corporate portals, and SaaS platforms with custom web development by CoreSlash Technologies."
+          content="CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/web-development" />
         
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Custom Web Development Services | CoreSlash Technologies" />
-        <meta property="og:description" content="Build high-performance React and Next.js web applications, corporate portals, and SaaS platforms with custom web development by CoreSlash Technologies." />
+        <meta property="og:title" content="Custom Web Development Services & Company in India | CoreSlash Technologies" />
+        <meta property="og:description" content="CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/web-development" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Custom Web Development Services | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Build high-performance React and Next.js web applications, corporate portals, and SaaS platforms with custom web development by CoreSlash Technologies." />
+        <meta name="twitter:title" content="Custom Web Development Services & Company in India | CoreSlash Technologies" />
+        <meta name="twitter:description" content="CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">
@@ -163,7 +163,7 @@ export default function WebsiteDevelopment() {
       <section className="w-full py-12 bg-slate-950 border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
-            As a leading engineering partner, we specialize in high-performance frontend architecture. If your enterprise is evaluating regional talent, explore our comprehensive guide on choosing the <Link to="/blog/best-react-js-development-company-in-bangalore" className="text-[#3b82f6] font-semibold hover:underline">best React.js development company in Bangalore</Link> to understand the modern web standards we deliver.
+            As a trusted <strong className="text-white font-medium">custom web development company in India</strong>, CoreSlash delivers end-to-end engineering for digital businesses. Looking to expand your technology ecosystem? Explore our capabilities as an enterprise <Link to="/services/software-systems" className="text-[#3b82f6] font-semibold hover:underline">custom software development company</Link>, streamline operations with tailored <Link to="/services/erp-crm-development" className="text-[#3b82f6] font-semibold hover:underline">custom ERP & CRM platforms</Link>, or integrate autonomous workflows with our <Link to="/services/ai-automation" className="text-[#3b82f6] font-semibold hover:underline">AI automation services</Link>. Seeking local project consultation? Discover our dedicated <Link to="/web-development-company-in-belagavi" className="text-[#3b82f6] font-semibold hover:underline">web development company in Belagavi</Link> services, or read our guide on selecting the <Link to="/blog/best-react-js-development-company-in-bangalore" className="text-[#3b82f6] font-semibold hover:underline">best React.js development company in Bangalore</Link>.
           </p>
         </div>
       </section>

@@ -89,10 +89,20 @@ const SNAPSHOT_TARGETS = [
     minBytes: 20000,
     minRootLength: 5000,
     minJsonLdCount: 2
+  },
+  {
+    path: '/web-development-company-in-belagavi',
+    relPath: 'web-development-company-in-belagavi/index.html',
+    expectedTitleSubstring: 'Web Development Company in Belagavi',
+    expectedH1Substrings: ['Custom Web Development Company in', 'Belagavi'],
+    expectedCanonical: 'https://coreslashtechnologies.com/web-development-company-in-belagavi',
+    minBytes: 20000,
+    minRootLength: 5000,
+    minJsonLdCount: 2
   }
 ];
 
-console.log(`Auditing 3 Full Static Snapshots...`);
+console.log(`Auditing ${SNAPSHOT_TARGETS.length} Full Static Snapshots...`);
 for (const target of SNAPSHOT_TARGETS) {
   const filePath = path.resolve(targetDir, target.relPath);
   console.log(`Checking snapshot route: ${target.path} -> ${target.relPath}`);
@@ -298,8 +308,8 @@ console.log(`Full static snapshot routes: ${snapshotPaths.size}`);
 console.log(`Expected metadata-only routes to validate: ${metadataOnlyRoutes.length}`);
 
 // Strictly assert expected route count derived from source
-if (allRoutes.length !== 63) {
-  console.error(`❌ Critical route inventory error: expected 63 total routes, found ${allRoutes.length}`);
+if (allRoutes.length !== 64) {
+  console.error(`❌ Critical route inventory error: expected 64 total routes, found ${allRoutes.length}`);
   failureCount++;
 }
 

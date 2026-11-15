@@ -117,21 +117,21 @@ export default function ErpCrmDevelopment() {
   return (
     <>
       <Helmet>
-        <title>Custom ERP Software Development Company in India | CoreSlash</title>
-        <meta name="description" content="Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems." />
+        <title>Custom ERP Software Development Company & Custom CRM | CoreSlash</title>
+        <meta name="description" content="CoreSlash is a custom ERP software development company engineering tailored ERP software development, custom CRM development, and manufacturing ERP software." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/erp-crm-development" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Custom ERP Software Development Company in India | CoreSlash" />
-        <meta property="og:description" content="Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems." />
+        <meta property="og:title" content="Custom ERP Software Development Company & Custom CRM | CoreSlash" />
+        <meta property="og:description" content="CoreSlash is a custom ERP software development company engineering tailored ERP software development, custom CRM development, and manufacturing ERP software." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/erp-crm-development" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Custom ERP Software Development Company in India | CoreSlash" />
-        <meta name="twitter:description" content="Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems." />
+        <meta name="twitter:title" content="Custom ERP Software Development Company & Custom CRM | CoreSlash" />
+        <meta name="twitter:description" content="CoreSlash is a custom ERP software development company engineering tailored ERP software development, custom CRM development, and manufacturing ERP software." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(erpSchema)}</script>
@@ -167,11 +167,11 @@ export default function ErpCrmDevelopment() {
             <span className="text-[#3b82f6]">
               Software Development
             </span>{" "}
-            Company in India
+            Company & CRM Systems
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash Technologies is a top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems for enterprises worldwide.
+            CoreSlash Technologies is a premier custom ERP software development company. We deliver bespoke ERP software development, custom CRM development, and robust manufacturing ERP software engineered to automate complex business workflows, multi-warehouse inventory, and customer lifecycles.
           </p>
 
           {/* CTA Buttons */}
@@ -195,18 +195,27 @@ export default function ErpCrmDevelopment() {
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-300 pt-3 border-t border-slate-800/80 max-w-3xl">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Microservices & Distributed APIs</span>
+                <span>Manufacturing ERP Software</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>SOC2 Security & Cloud Datacenters</span>
+                <span>Custom CRM Development</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>99.99% Uptime Guarantee</span>
+                <span>SOC2 Security & 99.99% Uptime</span>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Cross-Service Contextual Banner */}
+      <section className="w-full py-12 bg-slate-950 border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
+            As a specialized <strong className="text-white font-medium">custom ERP software development company</strong>, we architect connected enterprise solutions. Accelerate user engagement with our <Link to="/services/web-development" className="text-[#3b82f6] font-semibold hover:underline">custom web development services</Link>, scale distributed backends with our <Link to="/services/software-systems" className="text-[#3b82f6] font-semibold hover:underline">custom software development company</Link> team, or infuse autonomous agents with our <Link to="/services/ai-automation" className="text-[#3b82f6] font-semibold hover:underline">AI automation services</Link>.
+          </p>
         </div>
       </section>
 
@@ -215,41 +224,46 @@ export default function ErpCrmDevelopment() {
         <div className="flex flex-col items-start gap-4 mb-16">
           <div className="flex items-center">
             <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-            <h2 className="text-sm font-extrabold uppercase tracking-widest text-muted-foreground">
-              End-to-End Custom ERP Development Services
-            </h2>
+            <h3 className="text-sm font-extrabold uppercase tracking-widest text-[#3b82f6]">
+              Core Services – ERP & CRM
+            </h3>
           </div>
-          <p className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">Automate Business Processes</p>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+            Full-Suite ERP Software Development & Custom CRM Development
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-3xl">
+            From manufacturing shop floors to automated sales pipelines, our custom ERP software development company engineers scalable enterprise solutions tailored to your operational workflows.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <CoreServiceCard
             number="01"
-            title="Enterprise Resource Planning (ERP) Implementation"
-            subtext="Build scalable multi-tenant SaaS platforms, custom ERP engines, and automated workflow portals with 100% IP ownership."
+            title="Tailored ERP Software Development"
+            subtext="Build scalable multi-tenant SaaS platforms, modular ERP software development suites, and automated workflow portals with 100% IP ownership."
             highlight="Multi-tenant cloud architecture built to support high concurrency."
             darkBg={true}
             delay={0.1}
           />
           <CoreServiceCard
             number="02"
-            title="Business Process Automation & Workflows"
-            subtext="Architect high-concurrency cloud microservices to automate complex operational workflows and financial reporting."
-            highlight="Eliminate manual data entry and streamline enterprise operations."
+            title="Manufacturing ERP Software & Supply Chain Operations"
+            subtext="Specialized manufacturing ERP software solutions managing bill of materials (BOM), shop floor scheduling, real-time inventory tracking, and warehouse logistics."
+            highlight="Eliminate manual data entry and streamline discrete manufacturing operations."
             delay={0.2}
           />
           <CoreServiceCard
             number="03"
-            title="CRM Integration & Cloud Modules"
-            subtext="Connect complex third-party software, secure RESTful/GraphQL webhooks, and real-time CRM dashboards."
-            highlight="Seamless system interoperability with real-time data sync."
+            title="Custom CRM Development & Pipeline Automation"
+            subtext="Scalable custom CRM development with lead scoring, customer lifecycle tracking, automated communication sequences, and secure third-party integrations."
+            highlight="Seamless system interoperability with real-time CRM data synchronization."
             delay={0.3}
           />
           <CoreServiceCard
             number="04"
-            title="Custom ERP vs. Off-the-Shelf SaaS"
-            subtext="Migrate away from expensive licensing per-user. Custom ERPs deliver long-term ROI with tailor-made business logic."
-            highlight="100% intellectual property ownership with zero licensing fees."
+            title="Custom Cloud ERP vs. Off-the-Shelf SaaS"
+            subtext="Eliminate recurring per-user licensing fees with custom ERP software engineered for high concurrency, zero bloat, and total database sovereignty."
+            highlight="100% intellectual property ownership with zero recurring per-seat fees."
             blueBg={true}
             delay={0.4}
           />
@@ -294,10 +308,10 @@ export default function ErpCrmDevelopment() {
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 overflow-hidden bg-background">
         <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
-            Industries & Use Cases for Custom ERPs
+            Manufacturing ERP Software & Enterprise Industry Solutions
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center">
-            Our custom ERPs are utilized across manufacturing, supply chain, logistics, and regional IT sectors to streamline large-scale operations.
+            Our manufacturing ERP software and custom enterprise solutions are purpose-built for discrete and process manufacturing, supply chains, logistics, healthcare, and engineering operations.
           </p>
         </div>
       </section>
@@ -306,10 +320,10 @@ export default function ErpCrmDevelopment() {
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 overflow-hidden bg-background">
         <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
-            Why Choose Us for ERP Development in India?
+            Why Choose CoreSlash as Your Custom ERP Software Development Company
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center">
-            As a leading software development company, we provide end-to-end 100% IP ownership, stringent SOC2-compliant security, and limitless scalability designed specifically for your organizational structure.
+            As a leading custom ERP software development company, we provide end-to-end 100% IP ownership, stringent SOC2-compliant security, and limitless scalability designed specifically for your organizational structure.
           </p>
         </div>
       </section>

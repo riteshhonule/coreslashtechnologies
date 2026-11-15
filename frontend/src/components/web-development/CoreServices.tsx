@@ -110,26 +110,32 @@ export default function CoreServices() {
       <div className="flex flex-col items-start gap-4 mb-16">
         <div className="flex items-center">
           <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+          <span className="text-sm font-semibold uppercase tracking-widest text-[#3b82f6]">
             Core Services – Web Development
-          </h3>
+          </span>
         </div>
+        <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+          Full-Cycle Business Website Development & Web Engineering
+        </h2>
+        <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-3xl">
+          As an established custom web development company, CoreSlash provides custom web development services and business website development solutions tailored for growing brands, SaaS startups, and global enterprises.
+        </p>
       </div>
 
       {/* 2 Column, 2 Row Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <CoreServiceCard
           number="01"
-          title="Website Design & Development"
-          subtext="Design and develop responsive, brand-focused websites."
+          title="Custom Website Design & Development"
+          subtext="Design and develop responsive, brand-focused business website development solutions engineered to manage high traffic, complex workflows, and future system integrations."
           highlight="Engineered to manage high traffic, complex workflows, and future system integrations."
           darkBg={true}
           delay={0.1}
         />
         <CoreServiceCard
           number="02"
-          title="Enterprise Website Engineering"
-          subtext="High-performance websites that enhance brand credibility and strengthen user trust."
+          title="Enterprise Web Application Engineering"
+          subtext="High-performance websites and web applications that enhance brand credibility, strengthen user trust, and meet enterprise-level security compliance standards."
           highlight="Optimized for speed, accessibility, and enterprise-level security compliance standards."
           delay={0.2}
         />

@@ -53,7 +53,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium"
         >
-          CoreSlash Technologies provides custom web development services to build secure, high-performance websites and web applications with scalable architecture, modern technologies, and SEO-friendly engineering practices.
+          CoreSlash Technologies is a leading custom web development company in India. We provide full-cycle custom web development services and modern business website development—engineering responsive, high-performance web platforms, SaaS portals, and secure cloud-native architectures.
         </motion.p>
 
         {/* CTA Buttons & Feature Badges Row */}

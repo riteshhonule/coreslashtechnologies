@@ -173,7 +173,7 @@ const CORE_SERVICES = [
     icon: <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
     title: "Web Development",
     description: "High-performance web applications, corporate portals, and SaaS platforms built with React, Next.js, and modern APIs.",
-    link: "/services/web-development"
+    link: "/web-development-company-in-belagavi"
   },
   {
     icon: <Smartphone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />,

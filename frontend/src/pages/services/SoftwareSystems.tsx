@@ -101,21 +101,21 @@ export default function SoftwareSystems() {
   return (
     <>
       <Helmet>
-        <title>Custom Software Development Services | CoreSlash</title>
-        <meta name="description" content="Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends." />
+        <title>Custom Software Development Company & Services | CoreSlash Technologies</title>
+        <meta name="description" content="CoreSlash Technologies is a custom software development company offering enterprise software development, business software development, and software development services." />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/software-systems" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Custom Software Development Services | CoreSlash" />
-        <meta property="og:description" content="Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends." />
+        <meta property="og:title" content="Custom Software Development Company & Services | CoreSlash Technologies" />
+        <meta property="og:description" content="CoreSlash Technologies is a custom software development company offering enterprise software development, business software development, and software development services." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/software-systems" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Custom Software Development Services | CoreSlash" />
-        <meta name="twitter:description" content="Scalable custom software development services by CoreSlash. We engineer enterprise SaaS platforms, microservices architecture, and cloud backends." />
+        <meta name="twitter:title" content="Custom Software Development Company & Services | CoreSlash Technologies" />
+        <meta name="twitter:description" content="CoreSlash Technologies is a custom software development company offering enterprise software development, business software development, and software development services." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(softwareSchema)}</script>
@@ -146,15 +146,14 @@ export default function SoftwareSystems() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.15] max-w-4xl">
-            Engineering Enterprise{" "}
+            Custom Software Development Company &{" "}
             <span className="text-[#3b82f6]">
-              Software Systems
-            </span>{" "}
-            & Scalable Architecture
+              Enterprise Systems
+            </span>
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash Technologies provides custom software development services for enterprise SaaS platforms, CRM/ERP systems, microservices backends, and automated data pipelines engineered for regional leaders and <Link to="/top-it-companies-in-belagavi" className="text-blue-400 font-semibold hover:underline">software companies in Belagavi</Link>.
+            CoreSlash Technologies is a premier custom software development company providing end-to-end software development services. We architect scalable enterprise software development solutions, business software development platforms, and cloud microservices for fast-growing companies and global enterprises.
           </p>
 
           {/* CTA Buttons & Feature Badges Row */}
@@ -164,7 +163,7 @@ export default function SoftwareSystems() {
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all text-center"
               >
-                <span>Architect Your SaaS System</span>
+                <span>Consult Our Software Architects</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -178,18 +177,27 @@ export default function SoftwareSystems() {
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-300 pt-3 border-t border-slate-800/80 max-w-3xl">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Microservices & Distributed APIs</span>
+                <span>Enterprise Software Development</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>SOC2 Security & Cloud Datacenters</span>
+                <span>Cloud Microservices & APIs</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>99.99% Uptime Guarantee</span>
+                <span>SOC2 Security & 99.99% Uptime</span>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Cross-Service Contextual Banner */}
+      <section className="w-full py-12 bg-slate-950 border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
+            As a full-lifecycle <strong className="text-white font-medium">custom software development company</strong>, we deliver robust solutions across the entire tech stack. Expanding your digital footprint? Discover our <Link to="/services/web-development" className="text-[#3b82f6] font-semibold hover:underline">custom web development services</Link>, modernize business operations with our <Link to="/services/erp-crm-development" className="text-[#3b82f6] font-semibold hover:underline">custom ERP software development company</Link> solutions, or implement autonomous workflows with our <Link to="/services/ai-automation" className="text-[#3b82f6] font-semibold hover:underline">AI automation services</Link>. Regional leaders can also explore our index of top <Link to="/top-it-companies-in-belagavi" className="text-[#3b82f6] font-semibold hover:underline">software companies in Belagavi</Link>.
+          </p>
         </div>
       </section>
 
@@ -198,19 +206,24 @@ export default function SoftwareSystems() {
         <div className="flex flex-col items-start gap-4 mb-16">
           <div className="flex items-center">
             <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-            <h3 className="text-sm font-extrabold uppercase tracking-widest text-muted-foreground">
+            <h3 className="text-sm font-extrabold uppercase tracking-widest text-[#3b82f6]">
               Core Services – Software Systems
             </h3>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">End-to-End Enterprise Engineering</h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+            Full-Lifecycle Software Development Services & Enterprise Engineering
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-3xl">
+            As an engineering-driven custom software development company, we deliver bespoke business software development tailored to complex operating workflows, high data volumes, and mission-critical reliability.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Link to="/services/erp-crm-development" className="block focus:outline-none">
             <CoreServiceCard
               number="01"
-              title="Custom Enterprise Software & ERPs"
-              subtext="Build scalable multi-tenant SaaS platforms, custom ERP/CRM engines, and automated workflow portals with 100% IP ownership."
+              title="Enterprise Software Development & ERP Systems"
+              subtext="Build scalable multi-tenant SaaS platforms, custom enterprise software development solutions, and automated workflow engines with full IP ownership."
               highlight="Multi-tenant cloud architecture built to support high concurrency and SLA uptime."
               darkBg={true}
               delay={0.1}
@@ -218,22 +231,22 @@ export default function SoftwareSystems() {
           </Link>
           <CoreServiceCard
             number="02"
-            title="Cloud Microservices Architecture"
-            subtext="Architect high-concurrency cloud microservices, Docker/Kubernetes container orchestration, and serverless event-driven backends."
+            title="Cloud Microservices & Distributed Architecture"
+            subtext="Architect high-concurrency cloud microservices, Docker/Kubernetes container orchestration, and serverless backends for scalable business software development."
             highlight="High-availability microservice clusters built for fault tolerance and zero-downtime deploys."
             delay={0.2}
           />
           <CoreServiceCard
             number="03"
-            title="Legacy System Modernization"
-            subtext="Refactor legacy monolithic applications into clean microservices, wrap old databases with modern APIs, and execute zero-downtime rollouts."
+            title="Legacy System Modernization & Cloud Migration"
+            subtext="Refactor legacy monolithic software into clean microservices, wrap old databases with modern REST/GraphQL APIs, and execute zero-downtime cloud migrations."
             highlight="Risk-free architectural upgrades boosting legacy system speed, security, and scalability."
             delay={0.3}
           />
           <CoreServiceCard
             number="04"
-            title="B2B API Integration & Data Pipelines"
-            subtext="Connect complex third-party software, RESTful/GraphQL webhooks, automated ETL data pipelines, and real-time executive dashboards."
+            title="B2B API Integration & Automated Data Pipelines"
+            subtext="Connect mission-critical software systems, third-party APIs, automated ETL data pipelines, and real-time business intelligence dashboards."
             highlight="Seamless system interoperability with real-time data sync and automated data pipelines."
             blueBg={true}
             delay={0.4}
