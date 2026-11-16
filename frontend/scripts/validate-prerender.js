@@ -99,6 +99,25 @@ const SNAPSHOT_TARGETS = [
     minBytes: 20000,
     minRootLength: 5000,
     minJsonLdCount: 2
+  },
+  {
+    path: '/services/software-systems',
+    relPath: 'services/software-systems/index.html',
+    expectedTitleSubstring: 'Custom Software Development Company in India',
+    expectedH1Substrings: ['Custom Software Development Company &', 'Enterprise Engineering in India'],
+    expectedCanonical: 'https://coreslashtechnologies.com/services/software-systems',
+    minBytes: 20000,
+    minRootLength: 5000,
+    minJsonLdCount: 3,
+    expectedJsonLdTypes: ['Service', 'BreadcrumbList', 'FAQPage'],
+    requiredContentSubstrings: [
+      'Skandan',
+      'FinTrack',
+      'PITCS',
+      'Legacy Software Modernization & Cloud Migration Services',
+      'Dedicated Development Teams & IT Staff Augmentation in India',
+      'Frequently Asked Questions'
+    ]
   }
 ];
 
@@ -184,6 +203,28 @@ for (const target of SNAPSHOT_TARGETS) {
   if (jsonLdMatches.length < target.minJsonLdCount) {
     console.error(`  ❌ Insufficient JSON-LD blocks: found ${jsonLdMatches.length}, expected at least ${target.minJsonLdCount}`);
     failureCount++;
+  }
+
+  // Check expected JSON-LD @type values if specified
+  if (target.expectedJsonLdTypes) {
+    for (const expectedType of target.expectedJsonLdTypes) {
+      const typeRegex = new RegExp(`"@type"\\s*:\\s*"${expectedType}"`);
+      if (!typeRegex.test(content)) {
+        console.error(`  ❌ Missing expected JSON-LD @type "${expectedType}" in ${filePath}`);
+        failureCount++;
+      }
+    }
+  }
+
+  // Check required content substrings if specified
+  if (target.requiredContentSubstrings) {
+    const decodedContent = decodeHtmlEntities(content);
+    for (const sub of target.requiredContentSubstrings) {
+      if (!content.includes(sub) && !decodedContent.includes(sub)) {
+        console.error(`  ❌ Required content substring missing: "${sub}" in ${filePath}`);
+        failureCount++;
+      }
+    }
   }
 
   // Check for localhost / loopback leakage
@@ -313,12 +354,12 @@ if (allRoutes.length !== 64) {
   failureCount++;
 }
 
-if (metadataOnlyRoutes.length !== 60) {
-  console.error(`❌ Critical metadata-only count error: expected 60 metadata-only routes, found ${metadataOnlyRoutes.length}`);
+if (metadataOnlyRoutes.length !== 59) {
+  console.error(`❌ Critical metadata-only count error: expected 59 metadata-only routes, found ${metadataOnlyRoutes.length}`);
   failureCount++;
 }
 
-// 4. Validate All 60 Metadata-Only Routes
+// 4. Validate All 59 Metadata-Only Routes
 console.log(`\nAuditing all ${metadataOnlyRoutes.length} metadata-only HTML routes on disk...`);
 let metadataPassCount = 0;
 

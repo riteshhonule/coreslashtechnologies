@@ -301,8 +301,8 @@ const routes = [
   },
   {
     path: '/services/software-systems',
-    title: 'Custom Software Development Company & Services | CoreSlash Technologies',
-    description: 'CoreSlash Technologies is a custom software development company offering enterprise software development, business software development, and software development services.'
+    title: 'Custom Software Development Company in India | CoreSlash Technologies',
+    description: 'CoreSlash is a custom software development company in India engineering enterprise software systems, legacy modernization, cloud microservices, and dedicated dev teams.'
   },
   {
     path: '/services/erp-crm-development',
@@ -387,6 +387,14 @@ const SNAPSHOT_TARGET_ROUTES = [
     expectedCanonical: 'https://coreslashtechnologies.com/web-development-company-in-belagavi',
     minLinks: 15,
     expectedJsonLdCount: 2
+  },
+  {
+    path: '/services/software-systems',
+    expectedH1Substrings: ['Custom Software Development Company &', 'Enterprise Engineering in India'],
+    expectedTitleSubstring: 'Custom Software Development Company in India',
+    expectedCanonical: 'https://coreslashtechnologies.com/services/software-systems',
+    minLinks: 25,
+    expectedJsonLdCount: 3
   }
 ];
 
