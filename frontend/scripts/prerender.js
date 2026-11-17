@@ -306,8 +306,8 @@ const routes = [
   },
   {
     path: '/services/erp-crm-development',
-    title: 'Custom ERP Software Development Company & Custom CRM | CoreSlash',
-    description: 'CoreSlash is a custom ERP software development company engineering tailored ERP software development, custom CRM development, and manufacturing ERP software.'
+    title: 'Custom ERP Software Development Company & CRM | CoreSlash',
+    description: 'CoreSlash is a custom ERP software development company engineering tailored ERP systems, custom CRM platforms, inventory automation, and scalable business software.'
   },
   {
     path: '/services/ecommerce-solutions',
@@ -401,6 +401,14 @@ const SNAPSHOT_TARGET_ROUTES = [
     expectedH1Substrings: ['AI Automation Company &', 'Agentic AI Services'],
     expectedTitleSubstring: 'AI Automation Company & Agentic AI Services',
     expectedCanonical: 'https://coreslashtechnologies.com/services/ai-automation',
+    minLinks: 25,
+    expectedJsonLdCount: 2
+  },
+  {
+    path: '/services/erp-crm-development',
+    expectedH1Substrings: ['Custom ERP', 'Software Development', 'Company & CRM Systems'],
+    expectedTitleSubstring: 'Custom ERP Software Development Company & CRM',
+    expectedCanonical: 'https://coreslashtechnologies.com/services/erp-crm-development',
     minLinks: 25,
     expectedJsonLdCount: 2
   }

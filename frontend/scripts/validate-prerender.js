@@ -144,6 +144,26 @@ const SNAPSHOT_TARGETS = [
       'Modern Technology Stack',
       'Frequently Asked Questions'
     ]
+  },
+  {
+    path: '/services/erp-crm-development',
+    relPath: 'services/erp-crm-development/index.html',
+    expectedTitleSubstring: 'Custom ERP Software Development Company & CRM',
+    expectedH1Substrings: ['Custom ERP', 'Software Development'],
+    expectedCanonical: 'https://coreslashtechnologies.com/services/erp-crm-development',
+    minBytes: 20000,
+    minRootLength: 5000,
+    minJsonLdCount: 2,
+    expectedJsonLdTypes: ['Service', 'BreadcrumbList'],
+    requiredContentSubstrings: [
+      'FinTrack',
+      'PITCS',
+      'Skandan',
+      'Full-Suite ERP Software Development',
+      'Core Technologies Used in Our ERP Systems',
+      'Enterprise Industry Solutions',
+      'Frequently Asked Questions'
+    ]
   }
 ];
 
@@ -380,12 +400,12 @@ if (allRoutes.length !== 64) {
   failureCount++;
 }
 
-if (metadataOnlyRoutes.length !== 58) {
-  console.error(`❌ Critical metadata-only count error: expected 58 metadata-only routes, found ${metadataOnlyRoutes.length}`);
+if (metadataOnlyRoutes.length !== 57) {
+  console.error(`❌ Critical metadata-only count error: expected 57 metadata-only routes, found ${metadataOnlyRoutes.length}`);
   failureCount++;
 }
 
-// 4. Validate All 58 Metadata-Only Routes
+// 4. Validate All 57 Metadata-Only Routes
 console.log(`\nAuditing all ${metadataOnlyRoutes.length} metadata-only HTML routes on disk...`);
 let metadataPassCount = 0;
 
