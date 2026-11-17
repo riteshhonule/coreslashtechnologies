@@ -168,9 +168,9 @@ export default function ProcessTimeline() {
               className="w-2 h-4.5 rounded-full mr-2.5 transition-colors duration-500"
               style={{ backgroundColor: activeStageData ? activeStageData.color : "#3b82f6" }}
             />
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-slate-100">
+            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-slate-100">
               How We Deliver <span className="text-slate-400 font-medium ml-1">(Process & Governance)</span>
-            </h3>
+            </h2>
           </div>
         </div>
 

@@ -291,8 +291,8 @@ const routes = [
   },
   {
     path: '/services/web-development',
-    title: 'Custom Web Development Services & Company in India | CoreSlash Technologies',
-    description: 'CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services.'
+    title: 'Enterprise Web Application Development Company | CoreSlash',
+    description: 'CoreSlash is an enterprise web application development company building custom React, Next.js, and TypeScript web platforms, SaaS portals, and B2B web systems.'
   },
   {
     path: '/services/app-development',
@@ -374,8 +374,8 @@ const SNAPSHOT_TARGET_ROUTES = [
   },
   {
     path: '/services/web-development',
-    expectedH1Substrings: ['Custom Web Development Services'],
-    expectedTitleSubstring: 'Custom Web Development Services',
+    expectedH1Substrings: ['Enterprise Web Application Development Services', 'Scalable Web Platforms'],
+    expectedTitleSubstring: 'Enterprise Web Application Development Company',
     expectedCanonical: 'https://coreslashtechnologies.com/services/web-development',
     minLinks: 30,
     expectedJsonLdCount: 2

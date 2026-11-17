@@ -83,12 +83,21 @@ const SNAPSHOT_TARGETS = [
   {
     path: '/services/web-development',
     relPath: 'services/web-development/index.html',
-    expectedTitleSubstring: 'Custom Web Development Services',
-    expectedH1Substrings: ['Custom Web Development Services'],
+    expectedTitleSubstring: 'Enterprise Web Application Development Company',
+    expectedH1Substrings: ['Enterprise Web Application Development Services', 'Scalable Web Platforms'],
     expectedCanonical: 'https://coreslashtechnologies.com/services/web-development',
     minBytes: 20000,
     minRootLength: 5000,
-    minJsonLdCount: 2
+    minJsonLdCount: 2,
+    expectedJsonLdTypes: ['Service', 'BreadcrumbList'],
+    requiredContentSubstrings: [
+      'PITCS',
+      'Skandan',
+      'The Dutz',
+      'React',
+      'TypeScript',
+      'Full-Cycle Enterprise Web Development & Engineering'
+    ]
   },
   {
     path: '/web-development-company-in-belagavi',

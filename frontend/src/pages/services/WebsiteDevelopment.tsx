@@ -15,7 +15,7 @@ const FaqSection = lazy(() => import("@/components/ui/habit-faq-scroller"));
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Custom Web Development Services",
+  "name": "Enterprise Web Application Development Services",
   "url": "https://coreslashtechnologies.com/services/web-development",
   "provider": {
     "@type": "Organization",
@@ -24,7 +24,7 @@ const serviceSchema = {
     "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "Web Development",
-  "description": "Build high-performance websites, web applications, SaaS platforms, and enterprise solutions with CoreSlash Technologies. Modern, scalable, secure, and SEO-friendly web development services.",
+  "description": "CoreSlash is an enterprise web application development company building custom React, Next.js, and TypeScript web platforms, SaaS portals, and B2B web systems.",
   "areaServed": "Worldwide"
 };
 
@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 
 const webDevFaqData: FaqData = {
   mainTitle: "Frequently Asked Questions",
-  mainSubtitle: "Everything you need to know about our web development process, tech stack, and service deliverables.",
+  mainSubtitle: "Key details about our enterprise web application engineering process, technology stack, and deliverables.",
   rows: [
     {
       id: "row1",
@@ -65,17 +65,17 @@ const webDevFaqData: FaqData = {
         {
           id: "q1",
           question: "What web development services do you offer?",
-          answer: "CoreSlash offers custom web applications, headless e-commerce, SaaS platform engineering, enterprise dashboards, custom CRM/ERP solutions, and database design."
+          answer: "CoreSlash delivers custom web application development, scalable SaaS platform interfaces, B2B customer portals, enterprise administrative dashboards, and full-stack web platforms built with React, Next.js, and TypeScript."
         },
         {
           id: "q2",
-          question: "How long does a website take?",
-          answer: "Corporate portals take 4-6 weeks, while complex SaaS platforms and headless e-commerce engines take 8-12 weeks from discovery to deployment."
+          question: "What is the typical timeline for web application development?",
+          answer: "Project timelines vary based on architectural complexity, feature scope, and third-party integrations. Typical web applications progress through discovery, UI/UX design, iterative sprint development, and deployment milestones, with project schedules established during the initial technical discovery phase."
         },
         {
           id: "q3",
-          question: "Which technologies do you use?",
-          answer: "CoreSlash's frontend centers on React, Next.js, and Tailwind CSS. Backends use NestJS (Node.js) and Django. Databases include PostgreSQL, Redis, and MongoDB."
+          question: "Which technologies do you use for web development?",
+          answer: "Our primary web engineering stack centers on React, Next.js, TypeScript, and Tailwind CSS for frontends, paired with Node.js/NestJS or Python backends and structured relational databases such as PostgreSQL."
         }
       ]
     },
@@ -86,18 +86,18 @@ const webDevFaqData: FaqData = {
       faqItems: [
         {
           id: "q4",
-          question: "Can you redesign an existing website?",
-          answer: "Yes, CoreSlash specializes in legacy migration. CoreSlash redesigns frontend UI, refactor backend code for faster response times, and migrate databases with zero downtime."
+          question: "Can you modernize or redesign an existing web application?",
+          answer: "Yes. CoreSlash modernizes legacy web platforms by redesigning user interfaces, refactoring frontend codebases to modern frameworks like React and Next.js, and executing structured data and API migrations with careful rollback planning to maintain operational continuity."
         },
         {
           id: "q5",
-          question: "Do you provide SEO optimization?",
-          answer: "Yes, SEO is built into CoreSlash's core process: HTML5 semantic markup, structured JSON-LD schema data, image asset optimization, and canonical metadata tags."
+          question: "Do you build web applications with technical SEO and performance in mind?",
+          answer: "Yes. We implement technical SEO best practices directly into web architectures: clean semantic HTML5 markup, structured JSON-LD metadata, responsive asset optimization, server-side or prerendered static assets, and optimization for Core Web Vitals."
         },
         {
           id: "q6",
-          question: "Are your platforms responsive and mobile-friendly?",
-          answer: "Absolutely. All web apps are mobile-first responsive, ensuring pixel-perfect rendering across all device screens from smartphones to 4K monitors."
+          question: "Are your web applications responsive across different screen sizes?",
+          answer: "Yes. All web applications are engineered with responsive, mobile-first design principles using modern CSS grid and flexbox layouts to ensure consistent usability across mobile devices, tablets, and desktop displays."
         }
       ]
     },
@@ -108,18 +108,18 @@ const webDevFaqData: FaqData = {
       faqItems: [
         {
           id: "q7",
-          question: "How do you handle security?",
-          answer: "CoreSlash enforce HTTPS/SSL, CSRF and XSS protection headers, secure user auth with JWT/OAuth 2.0, SQL injection prevention, and cloud firewall layers."
+          question: "How do you approach web application security?",
+          answer: "We follow industry security practices including encrypted HTTPS communication, token-based authentication such as JWT, strict input validation to mitigate injection risks, and environment-isolated credentials."
         },
         {
           id: "q8",
-          question: "Do you offer post-launch support & maintenance?",
-          answer: "Yes, CoreSlash's ongoing SLA contracts cover proactive security patches, monthly upgrades, database backups, performance monitoring, and server checks."
+          question: "Do you provide post-launch maintenance and support?",
+          answer: "Yes. We offer post-deployment maintenance arrangements covering routine dependency updates, performance monitoring, bug fixes, and technical support tailored to your project requirements."
         },
         {
           id: "q9",
-          question: "Can you integrate payment gateways?",
-          answer: "Yes, CoreSlash integrates payment processors like Stripe, PayPal, Razorpay, and Authorize.net with automated recurring billing for SaaS models."
+          question: "Can you integrate third-party APIs and payment gateways?",
+          answer: "We can integrate payment gateways such as Stripe and Razorpay, subject to the project's provider requirements and integration scope, alongside third-party REST APIs and other external services."
         }
       ]
     }
@@ -130,24 +130,24 @@ export default function WebsiteDevelopment() {
   return (
     <>
       <Helmet>
-        <title>Custom Web Development Services & Company in India | CoreSlash Technologies</title>
+        <title>Enterprise Web Application Development Company | CoreSlash</title>
         <meta
           name="description"
-          content="CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services."
+          content="CoreSlash is an enterprise web application development company building custom React, Next.js, and TypeScript web platforms, SaaS portals, and B2B web systems."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/web-development" />
         
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Custom Web Development Services & Company in India | CoreSlash Technologies" />
-        <meta property="og:description" content="CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services." />
+        <meta property="og:title" content="Enterprise Web Application Development Company | CoreSlash" />
+        <meta property="og:description" content="CoreSlash is an enterprise web application development company building custom React, Next.js, and TypeScript web platforms, SaaS portals, and B2B web systems." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/web-development" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Custom Web Development Services & Company in India | CoreSlash Technologies" />
-        <meta name="twitter:description" content="CoreSlash Technologies is a custom web development company in India offering end-to-end business website development, scalable SaaS portals, and custom web development services." />
+        <meta name="twitter:title" content="Enterprise Web Application Development Company | CoreSlash" />
+        <meta name="twitter:description" content="CoreSlash is an enterprise web application development company building custom React, Next.js, and TypeScript web platforms, SaaS portals, and B2B web systems." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">
@@ -163,7 +163,7 @@ export default function WebsiteDevelopment() {
       <section className="w-full py-12 bg-slate-950 border-b border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
-            As a trusted <strong className="text-white font-medium">custom web development company in India</strong>, CoreSlash delivers end-to-end engineering for digital businesses. Looking to expand your technology ecosystem? Explore our capabilities as an enterprise <Link to="/services/software-systems" className="text-[#3b82f6] font-semibold hover:underline">custom software development company</Link>, streamline operations with tailored <Link to="/services/erp-crm-development" className="text-[#3b82f6] font-semibold hover:underline">custom ERP & CRM platforms</Link>, or integrate autonomous workflows with our <Link to="/services/ai-automation" className="text-[#3b82f6] font-semibold hover:underline">AI automation services</Link>. Seeking local project consultation? Discover our dedicated <Link to="/web-development-company-in-belagavi" className="text-[#3b82f6] font-semibold hover:underline">web development company in Belagavi</Link> services, or read our guide on selecting the <Link to="/blog/best-react-js-development-company-in-bangalore" className="text-[#3b82f6] font-semibold hover:underline">best React.js development company in Bangalore</Link>.
+            As an <strong className="text-white font-medium">enterprise web application development company</strong>, CoreSlash delivers end-to-end full-stack web engineering for modern businesses. Looking to expand your technology ecosystem? Explore our capabilities as an enterprise <Link to="/services/software-systems" className="text-[#3b82f6] font-semibold hover:underline">custom software development company</Link>, streamline operations with tailored <Link to="/services/erp-crm-development" className="text-[#3b82f6] font-semibold hover:underline">custom ERP & CRM platforms</Link>, or integrate autonomous workflows with our <Link to="/services/ai-automation" className="text-[#3b82f6] font-semibold hover:underline">AI automation services</Link>. Seeking local project consultation? Discover our dedicated <Link to="/web-development-company-in-belagavi" className="text-[#3b82f6] font-semibold hover:underline">web development company in Belagavi</Link> services, or read our guide on selecting the <Link to="/blog/best-react-js-development-company-in-bangalore" className="text-[#3b82f6] font-semibold hover:underline">best React.js development company in Bangalore</Link>.
           </p>
         </div>
       </section>

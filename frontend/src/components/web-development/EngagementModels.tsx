@@ -76,18 +76,18 @@ export default function EngagementModels() {
               {/* Top Header Accent Line & Title */}
               <div className="flex items-center">
                 <div className="w-[3px] h-6 bg-blue-600 rounded-full mr-3" />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+                <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
                   ENGAGEMENT MODELS
-                </h3>
+                </span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
                 Exploring Different{" "}
                 <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent block mt-1">
                   Engagement Models
                 </span>{" "}
                 In Modern Software Development
-              </h2>
+              </h3>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-xl font-normal text-slate-800 dark:text-slate-300">
                 CoreSlash offers client-aligned partnership structures tailored to your project scope, engineering scale, and release timelines.
@@ -109,14 +109,14 @@ export default function EngagementModels() {
                   </div>
                   <div className="space-y-1">
                     <h4 className="text-base font-bold text-white">
-                      {activeModel === "dedicated" && "Dedicated Engineering Team"}
-                      {activeModel === "hourly" && "Hourly Consultation & Advisory"}
-                      {activeModel === "fixed" && "Fixed Scope Project Delivery"}
+                      {activeModel === "dedicated" && "Dedicated Frontend & Full-Stack Pods"}
+                      {activeModel === "hourly" && "Technical Advisory & Sprint Consultation"}
+                      {activeModel === "fixed" && "Milestone-Based Project Delivery"}
                     </h4>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                      {activeModel === "dedicated" && "Full-time software engineers, UI designers, and project managers working as a seamless extension of your organization."}
-                      {activeModel === "hourly" && "Flexible access to senior solutions architects for code reviews, technical audits, and high-impact advisory sprints."}
-                      {activeModel === "fixed" && "Defined deliverables, milestones, and predictable budget requirements for well-scoped software releases."}
+                      {activeModel === "dedicated" && "Partner with full-stack engineers and frontend specialists who integrate into your workflow. For businesses looking to hire full stack developers in India, we provide dedicated engineering collaboration tailored to your web application roadmap."}
+                      {activeModel === "hourly" && "Flexible access to experienced solutions architects for frontend performance reviews, code audits, and technical advisory sprints."}
+                      {activeModel === "fixed" && "Defined deliverables, milestones, and predictable budget requirements for well-scoped web application releases."}
                     </p>
                   </div>
                 </div>
@@ -129,27 +129,27 @@ export default function EngagementModels() {
                         <CheckCircle2 className="w-3 h-3 text-blue-400" /> Agile Sprints
                       </span>
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-500/15 border border-blue-500/30 text-blue-300 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3 text-blue-400" /> Full Time Alignment
+                        <CheckCircle2 className="w-3 h-3 text-blue-400" /> Full-Stack Support
                       </span>
                     </>
                   )}
                   {activeModel === "hourly" && (
                     <>
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3 text-cyan-400" /> Pay As You Go
+                        <CheckCircle2 className="w-3 h-3 text-cyan-400" /> Flexible Sprints
                       </span>
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3 text-cyan-400" /> Senior Architect Access
+                        <CheckCircle2 className="w-3 h-3 text-cyan-400" /> Architecture Review
                       </span>
                     </>
                   )}
                   {activeModel === "fixed" && (
                     <>
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Guaranteed Milestones
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Milestone Delivery
                       </span>
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-semibold">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Predictable Budget
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Scoped Deliverables
                       </span>
                     </>
                   )}

@@ -142,6 +142,39 @@ export default function TechnologyGrid() {
           </AnimatePresence>
         </div>
 
+        {/* Contextual Technology Architecture Highlights */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          <div className="p-6 rounded-2xl bg-card border border-border/80 shadow-sm space-y-2.5">
+            <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              Frontend Frameworks & UI Architecture
+            </h3>
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              We engineer scalable user interfaces using <strong className="text-foreground font-medium">React.js</strong> and <strong className="text-foreground font-medium">Next.js</strong> with strict <strong className="text-foreground font-medium">TypeScript</strong> typing. This combination enables modular component hierarchies, efficient client-side and server-side rendering, and responsive styling through <strong className="text-foreground font-medium">Tailwind CSS</strong>.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-card border border-border/80 shadow-sm space-y-2.5">
+            <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-indigo-500" />
+              Scalable Web APIs & Backend Services
+            </h3>
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Web applications integrate with performant backends engineered in <strong className="text-foreground font-medium">Node.js / NestJS</strong> or <strong className="text-foreground font-medium">Python (Django / FastAPI)</strong>. We architect structured REST and GraphQL APIs that deliver predictable data contracts, robust validation, and secure authentication flows.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-card border border-border/80 shadow-sm space-y-2.5">
+            <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-500" />
+              Data Persistence & Cloud Integration
+            </h3>
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Production web applications rely on proven relational and document databases including <strong className="text-foreground font-medium">PostgreSQL</strong> and <strong className="text-foreground font-medium">MongoDB</strong>, supplemented with <strong className="text-foreground font-medium">Redis</strong> caching for session management and rapid data retrieval across distributed environments.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
   );
