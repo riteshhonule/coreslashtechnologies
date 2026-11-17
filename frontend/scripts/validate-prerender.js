@@ -127,6 +127,23 @@ const SNAPSHOT_TARGETS = [
       'Dedicated Development Teams & IT Staff Augmentation in India',
       'Frequently Asked Questions'
     ]
+  },
+  {
+    path: '/services/ai-automation',
+    relPath: 'services/ai-automation/index.html',
+    expectedTitleSubstring: 'AI Automation Company & Agentic AI Services',
+    expectedH1Substrings: ['AI Automation Company &', 'Agentic AI Services'],
+    expectedCanonical: 'https://coreslashtechnologies.com/services/ai-automation',
+    minBytes: 20000,
+    minRootLength: 5000,
+    minJsonLdCount: 2,
+    expectedJsonLdTypes: ['Service', 'BreadcrumbList'],
+    requiredContentSubstrings: [
+      'Custom AI Agent Development & LLM Integration',
+      'Intelligent Business Process Automation',
+      'Modern Technology Stack',
+      'Frequently Asked Questions'
+    ]
   }
 ];
 
@@ -363,12 +380,12 @@ if (allRoutes.length !== 64) {
   failureCount++;
 }
 
-if (metadataOnlyRoutes.length !== 59) {
-  console.error(`❌ Critical metadata-only count error: expected 59 metadata-only routes, found ${metadataOnlyRoutes.length}`);
+if (metadataOnlyRoutes.length !== 58) {
+  console.error(`❌ Critical metadata-only count error: expected 58 metadata-only routes, found ${metadataOnlyRoutes.length}`);
   failureCount++;
 }
 
-// 4. Validate All 59 Metadata-Only Routes
+// 4. Validate All 58 Metadata-Only Routes
 console.log(`\nAuditing all ${metadataOnlyRoutes.length} metadata-only HTML routes on disk...`);
 let metadataPassCount = 0;
 

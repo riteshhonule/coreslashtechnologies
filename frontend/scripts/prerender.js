@@ -286,8 +286,8 @@ const routes = [
   },
   {
     path: '/services/ai-automation',
-    title: 'AI Automation Company & AI Development Services | CoreSlash Technologies',
-    description: 'CoreSlash Technologies is an AI automation company providing bespoke AI development services, custom AI agent development, and intelligent business process automation.'
+    title: 'AI Automation Company & Agentic AI Services | CoreSlash',
+    description: 'CoreSlash is an AI automation company engineering custom AI agents, autonomous workflow automation, enterprise LLM integrations, and intelligent process systems.'
   },
   {
     path: '/services/web-development',
@@ -395,6 +395,14 @@ const SNAPSHOT_TARGET_ROUTES = [
     expectedCanonical: 'https://coreslashtechnologies.com/services/software-systems',
     minLinks: 25,
     expectedJsonLdCount: 3
+  },
+  {
+    path: '/services/ai-automation',
+    expectedH1Substrings: ['AI Automation Company &', 'Agentic AI Services'],
+    expectedTitleSubstring: 'AI Automation Company & Agentic AI Services',
+    expectedCanonical: 'https://coreslashtechnologies.com/services/ai-automation',
+    minLinks: 25,
+    expectedJsonLdCount: 2
   }
 ];
 
