@@ -310,6 +310,11 @@ const routes = [
     description: 'CoreSlash is a custom ERP software development company engineering tailored ERP systems, custom CRM platforms, inventory automation, and scalable business software.'
   },
   {
+    path: '/services/saas-development',
+    title: 'SaaS Product Development Company & MVP Engineering | CoreSlash',
+    description: 'CoreSlash is a SaaS product development company engineering custom SaaS platforms, startup MVPs, subscription workflows, and scalable cloud applications.'
+  },
+  {
     path: '/services/ecommerce-solutions',
     title: 'Custom E-Commerce Development | CoreSlash Technologies',
     description: 'Launch high-converting online storefronts with custom e-commerce development from CoreSlash, featuring fast checkouts, payment APIs, and ERP integrations.'
@@ -409,6 +414,14 @@ const SNAPSHOT_TARGET_ROUTES = [
     expectedH1Substrings: ['Custom ERP', 'Software Development', 'Company & CRM Systems'],
     expectedTitleSubstring: 'Custom ERP Software Development Company & CRM',
     expectedCanonical: 'https://coreslashtechnologies.com/services/erp-crm-development',
+    minLinks: 25,
+    expectedJsonLdCount: 2
+  },
+  {
+    path: '/services/saas-development',
+    expectedH1Substrings: ['Custom SaaS', 'Product Development', 'MVP Engineering Services'],
+    expectedTitleSubstring: 'SaaS Product Development Company & MVP Engineering',
+    expectedCanonical: 'https://coreslashtechnologies.com/services/saas-development',
     minLinks: 25,
     expectedJsonLdCount: 2
   }

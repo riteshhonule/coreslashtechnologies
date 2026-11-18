@@ -164,6 +164,26 @@ const SNAPSHOT_TARGETS = [
       'Enterprise Industry Solutions',
       'Frequently Asked Questions'
     ]
+  },
+  {
+    path: '/services/saas-development',
+    relPath: 'services/saas-development/index.html',
+    expectedTitleSubstring: 'SaaS Product Development Company & MVP Engineering',
+    expectedH1Substrings: ['Custom SaaS', 'Product Development'],
+    expectedCanonical: 'https://coreslashtechnologies.com/services/saas-development',
+    minBytes: 20000,
+    minRootLength: 5000,
+    minJsonLdCount: 2,
+    expectedJsonLdTypes: ['Service', 'BreadcrumbList'],
+    requiredContentSubstrings: [
+      'FinTrack',
+      'Skandan',
+      'FlexiCart',
+      'End-to-End SaaS Engineering Solutions',
+      'Multi-Tenant Architecture',
+      'Technology Stack for SaaS Applications',
+      'Frequently Asked Questions'
+    ]
   }
 ];
 
@@ -395,8 +415,8 @@ console.log(`Full static snapshot routes: ${snapshotPaths.size}`);
 console.log(`Expected metadata-only routes to validate: ${metadataOnlyRoutes.length}`);
 
 // Strictly assert expected route count derived from source
-if (allRoutes.length !== 64) {
-  console.error(`❌ Critical route inventory error: expected 64 total routes, found ${allRoutes.length}`);
+if (allRoutes.length !== 65) {
+  console.error(`❌ Critical route inventory error: expected 65 total routes, found ${allRoutes.length}`);
   failureCount++;
 }
 

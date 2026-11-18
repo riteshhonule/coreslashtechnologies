@@ -104,6 +104,7 @@ export default function FooterSection() {
                 { label: "App Development", href: "/services/app-development" },
                 { label: "Software Systems", href: "/services/software-systems" },
                 { label: "ERP & CRM Development", href: "/services/erp-crm-development" },
+                { label: "SaaS Development", href: "/services/saas-development" },
                 { label: "E-Commerce Solutions", href: "/services/ecommerce-solutions" },
                 { label: "SEO Solutions", href: "/services/seo-solutions" },
                 { label: "Shopify Development", href: "/services/shopify-development" },
