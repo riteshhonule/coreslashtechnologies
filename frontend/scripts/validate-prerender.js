@@ -184,6 +184,32 @@ const SNAPSHOT_TARGETS = [
       'Technology Stack for SaaS Applications',
       'Frequently Asked Questions'
     ]
+  },
+  {
+    path: '/software-company-in-belgaum',
+    relPath: 'software-company-in-belgaum/index.html',
+    expectedTitleSubstring: 'Software Company in Belgaum (Belagavi) | CoreSlash',
+    expectedH1Substrings: ['Custom Software Development Company in', 'Belgaum (Belagavi)'],
+    expectedCanonical: 'https://coreslashtechnologies.com/software-company-in-belgaum',
+    minBytes: 20000,
+    minRootLength: 5000,
+    minJsonLdCount: 2,
+    expectedJsonLdTypes: ['Service', 'BreadcrumbList'],
+    requiredContentSubstrings: [
+      'FinTrack',
+      'Skandan',
+      'PITCS',
+      'Custom Software Engineering for Belgaum Businesses',
+      'Comprehensive Software Engineering Services',
+      'Operational Workflow Portals and Internal Tools',
+      'Legacy Software Modernization & Cloud Migration',
+      'API Integration and Database Architecture',
+      'Industries and Business Workflows We Can Support',
+      'Our Software Engineering Process',
+      'Core Technologies We Build With',
+      'Verified Software Engineering Case Studies',
+      'Frequently Asked Questions'
+    ]
   }
 ];
 
@@ -415,8 +441,8 @@ console.log(`Full static snapshot routes: ${snapshotPaths.size}`);
 console.log(`Expected metadata-only routes to validate: ${metadataOnlyRoutes.length}`);
 
 // Strictly assert expected route count derived from source
-if (allRoutes.length !== 65) {
-  console.error(`❌ Critical route inventory error: expected 65 total routes, found ${allRoutes.length}`);
+if (allRoutes.length !== 66) {
+  console.error(`❌ Critical route inventory error: expected 66 total routes, found ${allRoutes.length}`);
   failureCount++;
 }
 

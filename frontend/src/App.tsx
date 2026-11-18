@@ -31,6 +31,7 @@ const EnquiryFormPage = lazy(() => import("./pages/EnquiryFormPage"));
 const PartnerPage = lazy(() => import("./pages/PartnerPage"));
 const PartnerFormPage = lazy(() => import("./pages/PartnerFormPage"));
 const SoftwareCompanyInBelagavi = lazy(() => import("./pages/SoftwareCompanyInBelagavi"));
+const SoftwareCompanyBelgaum = lazy(() => import("./pages/SoftwareCompanyBelgaum"));
 const WebDevelopmentBelagavi = lazy(() => import("./pages/local/WebDevelopmentBelagavi"));
 const WebsiteAudit = lazy(() => import("./pages/WebsiteAuditPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -71,7 +72,8 @@ function App() {
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-of-service" element={<TermsOfService />} />
               <Route path="cookie-policy" element={<CookiePolicy />} />
-              <Route path="software-company-in-belagavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
+              <Route path="software-company-in-belagavi" element={<Navigate to="/software-company-in-belgaum" replace />} />
+              <Route path="software-company-in-belgaum" element={<SoftwareCompanyBelgaum />} />
               <Route path="top-it-companies-in-belgavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
               <Route path="top-it-companies-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
               <Route path="web-development-company-in-belagavi" element={<WebDevelopmentBelagavi />} />

@@ -277,6 +277,11 @@ const routes = [
     title: 'Web Development Company in Belagavi (Belgaum) | CoreSlash',
     description: 'CoreSlash Technologies is a custom web development company in Belagavi (Belgaum). We build fast, responsive business websites, web portals and custom applications.'
   },
+  {
+    path: '/software-company-in-belgaum',
+    title: 'Software Company in Belgaum (Belagavi) | CoreSlash',
+    description: 'CoreSlash Technologies builds custom business software, operational portals, ERP systems, and scalable cloud applications for businesses in Belgaum and beyond.'
+  },
 
   // Service Pages
   {
@@ -423,6 +428,14 @@ const SNAPSHOT_TARGET_ROUTES = [
     expectedTitleSubstring: 'SaaS Product Development Company & MVP Engineering',
     expectedCanonical: 'https://coreslashtechnologies.com/services/saas-development',
     minLinks: 25,
+    expectedJsonLdCount: 2
+  },
+  {
+    path: '/software-company-in-belgaum',
+    expectedH1Substrings: ['Custom Software Development Company in', 'Belgaum (Belagavi)'],
+    expectedTitleSubstring: 'Software Company in Belgaum (Belagavi) | CoreSlash',
+    expectedCanonical: 'https://coreslashtechnologies.com/software-company-in-belgaum',
+    minLinks: 20,
     expectedJsonLdCount: 2
   }
 ];

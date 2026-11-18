@@ -186,16 +186,11 @@
     },
     {
       "source": "/software-company-in-belagavi",
-      "destination": "/top-it-companies-in-belagavi",
+      "destination": "/software-company-in-belgaum",
       "permanent": true
     },
     {
       "source": "/top-it-companies-in-belgaum",
-      "destination": "/top-it-companies-in-belagavi",
-      "permanent": true
-    },
-    {
-      "source": "/software-company-in-belgaum",
       "destination": "/top-it-companies-in-belagavi",
       "permanent": true
     },
@@ -224,6 +219,10 @@
     },
     {
       "source": "/web-development-company-in-belagavi",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/software-company-in-belgaum",
       "destination": "/index.html"
     },
     {
