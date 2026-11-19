@@ -53,6 +53,31 @@ jobs:
       - name: Install Pinned Vercel CLI
         run: npm install --global vercel@65.14.0
 
+      - name: Verify Vercel Authentication Secrets
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          MISSING=""
+          if [ -z "$VERCEL_TOKEN" ]; then
+            MISSING="${MISSING} VERCEL_TOKEN"
+          fi
+          if [ -z "$VERCEL_ORG_ID" ]; then
+            MISSING="${MISSING} VERCEL_ORG_ID"
+          fi
+          if [ -z "$VERCEL_PROJECT_ID" ]; then
+            MISSING="${MISSING} VERCEL_PROJECT_ID"
+          fi
+
+          if [ -n "$MISSING" ]; then
+            echo "::error::CRITICAL: Missing required Vercel secret(s):${MISSING}."
+            echo "::error::Please configure the missing secret(s) in GitHub repository Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+          echo "All required Vercel deployment secrets (VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID) are configured."
+
       - name: Pull Vercel Preview Configuration
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
