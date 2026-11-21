@@ -173,7 +173,7 @@ const CORE_SERVICES = [
     icon: <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
     title: "Web Development",
     description: "High-performance web applications, corporate portals, and SaaS platforms built with React, Next.js, and modern APIs.",
-    link: "/services/web-development"
+    link: "/web-development-company-in-belagavi"
   },
   {
     icon: <Smartphone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />,
@@ -549,7 +549,7 @@ export default function SoftwareCompanyInBelagavi() {
             </h2>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-              As Belagavi (commonly known as Belgaum) expands as a major industrial, educational, and commercial center in North Karnataka, local enterprises and growing organizations increasingly rely on high-performance digital infrastructure. When evaluating established <strong>IT companies in Belgaum</strong>, businesses require engineering partners that deliver scalable custom applications, complete source-code ownership, and enterprise-grade cloud security. As a dedicated <strong>software company in Belgaum</strong>, CoreSlash Technologies bridges local accessibility with modern full-stack engineering standards.
+              As Belagavi (commonly known as Belgaum) expands as a major industrial, educational, and commercial center in North Karnataka, local enterprises and growing organizations increasingly rely on high-performance digital infrastructure. When evaluating established <strong>IT companies in Belgaum</strong>, businesses require engineering partners that deliver scalable custom applications, complete source-code ownership, and enterprise-grade cloud security. As a dedicated <Link to="/software-company-in-belgaum" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">software company in Belgaum</Link>, CoreSlash Technologies bridges local accessibility with modern full-stack engineering standards.
             </p>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">

@@ -19,6 +19,7 @@ const SEOOptimization = lazy(() => import("./pages/services/SEOOptimization"));
 const EcommerceWebsite = lazy(() => import("./pages/services/EcommerceWebsite"));
 const SoftwareSystems = lazy(() => import("./pages/services/SoftwareSystems"));
 const ErpCrmDevelopment = lazy(() => import("./pages/services/ErpCrmDevelopment"));
+const SaaSDevelopment = lazy(() => import("./pages/services/SaaSDevelopment"));
 const AIAutomation = lazy(() => import("./pages/services/AIAutomation"));
 const CloudInfrastructure = lazy(() => import("./pages/services/CloudInfrastructure"));
 const DataAnalytics = lazy(() => import("./pages/services/DataAnalytics"));
@@ -30,6 +31,8 @@ const EnquiryFormPage = lazy(() => import("./pages/EnquiryFormPage"));
 const PartnerPage = lazy(() => import("./pages/PartnerPage"));
 const PartnerFormPage = lazy(() => import("./pages/PartnerFormPage"));
 const SoftwareCompanyInBelagavi = lazy(() => import("./pages/SoftwareCompanyInBelagavi"));
+const SoftwareCompanyBelgaum = lazy(() => import("./pages/SoftwareCompanyBelgaum"));
+const WebDevelopmentBelagavi = lazy(() => import("./pages/local/WebDevelopmentBelagavi"));
 const WebsiteAudit = lazy(() => import("./pages/WebsiteAuditPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -69,9 +72,12 @@ function App() {
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-of-service" element={<TermsOfService />} />
               <Route path="cookie-policy" element={<CookiePolicy />} />
-              <Route path="software-company-in-belagavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
+              <Route path="software-company-in-belagavi" element={<Navigate to="/software-company-in-belgaum" replace />} />
+              <Route path="software-company-in-belgaum" element={<SoftwareCompanyBelgaum />} />
               <Route path="top-it-companies-in-belgavi" element={<Navigate to="/top-it-companies-in-belagavi" replace />} />
               <Route path="top-it-companies-in-belagavi" element={<SoftwareCompanyInBelagavi />} />
+              <Route path="web-development-company-in-belagavi" element={<WebDevelopmentBelagavi />} />
+              <Route path="website-development-company-in-belagavi" element={<Navigate to="/web-development-company-in-belagavi" replace />} />
 
               <Route path="services">
                 <Route index element={<ServicesIndex />} />
@@ -83,6 +89,7 @@ function App() {
                 <Route path="software-development" element={<Navigate to="/services/software-systems" replace />} />
                 <Route path="enterprise-it-solutions" element={<Navigate to="/services/software-systems" replace />} />
                 <Route path="erp-crm-development" element={<ErpCrmDevelopment />} />
+                <Route path="saas-development" element={<SaaSDevelopment />} />
                 <Route path="ecommerce-solutions" element={<EcommerceWebsite />} />
                 <Route path="ecommerce" element={<Navigate to="/services/ecommerce-solutions" replace />} />
                 <Route path="seo-solutions" element={<SEOOptimization />} />

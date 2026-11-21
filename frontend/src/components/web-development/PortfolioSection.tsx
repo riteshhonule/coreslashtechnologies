@@ -103,9 +103,9 @@ export default function PortfolioSection() {
             {/* Typography block */}
             <div className="text-left space-y-3 flex-grow flex flex-col justify-between">
               <div>
-                <h4 className="text-lg md:text-xl font-bold tracking-tight text-foreground dark:text-white line-clamp-1 group-hover:text-[#3b82f6] dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg md:text-xl font-bold tracking-tight text-foreground dark:text-white line-clamp-1 group-hover:text-[#3b82f6] dark:group-hover:text-blue-400 transition-colors">
                   {item.title}
-                </h4>
+                </h3>
                 <p className="text-xs md:text-sm text-muted-foreground dark:text-slate-300 leading-relaxed mt-2 line-clamp-3">
                   {item.subtext}
                 </p>

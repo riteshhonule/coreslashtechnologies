@@ -1,7 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Server, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight, Server, CheckCircle2, Factory, Truck,
+  Store, Briefcase, Layers, ShieldCheck, Database, Sliders
+} from "lucide-react";
 import EngagementModels from "@/components/web-development/EngagementModels";
 import ProcessTimeline from "@/components/web-development/ProcessTimeline";
 import FaqSection, { type FaqData } from "@/components/ui/habit-faq-scroller";
@@ -11,13 +14,17 @@ import {
   SiPostgresql, SiMongodb, SiRedis, SiTypescript
 } from "react-icons/si";
 
+import pitcsImg from "@/assets/portfolio/pitcs.webp";
+import skandanImg from "@/assets/portfolio/skandan.webp";
+import fintrackImg from "@/assets/portfolio/fintrack.webp";
+
 // ----------------------------------------------------
 // SCHEMA
 // ----------------------------------------------------
 const erpSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Custom ERP Software Development",
+  "name": "Custom ERP Software Development & CRM Systems",
   "url": "https://coreslashtechnologies.com/services/erp-crm-development",
   "provider": {
     "@type": "Organization",
@@ -26,29 +33,31 @@ const erpSchema = {
     "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "ERP and CRM Engineering",
-  "description": "Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems.",
+  "description": "CoreSlash is a custom ERP software development company engineering tailored ERP systems, custom CRM platforms, inventory automation, and scalable business software.",
   "areaServed": "Worldwide"
 };
 
-const faqSchema = {
+const breadcrumbSchema = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-      "@type": "Question",
-      "name": "What is custom ERP development vs off-the-shelf?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Custom ERP software is engineered specifically for your business logic. You get 100% IP ownership, zero licensing fees per user, and unlimited scalability, whereas off-the-shelf SaaS limits flexibility."
-      }
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://coreslashtechnologies.com/"
     },
     {
-      "@type": "Question",
-      "name": "How do you handle software data security and RBAC?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "CoreSlash enforces AES-256 data encryption, Granular Role-Based Access Control (RBAC), multi-factor auth, and compliance auditing for SOC2, HIPAA, and GDPR."
-      }
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://coreslashtechnologies.com/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ERP & CRM Development",
+      "item": "https://coreslashtechnologies.com/services/erp-crm-development"
     }
   ]
 };
@@ -70,34 +79,109 @@ const SOFTWARE_TECHS = [
 ];
 
 // ----------------------------------------------------
-// CASE STUDIES DATA
+// AUTHENTIC CASE STUDIES DATA
 // ----------------------------------------------------
 const CASE_STUDIES = [
   {
-    title: "OmniERP – Multi-Tenant Enterprise Software",
-    subtext: "Cloud-native ERP platform automating inventory forecasting, multi-warehouse logistics, and real-time financial reporting.",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop&q=80",
+    title: "FinTrack – AI Financial Management & Corporate Treasury Portal",
+    client: "FinTrack Global",
+    subtext: "Corporate financial management portal featuring multi-currency accounting, automated invoice extraction, and ERP transaction reconciliation.",
+    imageUrl: fintrackImg,
+    techStack: ["React", "NestJS", "PostgreSQL", "Redis"],
     link: "/portfolio"
   },
   {
-    title: "DataStream – Real-Time Logistics Analytics",
-    subtext: "Event-driven microservices architecture processing 50,000+ telemetry events per second with sub-100ms dashboard latency.",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80",
+    title: "PITCS – Global IT Consulting & Workforce Management Platform",
+    client: "PITCS Tech Solutions",
+    subtext: "Enterprise talent acquisition & workforce management engine featuring automated candidate screening dashboards and real-time status tracking.",
+    imageUrl: pitcsImg,
+    techStack: ["React", "Next.js", "Node.js", "PostgreSQL"],
+    link: "/portfolio"
+  },
+  {
+    title: "Skandan – Executive Business Consulting & Risk Management",
+    client: "Skandan Global Advisory",
+    subtext: "Executive decision engine providing business risk assessment, interactive financial modeling, and operational advisory dashboards.",
+    imageUrl: skandanImg,
+    techStack: ["React", "TypeScript", "Python", "Django"],
     link: "/portfolio"
   }
 ];
 
+// ----------------------------------------------------
+// INDUSTRY VERTICALS DATA
+// ----------------------------------------------------
+const INDUSTRY_SOLUTIONS = [
+  {
+    title: "Manufacturing & Industrial Operations",
+    icon: <Factory className="w-6 h-6 text-blue-500" />,
+    description: "Configurable operational platforms for bill of materials tracking, production milestone scheduling, equipment maintenance logs, and raw material inventory workflows."
+  },
+  {
+    title: "Wholesale Distribution & Logistics",
+    icon: <Truck className="w-6 h-6 text-indigo-500" />,
+    description: "Multi-warehouse inventory synchronization, supplier purchase order tracking, shipment status visibility, and automated dispatch management."
+  },
+  {
+    title: "Retail & Multi-Branch Commercial",
+    icon: <Store className="w-6 h-6 text-purple-500" />,
+    description: "Centralized point-of-sale data aggregation, branch inventory visibility, customer order history, and unified commercial billing systems."
+  },
+  {
+    title: "Professional & Financial Services",
+    icon: <Briefcase className="w-6 h-6 text-emerald-500" />,
+    description: "Workforce time tracking, client billing automation, multi-currency transaction logging, and executive reporting dashboards."
+  }
+];
+
+// ----------------------------------------------------
+// WHY CHOOSE CORESLASH DATA
+// ----------------------------------------------------
+const VALUE_PILLARS = [
+  {
+    title: "Tailored Business Workflows",
+    icon: <Sliders className="w-6 h-6 text-blue-500" />,
+    description: "Software engineered around your existing operational processes and organizational structure rather than forcing rigid pre-packaged constraints."
+  },
+  {
+    title: "Modular Application Architecture",
+    icon: <Layers className="w-6 h-6 text-indigo-500" />,
+    description: "Built with modular services, clean data layers, and performant backends that adapt smoothly as transaction volume and user concurrency grow."
+  },
+  {
+    title: "Role-Based Access & Data Controls",
+    icon: <ShieldCheck className="w-6 h-6 text-purple-500" />,
+    description: "Granular role-based permission controls, token-authenticated API endpoints, and private database configurations that protect sensitive operational data."
+  },
+  {
+    title: "System & API Interoperability",
+    icon: <Database className="w-6 h-6 text-emerald-500" />,
+    description: "Structured REST, GraphQL, and database connector architectures designed to connect smoothly with your existing third-party business software."
+  }
+];
+
+// ----------------------------------------------------
+// FAQ DATA
+// ----------------------------------------------------
 const erpFaqData: FaqData = {
   mainTitle: "Frequently Asked Questions",
-  mainSubtitle: "Everything you need to know about our custom ERP software development and architecture.",
+  mainSubtitle: "Everything you need to know about our custom ERP software development, CRM engineering, and integration architecture.",
   rows: [
     {
       id: "row1",
       speed: "50s",
       direction: "left",
       faqItems: [
-        { id: "q1", question: "What is custom ERP development vs off-the-shelf?", answer: "Custom ERP software is engineered specifically for your business logic. You get 100% IP ownership, zero licensing fees per user, and unlimited scalability, whereas off-the-shelf SaaS limits flexibility." },
-        { id: "q2", question: "How long does an enterprise ERP project take?", answer: "A custom SaaS MVP takes 8 to 12 weeks. Large-scale enterprise platforms with complex database migrations take 14 to 20 weeks." }
+        {
+          id: "q1",
+          question: "What is custom ERP development vs off-the-shelf software?",
+          answer: "Custom ERP software is engineered specifically around your organizational workflows and business rules. Unlike off-the-shelf SaaS platforms with recurring per-user licensing and rigid feature sets, custom platforms provide tailored functionality, complete codebase control under agreed contract terms, and flexible scaling."
+        },
+        {
+          id: "q2",
+          question: "What is the typical development timeline for an enterprise ERP?",
+          answer: "Timelines depend on module scope, data integration needs, and workflow complexity. Engagements typically begin with a scoped discovery and system architecture phase, followed by milestone-based development, staging validation, and phased operational rollout."
+        }
       ]
     },
     {
@@ -105,9 +189,21 @@ const erpFaqData: FaqData = {
       speed: "45s",
       direction: "right",
       faqItems: [
-        { id: "q3", question: "Can you modernize our existing legacy application?", answer: "Yes! CoreSlash converts monolithic applications into microservices, wrap legacy databases with modern REST APIs, and deploy zero-downtime cloud pipelines." },
-        { id: "q4", question: "How do you handle software data security and RBAC?", answer: "CoreSlash enforces AES-256 data encryption, Granular Role-Based Access Control (RBAC), multi-factor auth, and compliance auditing for SOC2, HIPAA, and GDPR." },
-        { id: "q5", question: "Do you offer post-deployment SLA support?", answer: "Yes, CoreSlash provides 24/7 infrastructure monitoring, zero-downtime CI/CD deployment pipelines, automated backups, and guaranteed SLA response times." }
+        {
+          id: "q3",
+          question: "Can you modernize or integrate with our existing legacy systems?",
+          answer: "Yes. We engineer integration architectures that connect custom ERP and CRM modules with existing databases, third-party software, and legacy systems using standard REST APIs, GraphQL endpoints, and secure database connectors."
+        },
+        {
+          id: "q4",
+          question: "How do you handle enterprise data security and access control?",
+          answer: "We apply security practices such as encrypted HTTPS communication and token-based authentication. Role-based permissions and database isolation can be designed around each project's access-control, data-protection, and deployment requirements."
+        },
+        {
+          id: "q5",
+          question: "Do you provide post-deployment support and system maintenance?",
+          answer: "Yes. We provide scheduled maintenance and technical support packages tailored to the agreed engagement scope, covering system health monitoring, dependency updates, and ongoing operational enhancements."
+        }
       ]
     }
   ]
@@ -117,25 +213,28 @@ export default function ErpCrmDevelopment() {
   return (
     <>
       <Helmet>
-        <title>Custom ERP Software Development Company in India | CoreSlash</title>
-        <meta name="description" content="Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems." />
+        <title>Custom ERP Software Development Company & CRM | CoreSlash</title>
+        <meta
+          name="description"
+          content="CoreSlash is a custom ERP software development company engineering tailored ERP systems, custom CRM platforms, inventory automation, and scalable business software."
+        />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/erp-crm-development" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="Custom ERP Software Development Company in India | CoreSlash" />
-        <meta property="og:description" content="Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems." />
+        <meta property="og:title" content="Custom ERP Software Development Company & CRM | CoreSlash" />
+        <meta property="og:description" content="CoreSlash is a custom ERP software development company engineering tailored ERP systems, custom CRM platforms, inventory automation, and scalable business software." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/erp-crm-development" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Custom ERP Software Development Company in India | CoreSlash" />
-        <meta name="twitter:description" content="Top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems." />
+        <meta name="twitter:title" content="Custom ERP Software Development Company & CRM | CoreSlash" />
+        <meta name="twitter:description" content="CoreSlash is a custom ERP software development company engineering tailored ERP systems, custom CRM platforms, inventory automation, and scalable business software." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(erpSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* 1. HERO SECTION */}
@@ -167,11 +266,11 @@ export default function ErpCrmDevelopment() {
             <span className="text-[#3b82f6]">
               Software Development
             </span>{" "}
-            Company in India
+            Company & CRM Systems
           </h1>
 
           <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl font-medium">
-            CoreSlash Technologies is a top custom ERP software development company in India. We build scalable cloud ERP solutions, automate business processes, and integrate secure CRM systems for enterprises worldwide.
+            CoreSlash Technologies is a custom ERP software development company in India. We engineer tailored enterprise resource planning systems, custom CRM platforms, and multi-location inventory automation designed to streamline business workflows, financial reporting, and operational logistics.
           </p>
 
           {/* CTA Buttons */}
@@ -195,18 +294,27 @@ export default function ErpCrmDevelopment() {
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-300 pt-3 border-t border-slate-800/80 max-w-3xl">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>Microservices & Distributed APIs</span>
+                <span>Custom ERP & CRM Architecture</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>SOC2 Security & Cloud Datacenters</span>
+                <span>Inventory & Billing Automation</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>99.99% Uptime Guarantee</span>
+                <span>Role-Based Access & Security</span>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Cross-Service Contextual Banner */}
+      <section className="w-full py-12 bg-slate-950 border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
+            As a specialized <strong className="text-white font-medium">custom ERP software development company</strong>, we architect connected enterprise solutions. Accelerate user engagement with our <Link to="/services/web-development" className="text-[#3b82f6] font-semibold hover:underline">custom web development services</Link>, scale distributed backends with our <Link to="/services/software-systems" className="text-[#3b82f6] font-semibold hover:underline">custom software development company</Link> team, or infuse autonomous agents with our <Link to="/services/ai-automation" className="text-[#3b82f6] font-semibold hover:underline">AI automation services</Link>.
+          </p>
         </div>
       </section>
 
@@ -215,41 +323,46 @@ export default function ErpCrmDevelopment() {
         <div className="flex flex-col items-start gap-4 mb-16">
           <div className="flex items-center">
             <div className="w-[3px] h-6 bg-[#3b82f6] rounded-full mr-3" />
-            <h2 className="text-sm font-extrabold uppercase tracking-widest text-muted-foreground">
-              End-to-End Custom ERP Development Services
-            </h2>
+            <span className="text-sm font-extrabold uppercase tracking-widest text-[#3b82f6]">
+              Core Services – ERP & CRM
+            </span>
           </div>
-          <p className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">Automate Business Processes</p>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+            Full-Suite ERP Software Development & Custom CRM Engineering
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-3xl">
+            From multi-location inventory workflows to automated sales pipelines, our custom ERP software development company engineers scalable enterprise solutions tailored to your operational structure.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <CoreServiceCard
             number="01"
-            title="Enterprise Resource Planning (ERP) Implementation"
-            subtext="Build scalable multi-tenant SaaS platforms, custom ERP engines, and automated workflow portals with 100% IP ownership."
-            highlight="Multi-tenant cloud architecture built to support high concurrency."
+            title="Tailored ERP Software Development & Cloud Platforms"
+            subtext="Build scalable, modular enterprise resource planning systems engineered around your operational logic, data workflows, and administrative controls."
+            highlight="Cloud-native backend architecture engineered for high operational reliability and system stability."
             darkBg={true}
             delay={0.1}
           />
           <CoreServiceCard
             number="02"
-            title="Business Process Automation & Workflows"
-            subtext="Architect high-concurrency cloud microservices to automate complex operational workflows and financial reporting."
-            highlight="Eliminate manual data entry and streamline enterprise operations."
+            title="Operational Workflow & Supply Chain Management Software"
+            subtext="Configurable operational software managing order processing, production scheduling workflows, multi-stage procurement, and supply chain tracking."
+            highlight="Streamline cross-departmental operations and reduce manual data entry across teams."
             delay={0.2}
           />
           <CoreServiceCard
             number="03"
-            title="CRM Integration & Cloud Modules"
-            subtext="Connect complex third-party software, secure RESTful/GraphQL webhooks, and real-time CRM dashboards."
-            highlight="Seamless system interoperability with real-time data sync."
+            title="Custom CRM Development & Pipeline Automation"
+            subtext="Tailored customer relationship management platforms with lead tracking, deal pipelines, customer interaction histories, and automated communications."
+            highlight="Centralized customer data and workflow automation integrated with your business communication channels."
             delay={0.3}
           />
           <CoreServiceCard
             number="04"
-            title="Custom ERP vs. Off-the-Shelf SaaS"
-            subtext="Migrate away from expensive licensing per-user. Custom ERPs deliver long-term ROI with tailor-made business logic."
-            highlight="100% intellectual property ownership with zero licensing fees."
+            title="Multi-Location Inventory & Billing Automation"
+            subtext="Centralized inventory tracking across multiple branches and warehouses, automated invoice generation workflows, and structured transaction ledgers."
+            highlight="Real-time stock level visibility and automated billing architectures for expanding commercial operations."
             blueBg={true}
             delay={0.4}
           />
@@ -275,7 +388,7 @@ export default function ErpCrmDevelopment() {
             </h2>
 
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
-              CoreSlash leverages cloud-native enterprise technologies ensuring sub-second response times, rock-solid security, and seamless horizontal scalability.
+              CoreSlash leverages proven cloud-native technologies ensuring responsive application performance, secure data isolation, and scalable database backends.
             </p>
           </div>
 
@@ -294,11 +407,25 @@ export default function ErpCrmDevelopment() {
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 overflow-hidden bg-background">
         <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
-            Industries & Use Cases for Custom ERPs
+            Enterprise Industry Solutions & Commercial Operations
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center">
-            Our custom ERPs are utilized across manufacturing, supply chain, logistics, and regional IT sectors to streamline large-scale operations.
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-normal text-center">
+            We architect tailored operational software, inventory management systems, and commercial workflows engineered to address the specific requirements of expanding commercial sectors.
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {INDUSTRY_SOLUTIONS.map((item) => (
+            <div key={item.title} className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-border/80 shadow-sm hover:shadow-md transition-all text-left flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/50 flex items-center justify-center mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -306,11 +433,25 @@ export default function ErpCrmDevelopment() {
       <section className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-border/40 overflow-hidden bg-background">
         <div className="text-center max-w-[900px] mx-auto mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
-            Why Choose Us for ERP Development in India?
+            Why Choose CoreSlash as Your Custom ERP Software Development Company
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center">
-            As a leading software development company, we provide end-to-end 100% IP ownership, stringent SOC2-compliant security, and limitless scalability designed specifically for your organizational structure.
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-normal text-center">
+            We engineer custom software systems that integrate smoothly with your operational practices, providing long-term architecture flexibility, role-based governance, and reliable data contracts.
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {VALUE_PILLARS.map((item) => (
+            <div key={item.title} className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-border/80 shadow-sm hover:shadow-md transition-all text-left flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/50 flex items-center justify-center mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -321,19 +462,19 @@ export default function ErpCrmDevelopment() {
             <span>Case Studies</span>
           </div>
 
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
-            Featured ERP{" "}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-4 leading-tight text-center">
+            Featured Enterprise{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
               Case Studies
             </span>
-          </h3>
+          </h2>
 
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal text-center mb-6">
             Real-world enterprise platforms engineered by our development teams.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center max-w-6xl mx-auto">
           {CASE_STUDIES.map((item, idx) => (
             <motion.div
               key={item.title}
@@ -344,18 +485,33 @@ export default function ErpCrmDevelopment() {
               className="group flex flex-col justify-between rounded-[2rem] bg-white dark:bg-slate-900 border border-border/80 shadow-sm hover:shadow-lg transition-all p-6"
             >
               <div className="relative w-full h-56 bg-slate-50 dark:bg-slate-950 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-border/40">
-                <img src={item.imageUrl} alt={item.title} loading="lazy" className="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
               <div className="text-left space-y-3 flex-grow flex flex-col justify-between">
                 <div>
-                  <h4 className="text-lg md:text-xl font-extrabold text-foreground group-hover:text-[#3b82f6] transition-colors">{item.title}</h4>
+                  <div className="text-xs font-semibold text-[#3b82f6] uppercase tracking-wider mb-1">{item.client}</div>
+                  <h3 className="text-lg md:text-xl font-extrabold text-foreground group-hover:text-[#3b82f6] transition-colors">{item.title}</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mt-2 line-clamp-3">{item.subtext}</p>
                 </div>
-                <div className="flex justify-end pt-4 mt-auto">
-                  <Link to={item.link} className="text-xs md:text-sm font-extrabold text-[#3b82f6] flex items-center gap-1 group/btn uppercase tracking-wider">
-                    View Case Study <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Link>
+                <div className="pt-4 mt-auto">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {item.techStack.map((tech) => (
+                      <span key={tech} className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-end">
+                    <Link to={item.link} className="text-xs md:text-sm font-extrabold text-[#3b82f6] flex items-center gap-1 group/btn uppercase tracking-wider">
+                      View Case Study <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -365,7 +521,6 @@ export default function ErpCrmDevelopment() {
 
       {/* 9. FAQS */}
       <section className="w-full py-16 md:py-24 border-t border-border/40 overflow-hidden bg-background">
-        <h2 className="sr-only">Frequently Asked Questions (FAQs)</h2>
         <FaqSection data={erpFaqData} />
       </section>
 

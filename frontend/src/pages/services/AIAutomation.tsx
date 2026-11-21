@@ -19,7 +19,7 @@ import aiHeroBg from "@/assets/services/ai-automation/coreslash-technologies-ai-
 const aiSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "AI Automation & Autonomous LLM Agents",
+  "name": "AI Automation & Agentic AI Services",
   "url": "https://coreslashtechnologies.com/services/ai-automation",
   "provider": {
     "@type": "Organization",
@@ -28,8 +28,33 @@ const aiSchema = {
     "logo": "https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png"
   },
   "serviceType": "AI Automation",
-  "description": "Build AI-powered workflows, custom LLM fine-tuning, RAG vector search, autonomous AI agents, and intelligent process automation with CoreSlash Technologies.",
+  "description": "CoreSlash is an AI automation company engineering custom AI agents, autonomous workflow automation, enterprise LLM integrations, and intelligent process systems.",
   "areaServed": "Worldwide"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://coreslashtechnologies.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://coreslashtechnologies.com/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Automation",
+      "item": "https://coreslashtechnologies.com/services/ai-automation"
+    }
+  ]
 };
 
 // ----------------------------------------------------
@@ -71,17 +96,17 @@ const aiFaqData: FaqData = {
         {
           id: "q1",
           question: "What AI automation solutions do you engineer?",
-          answer: "CoreSlash engineers autonomous agentic workflows, custom LLM fine-tuning, Retrieval-Augmented Generation (RAG) vector pipelines, intelligent document extraction, and enterprise AI chatbots."
+          answer: "CoreSlash engineers autonomous agentic workflows, custom LLM application integrations, Retrieval-Augmented Generation (RAG) vector pipelines, intelligent document processing, and conversational AI copilots."
         },
         {
           id: "q2",
           question: "How do you ensure our enterprise data remains private?",
-          answer: "CoreSlash deploys models inside private cloud VPC environments with zero-retention API agreements, end-to-end data encryption, and isolated vector database storage."
+          answer: "We deploy solutions within your dedicated cloud infrastructure or VPC, utilize zero-data-retention API endpoints where supported by foundation providers, and enforce encrypted transport and isolated vector database storage."
         },
         {
           id: "q3",
           question: "Can AI agents integrate with our CRM and databases?",
-          answer: "Yes! CoreSlash integrates custom AI agents directly with Salesforce, HubSpot, PostgreSQL, SAP, Shopify, and custom REST/GraphQL microservices."
+          answer: "Yes. We integrate AI agent workflows with enterprise systems using standard REST, GraphQL, database connectors, and webhook architectures to interact securely with your existing business tools."
         }
       ]
     },
@@ -93,17 +118,17 @@ const aiFaqData: FaqData = {
         {
           id: "q4",
           question: "What is the typical deployment timeline for an AI workflow?",
-          answer: "Initial functional AI prototypes take 2-3 weeks, while full enterprise multi-agent automation systems are deployed in 6-10 weeks."
+          answer: "Deployment timelines depend on workflow complexity and data readiness. Projects typically start with a scoped discovery and proof-of-concept sprint, followed by phased integration, testing, and production rollout."
         },
         {
           id: "q5",
           question: "How do you prevent LLM hallucination?",
-          answer: "CoreSlash utilizes strict Retrieval-Augmented Generation (RAG), ground truth context verification, deterministic prompt guardrails, and human-in-the-loop validation checkpoints."
+          answer: "We minimize hallucination by grounding model responses in verified retrieval-augmented context (RAG), applying deterministic prompt constraints and output schema validation, and embedding human-in-the-loop review checkpoints for sensitive workflows."
         },
         {
           id: "q6",
           question: "Do you provide model drift and latency telemetry?",
-          answer: "Yes, CoreSlash sets up 24/7 latency telemetry dashboards, model drift monitoring, continuous prompt evaluation, and SLAs for ongoing fine-tuning."
+          answer: "Yes. We configure telemetry pipelines to monitor request latency, token consumption, API error rates, and response relevance, providing visibility into system health and ongoing performance."
         }
       ]
     }
@@ -129,27 +154,28 @@ export default function AIAutomation() {
   return (
     <div className="w-full bg-background min-h-screen">
       <Helmet>
-        <title>AI Automation & Custom LLM Agent Development | CoreSlash Technologies</title>
+        <title>AI Automation Company & Agentic AI Services | CoreSlash</title>
         <meta
           name="description"
-          content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations."
+          content="CoreSlash is an AI automation company engineering custom AI agents, autonomous workflow automation, enterprise LLM integrations, and intelligent process systems."
         />
         <link rel="canonical" href="https://coreslashtechnologies.com/services/ai-automation" />
 
         {/* Open Graph SEO */}
-        <meta property="og:title" content="AI Automation & Custom LLM Agent Development | CoreSlash Technologies" />
-        <meta property="og:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
+        <meta property="og:title" content="AI Automation Company & Agentic AI Services | CoreSlash" />
+        <meta property="og:description" content="CoreSlash is an AI automation company engineering custom AI agents, autonomous workflow automation, enterprise LLM integrations, and intelligent process systems." />
         <meta property="og:url" content="https://coreslashtechnologies.com/services/ai-automation" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         {/* Twitter Card SEO */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI Automation & Custom LLM Agent Development | CoreSlash Technologies" />
-        <meta name="twitter:description" content="Automate business workflows with CoreSlash Technologies using custom LLM agents, RAG vector search, document processing, and enterprise AI integrations." />
+        <meta name="twitter:title" content="AI Automation Company & Agentic AI Services | CoreSlash" />
+        <meta name="twitter:description" content="CoreSlash is an AI automation company engineering custom AI agents, autonomous workflow automation, enterprise LLM integrations, and intelligent process systems." />
         <meta name="twitter:image" content="https://coreslashtechnologies.com/CoreslashTechnologies-solutions-main-logo.png" />
 
         <script type="application/ld+json">{JSON.stringify(aiSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* ========================================================
@@ -189,7 +215,7 @@ export default function AIAutomation() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs md:text-sm font-semibold tracking-wide backdrop-blur-md"
           >
             <Cpu className="w-4 h-4 text-blue-400 animate-pulse" />
-            <span>AI & Autonomous Agentic Workflows</span>
+            <span>AI Automation Company • Agentic Engineering</span>
           </motion.div>
 
           {/* Main Title */}
@@ -199,9 +225,9 @@ export default function AIAutomation() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] max-w-4xl"
           >
-            Autonomous AI Agents &{" "}
+            AI Automation Company &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">
-              Intelligent Workflow Automation
+              Agentic AI Services
             </span>
           </motion.h1>
 
@@ -212,7 +238,7 @@ export default function AIAutomation() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-normal"
           >
-            CoreSlash AI automation services engineer custom LLM architectures, retrieval-augmented generation (RAG) pipelines, autonomous multi-agent systems, and fine-tuned AI workflows designed to eliminate repetitive operational overhead.
+            CoreSlash Technologies is an AI automation company engineering custom AI agents, enterprise RAG vector search, and intelligent business process automation. We build scalable AI systems that automate multi-step operations, connect business data, and enhance operational efficiency.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -240,6 +266,15 @@ export default function AIAutomation() {
         </div>
       </section>
 
+      {/* Cross-Service Contextual Banner */}
+      <section className="w-full py-12 bg-slate-950 border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <p className="max-w-4xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
+            As an enterprise <strong className="text-white font-medium">AI automation company</strong>, CoreSlash pairs artificial intelligence with robust engineering. Seamlessly integrate intelligent agents into your <Link to="/services/software-systems" className="text-[#3b82f6] font-semibold hover:underline">custom software systems</Link>, automate enterprise data flows with our <Link to="/services/erp-crm-development" className="text-[#3b82f6] font-semibold hover:underline">custom ERP & CRM platforms</Link>, or deliver AI-powered portals via our <Link to="/services/web-development" className="text-[#3b82f6] font-semibold hover:underline">custom web development services</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* ========================================================
           2. CORE SERVICES SECTION
           ======================================================== */}
@@ -250,15 +285,15 @@ export default function AIAutomation() {
           <div className="flex flex-col items-start gap-4 mb-16 text-left">
             <div className="flex items-center">
               <div className="w-[3px] h-6 bg-blue-600 rounded-full mr-3" />
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+              <span className="text-sm font-bold uppercase tracking-widest text-[#3b82f6]">
                 AI Capabilities
-              </h3>
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-              Enterprise AI & Automation Solutions
+              Full-Cycle AI Automation & Autonomous Agent Development
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
-              CoreSlash designs and deploy custom artificial intelligence systems that automate complex business logic, structure unstructured data, and transform executive decision making.
+              As a dedicated AI automation company, CoreSlash designs and deploys custom artificial intelligence systems, custom AI agent development frameworks, and scalable business process automation that eliminate manual overhead and transform operations.
             </p>
           </div>
 
@@ -266,34 +301,34 @@ export default function AIAutomation() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <CoreServiceCard
               number="01"
-              title="Custom LLM Fine-Tuning & RAG"
-              subtext="Domain-specific model fine-tuning and retrieval-augmented generation (RAG) vector search."
-              highlight="Llama 3 & GPT-4 domain training paired with Pinecone/Qdrant vector retrieval for zero-hallucination accuracy."
+              title="Custom AI Agent Development & LLM Integration"
+              subtext="Enterprise LLM integration and autonomous AI agent development with retrieval-augmented generation (RAG) vector pipelines connected to proprietary business data."
+              highlight="Multi-model orchestration paired with Pinecone and Qdrant vector retrieval for grounded, reliable execution."
               darkBg={true}
               delay={0.1}
             />
 
             <CoreServiceCard
               number="02"
-              title="Autonomous Multi-Agent Systems"
-              subtext="Autonomous AI agentic frameworks that execute complex multi-step procedures automatically."
-              highlight="CrewAI, AutoGen, and LangChain agents that parse documents, generate reports, and trigger API actions."
+              title="Intelligent Business Process Automation"
+              subtext="Autonomous agent workflows and intelligent process automation systems executing complex multi-step tasks, document parsing, and cross-system triggers."
+              highlight="LangChain, LlamaIndex, and multi-agent coordination frameworks that automate structured enterprise workflows."
               delay={0.2}
             />
 
             <CoreServiceCard
               number="03"
-              title="Intelligent Enterprise Chatbots"
-              subtext="Conversational AI assistants integrated with internal knowledge bases and CRM tools."
-              highlight="Omni-channel bot integration across Slack, WhatsApp, Salesforce, and custom React web apps."
+              title="Conversational AI Copilots & Assistants"
+              subtext="Task-specific conversational AI copilots and support assistants integrated with internal knowledge bases and communication channels."
+              highlight="Secure assistant integrations connected to internal knowledge repositories, ticketing systems, and web apps."
               delay={0.3}
             />
 
             <CoreServiceCard
               number="04"
-              title="Predictive Analytics & Machine Learning"
-              subtext="Machine learning models for demand forecasting, customer churn prediction, and telemetry analysis."
-              highlight="Automated statistical forecasting models delivering real-time operational insights."
+              title="Predictive Analytics & Machine Learning Systems"
+              subtext="Practical machine learning solutions for demand forecasting, trend prediction, anomaly detection, and operational telemetry analysis."
+              highlight="Statistical modeling and automated inference pipelines delivering actionable decision intelligence."
               delay={0.4}
             />
           </div>
@@ -329,7 +364,7 @@ export default function AIAutomation() {
             </h2>
 
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-4xl mx-auto font-normal text-center">
-              State-of-the-Art AI Frameworks
+              Modern AI Architecture & Frameworks: Foundation model integration, multi-agent workflow orchestration, and high-performance vector retrieval architectures designed for production reliability.
             </p>
           </div>
 
@@ -385,6 +420,39 @@ export default function AIAutomation() {
                 ))}
               </motion.div>
             </AnimatePresence>
+          </div>
+
+          {/* Contextual Architecture Highlights */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-border/30 text-left">
+            <div className="p-6 rounded-2xl bg-muted/30 border border-border/50">
+              <h3 className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
+                <Brain className="w-5 h-5 text-purple-500" />
+                Foundation Models & Inference
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Integration of leading foundation models via secure API gateways and private endpoints, leveraging structured outputs, tool calling, and low-latency inference pipelines.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-muted/30 border border-border/50">
+              <h3 className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
+                <Bot className="w-5 h-5 text-blue-500" />
+                Multi-Agent Workflow Orchestration
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Coordinated autonomous agent architectures using LangChain, LlamaIndex, and CrewAI frameworks to decompose complex tasks into deterministic, observable workflows.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-muted/30 border border-border/50">
+              <h3 className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
+                <Database className="w-5 h-5 text-emerald-500" />
+                Knowledge Retrieval & Vector Search
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Production-grade RAG systems using Pinecone, Qdrant, and ChromaDB with hybrid semantic search, document chunking, metadata filtering, and reranking pipelines.
+              </p>
+            </div>
           </div>
         </div>
       </section>
